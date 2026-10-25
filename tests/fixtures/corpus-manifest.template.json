@@ -36,22 +36,45 @@
     "Phrase positions, regex/fuzzy/range/escaping/boost and invalid queries",
     "JGit-compatible merge/rename/blame whitespace and history behavior",
     "Rust SSR DOM/URL/JS globals and original style contracts",
-    "Full versus incremental indexing equivalence, deletion and generation recovery"
+    "Full versus incremental indexing equivalence, deletion and generation recovery",
+    "Project/repository identities remain distinct; multiple sibling Git repositories and plain nested Git layouts are compared against identical OpenGrok 1.14.20 discovery/history configuration, without equating nested paths to project groups or submodules."
   ],
   "note": "This is a fixture specification template; files/repositories/history have not been generated.",
   "reference_role": "Independent OpenGrok oracle; not a product runtime",
   "runtime_implementation": "Rust (user confirmed)",
   "evidence_status": "not_run",
   "benchmark_parameters": {
-    "representative_source_size": null,
-    "project_count": null,
+    "representative_source_size": {
+      "per_project": {
+        "value": 50,
+        "unit": "MB",
+        "approximate": true,
+        "byte_convention": "UNSPECIFIED"
+      },
+      "derived_total": {
+        "value": 500,
+        "unit": "MB",
+        "approximate": true,
+        "derivation": "10 projects x approximately 50 MB per project"
+      },
+      "exact_source_bytes": null,
+      "scm_history_bytes": null
+    },
+    "project_count": 10,
     "query_mix": null,
     "concurrency": null,
     "hardware": null,
     "approved_slo": null,
-    "decisions": "D21 search first confirmed; workload/hardware/numeric SLO/tradeoffs OPEN. D19 primary bundled helpers confirmed. D02 local+LAN and approximately 5 people without role/project ACL confirmed. Primary deployment Ubuntu 24.04 amd64 confirmed; macOS development/full verification first, followed by full Ubuntu native reverification. Mac Apple M1 arm64 confirmed, macOS version OPEN; public swchen44/rustgrok created and GitHub Releases destination confirmed.",
+    "decisions": "D09 partially confirmed: 10 projects, approximately 50 MB source per project; project may contain multiple or nested Git repositories. Approximately five interactive users is not QPS. Hardware, history size, query mix, numeric SLO and tradeoffs remain open. Contract fixture declarations are not an actually generated performance corpus.",
     "priority": "search_latency",
-    "interactive_users_estimate": 5
+    "interactive_users_estimate": 5,
+    "repository_layout": {
+      "multiple_repositories_per_project": true,
+      "nested_git_repositories_possible": true,
+      "repository_count": null,
+      "history_annotate_blame_diff_policy": "Match OpenGrok 1.14.20 at the pinned commit under identical configuration; do not invent repository discovery or file-ownership rules.",
+      "git_only_scope_approved": false
+    }
   },
   "helper_profile": "bundled_required_helpers",
   "acceptance_baseline_decision": "D04"

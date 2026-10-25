@@ -8,7 +8,8 @@
     "docs/12-rust-compatibility.md",
     "docs/adr/0002-rust-core-and-compatibility.md",
     "upstream/research-lock.json",
-    "upstream/source-review-manifest.json"
+    "upstream/source-review-manifest.json",
+    "docs/research/2026-10-26-opengrok-nested-git.md"
   ],
   "decision_state": {
     "D01": {
@@ -36,14 +37,24 @@
     "D20": {
       "status": "OPEN",
       "value": null,
-      "scope_note": "User-role/project ACL management and authorization/RBAC plugin parity are excluded from mandatory product scope by D02. Existing API/config/plugin inventory remains useful; non-auth plugins cannot be silently removed. Other compatibility details remain open and Java plugin bridge is not approved."
+      "scope_note": "User-role/project ACL management and authorization/RBAC plugin parity are excluded from mandatory product scope by D02. Existing API/config/plugin inventory remains useful; non-auth plugins cannot be silently removed. Other compatibility details remain open and Java plugin bridge is not approved.",
+      "current_legacy_inputs": {
+        "status": "USER_CONFIRMED",
+        "confirmed_at": "2026-10-26",
+        "user_statement": "Q6 沒有",
+        "required_existing_xml_config": false,
+        "required_custom_jar_plugins": false,
+        "required_api_scripts": false,
+        "required_old_bookmarks": false,
+        "scope_note": "No current legacy customer inputs require migration. Fixed-baseline built-in configuration, API, URL and non-auth plugin functionality remain in the original parity scope."
+      }
     },
     "D21": {
       "status": "CONFIRMED",
       "value": "search_speed_first",
       "user_statement": "A+搜尋速度",
       "numeric_slo_status": "OPEN",
-      "representative_workload_status": "OPEN",
+      "representative_workload_status": "PARTIALLY_CONFIRMED_10_PROJECTS_APPROX_50_MB_SOURCE_EACH",
       "target_environment_status": "OPEN",
       "resource_indexing_and_freshness_tradeoffs_status": "OPEN"
     },
@@ -242,12 +253,85 @@
       "login_autostart_status": "OPEN_FOR_LATER_DECISION"
     },
     "D10": {
-      "status": "PARTIALLY_CONFIRMED",
+      "status": "USER_CONFIRMED",
       "user_statement": "Q2-Q5 照你的，about Q3 網頁是不是也能加設置?",
       "index_cache_strategy": "rebuild_from_source",
       "retain_original_data_for_recovery": true,
       "direct_legacy_lucene_read_required": false,
-      "remaining_scope": "XML config, JAR plugins, bookmarks/URLs and other migration items remain open."
+      "remaining_scope": "No listed existing customer inputs require migration. Preserve fixed-baseline built-in observable contracts; runtime rebuild/recovery verification remains NOT_RUN.",
+      "current_legacy_inputs": {
+        "status": "USER_CONFIRMED",
+        "confirmed_at": "2026-10-26",
+        "user_statement": "Q6 沒有",
+        "required_existing_xml_config": false,
+        "required_custom_jar_plugins": false,
+        "required_api_scripts": false,
+        "required_old_bookmarks": false,
+        "scope_note": "No current legacy customer inputs require migration. Fixed-baseline built-in configuration, API, URL and non-auth plugin functionality remain in the original parity scope."
+      }
+    },
+    "D09": {
+      "status": "PARTIALLY_CONFIRMED",
+      "confirmed_at": "2026-10-26",
+      "project_count": 10,
+      "interactive_users_estimate": 5,
+      "source_size_estimate": {
+        "per_project": {
+          "value": 50,
+          "unit": "MB",
+          "approximate": true,
+          "byte_convention": "UNSPECIFIED"
+        },
+        "derived_total": {
+          "value": 500,
+          "unit": "MB",
+          "approximate": true,
+          "derivation": "10 projects x approximately 50 MB per project"
+        },
+        "exact_source_bytes": null,
+        "scm_history_bytes": null
+      },
+      "repository_layout": {
+        "multiple_repositories_per_project": true,
+        "nested_git_repositories_possible": true,
+        "repository_count": null,
+        "history_annotate_blame_diff_policy": "Match OpenGrok 1.14.20 at the pinned commit under identical configuration; do not invent repository discovery or file-ownership rules.",
+        "git_only_scope_approved": false
+      },
+      "remaining_open": [
+        "files/LOC",
+        "languages",
+        "query mix/arrival pattern",
+        "history size/depth",
+        "CPU/RAM",
+        "local SSD versus NAS",
+        "numeric SLO and resource budgets"
+      ],
+      "runtime_measurement_status": "NOT_RUN"
+    },
+    "D05": {
+      "status": "PARTIALLY_CONFIRMED",
+      "project_count": 10,
+      "multiple_repositories_per_project": true,
+      "nested_git_repositories_possible": true,
+      "repository_count": null,
+      "history_annotate_blame_diff_policy": "Match OpenGrok 1.14.20 at the pinned commit under identical configuration; do not invent repository discovery or file-ownership rules.",
+      "git_only_scope_approved": false,
+      "physical_source_locations_status": "OPEN",
+      "fixed_upstream_source_contract": {
+        "status": "STATIC_SOURCE_REVIEW",
+        "opengrok_commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+        "research_note": "docs/research/2026-10-26-opengrok-nested-git.md",
+        "scanning_depth_default": 3,
+        "nesting_maximum_default": 1,
+        "limits_are_independent": true,
+        "history_requires_explicit_oracle_configuration": true,
+        "file_lookup_uses_registered_repository_map": true,
+        "git_blame_comparator": "RawTextComparator.WS_IGNORE_ALL",
+        "git_blame_follow_renames": "isHandleRenamedFiles configuration",
+        "runtime_verification": "NOT_RUN",
+        "linked_worktree_complete_behavior": "UNKNOWN"
+      }
     }
   },
   "verification": {

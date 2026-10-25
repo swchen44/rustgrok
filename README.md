@@ -24,7 +24,9 @@ GitHub repo名稱：**rustgrok**（使用者指定）。產品顯示名稱、npm
 
 OpenGrok 1.14.20，commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3，已由使用者確認為功能、style 與排序的正式驗收基線（D04）。oracle 產物下載、hash 核對與實際執行尚未完成；D20 的資料格式、插件及精確相容契約仍待釐清。
 
-後續 Q2–Q5 已確認：索引／cache 可從 source 重建且保留原資料供回復；source 外部更新，產品手動＋排程索引；首版 CLI 前景／背景。管理基本邊界採 LAN 搜尋／瀏覽、主機 CLI／本機控制面管理；2026-10-26 已確認管理網頁只限主機本機瀏覽器，LAN 維持搜尋／瀏覽；具體操作與控制細節另設計。XML/JAR、watch、系統服務／登入自啟及其餘未決契約另列於決策表。
+後續 Q2–Q5 已確認：索引／cache 可從 source 重建且保留原資料供回復；source 外部更新，產品手動＋排程索引；首版 CLI 前景／背景。管理基本邊界採 LAN 搜尋／瀏覽、主機 CLI／本機控制面管理；2026-10-26 已確認管理網頁只限主機本機瀏覽器，LAN 維持搜尋／瀏覽；具體操作與控制細節另設計。watch、系統服務／登入自啟及其餘未決契約另列於決策表。
+
+Q6 已確認沒有需搬移的既有 XML 設定、客製 JAR、API scripts 或舊書籤。Q7 的代表規模為10個專案，每專案 source 約50 MB，合計推算約500 MB；一個專案可有多個 Git repo，也可能巢狀 Git。Git history、annotate/blame、diff 與 repo 發現／歸屬依 OpenGrok 1.14.20 同配置對照；project 不等同 repository，既有原版其他能力仍保留。硬體、history體積、query mix 與數值 SLO 尚未指定。
 
 ## 閱讀順序
 
@@ -43,6 +45,7 @@ OpenGrok 1.14.20，commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3，已由使�
 | [10-agent-handoff.md](docs/10-agent-handoff.md) | 給 Codex／實作 Agent 的指引 |
 | [11-traceability.md](docs/11-traceability.md) | 38 需求、44 工作包、80 測試規格的雙向對照 |
 | [12-rust-compatibility.md](docs/12-rust-compatibility.md) | parser／analyzer／BM25／xref／SCM 的讀碼差異 |
+| [多repo／巢狀Git研究](docs/research/2026-10-26-opengrok-nested-git.md) | 固定原版的repo發現、檔案歸屬與history／blame／diff證據；runtime尚未驗證 |
 | [13-rust-change-impact.md](docs/13-rust-change-impact.md) | v0.1 → v0.2歷史變更與先做的實驗 |
 | [14-search-performance-plan.md](docs/14-search-performance-plan.md) | 搜尋優先的設計、量測、實驗順序與決策變更 |
 | [15-deployment-and-linux-priority.md](docs/15-deployment-and-linux-priority.md) | 本機＋LAN、約5人、macOS先驗與Ubuntu amd64部署 |

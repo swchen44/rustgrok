@@ -206,7 +206,7 @@ ID保持穩定，原有需求不因換語言被刪除。下列為內容更新的
 | PRJ-002 | FR-007, FR-009, NFR-005, NFR-006 | A reindex 同時搜尋 B，及 A/B 同時更新 | G2／G5 |
 | PRJ-003 | FR-007, FR-009, NFR-007, FR-021 | 同 project 兩次同時 reindex；server duplicate start | G2／G3 |
 | PRJ-004 | FR-015, FR-016 | 新增／移除／改顯示名／重新加入 project | G2／G3 |
-| PRJ-005 | FR-007, FR-006 | 同 project 含多 SCM repo，groups 巢狀與選取 | G2／G3 |
+| PRJ-005 | FR-007, FR-006 | 同project多repo／巢狀Git、groups與選取 | G2／G3 |
 | UI-001 | FR-012, FR-005, FR-007, FR-021 | 首頁、搜尋表單、project chooser、目錄、breadcrumbs | G3 |
 | UI-002 | FR-012, FR-004, FR-005, FR-021 | 搜尋結果、xref、syntax coloring、line anchors、下載、raw views | G3 |
 | UI-003 | FR-012, FR-004 | Navigate、Scopes、Intelligence window、1/2–8/n/b/Esc | G3 |
@@ -249,7 +249,7 @@ ID保持穩定，原有需求不因換語言被刪除。下列為內容更新的
 | CLI-001 | FR-014, FR-015, NFR-011 | CLI 契約與錯誤處理 | G2 |
 | DAT-001 | FR-016, NFR-002, NFR-012 | 持久資料與安裝目錄分離 | G2 |
 | SYN-001 | FR-019, FR-009, NFR-008 | 來源同步能力（需求待決） | G3 |
-| MIG-001 | FR-020, FR-016, NFR-012, FR-021 | 既有 OpenGrok 資料遷移（需求待決） | G4 |
+| MIG-001 | FR-020, FR-016, NFR-012, FR-021 | Source重建index/cache與原資料保留 | G4 |
 | OBS-001 | NFR-011, NFR-008, NFR-014 | 記錄、診斷與證據完整性 | G3 |
 | REL-004 | NFR-010, NFR-009, FR-021 | 授權、再散布與來源對應 | G4 |
 | REL-005 | NFR-013, NFR-014, NFR-009 | rustgrok GitHub Releases資產與交接可追溯 | G6 |

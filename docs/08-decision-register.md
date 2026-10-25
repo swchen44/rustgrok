@@ -14,6 +14,7 @@
 | D02 | USER_CONFIRMED | 同一產品支援local與LAN共用，約5人同時使用，不做使用者角色／RBAC／專案ACL管理 | 約5人是容量情境，不是QPS或同時requests硬值；不追加帳號／SSO／登入為必交，管理操作暴露仍依D16提案與D20相容盤點 |
 | D04 | USER_CONFIRMED | OpenGrok 1.14.20／commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3 為功能、style 與排序的正式驗收基線 | 適用現行 v0.6 的 oracle、資產、UI、query 與排序差異驗證；產物 hash 核對及 runtime 尚未完成，D20 的精確相容與遷移契約仍 OPEN |
 | D08 | USER_CONFIRMED | source 由外部工具更新；產品支援手動及排程索引 | Q4；watch 未指定，排程頻率、dirty source 與一致性細節仍待定；不由產品自動 pull/reset 或修改 source |
+| D10 | USER_CONFIRMED | 目前沒有必須沿用的既有 XML 設定、客製 JAR plugins、API scripts 或舊書籤 | 2026-10-26 Q6 回覆「沒有」；Q2 index/cache 可從 source 重建並保留原資料。這是目前遷移輸入的盤點結果，原版內建設定、API、插件功能與 URL 的相容目標仍依 D04／D20 保留 |
 | D11 | USER_CONFIRMED | 建立public新repo swchen44/rustgrok，release packages放GitHub Releases | repo已建立，creation_status為created；首次規劃已提交main並核對，產品Release／artifact未建立，分階段以metadata與hash驗證 |
 | D15 | USER_CONFIRMED | 首版提供 CLI 前景與背景執行 | Q5；系統服務／登入自啟留待後續決定；不由此推定 root、systemd、launchd 或 Windows Service 必要 |
 | D16 | USER_CONFIRMED | 管理網頁只限主機本機瀏覽器；保留主機 CLI／本機控制面管理，LAN 維持搜尋／瀏覽 | 2026-10-26 已確認網頁範圍；具體頁面操作、REST／automation 相容與控制細節仍須設計及盤點；頁面和有副作用 API 均須符合本機限定邊界 |
@@ -41,6 +42,8 @@ v0.6使用者回覆「1. public 2. M1」：D11的public已USER_CONFIRMED；D03�
 後續 grill-with-docs 訪談於 2026-10-25 提問：「是否採用目前研究鎖定的 OpenGrok 1.14.20，作為功能、style 與排序的正式驗收基準？」使用者回覆原文：「OK」。D04 因此由 OPEN 轉為 USER_CONFIRMED，沿用既有固定 commit；先前僅作研究基線的歷史保留於本段。此答覆沒有批准命中／排序差異、score 容差、舊格式相容方式或 Java plugin bridge。受影響需求為 FR-001–FR-012、FR-020、FR-022、NFR-005、NFR-010、NFR-016；工作包與測試 IDs 依 docs/11-traceability.md、tests/traceability.json 追溯。更新 README、SRS、ADR-0002、交接與研究 lock／測試基線 metadata；所有產品測試仍 planned／not_run。
 
 ## 2. 接下來優先釐清的事項
+
+2026-10-26 Q6 使用者回覆「沒有」，確認沒有需搬移的既有 XML 設定、客製 JAR、API scripts 或舊書籤。Q7 使用者提供摘要：10 個專案，每個專案 source 約 50 MB，各專案可含多個 Git repo，也可能 git-in-git；Git 查詢及 blame 等行為依 OpenGrok。總 source 約 500 MB 是 10×50 MB 的推算值；MB 的十進位／二進位定義、`.git`／history 體積、files／LOC、每專案 repo 數及硬體仍未提供，不換算成精確 bytes 或資源上限。D05／D09 部分資料因此已決，不再重問專案數或 source 規模。Project 與 repository 分開建模；巢狀 repo 的發現、歸屬與 history／annotate／diff 依固定 OpenGrok 1.14.20 的原始行為及相同配置查證，不自行選一個 project 等於一個 repo、最近 root 等政策。Git 是已知使用情境，不縮減其餘原版 SCM／語言範圍。對應 FR-006、FR-007、FR-009、FR-020、NFR-005、NFR-006、NFR-016；WP 與 test IDs 依追溯表，產品驗證仍 planned／not_run。
 
 2026-10-25 下一輪使用者原文：「Q2-Q5 照你的，about Q3 網頁是不是也能加設置?」。Q2 接受從 source 重建索引與 cache，保留原資料供回復；XML 設定、JAR plugins、舊 URL 與其他遷移項不由此代答。Q3 接受上述基本管理邊界，並提出網頁設定的補充問題；管理網頁可達範圍仍 OPEN。Q4 接受外部 source 更新及產品手動／排程索引。Q5 接受首版 CLI 前景／背景，系統服務及登入自啟後續待決。這些是產品政策，不是已實作或測試通過。影響 FR-009、FR-011、FR-014、FR-015、FR-017、FR-019、FR-020、NFR-007、NFR-008、NFR-012；WP 與 test IDs 依既有追溯表，直接更新 MIG-001、RST-011、API-002、SEC-005、SYN-001、OS-002、CLI-001 的規格，維持 planned。
 
@@ -79,10 +82,10 @@ external-only或完全禁止helpers不是本輪必交profile；未來若新增�
 | Query語法與語意 | 欄位、operators、escaping、wildcard／regex／fuzzy、phrase、錯誤處理 | 不能直接用候選引擎parser或lenient修復取代 |
 | Hits／排序／score | 命中集合、total count、relevance／field sort、數值score精度、tie與分頁 | 不能任意排序結果後比較、套未批准epsilon或忽略排名 |
 | Web／URL／REST／既有automation | 原網頁、快捷鍵、原URL、參數、headers、JSON、錯誤與非同步完成語意 | 不能換成新API就算同功能，不能只保留CSS |
-| JavaBeans XML configuration | 是否要匯入／匯出既有檔案，實際使用哪些property／自訂內容？ | 不能把普通XML parse當作任意Java物件配置可執行；不執行未受信任XMLDecoder輸入 |
+| JavaBeans XML configuration | Q6 已確認沒有既有 XML 設定需搬移；原版標準配置行為仍依固定基線盤點 | 不能把普通XML parse當作任意Java物件配置可執行；不執行未受信任XMLDecoder輸入 |
 | Lucene index | Q2 已確認可從 source 完整重建，保留原資料供回復 | 不要求直接讀取舊 Lucene index；重建後結果仍須符合 D04，不宣稱格式相容 |
 | xref／history／其他cache | Q2 已確認可重建，保留原資料供回復 | 來源及 SCM history 是否足夠須驗證；重建成本與回復程序不視為已通過 |
-| Java JAR plugins | 有哪些自訂plugin；要求原JAR binary沿用，還是移植等價能力？ | Rust不能直接提供原Java類別載入；不能默刪插件，也不能加隱性JVM fallback |
+| Java JAR plugins | Q6 已確認沒有客製 JAR 需沿用；原版內建非權限插件 inventory 與能力仍保留 | Rust不能直接提供原Java類別載入；不能默刪插件，也不能加隱性JVM fallback |
 | 例外與差異接受 | 若實測差異不可避免，是否接受某個明確、有限的改變？ | OPEN不是已接受差異；任何變更需記原行為、候選行為、影響與使用者確認 |
 
 必要時可以提出converter、功能移植或獨立compatibility bridge，但必須列出部署／授權／維護成本並由使用者決定。標準Rust產品目前不含Java執行前提；特定bridge也不能悄悄使已選Rust核心退回Java。
@@ -96,7 +99,7 @@ D10負責盤點「現有哪些資料要搬」，D16盤點「哪些現有管理�
 | 項目 | 需使用者確認／G1提供的資訊 | 目前狀態 |
 |---|---|---|
 | 優先順序 | 搜尋速度優先；其餘指標仍需量測，不能忽略功能、穩定性與資源成本 | USER_CONFIRMED |
-| 代表工作量 | 約5人同時使用已知；專案／files／LOC／GB／history深度、語言比例、查詢與更新分布待補 | 部分已知，其餘OPEN，與D09共用資料；人數不是request硬值 |
+| 代表工作量 | 約5人、10個project、每project source約50 MB，總source推算約500 MB；每project可多repo或巢狀Git | USER_CONFIRMED估計；files／LOC、history大小、語言／query mix與硬體仍OPEN；project數不是repo數，人數不是request硬值 |
 | 指標與統計口徑 | cold／warm、p50/p95/p99、throughput、error／timeout、總RSS與磁碟峰值 | OPEN，先提出可核實測量再凍結 |
 | 絕對門檻／改善目標 | 哪些必達、哪些可接受退步；是否相對原版比較、容許多少成本 | OPEN，不填未批准的速度倍數或容量 |
 | 資源預算 | 約5位使用者情境已知；CPU／RAM／SSD或NAS、index concurrency、request負載與背景工作待補 | 部分已知，其餘OPEN |
@@ -109,11 +112,10 @@ Rust採用本身不是效能驗收。G1先在功能等價的slice量測並標示
 | ID | 狀態 | 問題 | 選項／所需資訊與影響 |
 |---|---|---|---|
 | D03 | OPEN | Mac M1／arm64與Ubuntu24.04 amd64已確認；macOS版本／Windows／browser細節？ | 先M1 Mac完整開發驗證，再Ubuntu適配與完整原生重驗，正式部署Ubuntu優先；Mac實際／最低OS、SDK／toolchain、Windows版本／CPU與browser仍待定。Mac PASS不代Linux PASS，G4承諾不變 |
-| D05 | OPEN | 多專案位於哪裡？「同時」要哪些操作？ | 同一root／分散磁碟／NAS／UNC；同時可查、跨project查、同時重建分開；project數。影響mapping、OS檔案存取權限、排程與scoring scope，不新增project ACL |
+| D05 | OPEN | 已知10個project、每project可多repo／巢狀Git；其餘來源布局與更新並行契約？ | 專案數與邏輯拓撲已確認；主機路徑／分散磁碟／NAS／UNC、實際每project repo數及同時重建細節仍待定。巢狀Git依D04原版查證，不自訂歸屬政策 |
 | D06 | OPEN | 語言、SCM與原版擴充清單？ | 實際語言、Git／SVN／Perforce／Mercurial等、history／annotate／plugins使用。用於inventory、優先測試與adapter，不能當成只做常用子集的授權 |
 | D07 | OPEN | npm與內網限制？ | public npm／公司mirror／私有registry／只匯入TGZ／完全離線；Node/npm版本、install scripts、一般使用者權限、binary與大小policy；是否需要離線build。影響包型與clean-machine測試 |
-| D09 | OPEN | 約5人同時使用已知；其餘資料規模、硬體與效能基線？ | 人數為已確認容量情境；projects/repos/files/GB/LOC/history、CPU/RAM/SSD/NAS、query分布／request並行與數值SLO仍OPEN。不能以約5人代填5 QPS或5個同時requests，D21搜尋速度優先不變 |
-| D10 | OPEN | 索引／cache可重建已確認；其餘遷移項有哪些？ | Q2 已接受從 source 重建 index/cache，原資料保留供回復；XML設定、JAR、bookmarks/context path與其餘來源遷移仍須逐項確認 |
+| D09 | OPEN | 已知約5人、10個project、每project source約50 MB；硬體及量化門檻？ | 總source推算約500 MB，不含尚未界定的history／index成本；files/LOC、每project repo數、CPU/RAM/SSD/NAS、query分布／request並行與SLO仍OPEN，不代填QPS、bytes或資源預算 |
 
 「尚未提供語言／SCM／plugins清單」不等於不需要。若要分期或以常用子集先發布，須明確提出差異與影響，取得使用者批准；prototype scope本身不會縮小最終需求。
 

@@ -105,7 +105,7 @@ report = {
 }
 (root / "planning-quality-report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
 
-order = [root / "README.md"] + sorted(root.glob("docs/[0-9][0-9]-*.md")) + [
+order = [root / "README.md", root / "GLOSSARY.md"] + sorted(root.glob("docs/[0-9][0-9]-*.md")) + sorted(root.glob("docs/research/*.md")) + [
     root / "docs/sources.md", root / "docs/adr/0001-runtime-and-core-reuse.proposed.md",
     root / "docs/adr/0002-rust-core-and-compatibility.md",
     root / "tests/README.md", root / "tests/fixtures/README.md", root / "tests/evidence/README.md", root / "AGENTS.md",

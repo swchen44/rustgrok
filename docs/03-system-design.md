@@ -30,6 +30,10 @@ HTTP候選為Axum/Tokio、search候選為Tantivy。選型須經G1證據，不能
 
 ## 3. 模組與契約
 
+Q7 已確認 project 與 SCM repository 不是一對一：10個project，每project source約50 MB，一個project可含多個Git repo或git-in-git。必須分開保留project identity、source path與repository identity；repo發現、檔案歸屬、history／annotate(blame)／diff依OpenGrok 1.14.20同配置對照，不自訂最近root或無限遞迴等政策。不同巢狀形式不能只因路徑嵌套便當成同一契約。
+
+固定原版 source 與配置邊界見[多repo／巢狀Git研究](research/2026-10-26-opengrok-nested-git.md)；靜態讀碼不代表 oracle 或 Rust runtime 已通過。
+
 | 模組 | 契約 | 責任 |
 |---|---|---|
 | core | ProjectId、DocumentId、SourceRevision、IndexGeneration、QueryContext | 穩定domain types，不依賴engine document ID |
@@ -70,7 +74,7 @@ D20未批准任何新差異。若reference同分順序確有非決定性，先�
 
 ### 4.4 Index與配置相容
 
-Tantivy候選使用自己的versioned index/schema，不宣稱直接讀Lucene索引。Q2 已確認可從 sources 重建 index/cache，保留原資料供回復；XML、JAR、舊 URL 等其餘 D10/D20 契約仍待決。prototype只能在合成corpus重建，不動使用者原索引。Java XML配置以白名單讀取與schema匯入，不執行XMLDecoder物件。
+Tantivy候選使用自己的versioned index/schema，不宣稱直接讀Lucene索引。Q2 已確認可從 sources 重建 index/cache，保留原資料供回復；Q6 已確認沒有需搬移的既有 XML、客製 JAR、scripts 或舊書籤；D20 原版內建能力與可見契約仍須盤點。prototype只能在合成corpus重建，不動使用者原索引。Java XML配置以白名單讀取與schema匯入，不執行XMLDecoder物件。
 
 詳細query/scorer來源與差異見12-rust-compatibility.md。
 

@@ -10,6 +10,8 @@ D02已確認本機與LAN雙模式、約5人代表負載、不做角色／project
 
 D04 後續已由使用者回覆「OK」確認：以 OpenGrok 1.14.20／commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3 作為功能、style 與排序的正式驗收基線。版本選定不代表 oracle 已執行，也不批准 D20 的任何行為差異或遷移方式。
 
+2026-10-26 Q6 已確認沒有需搬移的既有 XML設定／客製JAR／API scripts／舊書籤。Q7 已確認10個project、每project source約50 MB，總source推算約500 MB；每project可包含多個Git repo及git-in-git。原版repo發現、檔案歸屬及history／annotate(blame)／diff均須以D04同配置對照；來源位置、每project repo數、history體積、硬體與SLO尚未提供。沒有既有客製遷移不代表刪除原版內建功能。
+
 ## 1. 狀態與來源
 
 - CONFIRMED：本次使用者明確說明的需求。
@@ -85,7 +87,7 @@ D02已確認本機與LAN共用，約5人同時使用，不做使用者／角色�
 | FR-017 | 同一產品支援本機與LAN共用，無使用者／角色／project ACL管理 | CONFIRMED；D02／D16已定本機管理網頁與LAN讀者面 | loopback與明確LAN listen都驗；共同讀取已註冊projects的search/raw/xref/history/suggester/read APIs；不把不用權限管理解讀成任意管理操作皆對LAN開放 |
 | FR-018 | 內網執行時不需要外網服務 | CONFIRMED/DERIVED；D07 | 阻斷外網後完整指定流程；不自動下載CDN、fonts、native binary、ctags或送telemetry |
 | FR-019 | 外部 source 更新、產品手動及 scheduled indexing；watch另定 | CONFIRMED手動／排程；D08，watch未指定 | 驗手動及排程索引；產品不自動 pull/reset 或改寫 source；watch 不由此代決 |
-| FR-020 | 既有 OpenGrok 設定／索引／書籤的相容或遷移 | index/cache重建已確認；D10／D20其餘OPEN | 從 source 重建 index/cache 並保留原資料供回復；XML、JAR、舊URL及其餘匯入逐項確認，不宣稱直接讀Lucene |
+| FR-020 | 既有 OpenGrok 資料的相容或遷移 | D10已確認目前無客製遷移輸入，index/cache可重建；原版能力仍依D20 | 從 source 重建 index/cache 並保留原資料供回復；無必須搬移的既有XML／客製JAR／API scripts／舊書籤，不以此刪除原版內建配置／API／URL契約，不宣稱直接讀Lucene |
 | FR-021 | 搜尋、索引、Web Server、host管理主體以Rust重寫 | CONFIRMED；D01 | 產品核心為原生Rust實作；不能僅用Rust外殼啟動原Java backend。Java/Tomcat可留在獨立驗證環境 |
 | FR-022 | 明確的OpenGrok查詢相容parser／typed AST／搜尋引擎adapter | PROPOSED，服務既有同等要求 | 原始query、欄位分析、positions/offsets、排序與錯誤逐層對照；不將Tantivy預設parser直接視為相容完成 |
 

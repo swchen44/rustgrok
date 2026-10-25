@@ -110,7 +110,46 @@
         "role": "user_confirmed_representative_estimate"
       }
     ],
-    "think_time_distribution_ms": null
+    "think_time_distribution_ms": null,
+    "representative_user_estimate": {
+      "status": "PARTIALLY_CONFIRMED",
+      "confirmed_at": "2026-10-26",
+      "project_count": 10,
+      "interactive_users_estimate": 5,
+      "source_size_estimate": {
+        "per_project": {
+          "value": 50,
+          "unit": "MB",
+          "approximate": true,
+          "byte_convention": "UNSPECIFIED"
+        },
+        "derived_total": {
+          "value": 500,
+          "unit": "MB",
+          "approximate": true,
+          "derivation": "10 projects x approximately 50 MB per project"
+        },
+        "exact_source_bytes": null,
+        "scm_history_bytes": null
+      },
+      "repository_layout": {
+        "multiple_repositories_per_project": true,
+        "nested_git_repositories_possible": true,
+        "repository_count": null,
+        "history_annotate_blame_diff_policy": "Match OpenGrok 1.14.20 at the pinned commit under identical configuration; do not invent repository discovery or file-ownership rules.",
+        "git_only_scope_approved": false
+      },
+      "remaining_open": [
+        "files/LOC",
+        "languages",
+        "query mix/arrival pattern",
+        "history size/depth",
+        "CPU/RAM",
+        "local SSD versus NAS",
+        "numeric SLO and resource budgets"
+      ],
+      "runtime_measurement_status": "NOT_RUN"
+    }
   },
   "timing_contract": {
     "clock": "monotonic_within_each_process; no unsynchronized cross-host subtraction",
@@ -169,6 +208,7 @@
     "No role/project ACL requirement. Anonymous reader access is proposed, not additional user-confirmed authentication policy. Management exposure awaits D16.",
     "Ubuntu 24.04 amd64 is confirmed. Record the actual point release/image during tests; Apple M1 arm64 is confirmed, while the actual/minimum macOS version remains unspecified.",
     "Mac PASS cannot substitute for Linux native results. Compare oracle and candidate on the same host within each platform; do not attribute cross-host differences to Rust.",
-    "Record native arm64 execution separately from Rosetta x86_64; translated runs cannot count as native M1 acceptance."
+    "Record native arm64 execution separately from Rosetta x86_64; translated runs cannot count as native M1 acceptance.",
+    "2026-10-26 user estimate: 10 projects, each approximately 50 MB source; multiple/nested Git repositories may exist within one project. This is planning input, not measured corpus bytes, history/index size or a performance result. Corpus fields remain null until actual generation and measurement."
   ]
 }

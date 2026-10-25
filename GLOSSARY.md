@@ -4,6 +4,14 @@
 
 ## Language
 
+**Project（專案）**：
+使用者在服務中登記並作為搜尋選取範圍的來源集合；一個 project 可以包含多個或巢狀的版本控制 repository。
+_Avoid_: 單一 Git repo、repository 的同義詞
+
+**Repository（版本控制儲存庫）**：
+有自身版本歷史及版本控制邊界的來源儲存庫；project 的範圍與 repository 的邊界各自描述。
+_Avoid_: project 的同義詞
+
 **OpenGrok 驗收基線**：
 使用者選定、作為本產品功能、style 與排序比較標準的固定 OpenGrok 版本。
 _Avoid_: 最新上游、未經確認的研究版本

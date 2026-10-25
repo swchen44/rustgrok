@@ -657,16 +657,16 @@
         "FR-007",
         "FR-006"
       ],
-      "title": "同 project 含多 SCM repo，groups 巢狀與選取",
+      "title": "同project多repo／巢狀Git、groups與選取",
       "preconditions": [
-        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+        "Q7 已確認每project可含多Git repo或git-in-git；以D04固定原版及相同repo發現／history配置作oracle，不自訂巢狀歸屬規則。"
       ],
       "steps": [
-        "建立project含零個、一個、多個repo與groups fixture。",
-        "對各repo history及group selection執行UI/API操作。",
-        "比對原版結果，檢查同名repo/重疊來源的處理政策。"
+        "建立project含零個、一個、兄弟多repo及獨立巢狀Git repo的公開fixture；project groups另列，不把group巢狀當作repo巢狀。",
+        "對外層、內層與兄弟repo的history／annotate(blame)／diff及project/group selection執行UI/API操作；保存每檔來源與所屬repo證據。",
+        "比對原版同配置下的repo發現、檔案歸屬及revision；分開測scanningDepth=3／4與nestingMaximum=0／1／2、指定search起點及被排除的inner repo，不把default當無限遞迴。原版限制如實記錄，不改成一project一repo。"
       ],
-      "expected": "符合 REF／核准範圍；不得等同單 repo 假設",
+      "expected": "Project與repository identity分開；多repo／巢狀Git在同配置下符合原版發現與SCM行為，限制與未驗證項明列，不任意切換repo或自創遞迴政策。",
       "evidence": [
         "evidence/<release>/<run>/PRJ-005/result.json",
         "evidence/<release>/<run>/PRJ-005/attachments/"
@@ -782,7 +782,7 @@
         "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
       ],
       "steps": [
-        "依固定Git fixture開啟file/directory history、annotate、historical xref。",
+        "在單repo、同project兄弟repo及巢狀Git fixture開啟file/directory history、annotate(blame)、historical xref；核對每次導航的repo與revision。",
         "選任意兩revision開啟unified及side-by-side diff，操作jumper。",
         "比較revision/line/內容/作者及UI；歷史Navigate依相同ctags配置判定。"
       ],
@@ -867,13 +867,13 @@
       ],
       "title": "固定 Git fixture 的 history/annotate/diff",
       "preconditions": [
-        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+        "固定OpenGrok 1.14.20與history／repo發現配置；公開Git fixture涵蓋同project兄弟repo及巢狀repo。其他原版SCM能力仍由SCM-002逐項驗證。"
       ],
       "steps": [
-        "產生固定作者/時間/commit IDs的add/edit/delete/rename/merge fixture。",
-        "核對原版GitRepository的JGit行為；Rust採git CLI/git2/gix時對照rename/merge/blame及dirty-tree規則，固定git版本本身不能證明相容。",
+        "在兄弟與巢狀Git repo產生固定作者／時間／commit IDs的add/edit/delete/rename/merge fixture，加入相同檔名及symbol以辨識repo歸屬。",
+        "核對固定原版GitRepository的JGit行為；Rust採git CLI/git2/gix時逐項對照rename／merge／blame、RawTextComparator.WS_IGNORE_ALL與followFileRenames配置。裸git blame或固定git版本不代表相容；.git directory與submodule gitdir file分開驗。",
         "按核准rename/merge/history配置測history、annotate與diff。",
-        "與REF逐revision/line比較，包含未提交working-tree變更。"
+        "與REF逐repo、revision及line比較history、annotate(blame)、diff，包含外層／內層repo邊界及未提交變更；不能只比搜尋命中。"
       ],
       "expected": "commit IDs、作者、日期、rename 及 merge 選項符合 REF",
       "evidence": [
@@ -1710,7 +1710,7 @@
       ],
       "title": "使用者內網pilot：各類查詢／並行reindex與批准搜尋SLO",
       "preconditions": [
-        "各承諾平台G4發行可靠性已通過；Mac先完成且Ubuntu24.04 amd64已完整原生重驗。正式部署pilot優先Ubuntu24.04 amd64，local＋LAN、約5人與搜尋優先已確認。SLO、corpus、硬體／資源、query mix、rate／think-time等仍須批准，不移用Mac結果。"
+        "各承諾平台G4發行可靠性已通過；Mac先完成且Ubuntu24.04 amd64已完整原生重驗。正式部署pilot優先Ubuntu24.04 amd64，local＋LAN、約5人與搜尋優先已確認。SLO、corpus、硬體／資源、query mix、rate／think-time等仍須批准，不移用Mac結果。 Q7代表規模已知10個project、每project source約50 MB，合計推算約500 MB；每project可多repo／巢狀Git，實際corpus bytes、history及repo數以manifest測量，硬體與SLO仍未定。"
       ],
       "steps": [
         "G4後優先在Ubuntu24.04 amd64使用者內網，以該平台最終bundled artifact跑1人參照及約5人pilot；同一Ubuntu硬體的原版合理調校成對比較，local/LAN分記，企業資料不外傳。",
@@ -1991,16 +1991,16 @@
         "NFR-012",
         "FR-021"
       ],
-      "title": "既有 OpenGrok 資料遷移（需求待決）",
+      "title": "Source重建index/cache與原資料保留",
       "preconditions": [
-        "Q2 已批准從 source 重建 index/cache 且保留原資料供回復；XML設定、JAR、舊URL及其餘遷移項依 D10/D20 分項確認。"
+        "Q2 已批准從source重建index/cache且保留原資料；Q6已確認無需搬移既有XML／客製JAR／API scripts／舊書籤。以公開fixture驗重建與回復，不等待企業舊資料上傳。"
       ],
       "steps": [
-        "核對 D04 基線與 source／SCM history；已批准 index/cache 重建路徑可執行，其餘未決遷移項個別標示，不整體阻擋重建。",
+        "核對D04基線與公開source／SCM history，在獨立新index/cache位置執行已批准重建路徑。",
         "保留原資料及可復原組合，在新的 index/cache 位置重建，測 dry-run、schema/version 不符、備份與復原。",
-        "記錄重建成本並按已批准契約比對 query/history/URL；XML、JAR 等仍待決部分不省略或假稱通過。"
+        "記錄重建成本及原資料保存／復原證據，依D04比對query/history/URL；原版內建配置／API／插件能力仍由對應契約測項驗證，不由Q6刪除。"
       ],
-      "expected": "批准的 source→index/cache 重建路徑可驗證且可回復，原資料保留；不宣稱直接沿用 Lucene binary，未決 XML/JAR 等另列。",
+      "expected": "公開fixture的source→index/cache重建可驗且原資料可回復；不宣稱直接沿用Lucene binary。Q6無客製遷移輸入不阻擋此已批准流程，也不放寬固定基線的原版能力。",
       "evidence": [
         "evidence/<release>/<run>/MIG-001/result.json",
         "evidence/<release>/<run>/MIG-001/attachments/"
@@ -2010,8 +2010,8 @@
       "status": "planned",
       "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
       "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
-      "requires_user_decision": true,
-      "conditional": true,
+      "requires_user_decision": false,
+      "conditional": false,
       "acceptance_gate": "G4"
     },
     {
@@ -2474,9 +2474,9 @@
         "Rust、bundled helpers、搜尋優先、local＋LAN、約5人及無權限管理已確認。開發驗證先完成macOS移植／功能／介面／包裝，再於Ubuntu24.04 amd64適配及完整原生重驗；Ubuntu為部署優先。macOS實際／最低版本、Windows環境、oracle、D16/D20、SLO及負載未決處明列。G1研究配置不冒稱完整平台或SLO已通過。"
       ],
       "steps": [
-        "逐項列原CLI/config/API、Java XML、JAR ABI、index/cache及bookmark需求；index/cache 重建已由 Q2 批准，其餘 D20 未決項分開標示。",
+        "逐項列原CLI/config/API、Java XML、非權限plugins及URL的標準基線契約；Q6確認無既有客製XML／JAR／scripts／書籤需搬移，Q2允許重建index/cache，兩者與原版內建能力分開。",
         "以代表設定/plugin功能測Rust等價能力；binary ABI與行為相容分開，沒有JVM不能假稱可載原JAR。",
-        "驗已批准 source→index/cache 重建且保留原資料供回復；其餘 import／plugin API 仍需明確決策，未實現完整性列 gap，不自行縮減。"
+        "驗已批准source→index/cache重建及原資料保留；原版標準契約的未實現完整性仍列gap，不要求使用者提供不存在的客製遷移檔，也不默加Java bridge。"
       ],
       "expected": "相容承諾逐項可驗；未決範圍不報full parity，也不偷偷加入Java fallback。",
       "evidence": [
@@ -2546,13 +2546,15 @@
     "D03": "首輪Mac為Apple M1／Apple Silicon arm64；先完整移植／功能／介面／包裝，再於Ubuntu24.04 amd64適配及完整原生重驗。Ubuntu為正式部署優先，macOS實際／最低版本及Windows細節仍未決。",
     "D11": "公開swchen44/rustgrok已建立（ID 1433282584、main），發行包放GitHub Releases。初始規劃commit 526f619089703f710c915af303e54aea7d25226e／tree 3af8b051938022e067b29a8ccc4d7acac51205b2與46檔blob SHA已核實；這不是產品測試通過，尚無產品Release且CI未跑。",
     "D08": "外部工具更新source；產品手動＋排程索引，watch未指定。",
-    "D10": "Q2 部分已決：index/cache從source重建，保留原資料供回復；XML/JAR/URL等仍OPEN。",
+    "D10": "目前無需沿用的既有XML／客製JAR／API scripts／舊書籤；index/cache可從source重建並保留原資料。原版內建能力仍按固定基線驗證。",
     "D15": "首版CLI前景＋背景；系統服務／登入自啟後續待決。",
-    "D16": "管理網頁只限主機本機瀏覽器，保留主機 CLI／本機控制面管理，LAN 維持搜尋／瀏覽；2026-10-26 使用者確認。"
+    "D16": "管理網頁只限主機本機瀏覽器，保留主機 CLI／本機控制面管理，LAN 維持搜尋／瀏覽；2026-10-26 使用者確認。",
+    "D05": "部分已決：10個project，每project可含多Git repo及git-in-git；repo發現、檔案歸屬、history／blame／diff照固定OpenGrok同配置。",
+    "D09": "部分已決：約5人、10個project、每project source約50 MB，合計推算約500 MB。硬體、history大小、query mix、SLO與資源預算未定。"
   },
   "open_decisions": {
-    "D20": "index/cache可從source重建且保留原資料已確認；排序精度、XML/JAR/URL及原REST管理automation等剩餘相容仍需盤點。",
-    "D09": "約5人代表情境已知，不等於5 QPS、5requests或hard cap；具體搜尋SLO、corpus/hardware、query mix、request率／think-time／每人並行及其他成本門檻仍OPEN。",
+    "D20": "無需客製舊資料遷移；固定基線的原版query／ranking精度、內建config／非權限plugin／API／URL契約仍須完成inventory與驗證。",
+    "D09": "已知10個project與每project約50 MB source；CPU／RAM／SSD或NAS、history、files/LOC、query mix、request率／think-time／每人並行及SLO／資源門檻仍OPEN，不能外推index/RSS或QPS。",
     "D03": "M1／Apple Silicon arm64與Ubuntu24.04 amd64均已確認；macOS實際版本／最低支援版本、Windows版本／CPU、硬體資源等剩餘條件仍OPEN。不再詢問Mac Intel或ARM。",
     "D16": "可達範圍已確認；剩餘管理頁面操作、具體控制及既有 REST／automation 相容另設計及盤點，不新增強制登入／SSO／RBAC。"
   },

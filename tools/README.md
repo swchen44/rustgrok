@@ -12,6 +12,8 @@ python3 tools/build_planning_package.py
 
 品質報告的 `checked_at` 與 manifest 的 `generated_date` 使用執行當日的台灣日期；v0.6 合訂本基線日期及 ZIP entry timestamp 保留 2026-10-25。
 
+合訂本包含根目錄詞彙表與 `docs/research/*.md` 的研究紀錄，相關本地連結轉成合訂本內的 anchors。
+
 檢查涵蓋JSON解析、UTF-8／隱形控制字元、Markdown相對連結、需求與測試雙向對照、44個工作包覆蓋與依賴無循環、決策ID及已確認狀態、ZIP與檔案hash一致。產品測試仍必須按tests/matrix.json實作與執行，不能把此工具成功當作產品驗收。
 
 未來若需求、測試數量或版本變更，需連同此規劃版的固定契約更新；不自動把planned改成passed。

@@ -116,6 +116,7 @@ profile之後再比較allocation/copy減少、批次metadata讀取、預計算�
 | 查詢分組／比例 | 待D06/D09代表資料 |
 | client／server延遲門檻 | null，待批准 |
 | 使用模式／人數 | local＋LAN、約5人已確認，1人為比較baseline |
+| source規模／拓撲 | 10個project，每project source約50 MB，合計推算約500 MB；每project可多Git repo／巢狀Git。精確bytes、history大小及repo數另記 |
 | cold／warm、request並行／吞吐目標 | null；5人不換算成5QPS或5個同時requests |
 | RSS／CPU／磁碟／freshness上限 | null，待D09/D12/D21 |
 | 開發／產品測試結果 | not_run |
@@ -127,4 +128,4 @@ profile之後再比較allocation/copy減少、批次metadata讀取、預計算�
 
 v0.3已確認A與搜尋優先；v0.4加入雙模式約5人、無權限管理。v0.5確認Ubuntu24.04 amd64為主要部署，但開發及完整首輪驗證改在macOS，其後Ubuntu完整原生重驗。兩平台的原版/Rust公平比較各在同一硬體進行，不以Mac結果推算Linux改善倍數。
 
-v0.6已確認M1／arm64與Public，repo已建立；後續 D04 已確認 OpenGrok 1.14.20 為正式驗收基線。接著補D03的macOS實際／最低版本。原版版本、Ubuntu24.04 amd64、Mac先驗、架構、rustgrok名稱／可見性及GitHub Releases不再重問。之後收D09資料量／硬體及D16管理入口。約5人已知，不要求重答人數，也不換成假QPS。
+v0.6已確認M1／arm64與Public，repo已建立；後續 D04 已確認 OpenGrok 1.14.20，D16 已定本機管理網頁／主機CLI與LAN搜尋／瀏覽。2026-10-26 又取得10個project、每project source約50 MB、多repo／巢狀Git；不重問這些值。D09 剩餘硬體、history大小、query mix、SLO及資源預算另補；約5人不換成假QPS，約500 MB不外推index或RSS。

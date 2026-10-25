@@ -43,7 +43,7 @@ Mac PASS只證明該Mac tuple、commit與artifact；Linux仍須自己的完整�
 | 內網 | 約5人從瀏覽器使用共用服務 | 明確指定LAN listen介面；共用已註冊projects與索引 |
 | 共用程式碼 | 搜尋、xref、history、專案與索引工作管理 | 不另寫第二套LAN搜尋實作；npm／ZIP執行相同版本的native binary |
 
-候選為單主機部署，不因約5人加入分散式叢集或多租戶系統。正式CPU／RAM／磁碟預算由D09資料量與benchmark決定。
+候選為單主機部署，不因約5人加入分散式叢集或多租戶系統。Q7 已知10個project、每project source約50 MB，多Git repo／巢狀Git；正式CPU／RAM／磁碟預算仍由D09剩餘條件與benchmark決定，source大小不代表history／index大小。
 
 D05仍需確認source位於主機路徑、分散磁碟或網路掛載。LAN模式不自動授權同步、複製其他人的repo，亦不自動git pull/reset；D08 已確認 source 由外部工具更新，產品支援手動及排程索引；watch 未指定。
 
