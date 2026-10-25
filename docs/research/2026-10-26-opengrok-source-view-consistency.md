@@ -4,6 +4,8 @@
 
 本筆記只查「外部 source 已修改／刪除、尚未 reindex」時的讀取來源。Q8 已由使用者選定：更新期間保留上一成功搜尋，新 index 及相關資料就緒後整批切換。**這不代表已批准保留所有 raw source snapshot、改原版 URL 或把每個閱讀入口改成 generation snapshot。** Q8 是 Rust 產品政策，以下是原版實作事實，兩者不能互代。
 
+後續決策更新：2026-10-26 Q9 使用者回覆「1」，選沿用固定原版的live source／SCM閱讀分支，不額外將全部閱讀綁定搜尋版本快照。此更新記錄使用者選擇；本文靜態證據與runtime NOT_RUN界線不變。
+
 ## 1. 可查證結論
 
 原版各入口**沒有一律從同一份索引時 source snapshot 讀取**：
@@ -73,7 +75,7 @@ latest revision也不是單純「目前工作樹版本」：`LatestRevisionUtil`
 
 Q8已選的「保留上一成功搜尋、就緒後整批切換」應在Rust設計中明確界定哪些產物受generation控制。原版source顯示**命中、snippet、xref及raw有各自來源**，不能把Q8自動擴成「所有閱讀入口永遠同snapshot」，也不能把採snapshot後raw讀舊文字的使用者可見差異隱藏成純內部細節。
 
-本輪僅提供上述事實，不替使用者選「raw維持live」或「保留source snapshot」，不批准URL／revision／閱讀契約變更。後續若需選擇，應呈現「讀到外部最新source」與「仍能閱讀／下載上一成功generation內容」的具體差異及儲存成本；不以單獨index commit當成完整一致性證明。
+本輪研究提供上述事實；其後Q9已由使用者選沿原版閱讀規則。未選閱讀用source snapshot，不批准URL／revision契約變更；也不以單獨index commit當成完整一致性證明。後續若另提快照閱讀，仍須提出具體差異、儲存成本與新決策。
 
 ## 6. 驗證界線與重現起點
 

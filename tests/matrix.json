@@ -184,11 +184,11 @@
       ],
       "title": "加／改／刪／rename 檔案後增量索引",
       "preconditions": [
-        "D12已選更新期間維持上一成功搜尋、新index及相關資料完整後整批切換；準備可區分新舊generation的公開fixture，source／raw版本另按凍結契約。"
+        "D12已選維持上一成功搜尋及完整後整批發布；Q9已選snippet／xref／raw／download沿固定OpenGrok同配置的live／SCM分支，準備可區分index與source版本的公開fixture。"
       ],
       "steps": [
         "保存第一版 golden 結果，分別加入、修改、刪除及rename檔案。",
-        "增量索引期間持續查上一成功generation，核對命中／排序並記錄line/xref/cache來源版本；新index與必要關聯資料完整後才發布，不接受未完成component。snippet/raw/xref依另行凍結的閱讀契約核對，不把Q8當成全source snapshot。",
+        "增量索引期間持續查上一成功generation並核對命中／排序；同時依Q9對照snippet／xref／raw實際讀取分支及內容／狀態。新index與必要資料完整後才發布，不把live內容變動誤認成已發布新index，也不強制全閱讀snapshot。",
         "另從零完整重建同一最終來源，比較增量結果與完整結果。"
       ],
       "expected": "更新期間上一成功搜尋可用；完整發布後新結果正確、舊結果消失且與full rebuild等價。發布完整性與source／raw內容版本分開驗，不以舊index證明live source已凍結。",
@@ -271,14 +271,14 @@
       ],
       "title": "索引期間檔案持續修改",
       "preconditions": [
-        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+        "Q8已選維持搜尋及完整後發布，Q9已選原版live／SCM閱讀；索引建置期間來源變動的內部處理契約仍須凍結，與使用者可見閱讀分支分開。"
       ],
       "steps": [
-        "按核准的活目錄或快照一致性契約準備fixture。",
+        "準備可記錄hash／mtime／SCM revision的公開source，原版與Rust採相同source變動序列；不預設snapshot閱讀。",
         "在索引scan/analysis/publish等階段修改來源並記錄時序。",
-        "檢查query、xref、raw內容與狀態提示是否符合該契約；未決時報blocked而非passed。"
+        "分別核對query命中／generation、snippet、xref redirect／revision及raw/download bytes／狀態；閱讀按Q9原版分支，建置來源變動按凍結內部契約驗證，未驗部分不假通過。"
       ],
-      "expected": "行為符合已核准 stale/snapshot 契約；不聲稱未保證的全域原子性",
+      "expected": "索引建置正確處理來源變動，公開搜尋只用完整generation；閱讀行為符合固定原版live／SCM分支，不宣稱所有閱讀與索引來自同一snapshot。",
       "evidence": [
         "evidence/<release>/<run>/SRC-005/result.json",
         "evidence/<release>/<run>/SRC-005/attachments/"
@@ -483,7 +483,8 @@
       "steps": [
         "準備0/1/多頁及稀疏欄位、同分結果，測所有原版sort modes。",
         "檢查start/maxresults/maxHitsPerFile、single-hit redirect、score組合與top-K。",
-        "保留排序逐項比較；D20排序容忍未定前不以任意sort或epsilon掩蓋差異，診斷等分結果須單列。"
+        "保留排序逐項比較；D20排序容忍未定前不以任意sort或epsilon掩蓋差異，診斷等分結果須單列。",
+        "外部修改／刪除source但未發布新generation時，分開比較舊index的counts/order與原版各genre snippet來源／缺少context情境；不以snippet來自live source就誤改hits或count。"
       ],
       "expected": "exact counts/line/snippet/order；單一結果導向符合 REF；分頁無漏重複",
       "evidence": [
@@ -721,14 +722,14 @@
       ],
       "title": "搜尋結果、xref、syntax coloring、line anchors、下載、raw views",
       "preconditions": [
-        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+        "Q9已選原版來源閱讀分支；固定OpenGrok配置、genre、revision與source修改時序，以同狀態public fixture逐步對照。"
       ],
       "steps": [
         "對固定query開啟結果、xref、raw/download與line-anchor連結。",
-        "擷取各頁可見內容、syntax coloring、URL及download bytes。",
+        "保存index後、外部修改未reindex、外部刪除未reindex及完成reindex四階段的頁面內容、URL／redirect、HTTP狀態與raw/download bytes。區分無revision live讀取及有revision SCM／resource檢查分支。",
         "比較REF與候選DOM/screenshot/bytes，排除只有host/port的差別。"
       ],
-      "expected": "外觀與行為成對比較；URLs 可直接開啟及 bookmark",
+      "expected": "各階段可見內容、style、URL、redirect及下載bytes／狀態均與原版成對比較；允許原版本身的index／閱讀來源差別，不以額外snapshot改變契約。",
       "evidence": [
         "evidence/<release>/<run>/UI-002/result.json",
         "evidence/<release>/<run>/UI-002/attachments/"
@@ -784,7 +785,7 @@
       "steps": [
         "在單repo、同project兄弟repo及巢狀Git fixture開啟file/directory history、annotate(blame)、historical xref；核對每次導航的repo與revision。",
         "選任意兩revision開啟unified及side-by-side diff，操作jumper。",
-        "比較revision/line/內容/作者及UI；歷史Navigate依相同ctags配置判定。"
+        "在外部dirty修改及刪檔、未reindex與完成reindex階段，比較revision／line／作者／內容與UI；xref／annotate／historical閱讀按原版revision與resource分支，不用搜尋generation直接替代。"
       ],
       "expected": "revision／line／作者／內容正確；所有 view screenshots",
       "evidence": [
@@ -1405,7 +1406,7 @@
       ],
       "steps": [
         "在Rust scan/parse/tokenize/segment write/index commit/xref/config publish/reader swap等邊界注入終止。",
-        "重啟檢查journal/schema/generation及query/raw/xref結果。",
+        "重啟檢查journal/schema與完整搜尋generation；另按Q9原版live／SCM閱讀分支檢查raw/xref及當時source狀態，不因index rollback回寫使用者checkout或強制讀舊source。",
         "驗新資料未完整時不發布；最後完整generation可用時，更新失敗或中斷不得清除它。重啟只接受可驗證完整的舊／新版；首次無成功generation或資料確已損毀時明示not-ready／rebuild-required，不以局部engine commit假裝ready。"
       ],
       "expected": "不發布部分新generation；先前完整版本可用時維持／恢復其搜尋，重啟選中完整舊／新版且有證據，無可用版本時明確未ready。",
@@ -2276,7 +2277,8 @@
       "steps": [
         "同一source/query逐層比較hits→snippet/highlight spans→xref symbol/scope→SSR HTML。",
         "測跨行匹配、CRLF、Unicode、超長行、HTML escape、line anchors、Navigate/Scopes與歷史版本。",
-        "沿用原CSS/JS等資產，核對DOM節點/attributes/URLs/互動及同OS screenshots，避免原JS找不到Rust產生元素。"
+        "沿用原CSS/JS等資產，核對DOM節點/attributes/URLs/互動及同OS screenshots，避免原JS找不到Rust產生元素。",
+        "依Q9在外部修改／刪除未reindex及完成reindex各階段，分別比較index hit、genre snippet、xref有效性／revision／live fallback與raw/download，不把整條輸出管線假定來自同一source snapshot。"
       ],
       "expected": "原功能/style一致；server模板技術可不同，但可見內容、URL與JS依賴契約不能漂移。",
       "evidence": [
@@ -2551,14 +2553,14 @@
     "D16": "管理網頁只限主機本機瀏覽器，保留主機 CLI／本機控制面管理，LAN 維持搜尋／瀏覽；2026-10-26 使用者確認。",
     "D05": "部分已決：10個project，每project可含多Git repo及git-in-git；repo發現、檔案歸屬、history／blame／diff照固定OpenGrok同配置。",
     "D09": "部分已決：約5人、10個project、每project source約50 MB，合計推算約500 MB。硬體、history大小、query mix、SLO與資源預算未定。",
-    "D12": "Q8 Yes：更新期間持續上一成功版本搜尋，新index及相關資料完整後整批切換；接受更新期間上一版內容及新舊資料保留成本。"
+    "D12": "Q8 Yes：更新期間持續上一成功版本搜尋，新index及相關資料完整後整批切換；接受更新期間上一版內容及新舊資料保留成本。 Q9選1：snippet／xref／raw／download沿固定原版live／SCM讀取，未要求閱讀用source snapshot。"
   },
   "open_decisions": {
     "D20": "無需客製舊資料遷移；固定基線的原版query／ranking精度、內建config／非權限plugin／API／URL契約仍須完成inventory與驗證。",
     "D09": "已知10個project與每project約50 MB source；CPU／RAM／SSD或NAS、history、files/LOC、query mix、request率／think-time／每人並行及SLO／資源門檻仍OPEN，不能外推index/RSS或QPS。",
     "D03": "M1／Apple Silicon arm64與Ubuntu24.04 amd64均已確認；macOS實際版本／最低支援版本、Windows版本／CPU、硬體資源等剩餘條件仍OPEN。不再詢問Mac Intel或ARM。",
     "D16": "可達範圍已確認；剩餘管理頁面操作、具體控制及既有 REST／automation 相容另設計及盤點，不新增強制登入／SSO／RBAC。",
-    "D12": "發布政策已決；剩餘source／raw閱讀版本、publish scope、snapshot/journal實作、新鮮度／磁碟／RTO/RPO數值及runtime證據，不外推程式升級零停機。"
+    "D12": "發布及原版來源閱讀政策均已決；剩餘建置期間來源變動、publish scope、內部snapshot/journal實作、新鮮度／磁碟／RTO/RPO數值及runtime證據，不外推程式升級零停機。"
   },
   "platform_execution_policy": {
     "production_priority": {

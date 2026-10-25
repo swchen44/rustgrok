@@ -161,7 +161,13 @@
       "prepared_at": null,
       "published_at": null,
       "reader_generation_samples": null,
-      "retained_old_new_data_peak_bytes": null
+      "retained_old_new_data_peak_bytes": null,
+      "reading_policy": {
+        "decision": "Q9 / D12",
+        "status": "USER_CONFIRMED",
+        "value": "fixed_upstream_live_and_SCM_branches",
+        "extra_reading_snapshot_required": false
+      }
     }
   },
   "timing_contract": {
@@ -222,6 +228,7 @@
     "Ubuntu 24.04 amd64 is confirmed. Record the actual point release/image during tests; Apple M1 arm64 is confirmed, while the actual/minimum macOS version remains unspecified.",
     "Mac PASS cannot substitute for Linux native results. Compare oracle and candidate on the same host within each platform; do not attribute cross-host differences to Rust.",
     "Record native arm64 execution separately from Rosetta x86_64; translated runs cannot count as native M1 acceptance.",
-    "2026-10-26 user estimate: 10 projects, each approximately 50 MB source; multiple/nested Git repositories may exist within one project. This is planning input, not measured corpus bytes, history/index size or a performance result. Corpus fields remain null until actual generation and measurement."
+    "2026-10-26 user estimate: 10 projects, each approximately 50 MB source; multiple/nested Git repositories may exist within one project. This is planning input, not measured corpus bytes, history/index size or a performance result. Corpus fields remain null until actual generation and measurement.",
+    "Q9 selects original source-reading rules. Measure index generation and snippet/xref/raw source/revision separately during updates; do not compare a snapshot-reading candidate against a live-reading reference as equivalent workload."
   ]
 }

@@ -86,7 +86,7 @@ D05仍決定來源布局、跨磁碟、symlink/junction、NAS/UNC；改Rust不�
 
 Rust自己提供實體writer鎖與持久queue，不繼承上游Lucene lock。每個index只能一writer，global registry/config發佈亦有受控序列；不同projects並行受CPU/RAM/IO預算控制。
 
-D12 已確認發布政策：更新期間維持上一成功版本搜尋；新索引及相關資料完整就緒後整批切換。下列 generation 序列為實現此政策的候選機制，engine／storage、跨project publish scope與來源版本策略仍待G1：
+D12 已確認發布政策：更新期間維持上一成功版本搜尋；新索引及必要關聯資料完整就緒後整批切換。Q9 已選閱讀沿固定原版live／SCM分支。下列 generation 序列為實現發布政策的候選機制，engine／storage、跨project publish scope與建置期間來源變動處理仍待G1：
 
 1. 取source manifest與config revision、建立job。
 2. 分析變更，寫pending index/xref/history。
@@ -95,9 +95,9 @@ D12 已確認發布政策：更新期間維持上一成功版本搜尋；新索�
 5. 通知reader reload，驗證新generation可查。
 6. 標記job成功，再依policy清舊資料。
 
-Tantivy commit不等於index/xref/history/config全體原子提交。D12 已選更新期間維持搜尋，不以停機更新作正常發布方案；shadow、snapshot或可恢復journal等機制仍待驗。必要component未完整就緒不得發布，失敗時保留最後完整generation；首次沒有已發布generation時不能假裝ready。Windows reader handles與mmap可能妨礙rename/delete。只保留舊index仍不能保證live raw source是舊內容；raw／閱讀版本需獨立查證原版與凍結契約，Q8未自動批准全source snapshot或十個project同步重建。
+Tantivy commit不等於index/xref/history/config全體原子提交。D12 已選更新期間維持搜尋，不以停機更新作正常發布方案；shadow、建置用snapshot或可恢復journal等機制仍待驗。必要component未完整就緒不得發布，失敗時保留最後完整generation；首次沒有已發布generation時不能假裝ready。Windows reader handles與mmap可能妨礙rename/delete。Q9 已選原版live／SCM閱讀，需逐分支實測；不新增閱讀用source snapshot，也不由Q8推定十個project同步重建。
 
-原版各入口並非一律讀同份source snapshot；固定 source 的讀取分支與Q8邊界見[來源閱讀一致性研究](research/2026-10-26-opengrok-source-view-consistency.md)。使用者尚未選定沿用原版live／SCM讀取分支或額外綁定搜尋版本快照，兩者的使用者可見差異不可當作純內部實作默選。
+原版各入口並非一律讀同份source snapshot；固定source讀取分支見[來源閱讀一致性研究](research/2026-10-26-opengrok-source-view-consistency.md)。Q9 已選沿原版：snippet依genre／配置，xref依產物有效性及revision分支，無revision的raw／download讀live source、有revision依原版SCM與resource檢查。搜尋命中、內容與錯誤狀態按各自契約驗證；cache不能只因索引generation未變便凍結本應讀live的內容，不另加閱讀snapshot或改原版URL。
 
 ## 6. 排程、記憶體與取消
 
@@ -149,7 +149,7 @@ D16 已確認主機 CLI／本機控制面處理 project/index/config/stop，LAN 
 |---|---|---|
 | ProjectRecord | stable ProjectId、display_name、source mapping、enabled state、config revision、來源限制 | ID不以顯示名稱或絕對路徑直接替代；改名/移機不破壞public identity |
 | SourceDocument | ProjectId、原始relative path bytes／編碼資訊、可安全表示的URL path、content hash、size、language、line map、SCM state | 不把Windows separator直接存成跨平台URL；同名不同project獨立 |
-| SourceRevision | 明確snapshot／manifest identity、dirty state、採樣hash與可用SCM revision | Git commit不能代表所有dirty/untracked內容；xref/raw和index使用相容來源策略 |
+| SourceRevision | 建置用source manifest identity、dirty state、採樣hash與可用SCM revision | Git commit不能代表所有dirty/untracked內容；建置來源與Q9原版live／SCM閱讀來源分開記錄，不將索引generation當成全部閱讀內容版本 |
 | IndexGeneration | opaque generation ID、schema/analysis/engine versions、source manifest、published_at、各component receipts | generation成功需全部必要component可用；非單看一個index commit |
 | GenerationManifest | parent generation、project/scoring scope、index/xref/history metadata、必要checksums、pending/active/retired狀態 | reader取得一致manifest；舊generation保留至沒有reader且符合rollback policy |
 | JobRecord | job id、request id、project/config revision、mode、state、progress、取消請求、generation、error code、開始/完成時間 | 重啟可識別未完成job；失敗不能宣稱新的索引ready |

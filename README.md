@@ -30,6 +30,8 @@ Q6 已確認沒有需搬移的既有 XML 設定、客製 JAR、API scripts 或�
 
 Q8／D12 已確認更新期間繼續提供上一成功版本的搜尋，新索引與相關資料完整就緒後整批切換；更新期間上一版內容及新舊資料磁碟成本已接受，數值門檻與實作方式另驗證，見[ADR-0003](docs/adr/0003-published-generation-switch.md)。
 
+Q9 已選沿用原版閱讀規則：snippet、xref、raw／download依固定OpenGrok的live source／SCM分支與相同配置處理，不額外把全部閱讀綁定搜尋版本快照；搜尋命中與打開的內容可能各有來源版本。這不免除索引建置期間的來源一致性處理，runtime仍待驗證。
+
 ## 閱讀順序
 
 | 文件 | 用途 |

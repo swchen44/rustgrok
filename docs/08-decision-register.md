@@ -16,7 +16,7 @@
 | D08 | USER_CONFIRMED | source 由外部工具更新；產品支援手動及排程索引 | Q4；watch 未指定，排程頻率、dirty source 與一致性細節仍待定；不由產品自動 pull/reset 或修改 source |
 | D10 | USER_CONFIRMED | 目前沒有必須沿用的既有 XML 設定、客製 JAR plugins、API scripts 或舊書籤 | 2026-10-26 Q6 回覆「沒有」；Q2 index/cache 可從 source 重建並保留原資料。這是目前遷移輸入的盤點結果，原版內建設定、API、插件功能與 URL 的相容目標仍依 D04／D20 保留 |
 | D11 | USER_CONFIRMED | 建立public新repo swchen44/rustgrok，release packages放GitHub Releases | repo已建立，creation_status為created；首次規劃已提交main並核對，產品Release／artifact未建立，分階段以metadata與hash驗證 |
-| D12 | USER_CONFIRMED | 索引更新期間維持上一個成功版本的搜尋；新索引與相關資料完整就緒後整批切換 | 2026-10-26 Q8 回覆「Q8 Yes」；接受更新期間搜尋上一版及保留新舊資料的磁碟成本。新鮮度／磁碟門檻、來源變動處理、raw／閱讀版本、故障回復與publish scope的具體契約仍待驗證；不凍結某種引擎或snapshot實作 |
+| D12 | USER_CONFIRMED | 更新期間維持上一成功搜尋，新索引與必要關聯資料完整後整批切換；閱讀沿固定原版live／SCM分支 | Q8接受發布政策及新舊資料保留成本；Q9回覆「1」選沿原版snippet／xref／raw讀取。搜尋版本不自動固定全部閱讀內容；新鮮度／磁碟數值、索引期間source變動、故障回復及publish scope仍待契約與證據 |
 | D15 | USER_CONFIRMED | 首版提供 CLI 前景與背景執行 | Q5；系統服務／登入自啟留待後續決定；不由此推定 root、systemd、launchd 或 Windows Service 必要 |
 | D16 | USER_CONFIRMED | 管理網頁只限主機本機瀏覽器；保留主機 CLI／本機控制面管理，LAN 維持搜尋／瀏覽 | 2026-10-26 已確認網頁範圍；具體頁面操作、REST／automation 相容與控制細節仍須設計及盤點；頁面和有副作用 API 均須符合本機限定邊界 |
 | D19 | USER_CONFIRMED | Rust核心可隨包附必要Ctags、Git及其他SCM工具；主要產品profile採bundled helpers | 工具清單、固定版本、各OS／CPU payload、能力、授權與所需SCM仍依inventory驗證；不把外裝或禁止helpers列為必交profile，不授權自動下載或git pull |
@@ -45,6 +45,8 @@ v0.6使用者回覆「1. public 2. M1」：D11的public已USER_CONFIRMED；D03�
 ## 2. 接下來優先釐清的事項
 
 2026-10-26 Q8 使用者原文：「Q8 Yes」，接受「更新時持續提供上一個成功版本搜尋，新索引與相關資料完整就緒後整批切換」，以及已說明的更新期間上一版內容與新舊資料磁碟成本。D12 因此由 OPEN 轉為 USER_CONFIRMED。這決定搜尋可用性與發布政策；並未選定來源snapshot／copy方式、raw/download內容版本、跨project發布範圍、RTO/RPO、最大新鮮度延遲或磁碟上限。對應 FR-009、NFR-005、NFR-007、NFR-012、NFR-016 及既有 SRC-002、PRJ-002、REC-001、REC-002、RST-009；其餘 WP／test IDs 依追溯表。記錄於 ADR-0003，產品測項仍 planned／not_run。
+
+2026-10-26 Q9 使用者原文：「1」，選定「沿用原版規則：搜尋維持上一成功索引，閱讀依原版live source／SCM分支處理」。這補齊Q8尚未決定的使用者可見閱讀版本範圍；snippet／xref／raw／download依OpenGrok 1.14.20同配置與revision條件驗證，不額外要求把所有閱讀綁定搜尋版本快照。索引建置期間是否使用內部snapshot／重試等仍是待驗機制，不能將Q9擴成不必處理source競態。對應FR-003、FR-005、FR-006、FR-009、FR-012、NFR-008、NFR-012及既有SRC-002、SRC-005、UI-002、UI-004、QRY-006、RST-005、REC-001；其他WP／test IDs依追溯表。實作及runtime仍NOT_RUN。
 
 2026-10-26 Q6 使用者回覆「沒有」，確認沒有需搬移的既有 XML 設定、客製 JAR、API scripts 或舊書籤。Q7 使用者提供摘要：10 個專案，每個專案 source 約 50 MB，各專案可含多個 Git repo，也可能 git-in-git；Git 查詢及 blame 等行為依 OpenGrok。總 source 約 500 MB 是 10×50 MB 的推算值；MB 的十進位／二進位定義、`.git`／history 體積、files／LOC、每專案 repo 數及硬體仍未提供，不換算成精確 bytes 或資源上限。D05／D09 部分資料因此已決，不再重問專案數或 source 規模。Project 與 repository 分開建模；巢狀 repo 的發現、歸屬與 history／annotate／diff 依固定 OpenGrok 1.14.20 的原始行為及相同配置查證，不自行選一個 project 等於一個 repo、最近 root 等政策。Git 是已知使用情境，不縮減其餘原版 SCM／語言範圍。對應 FR-006、FR-007、FR-009、FR-020、NFR-005、NFR-006、NFR-016；WP 與 test IDs 依追溯表，產品驗證仍 planned／not_run。
 

@@ -348,7 +348,7 @@
       "disk_budget": null,
       "rto_rpo": null,
       "source_snapshot_implementation": "NOT_SELECTED",
-      "raw_and_source_view_version_contract": "PENDING_FIXED_BASELINE_RESEARCH_AND_CONTRACT",
+      "raw_and_source_view_version_contract": "USER_CONFIRMED_FOLLOW_FIXED_OPENGROK_LIVE_SCM_BRANCHES",
       "cross_project_publish_scope": "NOT_FROZEN",
       "application_binary_upgrade_zero_downtime": "NOT_APPROVED_BY_THIS_DECISION",
       "implementation_and_runtime_verification": "NOT_RUN",
@@ -357,7 +357,22 @@
         "path": "docs/research/2026-10-26-opengrok-source-view-consistency.md",
         "status": "STATIC_SOURCE_REVIEW",
         "runtime_verification": "NOT_RUN",
-        "user_visible_source_read_policy": "OPEN"
+        "user_visible_source_read_policy": "USER_CONFIRMED_FOLLOW_FIXED_BASELINE"
+      },
+      "reading_policy": {
+        "status": "USER_CONFIRMED",
+        "confirmed_at": "2026-10-26",
+        "question_id": "Q9",
+        "user_statement": "1",
+        "value": "follow_fixed_opengrok_source_reading_branches",
+        "raw_download_without_revision": "live_source_with_original_resource_checks",
+        "raw_download_with_revision": "original_SCM_revision_and_resource_checks",
+        "snippet": "original_genre_configuration_and_live_fallback_branches",
+        "xref": "original_generated_xref_validity_revision_live_and_SCM_branches",
+        "reading_pinned_to_search_generation_required": false,
+        "extra_reading_source_snapshot_required": false,
+        "index_build_source_consistency_mechanism": "NOT_FROZEN",
+        "runtime_verification": "NOT_RUN"
       }
     }
   },

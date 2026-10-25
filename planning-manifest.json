@@ -30,18 +30,18 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 4817,
-      "sha256": "34a089cff9ae83b30ce81393cad27bf9bef59db5ebcf1301cd1746c7af800799"
+      "bytes": 4928,
+      "sha256": "5649b92edaec0a4ebe7a3017002f40830101bbd6a9717780feb43475cac16907"
     },
     {
       "path": "GLOSSARY.md",
-      "bytes": 1577,
-      "sha256": "bbcbaac6e33736af1ceb1a158f50bfe64211217690f84747a44a1a33f63108f4"
+      "bytes": 1658,
+      "sha256": "3b7bad86aa0cde4e252558f4bc0e241a5095fdb5cd93c0a59abf2b209267d0c9"
     },
     {
       "path": "README.md",
-      "bytes": 8673,
-      "sha256": "3d2664333637a824d8ee64054a130d3ac50300d905ee8b9256d5a662b8bd4a0a"
+      "bytes": 8996,
+      "sha256": "1a00abf6530ee8c21ffb8214d654d25d18944f2eb24562c6e15f5ee9a53c14e3"
     },
     {
       "path": "assets/README.md",
@@ -75,8 +75,8 @@
     },
     {
       "path": "docs/03-system-design.md",
-      "bytes": 24456,
-      "sha256": "4fd0bfd3c41d28ffe11a0199cd0644012c1cb6600b8aae567603529392912676"
+      "bytes": 24736,
+      "sha256": "219536bad1e7116434b604297dbe50dc0a457420ddf4df04b7c19b047d978945"
     },
     {
       "path": "docs/04-implementation-plan.md",
@@ -100,8 +100,8 @@
     },
     {
       "path": "docs/08-decision-register.md",
-      "bytes": 21790,
-      "sha256": "8e90b70e8701b4c0de22b4281398f4dc50559e805e9590007b31e3a176a8996c"
+      "bytes": 22487,
+      "sha256": "417e162f8963bdbc65c4dafb466d6b1b6ce5ad6d3ae44259b56da31e5a8b21a8"
     },
     {
       "path": "docs/09-risk-register.md",
@@ -110,8 +110,8 @@
     },
     {
       "path": "docs/10-agent-handoff.md",
-      "bytes": 9279,
-      "sha256": "3f31c0e98272091888cbd1ba4990a8930f0717f2709f18d17e19631c1a4d267e"
+      "bytes": 9301,
+      "sha256": "de6326f5c4026c6d45df027793a7b064779798641a51aa48f1b25472df15ed50"
     },
     {
       "path": "docs/11-traceability.md",
@@ -155,8 +155,8 @@
     },
     {
       "path": "docs/adr/0003-published-generation-switch.md",
-      "bytes": 1510,
-      "sha256": "bc98fa3a4d5e0a6392ccba8739f8acb4b9df217b96516462405e65007e6f85a5"
+      "bytes": 1636,
+      "sha256": "88fce5e9df08ef2a8b610e1659e4071ba3f14a0a337ab32c4da9bbb8d1fde4e0"
     },
     {
       "path": "docs/agents/domain.md",
@@ -180,8 +180,8 @@
     },
     {
       "path": "docs/research/2026-10-26-opengrok-source-view-consistency.md",
-      "bytes": 12850,
-      "sha256": "a28a23be960c18a73dfc70840b27f060bb82cd6b63641f95829c73fa2fa2c61e"
+      "bytes": 13046,
+      "sha256": "784944627c18e3ebd00b1d2ba7f323d217af577eedb134671feb2e79593b04f7"
     },
     {
       "path": "docs/sources.md",
@@ -220,8 +220,8 @@
     },
     {
       "path": "tests/matrix.json",
-      "bytes": 152156,
-      "sha256": "0323f9bb141cded9cacf2b5a769e88769ef01dd441c85bb7bfaf8b8fcba54a20"
+      "bytes": 153724,
+      "sha256": "76f98e23bcfd3820ef0c438a505dc7301e7ea2965764058892e120d5b779890a"
     },
     {
       "path": "tests/performance/README.md",
@@ -230,8 +230,8 @@
     },
     {
       "path": "tests/performance/search-benchmark-manifest.template.json",
-      "bytes": 7980,
-      "sha256": "8d52d8226fca3961dce80ffd1411a1dadf7bfbf9d3110de68dde2f6fd8b7968b"
+      "bytes": 8428,
+      "sha256": "9364502b3d506128542165d228a61a5d36ddf7914e5da6e6770762cc7acb624a"
     },
     {
       "path": "tests/traceability.json",
@@ -250,13 +250,13 @@
     },
     {
       "path": "upstream/research-lock.json",
-      "bytes": 20889,
-      "sha256": "e6f138197cdcebef03bddddec35073fe4d7546a41c663aa66f525c4bb6054591"
+      "bytes": 21724,
+      "sha256": "7cbb9d1eb7ebe3ef1711255df8ac70e19d07b340aa3560938d4f5233eb97c32e"
     },
     {
       "path": "upstream/rust-research-lock.json",
-      "bytes": 44237,
-      "sha256": "af7b759da2a5754f9c9f557536e762a4730252097aa8436f3b636dbfc8257edb"
+      "bytes": 45072,
+      "sha256": "88a64a6465c829eafa9c22a8fab25b53e220ff7baaf443cf3a8fd6b76299c9ba"
     },
     {
       "path": "upstream/source-review-manifest.json",
