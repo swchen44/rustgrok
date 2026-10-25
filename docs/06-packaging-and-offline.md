@@ -128,7 +128,7 @@ Tokio＋axum 是候選；axum 以 Tokio／Hyper 為基礎，能由程式建立 l
 
 D02已確認local與LAN兩種模式。是否需要TLS及憑證來源依部署條件確認；若採用，盤點TLS library、crypto backend、certificate／trust roots，不把外置reverse proxy變成使用者必裝條件。
 
-管理入口的具體PROPOSED方案是：主機CLI或本機控制介面處理重建、設定與停機，LAN入口提供搜尋／瀏覽等讀取操作。此方案尚未由使用者批准；D16／D20須盤點既有REST管理及automation相容，不能默刪原介面。沒有權限管理不等於任何LAN讀者都能重建或停機，也不要求另建使用者角色系統。
+Q3 已確認主機 CLI 或本機控制介面處理重建、設定與停機，LAN 入口提供搜尋／瀏覽等讀取操作。使用者另問網頁設定，管理網頁可達範圍仍待確認；D16／D20須盤點既有REST管理及automation相容，不能默刪原介面。沒有權限管理不等於任何LAN讀者都能重建或停機，也不要求另建使用者角色系統。
 
 ## 5. Rust 執行與平台風險
 

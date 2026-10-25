@@ -45,17 +45,17 @@ Mac PASS只證明該Mac tuple、commit與artifact；Linux仍須自己的完整�
 
 候選為單主機部署，不因約5人加入分散式叢集或多租戶系統。正式CPU／RAM／磁碟預算由D09資料量與benchmark決定。
 
-D05仍需確認source位於主機路徑、分散磁碟或網路掛載。LAN模式不自動授權同步、複製其他人的repo，亦不自動git pull/reset；來源更新方式由D08決定。
+D05仍需確認source位於主機路徑、分散磁碟或網路掛載。LAN模式不自動授權同步、複製其他人的repo，亦不自動git pull/reset；D08 已確認 source 由外部工具更新，產品支援手動及排程索引；watch 未指定。
 
-前景、背景或登入自啟／OS service由D15確認，不把Ubuntu優先直接轉成必需systemd、root或某個固定port。
+D15 已確認首版 CLI 前景與背景，登入自啟／OS service 後續待決；不把Ubuntu優先直接轉成必需systemd、root或某個固定port。
 
 ## 4. 讀者與管理入口的提案
 
 目前沒有逐使用者／project權限差別，讀者共同存取服務中已註冊project的搜尋、source/xref/raw、history/diff、建議及適用read APIs。顯示與操作保留原版style；不另加角色選單或帳號頁。
 
-D16尚待決定下列管理操作從何處提供：新增／移除project、指定source、完整／增量索引、設定變更、備份／升級與停止服務。
+D16 已確認下列管理操作由主機 CLI／本機控制面提供；新增管理網頁可達範圍待確認：新增／移除project、指定source、完整／增量索引、設定變更、備份／升級與停止服務。
 
-**建議方案（PROPOSED）：主機CLI／本機控制面管理，LAN提供讀者操作。** 這是避免誤解需求的具體方案，尚未被使用者確認。若使用者要LAN網頁管理，再討論明確操作集合與完成／取消行為；不要先把所有管理端點開放，也不要直接刪除既有REST管理自動化，D16／D20先盤點。
+**Q3 已確認：主機 CLI／本機控制面管理，LAN 提供搜尋／瀏覽讀者操作。** 使用者另問網頁設定，目前待確認管理網頁限本機或開 LAN；選定後再定操作集合與完成／取消行為；不要先把所有管理端點開放，也不要直接刪除既有REST管理自動化，D16／D20先盤點。
 
 這是操作入口的分工，不是新角色／RBAC系統。OS檔案存取、source root限制、程序instance identity、writer鎖及輸入escaping仍屬程式正常契約；本輪不用權限管理不會讓任意路徑或錯誤程序控制變成合法輸入。
 

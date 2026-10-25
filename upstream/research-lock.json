@@ -26,7 +26,7 @@
   "native_runtime_tests_executed": false,
   "required_next_steps": [
     "Use the D04-approved OpenGrok 1.14.20 baseline at commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3. Preserve functionality and style except D02's explicit exclusion of user-role/project ACL management and mandatory authorization/RBAC plugin parity; retain non-auth plugin inventory. Complete the remaining D20 compatibility contracts.",
-    "Apply local+LAN support, about five concurrent users without role/project ACL management, bundled helpers and search-speed priority. Production deployment prioritizes Ubuntu 24.04 amd64; first develop and fully validate on confirmed Apple M1/arm64 macOS (aarch64-apple-darwin), then adapt Ubuntu and repeat complete native validation. Confirm actual/minimum macOS versions and Windows details under D03, D16 management exposure, D06/D07 details and remaining D20 compatibility. Record the actual Ubuntu point release with runtime evidence. Helper builds, numeric SLO, workload, hardware and tradeoffs remain open; five users is neither five QPS nor a hard limit.",
+    "Apply local+LAN support, about five concurrent users without role/project ACL management, bundled helpers and search-speed priority. Production deployment prioritizes Ubuntu 24.04 amd64; first develop and fully validate on confirmed Apple M1/arm64 macOS (aarch64-apple-darwin), then adapt Ubuntu and repeat complete native validation. Confirm actual/minimum macOS versions and Windows details under D03, D16 web-management reachability and concrete controls, D06/D07 details and remaining D20 compatibility. Record the actual Ubuntu point release with runtime evidence. Helper builds, numeric SLO, workload, hardware and tradeoffs remain open; five users is neither five QPS nor a hard limit.",
     "Download reference assets and independently recompute their hashes.",
     "Select exact Java/Tomcat/Ctags/SCM builds only as needed to run the independent reference oracle; record source, license and binary metadata.",
     "Run separate native oracle and Rust compatibility/performance experiments first for Apple M1/arm64 macOS, then complete Ubuntu 24.04 amd64 platform adaptation and native revalidation. Preserve independent evidence per platform; Mac PASS is not Linux PASS. Prioritize full-text/path/defs/cross-project search while recording indexing and resource tradeoffs.",
@@ -169,14 +169,19 @@
     },
     "management_operation_exposure": {
       "decision_id": "D16",
-      "status": "OPEN",
-      "value": null,
-      "candidate_design": {
-        "status": "PROPOSED",
+      "status": "USER_CONFIRMED",
+      "value": "host_cli_or_local_control_management_lan_reader_routes",
+      "decided_at": "2026-10-25",
+      "user_statement": "Q2-Q5 照你的，about Q3 網頁是不是也能加設置?",
+      "selected_design": {
         "management": "host_cli_or_local_control",
-        "lan": "shared_reader_routes"
+        "lan": "search_and_browse_reader_routes"
       },
-      "scope_note": "No user role/project ACL management does not approve exposing management write operations on LAN. No additional anonymous-reading policy is recorded as user-approved."
+      "web_management": {
+        "status": "OPEN",
+        "question": "User asked whether settings can also be provided on the web; local-only versus LAN reachability is not yet selected."
+      },
+      "scope_note": "Q3 base boundary accepted. Web management reachability and concrete controls remain open. No user-role/project ACL system or LAN management writes are implied."
     },
     "approved_scope_adjustments": [
       {
@@ -235,6 +240,42 @@
       "initial_planning_commit_url": "https://github.com/swchen44/rustgrok/commit/526f619089703f710c915af303e54aea7d25226e",
       "contents_verification_method": "PER_FILE_GIT_BLOB_SHA_READBACK_MATCHED_INITIAL_PLANNING_TREE",
       "receipt_scope_note": "This records the verified initial planning snapshot. Later receipt-only edits require a later commit and are not asserted to be contained in this initial tree; no unknown follow-up commit is recorded."
+    },
+    "source_update_and_index_triggers": {
+      "decision_id": "D08",
+      "status": "USER_CONFIRMED",
+      "user_statement": "Q2-Q5 照你的，about Q3 網頁是不是也能加設置?",
+      "source_updates": "external_tools",
+      "index_triggers": [
+        "manual",
+        "scheduled"
+      ],
+      "filesystem_watch_status": "NOT_SPECIFIED",
+      "automatic_source_mutations": false,
+      "schedule_frequency_status": "OPEN"
+    },
+    "host_execution_modes": {
+      "decision_id": "D15",
+      "status": "USER_CONFIRMED",
+      "user_statement": "Q2-Q5 照你的，about Q3 網頁是不是也能加設置?",
+      "first_release_modes": [
+        "cli_foreground",
+        "cli_background"
+      ],
+      "system_service_status": "OPEN_FOR_LATER_DECISION",
+      "login_autostart_status": "OPEN_FOR_LATER_DECISION"
+    },
+    "legacy_index_cache_migration": {
+      "decision_ids": [
+        "D10",
+        "D20"
+      ],
+      "status": "PARTIALLY_CONFIRMED",
+      "user_statement": "Q2-Q5 照你的，about Q3 網頁是不是也能加設置?",
+      "index_cache_strategy": "rebuild_from_source",
+      "retain_original_data_for_recovery": true,
+      "direct_legacy_lucene_read_required": false,
+      "remaining_scope": "XML config, JAR plugins, bookmarks/URLs and other migration items remain open."
     }
   },
   "declared_license": {

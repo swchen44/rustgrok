@@ -40,7 +40,7 @@
     "B外裝工具與C無helpers不是本版mandatory profile；缺helper、錯版本、損毀或不相容binary仍以故障注入負測，不代表可交付缺件產品，亦不允許外網補件。",
     "D21已確認搜尋速度優先。依query類別、單／跨project、cold/warm/cache命中率及並行index分報server queue／處理與browser體驗；慢查詢、timeouts與未完成請求不可從平均或分位統計中隱去。",
     "D02已確認本機local與LAN都支援、約5位同時使用者、不用權限管理。既有SEC-002改驗共同可讀正向契約，取消帳號／角色／RBAC／project ACL作mandatory，不把這些項目保留為永久blocked或skip算passed。",
-    "免登入讀者入口只是工程建議，不是使用者已批准；不得新增強制登入／SSO要求。主機CLI／本機控制面管理、LAN讀者面只讀也是提案，管理操作可見範圍及token／CSRF等依D16/D20確認。",
+    "免登入讀者入口只是工程建議，不是使用者已批准；不得新增強制登入／SSO要求。Q3 已確認主機CLI／本機控制面管理、LAN搜尋／瀏覽；新增管理網頁可達範圍及 token／CSRF 等細節仍依 D16/D20 確認。",
     "效能測試包含1-user參照與約5-user互動情境，client採不同project/query並共用server cache、加入背景index。約5人不是5 QPS、5個in-flight requests或hard cap；實際rate／think-time／並行另記，不自行填SLO。",
     "正式部署優先Ubuntu24.04 amd64；首輪開發平台已確認Apple M1／Apple Silicon arm64，先完成全部Mac移植、功能、介面與包裝，再於Ubuntu完整原生重驗。macOS實際／最低版本待確認，Windows承諾保留；不再詢問Intel或ARM。",
     "平台順序不變更既有Test IDs／gate映射。Mac平台完成不是全域跨平台gate通過；每個OS/CPU以獨立run、artifact hash及結果判定，Mac PASS不可轉成Linux PASS，跨編譯只產生artifact。",
@@ -985,17 +985,17 @@
         "FR-017",
         "NFR-008"
       ],
-      "title": "讀者API共同可讀與管理端點邊界（D16待決）",
+      "title": "讀者API與已選管理邊界；管理網頁範圍待決",
       "preconditions": [
-        "local＋LAN與不用權限管理已確認，不建立角色／project ACL前置。D16/D20管理端點、token／CSRF／transport政策尚待確認；免登入與本機控制面／LAN只讀只是工程提案。"
+        "Q3 已確認 LAN 搜尋／瀏覽、主機 CLI／本機控制面管理；新增管理網頁的本機／LAN可達範圍與具體 token／CSRF／transport 契約仍待確認，不建立角色／project ACL 前置。"
       ],
       "steps": [
         "以獨立client對已登記projects執行read API，確認查詢內容與範圍共同可讀；不要求建立帳號、角色、ACL或SSO。",
-        "列出config/reindex/project/control端點的副作用、讀者／管理用途及預計listener；提交主機CLI／本機控制面管理、LAN讀者面只讀提案，不能把HTTP verb或no-AuthZ直接當管理開放依據。",
-        "D16/D20確認後按政策測管理操作可達／不可達範圍及HTTP(S) transport；隔離原型證據不代表使用者已批准對LAN開放。",
+        "列出 config/reindex/project/control 端點副作用，核對已選讀者／管理 listener 分界；網頁介面不自動代表可從 LAN 管理。",
+        "驗主機 CLI／本機控制面的管理操作及 LAN 管理隔離；新增管理網頁按後續批准的可達範圍驗收，未決部分單獨標示。",
         "只有政策選定token時才測missing／wrong／correct及洩漏；未選token則驗批准的管理控制，不強迫增加token或登入。任何實際secret不得出現在argv/log/browser bundle。"
       ],
-      "expected": "讀者API共同可讀且無角色／project ACL需求；管理端點與控制符合確認後D16/D20契約，待決處不假通過、不默開LAN管理。取消RBAC不造成永遠待補的RBAC測試。",
+      "expected": "LAN 讀者 API 共同可讀，主機 CLI／本機控制面管理與 LAN 管理隔離符合 Q3；管理網頁及具體控制依後續批准契約，不默開 LAN mutation，也不新增角色／project ACL。",
       "evidence": [
         "evidence/<release>/<run>/API-002/result.json",
         "evidence/<release>/<run>/API-002/attachments/"
@@ -1279,14 +1279,14 @@
       ],
       "title": "Ctrl+C、正常 stop、crash、parent exit、port conflict",
       "preconditions": [
-        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+        "D15 已確認首版 CLI 前景與背景執行；系統服務／登入自啟後續待決。使用已核准平台與顯式生命週期契約。"
       ],
       "steps": [
-        "在local與LAN兩種運作模式分別啟動Rust server與長索引工作，包含bundled helpers子程序並保留受管identity；從主機端觸發停止測試，不假定LAN管理已批准。",
-        "測Ctrl+C/stop/parent crash/port衝突/重複啟動，含async worker取消。",
+        "在 local／LAN 分別涵蓋 CLI 前景與背景模式，啟動 Rust server 及長索引工作；保留 bundled helpers 子程序 identity，從主機控制面觸發停止。",
+        "按模式的生命週期契約測 Ctrl+C、CLI stop、parent exit/crash、port 衝突與重複啟動，包含 async worker 取消；前景／背景預期分開記錄。",
         "驗證ready/stop/exit與無orphan，不誤殺其他程序；不以原Java shutdown行為代替Rust實驗。"
       ],
-      "expected": "受管Rust程序與bundled helpers子程序可控退出；沒有孤兒程序，且不終止其他使用者或其他工作實例。",
+      "expected": "首版 CLI 前景與背景按各自契約可控啟停，bundled helpers 無失控孤兒程序且不誤殺其他實例；不以未承諾的 service／自啟取代驗證。",
       "evidence": [
         "evidence/<release>/<run>/OS-002/result.json",
         "evidence/<release>/<run>/OS-002/attachments/"
@@ -1638,17 +1638,17 @@
         "FR-017",
         "NFR-008"
       ],
-      "title": "local／LAN讀者與管理控制面邊界（D16待決）",
+      "title": "已選local／LAN管理邊界與待決管理網頁範圍",
       "preconditions": [
-        "local＋LAN與無角色／project ACL已確認；管理操作開放範圍、Host/Origin/CSRF/token／transport仍依D16/D20確認。主機CLI／本機控制面與LAN只讀是提案，不是已批准政策。"
+        "Q3 已確認主機 CLI／本機控制面管理、LAN 搜尋／瀏覽；管理網頁可達範圍及 Host/Origin/CSRF/token／transport 細節仍待確認。"
       ],
       "steps": [
         "建立read／mutation端點表，分別列local與LAN的listener、可達範圍與副作用；不把免登入讀者提案或no-AuthZ當成管理開放授權。",
-        "對工程提案可先在隔離環境驗主機CLI／本機控制面操作、LAN讀者共同讀取及管理端點隔離，證據明標proposal；正式驗收依D16確認後政策。",
+        "測已選主機 CLI／本機控制面操作、LAN 讀者共同讀取及 LAN 管理端點隔離；正式證據依已確認邊界保存，新增管理網頁的待決範圍分開標示。",
         "依選定控制面實際測Host/Origin、跨origin頁面、DNS rebinding、CSRF與client管理請求的相關情境；只有選用token／TLS等時測其明確契約，不虛構已批准配置。",
         "若政策未選某種控制，驗證批准的替代邊界及其證據；不新增帳號／角色／RBAC／project ACL前置，也不因在內網就默開有副作用端點。"
       ],
-      "expected": "共同可讀契約成立，管理操作暴露及控制符合D16/D20確認後邊界；未確認時只報proposal與待決，不假通過，不把取消RBAC變成永久阻擋。",
+      "expected": "已選 LAN 讀者與主機 CLI／本機控制面管理邊界可驗；新增管理網頁及其控制依後續批准範圍，不把尚未決定的擴充標為通過，不默開 LAN 管理。",
       "evidence": [
         "evidence/<release>/<run>/SEC-005/result.json",
         "evidence/<release>/<run>/SEC-005/attachments/"
@@ -1902,14 +1902,14 @@
       ],
       "title": "CLI 契約與錯誤處理",
       "preconditions": [
-        "相關需求與平台／交付契約須先核准；未決則實際執行狀態應標blocked。"
+        "D15 已確認 CLI 前景與背景；精確命令／參數及平台交付契約須凍結，未決條件個別列出。"
       ],
       "steps": [
         "由批准的CLI spec產生命令/參數/exit-code table。",
-        "測init/start/stop/status/doctor/project/index等最終批准命令及非法參數、取消、重入。",
+        "測最終批准的 init/start/stop/status/doctor/project/index 等命令、非法參數、取消及重入，啟停流程覆蓋前景與背景；service／登入自啟不代替首版兩模式驗證。",
         "檢查stdout/stderr與machine-readable模式，確認不洩露token或source。"
       ],
-      "expected": "正常與錯誤操作均符合已凍結契約；未批准命令名只是候選。",
+      "expected": "前景與背景的正常／錯誤操作、exit/status 均符合凍結契約；未批准命令名仍是候選。",
       "evidence": [
         "evidence/<release>/<run>/CLI-001/result.json",
         "evidence/<release>/<run>/CLI-001/attachments/"
@@ -1960,16 +1960,16 @@
         "FR-009",
         "NFR-008"
       ],
-      "title": "來源同步能力（需求待決）",
+      "title": "外部source更新與手動／排程索引",
       "preconditions": [
-        "相關需求與平台／交付契約須先核准；未決則實際執行狀態應標blocked。"
+        "D08 已確認 source 由外部工具更新，產品手動及排程索引；watch 未指定。用公開合成 source 與顯式測試排程配置，不填未批准的產品預設值。"
       ],
       "steps": [
-        "先確認是否要求代管clone/pull、watcher或schedule，未決則blocked。",
-        "若批准，以合成remote測正常sync、dirty tree、conflict、offline與認證失敗。",
-        "檢查同步範圍、來源副作用、index觸發與失敗顯示。"
+        "驗產品手動及排程索引入口、工作狀態及重複觸發；watch 與產品代管 SCM 更新不作本流程前置。",
+        "用外部工具修改合成 source，驗手動與排程索引的更新、失敗及恢復；產品不執行 clone/pull/stash/reset。",
+        "記錄索引前後 source hashes、工作觸發與錯誤；確認產品索引過程不改寫 source，排程間隔採明示測試配置。"
       ],
-      "expected": "只執行批准的來源修改；不自動stash/reset/pull未知working tree。",
+      "expected": "手動／排程索引能處理外部更新的 source 並呈現結果／失敗；產品不自動修改 checkout，watch 未指定不阻擋已批准流程。",
       "evidence": [
         "evidence/<release>/<run>/SYN-001/result.json",
         "evidence/<release>/<run>/SYN-001/attachments/"
@@ -1979,8 +1979,8 @@
       "status": "planned",
       "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
       "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
-      "requires_user_decision": true,
-      "conditional": true,
+      "requires_user_decision": false,
+      "conditional": false,
       "acceptance_gate": "G3"
     },
     {
@@ -1993,14 +1993,14 @@
       ],
       "title": "既有 OpenGrok 資料遷移（需求待決）",
       "preconditions": [
-        "相關需求與平台／交付契約須先核准；未決則實際執行狀態應標blocked。"
+        "Q2 已批准從 source 重建 index/cache 且保留原資料供回復；XML設定、JAR、舊URL及其餘遷移項依 D10/D20 分項確認。"
       ],
       "steps": [
-        "確認D20要求的舊OpenGrok source/config/Lucene index/history/bookmarks與版本，未決則blocked。",
-        "逐項檢查可轉換資料；測dry-run、schema/version不符、備份及復原，不承諾直接讀Lucene binary。",
-        "若必須重建則明列成本與使用者批准，重建後比對query/history/URL；不能以Rust重寫為由省略原遷移需求。"
+        "核對 D04 基線與 source／SCM history；已批准 index/cache 重建路徑可執行，其餘未決遷移項個別標示，不整體阻擋重建。",
+        "保留原資料及可復原組合，在新的 index/cache 位置重建，測 dry-run、schema/version 不符、備份與復原。",
+        "記錄重建成本並按已批准契約比對 query/history/URL；XML、JAR 等仍待決部分不省略或假稱通過。"
       ],
-      "expected": "已批准遷移路徑可驗證且可回復；未決不得宣稱既有索引可直接沿用。",
+      "expected": "批准的 source→index/cache 重建路徑可驗證且可回復，原資料保留；不宣稱直接沿用 Lucene binary，未決 XML/JAR 等另列。",
       "evidence": [
         "evidence/<release>/<run>/MIG-001/result.json",
         "evidence/<release>/<run>/MIG-001/attachments/"
@@ -2474,9 +2474,9 @@
         "Rust、bundled helpers、搜尋優先、local＋LAN、約5人及無權限管理已確認。開發驗證先完成macOS移植／功能／介面／包裝，再於Ubuntu24.04 amd64適配及完整原生重驗；Ubuntu為部署優先。macOS實際／最低版本、Windows環境、oracle、D16/D20、SLO及負載未決處明列。G1研究配置不冒稱完整平台或SLO已通過。"
       ],
       "steps": [
-        "逐項列出原CLI/config/API、Java XML設定、JAR plugin ABI、Lucene index及bookmark需求，標D20待決。",
+        "逐項列原CLI/config/API、Java XML、JAR ABI、index/cache及bookmark需求；index/cache 重建已由 Q2 批准，其餘 D20 未決項分開標示。",
         "以代表設定/plugin功能測Rust等價能力；binary ABI與行為相容分開，沒有JVM不能假稱可載原JAR。",
-        "在明確決策前把未實現完整性列gap；任何替代import/rebuild/plugin API須批准後再驗，不自行縮減。"
+        "驗已批准 source→index/cache 重建且保留原資料供回復；其餘 import／plugin API 仍需明確決策，未實現完整性列 gap，不自行縮減。"
       ],
       "expected": "相容承諾逐項可驗；未決範圍不報full parity，也不偷偷加入Java fallback。",
       "evidence": [
@@ -2544,13 +2544,17 @@
     "D21": "搜尋速度優先；約5位同時使用者為已知代表情境，驗證另設1人參照；未批准具體SLO、corpus/hardware、request率／think-time／每人並行或改善倍數。",
     "D02": "local本機與LAN都支援，不做帳號／角色／RBAC／project ACL；已登記projects共同可讀。免登入入口與管理面開放政策尚非已批准。",
     "D03": "首輪Mac為Apple M1／Apple Silicon arm64；先完整移植／功能／介面／包裝，再於Ubuntu24.04 amd64適配及完整原生重驗。Ubuntu為正式部署優先，macOS實際／最低版本及Windows細節仍未決。",
-    "D11": "公開swchen44/rustgrok已建立（ID 1433282584、main），發行包放GitHub Releases。初始規劃commit 526f619089703f710c915af303e54aea7d25226e／tree 3af8b051938022e067b29a8ccc4d7acac51205b2與46檔blob SHA已核實；這不是產品測試通過，尚無產品Release且CI未跑。"
+    "D11": "公開swchen44/rustgrok已建立（ID 1433282584、main），發行包放GitHub Releases。初始規劃commit 526f619089703f710c915af303e54aea7d25226e／tree 3af8b051938022e067b29a8ccc4d7acac51205b2與46檔blob SHA已核實；這不是產品測試通過，尚無產品Release且CI未跑。",
+    "D08": "外部工具更新source；產品手動＋排程索引，watch未指定。",
+    "D10": "Q2 部分已決：index/cache從source重建，保留原資料供回復；XML/JAR/URL等仍OPEN。",
+    "D15": "首版CLI前景＋背景；系統服務／登入自啟後續待決。",
+    "D16": "Q3 基本邊界：LAN搜尋／瀏覽，主機CLI／本機控制面管理；新增管理網頁可達範圍另問。"
   },
   "open_decisions": {
-    "D20": "排序、舊index/config/JAR及原REST管理相容仍需盤點；D02已取消帳號／角色／project ACL的mandatory要求，不可由原版parity偷偷加回，也不可默開LAN管理。",
+    "D20": "index/cache可從source重建且保留原資料已確認；排序精度、XML/JAR/URL及原REST管理automation等剩餘相容仍需盤點。",
     "D09": "約5人代表情境已知，不等於5 QPS、5requests或hard cap；具體搜尋SLO、corpus/hardware、query mix、request率／think-time／每人並行及其他成本門檻仍OPEN。",
     "D03": "M1／Apple Silicon arm64與Ubuntu24.04 amd64均已確認；macOS實際版本／最低支援版本、Windows版本／CPU、硬體資源等剩餘條件仍OPEN。不再詢問Mac Intel或ARM。",
-    "D16": "管理操作開放何處、讀者入口與token／CSRF／本機控制面等待確認；免登入、主機CLI／本機控制面管理及LAN只讀為工程提案，不新增強制登入／SSO／RBAC需求。"
+    "D16": "新增管理網頁的本機／LAN可達範圍及具體操作／控制；Q3基本邊界已確認，不新增強制登入／SSO／RBAC。"
   },
   "platform_execution_policy": {
     "production_priority": {

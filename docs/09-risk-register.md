@@ -14,7 +14,7 @@
 
 D02、D11、D19與D21已確認；D03的M1／arm64先驗與Ubuntu24.04 amd64正式部署、D09約5人也已知，不再作未答阻擋。macOS版本／Windows細節、實際repo／Release交付、工具／平台payload、授權與企業環境，以及SLO／資料規模／硬體／request負載／資源取捨仍須完成；相關風險維持pending，Mac通過不能關閉Ubuntu風險。
 
-v0.3的R11／R12曾以完整登入／ACL矩陣描述風險；依D02在v0.4調整為管理入口暴露與範圍誤解，不再要求使用者角色／RBAC／專案ACL，也不追加帳號／SSO／登入必交。主機CLI／本機控制介面管理、LAN只讀是D16的PROPOSED方案，尚未批准；R11／R12仍為pending，並非安全測試已通過。
+v0.3的R11／R12曾以完整登入／ACL矩陣描述風險；依D02在v0.4調整為管理入口暴露與範圍誤解，不再要求使用者角色／RBAC／專案ACL，也不追加帳號／SSO／登入必交。後續 Q3 已確認主機 CLI／本機控制介面管理、LAN 搜尋／瀏覽；新增管理網頁可達範圍仍依 D16 待確認。R11／R12仍為pending，政策確認不是安全測試通過。
 
 原版Java／Tomcat只用作獨立oracle。遇到Rust實作困難時，先取得差異證據、調整相容層／Rust選型或提具體需求決策；不能加入隱性Java產品fallback，也不能默默刪掉原功能。
 
@@ -32,7 +32,7 @@ v0.3的R11／R12曾以完整登入／ACL矩陣描述風險；依D02在v0.4調整
 | R08 | pending | Rust index writer、project/job metadata與配置同時寫入，造成競爭或半提交 | WP-B06/WP-C07；同index排他、generation／commit receipt、crash注入 | 修writer與發布協定；不要把上游lock設定當Rust已獲保護 |
 | R09 | pending | Windows running EXE、DLL、mmap／抗毒軟體鎖檔，更新／回復失敗 | 原生upgrade／stop／rollback，版本目錄或execution cache實驗 | 停機切換／保留舊版；不強覆寫或刪仍在用的檔案 |
 | R10 | pending | 只備index但live source已改，raw/xref/history／rollback版本不一致 | D12、source revision／generation模型、SRC-005/RST-009 | 選經批准snapshot或明示eventual契約，不誇大最後成功版本保護 |
-| R11 | pending | 把不用權限管理誤解為所有LAN讀者都可重建／改設定／停機，管理API隨讀者入口暴露 | D16／D20列端點與既有REST契約；對主機CLI／本機控制、LAN只讀提案測實際listener、URL與HTTP methods | 先定管理暴露契約並驗證；未批准提案不當現行授權，不把local／LAN已確認需求重新泛稱blocked |
+| R11 | pending | 把不用權限管理誤解為所有LAN讀者都可重建／改設定／停機，管理API隨讀者入口暴露 | D16／D20列端點與既有REST契約；測 Q3 已選主機CLI／本機控制、LAN讀者面分界的實際listener、URL與HTTP methods | 新增管理網頁可達範圍另定並驗證；不把未決擴充當現行授權，不把已確認邊界泛稱blocked |
 | R12 | pending | 認證、權限管理與管理入口混淆：額外加入帳號／SSO／RBAC，或把免登入提案當已批准 | D02不做角色／RBAC／project ACL；檢查需求、介面與測試範圍，管理暴露依D16、REST相容依D20 | 移除未要求的登入／角色必交gate，不自行開放管理端點或刪既有API；必要差異具體提出 |
 | R13 | pending | oracle、ctags、crates或features漂移，差異來源難以歸因 | 固定原版manifest、Cargo.lock、toolchain／helpers與配對run記錄 | 分離baseline變更與產品回歸；先還原可比較環境 |
 | R14 | pending | normalization／畫面遮罩抹去ranking、line、highlight等差異，製造假PASS | WP-A08白名單；保留raw responses／AST／token／score／DOM | 拒絕未批准的重排或擴大遮罩，定位真差異 |

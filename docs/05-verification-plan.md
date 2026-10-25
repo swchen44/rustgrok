@@ -78,7 +78,7 @@ Rust parser/analyzer的內部結構可以不同，但必須先對齊語意。當
 
 SRV-001、SEC-002驗證兩種運作模式及共同讀取：local模式核對本機listener邊界；LAN模式由多個獨立client讀取同一批已登記projects，涵蓋search、suggest、xref、raw、history、diff、download、直接URL與read API。不建立允許／禁止專案的角色帳戶，不因取消RBAC而把測項skip算passed。不同client的project選取、query與cache結果仍需正確，不可互相污染；來源root外的檔案與管理狀態不因共同可讀而自動開放。
 
-管理面與讀者面分開盤點。工程提案是**主機CLI／本機控制面管理、LAN讀者面只讀**，並非已批准政策。API-001/002/004與SEC-005依D16／D20列出原REST管理端點、verbs、狀態改變及所需控制；token、Host/Origin、CSRF、transport等只在選定政策下驗證。不把「不用權限管理」解讀為已允許所有LAN讀者改配置、reindex或停止服務，也不把管理面待決重新變成登入／RBAC需求。
+管理面與讀者面分開盤點。Q3 已確認**主機CLI／本機控制面管理、LAN搜尋／瀏覽讀者面只讀**；使用者追加的管理網頁可達範圍仍待確認。API-001/002/004與SEC-005依D16／D20列出原REST管理端點、verbs、狀態改變及所需控制；token、Host/Origin、CSRF、transport等只在選定政策下驗證。不把「不用權限管理」解讀為已允許所有LAN讀者改配置、reindex或停止服務，也不把管理面待決重新變成登入／RBAC需求。
 
 ## 4. Golden corpus與property測試
 

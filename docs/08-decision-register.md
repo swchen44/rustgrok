@@ -13,7 +13,10 @@
 | D01 | USER_CONFIRMED | 採 Rust 重寫產品核心；保留自帶Web Server、npm、內網、多專案、macOS／Ubuntu24.04 amd64／Windows64位元、原版功能與style目標 | 現行v0.6設計；原版Java／Tomcat改作獨立reference oracle；精確平台見D03，HTTP框架、搜尋引擎與工具版本仍需驗證 |
 | D02 | USER_CONFIRMED | 同一產品支援local與LAN共用，約5人同時使用，不做使用者角色／RBAC／專案ACL管理 | 約5人是容量情境，不是QPS或同時requests硬值；不追加帳號／SSO／登入為必交，管理操作暴露仍依D16提案與D20相容盤點 |
 | D04 | USER_CONFIRMED | OpenGrok 1.14.20／commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3 為功能、style 與排序的正式驗收基線 | 適用現行 v0.6 的 oracle、資產、UI、query 與排序差異驗證；產物 hash 核對及 runtime 尚未完成，D20 的精確相容與遷移契約仍 OPEN |
+| D08 | USER_CONFIRMED | source 由外部工具更新；產品支援手動及排程索引 | Q4；watch 未指定，排程頻率、dirty source 與一致性細節仍待定；不由產品自動 pull/reset 或修改 source |
 | D11 | USER_CONFIRMED | 建立public新repo swchen44/rustgrok，release packages放GitHub Releases | repo已建立，creation_status為created；首次規劃已提交main並核對，產品Release／artifact未建立，分階段以metadata與hash驗證 |
+| D15 | USER_CONFIRMED | 首版提供 CLI 前景與背景執行 | Q5；系統服務／登入自啟留待後續決定；不由此推定 root、systemd、launchd 或 Windows Service 必要 |
+| D16 | USER_CONFIRMED | LAN 提供搜尋／瀏覽；新增專案、重建、設定及停機由主機 CLI／本機控制面處理 | Q3 基本管理邊界已接受；使用者另問網頁設定，管理網頁的本機／LAN可達範圍待確認；既有 REST／automation 與具體控制仍須盤點 |
 | D19 | USER_CONFIRMED | Rust核心可隨包附必要Ctags、Git及其他SCM工具；主要產品profile採bundled helpers | 工具清單、固定版本、各OS／CPU payload、能力、授權與所需SCM仍依inventory驗證；不把外裝或禁止helpers列為必交profile，不授權自動下載或git pull |
 | D21 | USER_CONFIRMED | 效能優先方向為搜尋速度 | 約5人情境已知；數值SLO、資料規模／硬體／request負載、CPU／RAM／磁碟預算與取捨仍OPEN，不代表接受排序／功能差異或無限資源 |
 
@@ -39,6 +42,8 @@ v0.6使用者回覆「1. public 2. M1」：D11的public已USER_CONFIRMED；D03�
 
 ## 2. 接下來優先釐清的事項
 
+2026-10-25 下一輪使用者原文：「Q2-Q5 照你的，about Q3 網頁是不是也能加設置?」。Q2 接受從 source 重建索引與 cache，保留原資料供回復；XML 設定、JAR plugins、舊 URL 與其他遷移項不由此代答。Q3 接受上述基本管理邊界，並提出網頁設定的補充問題；管理網頁可達範圍仍 OPEN。Q4 接受外部 source 更新及產品手動／排程索引。Q5 接受首版 CLI 前景／背景，系統服務及登入自啟後續待決。這些是產品政策，不是已實作或測試通過。影響 FR-009、FR-011、FR-014、FR-015、FR-017、FR-019、FR-020、NFR-007、NFR-008、NFR-012；WP 與 test IDs 依既有追溯表，直接更新 MIG-001、RST-011、API-002、SEC-005、SYN-001、OS-002、CLI-001 的規格，維持 planned。
+
 D02、D04、D11、D19與D21已確認；D03／D09已有Mac M1／arm64、Ubuntu24.04 amd64、驗證順序及約5人情境。D04 已固定 OpenGrok 1.14.20；接著完成 macOS 版本／Windows 細節、工具 inventory、D20 相容契約及量化門檻。可以分輪回答；不再詢問原版基線版本、Mac CPU、Ubuntu版本／CPU、repo名稱／公開性、local／LAN或權限管理。
 
 | ID | 狀態 | 要回答的問題 | 選項／所需資訊 | 影響與誰決定 |
@@ -49,7 +54,7 @@ D02、D04、D11、D19與D21已確認；D03／D09已有Mac M1／arm64、Ubuntu24.
 
 D02排除的是使用者角色／RBAC／專案ACL管理，不把這項選擇自動擴成帳號、SSO或登入系統需求。免登入讀者入口為PROPOSED方案，不另設必答的登入確認關卡。
 
-管理操作暴露仍未定。D16的具體PROPOSED方案是「主機CLI或本機控制介面管理，LAN只提供搜尋／瀏覽等讀取操作」；這不是使用者已批准的部署規則。沒有權限管理不能推導為任何LAN人員都可重建、改設定或停機；若需既有REST管理相容，依D16／D20盤點端點與automation後處理，不默刪原功能。
+D16 的基本方案已由 Q3 確認：「主機 CLI 或本機控制介面管理，LAN 只提供搜尋／瀏覽等讀取操作」。使用者追加詢問網頁設定，網頁從本機或 LAN 可達尚待確認；不能把網頁介面直接當作已批准 LAN 管理。既有 REST 管理相容仍依 D16／D20 盤點端點與 automation，不默刪原功能。
 
 ## 3. D19：隨包策略已確認，具體工具仍須驗證
 
@@ -75,8 +80,8 @@ external-only或完全禁止helpers不是本輪必交profile；未來若新增�
 | Hits／排序／score | 命中集合、total count、relevance／field sort、數值score精度、tie與分頁 | 不能任意排序結果後比較、套未批准epsilon或忽略排名 |
 | Web／URL／REST／既有automation | 原網頁、快捷鍵、原URL、參數、headers、JSON、錯誤與非同步完成語意 | 不能換成新API就算同功能，不能只保留CSS |
 | JavaBeans XML configuration | 是否要匯入／匯出既有檔案，實際使用哪些property／自訂內容？ | 不能把普通XML parse當作任意Java物件配置可執行；不執行未受信任XMLDecoder輸入 |
-| Lucene index | 是否必須直接讀現有index，還是可從source完整重建？ | 不能宣稱Tantivy或其他Rust引擎直接相容Lucene格式；不動原索引作試驗 |
-| xref／history／其他cache | 是否需沿用既有cache，還是可重建？ | 不能只改副檔名／路徑就當作格式相容 |
+| Lucene index | Q2 已確認可從 source 完整重建，保留原資料供回復 | 不要求直接讀取舊 Lucene index；重建後結果仍須符合 D04，不宣稱格式相容 |
+| xref／history／其他cache | Q2 已確認可重建，保留原資料供回復 | 來源及 SCM history 是否足夠須驗證；重建成本與回復程序不視為已通過 |
 | Java JAR plugins | 有哪些自訂plugin；要求原JAR binary沿用，還是移植等價能力？ | Rust不能直接提供原Java類別載入；不能默刪插件，也不能加隱性JVM fallback |
 | 例外與差異接受 | 若實測差異不可避免，是否接受某個明確、有限的改變？ | OPEN不是已接受差異；任何變更需記原行為、候選行為、影響與使用者確認 |
 
@@ -107,9 +112,8 @@ Rust採用本身不是效能驗收。G1先在功能等價的slice量測並標示
 | D05 | OPEN | 多專案位於哪裡？「同時」要哪些操作？ | 同一root／分散磁碟／NAS／UNC；同時可查、跨project查、同時重建分開；project數。影響mapping、OS檔案存取權限、排程與scoring scope，不新增project ACL |
 | D06 | OPEN | 語言、SCM與原版擴充清單？ | 實際語言、Git／SVN／Perforce／Mercurial等、history／annotate／plugins使用。用於inventory、優先測試與adapter，不能當成只做常用子集的授權 |
 | D07 | OPEN | npm與內網限制？ | public npm／公司mirror／私有registry／只匯入TGZ／完全離線；Node/npm版本、install scripts、一般使用者權限、binary與大小policy；是否需要離線build。影響包型與clean-machine測試 |
-| D08 | OPEN | source如何更新與何時索引？ | 外部更新＋手動／定時／watch；是否允許工具fetch/pull；dirty files處理。影響排程、source一致性與操作授權 |
 | D09 | OPEN | 約5人同時使用已知；其餘資料規模、硬體與效能基線？ | 人數為已確認容量情境；projects/repos/files/GB/LOC/history、CPU/RAM/SSD/NAS、query分布／request並行與數值SLO仍OPEN。不能以約5人代填5 QPS或5個同時requests，D21搜尋速度優先不變 |
-| D10 | OPEN | 要遷移哪些現有資料與URL？ | sources、XML設定、Lucene index、history/xref cache、bookmarks/context path。需與D20共同選擇匯入、converter、重建與rollback策略 |
+| D10 | OPEN | 索引／cache可重建已確認；其餘遷移項有哪些？ | Q2 已接受從 source 重建 index/cache，原資料保留供回復；XML設定、JAR、bookmarks/context path與其餘來源遷移仍須逐項確認 |
 
 「尚未提供語言／SCM／plugins清單」不等於不需要。若要分期或以常用子集先發布，須明確提出差異與影響，取得使用者批准；prototype scope本身不會縮小最終需求。
 
@@ -120,8 +124,6 @@ Rust採用本身不是效能驗收。G1先在功能等價的slice量測並標示
 | D12 | OPEN | 索引更新／升級能否中斷？需要何種一致性與回復？ | eventual／停機／shadow generation／source snapshot；RTO/RPO與磁碟預算。Rust index commit不等於index/xref/history/config全體原子提交 |
 | D13 | OPEN | 原生離線ZIP的精確內容、啟動與發行方式？ | 原生binary、依D19隨包策略完成inventory的helpers／共享庫／資產、CLI或雙擊入口、mac簽章/notarization及企業驗證要求。ZIP可直接跑Rust，不預設需要打包Node |
 | D14 | OPEN | npm包型、名稱與發布體驗？ | 通用薄JSlauncher＋平台包／各平台native-bin package／offline TGZ；scope/name、registry限制、精確支援npm版本。發布仍由使用者自己執行 |
-| D15 | OPEN | 常駐方式？ | 終端前景／背景user process／登入自啟／OS system service；是否自動開browser。影響Rust supervisor與安裝權限 |
-| D16 | OPEN | 管理操作如何暴露，有哪些既有管理／整合介面要接續？ | PROPOSED：主機CLI／本機控制介面管理、LAN只讀，尚未批准。盤點REST consumers、原Python CLI／scripts、plugins與automation的命令／格式／完成語意，依D20保留相容，不默刪或默換介面 |
 | D17 | OPEN | 產品名稱、新程式碼授權與來源交付方式？ | 名稱不冒充官方；新Rust／JS內容、移植檔及原資產逐件處理；repo/source archives政策。改寫Rust不自動將衍生內容變成MIT |
 | D18 | OPEN | 上游相容、安全更新與產品支援如何維護？ | OpenGrok相容基線、Rust toolchain／crates、helpers、browser與native依賴的人工review頻率、支援週期、企業導入節奏；不在內網runtime自動連外更新 |
 

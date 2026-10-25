@@ -70,7 +70,7 @@ D20未批准任何新差異。若reference同分順序確有非決定性，先�
 
 ### 4.4 Index與配置相容
 
-Tantivy候選使用自己的versioned index/schema，不宣稱直接讀Lucene索引。建議從sources重建；是否接受首次重建屬D10/D20。prototype只能在合成corpus重建，不動使用者原索引。Java XML配置以白名單讀取與schema匯入，不執行XMLDecoder物件。
+Tantivy候選使用自己的versioned index/schema，不宣稱直接讀Lucene索引。Q2 已確認可從 sources 重建 index/cache，保留原資料供回復；XML、JAR、舊 URL 等其餘 D10/D20 契約仍待決。prototype只能在合成corpus重建，不動使用者原索引。Java XML配置以白名單讀取與schema匯入，不執行XMLDecoder物件。
 
 詳細query/scorer來源與差異見12-rust-compatibility.md。
 
@@ -115,7 +115,7 @@ Java JAR與Rust ABI不同；既有plugins、Python CLI、Java XML及API consumer
 
 ## 9. Lifecycle與持久資料
 
-Rust native binary持有服務生命週期。候選命令有doctor/init/project/index/serve/status/stop/logs/backup/upgrade-check；前景、背景或service由D15選。npm wrapper只負責入口。
+Rust native binary持有服務生命週期。候選命令有doctor/init/project/index/serve/status/stop/logs/backup/upgrade-check；D15 已選首版 CLI 前景與背景；系統服務／登入自啟後續待決。npm wrapper只負責入口。
 
 start檢查platform/config/依賴/lock/port，再初始化storage/reader/worker/HTTP。ready要含schema、project與generation可查。stop先拒新jobs，再依policy drain或取消、完成或回滾commit、關HTTP/child、釋放鎖與保存狀態。Windows和POSIX分開測。
 
@@ -125,7 +125,7 @@ start檢查platform/config/依賴/lock/port，再初始化storage/reader/worker/
 
 D02已確認local＋LAN兩種模式、約5人共用、不做使用者／角色／project ACL管理。同一Rust binary用配置選擇loopback或明確LAN介面；read routes共同存取服務內已註冊projects。免新增登入頁／帳號為工程提案，不列必需SSO或auth插件。資料根目錄、URL、檔案與process邊界仍是程式契約。
 
-D16尚待確認管理入口。建議主機CLI／本機控制面處理project/index/config/stop，LAN提供讀者路由；這是提案，不把目前回覆當已批准此入口或允許所有人管理。需要既有REST管理相容時另盤點D16/D20，相關token/Origin等依實際控制面決策。企業source/index/secrets不進GitHub/npm，runtime不自動CDN/telemetry/download。
+D16 已確認主機 CLI／本機控制面處理 project/index/config/stop，LAN 提供搜尋／瀏覽讀者路由；使用者另問網頁設定，管理網頁可達範圍仍待確認。需要既有REST管理相容時另盤點D16/D20，相關token/Origin等依實際控制面決策。企業source/index/secrets不進GitHub/npm，runtime不自動CDN/telemetry/download。
 
 ## 11. 效能契約
 
@@ -208,7 +208,7 @@ stateDiagram-v2
 | HistoryService | repositories/log/blame/diff | 封裝SCM差異、timeout、cache與錯誤 |
 | HostService | readiness/stop/diagnostics/version | 程序控制須驗證instance identity；不要僅憑PID檔就kill |
 
-前景／背景／service模式依D15決定。若需要本機control channel，可比較POSIX socket、Windows named pipe或受保護loopback端點；未選定之前不固定傳輸。但端點只控制正確instance、無admin暗示、身份權限、timeout與shutdown語意必須先定。
+D15 已確認首版 CLI 前景與背景模式；系統服務／登入自啟後續待決。若需要本機control channel，可比較POSIX socket、Windows named pipe或受保護loopback端點；未選定之前不固定傳輸。但端點只控制正確instance、無admin暗示、身份權限、timeout與shutdown語意必須先定。
 
 log至少能以request/job/project/generation關聯階段和錯誤；performance counters和使用者可見訊息分開。普通log不記原始source與credential；診斷匯出需讓使用者知道內容。
 
