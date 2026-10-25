@@ -1,0 +1,1047 @@
+{
+  "schema_version": "0.6",
+  "status": "proposed",
+  "requirements": [
+    {
+      "req_id": "FR-001",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md"
+      ],
+      "work_packages": [
+        "WP-B02",
+        "WP-C08",
+        "WP-C09",
+        "WP-D01"
+      ],
+      "test_ids": [
+        "REF-002",
+        "QRY-001",
+        "QRY-002",
+        "RST-002",
+        "RST-003"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-002",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md"
+      ],
+      "work_packages": [
+        "WP-B02",
+        "WP-C08",
+        "WP-D01"
+      ],
+      "test_ids": [
+        "QRY-002",
+        "QRY-003",
+        "QRY-004",
+        "QRY-005",
+        "RST-002",
+        "RST-007"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-003",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/14-search-performance-plan.md"
+      ],
+      "work_packages": [
+        "WP-B02",
+        "WP-C09",
+        "WP-D01"
+      ],
+      "test_ids": [
+        "QRY-006",
+        "PRJ-001",
+        "API-003",
+        "RST-004",
+        "RST-005"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-004",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md"
+      ],
+      "work_packages": [
+        "WP-B03",
+        "WP-C09",
+        "WP-D02"
+      ],
+      "test_ids": [
+        "UI-002",
+        "UI-003",
+        "OS-001",
+        "WIN-001",
+        "RST-005"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-005",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md"
+      ],
+      "work_packages": [
+        "WP-B03",
+        "WP-C03",
+        "WP-C10",
+        "WP-D02",
+        "WP-D06"
+      ],
+      "test_ids": [
+        "SRC-006",
+        "UI-001",
+        "UI-002",
+        "UI-005",
+        "SEC-003",
+        "RST-005"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-006",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/01-upstream-research.md"
+      ],
+      "work_packages": [
+        "WP-A05",
+        "WP-B05",
+        "WP-D03"
+      ],
+      "test_ids": [
+        "PRJ-005",
+        "UI-004",
+        "SCM-001",
+        "SCM-002",
+        "SCM-003",
+        "OS-001",
+        "WIN-001"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-007",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/14-search-performance-plan.md"
+      ],
+      "work_packages": [
+        "WP-A03",
+        "WP-B02",
+        "WP-C06",
+        "WP-C09",
+        "WP-D01"
+      ],
+      "test_ids": [
+        "PRJ-001",
+        "PRJ-002",
+        "PRJ-003",
+        "PRJ-005",
+        "UI-001",
+        "PERF-002",
+        "RST-004"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-008",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/01-upstream-research.md"
+      ],
+      "work_packages": [
+        "WP-A05",
+        "WP-B02",
+        "WP-C07",
+        "WP-C08",
+        "WP-D03"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003",
+        "RST-007"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-009",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md"
+      ],
+      "work_packages": [
+        "WP-B06",
+        "WP-C07",
+        "WP-D07"
+      ],
+      "test_ids": [
+        "REF-002",
+        "SRC-001",
+        "SRC-002",
+        "SRC-003",
+        "SRC-004",
+        "SRC-005",
+        "SRC-006",
+        "PRJ-002",
+        "PRJ-003",
+        "OS-005",
+        "REC-001",
+        "SEC-003",
+        "PERF-002",
+        "WIN-001",
+        "SYN-001",
+        "API-004",
+        "RST-009"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-010",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md"
+      ],
+      "work_packages": [
+        "WP-A05",
+        "WP-D04"
+      ],
+      "test_ids": [
+        "QRY-007",
+        "OS-001"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-011",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/08-decision-register.md",
+        "docs/15-deployment-and-linux-priority.md"
+      ],
+      "work_packages": [
+        "WP-A05",
+        "WP-C02",
+        "WP-C05",
+        "WP-D04"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SCM-002",
+        "API-001",
+        "API-002",
+        "API-003",
+        "SRV-001",
+        "API-004",
+        "RST-011"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-012",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md"
+      ],
+      "work_packages": [
+        "WP-A06",
+        "WP-B03",
+        "WP-C10",
+        "WP-D02"
+      ],
+      "test_ids": [
+        "REF-001",
+        "REF-003",
+        "UI-001",
+        "UI-002",
+        "UI-003",
+        "UI-004",
+        "UI-005",
+        "UI-006",
+        "SRV-001",
+        "RST-005"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-013",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md"
+      ],
+      "work_packages": [
+        "WP-B01",
+        "WP-C05",
+        "WP-C10"
+      ],
+      "test_ids": [
+        "REF-002",
+        "PKG-001",
+        "PKG-004",
+        "OS-001",
+        "SRV-001",
+        "RST-006"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-014",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md"
+      ],
+      "work_packages": [
+        "WP-C04",
+        "WP-C05",
+        "WP-E08"
+      ],
+      "test_ids": [
+        "OS-002",
+        "CLI-001"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-015",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md"
+      ],
+      "work_packages": [
+        "WP-C06",
+        "WP-C07",
+        "WP-C10"
+      ],
+      "test_ids": [
+        "PRJ-004",
+        "WIN-001",
+        "CLI-001",
+        "API-004"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-016",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md"
+      ],
+      "work_packages": [
+        "WP-C02",
+        "WP-C03",
+        "WP-E04"
+      ],
+      "test_ids": [
+        "SRC-004",
+        "PRJ-004",
+        "PKG-005",
+        "REC-001",
+        "REC-002",
+        "REC-004",
+        "SEC-001",
+        "DAT-001",
+        "MIG-001",
+        "RST-009"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-017",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/08-decision-register.md",
+        "docs/15-deployment-and-linux-priority.md"
+      ],
+      "work_packages": [
+        "WP-A01",
+        "WP-C05",
+        "WP-D05",
+        "WP-D06"
+      ],
+      "test_ids": [
+        "API-002",
+        "SEC-002",
+        "SEC-005"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-018",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/06-packaging-and-offline.md"
+      ],
+      "work_packages": [
+        "WP-B04",
+        "WP-C04",
+        "WP-E02",
+        "WP-E03",
+        "WP-E06"
+      ],
+      "test_ids": [
+        "PKG-002",
+        "PKG-003",
+        "SEC-004"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-019",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/08-decision-register.md"
+      ],
+      "work_packages": [
+        "WP-A03",
+        "WP-C06",
+        "WP-C07"
+      ],
+      "test_ids": [
+        "SYN-001"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-020",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/08-decision-register.md"
+      ],
+      "work_packages": [
+        "WP-A01",
+        "WP-C02",
+        "WP-D04",
+        "WP-E04"
+      ],
+      "test_ids": [
+        "REC-003",
+        "REC-004",
+        "MIG-001",
+        "RST-011"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-021",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/07-monorepo-and-github.md"
+      ],
+      "work_packages": [
+        "WP-C01",
+        "WP-C05",
+        "WP-C07",
+        "WP-C08",
+        "WP-C09"
+      ],
+      "test_ids": [
+        "REF-001",
+        "REF-002",
+        "REF-003",
+        "SRC-001",
+        "QRY-007",
+        "PRJ-003",
+        "UI-001",
+        "UI-002",
+        "UI-006",
+        "SCM-002",
+        "API-001",
+        "PKG-001",
+        "PKG-002",
+        "PKG-003",
+        "PKG-004",
+        "PKG-006",
+        "OS-001",
+        "OS-002",
+        "REC-001",
+        "REC-002",
+        "REC-003",
+        "PERF-001",
+        "PERF-002",
+        "WIN-001",
+        "SRV-001",
+        "MIG-001",
+        "REL-004",
+        "API-004",
+        "RST-001",
+        "RST-005",
+        "RST-006",
+        "RST-008",
+        "RST-009",
+        "RST-011",
+        "RST-012"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "FR-022",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/01-upstream-research.md"
+      ],
+      "work_packages": [
+        "WP-B02",
+        "WP-C08",
+        "WP-C09",
+        "WP-D01"
+      ],
+      "test_ids": [
+        "REF-003",
+        "QRY-001",
+        "QRY-002",
+        "QRY-003",
+        "QRY-004",
+        "QRY-005",
+        "QRY-006",
+        "PRJ-001",
+        "API-001",
+        "API-003",
+        "RST-001",
+        "RST-002",
+        "RST-003",
+        "RST-004",
+        "RST-007",
+        "RST-008"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "NFR-001",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/15-deployment-and-linux-priority.md"
+      ],
+      "work_packages": [
+        "WP-A02",
+        "WP-B04",
+        "WP-C03",
+        "WP-E06"
+      ],
+      "test_ids": [
+        "SRC-006",
+        "UI-006",
+        "PKG-001",
+        "PKG-005",
+        "PKG-006",
+        "OS-001",
+        "OS-002",
+        "OS-003",
+        "OS-004",
+        "OS-005",
+        "WIN-001",
+        "SRV-001",
+        "RST-006"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "NFR-002",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/06-packaging-and-offline.md",
+        "docs/16-github-bootstrap-and-release-handoff.md"
+      ],
+      "work_packages": [
+        "WP-B04",
+        "WP-E01",
+        "WP-E06",
+        "WP-E10"
+      ],
+      "test_ids": [
+        "PKG-001",
+        "PKG-002",
+        "PKG-005",
+        "REL-001",
+        "REL-002",
+        "DAT-001",
+        "RST-006"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "NFR-003",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/06-packaging-and-offline.md",
+        "docs/16-github-bootstrap-and-release-handoff.md"
+      ],
+      "work_packages": [
+        "WP-B04",
+        "WP-E03",
+        "WP-E06"
+      ],
+      "test_ids": [
+        "PKG-003",
+        "REL-001",
+        "REL-002",
+        "RST-006"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "NFR-004",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md"
+      ],
+      "work_packages": [
+        "WP-A02",
+        "WP-B04",
+        "WP-C03",
+        "WP-C04",
+        "WP-E06"
+      ],
+      "test_ids": [
+        "PKG-004",
+        "OS-003",
+        "OS-004"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "NFR-005",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/14-search-performance-plan.md",
+        "docs/15-deployment-and-linux-priority.md"
+      ],
+      "work_packages": [
+        "WP-A03",
+        "WP-B07",
+        "WP-E07",
+        "WP-E09"
+      ],
+      "test_ids": [
+        "PRJ-002",
+        "PERF-001",
+        "PERF-002",
+        "RST-008",
+        "RST-010",
+        "RST-012"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "NFR-006",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/14-search-performance-plan.md"
+      ],
+      "work_packages": [
+        "WP-A03",
+        "WP-B07",
+        "WP-E07",
+        "WP-E09"
+      ],
+      "test_ids": [
+        "PRJ-002",
+        "PERF-001",
+        "PERF-002",
+        "RST-008",
+        "RST-010",
+        "RST-012"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "NFR-007",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md"
+      ],
+      "work_packages": [
+        "WP-B06",
+        "WP-C05",
+        "WP-C07",
+        "WP-D07",
+        "WP-E04"
+      ],
+      "test_ids": [
+        "SRC-005",
+        "PRJ-003",
+        "OS-002",
+        "REC-001",
+        "REC-002",
+        "REC-004",
+        "API-004",
+        "RST-009"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "NFR-008",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/15-deployment-and-linux-priority.md"
+      ],
+      "work_packages": [
+        "WP-C03",
+        "WP-D05",
+        "WP-D06"
+      ],
+      "test_ids": [
+        "SRC-004",
+        "SRC-006",
+        "QRY-005",
+        "API-002",
+        "API-003",
+        "SEC-001",
+        "SEC-002",
+        "SEC-003",
+        "SEC-004",
+        "SEC-005",
+        "SYN-001",
+        "OBS-001",
+        "RST-007"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "NFR-009",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/06-packaging-and-offline.md"
+      ],
+      "work_packages": [
+        "WP-A04",
+        "WP-C01",
+        "WP-C04",
+        "WP-E05",
+        "WP-E10"
+      ],
+      "test_ids": [
+        "REF-001",
+        "PKG-006",
+        "REL-001",
+        "REL-004",
+        "REL-005"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "NFR-010",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/01-upstream-research.md",
+        "docs/06-packaging-and-offline.md"
+      ],
+      "work_packages": [
+        "WP-A04",
+        "WP-E05"
+      ],
+      "test_ids": [
+        "REL-001",
+        "REL-004"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "NFR-011",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md"
+      ],
+      "work_packages": [
+        "WP-C05",
+        "WP-C07",
+        "WP-E08"
+      ],
+      "test_ids": [
+        "SCM-003",
+        "REC-002",
+        "CLI-001",
+        "OBS-001"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "NFR-012",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md"
+      ],
+      "work_packages": [
+        "WP-C02",
+        "WP-C03",
+        "WP-D07",
+        "WP-E04"
+      ],
+      "test_ids": [
+        "OS-005",
+        "REC-003",
+        "REC-004",
+        "REL-002",
+        "DAT-001",
+        "MIG-001",
+        "RST-009",
+        "RST-011"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "NFR-013",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/07-monorepo-and-github.md",
+        "docs/10-agent-handoff.md",
+        "docs/16-github-bootstrap-and-release-handoff.md"
+      ],
+      "work_packages": [
+        "WP-C01",
+        "WP-E10"
+      ],
+      "test_ids": [
+        "REL-003",
+        "REL-005"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "NFR-014",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/10-agent-handoff.md",
+        "docs/16-github-bootstrap-and-release-handoff.md"
+      ],
+      "work_packages": [
+        "WP-A01",
+        "WP-A05",
+        "WP-A06",
+        "WP-A07",
+        "WP-A08",
+        "WP-B08",
+        "WP-D08",
+        "WP-E08",
+        "WP-E10"
+      ],
+      "test_ids": [
+        "REF-001",
+        "REF-002",
+        "REF-003",
+        "REL-002",
+        "REL-003",
+        "OBS-001",
+        "REL-005",
+        "RST-001",
+        "RST-011"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "NFR-015",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/06-packaging-and-offline.md",
+        "docs/16-github-bootstrap-and-release-handoff.md"
+      ],
+      "work_packages": [
+        "WP-B04",
+        "WP-E02",
+        "WP-E03",
+        "WP-E06"
+      ],
+      "test_ids": [
+        "PKG-002",
+        "PKG-003",
+        "REL-002",
+        "RST-006"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    },
+    {
+      "req_id": "NFR-016",
+      "design_docs": [
+        "docs/02-requirements.md",
+        "docs/03-system-design.md",
+        "docs/04-implementation-plan.md",
+        "docs/05-verification-plan.md",
+        "docs/08-decision-register.md",
+        "docs/14-search-performance-plan.md",
+        "docs/15-deployment-and-linux-priority.md"
+      ],
+      "work_packages": [
+        "WP-B07",
+        "WP-E07",
+        "WP-E09"
+      ],
+      "test_ids": [
+        "REF-001",
+        "SRC-001",
+        "PERF-001",
+        "PERF-002",
+        "RST-008",
+        "RST-010",
+        "RST-012"
+      ],
+      "status": "planned",
+      "evidence_status": "not_run"
+    }
+  ],
+  "coverage": {
+    "requirement_count": 38,
+    "test_specification_count": 80,
+    "work_package_count": 44,
+    "all_requirements_have_work_packages": true,
+    "all_requirements_have_test_specifications": true,
+    "all_referenced_work_packages_exist": true,
+    "all_work_packages_are_mapped": true,
+    "all_test_specifications_are_mapped": true,
+    "product_test_execution": "not_run"
+  },
+  "source_files": [
+    "docs/02-requirements.md",
+    "docs/04-implementation-plan.md",
+    "tests/matrix.json"
+  ],
+  "notes": [
+    "這是Rust v0.6規劃關聯，status=planned不改變SRS中的CONFIRMED/OPEN決策分類。",
+    "test_ids直接由tests/matrix.json的req_ids反向產生，work_packages依Rust工作包內容人工維護。",
+    "此處為需求層級映射；每個工作包實作時仍須在Issue/PR細列本次採用測項與證據。",
+    "44工作包與80測試規格皆有關聯，不代表工作包或測試已完成。",
+    "D19必要工具隨包及D21搜尋優先已確認；精確工具build、D20、數值SLO與其他OPEN/CONDITIONAL仍待決，不能因環境或實作缺口自動移除。",
+    "D02 local+LAN、約5人、無RBAC/project ACL已確認；Ubuntu24.04 amd64主要部署及Mac先開發驗證已確認，Mac／Windows細節待定。M1／arm64與Public rustgrok已確認，repo已建立；macOS版本待定。管理入口D16未決。需求與測試IDs不變。"
+  ]
+}

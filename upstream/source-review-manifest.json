@@ -1,0 +1,292 @@
+{
+  "purpose": "inventory_of_fetched_source_text_for_static_review",
+  "scope_note": "Selected upstream source texts fetched for static inspection, including v0.2 Rust compatibility research. Not a full source audit, executable build, release hash verification, or runtime acceptance. Hashes describe local fetched text bytes.",
+  "commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+  "file_count": 47,
+  "files": [
+    {
+      "path": ".github/workflows/build.yml",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/.github/workflows/build.yml",
+      "local_fetched_text_bytes": 2275,
+      "local_fetched_text_sha256": "330c358b6c28cab5f4254c351cf4ad10532e4f8675d509271acb67cb81e20b9f"
+    },
+    {
+      "path": "LICENSE.txt",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/LICENSE.txt",
+      "local_fetched_text_bytes": 19088,
+      "local_fetched_text_sha256": "8bdac038c0ada7b3cc5cac6060265f35c42aead9b38781e4aaa975f6a1173cbe"
+    },
+    {
+      "path": "NOTICE.txt",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/NOTICE.txt",
+      "local_fetched_text_bytes": 1382,
+      "local_fetched_text_sha256": "3d3fed39665da7a0962c72f2a28001bc55285618cc029d544eda01e4cebd022e"
+    },
+    {
+      "path": "dev/before",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/dev/before",
+      "local_fetched_text_bytes": 281,
+      "local_fetched_text_sha256": "2e25e0f626762bfa98cf29d4aafba4184225ad88970e45f58815d1890ba9a710"
+    },
+    {
+      "path": "dev/before_install",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/dev/before_install",
+      "local_fetched_text_bytes": 979,
+      "local_fetched_text_sha256": "ffd30fde1730e1cc7fcce9a1ad7880bf402bd8dabfb7575c95cefe13cf21454a"
+    },
+    {
+      "path": "dev/main",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/dev/main",
+      "local_fetched_text_bytes": 804,
+      "local_fetched_text_sha256": "ae6bece2b9095c894c184cf1f72e1cb2dd2ad04da9856b8f744229118e88287b"
+    },
+    {
+      "path": "distribution/assembly.xml",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/distribution/assembly.xml",
+      "local_fetched_text_bytes": 2417,
+      "local_fetched_text_sha256": "15e0aef3f7db7612a361f4284b9463047168544fd451833b5706897bc1fc6a88"
+    },
+    {
+      "path": "opengrok-indexer/pom.xml",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/pom.xml",
+      "local_fetched_text_bytes": 16339,
+      "local_fetched_text_sha256": "ce0ccebc6a19e415bf4cab646359e1da64560496d6c00f63f35c73f5da72262e"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/CompatibleAnalyser.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/CompatibleAnalyser.java",
+      "local_fetched_text_bytes": 2952,
+      "local_fetched_text_sha256": "7c09667b71b03e7ec030f0ac8a6a114bfecd38313662d2fff4daaabb45bac4bd"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/Ctags.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/Ctags.java",
+      "local_fetched_text_bytes": 30476,
+      "local_fetched_text_sha256": "53248307aa956a76a1c875dfc29c1235e578e8889ff258c847a7269f4b414a58"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/HistoryAnalyzer.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/HistoryAnalyzer.java",
+      "local_fetched_text_bytes": 3003,
+      "local_fetched_text_sha256": "911910ca4a7902fda940a200e053fd365d6ec84898932e42afe9dcda8094451c"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/JFlexXref.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/JFlexXref.java",
+      "local_fetched_text_bytes": 20199,
+      "local_fetched_text_sha256": "ab8b8005fd489b1eae9bbba2bbff87f2ccde6de8e7df8d27453e4ce9994e415a"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/PathTokenizer.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/PathTokenizer.java",
+      "local_fetched_text_bytes": 4282,
+      "local_fetched_text_sha256": "4d8369d198c2a860acac5d2d3e8f60d5cafe9c5912b772f830a7041eafa3201d"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/c/CxxAnalyzer.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/c/CxxAnalyzer.java",
+      "local_fetched_text_bytes": 2527,
+      "local_fetched_text_sha256": "b6495a4760aa4d933fee1d8cb738d252cc6bca1c148b67625b9c17609cc2ffa8"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/plain/AbstractSourceCodeAnalyzer.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/plain/AbstractSourceCodeAnalyzer.java",
+      "local_fetched_text_bytes": 2590,
+      "local_fetched_text_sha256": "b378ac10c79f0fa083a469269cb1cc884b1b5150d86ced2a42205f2741224a2a"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/plain/DefinitionsTokenStream.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/plain/DefinitionsTokenStream.java",
+      "local_fetched_text_bytes": 4664,
+      "local_fetched_text_sha256": "52074d4dc91ea24d8517a58bc5dc69282c5deb5fad3ba115c26a0f0f073cd6d7"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/configuration/Configuration.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/configuration/Configuration.java",
+      "local_fetched_text_bytes": 53086,
+      "local_fetched_text_sha256": "b248f258cca7c2933c6cb0bc3e646a8effb0c9fca9725db6018c51aa9617656d"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/configuration/IndexSearcherFactory.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/configuration/IndexSearcherFactory.java",
+      "local_fetched_text_bytes": 1469,
+      "local_fetched_text_sha256": "a3efb03a55c995f94a238eafb61e56010eddf88d5e95246db480cb735fe1d39c"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/configuration/Project.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/configuration/Project.java",
+      "local_fetched_text_bytes": 20069,
+      "local_fetched_text_sha256": "19a08a9632a6df9610137b2c7de094d150dcd0ea6ec11322feaf342e08c71c43"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/configuration/RuntimeEnvironment.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/configuration/RuntimeEnvironment.java",
+      "local_fetched_text_bytes": 77323,
+      "local_fetched_text_sha256": "0fcbe7f55b2fb8a37dbda3607e2134a61942ab1edd542cbd6373bcdef704f100"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/GitRepository.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/GitRepository.java",
+      "local_fetched_text_bytes": 37085,
+      "local_fetched_text_sha256": "4ffa7e989609646b11355288c658f0a396747d4432faf6dfc3167ec9c59d75f4"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/RepositoryFactory.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/RepositoryFactory.java",
+      "local_fetched_text_bytes": 14030,
+      "local_fetched_text_sha256": "d988cc5230eff4f127c43db156a154cfe3aeda06514546c90156a7d4f7a3af5f"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/index/IndexDatabase.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/index/IndexDatabase.java",
+      "local_fetched_text_bytes": 97542,
+      "local_fetched_text_sha256": "b732ae166cd0f94873b0f6b90ad73945ef4e83cdced92fdbd25b84feb95348b9"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/index/IndexWriterConfigFactory.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/index/IndexWriterConfigFactory.java",
+      "local_fetched_text_bytes": 1505,
+      "local_fetched_text_sha256": "2cdae04eb97a1d1ce27224b760adbacfe29a3d45ab74593cd158779da879b5a0"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/index/Indexer.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/index/Indexer.java",
+      "local_fetched_text_bytes": 65219,
+      "local_fetched_text_sha256": "bbf3326b16770bc236d757846b67cd507c327c9b084a8339798dfd560263924f"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/search/CustomQueryParser.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/search/CustomQueryParser.java",
+      "local_fetched_text_bytes": 4755,
+      "local_fetched_text_sha256": "e99bcf4fa3e745f3dbbc1d17dca1108ab7485eb065f9d0f39d3612c1d23791f2"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/search/QueryBuilder.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/search/QueryBuilder.java",
+      "local_fetched_text_bytes": 16854,
+      "local_fetched_text_sha256": "61c97b207f222dd0a08beaf6cc23c3b86ef637ee825ffc790a193d365e2ed5ab"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/search/SearchEngine.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/search/SearchEngine.java",
+      "local_fetched_text_bytes": 25213,
+      "local_fetched_text_sha256": "7fdb494ce4eb77f4177ae2da71f4648d5f1c73cddae30a22adbbf09de975f0eb"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/web/QueryParameters.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/web/QueryParameters.java",
+      "local_fetched_text_bytes": 8035,
+      "local_fetched_text_sha256": "0f756a1976c2fc8a554a45059e1059f2e1c82a9b01e611feb356b027f2c13df5"
+    },
+    {
+      "path": "opengrok-indexer/src/main/jflex/analysis/plain/PlainFullTokenizer.lex",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/jflex/analysis/plain/PlainFullTokenizer.lex",
+      "local_fetched_text_bytes": 1566,
+      "local_fetched_text_sha256": "9f98f75c5f8d6154930b7ee695e2efb017a2f3cd1ed3493a304c21f96df19dbb"
+    },
+    {
+      "path": "opengrok-indexer/src/main/jflex/analysis/plain/PlainSymbolTokenizer.lex",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/jflex/analysis/plain/PlainSymbolTokenizer.lex",
+      "local_fetched_text_bytes": 1214,
+      "local_fetched_text_sha256": "e29eae3225d204cc3b9aa5004255ace438e49a848d1ffabbcc6792a34c7a98eb"
+    },
+    {
+      "path": "opengrok-indexer/src/main/jflex/search/FullQueryEscaper.lex",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/jflex/search/FullQueryEscaper.lex",
+      "local_fetched_text_bytes": 1375,
+      "local_fetched_text_sha256": "e45f61b79f6335d0428273a5c5e32128139a039c2af3c75cca17d09ae51313f8"
+    },
+    {
+      "path": "opengrok-indexer/src/main/jflex/search/PathQueryEscaper.lex",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/jflex/search/PathQueryEscaper.lex",
+      "local_fetched_text_bytes": 1369,
+      "local_fetched_text_sha256": "49f5a372d8bcb8292fbf7045b2c2c1a23bb76a67ce9b2d4a19df1fb80689d065"
+    },
+    {
+      "path": "opengrok-web/pom.xml",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/pom.xml",
+      "local_fetched_text_bytes": 13942,
+      "local_fetched_text_sha256": "ba404e07e81aacced25f954297e39ed95e01b3e2397bd617e63c714768ebe039"
+    },
+    {
+      "path": "opengrok-web/src/main/java/org/opengrok/web/WebappListener.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/java/org/opengrok/web/WebappListener.java",
+      "local_fetched_text_bytes": 8647,
+      "local_fetched_text_sha256": "9de3e2039bcb74a6cb24fd772f733ec9c19354e7cbab1656d9bb5532fa401f70"
+    },
+    {
+      "path": "opengrok-web/src/main/java/org/opengrok/web/api/v1/RestApp.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/java/org/opengrok/web/api/v1/RestApp.java",
+      "local_fetched_text_bytes": 1372,
+      "local_fetched_text_sha256": "6bc2848d9a40473b1008e0428b9bc4e9539e8a98845bde805d3a0aef422ba90b"
+    },
+    {
+      "path": "opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/ConfigurationController.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/ConfigurationController.java",
+      "local_fetched_text_bytes": 6157,
+      "local_fetched_text_sha256": "ad181ef9e12195b9f8af2f79bfc9d0f9a80ea6dbf179a22dab4ab41f7489c02e"
+    },
+    {
+      "path": "opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/ProjectsController.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/ProjectsController.java",
+      "local_fetched_text_bytes": 19782,
+      "local_fetched_text_sha256": "32b6274cafd30849242ca8a771c52cadf7bd8177a259f93ac60405d0b1b5009e"
+    },
+    {
+      "path": "opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/SearchController.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/SearchController.java",
+      "local_fetched_text_bytes": 8298,
+      "local_fetched_text_sha256": "fb6305cdf4b7e7debb5e3ae51c2feb75dc8926f6b57ef572e90e16b757d01e5a"
+    },
+    {
+      "path": "opengrok-web/src/main/java/org/opengrok/web/api/v1/filter/IncomingFilter.java",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/java/org/opengrok/web/api/v1/filter/IncomingFilter.java",
+      "local_fetched_text_bytes": 5296,
+      "local_fetched_text_sha256": "ae93a34d69c3ea9a02fdbb81f8cbc31f22a4e3054c2714ee1d23d609172d772a"
+    },
+    {
+      "path": "opengrok-web/src/main/webapp/WEB-INF/web.xml",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/WEB-INF/web.xml",
+      "local_fetched_text_bytes": 10001,
+      "local_fetched_text_sha256": "136826b5878f21813259e9bf876e611f8ee5d1c5bf02314b4890a6699d295407"
+    },
+    {
+      "path": "opengrok-web/src/main/webapp/default/style-1.0.6.css",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/style-1.0.6.css",
+      "local_fetched_text_bytes": 40619,
+      "local_fetched_text_sha256": "41e0884ab091420203fac50fa69bee3cff448e783e33d0a7acaeb550d04a2184"
+    },
+    {
+      "path": "opengrok-web/src/main/webapp/help.jsp",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/help.jsp",
+      "local_fetched_text_bytes": 11705,
+      "local_fetched_text_sha256": "06db496fa5309958827fd168cf498ec06304f1c146b203415bca6c3750d30974"
+    },
+    {
+      "path": "opengrok-web/src/main/webapp/index.jsp",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/index.jsp",
+      "local_fetched_text_bytes": 1935,
+      "local_fetched_text_sha256": "30cd084395f37aae69312c992e9f614b0aaf5b16b5886e1fa3a880ac6c04d30a"
+    },
+    {
+      "path": "opengrok-web/src/main/webapp/js/utils-0.0.48.js",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/js/utils-0.0.48.js",
+      "local_fetched_text_bytes": 94069,
+      "local_fetched_text_sha256": "d4991bd3e3f0ade2f96e8ae0c1fec479078cab1b3ede522b444eefae9075e8ef"
+    },
+    {
+      "path": "opengrok-web/src/main/webapp/search.jsp",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/search.jsp",
+      "local_fetched_text_bytes": 9663,
+      "local_fetched_text_sha256": "da27de385683d6f863e67ef47962bb6cfbb96270439f64776fad468bcd346060"
+    },
+    {
+      "path": "pom.xml",
+      "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/pom.xml",
+      "local_fetched_text_bytes": 21530,
+      "local_fetched_text_sha256": "84bb11cae817de2d7ad7d5f7eb24e7974c5bd000139961c7201886c460c2422f"
+    }
+  ],
+  "schema_version": "0.2",
+  "role": "Reference behavior and asset/port provenance; not a Java product runtime lock."
+}

@@ -1,0 +1,233 @@
+{
+  "version": "0.6",
+  "kind": "planning_package_not_runtime_distribution",
+  "generated_date": "2026-10-25",
+  "files": [
+    {
+      "path": ".github/ISSUE_TEMPLATE/compatibility-bug.md",
+      "bytes": 512,
+      "sha256": "cc8395a8d9f269f0b80a9ccb6aedbabf2d16c6ac8776777e74d9b6bb77cb0e0a"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/work-package.md",
+      "bytes": 470,
+      "sha256": "afd512a2d409029782e5fb042989fc964b18e39132e5682e2d8d22f13cba7bab"
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md",
+      "bytes": 618,
+      "sha256": "7464af7e7af2b7d313e5e00dc002758671360097691489e7c8a9a9da6e396c57"
+    },
+    {
+      "path": ".github/workflows/README.md",
+      "bytes": 950,
+      "sha256": "285f971e309f6151093a2e02313da10b8398446fdf05ce6acbb7b79a7e83e21b"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 171,
+      "sha256": "5f0d3ce17b5b24e8dd45f7a209e9cfaf3b3e5ced2a5335aaf51b28c19df35162"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 2740,
+      "sha256": "2e20302282c079e523951d20e2e81c99395f63f9d3931e53c1157bba88ed4522"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6794,
+      "sha256": "84441e83ffde7cd3930ec666393581b4c8a2c40fb7186ac641b92407a752afc9"
+    },
+    {
+      "path": "assets/README.md",
+      "bytes": 443,
+      "sha256": "2ae11408bbe11785fdeaf09fb69d2f39255aa53db40ee7c0116a2fcb97218e31"
+    },
+    {
+      "path": "crates/README.md",
+      "bytes": 509,
+      "sha256": "341ac35f1f7b539f20afc2916d2adcea4bc46b368e4f8b3164148cfc073e31d8"
+    },
+    {
+      "path": "distribution/release-manifest.template.json",
+      "bytes": 8696,
+      "sha256": "19be8376203cb948d95307d428cbb685e25d21d4ac642c4d2403ef65db46f2d8"
+    },
+    {
+      "path": "docs/00-executive-brief.md",
+      "bytes": 2664,
+      "sha256": "62bab023b5086887cd9c5910595fb5ddecee4b57949c8496ac6a6fec6393f534"
+    },
+    {
+      "path": "docs/01-upstream-research.md",
+      "bytes": 23516,
+      "sha256": "52ead80503b516bba0631cf5c4d8c692e0ca551f5684f2c8b9d86028bf220b0e"
+    },
+    {
+      "path": "docs/02-requirements.md",
+      "bytes": 15922,
+      "sha256": "f656a9a4e0e2679959aab82fadf9ec7865accdccb4ec73c911d982138fc49238"
+    },
+    {
+      "path": "docs/03-system-design.md",
+      "bytes": 22587,
+      "sha256": "be8220aec8f9804f243977932c1047cec3f66922bcffe144cfaadadb7060477c"
+    },
+    {
+      "path": "docs/04-implementation-plan.md",
+      "bytes": 12551,
+      "sha256": "cb5e970f7e2fed0c3c77f8f24e181edbb58c33704b8975c9ed3ad9db86d5e5a1"
+    },
+    {
+      "path": "docs/05-verification-plan.md",
+      "bytes": 39885,
+      "sha256": "29583a0dfa5a4740c1175bf23b295869a6fda3704c60ed16670531221da24c65"
+    },
+    {
+      "path": "docs/06-packaging-and-offline.md",
+      "bytes": 29367,
+      "sha256": "92971ea0f9333577c00bb1a2cf697fb2a2633c993608924ee3c058608b31ef33"
+    },
+    {
+      "path": "docs/07-monorepo-and-github.md",
+      "bytes": 21604,
+      "sha256": "34265046184e1695c1464d93d2b9715cbdb8e971ca574060b7466ce82979971f"
+    },
+    {
+      "path": "docs/08-decision-register.md",
+      "bytes": 17250,
+      "sha256": "499f21dfe18190400ca086585fb600850f2aaa4d4c3aba95868ceb3e7c883ecf"
+    },
+    {
+      "path": "docs/09-risk-register.md",
+      "bytes": 17654,
+      "sha256": "e4f0366635ac9b8235ab9d9bfb4d9fa37c8ca3d032e5d2cc5b4295e53362a018"
+    },
+    {
+      "path": "docs/10-agent-handoff.md",
+      "bytes": 8274,
+      "sha256": "57f3805e667dd9fd48f6ce8d8eafd63a75c6b94cb23e35d6cf28dff922009841"
+    },
+    {
+      "path": "docs/11-traceability.md",
+      "bytes": 12725,
+      "sha256": "521ba58249373ba188b2b65dab018fcd7abd5f8adfe72d478190d421e52394dc"
+    },
+    {
+      "path": "docs/12-rust-compatibility.md",
+      "bytes": 34991,
+      "sha256": "8437ab492ea6b278e2a91c41926b99712887d0697ef911f7c16b05ca4c02b640"
+    },
+    {
+      "path": "docs/13-rust-change-impact.md",
+      "bytes": 5430,
+      "sha256": "f3671039dec191766ef145f1b2cdf63b40be94b87d9b66fcbb3e1ae480233c24"
+    },
+    {
+      "path": "docs/14-search-performance-plan.md",
+      "bytes": 11119,
+      "sha256": "2bac68b78e53b6abaeedf41f4a0ec321c7c36a97d2838dd411ff1179dc6a099d"
+    },
+    {
+      "path": "docs/15-deployment-and-linux-priority.md",
+      "bytes": 9238,
+      "sha256": "91a880d95f0eccf9a2a664199d83f56ee65e2fc361a7be561442d907896ec543"
+    },
+    {
+      "path": "docs/16-github-bootstrap-and-release-handoff.md",
+      "bytes": 8201,
+      "sha256": "b9eade1bd2e018a0a503f657b0d239a93549d1598507a1816bfdcb3c71ad6702"
+    },
+    {
+      "path": "docs/adr/0001-runtime-and-core-reuse.proposed.md",
+      "bytes": 3007,
+      "sha256": "a85b6d614e8041a8c32f77e7b645cfc5a282507356ecd26fdeeed436c994aca3"
+    },
+    {
+      "path": "docs/adr/0002-rust-core-and-compatibility.md",
+      "bytes": 15373,
+      "sha256": "8d8f86ca67e51697bae561dc757be438110d8bd22a8dc8ee85a47915d0d93fc2"
+    },
+    {
+      "path": "docs/sources.md",
+      "bytes": 19129,
+      "sha256": "8bec8de0691f92ab664a0a39babb99224224c1d174f42251ca8eabb7ded6576a"
+    },
+    {
+      "path": "npm/README.md",
+      "bytes": 964,
+      "sha256": "90a92e12c213d01a2c49edf1349a0b64b7ddedf47b9eebf7d24461b210285685"
+    },
+    {
+      "path": "planning-quality-report.json",
+      "bytes": 805,
+      "sha256": "0b43beb46ce6524624c1d69b2acc06c0da24d0bb1078d3f6afbd794d92c313d6"
+    },
+    {
+      "path": "tests/README.md",
+      "bytes": 8786,
+      "sha256": "c8ec87838324892752d2992eba323287aad93e65a5b23e2759d29b8be62d9e5e"
+    },
+    {
+      "path": "tests/evidence/README.md",
+      "bytes": 770,
+      "sha256": "9dceb235377196c3d443c11cac1249a097c1a66fce5d47983ff831f9b03bf2f0"
+    },
+    {
+      "path": "tests/fixtures/README.md",
+      "bytes": 885,
+      "sha256": "21b7eee5f8feca13864a00c52d08dc105b16a93bd4db3f72e7d929e95bf02adf"
+    },
+    {
+      "path": "tests/fixtures/corpus-manifest.template.json",
+      "bytes": 2439,
+      "sha256": "b684e7c7a3e683b32bfba934402077c2a85f6c4abc51c822ed24d3a489a0659f"
+    },
+    {
+      "path": "tests/matrix.json",
+      "bytes": 146622,
+      "sha256": "43010aa57f1be04eade26b3a51951c92f8831fb44d18f5dc88788e13ea053497"
+    },
+    {
+      "path": "tests/performance/README.md",
+      "bytes": 945,
+      "sha256": "49f8713f56ebb8940bb6738e2b719eb1f9a126b2503005574dba41cfc30ced22"
+    },
+    {
+      "path": "tests/performance/search-benchmark-manifest.template.json",
+      "bytes": 5890,
+      "sha256": "24e445195eb8268b8c8c1931e060327623d683f676d1dcdf7ab405e6dbd0b389"
+    },
+    {
+      "path": "tests/traceability.json",
+      "bytes": 23930,
+      "sha256": "3ef22fde1ed84f559187e56c0ce791fd0b1e663a410d940db087d223a9cf3b04"
+    },
+    {
+      "path": "tools/README.md",
+      "bytes": 1000,
+      "sha256": "5b89cbbf64d0b685531c5f8a54d3fb38d92dc61a476a600baf85dd20faab76ea"
+    },
+    {
+      "path": "tools/build_planning_package.py",
+      "bytes": 11531,
+      "sha256": "babc37cea6c940ca8c51f904e60c1f3b549a599c9f107dae0995621d35dd0e06"
+    },
+    {
+      "path": "upstream/research-lock.json",
+      "bytes": 13085,
+      "sha256": "135d1078ad8655d61e9aec8d6f6b783a008f897b7edef6dfb3c019c9ff8813d2"
+    },
+    {
+      "path": "upstream/rust-research-lock.json",
+      "bytes": 36063,
+      "sha256": "d27e0beeca902ac997ee1a0c95a20650376892d0c86539e97f427e6cf9956496"
+    },
+    {
+      "path": "upstream/source-review-manifest.json",
+      "bytes": 18978,
+      "sha256": "50462edb86de8ea702868febef6867efffc87c58d4e13fcd6ad4e3b28b412731"
+    }
+  ],
+  "manifest_excludes_itself": true
+}

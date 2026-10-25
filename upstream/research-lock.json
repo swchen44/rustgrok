@@ -1,0 +1,249 @@
+{
+  "schema_version": "0.6",
+  "purpose": "reference_oracle_research_baseline_only",
+  "status": "not_an_approved_product_runtime_lock",
+  "researched_at": "2026-10-25",
+  "timezone": "Asia/Taipei",
+  "repository": "https://github.com/oracle/opengrok",
+  "tag": "1.14.20",
+  "commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+  "release_published_at_utc": "2026-10-12T16:45:58Z",
+  "release_asset": {
+    "name": "opengrok-1.14.20.tar.gz",
+    "size_bytes_reported_by_api": 92575612,
+    "sha256_reported_by_api": "f33d78f950ba7ed974caa9153120e4f26f9c7f4d63c1f48b7a0350e12d8e346d",
+    "url": "https://github.com/oracle/opengrok/releases/download/1.14.20/opengrok-1.14.20.tar.gz",
+    "downloaded_and_hash_verified": false
+  },
+  "source_versions": {
+    "java_release": "21",
+    "lucene": "9.12.3",
+    "jakarta_servlet_api": "6.0.0",
+    "jgit": "7.2.1.202505142326-r"
+  },
+  "acceptance_baseline_approved": false,
+  "runtime_binaries_pinned": false,
+  "native_runtime_tests_executed": false,
+  "required_next_steps": [
+    "Confirm the acceptance oracle and UI baseline under D04. Preserve functionality and style except D02's explicit exclusion of user-role/project ACL management and mandatory authorization/RBAC plugin parity; retain non-auth plugin inventory.",
+    "Apply local+LAN support, about five concurrent users without role/project ACL management, bundled helpers and search-speed priority. Production deployment prioritizes Ubuntu 24.04 amd64; first develop and fully validate on confirmed Apple M1/arm64 macOS (aarch64-apple-darwin), then adapt Ubuntu and repeat complete native validation. Confirm actual/minimum macOS versions and Windows details under D03, D16 management exposure, D06/D07 details and remaining D20 compatibility. Record the actual Ubuntu point release with runtime evidence. Helper builds, numeric SLO, workload, hardware and tradeoffs remain open; five users is neither five QPS nor a hard limit.",
+    "Download reference assets and independently recompute their hashes.",
+    "Select exact Java/Tomcat/Ctags/SCM builds only as needed to run the independent reference oracle; record source, license and binary metadata.",
+    "Run separate native oracle and Rust compatibility/performance experiments first for Apple M1/arm64 macOS, then complete Ubuntu 24.04 amd64 platform adaptation and native revalidation. Preserve independent evidence per platform; Mac PASS is not Linux PASS. Prioritize full-text/path/defs/cross-project search while recording indexing and resource tradeoffs.",
+    "Create a separate approved Rust toolchain/Cargo/native-artifact lock after concrete technology selection; do not treat this file as that lock.",
+    "Use the API-verified public repository https://github.com/swchen44/rustgrok (id 1433282584, main). Upload the initial planning contents and record the successful commit separately; current contents status is PENDING_INITIAL_PLANNING_COMMIT. Release packages will use GitHub Releases, but no Release or product artifact has been published."
+  ],
+  "role": "independent_reference_oracle_for_rust_rewrite",
+  "release_metadata_url": "https://api.github.com/repos/oracle/opengrok/releases/tags/1.14.20",
+  "tag_metadata_url": "https://api.github.com/repos/oracle/opengrok/git/ref/tags/1.14.20",
+  "source_version_evidence": [
+    "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/pom.xml",
+    "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/pom.xml",
+    "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/pom.xml"
+  ],
+  "product_direction": {
+    "decision_id": "D01",
+    "core_language": "Rust",
+    "status": "ACCEPTED_BY_USER",
+    "decided_at": "2026-10-25",
+    "user_statement": "我還是想要改寫rust 因為效能比較好",
+    "adr": "docs/adr/0002-rust-core-and-compatibility.md",
+    "java_tomcat_product_wrapper": "SUPERSEDED",
+    "current_standard_product_profile_uses_jvm": false,
+    "current_java_tomcat_role": "reference_oracle_only",
+    "legacy_plugin_java_bridge": {
+      "status": "NOT_APPROVED",
+      "decision_id": "D20",
+      "requires_new_explicit_user_decision": true,
+      "requires_separate_profile_and_tests": true,
+      "may_replace_rust_search_or_index_core": false
+    },
+    "product_dependency_lock": false,
+    "external_helpers": {
+      "decision_id": "D19",
+      "status": "CONFIRMED",
+      "value": "bundled_necessary_ctags_git_and_other_scm_helpers",
+      "user_statement": "A+搜尋速度",
+      "confirmation_scope": "Necessary helper bundling policy; Rust remains the product core.",
+      "helper_builds_status": "PENDING_G1",
+      "per_scm_capabilities_status": "PENDING_G1_AND_ORIGINAL_FEATURE_INVENTORY",
+      "implicit_install_or_runtime_downloads_authorized": false
+    },
+    "performance_priority": {
+      "decision_id": "D21",
+      "status": "CONFIRMED",
+      "value": "search_speed_first",
+      "user_statement": "A+搜尋速度",
+      "numeric_slo_status": "OPEN",
+      "representative_workload_status": "OPEN",
+      "target_environment_status": "OPEN",
+      "resource_indexing_and_freshness_tradeoffs_status": "OPEN"
+    },
+    "hosting_and_access_scope": {
+      "decision_id": "D02",
+      "status": "CONFIRMED",
+      "value": "local_and_lan_shared_hosting",
+      "user_statement": "3, 約5人， 不用權限管理",
+      "local_use_supported": true,
+      "lan_shared_use_supported": true,
+      "approximate_concurrent_users": 5,
+      "user_count_is_approximate": true,
+      "user_count_is_qps": false,
+      "user_count_is_hard_limit": false,
+      "user_role_management_required": false,
+      "project_acl_management_required": false,
+      "forced_new_accounts_sso_or_login": false,
+      "authorization_rbac_plugin_parity_mandatory": false,
+      "non_auth_plugins_remain_in_compatibility_inventory": true,
+      "management_operation_exposure_decision": "D16"
+    },
+    "platform_priority": {
+      "decision_id": "D03",
+      "status": "PARTIALLY_CONFIRMED",
+      "priority_status": "CONFIRMED",
+      "priority_platform": "Ubuntu 24.04 amd64",
+      "user_statement": "amd64",
+      "previous_requested_ubuntu_version": "24.02",
+      "latest_requested_ubuntu_version": "24.04",
+      "exact_ubuntu_version": "24.04",
+      "ubuntu_version_status": "CONFIRMED",
+      "target_cpu_architecture": "amd64",
+      "macos_support_required": true,
+      "windows_64_bit_support_required": true,
+      "scope_note": "Production deployment prioritizes Ubuntu 24.04 amd64 (Rust architecture x86_64). The user confirmed Apple M1/arm64 for the first macOS development and complete-validation machine; Rust target mapping is aarch64-apple-darwin. Actual/minimum macOS versions remain open. Ubuntu adaptation and complete native revalidation follow; Mac PASS never substitutes for Linux PASS. Windows support/details are retained, and all runtime validation remains NOT_RUN.",
+      "user_statement_history": [
+        "要優先使用在 linux ubuntu 24.02",
+        "24.04",
+        "amd64"
+      ],
+      "original_requested_ubuntu_version": "24.04",
+      "ubuntu_point_release": null,
+      "ubuntu_point_release_policy": "Record the actual point release in the test-environment manifest; it is not a current requirements-clarification blocker.",
+      "remaining_platform_detail_status": "MACOS_ACTUAL_MINIMUM_OS_AND_WINDOWS_DETAILS_OPEN",
+      "priority_scope": "production_deployment",
+      "ubuntu_cpu_status": "CONFIRMED",
+      "ubuntu_rust_architecture": "x86_64",
+      "development_and_first_full_validation": {
+        "status": "CONFIRMED",
+        "platform": "macOS",
+        "cpu_architecture": "arm64",
+        "minimum_os_version": null,
+        "implementation_and_validation_status": "NOT_RUN",
+        "processor_model": "Apple M1",
+        "cpu_status": "USER_CONFIRMED",
+        "rust_target_mapping": "aarch64-apple-darwin",
+        "actual_os_version": null,
+        "actual_os_version_status": "OPEN",
+        "minimum_os_version_status": "OPEN"
+      },
+      "following_platform_work": {
+        "status": "CONFIRMED",
+        "platform": "Ubuntu",
+        "os_version": "24.04",
+        "cpu_architecture": "amd64",
+        "rust_architecture": "x86_64",
+        "work": [
+          "platform_implementation_adaptation",
+          "complete_native_revalidation"
+        ],
+        "implementation_and_validation_status": "NOT_RUN",
+        "macos_pass_is_linux_pass": false
+      },
+      "macos_cpu_architecture": "arm64",
+      "macos_minimum_os_version": null,
+      "windows_cpu_architecture": null,
+      "windows_os_version": null,
+      "shared_core_design": {
+        "status": "PROPOSED_ENGINEERING_DESIGN",
+        "one_rust_product_core": true,
+        "platform_specific_builds_and_adapters": true,
+        "separate_search_product_per_platform": false
+      },
+      "macos_processor_model": "Apple M1",
+      "macos_cpu_status": "USER_CONFIRMED",
+      "macos_cpu_user_response": "M1",
+      "macos_rust_target_mapping": "aarch64-apple-darwin",
+      "macos_actual_os_version": null,
+      "macos_actual_os_version_status": "OPEN",
+      "macos_minimum_os_version_status": "OPEN"
+    },
+    "management_operation_exposure": {
+      "decision_id": "D16",
+      "status": "OPEN",
+      "value": null,
+      "candidate_design": {
+        "status": "PROPOSED",
+        "management": "host_cli_or_local_control",
+        "lan": "shared_reader_routes"
+      },
+      "scope_note": "No user role/project ACL management does not approve exposing management write operations on LAN. No additional anonymous-reading policy is recorded as user-approved."
+    },
+    "approved_scope_adjustments": [
+      {
+        "decision_id": "D02",
+        "status": "CONFIRMED",
+        "user_statement": "3, 約5人， 不用權限管理",
+        "scope": "User-role/project ACL management and associated authorization/RBAC plugin parity are not mandatory product functionality or complete-parity blockers.",
+        "non_auth_plugins_remain_in_inventory": true,
+        "unrelated_search_ranking_or_style_differences_approved": false,
+        "java_plugin_bridge_approved": false,
+        "lan_management_exposure_approved": false
+      }
+    ],
+    "github_delivery": {
+      "decision_id": "D11",
+      "status": "CONFIRMED",
+      "new_repository": true,
+      "repository_name": "rustgrok",
+      "repository_name_status": "CONFIRMED",
+      "repository_owner": "swchen44",
+      "repository_url": "https://github.com/swchen44/rustgrok",
+      "repository_visibility": "public",
+      "repository_visibility_status": "USER_CONFIRMED",
+      "repository_creation_status": "CREATED",
+      "release_package_destination": "GitHub Releases",
+      "release_package_destination_status": "CONFIRMED",
+      "release_artifacts_published": false,
+      "scope_note": "The user confirmed public visibility. GitHub API verified the created swchen44/rustgrok repository, id 1433282584, default branch main and observed push/admin permissions. Owner remains an authenticated-account/form/API observation. The creation form was submitted successfully. Initial planning content upload is pending and no GitHub Release or product test result exists.",
+      "owner_status": "OBSERVED_AUTHENTICATED_ACCOUNT_AND_CREATION_FORM",
+      "planned_repository_full_name": "swchen44/rustgrok",
+      "creation_form_status": "SUBMITTED_SUCCESSFULLY",
+      "creation_form_prepared_fields": [
+        "name",
+        "description"
+      ],
+      "repository_name_availability": "OBSERVED_AVAILABLE_IN_CREATION_FORM",
+      "repository_id": 1433282584,
+      "visibility_user_response": "public",
+      "default_branch": "main",
+      "contents_upload_status": "PENDING_INITIAL_PLANNING_COMMIT",
+      "release_creation_status": "NOT_CREATED",
+      "creation_verification": {
+        "method": "GitHub API",
+        "owner": "swchen44",
+        "visibility": "public",
+        "default_branch": "main",
+        "observed_permissions": {
+          "push": true,
+          "admin": true
+        },
+        "size_reported_at_creation": 0
+      }
+    }
+  },
+  "declared_license": {
+    "default": "CDDL-1.0",
+    "version_policy": "1.0_only_unless_source_file_notes_an_exception",
+    "source": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/LICENSE.txt",
+    "notice": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/NOTICE.txt",
+    "complete_product_license_review": false
+  },
+  "acceptance_baseline_decision": "D04",
+  "reference_oracle_execution": "NOT_RUN",
+  "product_runtime_execution": "NOT_RUN",
+  "read_record_files": [
+    "upstream/source-review-manifest.json",
+    "upstream/rust-research-lock.json"
+  ],
+  "scope_note": "Static source and official release metadata review only. Original OpenGrok version and release asset values are preserved for a separate reference oracle; they do not specify the Rust product runtime. Release digest is API-reported and has not been independently recomputed."
+}

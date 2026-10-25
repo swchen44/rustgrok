@@ -1,0 +1,174 @@
+{
+  "schema_version": "0.6",
+  "artifact_kind": "benchmark_manifest_template_not_measurement",
+  "execution_status": "not_run",
+  "decision_basis": {
+    "D01": "Rust core confirmed",
+    "D19": "A: bundled necessary Ctags/SCM helpers confirmed",
+    "D21": "Search speed first confirmed",
+    "D02": "local+LAN; approximately 5 simultaneous people; no role/project ACL management",
+    "D03": "Primary deployment Ubuntu 24.04 amd64 confirmed; develop and fully verify natively on Apple M1 macOS arm64 first, then adapt and fully reverify natively on Ubuntu. macOS actual/minimum version OPEN.",
+    "D11": "Public swchen44/rustgrok created (id 1433282584, main); GitHub Releases packages confirmed; product release not yet created."
+  },
+  "req_ids": [
+    "FR-003",
+    "FR-007",
+    "NFR-005",
+    "NFR-006",
+    "NFR-016"
+  ],
+  "test_ids": [
+    "PERF-001",
+    "PERF-002",
+    "RST-008",
+    "RST-010",
+    "RST-012"
+  ],
+  "work_packages": [
+    "WP-B07",
+    "WP-E07",
+    "WP-E09"
+  ],
+  "runtime_profile": "bundled_required_helpers",
+  "reference": {
+    "opengrok_commit": null,
+    "config_digest": null,
+    "java_version": null,
+    "jvm_flags": null,
+    "warmup_protocol": null,
+    "feature_coverage": null
+  },
+  "candidate": {
+    "product_commit": null,
+    "artifact_sha256": null,
+    "cargo_lock_digest": null,
+    "rustc_version": null,
+    "release_profile": null,
+    "target_cpu_features": null,
+    "helper_manifest_digest": null,
+    "feature_coverage": null
+  },
+  "corpus": {
+    "digest": null,
+    "source_revision": null,
+    "projects": null,
+    "files": null,
+    "source_bytes": null,
+    "languages": null,
+    "scm_history": null,
+    "query_inventory_digest": null,
+    "private_source_upload_allowed": false
+  },
+  "environment": {
+    "os_cpu_tuple": null,
+    "cpu_model_cores": null,
+    "ram_bytes": null,
+    "storage_filesystem": null,
+    "browser_version": null,
+    "power_background_load": null,
+    "resource_budget": null,
+    "platform_priority": "ubuntu_24_04_amd64_primary_deployment",
+    "ubuntu_version": "24.04",
+    "ubuntu_version_user_values": [
+      "24.04 (initial requirement)",
+      "24.02 (intermediate message; subsequently clarified)",
+      "24.04 (latest user confirmation)"
+    ],
+    "ubuntu_cpu_architecture": "amd64",
+    "development_validation_order": [
+      "macos_full_first",
+      "ubuntu_24_04_amd64_full_native_reverification"
+    ],
+    "macos_cpu_architecture": "arm64",
+    "macos_minimum_version": null,
+    "runtime_platform_under_test": null,
+    "macos_hardware": "Apple M1",
+    "actual_process_architecture": null,
+    "translation_mode": null
+  },
+  "workload": {
+    "query_mix_weights": null,
+    "project_scopes": null,
+    "sort_pages": null,
+    "application_cache_state": null,
+    "os_page_cache_state": null,
+    "cache_hit_miss_counts": null,
+    "index_activity": null,
+    "arrival_model": null,
+    "concurrency": null,
+    "request_rate": null,
+    "repetitions": null,
+    "sample_count": null,
+    "interactive_user_scenarios": [
+      {
+        "users": 1,
+        "role": "baseline_proposal"
+      },
+      {
+        "users": 5,
+        "approximate": true,
+        "role": "user_confirmed_representative_estimate"
+      }
+    ],
+    "think_time_distribution_ms": null
+  },
+  "timing_contract": {
+    "clock": "monotonic_within_each_process; no unsynchronized cross-host subtraction",
+    "record": [
+      "browser_result_ready",
+      "http_full_response",
+      "server_queue",
+      "query_prepare",
+      "search_ranking_count",
+      "result_snippet_source_io",
+      "response_render"
+    ],
+    "overlap_policy": "retain spans and critical path; do not sum overlapping stages"
+  },
+  "correctness": {
+    "oracle_expected_digest": null,
+    "candidate_result_digest": null,
+    "hits_order_total_count_pagination_parity": "not_run",
+    "ui_style_parity": "not_run",
+    "approved_differences": []
+  },
+  "acceptance": {
+    "status": "not_evaluated",
+    "primary_priority": "search_speed",
+    "per_group_latency_slo_ms": null,
+    "throughput_target": null,
+    "timeout_error_budget": null,
+    "rss_peak_limit_bytes": null,
+    "disk_peak_limit_bytes": null,
+    "index_freshness_limit_ms": null,
+    "approved_tradeoffs": [],
+    "approved_by": null
+  },
+  "measurements": {
+    "raw_samples": null,
+    "group_statistics": null,
+    "timeout_error_cancel_counts": null,
+    "queue_time": null,
+    "process_tree_rss_cpu_io": null,
+    "cache_memory_eviction": null,
+    "source_to_searchable_freshness": null,
+    "index_disk_temp_backup_bytes": null
+  },
+  "reporting_rules": [
+    "Keep query type/project/cache/index activity groups separate.",
+    "Do not average subgroup percentiles.",
+    "Retain every failure and unfinished request.",
+    "Report speed ratios only for feature-and-result-equivalent groups.",
+    "No performance pass without approved SLO and run evidence."
+  ],
+  "notes": [
+    "All nulls are intentionally unmeasured/unconfirmed, not zero.",
+    "This template defines no new test IDs.",
+    "User approval of bundled helpers is not permission for automatic network downloads or source synchronization.",
+    "Five people is not 5 QPS or a hard limit of 5 concurrent HTTP requests.",
+    "No role/project ACL requirement. Anonymous reader access is proposed, not additional user-confirmed authentication policy. Management exposure awaits D16.",
+    "Ubuntu 24.04 amd64 is confirmed. Record the actual point release/image during tests; Apple M1 arm64 is confirmed, while the actual/minimum macOS version remains unspecified.",
+    "Mac PASS cannot substitute for Linux native results. Compare oracle and candidate on the same host within each platform; do not attribute cross-host differences to Rust.",
+    "Record native arm64 execution separately from Rosetta x86_64; translated runs cannot count as native M1 acceptance."
+  ]
+}

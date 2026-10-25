@@ -1,0 +1,2607 @@
+{
+  "schema_version": "0.6",
+  "document_status": "proposed",
+  "language": "zh-TW",
+  "updated_at": "2026-10-25",
+  "execution_status": "not_run",
+  "research_upstream": {
+    "tag": "1.14.20",
+    "commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+    "acceptance_baseline_status": "待使用者確認；研究基準不等於已核准驗收版本"
+  },
+  "all_test_statuses_are_planned": true,
+  "requirements_namespace": {
+    "functional": "FR-001..FR-022",
+    "nonfunctional": "NFR-001..NFR-016"
+  },
+  "gates": {
+    "G0": "需求基線：Apple M1/macOS原生arm64先完整開發驗證；Ubuntu24.04 amd64部署優先及後續完整原生重驗；swchen44/rustgrok公開repo已建立，其餘決策待確認",
+    "G1": "獨立原版oracle、最難語意與公平效能可行性",
+    "G2": "Rust核心完整垂直流程",
+    "G3": "所有承諾功能/語言/SCM/API/UI的完整parity",
+    "G4": "各平台bundled npm/ZIP、離線、安全、故障與升級可靠性；Mac先驗、Linux完整原生重驗，Windows保留，不跨平台共用passed",
+    "G5": "Ubuntu24.04 amd64部署pilot優先；1人參照與約5人互動負載下依批准搜尋SLO及其他門檻驗收，Mac結果不能代替",
+    "G6": "rustgrok實際repo確認後的GitHub Releases/npm交接；最終asset metadata/checksum與各平台evidence對應"
+  },
+  "notes": [
+    "所有測項為planned，未執行Rust原型、性能比較或產品驗收；舊68個test IDs完整保留。",
+    "本版所有產品測項適用標準Rust profile：不包含或依賴JVM/Tomcat、不執行WAR/JSP、不呼叫Java完成未移植功能；原版Java/OpenGrok只在獨立oracle運行。",
+    "本輪沒有批准Java plugin bridge。未來只有D20明確批准特定插件bridge並另立profile、測項與gates，才可驗證該額外交付；不得取代Rust核心或放寬本版標準profile的無JVM要求。",
+    "Windows已確認需求是64位元；OS版本與CPU tuple依D03批准，不能默認x64。所有目標平台依核准tuple原生驗證。",
+    "npm安裝需要核准Node/npm，JS launcher的執行前提依批准形式驗證；native ZIP直接啟動Rust binary，另在無Node/npm環境驗證。",
+    "gate為最早實驗；acceptance_gate為完成驗收；release_gate=G6為發布交接覆核。",
+    "正確性與性能是兩個獨立結果；較快但缺功能／少索引內容／不同查詢語意不得稱等價性能提升。",
+    "原版CSS/JS/images/fonts可依授權沿用；Rust SSR以DOM、URL、互動、視覺比對，不以WAR/JSP hash比對。",
+    "性能比較使用同硬體、等價資料與功能；REF合理調校JVM並分開warmup/steady-state，Rust使用可發布release build。",
+    "具體SLO、corpus/hardware、request率／think-time／每人並行、D03平台細節及D16/D20仍OPEN；約5人代表情境、D19 bundled與D21搜尋優先已確認。帳號／角色／RBAC／project ACL不再mandatory，其餘功能不默刪。",
+    "evidence皆為未來路徑範本；無實測證據時不得標passed或宣稱Rust較快。",
+    "D19已確認A：必要helpers隨包附帶。所有主要runtime測試走bundled產物，精確工具清單／版本／native依賴與授權依完整功能inventory鎖定；不借使用者預裝ctags/SCM或系統PATH。",
+    "B外裝工具與C無helpers不是本版mandatory profile；缺helper、錯版本、損毀或不相容binary仍以故障注入負測，不代表可交付缺件產品，亦不允許外網補件。",
+    "D21已確認搜尋速度優先。依query類別、單／跨project、cold/warm/cache命中率及並行index分報server queue／處理與browser體驗；慢查詢、timeouts與未完成請求不可從平均或分位統計中隱去。",
+    "D02已確認本機local與LAN都支援、約5位同時使用者、不用權限管理。既有SEC-002改驗共同可讀正向契約，取消帳號／角色／RBAC／project ACL作mandatory，不把這些項目保留為永久blocked或skip算passed。",
+    "免登入讀者入口只是工程建議，不是使用者已批准；不得新增強制登入／SSO要求。主機CLI／本機控制面管理、LAN讀者面只讀也是提案，管理操作可見範圍及token／CSRF等依D16/D20確認。",
+    "效能測試包含1-user參照與約5-user互動情境，client採不同project/query並共用server cache、加入背景index。約5人不是5 QPS、5個in-flight requests或hard cap；實際rate／think-time／並行另記，不自行填SLO。",
+    "正式部署優先Ubuntu24.04 amd64；首輪開發平台已確認Apple M1／Apple Silicon arm64，先完成全部Mac移植、功能、介面與包裝，再於Ubuntu完整原生重驗。macOS實際／最低版本待確認，Windows承諾保留；不再詢問Intel或ARM。",
+    "平台順序不變更既有Test IDs／gate映射。Mac平台完成不是全域跨平台gate通過；每個OS/CPU以獨立run、artifact hash及結果判定，Mac PASS不可轉成Linux PASS，跨編譯只產生artifact。",
+    "已回讀GitHub公開repo swchen44/rustgrok建立成功：URL https://github.com/swchen44/rustgrok，ID 1433282584，default branch main。建立回讀時size=0、內容未提交，尚無產品Release；後續內容上傳以實際commit回讀另記，不因repo已建就把REL-005標passed。",
+    "REL-001/002於G4驗待發行檔及完整離線操作，REL-005於G6回讀實際GitHub Release asset metadata／checksum／bytes；必要時用同一已存在PKG ID重驗下載產物，不新增測項。",
+    "M1的arm64平台證據須包含主機CPU、實際macOS版本、payload架構／Mach-O slices與程序原生／翻譯狀態；Rust核心、npm執行環境與必要helpers不可用Rosetta x86_64執行冒充native arm64 passed。"
+  ],
+  "tests": [
+    {
+      "test_id": "REF-001",
+      "req_ids": [
+        "FR-012",
+        "NFR-009",
+        "NFR-014",
+        "FR-021",
+        "NFR-016"
+      ],
+      "title": "取得 pinned upstream、release assets、runtime、ctags",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "確認使用者核准的OpenGrok release/tag/commit及原版配置；研究候選仍為1.14.20。",
+        "獨立鎖定REF的JVM/Tomcat/Lucene/ctags/JGit及其他SCM backend/browser版本、corpus與所有參照產物hash。",
+        "另記錄Rust/Cargo/crates/target/build flags、候選原生依賴及產品artifact hash；兩者不要求相同執行時。"
+      ],
+      "expected": "REF與Rust的來源、環境、配置及輸入各自可重現；不能用Rust實作生成原版預期答案。",
+      "evidence": [
+        "evidence/<release>/<run>/REF-001/result.json",
+        "evidence/<release>/<run>/REF-001/attachments/"
+      ],
+      "gate": "G0",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "參照環境及每個能建立成對原版部署的支援平台。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G0"
+    },
+    {
+      "test_id": "REF-002",
+      "req_ids": [
+        "FR-001",
+        "FR-009",
+        "FR-013",
+        "NFR-014",
+        "FR-021"
+      ],
+      "title": "依原版部署，建立 golden indexes",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "在隔離測試環境部署未被Rust候選修改的標準原版OpenGrok/JVM/Tomcat。",
+        "對固定corpus執行原版UI/API/query/history/xref，保存黑箱輸出；必要診斷用獨立Java讀取adapter，不能依賴Rust parser。",
+        "人工檢查代表案例與原版自身問題，建立golden及normalization白名單，確認參照不成為產品runtime。"
+      ],
+      "expected": "oracle可獨立重建，黑箱結果與診斷擷取可核對；候選未通過前不得以其輸出更新golden。",
+      "evidence": [
+        "evidence/<release>/<run>/REF-002/result.json",
+        "evidence/<release>/<run>/REF-002/attachments/"
+      ],
+      "gate": "G1",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "參照環境及每個能建立成對原版部署的支援平台。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G1"
+    },
+    {
+      "test_id": "REF-003",
+      "req_ids": [
+        "FR-008",
+        "FR-011",
+        "FR-012",
+        "NFR-014",
+        "FR-021",
+        "FR-022"
+      ],
+      "title": "盤點 webapp routes、UI JS handlers、REST controllers、analyzers、SCM",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "列舉pinned上游routes、UI handlers、REST/config、SCM、plugins及語言analyzers；保存--help guru輸出。",
+        "建立原功能→Rust模組→test完整對照，記錄D19 bundled必要helpers與D21搜尋優先已決；D20舊index/config/JAR/排序未決處另列。",
+        "未經批准不得把缺少的語言、Java plugin行為、排序或語法標為不適用。"
+      ],
+      "expected": "每項具 status/test ID，無不明省略",
+      "evidence": [
+        "evidence/<release>/<run>/REF-003/result.json",
+        "evidence/<release>/<run>/REF-003/attachments/"
+      ],
+      "gate": "G0",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "參照環境及每個能建立成對原版部署的支援平台。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G0"
+    },
+    {
+      "test_id": "SRC-001",
+      "req_ids": [
+        "FR-009",
+        "FR-008",
+        "FR-021",
+        "NFR-016"
+      ],
+      "title": "同 corpus baseline/candidate 全量索引",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "REF與Rust使用同source corpus及對齊的邏輯功能配置，分別從零建立自己的索引格式。",
+        "比對documents/project coverage、欄位tokens/positions、definitions、xref、history與固定query outputs。",
+        "檔案格式不同不比較index bytes相等；記錄index size與輸出coverage，不能用少索引內容換取假速度提升。"
+      ],
+      "expected": "完整功能輸出符合oracle；Rust索引格式由自身schema/compatibility契約驗證，任何缺少的欄位／語言都是差異。",
+      "evidence": [
+        "evidence/<release>/<run>/SRC-001/result.json",
+        "evidence/<release>/<run>/SRC-001/attachments/"
+      ],
+      "gate": "G2",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "SRC-002",
+      "req_ids": [
+        "FR-009"
+      ],
+      "title": "加／改／刪／rename 檔案後增量索引",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "保存第一版 golden 結果，分別加入、修改、刪除及rename檔案。",
+        "執行增量索引後搜尋新增與舊內容，檢查line/xref。",
+        "另從零完整重建同一最終來源，比較增量結果與完整結果。"
+      ],
+      "expected": "新結果正確、舊結果消失；未變資料保持；與 full rebuild 相同",
+      "evidence": [
+        "evidence/<release>/<run>/SRC-002/result.json",
+        "evidence/<release>/<run>/SRC-002/attachments/"
+      ],
+      "gate": "G2",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "SRC-003",
+      "req_ids": [
+        "FR-009"
+      ],
+      "title": "無變更重索引",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "於無來源變更的固定fixture執行兩次索引。",
+        "比較查詢輸出、文件計數、重複結果與資料完整性。",
+        "記錄耗時/資源及上游原有非決定性metadata，不用binary index hash當語意同等證明。"
+      ],
+      "expected": "結果同等；無累積重複或資料破壞；資源耗用可解釋",
+      "evidence": [
+        "evidence/<release>/<run>/SRC-003/result.json",
+        "evidence/<release>/<run>/SRC-003/attachments/"
+      ],
+      "gate": "G2",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "SRC-004",
+      "req_ids": [
+        "FR-009",
+        "FR-016",
+        "NFR-008"
+      ],
+      "title": "source root read-only；data root 可寫",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "將來源設唯讀、data/temp設為可寫，計算來源內容與SCM狀態manifest。",
+        "執行index、query、xref、history及stop/restart。",
+        "重新計算來源manifest，確認沒有檔案內容或working-tree狀態變更。"
+      ],
+      "expected": "能索引和瀏覽；source hashes 前後相同",
+      "evidence": [
+        "evidence/<release>/<run>/SRC-004/result.json",
+        "evidence/<release>/<run>/SRC-004/attachments/"
+      ],
+      "gate": "G2",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "SRC-005",
+      "req_ids": [
+        "FR-009",
+        "NFR-007"
+      ],
+      "title": "索引期間檔案持續修改",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "按核准的活目錄或快照一致性契約準備fixture。",
+        "在索引scan/analysis/publish等階段修改來源並記錄時序。",
+        "檢查query、xref、raw內容與狀態提示是否符合該契約；未決時報blocked而非passed。"
+      ],
+      "expected": "行為符合已核准 stale/snapshot 契約；不聲稱未保證的全域原子性",
+      "evidence": [
+        "evidence/<release>/<run>/SRC-005/result.json",
+        "evidence/<release>/<run>/SRC-005/attachments/"
+      ],
+      "gate": "G2",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "SRC-006",
+      "req_ids": [
+        "FR-005",
+        "FR-009",
+        "NFR-001",
+        "NFR-008"
+      ],
+      "title": "symlinks/junctions/case collisions／path escapes",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "準備正常link、dangling/cyclic links、junction、大小寫衝突及source root外檔案。",
+        "依批准的storage policy執行add/index/browse。",
+        "驗證不跨根目錄、不無限循環；可支援與合理拒絕的情境均有明確結果。"
+      ],
+      "expected": "依白名單處理、停止 cycles、絕不讀取核准 roots 外內容",
+      "evidence": [
+        "evidence/<release>/<run>/SRC-006/result.json",
+        "evidence/<release>/<run>/SRC-006/attachments/"
+      ],
+      "gate": "G2",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "QRY-001",
+      "req_ids": [
+        "FR-001",
+        "FR-022"
+      ],
+      "title": "full/defs/refs/path/hist/type 各單欄",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "對full/defs/refs/path/hist/type各單欄送出正例、負例與多欄組合。",
+        "擷取原OpenGrok QueryBuilder/CustomQueryParser形成的行為，對照Rust相容parser→AST→engine adapter。",
+        "逐項比較hits/count/order/line/highlight及錯誤；不可直接把原query送Tantivy預設parser後假定相同。"
+      ],
+      "expected": "REF/candidate 的結果與 error semantics 同等",
+      "evidence": [
+        "evidence/<release>/<run>/QRY-001/result.json",
+        "evidence/<release>/<run>/QRY-001/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "QRY-002",
+      "req_ids": [
+        "FR-001",
+        "FR-002",
+        "FR-022"
+      ],
+      "title": "full 大小寫、defs/refs 大小寫、單字元／數字／underscore／標點",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "建立只差大小寫、單字元、多字元、數字、underscore、字串及註解的fixture。",
+        "對每搜尋欄位套用相同case/term變體。",
+        "比較REF analyzer的實際tokens效果，包含不應命中的負例。"
+      ],
+      "expected": "analyzer 對齊；不能用字串 contains 代替",
+      "evidence": [
+        "evidence/<release>/<run>/QRY-002/result.json",
+        "evidence/<release>/<run>/QRY-002/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "QRY-003",
+      "req_ids": [
+        "FR-002",
+        "FR-022"
+      ],
+      "title": "phrases、AND/OR/NOT、+/-、parentheses／field grouping",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "建立Boolean交集／聯集／排除關係、field grouping及多搜尋框fixture。",
+        "測原版default AND、顯式OR/NOT/+/-、括號、跨欄位特殊合併與query normalization。",
+        "比較原版與Rust AST可觀察語意及結果，不能以一般Boolean grammar優先序猜原版行為。"
+      ],
+      "expected": "結果及優先次序符合 REF",
+      "evidence": [
+        "evidence/<release>/<run>/QRY-003/result.json",
+        "evidence/<release>/<run>/QRY-003/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "QRY-004",
+      "req_ids": [
+        "FR-002",
+        "FR-022"
+      ],
+      "title": "wildcard/leading wildcard 開關、Lucene regex、fuzzy、proximity、ranges、boost",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "對wildcard/leading wildcard、Lucene regexp、fuzzy、phrase/slop/proximity、range、boost建立對照fixtures。",
+        "含Unicode、轉義、term全字匹配與field normalization；保留原版query rewrite及expansion行為證據。",
+        "比較hits/ranking/error；Rust regex或Tantivy語法只能經adapter驗證，不可當作Lucene語法的直接替代。"
+      ],
+      "expected": "每種語法有正／負／邊界 fixture，使用相同設定",
+      "evidence": [
+        "evidence/<release>/<run>/QRY-004/result.json",
+        "evidence/<release>/<run>/QRY-004/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "QRY-005",
+      "req_ids": [
+        "FR-002",
+        "NFR-008",
+        "FR-022"
+      ],
+      "title": "escapes、錯誤 query、過大 query、`/` vs `\\\\`",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "對引號、反斜線、斜線、冒號、括號、Unicode及不完整query送出測試。",
+        "在Windows與Unix平台保持相同URL/query語意，另測超大query。",
+        "比較錯誤UI/status，確認不crash或變成未限制全庫搜尋。"
+      ],
+      "expected": "UI/API 正確錯誤狀態；不轉成其他 query dialect",
+      "evidence": [
+        "evidence/<release>/<run>/QRY-005/result.json",
+        "evidence/<release>/<run>/QRY-005/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "QRY-006",
+      "req_ids": [
+        "FR-003",
+        "FR-022"
+      ],
+      "title": "一筆／零筆／多頁結果、maxresults/start/maxHitsPerFile、sort",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "準備0/1/多頁及稀疏欄位、同分結果，測所有原版sort modes。",
+        "檢查start/maxresults/maxHitsPerFile、single-hit redirect、score組合與top-K。",
+        "保留排序逐項比較；D20排序容忍未定前不以任意sort或epsilon掩蓋差異，診斷等分結果須單列。"
+      ],
+      "expected": "exact counts/line/snippet/order；單一結果導向符合 REF；分頁無漏重複",
+      "evidence": [
+        "evidence/<release>/<run>/QRY-006/result.json",
+        "evidence/<release>/<run>/QRY-006/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "QRY-007",
+      "req_ids": [
+        "FR-010",
+        "FR-021"
+      ],
+      "title": "suggester 初始／查詢後／重啟後",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "以原版suggester配置和固定輸入擷取初始建議。",
+        "REF與Rust執行相同查詢序列，檢查建議排序、狀態持久化與重啟。",
+        "驗證Rust替代實作與原版相同行為，不以沒移植原Java依賴為理由靜默移除功能。"
+      ],
+      "expected": "建議、ranking/state 與所選配置一致；無 native dependency 靜默降級",
+      "evidence": [
+        "evidence/<release>/<run>/QRY-007/result.json",
+        "evidence/<release>/<run>/QRY-007/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "PRJ-001",
+      "req_ids": [
+        "FR-007",
+        "FR-003",
+        "FR-022"
+      ],
+      "title": "同一 symbol，選 alpha／beta／兩者／all",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "三project放同名symbol，不同文件數/詞頻/欄位缺失率。",
+        "分別選單一、多個、全部projects與groups，保存原版跨project結果。",
+        "Rust必須對齊選取範圍內的統計與排序；不得每project獨立BM25取top-K後直接合併當等價。",
+        "以多個獨立client交錯選取不同project/query，核對共用cache不混用project scope／generation；所有讀者可選所有已登記projects，選取篩選不是project ACL。"
+      ],
+      "expected": "project選取範圍、排名、picker/groups/URL state符合REF；不同client與共用cache不污染結果，不要求角色或project ACL。",
+      "evidence": [
+        "evidence/<release>/<run>/PRJ-001/result.json",
+        "evidence/<release>/<run>/PRJ-001/attachments/"
+      ],
+      "gate": "G2",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "PRJ-002",
+      "req_ids": [
+        "FR-007",
+        "FR-009",
+        "NFR-005",
+        "NFR-006"
+      ],
+      "title": "A reindex 同時搜尋 B，及 A/B 同時更新",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "完成A/B索引，先跑1人參照，再以約5個互動client採不同project/query組合查詢A、B及A+B；保留固定query IDs、獨立瀏覽狀態與共用server cache。",
+        "對A執行完整及增量重建，再依核准budget同時更新A/B；保留同project讀寫與跨project搜尋兩種情境。",
+        "按client與query組別記錄hits/order/freshness、p50/p95/p99、queue wait、timeouts／錯誤、共用cache hits/misses及全process成本；另記實際request率、think-time與in-flight，不把約5人當5 QPS或請求hard cap。",
+        "G2先驗兩種人數情境的正確性與已記錄研究負載；G5依批准corpus/hardware、request率／think-time／每人並行及搜尋／資源／可用性門檻驗收，未批准數值不補入。local/LAN拓撲分報。"
+      ],
+      "expected": "完整／增量並行時結果與核准一致性政策正確，B不被誤清除；按查詢組別達成已批准搜尋及資源／可用性門檻，超時或未完成樣本不刪除。",
+      "evidence": [
+        "evidence/<release>/<run>/PRJ-002/result.json",
+        "evidence/<release>/<run>/PRJ-002/attachments/"
+      ],
+      "gate": "G2",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G5"
+    },
+    {
+      "test_id": "PRJ-003",
+      "req_ids": [
+        "FR-007",
+        "FR-009",
+        "NFR-007",
+        "FR-021"
+      ],
+      "title": "同 project 兩次同時 reindex；server duplicate start",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "在Rust產品同時提交同project兩個writer、不同project writers及重複server start。",
+        "在commit/config publish/reader swap中斷一個程序，再提交工作。",
+        "驗證Rust的持久queue、index writer與metadata鎖；不依賴原版Lucene locking設定為Rust提供保護。"
+      ],
+      "expected": "可辨識的排隊／拒絕；單一 writer；無 index corruption",
+      "evidence": [
+        "evidence/<release>/<run>/PRJ-003/result.json",
+        "evidence/<release>/<run>/PRJ-003/attachments/"
+      ],
+      "gate": "G2",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "PRJ-004",
+      "req_ids": [
+        "FR-015",
+        "FR-016"
+      ],
+      "title": "新增／移除／改顯示名／重新加入 project",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "依核准CLI/config契約新增、改顯示名、移除再加入project。",
+        "各步重啟並測query/xref/history/cache與bookmark。",
+        "核對source內容不被刪除，identity/config/index狀態沒有殘留衝突。"
+      ],
+      "expected": "index/config/cache/UI 一致；remove 不刪 source；id/URL policy 正確",
+      "evidence": [
+        "evidence/<release>/<run>/PRJ-004/result.json",
+        "evidence/<release>/<run>/PRJ-004/attachments/"
+      ],
+      "gate": "G2",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "PRJ-005",
+      "req_ids": [
+        "FR-007",
+        "FR-006"
+      ],
+      "title": "同 project 含多 SCM repo，groups 巢狀與選取",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "建立project含零個、一個、多個repo與groups fixture。",
+        "對各repo history及group selection執行UI/API操作。",
+        "比對原版結果，檢查同名repo/重疊來源的處理政策。"
+      ],
+      "expected": "符合 REF／核准範圍；不得等同單 repo 假設",
+      "evidence": [
+        "evidence/<release>/<run>/PRJ-005/result.json",
+        "evidence/<release>/<run>/PRJ-005/attachments/"
+      ],
+      "gate": "G2",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "UI-001",
+      "req_ids": [
+        "FR-012",
+        "FR-005",
+        "FR-007",
+        "FR-021"
+      ],
+      "title": "首頁、搜尋表單、project chooser、目錄、breadcrumbs",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "按授權沿用原版CSS/JS/images/fonts；核對靜態asset hash與路徑。",
+        "在同OS/browser/fonts/viewport操作原版與Rust SSR首頁、chooser、breadcrumbs及搜尋表單。",
+        "比較rendered DOM/URLs/互動與screenshots；不要求Rust包含WAR或執行JSP。"
+      ],
+      "expected": "原版style與操作效果相同，靜態assets可追溯；任何必要asset差異逐項審查，不以重寫後端允許UI重設計。",
+      "evidence": [
+        "evidence/<release>/<run>/UI-001/result.json",
+        "evidence/<release>/<run>/UI-001/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "UI-002",
+      "req_ids": [
+        "FR-012",
+        "FR-004",
+        "FR-005",
+        "FR-021"
+      ],
+      "title": "搜尋結果、xref、syntax coloring、line anchors、下載、raw views",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "對固定query開啟結果、xref、raw/download與line-anchor連結。",
+        "擷取各頁可見內容、syntax coloring、URL及download bytes。",
+        "比較REF與候選DOM/screenshot/bytes，排除只有host/port的差別。"
+      ],
+      "expected": "外觀與行為成對比較；URLs 可直接開啟及 bookmark",
+      "evidence": [
+        "evidence/<release>/<run>/UI-002/result.json",
+        "evidence/<release>/<run>/UI-002/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "UI-003",
+      "req_ids": [
+        "FR-012",
+        "FR-004"
+      ],
+      "title": "Navigate、Scopes、Intelligence window、1/2–8/n/b/Esc",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "在固定source檔啟用Navigate/Scopes與hover symbols。",
+        "依序測1、2–8、n、b、Esc、scroll與browser back。",
+        "比較selected state、highlight、scroll定位與連結行為，保存trace。"
+      ],
+      "expected": "hover/鍵盤／scroll/navigation 的 state 與 REF 同等",
+      "evidence": [
+        "evidence/<release>/<run>/UI-003/result.json",
+        "evidence/<release>/<run>/UI-003/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "UI-004",
+      "req_ids": [
+        "FR-006",
+        "FR-012"
+      ],
+      "title": "file/directory history、annotate、歷史 xref、unified/side-by-side diff、diff jumper",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "依固定Git fixture開啟file/directory history、annotate、historical xref。",
+        "選任意兩revision開啟unified及side-by-side diff，操作jumper。",
+        "比較revision/line/內容/作者及UI；歷史Navigate依相同ctags配置判定。"
+      ],
+      "expected": "revision／line／作者／內容正確；所有 view screenshots",
+      "evidence": [
+        "evidence/<release>/<run>/UI-004/result.json",
+        "evidence/<release>/<run>/UI-004/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "UI-005",
+      "req_ids": [
+        "FR-005",
+        "FR-012"
+      ],
+      "title": "URL 含 Unicode／空白／`#`／`%`；context path；重啟後 bookmark",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "建立含Unicode、空白、#、%的合法路徑並產生bookmark。",
+        "以核准context path開啟links/raw/download，再stop/restart。",
+        "確認escaping/redirect/base URL一致且書籤仍可達。"
+      ],
+      "expected": "link escaping／base path／redirect 無破損",
+      "evidence": [
+        "evidence/<release>/<run>/UI-005/result.json",
+        "evidence/<release>/<run>/UI-005/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "UI-006",
+      "req_ids": [
+        "FR-012",
+        "NFR-001",
+        "FR-021"
+      ],
+      "title": "各支援 browser/OS/viewport",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "固定各支援平台瀏覽器版本、locale、字型與render模式。",
+        "在同平台成對生成REF/candidate screenshots與DOM結果。",
+        "比較頁面與互動矩陣；所有視覺差異需可解釋，不能跨OS混用golden。",
+        "Mac完整介面驗證後，在Ubuntu24.04 amd64原生環境重新生成成對DOM／screenshots及互動結果；Windows亦使用自己的證據，不把Mac golden或passed直接轉用。"
+      ],
+      "expected": "與同平台原版成對比較；字型／瀏覽器差異不得混入語意差異；Rust SSR無未批准visual redesign。",
+      "evidence": [
+        "evidence/<release>/<run>/UI-006/result.json",
+        "evidence/<release>/<run>/UI-006/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "SCM-001",
+      "req_ids": [
+        "FR-006"
+      ],
+      "title": "固定 Git fixture 的 history/annotate/diff",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "產生固定作者/時間/commit IDs的add/edit/delete/rename/merge fixture。",
+        "核對原版GitRepository的JGit行為；Rust採git CLI/git2/gix時對照rename/merge/blame及dirty-tree規則，固定git版本本身不能證明相容。",
+        "按核准rename/merge/history配置測history、annotate與diff。",
+        "與REF逐revision/line比較，包含未提交working-tree變更。"
+      ],
+      "expected": "commit IDs、作者、日期、rename 及 merge 選項符合 REF",
+      "evidence": [
+        "evidence/<release>/<run>/SCM-001/result.json",
+        "evidence/<release>/<run>/SCM-001/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "SCM-002",
+      "req_ids": [
+        "FR-006",
+        "FR-011",
+        "FR-021"
+      ],
+      "title": "每個已批准 SCM adapter/client",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "由上游inventory列所有承諾SCM與能力，逐項記錄Rust adapter及功能所需的bundled helpers。",
+        "D19已確認A：固定必要helpers的build/version/native依賴並隨發行物供應；以實際bundled產物與原版行為對照，不因可用Git crate而刪除其他SCM。",
+        "驗證所有承諾平台且不借使用者預裝SCM工具；缺依賴／未移植必須blocked/failed，不能當passed或自行縮成Git-only。B外裝與C無helpers不作本版mandatory profile。"
+      ],
+      "expected": "上游支援的操作全通過，缺依賴明確診斷並阻止宣稱完整",
+      "evidence": [
+        "evidence/<release>/<run>/SCM-002/result.json",
+        "evidence/<release>/<run>/SCM-002/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "SCM-003",
+      "req_ids": [
+        "FR-006",
+        "NFR-011"
+      ],
+      "title": "無 repo、SCM command missing／timeout／nonzero",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "以bundled發行物測無repo、repo不可讀；另故意移除必要SCM helper、換成不相容版本／能力、模擬timeout與非零exit。",
+        "嘗試index與相關UI/API，記錄錯誤及data/source狀態；缺件／錯版屬故障注入，不是可交付profile。",
+        "檢查沒有假成功、未知副作用或永久hang；診斷指出helper及版本／能力問題，不fallback到系統PATH、外裝要求或外網下載。"
+      ],
+      "expected": "無repo及故障行為符合契約，不假報成功、不修改來源；必要bundled helper缺件／錯版明確阻止受影響作業，不以隱性fallback掩蓋。",
+      "evidence": [
+        "evidence/<release>/<run>/SCM-003/result.json",
+        "evidence/<release>/<run>/SCM-003/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "API-001",
+      "req_ids": [
+        "FR-011",
+        "FR-021",
+        "FR-022"
+      ],
+      "title": "盤點全部上游 API 的 request/response/status",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "列出原版全部endpoints/參數/verbs/status/headers與配置、插件行為，區分讀者查詢與改配置／reindex／控制等管理操作；D02不做帳號／角色／project ACL已確認。",
+        "以固定合法/非法requests對REF及Rust HTTP server重放，保持原版UI參數與REST參數差異。",
+        "比較read API的schema/status與共同可讀契約；原REST管理端點、暴露範圍及舊config/JAR依D16/D20盤點，不因no-AuthZ默認LAN可管理，也不直接執行Java類別或XML。"
+      ],
+      "expected": "版本／參數對照，UI `defs`/`refs` 與 API `def`/`symbol` 不誤映射",
+      "evidence": [
+        "evidence/<release>/<run>/API-001/result.json",
+        "evidence/<release>/<run>/API-001/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "API-002",
+      "req_ids": [
+        "FR-011",
+        "FR-017",
+        "NFR-008"
+      ],
+      "title": "讀者API共同可讀與管理端點邊界（D16待決）",
+      "preconditions": [
+        "local＋LAN與不用權限管理已確認，不建立角色／project ACL前置。D16/D20管理端點、token／CSRF／transport政策尚待確認；免登入與本機控制面／LAN只讀只是工程提案。"
+      ],
+      "steps": [
+        "以獨立client對已登記projects執行read API，確認查詢內容與範圍共同可讀；不要求建立帳號、角色、ACL或SSO。",
+        "列出config/reindex/project/control端點的副作用、讀者／管理用途及預計listener；提交主機CLI／本機控制面管理、LAN讀者面只讀提案，不能把HTTP verb或no-AuthZ直接當管理開放依據。",
+        "D16/D20確認後按政策測管理操作可達／不可達範圍及HTTP(S) transport；隔離原型證據不代表使用者已批准對LAN開放。",
+        "只有政策選定token時才測missing／wrong／correct及洩漏；未選token則驗批准的管理控制，不強迫增加token或登入。任何實際secret不得出現在argv/log/browser bundle。"
+      ],
+      "expected": "讀者API共同可讀且無角色／project ACL需求；管理端點與控制符合確認後D16/D20契約，待決處不假通過、不默開LAN管理。取消RBAC不造成永遠待補的RBAC測試。",
+      "evidence": [
+        "evidence/<release>/<run>/API-002/result.json",
+        "evidence/<release>/<run>/API-002/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "API-003",
+      "req_ids": [
+        "FR-011",
+        "FR-003",
+        "NFR-008",
+        "FR-022"
+      ],
+      "title": "query pagination integer overflow/negative/out-of-range",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "測start/maxresults/maxHitsPerFile負數、零、極大及加總overflow。",
+        "對REF與候選執行相同request。",
+        "比對status/error，確保web與indexer仍健康且資源未無界增長。"
+      ],
+      "expected": "符合 REF 的 status/error；不 crash/OOM",
+      "evidence": [
+        "evidence/<release>/<run>/API-003/result.json",
+        "evidence/<release>/<run>/API-003/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "PKG-001",
+      "req_ids": [
+        "FR-013",
+        "NFR-001",
+        "NFR-002",
+        "FR-021"
+      ],
+      "title": "clean supported OS；從 packed tgz 安裝並啟動",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。",
+        "平台順序為Mac完整功能／介面／包裝完成後，Ubuntu24.04 amd64適配及完整原生重驗；Windows原生承諾保留。每平台使用自己的實際發行候選及hash，不繼承Mac結果。"
+      ],
+      "steps": [
+        "在核准OS/arch clean VM事先提供核准Node/npm，不預裝ctags/SCM helpers；安裝實際bundled npm tgz，不使用monorepo source或cargo build。",
+        "按文件啟動Rust server，建立索引，搜尋/xref/history後停止。",
+        "記錄執行樹與載入依賴：核心來自發布Rust binary，必要helpers來自隨包版本；不啟動Java/Tomcat、不借developer cache或系統PATH工具。",
+        "對照待發行或已確認rustgrok GitHub Release的asset manifest，記錄version／OS／arch／檔名／大小／checksum；G6下載回讀後需能對上同一實測bytes，不將source archive當npm產品。",
+        "M1情境核對平台resolver選取macOS arm64 payload與bundled helpers，記錄npm／Rust程序實際架構；不能因Rosetta可執行x86_64就通過arm64安裝驗收。"
+      ],
+      "expected": "production files與必要bundled helpers完整，實際可index/search/xref/history；無dev workspace、預裝工具或PATH隱性依賴。",
+      "evidence": [
+        "evidence/<release>/<run>/PKG-001/result.json",
+        "evidence/<release>/<run>/PKG-001/attachments/"
+      ],
+      "gate": "G1",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "PKG-002",
+      "req_ids": [
+        "FR-018",
+        "NFR-002",
+        "NFR-015",
+        "FR-021"
+      ],
+      "title": "npm install scripts 禁用；外網出口阻斷、只開內網 registry",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。",
+        "平台順序為Mac完整功能／介面／包裝完成後，Ubuntu24.04 amd64適配及完整原生重驗；Windows原生承諾保留。每平台使用自己的實際發行候選及hash，不繼承Mac結果。"
+      ],
+      "steps": [
+        "事先提供核准Node/npm，清空cache，設定允許的內網registry，封鎖其他出口，禁用install scripts。",
+        "安裝Rust平台預編譯payload，首次啟動/index/query；目標機不應需要Rust compiler或外網crate下載。",
+        "保存DNS/socket與install log；全部必要helpers及可再散布依賴由完整bundled artifact供應，不要求使用者外裝或外網補件。"
+      ],
+      "expected": "所有已批准bundled npm配置安裝／首次啟動／第一次索引無外網需求，無缺件與隱性預裝工具；未完成配置不能以列為不支援替代驗收。",
+      "evidence": [
+        "evidence/<release>/<run>/PKG-002/result.json",
+        "evidence/<release>/<run>/PKG-002/attachments/"
+      ],
+      "gate": "G1",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "PKG-003",
+      "req_ids": [
+        "FR-018",
+        "NFR-003",
+        "NFR-015",
+        "FR-021"
+      ],
+      "title": "完全斷網／空 npm cache，從完整 offline ZIP/tgz bundle 安裝",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。",
+        "平台順序為Mac完整功能／介面／包裝完成後，Ubuntu24.04 amd64適配及完整原生重驗；Windows原生承諾保留。每平台使用自己的實際發行候選及hash，不繼承Mac結果。"
+      ],
+      "steps": [
+        "從待發行資產集合或已發布的公開swchen44/rustgrok GitHub Release取得對應平台完整離線ZIP／TGZ閉包，先核對metadata與checksum再移入隔離環境。repo已建立不代表產品Release已存在；目前產品未實作。",
+        "分開建立native ZIP與離線npm TGZ兩個clean情境，均封鎖非loopback網路（含內網registry）；只提供對應完整離線產物及核准前提。",
+        "native ZIP情境不安裝Node/npm，直接解壓並以Rust binary完成start/index/query。",
+        "離線npm TGZ情境事先提供核准Node/npm，使用空npm cache與完整依賴閉包完成安裝/start/index/query；JS launcher按批准前提運作。",
+        "確認兩種標準Rust交付皆含必要bundled helpers，無cargo/npm/npx網路抓取、無Java/Tomcat、無預裝ctags/SCM或其他隱性依賴；系統ABI前提另依manifest核對。",
+        "Mac流程完成後，Ubuntu24.04 amd64用自己的payload在clean原生環境重跑全部離線步驟；Windows亦保留原生證據，不因共同manifest或跨編譯而免驗。"
+      ],
+      "expected": "native ZIP在無Node/npm下完成指定流程；離線npm TGZ在核准Node/npm與空cache下完成。兩者HTTP/DNS/程序證據顯示不依賴任何網路下載、無Java依賴；npx不觸發抓取。",
+      "evidence": [
+        "evidence/<release>/<run>/PKG-003/result.json",
+        "evidence/<release>/<run>/PKG-003/attachments/"
+      ],
+      "gate": "G1",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "PKG-004",
+      "req_ids": [
+        "FR-013",
+        "NFR-004",
+        "FR-021"
+      ],
+      "title": "無JVM/Tomcat/Rust工具鏈、非管理員環境的成品啟動",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。",
+        "平台順序為Mac完整功能／介面／包裝完成後，Ubuntu24.04 amd64適配及完整原生重驗；Windows原生承諾保留。每平台使用自己的實際發行候選及hash，不繼承Mac結果。"
+      ],
+      "steps": [
+        "建立兩個非管理員clean情境，均無Java/Tomcat/cargo/rustc；npm情境提供核准Node/npm，native ZIP情境不安裝Node/npm。",
+        "確認bundled ctags/SCM helpers可供完整功能使用，清除對預裝同名工具的依賴；另移除helper或置入錯版驗證doctor與明確拒絕，不從PATH或外網補件。",
+        "執行doctor/start/index/history；驗證預編譯Rust產品與免admin提案，不能因缺Java而降級功能。"
+      ],
+      "expected": "標準bundled Rust產品在批准非管理員前提可運作且不要求編譯／Java／外裝helpers；native ZIP不依賴Node/npm。缺件／錯版負測具明確診斷，不算正常交付通過。",
+      "evidence": [
+        "evidence/<release>/<run>/PKG-004/result.json",
+        "evidence/<release>/<run>/PKG-004/attachments/"
+      ],
+      "gate": "G1",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "PKG-005",
+      "req_ids": [
+        "FR-016",
+        "NFR-001",
+        "NFR-002"
+      ],
+      "title": "npm global/local install、空白／中文／長 install path",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。",
+        "平台順序為Mac完整功能／介面／包裝完成後，Ubuntu24.04 amd64適配及完整原生重驗；Windows原生承諾保留。每平台使用自己的實際發行候選及hash，不繼承Mac結果。"
+      ],
+      "steps": [
+        "測local/global install及空白、中文、長路徑安裝目錄。",
+        "將package目錄設唯讀，index/start/stop後升級或移除package。",
+        "確認持久data不放node_modules、不因套件變動被刪除。"
+      ],
+      "expected": "能啟動／停止／升級；package dir 可唯讀；state 在外",
+      "evidence": [
+        "evidence/<release>/<run>/PKG-005/result.json",
+        "evidence/<release>/<run>/PKG-005/attachments/"
+      ],
+      "gate": "G1",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "PKG-006",
+      "req_ids": [
+        "NFR-001",
+        "NFR-009",
+        "FR-021"
+      ],
+      "title": "platform/CPU mismatch、corrupt payload/hash mismatch",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。",
+        "平台順序為Mac完整功能／介面／包裝完成後，Ubuntu24.04 amd64適配及完整原生重驗；Windows原生承諾保留。每平台使用自己的實際發行候選及hash，不繼承Mac結果。"
+      ],
+      "steps": [
+        "準備錯OS/arch/ABI與損毀hash的Rust payload；測CPU baseline不符binary，另置入缺失／版本或能力不符的bundled helper。",
+        "啟動runtime resolver與產品流程，觀察manifest/hash/平台查核、helper能力檢查及錯誤。",
+        "不符OS/arch/ABI或hash的binary須於執行前拒絕；helper缺失／能力不符須於核心作業前診斷拒絕。不得回退Java、系統PATH或下載另一binary，不能以本機target-cpu=native產物充通用發行物。",
+        "在M1加入錯選x86_64 payload／helper或translated程序情境；resolver與doctor須如實指出架構不符，不以Rosetta成功或host CPU=arm64冒充native arm64證據。"
+      ],
+      "expected": "明確停止且不執行不符binary；bundled helper缺件／錯版不隱性回退其他runtime／系統工具或外網下載。",
+      "evidence": [
+        "evidence/<release>/<run>/PKG-006/result.json",
+        "evidence/<release>/<run>/PKG-006/attachments/"
+      ],
+      "gate": "G1",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "OS-001",
+      "req_ids": [
+        "NFR-001",
+        "FR-004",
+        "FR-006",
+        "FR-010",
+        "FR-013",
+        "FR-021"
+      ],
+      "title": "Windows 64 位元原生，不藉 WSL／Docker",
+      "preconditions": [
+        "Windows64位元承諾保留，OS版本／CPU tuple須經D03確認；Mac先開發與Ubuntu部署優先不刪除Windows原生驗收。"
+      ],
+      "steps": [
+        "在D03核准的Windows 64位元OS版本／CPU tuple原生系統安裝標準Rust成品，不預設x64，無WSL/Docker/Java依賴。",
+        "完整測xref/history/suggester/project CRUD/index/query/stop及檔案鎖。",
+        "上游Windows跳過測試只是oracle的證據缺口；以Rust實際結果判定，不把原版skip直接當Rust缺陷或免測理由。",
+        "以Windows實際發行物完整重跑適用功能／UI／封裝測項並保存獨立run；不得沿用Mac或Ubuntu passed，跨編譯只作artifact來源紀錄。"
+      ],
+      "expected": "Windows原生index/search/history/suggester/UI/封裝/shutdown等適用測項具獨立證據；失敗即平台gate failure，不從Mac／Linux繼承通過。",
+      "evidence": [
+        "evidence/<release>/<run>/OS-001/result.json",
+        "evidence/<release>/<run>/OS-001/attachments/"
+      ],
+      "gate": "G1",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "D03核准的Windows 64位元OS版本與CPU tuple；架構尚未決定，不默認x64。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "OS-002",
+      "req_ids": [
+        "FR-014",
+        "NFR-001",
+        "NFR-007",
+        "FR-021"
+      ],
+      "title": "Ctrl+C、正常 stop、crash、parent exit、port conflict",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "在local與LAN兩種運作模式分別啟動Rust server與長索引工作，包含bundled helpers子程序並保留受管identity；從主機端觸發停止測試，不假定LAN管理已批准。",
+        "測Ctrl+C/stop/parent crash/port衝突/重複啟動，含async worker取消。",
+        "驗證ready/stop/exit與無orphan，不誤殺其他程序；不以原Java shutdown行為代替Rust實驗。"
+      ],
+      "expected": "受管Rust程序與bundled helpers子程序可控退出；沒有孤兒程序，且不終止其他使用者或其他工作實例。",
+      "evidence": [
+        "evidence/<release>/<run>/OS-002/result.json",
+        "evidence/<release>/<run>/OS-002/attachments/"
+      ],
+      "gate": "G1",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "OS-003",
+      "req_ids": [
+        "NFR-001",
+        "NFR-004"
+      ],
+      "title": "Apple M1 macOS原生arm64先完整驗證",
+      "preconditions": [
+        "首輪Mac已確認Apple M1／Apple Silicon arm64，不再問Intel或ARM；macOS實際版本與最低支援版本仍待D03。先完成Mac全部移植／功能／介面／包裝，再Ubuntu24.04 amd64完整原生重驗。"
+      ],
+      "steps": [
+        "在Apple M1主機核對實際macOS版本、CPU、原生arm64執行狀態；用實際bundled TGZ／ZIP安裝，記錄binary/helpers來源、quarantine及可執行權限。",
+        "核對Mach-O架構／universal binary的arm64 slice，並記錄Rust server、npm執行環境與必要helpers的實際程序架構及翻譯狀態；不能僅看主機M1就認定所有程序原生arm64。",
+        "若錯取x86_64 payload或經Rosetta執行，必須標示不同執行情境或失敗，不得計為M1 native arm64 PASS；不要求使用者安裝Rosetta來掩蓋缺少arm64依賴。",
+        "以既有SRC/QRY/PRJ/UI/SCM/API/CLI/PKG/REC/SEC/RST等適用ID完成全部Mac移植、功能、介面與包裝；正式SLO／pilot依原gate，無admin與安全設定依已批准前提驗證。",
+        "Mac階段完成後進入Ubuntu24.04 amd64平台適配及完整原生重驗；若Linux更動共用程式，回歸受影響Mac契約，不共用passed。"
+      ],
+      "expected": "Apple M1上的原生arm64完整功能／介面／包裝具獨立證據，macOS實際／最低版本如實記錄；Rosetta x86_64不可算arm64通過，Mac完成亦不代表Linux或全域gate通過。",
+      "evidence": [
+        "evidence/<release>/<run>/OS-003/result.json",
+        "evidence/<release>/<run>/OS-003/attachments/"
+      ],
+      "gate": "G1",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "首輪Apple M1／Apple Silicon arm64已確認；macOS實際／最低版本待D03。原生arm64必測，不以Rosetta x86_64替代。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "OS-004",
+      "req_ids": [
+        "NFR-001",
+        "NFR-004"
+      ],
+      "title": "Ubuntu24.04 amd64適配與完整原生重驗",
+      "preconditions": [
+        "Ubuntu24.04 amd64已確認為正式部署優先。開發順序先完成核准macOS全部移植／功能／介面／包裝證據，再做Linux適配；Ubuntu硬體型號／資源及剩餘環境仍待確認。"
+      ],
+      "steps": [
+        "確認Mac階段完成清單、source commit及corpus/config hashes，在Ubuntu24.04 amd64原生主機建置或載入對應實際TGZ／ZIP；跨編譯成功不算此步通過。",
+        "實作並核對Linux ELF／glibc與native helpers依賴、大小寫／symlink／權限、locale/temp、signals/child processes、locks/mmap/fsync及generation提交等平台差異；不借開發cache或未宣告工具。",
+        "完整重跑Linux適用的query/analyzer/scoring/xref/history/API/UI與local/LAN流程，以及安裝／離線／恢復／安全等既有ID；不得只跑OS-004或smoke。PERF與pilot仍在原G1/G5映射下完整量測。",
+        "保存每項Linux原生run與artifact/image/CPU/commit證據，按Linux結果判定，不複製Mac passed；若改共用程式，回歸受影響Mac契約。Windows最終原生驗收保留。"
+      ],
+      "expected": "Ubuntu24.04 amd64完成平台適配及全部適用功能／介面／包裝等原生重驗，有獨立證據；正式性能SLO依原G5另驗。Mac PASS、跨編譯或ubuntu-latest名稱不能替代Linux結果。",
+      "evidence": [
+        "evidence/<release>/<run>/OS-004/result.json",
+        "evidence/<release>/<run>/OS-004/attachments/"
+      ],
+      "gate": "G1",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "Ubuntu24.04 amd64已確認；Mac階段完成後完整原生重驗，正式部署優先。硬體型號／資源及剩餘環境依D03/D09確認。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "OS-005",
+      "req_ids": [
+        "NFR-001",
+        "FR-009",
+        "NFR-012"
+      ],
+      "title": "Windows file locking/junction/UNC candidate／case-insensitive paths",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "在Windows模擬開啟index檔鎖、rename/delete競爭及junction。",
+        "依已批准storage範圍測UNC、大小寫與long paths。",
+        "執行更新/rollback與lock recovery；未承諾storage記為不適用並附決策。"
+      ],
+      "expected": "符合批准 storage contract；無錯誤 rename／delete／lock recovery",
+      "evidence": [
+        "evidence/<release>/<run>/OS-005/result.json",
+        "evidence/<release>/<run>/OS-005/attachments/"
+      ],
+      "gate": "G1",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "D03核准的Windows 64位元OS版本與CPU tuple；架構尚未決定，不默認x64。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "REC-001",
+      "req_ids": [
+        "FR-009",
+        "FR-016",
+        "NFR-007",
+        "FR-021"
+      ],
+      "title": "full/incremental indexing 的各 commit 階段中斷",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "在Rust scan/parse/tokenize/segment write/index commit/xref/config publish/reader swap等邊界注入終止。",
+        "重啟檢查journal/schema/generation及query/raw/xref結果。",
+        "驗證一致舊版或新版、或明確rebuild-required；不以索引引擎局部commit假設整個產品已原子化。"
+      ],
+      "expected": "restart 後是可驗證的先前／新 generation 或明確要求重建；不偽裝健康",
+      "evidence": [
+        "evidence/<release>/<run>/REC-001/result.json",
+        "evidence/<release>/<run>/REC-001/attachments/"
+      ],
+      "gate": "G1",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "REC-002",
+      "req_ids": [
+        "FR-016",
+        "NFR-007",
+        "NFR-011",
+        "FR-021"
+      ],
+      "title": "disk full、權限錯誤、分析器hang與Rust記憶體／panic故障",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "注入disk full、permission denied、分析器或外部工具hang、allocation失敗情境或程序終止。",
+        "測Rust panic策略、worker取消、queue恢復及restart，不把OOM行為假定可catch。",
+        "核對source/data完整、exit/status/log及恢復，結果依可用平台故障機制記錄。"
+      ],
+      "expected": "operation failed 原因可查；來源不變；最後可用版本可回復",
+      "evidence": [
+        "evidence/<release>/<run>/REC-002/result.json",
+        "evidence/<release>/<run>/REC-002/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "REC-003",
+      "req_ids": [
+        "FR-020",
+        "NFR-012",
+        "FR-021"
+      ],
+      "title": "app upgrade compatible/incompatible index schema",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "準備可用Rust舊版runtime/config/index/source組合與manifest。",
+        "測Rust index/schema相容與不相容升級、途中終止及rollback；OpenGrok舊Lucene資料匯入另由D20/MIG-001判定。",
+        "不得以Tantivy/Lucene同為倒排索引推論binary相容；啟動只允許相容組合。"
+      ],
+      "expected": "先檢查相容性；不直接覆寫舊 index；rollback 載入相容的 runtime/config/data 組合",
+      "evidence": [
+        "evidence/<release>/<run>/REC-003/result.json",
+        "evidence/<release>/<run>/REC-003/attachments/"
+      ],
+      "gate": "G4",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "REC-004",
+      "req_ids": [
+        "FR-016",
+        "FR-020",
+        "NFR-007",
+        "NFR-012"
+      ],
+      "title": "config migration fail、backup restore、跨版本 downgrade",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "在config migration及backup/restore中斷點注入錯誤。",
+        "恢復上一代並測固定query/history/xref。",
+        "確認source/index契約符合決策；RTO/RPO與停機時間待用戶核准後判定。"
+      ],
+      "expected": "能回到上一個可用組合；重建必要性有清楚說明",
+      "evidence": [
+        "evidence/<release>/<run>/REC-004/result.json",
+        "evidence/<release>/<run>/REC-004/attachments/"
+      ],
+      "gate": "G4",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "SEC-001",
+      "req_ids": [
+        "FR-016",
+        "NFR-008"
+      ],
+      "title": "source/data/config的OS檔案保護（管理secret依D16）",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "檢查source/data/config與工具目錄的OS檔案權限及實際服務帳戶能力；這是檔案保護，不是產品帳號／角色／project ACL。",
+        "執行正常讀取／索引工作並監控source寫入；管理政策若選定token等secret，另依D16檢查保存、可讀範圍與log/browser洩漏。",
+        "確認不需要source寫入的流程沒有取得或使用額外權限；不為完成本測項新增強制登入、SSO或未批准管理secret。"
+      ],
+      "expected": "source hashes維持契約且OS檔案保護符合部署前提；實際存在的管理secret依已批准政策保護，無secret方案不產生永久待補token條件。",
+      "evidence": [
+        "evidence/<release>/<run>/SEC-001/result.json",
+        "evidence/<release>/<run>/SEC-001/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "SEC-002",
+      "req_ids": [
+        "FR-017",
+        "NFR-008"
+      ],
+      "title": "local／LAN共同可讀，無角色與project ACL",
+      "preconditions": [
+        "使用者已確認local＋LAN與不用權限管理；已登記projects採共同可讀。以產品讀者入口驗證，不把帳號／角色／ACL／SSO配置當前置；免登入入口仍是工程建議，不能記成使用者已批准。"
+      ],
+      "steps": [
+        "分別啟動local與LAN模式，核對主機及第二台LAN client的讀者入口／listener範圍；兩模式都需實際證據，不將LAN支援標skip。",
+        "使用多個獨立client或browser contexts代表約5位讀者，選取不同project/query組合；不建立允許／禁止project的角色帳戶。",
+        "核對所有讀者對已登記projects的UI/search/suggest/xref/raw/history/diff/download/read API及直接URL共同可讀；相同選取與query得到一致結果，不因client身份分層。",
+        "交錯client的project選取、query與cache命中，驗證不混用選取狀態或cache結果；source root之外仍不可任意讀取，管理操作另交API-002/SEC-005按D16確認。"
+      ],
+      "expected": "local與LAN共同可讀正向契約有實測證據，所有讀者使用同一已登記project集合且選取結果正確；不需要RBAC／project ACL，不用skip冒充passed，也不推論所有讀者可管理。",
+      "evidence": [
+        "evidence/<release>/<run>/SEC-002/result.json",
+        "evidence/<release>/<run>/SEC-002/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "SEC-003",
+      "req_ids": [
+        "FR-005",
+        "FR-009",
+        "NFR-008"
+      ],
+      "title": "traversal/double decoding/symlink escapes／HTML/shell payload",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "用合成path traversal/double encoding/symlink及HTML/shell metacharacter資料。",
+        "操作來源登記、索引、查詢、xref與下載，不執行真實破壞命令。",
+        "確認不越root、不執行source內容且HTML安全呈現。"
+      ],
+      "expected": "不越界讀取、不執行 source、HTML 被安全處理",
+      "evidence": [
+        "evidence/<release>/<run>/SEC-003/result.json",
+        "evidence/<release>/<run>/SEC-003/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "SEC-004",
+      "req_ids": [
+        "FR-018",
+        "NFR-008"
+      ],
+      "title": "runtime outbound monitoring、proxy env、telemetry",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "以程序樹和OS網路觀測追蹤install後runtime所有連線。",
+        "執行Rust start/index/query/history/suggest/doctor及重啟，包含proxy環境；所有允許子工具一併監控。",
+        "未批准的外連數為0；不傳source/index/query，更新策略依確定需求驗證。"
+      ],
+      "expected": "零未批准外連；index/source 不傳外網；更新檢查需符合確定策略",
+      "evidence": [
+        "evidence/<release>/<run>/SEC-004/result.json",
+        "evidence/<release>/<run>/SEC-004/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "SEC-005",
+      "req_ids": [
+        "FR-017",
+        "NFR-008"
+      ],
+      "title": "local／LAN讀者與管理控制面邊界（D16待決）",
+      "preconditions": [
+        "local＋LAN與無角色／project ACL已確認；管理操作開放範圍、Host/Origin/CSRF/token／transport仍依D16/D20確認。主機CLI／本機控制面與LAN只讀是提案，不是已批准政策。"
+      ],
+      "steps": [
+        "建立read／mutation端點表，分別列local與LAN的listener、可達範圍與副作用；不把免登入讀者提案或no-AuthZ當成管理開放授權。",
+        "對工程提案可先在隔離環境驗主機CLI／本機控制面操作、LAN讀者共同讀取及管理端點隔離，證據明標proposal；正式驗收依D16確認後政策。",
+        "依選定控制面實際測Host/Origin、跨origin頁面、DNS rebinding、CSRF與client管理請求的相關情境；只有選用token／TLS等時測其明確契約，不虛構已批准配置。",
+        "若政策未選某種控制，驗證批准的替代邊界及其證據；不新增帳號／角色／RBAC／project ACL前置，也不因在內網就默開有副作用端點。"
+      ],
+      "expected": "共同可讀契約成立，管理操作暴露及控制符合D16/D20確認後邊界；未確認時只報proposal與待決，不假通過，不把取消RBAC變成永久阻擋。",
+      "evidence": [
+        "evidence/<release>/<run>/SEC-005/result.json",
+        "evidence/<release>/<run>/SEC-005/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "PERF-001",
+      "req_ids": [
+        "NFR-005",
+        "NFR-006",
+        "FR-021",
+        "NFR-016"
+      ],
+      "title": "搜尋優先：同硬體原OpenGrok與Rust公平分組量測",
+      "preconditions": [
+        "搜尋優先、local＋LAN與約5人已確認；1人參照。Mac先做開發量測並完成移植／功能／介面／包裝，再於Ubuntu24.04 amd64完整原生重驗；Ubuntu是部署優先。G5前批准SLO、corpus/hardware、query mix、rate／think-time／每人並行；macOS實際／最低版本與Windows環境待D03。"
+      ],
+      "steps": [
+        "先於Apple M1原生arm64以parity成立corpus做G1開發基準，核對REF JVM、Rust及必要helpers均按所報架構原生執行；Rosetta結果需另列且不能當native arm64收益。Mac完整移植／介面／包裝後，在Ubuntu24.04 amd64重跑全部類別，各自同平台／同硬體對照。",
+        "分別建立local與LAN拓撲的1-user參照及約5-user互動情境；各client選不同project/query並保持獨立瀏覽狀態，共用server cache。記錄實際rate／think-time／in-flight與client數，不把約5人換成5 QPS、5requests或hard cap。",
+        "按全文、defs、refs、path、Boolean、多欄組合、phrase/proximity、wildcard、regex、fuzzy、range、history/type及其餘承諾語意標記query IDs，再分單／跨project、命中量、分頁與選中project集合。",
+        "分開process cold start、JVM warmup、steady-state、application cache及OS page-cache狀態；記錄可觀測cache hits/misses、命中率分母及配置，不能觀測標unknown。",
+        "以request ID分報server admission／queue wait／parse-plan-search-snippet-SSR及response span，與browser提交至結果可見／完成互動時間；各端用自己的單調時鐘，不以不同端timestamp直接相減。",
+        "對1人及約5人情境，分別在無背景索引、完整與增量索引下查同project／其他project／跨project；逐組保存樣本數、p50/p95/p99、throughput、慢查詢、timeouts／錯誤／取消及期限，不只報成功平均。",
+        "保留full/incremental時間、index bytes、磁碟I/O、全process tree同步RSS/CPU/heap/allocator/temp/disk；用paired交錯重複runs並保留noise與區間，profile另跑。",
+        "先呈現各查詢類別的收益／退步與瓶頸，再列其他成本。G1只報有證據的slice，不保證Rust較快；具體SLO未批准不宣稱通過，G5才按批准門檻驗收。"
+      ],
+      "expected": "正確性與性能分列；1人參照與約5人互動按query/project/cache/index及local/LAN情境分報，不以平均、cache全命中、漏功能或刪timeout掩蓋慢查詢。約5人不構成QPS／請求hard cap，數值SLO仍需批准。 Mac與Ubuntu24.04 amd64的baseline／結果分開，Windows亦有其原生證據；不得從Mac數據推論Linux通過。",
+      "evidence": [
+        "evidence/<release>/<run>/PERF-001/result.json",
+        "evidence/<release>/<run>/PERF-001/attachments/"
+      ],
+      "gate": "G1",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G5"
+    },
+    {
+      "test_id": "PERF-002",
+      "req_ids": [
+        "FR-007",
+        "FR-009",
+        "NFR-005",
+        "NFR-006",
+        "FR-021",
+        "NFR-016"
+      ],
+      "title": "使用者內網pilot：各類查詢／並行reindex與批准搜尋SLO",
+      "preconditions": [
+        "各承諾平台G4發行可靠性已通過；Mac先完成且Ubuntu24.04 amd64已完整原生重驗。正式部署pilot優先Ubuntu24.04 amd64，local＋LAN、約5人與搜尋優先已確認。SLO、corpus、硬體／資源、query mix、rate／think-time等仍須批准，不移用Mac結果。"
+      ],
+      "steps": [
+        "G4後優先在Ubuntu24.04 amd64使用者內網，以該平台最終bundled artifact跑1人參照及約5人pilot；同一Ubuntu硬體的原版合理調校成對比較，local/LAN分記，企業資料不外傳。",
+        "依PERF-001分類由約5個client選不同project/query，觀測公用cache命中與失效及cold/warm差異；按client／query分報server queue/處理與browser可見／完成互動時間，讀者不分角色或project ACL。",
+        "在約5人互動情境加入完整／增量reindex與soak，涵蓋同／跨project競爭；記錄實際rate、think-time、in-flight、慢query IDs、timeouts、取消、錯誤及freshness，不以停索引或過舊資料製造速度。",
+        "優先按已批准的查詢SLO逐組判定，再核對完整功能、全process資源、startup、full/incremental、disk/index size及操作恢復；不能以其他指標平均抵銷查詢失敗。",
+        "請使用者簽核實際搜尋收益及其成本；未批准門檻、未跑情境與未完成請求都明列，不能以全體平均宣稱通過。"
+      ],
+      "expected": "1人參照與約5人互動的必要查詢組別滿足批准搜尋SLO，功能與freshness正確、成本及恢復契約達標且有sign-off；約5人不是5 QPS或產品hard cap，未批准數值或未跑pilot不可宣稱驗收。",
+      "evidence": [
+        "evidence/<release>/<run>/PERF-002/result.json",
+        "evidence/<release>/<run>/PERF-002/attachments/"
+      ],
+      "gate": "G5",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "正式部署pilot優先Ubuntu24.04 amd64原生；各其他承諾平台的性能證據由其原生run支持，不能將Mac結果轉成Linux passed。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G5"
+    },
+    {
+      "test_id": "REL-001",
+      "req_ids": [
+        "NFR-002",
+        "NFR-003",
+        "NFR-009",
+        "NFR-010"
+      ],
+      "title": "發行候選TGZ／ZIP、metadata／checksum與原生安裝",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "建立rustgrok GitHub Releases候選asset manifest：tag/version、source commit、檔名／類型／大小、OS/arch、Rust target、helpers、SHA-256與對應SBOM/licenses/source。此時尚非已發布證據。",
+        "逐檔檢查實際TGZ／ZIP內容與hash／來源，排除企業source、token、cache及未批准測試資料；必要合法source archives另列，不當可執行產品。",
+        "Mac完成後，在Ubuntu24.04 amd64以該平台候選檔完整原生安裝／離線重驗；Windows亦須自己的證據，將結果綁定exact asset bytes。",
+        "G4保存候選證據，G6由REL-005回讀實際Release metadata與下載hash；若bytes不同，重跑受影響PKG／整合測項，不把舊證據套到新asset。"
+      ],
+      "expected": "候選資產metadata、checksum、SBOM/licenses/source與各平台原生證據一致；無企業資料或secret混入。規劃與候選驗證不宣稱產品binary已發布。",
+      "evidence": [
+        "evidence/<release>/<run>/REL-001/result.json",
+        "evidence/<release>/<run>/REL-001/attachments/"
+      ],
+      "gate": "G4",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "REL-002",
+      "req_ids": [
+        "NFR-002",
+        "NFR-003",
+        "NFR-012",
+        "NFR-014",
+        "NFR-015"
+      ],
+      "title": "run documented quickstart/offline/upgrade steps verbatim",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "在各平台clean環境按最終quickstart/offline/upgrade文件逐字執行；先Mac全部完成，再Ubuntu24.04 amd64完整原生重驗，Windows不免驗。",
+        "只使用同版發行候選或公開swchen44/rustgrok GitHub Releases的exact assets，不借開發環境隱含步驟；public已選且repo建立已回讀，正式Release發布後再驗公開下載，現在不宣稱已有產品binary。",
+        "下載與轉入內網後核對checksum及完整離線依賴，按PKG-001/003區分npm的Node/npm前提與無Node portable ZIP。",
+        "記錄各步與平台證據；文件／實作／asset有變更就重跑受影響路徑，不從Mac成功推論Linux成功。"
+      ],
+      "expected": "每平台可用同版TGZ／ZIP照文件完成安裝、離線、升級；資產與checksum對得上，Mac及Linux結果獨立，未發布candidate不假稱已公開產品。",
+      "evidence": [
+        "evidence/<release>/<run>/REL-002/result.json",
+        "evidence/<release>/<run>/REL-002/attachments/"
+      ],
+      "gate": "G4",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "REL-003",
+      "req_ids": [
+        "NFR-013",
+        "NFR-014"
+      ],
+      "title": "requirement → design → WBS → test → evidence",
+      "preconditions": [
+        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+      ],
+      "steps": [
+        "從requirements讀取全部mandatory IDs並連接design/WBS/test/evidence。",
+        "列出所有planned/skipped/failed/not applicable與批准例外。",
+        "核對各required平台的G3/G4獨立run、Ubuntu24.04 amd64優先G5部署pilot與SLO簽核，再對應G6實際rustgrok Release/tag/commit/asset hash；Mac passed不得填作Linux passed，crosscompile不可作runtime evidence。"
+      ],
+      "expected": "無orphan mandatory requirement；skips/exceptions依決策顯示；完整G3/G4/G5證據對應G6最終交付版本。",
+      "evidence": [
+        "evidence/<release>/<run>/REL-003/result.json",
+        "evidence/<release>/<run>/REL-003/attachments/"
+      ],
+      "gate": "G6",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G6"
+    },
+    {
+      "test_id": "WIN-001",
+      "req_ids": [
+        "NFR-001",
+        "FR-004",
+        "FR-006",
+        "FR-015",
+        "FR-009",
+        "FR-021"
+      ],
+      "title": "原版Windows證據缺口對應行為的Rust補驗",
+      "preconditions": [
+        "相關需求與平台／交付契約須先核准；未決則實際執行狀態應標blocked。"
+      ],
+      "steps": [
+        "列出原版Windows profile排除的xref/history/Mercurial/symlink/project控制領域。",
+        "在獨立原版可運行的參照環境取得黑箱語意，Rust在原生Windows執行同fixture及UI。",
+        "對無法同OS建立oracle的情境明列證據限制，另驗平台特有路徑；不能以原版skip直接判Rust失敗或通過。"
+      ],
+      "expected": "所有承諾Rust功能有原生Windows證據，原版證據缺口透明；缺口須解決或由使用者決策，不暗自砍功能。",
+      "evidence": [
+        "evidence/<release>/<run>/WIN-001/result.json",
+        "evidence/<release>/<run>/WIN-001/attachments/"
+      ],
+      "gate": "G1",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "D03核准的Windows 64位元OS版本與CPU tuple；架構尚未決定，不默認x64。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "SRV-001",
+      "req_ids": [
+        "FR-013",
+        "FR-011",
+        "FR-012",
+        "NFR-001",
+        "FR-021"
+      ],
+      "title": "Rust自帶HTTP server與原版行為／UI契約整合",
+      "preconditions": [
+        "相關需求與平台／交付契約須先核准；未決則實際執行狀態應標blocked。"
+      ],
+      "steps": [
+        "在無Java/Tomcat/Apache HTTP Server的clean環境啟動bundled Rust產品，分別驗local本機及LAN遠端讀者流程；先在核准macOS完整驗證，再於Ubuntu24.04 amd64適配及完整原生重驗；Ubuntu為部署優先。",
+        "載入原靜態CSS/JS/images與Rust SSR頁面，測routes/context paths/error/raw/xref/history/API。",
+        "readiness需驗證Rust配置/索引schema/project/實際search可用；port open不等於ready，產品不執行WAR/JSP。",
+        "LAN由第二client實際讀取已登記projects，驗共同可讀與原style；不要求建立帳號／SSO／角色／ACL，管理端點暴露另按D16/D20，不因LAN可搜尋而默認可管理。"
+      ],
+      "expected": "自帶Rust HTTP於local及LAN都提供已承諾原功能／外觀，無Java依賴；macOS先完成開發驗證、Ubuntu24.04 amd64後續完整原生重驗，所有承諾平台最終原生實跑，管理邊界不由讀者共同可讀推論。",
+      "evidence": [
+        "evidence/<release>/<run>/SRV-001/result.json",
+        "evidence/<release>/<run>/SRV-001/attachments/"
+      ],
+      "gate": "G1",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "CLI-001",
+      "req_ids": [
+        "FR-014",
+        "FR-015",
+        "NFR-011"
+      ],
+      "title": "CLI 契約與錯誤處理",
+      "preconditions": [
+        "相關需求與平台／交付契約須先核准；未決則實際執行狀態應標blocked。"
+      ],
+      "steps": [
+        "由批准的CLI spec產生命令/參數/exit-code table。",
+        "測init/start/stop/status/doctor/project/index等最終批准命令及非法參數、取消、重入。",
+        "檢查stdout/stderr與machine-readable模式，確認不洩露token或source。"
+      ],
+      "expected": "正常與錯誤操作均符合已凍結契約；未批准命令名只是候選。",
+      "evidence": [
+        "evidence/<release>/<run>/CLI-001/result.json",
+        "evidence/<release>/<run>/CLI-001/attachments/"
+      ],
+      "gate": "G2",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G2"
+    },
+    {
+      "test_id": "DAT-001",
+      "req_ids": [
+        "FR-016",
+        "NFR-002",
+        "NFR-012"
+      ],
+      "title": "持久資料與安裝目錄分離",
+      "preconditions": [
+        "相關需求與平台／交付契約須先核准；未決則實際執行狀態應標blocked。"
+      ],
+      "steps": [
+        "完成索引後保存配置、project registry、cache、data與source manifest。",
+        "更新/重裝/移除package並保留指定state位置，再用相容版本啟動。",
+        "檢查持久資料與來源完整；若存在明確purge命令另以安全fixture驗證。"
+      ],
+      "expected": "套件升級/移除不隱性刪除用戶source/state，恢復規則明確。",
+      "evidence": [
+        "evidence/<release>/<run>/DAT-001/result.json",
+        "evidence/<release>/<run>/DAT-001/attachments/"
+      ],
+      "gate": "G2",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G2"
+    },
+    {
+      "test_id": "SYN-001",
+      "req_ids": [
+        "FR-019",
+        "FR-009",
+        "NFR-008"
+      ],
+      "title": "來源同步能力（需求待決）",
+      "preconditions": [
+        "相關需求與平台／交付契約須先核准；未決則實際執行狀態應標blocked。"
+      ],
+      "steps": [
+        "先確認是否要求代管clone/pull、watcher或schedule，未決則blocked。",
+        "若批准，以合成remote測正常sync、dirty tree、conflict、offline與認證失敗。",
+        "檢查同步範圍、來源副作用、index觸發與失敗顯示。"
+      ],
+      "expected": "只執行批准的來源修改；不自動stash/reset/pull未知working tree。",
+      "evidence": [
+        "evidence/<release>/<run>/SYN-001/result.json",
+        "evidence/<release>/<run>/SYN-001/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": true,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "MIG-001",
+      "req_ids": [
+        "FR-020",
+        "FR-016",
+        "NFR-012",
+        "FR-021"
+      ],
+      "title": "既有 OpenGrok 資料遷移（需求待決）",
+      "preconditions": [
+        "相關需求與平台／交付契約須先核准；未決則實際執行狀態應標blocked。"
+      ],
+      "steps": [
+        "確認D20要求的舊OpenGrok source/config/Lucene index/history/bookmarks與版本，未決則blocked。",
+        "逐項檢查可轉換資料；測dry-run、schema/version不符、備份及復原，不承諾直接讀Lucene binary。",
+        "若必須重建則明列成本與使用者批准，重建後比對query/history/URL；不能以Rust重寫為由省略原遷移需求。"
+      ],
+      "expected": "已批准遷移路徑可驗證且可回復；未決不得宣稱既有索引可直接沿用。",
+      "evidence": [
+        "evidence/<release>/<run>/MIG-001/result.json",
+        "evidence/<release>/<run>/MIG-001/attachments/"
+      ],
+      "gate": "G4",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": true,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "OBS-001",
+      "req_ids": [
+        "NFR-011",
+        "NFR-008",
+        "NFR-014"
+      ],
+      "title": "記錄、診斷與證據完整性",
+      "preconditions": [
+        "相關需求與平台／交付契約須先核准；未決則實際執行狀態應標blocked。"
+      ],
+      "steps": [
+        "觸發正常工作、依賴缺失、timeout、OOM及disk full；如D16管理政策選定認證／token等控制，另觸發其拒絕或錯誤，沒有該機制不要求虛構認證事件。",
+        "檢查job ID、project ID、phase、exit code、耗時、resource metrics與版本診斷。",
+        "檢查log rotation、token/敏感路徑處理與匿名報告；確保無自動外傳。"
+      ],
+      "expected": "可定位失敗並追蹤每個job，符合核准保存/隱私策略；不把失敗標成功。",
+      "evidence": [
+        "evidence/<release>/<run>/OBS-001/result.json",
+        "evidence/<release>/<run>/OBS-001/attachments/"
+      ],
+      "gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "REL-004",
+      "req_ids": [
+        "NFR-010",
+        "NFR-009",
+        "FR-021"
+      ],
+      "title": "授權、再散布與來源對應",
+      "preconditions": [
+        "相關需求與平台／交付契約須先核准；未決則實際執行狀態應標blocked。"
+      ],
+      "steps": [
+        "列出原OpenGrok沿用程式/資產、Rust crates及native libs、Node與所有bundled helpers的版本／來源／hash／授權；核對其native依賴與再散布來源閉包。",
+        "逐發行物檢查LICENSE/NOTICE、對應source/patch及SBOM；原版oracle的Java依賴與產品依賴清單分開。",
+        "發布負責人確認再散布及原source/assets的義務，不能把Rust重寫混合作品錯標單一MIT。",
+        "GitHub Releases中的每個平台binary/TGZ/ZIP、bundled helpers及必要source artifact均需與其SBOM／license／對應source一致，不用只有CI artifact代替正式發行來源閉包。"
+      ],
+      "expected": "發行物、SBOM、licenses與對應source一致；未決法律條件不得當作已通過。",
+      "evidence": [
+        "evidence/<release>/<run>/REL-004/result.json",
+        "evidence/<release>/<run>/REL-004/attachments/"
+      ],
+      "gate": "G4",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G4"
+    },
+    {
+      "test_id": "REL-005",
+      "req_ids": [
+        "NFR-013",
+        "NFR-014",
+        "NFR-009"
+      ],
+      "title": "rustgrok GitHub Releases資產與交接可追溯",
+      "preconditions": [
+        "公開repo swchen44/rustgrok已回讀建立成功（ID 1433282584，main）；建立回讀時內容未提交且沒有產品Release。正式G6仍需各平台驗收、G5部署pilot與批准SLO完成；後續push與產品Release須各有實際commit／asset證據，npm仍由使用者發布。"
+      ],
+      "steps": [
+        "沿用已核實owner swchen44與公開repo https://github.com/swchen44/rustgrok（ID 1433282584、main），內容提交後回讀commit/tree並核對docs/tests/source/CI/ADR；不再詢問visibility或把只有repo建立當完整交接通過。",
+        "正式產品具實作與驗收證據後，將各平台TGZ／portable ZIP、checksums、SBOM/notices及必要source放GitHub Releases；核對tag/version/source commit與draft/prerelease狀態，不以Actions暫存代替發行包。",
+        "回讀公開Release與asset ID／名稱／大小／類型、OS/arch及版本metadata，實際下載exact bytes核SHA-256及各平台證據；正式發布後另驗公開讀取／下載，不將未發布draft或不存在binary當可取得資產。",
+        "按既有PKG-001/003與REL-002用下載產物核對可離線安裝閉包；如果下載bytes與候選不同，重驗受影響流程，不沿用舊passed或Mac證據。",
+        "核對README下載／安裝連結、handoff及決策狀態；目前只確認repo建立，未提供commit或產品Release證據前不得聲稱內容已push或binary已發布。"
+      ],
+      "expected": "公開swchen44/rustgrok的正式Release assets須對應tag/commit、checksum及每平台原生驗收並可離線安裝；repo建立、內容push與產品Release分別取證，不能以建立repo推論REL-005或產品驗收已通過。",
+      "evidence": [
+        "evidence/<release>/<run>/REL-005/result.json",
+        "evidence/<release>/<run>/REL-005/attachments/"
+      ],
+      "gate": "G6",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false,
+      "acceptance_gate": "G6"
+    },
+    {
+      "test_id": "API-004",
+      "req_ids": [
+        "FR-011",
+        "FR-009",
+        "FR-015",
+        "NFR-007",
+        "FR-021"
+      ],
+      "title": "非同步配置／專案 API 完成與實際生效",
+      "preconditions": [
+        "固定上游非同步API契約與candidate job模型；D16/D20管理端點相容／暴露範圍另盤點，可在隔離原型驗證成功、失敗與延遲，但不代表已批准LAN管理。"
+      ],
+      "steps": [
+        "以原版ApiTask及配置／project操作對照確定的HTTP契約。",
+        "Rust相容API回傳task後等待終態，驗證config/index/project/search實際生效。",
+        "注入失敗、重啟與timeout，確認外部契約及內部Rustjob補償，不以換語言把非同步contract改同步。",
+        "從D16/D20批准的控制入口觸發正式驗收；讀者共同可讀不授權config/reindex/project mutation，不為此建立mandatory角色／ACL。"
+      ],
+      "expected": "只有task完成且變更實際可見才標success；失敗／timeout不冒充完成，不造成重複或不一致操作。",
+      "evidence": [
+        "evidence/<release>/<run>/API-004/result.json",
+        "evidence/<release>/<run>/API-004/attachments/"
+      ],
+      "gate": "G2",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格；尚未實作或執行，沒有性能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false,
+      "acceptance_gate": "G3"
+    },
+    {
+      "test_id": "RST-001",
+      "req_ids": [
+        "FR-021",
+        "FR-022",
+        "NFR-014"
+      ],
+      "title": "獨立oracle與分層診斷擷取",
+      "preconditions": [
+        "Rust、bundled helpers、搜尋優先、local＋LAN、約5人及無權限管理已確認。開發驗證先完成macOS移植／功能／介面／包裝，再於Ubuntu24.04 amd64適配及完整原生重驗；Ubuntu為部署優先。macOS實際／最低版本、Windows環境、oracle、D16/D20、SLO及負載未決處明列。G1研究配置不冒稱完整平台或SLO已通過。"
+      ],
+      "steps": [
+        "原版OpenGrok黑箱輸出先獨立產生；輔助Java讀取器只連pinned原版，不匯入Rustparser/normalizer。",
+        "擷取query、token/position/offset、hits/explain、snippets/xref與HTML fixture，保存工具及input hashes。",
+        "以手工可算小案例校正讀取器，再故意破壞Rust分層輸出，驗證測試能定位差異而非共同犯錯。"
+      ],
+      "expected": "oracle與候選實作獨立；白箱診斷輔助黑箱結果，不能用共享parser造成同錯同過。",
+      "evidence": [
+        "evidence/<release>/<run>/RST-001/result.json",
+        "evidence/<release>/<run>/RST-001/attachments/"
+      ],
+      "gate": "G1",
+      "acceptance_gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格（原RST ID保留）；尚未實作或執行，沒有Rust效能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false
+    },
+    {
+      "test_id": "RST-002",
+      "req_ids": [
+        "FR-001",
+        "FR-002",
+        "FR-022"
+      ],
+      "title": "相容parser→AST→engine adapter差異",
+      "preconditions": [
+        "Rust、bundled helpers、搜尋優先、local＋LAN、約5人及無權限管理已確認。開發驗證先完成macOS移植／功能／介面／包裝，再於Ubuntu24.04 amd64適配及完整原生重驗；Ubuntu為部署優先。macOS實際／最低版本、Windows環境、oracle、D16/D20、SLO及負載未決處明列。G1研究配置不冒稱完整平台或SLO已通過。"
+      ],
+      "steps": [
+        "按OpenGrok QueryBuilder/CustomQueryParser的欄位escape、default AND、多框合併與normalize建立表。",
+        "對合法/非法/邊界/巢狀query比較等價AST結構與最終結果；包含wildcard/regexp/fuzzy/range/phrase/boost。",
+        "分開驗parser輸入語法與engine執行計畫；Tantivy候選預設parser只能作實驗對象，不能定義產品語意。"
+      ],
+      "expected": "所有承諾syntax及error符合oracle；無法表示的AST節點明確blocked，不默默改寫或刪除。",
+      "evidence": [
+        "evidence/<release>/<run>/RST-002/result.json",
+        "evidence/<release>/<run>/RST-002/attachments/"
+      ],
+      "gate": "G1",
+      "acceptance_gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格（原RST ID保留）；尚未實作或執行，沒有Rust效能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false
+    },
+    {
+      "test_id": "RST-003",
+      "req_ids": [
+        "FR-001",
+        "FR-008",
+        "FR-022"
+      ],
+      "title": "各語言／欄位analyzer、token與Unicode座標",
+      "preconditions": [
+        "Rust、bundled helpers、搜尋優先、local＋LAN、約5人及無權限管理已確認。開發驗證先完成macOS移植／功能／介面／包裝，再於Ubuntu24.04 amd64適配及完整原生重驗；Ubuntu為部署優先。macOS實際／最低版本、Windows環境、oracle、D16/D20、SLO及負載未決處明列。G1研究配置不冒稱完整平台或SLO已通過。"
+      ],
+      "steps": [
+        "以每個承諾analyzer輸出term、type、position increment、offset與field normalization對照。",
+        "測長identifier、單字元、大小寫、註解/字串/標點、UTF-8/BOM/CRLF、emoji與combining characters。",
+        "明確轉換Java UTF-16 offset與Rust byte offset為共同來源區間；測索引與query端使用相同規則。"
+      ],
+      "expected": "tokens/positions/normalize與可見行號/高亮一致；不能採Tantivy預設lowercase/40長度filter而漏符號。",
+      "evidence": [
+        "evidence/<release>/<run>/RST-003/result.json",
+        "evidence/<release>/<run>/RST-003/attachments/"
+      ],
+      "gate": "G1",
+      "acceptance_gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格（原RST ID保留）；尚未實作或執行，沒有Rust效能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false
+    },
+    {
+      "test_id": "RST-004",
+      "req_ids": [
+        "FR-003",
+        "FR-007",
+        "FR-022"
+      ],
+      "title": "scorer／跨project統計與ranking同等",
+      "preconditions": [
+        "Rust、bundled helpers、搜尋優先、local＋LAN、約5人及無權限管理已確認。開發驗證先完成macOS移植／功能／介面／包裝，再於Ubuntu24.04 amd64適配及完整原生重驗；Ubuntu為部署優先。macOS實際／最低版本、Windows環境、oracle、D16/D20、SLO及負載未決處明列。G1研究配置不冒稱完整平台或SLO已通過。"
+      ],
+      "steps": [
+        "建立sparse fields、不同project大小/term頻率、長短文件、刪除未merge、boost與constant-score混合fixture。",
+        "擷取原版實際scorer/explain/statistics與排序；Rust比較selected-project集合的field docCount、df、norms及rewrite。",
+        "檢查同分與浮點差異是否改可見排序；數值差異不得被任意epsilon或排序正規化掩蓋。"
+      ],
+      "expected": "D20尚未批准任何放寬前維持原ranking契約；不能各project獨立BM25 top-K合併當原MultiReader結果。",
+      "evidence": [
+        "evidence/<release>/<run>/RST-004/result.json",
+        "evidence/<release>/<run>/RST-004/attachments/"
+      ],
+      "gate": "G1",
+      "acceptance_gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格（原RST ID保留）；尚未實作或執行，沒有Rust效能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false
+    },
+    {
+      "test_id": "RST-005",
+      "req_ids": [
+        "FR-003",
+        "FR-004",
+        "FR-005",
+        "FR-012",
+        "FR-021"
+      ],
+      "title": "snippet/xref/Rust SSR完整輸出管線",
+      "preconditions": [
+        "Rust、bundled helpers、搜尋優先、local＋LAN、約5人及無權限管理已確認。開發驗證先完成macOS移植／功能／介面／包裝，再於Ubuntu24.04 amd64適配及完整原生重驗；Ubuntu為部署優先。macOS實際／最低版本、Windows環境、oracle、D16/D20、SLO及負載未決處明列。G1研究配置不冒稱完整平台或SLO已通過。"
+      ],
+      "steps": [
+        "同一source/query逐層比較hits→snippet/highlight spans→xref symbol/scope→SSR HTML。",
+        "測跨行匹配、CRLF、Unicode、超長行、HTML escape、line anchors、Navigate/Scopes與歷史版本。",
+        "沿用原CSS/JS等資產，核對DOM節點/attributes/URLs/互動及同OS screenshots，避免原JS找不到Rust產生元素。"
+      ],
+      "expected": "原功能/style一致；server模板技術可不同，但可見內容、URL與JS依賴契約不能漂移。",
+      "evidence": [
+        "evidence/<release>/<run>/RST-005/result.json",
+        "evidence/<release>/<run>/RST-005/attachments/"
+      ],
+      "gate": "G1",
+      "acceptance_gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格（原RST ID保留）；尚未實作或執行，沒有Rust效能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false
+    },
+    {
+      "test_id": "RST-006",
+      "req_ids": [
+        "FR-013",
+        "FR-021",
+        "NFR-001",
+        "NFR-002",
+        "NFR-003",
+        "NFR-015"
+      ],
+      "title": "純產品執行路徑與原生Rust發行物",
+      "preconditions": [
+        "Rust、bundled helpers、搜尋優先、local＋LAN、約5人及無權限管理已確認。開發驗證先完成macOS移植／功能／介面／包裝，再於Ubuntu24.04 amd64適配及完整原生重驗；Ubuntu為部署優先。macOS實際／最低版本、Windows環境、oracle、D16/D20、SLO及負載未決處明列。G1研究配置不冒稱完整平台或SLO已通過。"
+      ],
+      "steps": [
+        "標準Rust profile的clean目標機無JVM/Tomcat/cargo/rustc；npm情境提供核准Node/npm，native ZIP情境無Node/npm，分別從實際發行物安裝。",
+        "驗證query/index/xref/render/SCM核心執行路徑與binary provenance；D19採bundled必要helpers，隔離系統同名工具，核對每個helper與依賴來源。",
+        "捕捉process/network/native libraries與CPU/ABI需求；不能偷偷呼叫Java完成未移植功能或首次下載建置。",
+        "先完成Mac適用全部移植／功能／介面／包裝驗證，再於Ubuntu24.04 amd64用Linux artifact完整原生重驗；記錄各平台執行樹與hash，crosscompile僅是產物來源。",
+        "Mac首輪固定M1原生arm64；核對Mach-O payload與實際process架構／translation狀態，包括必要helpers，不把Rosetta x86_64路徑計為arm64產品通過。"
+      ],
+      "expected": "標準bundled profile的Rust核心與自帶HTTP實際成立；三平台原生與離線artifact具完整必要helpers，不借使用者外裝或外網補件，不把Java oracle放進產品runtime。D20未批准bridge不能作無JVM要求的例外，也不能取代Rust核心。",
+      "evidence": [
+        "evidence/<release>/<run>/RST-006/result.json",
+        "evidence/<release>/<run>/RST-006/attachments/"
+      ],
+      "gate": "G1",
+      "acceptance_gate": "G4",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格（原RST ID保留）；尚未實作或執行，沒有Rust效能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false
+    },
+    {
+      "test_id": "RST-007",
+      "req_ids": [
+        "FR-002",
+        "FR-008",
+        "FR-022",
+        "NFR-008"
+      ],
+      "title": "query／analyzer／路徑的property與differential fuzz",
+      "preconditions": [
+        "Rust、bundled helpers、搜尋優先、local＋LAN、約5人及無權限管理已確認。開發驗證先完成macOS移植／功能／介面／包裝，再於Ubuntu24.04 amd64適配及完整原生重驗；Ubuntu為部署優先。macOS實際／最低版本、Windows環境、oracle、D16/D20、SLO及負載未決處明列。G1研究配置不冒稱完整平台或SLO已通過。"
+      ],
+      "steps": [
+        "以固定seed生成合法與不合法query/source邊界，加入Unicode、escape、巢狀、巨型term與regexp expansion。",
+        "合法語意對照oracle，非法輸入驗錯誤、不panic、不越界；shrinking保留最小失敗fixture。",
+        "只使用已證明在原語法成立的metamorphic relations，例如同配置完整/增量等價；不假設一般Boolean代數可隨意改寫原parser。",
+        "若為優化引入unsafe、FFI或mmap相關自訂程式碼，增加適用的Miri/sanitizer/平台故障測試與獨立審查；工具不支援處明列，不假稱安全語言可免測依賴。"
+      ],
+      "expected": "每個發現可重現並進regression；fuzz通過不是完整性證明，coverage及未涵蓋grammar另列。",
+      "evidence": [
+        "evidence/<release>/<run>/RST-007/result.json",
+        "evidence/<release>/<run>/RST-007/attachments/"
+      ],
+      "gate": "G2",
+      "acceptance_gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格（原RST ID保留）；尚未實作或執行，沒有Rust效能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false
+    },
+    {
+      "test_id": "RST-008",
+      "req_ids": [
+        "FR-021",
+        "FR-022",
+        "NFR-005",
+        "NFR-006",
+        "NFR-016"
+      ],
+      "title": "搜尋關鍵路徑的輸入規模、allocation與熱點複雜度",
+      "preconditions": [
+        "Rust、bundled helpers、搜尋優先、local＋LAN、約5人及無權限管理已確認。開發驗證先完成macOS移植／功能／介面／包裝，再於Ubuntu24.04 amd64適配及完整原生重驗；Ubuntu為部署優先。macOS實際／最低版本、Windows環境、oracle、D16/D20、SLO及負載未決處明列。G1研究配置不冒稱完整平台或SLO已通過。"
+      ],
+      "steps": [
+        "依D21比較1人與約5人互動情境的最慢query及tail samples，定位server queue、parse/plan、postings/scoring、snippet/SSR及browser成本；區分共用cache contention、CPU、allocation、locks與I/O，不預設瓶頸。",
+        "將query bytes、source bytes、token數、nesting、match count與output bytes分開變動；以成倍規模測parser/decoder/escape/render各階段，並保留單／跨project與query語法分類。",
+        "記錄time/input-byte、alloc count/bytes、peak live bytes、copies與CPU profile；找出repeated scan/clone/format/allocation等實際熱點，計時run與instrumented profile分開。",
+        "有證據後評估streaming/borrow/buffer reuse/reserve等改動；regex expansion及search另按pattern/詞庫/postings/output量分析，cache最佳化需記hits/misses與失效成本。",
+        "每個優化重跑parity與1人／約5人端到端查詢分組，包含不同client project/query、公用cache、cold/warm、背景index及timeouts；另報全process成本，不靠縮功能或設定5request硬上限換速度。"
+      ],
+      "expected": "優化由搜尋瓶頸證據導出且保留原功能；簡單線性掃描以O(n+output)作設計目標並用計數/profile查證，不宣稱整個搜尋O(query length)，也不用微基準或Rust/zero-copy名稱代表實際查詢收益。",
+      "evidence": [
+        "evidence/<release>/<run>/RST-008/result.json",
+        "evidence/<release>/<run>/RST-008/attachments/"
+      ],
+      "gate": "G1",
+      "acceptance_gate": "G5",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格（原RST ID保留）；尚未實作或執行，沒有Rust效能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false
+    },
+    {
+      "test_id": "RST-009",
+      "req_ids": [
+        "FR-009",
+        "FR-016",
+        "FR-021",
+        "NFR-007",
+        "NFR-012"
+      ],
+      "title": "Rust索引格式與完整／增量等價",
+      "preconditions": [
+        "Rust、bundled helpers、搜尋優先、local＋LAN、約5人及無權限管理已確認。開發驗證先完成macOS移植／功能／介面／包裝，再於Ubuntu24.04 amd64適配及完整原生重驗；Ubuntu為部署優先。macOS實際／最低版本、Windows環境、oracle、D16/D20、SLO及負載未決處明列。G1研究配置不冒稱完整平台或SLO已通過。"
+      ],
+      "steps": [
+        "對固定最終來源分別從零full build與多步add/edit/delete/rename增量build。",
+        "比較query/rank/token/xref/history與logical document coverage，另記錄segment/merge/schema/generation狀態。",
+        "在native engine commit、metadata publish、reader swap及Windows檔鎖階段fault inject，驗證重啟與rollback。",
+        "測取消／reader世代切換／memory-mapped檔案生命週期與並行讀取；Windows open-file刪除／替換路徑必須有原生證據。"
+      ],
+      "expected": "full/incremental對同一來源有同等行為；Rust格式自有version契約，不假稱Lucene/Tantivy binary互通。",
+      "evidence": [
+        "evidence/<release>/<run>/RST-009/result.json",
+        "evidence/<release>/<run>/RST-009/attachments/"
+      ],
+      "gate": "G2",
+      "acceptance_gate": "G4",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格（原RST ID保留）；尚未實作或執行，沒有Rust效能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": false,
+      "conditional": false
+    },
+    {
+      "test_id": "RST-010",
+      "req_ids": [
+        "NFR-005",
+        "NFR-006",
+        "NFR-016"
+      ],
+      "title": "搜尋分組與cold/warm cache的公平跨語言benchmark",
+      "preconditions": [
+        "Rust、bundled helpers、搜尋優先、local＋LAN、約5人及無權限管理已確認。開發驗證先完成macOS移植／功能／介面／包裝，再於Ubuntu24.04 amd64適配及完整原生重驗；Ubuntu為部署優先。macOS實際／最低版本、Windows環境、oracle、D16/D20、SLO及負載未決處明列。G1研究配置不冒稱完整平台或SLO已通過。"
+      ],
+      "steps": [
+        "鎖同硬體/磁碟/OS/CPU電源模式、相同資料／功能與資源預算；REF合理heap/GC/thread調校，Rust使用可發行release/CPU target及bundled helpers，公開flags。",
+        "把process startup、JVM warmup、steady-state、application cache及OS page cache分開；cold cache無權清除時用clean VM或標未測，不把restart叫cold。各cache記hits/misses及命中率分母，缺觀測標unknown。",
+        "在local／LAN拓撲分別對照1-user與約5-user互動情境，按query/project/cache/index分層；client採不同query/project且共用server cache。人數已知但rate／think-time／每人並行仍需明列研究設定或正式批准，不換算成5 QPS或hard cap。",
+        "交錯paired runs並保留樣本數、throughput、分位/區間、慢查詢、timeouts／錯誤／取消。成功請求分位數需標為條件分布；timeouts保留deadline，不當完成延遲或刪除。",
+        "記錄server admission/queue/處理與browser可見結果計時邊界，以request ID關聯；分開正式計時與profile，不用跨端時鐘相減或引入不對稱觀測負擔。",
+        "Mac開發量測與Ubuntu24.04 amd64部署量測各有同平台／同硬體的REF；不得把Mac REF或warmup／cache結果搬成Linux基線。",
+        "M1比較先核對原版JVM與Rust／helpers的native arm64及translation狀態；不能用Rosetta x86_64原版對原生Rust宣稱native同條件加速。"
+      ],
+      "expected": "沒有cold JVM對warm Rust、debug對release、全cache命中對未知cache、少功能對全功能等不公平比較；按查詢組別呈現完整請求結果，所有數據具可重現manifest及清楚量測邊界。",
+      "evidence": [
+        "evidence/<release>/<run>/RST-010/result.json",
+        "evidence/<release>/<run>/RST-010/attachments/"
+      ],
+      "gate": "G1",
+      "acceptance_gate": "G5",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格（原RST ID保留）；尚未實作或執行，沒有Rust效能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false
+    },
+    {
+      "test_id": "RST-011",
+      "req_ids": [
+        "FR-011",
+        "FR-020",
+        "FR-021",
+        "NFR-012",
+        "NFR-014"
+      ],
+      "title": "舊config/index/JAR與Rust相容邊界",
+      "preconditions": [
+        "Rust、bundled helpers、搜尋優先、local＋LAN、約5人及無權限管理已確認。開發驗證先完成macOS移植／功能／介面／包裝，再於Ubuntu24.04 amd64適配及完整原生重驗；Ubuntu為部署優先。macOS實際／最低版本、Windows環境、oracle、D16/D20、SLO及負載未決處明列。G1研究配置不冒稱完整平台或SLO已通過。"
+      ],
+      "steps": [
+        "逐項列出原CLI/config/API、Java XML設定、JAR plugin ABI、Lucene index及bookmark需求，標D20待決。",
+        "以代表設定/plugin功能測Rust等價能力；binary ABI與行為相容分開，沒有JVM不能假稱可載原JAR。",
+        "在明確決策前把未實現完整性列gap；任何替代import/rebuild/plugin API須批准後再驗，不自行縮減。"
+      ],
+      "expected": "相容承諾逐項可驗；未決範圍不報full parity，也不偷偷加入Java fallback。",
+      "evidence": [
+        "evidence/<release>/<run>/RST-011/result.json",
+        "evidence/<release>/<run>/RST-011/attachments/"
+      ],
+      "gate": "G0",
+      "acceptance_gate": "G3",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格（原RST ID保留）；尚未實作或執行，沒有Rust效能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false
+    },
+    {
+      "test_id": "RST-012",
+      "req_ids": [
+        "FR-021",
+        "NFR-005",
+        "NFR-006",
+        "NFR-016"
+      ],
+      "title": "搜尋收益、慢查詢與整體成本的宣稱證據審查",
+      "preconditions": [
+        "Rust、bundled helpers、搜尋優先、local＋LAN、約5人及無權限管理已確認。開發驗證先完成macOS移植／功能／介面／包裝，再於Ubuntu24.04 amd64適配及完整原生重驗；Ubuntu為部署優先。macOS實際／最低版本、Windows環境、oracle、D16/D20、SLO及負載未決處明列。G1研究配置不冒稱完整平台或SLO已通過。"
+      ],
+      "steps": [
+        "用parity成立slice做G1開發基準；Mac完整移植／功能／介面／包裝後，Ubuntu24.04 amd64重驗並重測。依D21審查各平台1人／約5人、query分類、共用cache及背景index，local/LAN分報；Mac PASS或跨編譯不證明Linux收益。",
+        "逐組列REF/Rust/差異/區間/樣本數/cache命中率，核查慢查詢、timeouts／取消／錯誤及未完成樣本；少功能、漏結果或較舊資料造成的較快不得當收益。",
+        "再列startup、full/incremental、全process RSS/CPU、index bytes、disk I/O與bundled helpers成本，不能用未批准總分掩蓋查詢退步，搜尋優先也不代表其他成本已無上限。",
+        "無提升或部分退步時如實報告熱點與取捨，優先安排搜尋優化；不自動撤回Rust、不承諾倍數。G5依使用者批准數值SLO及負載逐組驗收，未批准項維持OPEN。"
+      ],
+      "expected": "搜尋收益具匹配功能與公平分組量測，1人與約5人情境明列而不推論5 QPS或hard cap；快組平均不掩蓋慢查詢／timeouts，subset不外推全產品，未證明項unknown且不自訂SLO。",
+      "evidence": [
+        "evidence/<release>/<run>/RST-012/result.json",
+        "evidence/<release>/<run>/RST-012/attachments/"
+      ],
+      "gate": "G1",
+      "acceptance_gate": "G5",
+      "release_gate": "G6",
+      "status": "planned",
+      "execution_note": "v0.6測試規格（原RST ID保留）；尚未實作或執行，沒有Rust效能或相容性通過結論。",
+      "platform_scope": "各核准OS/arch依平台順序獨立實測：Apple M1/macOS原生arm64先完整驗證，Ubuntu24.04 amd64後續完整原生重驗，Windows原生承諾保留。",
+      "requires_user_decision": true,
+      "conditional": false
+    }
+  ],
+  "runtime_profile_policy": {
+    "decision": "D19",
+    "status": "confirmed",
+    "selected_option": "A",
+    "standard_product": "D01已確認Rust核心；所有現有產品測項為標準Rust bundled profile，無JVM/Tomcat與Java fallback。",
+    "bundled": "所有主要runtime測試使用隨包必要helpers；依完整功能inventory鎖定版本、hash、native依賴與授權，驗證payload閉包，不借預裝工具。",
+    "external": "B使用者外裝工具不是本版mandatory profile；不得藉系統PATH或外裝前提掩蓋bundled產物缺件。",
+    "without_helpers": "C不使用helpers不是本版mandatory profile；不因本輪選A而刪除原版功能。",
+    "negative_tests": "仍故障注入缺helper、錯版本／能力、不相容平台或損壞payload，驗證明確診斷與拒絕；不把這些故障當正常支援profile。",
+    "network": "不得從外網補取缺少runtime、helpers或payload；完全離線情境也不可借內網registry下載。",
+    "future_compatibility_bridge": "D20目前未批准任何Java plugin bridge；未來須明確批准特定插件、另立profile/測項/gates，且不得取代Rust核心或放寬標準profile無JVM測項。"
+  },
+  "architecture": "Rust核心重寫；標準bundled profile隨包必要helpers且無JVM。原版OpenGrok/JVM只作獨立oracle；本輪未批准Java plugin bridge。",
+  "confirmed_decisions": {
+    "D01": "Rust核心重寫",
+    "D19": "A：隨包附帶必要helpers，主要runtime驗收採bundled；B外裝與C無helpers非本版mandatory profile。",
+    "D21": "搜尋速度優先；約5位同時使用者為已知代表情境，驗證另設1人參照；未批准具體SLO、corpus/hardware、request率／think-time／每人並行或改善倍數。",
+    "D02": "local本機與LAN都支援，不做帳號／角色／RBAC／project ACL；已登記projects共同可讀。免登入入口與管理面開放政策尚非已批准。",
+    "D03": "首輪Mac為Apple M1／Apple Silicon arm64；先完整移植／功能／介面／包裝，再於Ubuntu24.04 amd64適配及完整原生重驗。Ubuntu為正式部署優先，macOS實際／最低版本及Windows細節仍未決。",
+    "D11": "已選public且已回讀公開repo swchen44/rustgrok建立成功：ID 1433282584、https://github.com/swchen44/rustgrok、main。發行包放GitHub Releases；建立回讀時內容未提交且無產品Release，後續push／發布需另有證據。"
+  },
+  "open_decisions": {
+    "D20": "排序、舊index/config/JAR及原REST管理相容仍需盤點；D02已取消帳號／角色／project ACL的mandatory要求，不可由原版parity偷偷加回，也不可默開LAN管理。",
+    "D09": "約5人代表情境已知，不等於5 QPS、5requests或hard cap；具體搜尋SLO、corpus/hardware、query mix、request率／think-time／每人並行及其他成本門檻仍OPEN。",
+    "D03": "M1／Apple Silicon arm64與Ubuntu24.04 amd64均已確認；macOS實際版本／最低支援版本、Windows版本／CPU、硬體資源等剩餘條件仍OPEN。不再詢問Mac Intel或ARM。",
+    "D16": "管理操作開放何處、讀者入口與token／CSRF／本機控制面等待確認；免登入、主機CLI／本機控制面管理及LAN只讀為工程提案，不新增強制登入／SSO／RBAC需求。"
+  },
+  "platform_execution_policy": {
+    "production_priority": {
+      "os": "Ubuntu",
+      "version": "24.04",
+      "arch": "amd64",
+      "status": "confirmed"
+    },
+    "development_validation_order": [
+      {
+        "phase": "macos_complete",
+        "scope": "首輪Apple M1原生arm64已確認；先完成所有移植、功能／API／SCM／query／UI及npm／ZIP包裝，macOS實際／最低版本待確認，不只垂直切片。"
+      },
+      {
+        "phase": "ubuntu_native_revalidation",
+        "scope": "Mac階段完成後，Ubuntu24.04 amd64做平台適配，完整重跑所有Linux適用既有測項；性能／pilot按原gate驗。"
+      }
+    ],
+    "windows": "Windows64位元最終原生驗收保留；CPU／版本待確認，不以Mac、Linux、WSL或Docker結果替代。",
+    "result_policy": "每平台獨立run/manifest/artifact hash/結果。跨編譯不算runtime evidence；Linux修改共用程式後回歸受影響Mac契約。 M1須記錄實際native arm64／translation狀態；Rosetta x86_64不能冒充arm64結果。",
+    "gate_policy": "平台工作階段不是新增gate；所有原gate映射不變，跨平台gate待全部承諾平台證據齊全才關閉。",
+    "first_macos_target": {
+      "hardware": "Apple M1",
+      "cpu_family": "Apple Silicon",
+      "arch": "arm64",
+      "architecture_status": "confirmed",
+      "actual_macos_version": null,
+      "minimum_macos_version": null,
+      "execution_requirement": "native arm64；Rosetta x86_64不能算arm64 PASS"
+    }
+  },
+  "release_destination_policy": {
+    "repository_name": "rustgrok",
+    "name_status": "confirmed",
+    "repository_url": "https://github.com/swchen44/rustgrok",
+    "visibility_status": "confirmed",
+    "package_destination": "GitHub Releases",
+    "repository_state": "已回讀公開swchen44/rustgrok建立成功；建立回讀時size=0、內容未提交，尚無產品Release。後續內容push及Release須另回讀commit/asset證據。",
+    "product_artifact_state": "not_implemented_not_released",
+    "verification": "G4候選檔、G6實際Release回讀，asset metadata/checksum/bytes須對上tag/commit及各平台原生證據。",
+    "repository_owner": "swchen44",
+    "owner_status": "verified",
+    "target_repository": "swchen44/rustgrok",
+    "repository_id": 1433282584,
+    "default_branch": "main",
+    "visibility": "public",
+    "repository_creation_status": "created_verified",
+    "creation_readback_size": 0,
+    "content_state": "no_commit_verified_at_creation_readback",
+    "verified_permissions": {
+      "push": true,
+      "admin": true
+    }
+  }
+}

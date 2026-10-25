@@ -1,0 +1,16 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+/data/
+/runtime-cache/
+/workspaces/
+/private-fixtures/
+.env
+.env.*
+!.env.example
+/dist/
+/target/
+/node_modules/
+__pycache__/
+*.py[cod]

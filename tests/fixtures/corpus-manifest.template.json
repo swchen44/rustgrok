@@ -1,0 +1,57 @@
+{
+  "schema_version": "0.6",
+  "status": "template_not_generated",
+  "private_source_allowed": false,
+  "acceptance_upstream": "OPEN_D04",
+  "generation_seed": null,
+  "projects": [
+    {
+      "id": "alpha",
+      "source_digest": null,
+      "scm_revision": null
+    },
+    {
+      "id": "beta",
+      "source_digest": null,
+      "scm_revision": null
+    },
+    {
+      "id": "gamma",
+      "source_digest": null,
+      "scm_revision": null
+    }
+  ],
+  "requirements": [
+    "Cross-project duplicate symbols",
+    "No-SCM and multiple-repository project",
+    "Deterministic Git history",
+    "Complete approved language/SCM inventory",
+    "Unicode/space/case/line-endings/symlink/path cases",
+    "Benign escaping/injection fixtures",
+    "OpenGrok default-AND and multi-field query composition",
+    "Case-sensitive defs/refs and language-specific tokenization",
+    "Identifiers longer than candidate tokenizer defaults",
+    "UTF-8 bytes / UTF-16 code units / Unicode scalar spans with CJK and emoji",
+    "Sparse-field statistics and selected-project scoring scope",
+    "Phrase positions, regex/fuzzy/range/escaping/boost and invalid queries",
+    "JGit-compatible merge/rename/blame whitespace and history behavior",
+    "Rust SSR DOM/URL/JS globals and original style contracts",
+    "Full versus incremental indexing equivalence, deletion and generation recovery"
+  ],
+  "note": "This is a fixture specification template; files/repositories/history have not been generated.",
+  "reference_role": "Independent OpenGrok oracle; not a product runtime",
+  "runtime_implementation": "Rust (user confirmed)",
+  "evidence_status": "not_run",
+  "benchmark_parameters": {
+    "representative_source_size": null,
+    "project_count": null,
+    "query_mix": null,
+    "concurrency": null,
+    "hardware": null,
+    "approved_slo": null,
+    "decisions": "D21 search first confirmed; workload/hardware/numeric SLO/tradeoffs OPEN. D19 primary bundled helpers confirmed. D02 local+LAN and approximately 5 people without role/project ACL confirmed. Primary deployment Ubuntu 24.04 amd64 confirmed; macOS development/full verification first, followed by full Ubuntu native reverification. Mac Apple M1 arm64 confirmed, macOS version OPEN; public swchen44/rustgrok created and GitHub Releases destination confirmed.",
+    "priority": "search_latency",
+    "interactive_users_estimate": 5
+  },
+  "helper_profile": "bundled_required_helpers"
+}

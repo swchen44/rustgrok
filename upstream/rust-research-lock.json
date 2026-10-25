@@ -1,0 +1,657 @@
+{
+  "schema_version": "0.6",
+  "purpose": "static_research_pins_and_read_records_only",
+  "status": "NOT_A_PRODUCT_RUNTIME_OR_CARGO_DEPENDENCY_LOCK",
+  "researched_at": "2026-10-25",
+  "timezone": "Asia/Taipei",
+  "related_documents": [
+    "docs/12-rust-compatibility.md",
+    "docs/adr/0002-rust-core-and-compatibility.md",
+    "upstream/research-lock.json",
+    "upstream/source-review-manifest.json"
+  ],
+  "decision_state": {
+    "D01": {
+      "status": "ACCEPTED_BY_USER",
+      "value": "Rust core rewrite",
+      "user_statement": "我還是想要改寫rust 因為效能比較好"
+    },
+    "D04": {
+      "status": "OPEN",
+      "value": null
+    },
+    "D19": {
+      "status": "CONFIRMED",
+      "value": "bundled_necessary_ctags_git_and_other_scm_helpers",
+      "user_statement": "A+搜尋速度",
+      "confirmation_scope": "Necessary helper bundling policy; Rust remains the product core.",
+      "helper_builds_status": "PENDING_G1",
+      "per_scm_capabilities_status": "PENDING_G1_AND_ORIGINAL_FEATURE_INVENTORY",
+      "implicit_install_or_runtime_downloads_authorized": false
+    },
+    "D20": {
+      "status": "OPEN",
+      "value": null,
+      "scope_note": "User-role/project ACL management and authorization/RBAC plugin parity are excluded from mandatory product scope by D02. Existing API/config/plugin inventory remains useful; non-auth plugins cannot be silently removed. Other compatibility details remain open and Java plugin bridge is not approved."
+    },
+    "D21": {
+      "status": "CONFIRMED",
+      "value": "search_speed_first",
+      "user_statement": "A+搜尋速度",
+      "numeric_slo_status": "OPEN",
+      "representative_workload_status": "OPEN",
+      "target_environment_status": "OPEN",
+      "resource_indexing_and_freshness_tradeoffs_status": "OPEN"
+    },
+    "approved_reductions_to_opengrok_functionality_or_style": [
+      {
+        "decision_id": "D02",
+        "status": "CONFIRMED",
+        "user_statement": "3, 約5人， 不用權限管理",
+        "scope": "User-role/project ACL management and associated authorization/RBAC plugin parity are not mandatory product functionality or complete-parity blockers.",
+        "non_auth_plugins_remain_in_inventory": true,
+        "unrelated_search_ranking_or_style_differences_approved": false,
+        "java_plugin_bridge_approved": false,
+        "lan_management_exposure_approved": false
+      }
+    ],
+    "concrete_crates_engine_and_module_boundaries": "PROPOSED",
+    "standard_product_profile_uses_jvm": false,
+    "legacy_plugin_java_bridge": {
+      "status": "NOT_APPROVED",
+      "decision_id": "D20",
+      "requires_new_explicit_user_decision": true,
+      "requires_separate_profile_and_tests": true,
+      "may_replace_rust_search_or_index_core": false
+    },
+    "D02": {
+      "status": "CONFIRMED",
+      "value": "local_and_lan_shared_hosting",
+      "user_statement": "3, 約5人， 不用權限管理",
+      "local_use_supported": true,
+      "lan_shared_use_supported": true,
+      "approximate_concurrent_users": 5,
+      "user_count_is_approximate": true,
+      "user_count_is_qps": false,
+      "user_count_is_hard_limit": false,
+      "user_role_management_required": false,
+      "project_acl_management_required": false,
+      "forced_new_accounts_sso_or_login": false,
+      "authorization_rbac_plugin_parity_mandatory": false,
+      "non_auth_plugins_remain_in_compatibility_inventory": true,
+      "management_operation_exposure_decision": "D16"
+    },
+    "D03": {
+      "status": "PARTIALLY_CONFIRMED",
+      "priority_status": "CONFIRMED",
+      "priority_platform": "Ubuntu 24.04 amd64",
+      "user_statement": "amd64",
+      "previous_requested_ubuntu_version": "24.02",
+      "latest_requested_ubuntu_version": "24.04",
+      "exact_ubuntu_version": "24.04",
+      "ubuntu_version_status": "CONFIRMED",
+      "target_cpu_architecture": "amd64",
+      "macos_support_required": true,
+      "windows_64_bit_support_required": true,
+      "scope_note": "Production deployment prioritizes Ubuntu 24.04 amd64 (Rust architecture x86_64). The user confirmed Apple M1/arm64 for the first macOS development and complete-validation machine; Rust target mapping is aarch64-apple-darwin. Actual/minimum macOS versions remain open. Ubuntu adaptation and complete native revalidation follow; Mac PASS never substitutes for Linux PASS. Windows support/details are retained, and all runtime validation remains NOT_RUN.",
+      "user_statement_history": [
+        "要優先使用在 linux ubuntu 24.02",
+        "24.04",
+        "amd64"
+      ],
+      "original_requested_ubuntu_version": "24.04",
+      "ubuntu_point_release": null,
+      "ubuntu_point_release_policy": "Record the actual point release in the test-environment manifest; it is not a current requirements-clarification blocker.",
+      "remaining_platform_detail_status": "MACOS_ACTUAL_MINIMUM_OS_AND_WINDOWS_DETAILS_OPEN",
+      "priority_scope": "production_deployment",
+      "ubuntu_cpu_status": "CONFIRMED",
+      "ubuntu_rust_architecture": "x86_64",
+      "development_and_first_full_validation": {
+        "status": "CONFIRMED",
+        "platform": "macOS",
+        "cpu_architecture": "arm64",
+        "minimum_os_version": null,
+        "implementation_and_validation_status": "NOT_RUN",
+        "processor_model": "Apple M1",
+        "cpu_status": "USER_CONFIRMED",
+        "rust_target_mapping": "aarch64-apple-darwin",
+        "actual_os_version": null,
+        "actual_os_version_status": "OPEN",
+        "minimum_os_version_status": "OPEN"
+      },
+      "following_platform_work": {
+        "status": "CONFIRMED",
+        "platform": "Ubuntu",
+        "os_version": "24.04",
+        "cpu_architecture": "amd64",
+        "rust_architecture": "x86_64",
+        "work": [
+          "platform_implementation_adaptation",
+          "complete_native_revalidation"
+        ],
+        "implementation_and_validation_status": "NOT_RUN",
+        "macos_pass_is_linux_pass": false
+      },
+      "macos_cpu_architecture": "arm64",
+      "macos_minimum_os_version": null,
+      "windows_cpu_architecture": null,
+      "windows_os_version": null,
+      "shared_core_design": {
+        "status": "PROPOSED_ENGINEERING_DESIGN",
+        "one_rust_product_core": true,
+        "platform_specific_builds_and_adapters": true,
+        "separate_search_product_per_platform": false
+      },
+      "macos_processor_model": "Apple M1",
+      "macos_cpu_status": "USER_CONFIRMED",
+      "macos_cpu_user_response": "M1",
+      "macos_rust_target_mapping": "aarch64-apple-darwin",
+      "macos_actual_os_version": null,
+      "macos_actual_os_version_status": "OPEN",
+      "macos_minimum_os_version_status": "OPEN"
+    },
+    "D16": {
+      "status": "OPEN",
+      "value": null,
+      "candidate_design": {
+        "status": "PROPOSED",
+        "management": "host_cli_or_local_control",
+        "lan": "shared_reader_routes"
+      },
+      "scope_note": "No user role/project ACL management does not approve exposing management write operations on LAN. No additional anonymous-reading policy is recorded as user-approved."
+    },
+    "D11": {
+      "status": "CONFIRMED",
+      "new_repository": true,
+      "repository_name": "rustgrok",
+      "repository_name_status": "CONFIRMED",
+      "repository_owner": "swchen44",
+      "repository_url": "https://github.com/swchen44/rustgrok",
+      "repository_visibility": "public",
+      "repository_visibility_status": "USER_CONFIRMED",
+      "repository_creation_status": "CREATED",
+      "release_package_destination": "GitHub Releases",
+      "release_package_destination_status": "CONFIRMED",
+      "release_artifacts_published": false,
+      "scope_note": "The user confirmed public visibility. GitHub API verified the created swchen44/rustgrok repository, id 1433282584, default branch main and observed push/admin permissions. Owner remains an authenticated-account/form/API observation. The creation form was submitted successfully. Initial planning content upload is pending and no GitHub Release or product test result exists.",
+      "owner_status": "OBSERVED_AUTHENTICATED_ACCOUNT_AND_CREATION_FORM",
+      "planned_repository_full_name": "swchen44/rustgrok",
+      "creation_form_status": "SUBMITTED_SUCCESSFULLY",
+      "creation_form_prepared_fields": [
+        "name",
+        "description"
+      ],
+      "repository_name_availability": "OBSERVED_AVAILABLE_IN_CREATION_FORM",
+      "repository_id": 1433282584,
+      "visibility_user_response": "public",
+      "default_branch": "main",
+      "contents_upload_status": "PENDING_INITIAL_PLANNING_COMMIT",
+      "release_creation_status": "NOT_CREATED",
+      "creation_verification": {
+        "method": "GitHub API",
+        "owner": "swchen44",
+        "visibility": "public",
+        "default_branch": "main",
+        "observed_permissions": {
+          "push": true,
+          "admin": true
+        },
+        "size_reported_at_creation": 0
+      }
+    }
+  },
+  "verification": {
+    "method": "Official source and documentation static review via GitHub content APIs and web retrieval.",
+    "product_build": "NOT_RUN",
+    "reference_runtime": "NOT_RUN",
+    "rust_runtime": "NOT_RUN",
+    "differential_tests": "NOT_RUN",
+    "native_platform_tests": "NOT_RUN",
+    "offline_install_tests": "NOT_RUN",
+    "performance_benchmarks": "NOT_RUN",
+    "complete_source_audit": false,
+    "source_archive_or_release_digest_verification": false,
+    "local_hash_scope": "local_fetched_text_sha256 and local_fetched_text_bytes describe preserved fetched text bytes only, not release archives, registry crates or build artifacts."
+  },
+  "components": [
+    {
+      "name": "OpenGrok",
+      "role": "reference_oracle_rust_rewrite_source_extension",
+      "repository": "https://github.com/oracle/opengrok",
+      "research_tag": "1.14.20",
+      "research_commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+      "baseline_lock": "upstream/research-lock.json",
+      "source_review_manifest": "upstream/source-review-manifest.json",
+      "selected_product_runtime_dependency": false,
+      "rust_extension_source_read_record_count": 16,
+      "rust_extension_source_read_records": [
+        {
+          "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/CompatibleAnalyser.java",
+          "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/CompatibleAnalyser.java",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 2952,
+          "local_fetched_text_sha256": "7c09667b71b03e7ec030f0ac8a6a114bfecd38313662d2fff4daaabb45bac4bd"
+        },
+        {
+          "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/HistoryAnalyzer.java",
+          "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/HistoryAnalyzer.java",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 3003,
+          "local_fetched_text_sha256": "911910ca4a7902fda940a200e053fd365d6ec84898932e42afe9dcda8094451c"
+        },
+        {
+          "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/JFlexXref.java",
+          "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/JFlexXref.java",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 20199,
+          "local_fetched_text_sha256": "ab8b8005fd489b1eae9bbba2bbff87f2ccde6de8e7df8d27453e4ce9994e415a"
+        },
+        {
+          "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/PathTokenizer.java",
+          "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/PathTokenizer.java",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 4282,
+          "local_fetched_text_sha256": "4d8369d198c2a860acac5d2d3e8f60d5cafe9c5912b772f830a7041eafa3201d"
+        },
+        {
+          "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/c/CxxAnalyzer.java",
+          "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/c/CxxAnalyzer.java",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 2527,
+          "local_fetched_text_sha256": "b6495a4760aa4d933fee1d8cb738d252cc6bca1c148b67625b9c17609cc2ffa8"
+        },
+        {
+          "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/plain/AbstractSourceCodeAnalyzer.java",
+          "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/plain/AbstractSourceCodeAnalyzer.java",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 2590,
+          "local_fetched_text_sha256": "b378ac10c79f0fa083a469269cb1cc884b1b5150d86ced2a42205f2741224a2a"
+        },
+        {
+          "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/plain/DefinitionsTokenStream.java",
+          "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/plain/DefinitionsTokenStream.java",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 4664,
+          "local_fetched_text_sha256": "52074d4dc91ea24d8517a58bc5dc69282c5deb5fad3ba115c26a0f0f073cd6d7"
+        },
+        {
+          "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/configuration/IndexSearcherFactory.java",
+          "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/configuration/IndexSearcherFactory.java",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 1469,
+          "local_fetched_text_sha256": "a3efb03a55c995f94a238eafb61e56010eddf88d5e95246db480cb735fe1d39c"
+        },
+        {
+          "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/GitRepository.java",
+          "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/GitRepository.java",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 37085,
+          "local_fetched_text_sha256": "4ffa7e989609646b11355288c658f0a396747d4432faf6dfc3167ec9c59d75f4"
+        },
+        {
+          "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/index/IndexWriterConfigFactory.java",
+          "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/index/IndexWriterConfigFactory.java",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 1505,
+          "local_fetched_text_sha256": "2cdae04eb97a1d1ce27224b760adbacfe29a3d45ab74593cd158779da879b5a0"
+        },
+        {
+          "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/search/CustomQueryParser.java",
+          "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/search/CustomQueryParser.java",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 4755,
+          "local_fetched_text_sha256": "e99bcf4fa3e745f3dbbc1d17dca1108ab7485eb065f9d0f39d3612c1d23791f2"
+        },
+        {
+          "path": "opengrok-indexer/src/main/jflex/analysis/plain/PlainFullTokenizer.lex",
+          "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/jflex/analysis/plain/PlainFullTokenizer.lex",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 1566,
+          "local_fetched_text_sha256": "9f98f75c5f8d6154930b7ee695e2efb017a2f3cd1ed3493a304c21f96df19dbb"
+        },
+        {
+          "path": "opengrok-indexer/src/main/jflex/analysis/plain/PlainSymbolTokenizer.lex",
+          "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/jflex/analysis/plain/PlainSymbolTokenizer.lex",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 1214,
+          "local_fetched_text_sha256": "e29eae3225d204cc3b9aa5004255ace438e49a848d1ffabbcc6792a34c7a98eb"
+        },
+        {
+          "path": "opengrok-indexer/src/main/jflex/search/FullQueryEscaper.lex",
+          "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/jflex/search/FullQueryEscaper.lex",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 1375,
+          "local_fetched_text_sha256": "e45f61b79f6335d0428273a5c5e32128139a039c2af3c75cca17d09ae51313f8"
+        },
+        {
+          "path": "opengrok-indexer/src/main/jflex/search/PathQueryEscaper.lex",
+          "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/jflex/search/PathQueryEscaper.lex",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 1369,
+          "local_fetched_text_sha256": "49f5a372d8bcb8292fbf7045b2c2c1a23bb76a67ce9b2d4a19df1fb80689d065"
+        },
+        {
+          "path": "opengrok-web/src/main/webapp/js/utils-0.0.48.js",
+          "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/js/utils-0.0.48.js",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 94069,
+          "local_fetched_text_sha256": "d4991bd3e3f0ade2f96e8ae0c1fec479078cab1b3ede522b444eefae9075e8ef"
+        }
+      ],
+      "scope_note": "These paths are the Rust compatibility extension subset, also included in the expanded OpenGrok source-review manifest. Do not add this count to that expanded manifest. Previously reviewed QueryBuilder, SearchEngine, Configuration, Ctags and POMs were also consulted; this is not a full OpenGrok audit."
+    },
+    {
+      "name": "Tantivy",
+      "role": "candidate_search_engine_static_review",
+      "repository": "https://github.com/quickwit-oss/tantivy",
+      "research_version": "0.27.0",
+      "research_tag": "0.27.0",
+      "research_commit": "67889269cae67063c372bc236b102d632a021568",
+      "annotated_tag_object": "a22c1b184e861d1065b964bb45f013ef8945dae4",
+      "tagger_date_utc": "2026-10-17T06:34:38Z",
+      "ref_evidence": [
+        "https://api.github.com/repos/quickwit-oss/tantivy/git/ref/tags/0.27.0",
+        "https://api.github.com/repos/quickwit-oss/tantivy/git/tags/a22c1b184e861d1065b964bb45f013ef8945dae4"
+      ],
+      "selection_status": "CANDIDATE_NOT_SELECTED",
+      "approved_product_version": null,
+      "approved_product_features": null,
+      "crate_registry_checksum": null,
+      "package_downloaded_and_hash_verified": false,
+      "source_metadata": {
+        "cargo_declared_version": "0.27.0",
+        "cargo_declared_license": "MIT",
+        "cargo_declared_rust_version": "1.88",
+        "source": "https://github.com/quickwit-oss/tantivy/blob/67889269cae67063c372bc236b102d632a021568/Cargo.toml",
+        "note": "Metadata of the research version only; neither the product MSRV nor a complete transitive license review."
+      },
+      "source_format_constants": {
+        "index_format_version": 7,
+        "oldest_supported_index_format_version": 4,
+        "source": "https://github.com/quickwit-oss/tantivy/blob/67889269cae67063c372bc236b102d632a021568/src/lib.rs",
+        "lucene_index_compatibility_demonstrated": false
+      },
+      "latest_metadata_note": "During research, GitHub releases/latest returned 0.26.1 while the official 0.27.0 tag and docs.rs content were available. This record pins the reviewed commit and does not assert a final/latest product choice.",
+      "source_read_record_count": 16,
+      "source_read_records": [
+        {
+          "path": "Cargo.toml",
+          "url": "https://github.com/quickwit-oss/tantivy/blob/67889269cae67063c372bc236b102d632a021568/Cargo.toml",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 6253,
+          "local_fetched_text_sha256": "24568c8ce9aa99ab394785a06a80774848f3d4a4317aa59ef1806c752d095ea7"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/quickwit-oss/tantivy/blob/67889269cae67063c372bc236b102d632a021568/README.md",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 7955,
+          "local_fetched_text_sha256": "daa88e925f359ce9ae56dbc1cdf7a8b95791871b0deace21d154af25f4d6f858"
+        },
+        {
+          "path": "query-grammar/src/query_grammar.rs",
+          "url": "https://github.com/quickwit-oss/tantivy/blob/67889269cae67063c372bc236b102d632a021568/query-grammar/src/query_grammar.rs",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 72561,
+          "local_fetched_text_sha256": "04e485cdc2adb4fd1badd7518f7317d5e1eebc2ff9db622c7add1a4890db3197"
+        },
+        {
+          "path": "query-grammar/src/user_input_ast.rs",
+          "url": "https://github.com/quickwit-oss/tantivy/blob/67889269cae67063c372bc236b102d632a021568/query-grammar/src/user_input_ast.rs",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 15368,
+          "local_fetched_text_sha256": "57665bf63d6b0cc560256087cbf3febd9d4bb0fdba37297b93fd67d9e9b2565d"
+        },
+        {
+          "path": "src/fieldnorm/code.rs",
+          "url": "https://github.com/quickwit-oss/tantivy/blob/67889269cae67063c372bc236b102d632a021568/src/fieldnorm/code.rs",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 5266,
+          "local_fetched_text_sha256": "8906890f06958beff8ce70207ebeb1fec2aedcf3e03d4b3c203b4f88e0b9c476"
+        },
+        {
+          "path": "src/index/index_meta.rs",
+          "url": "https://github.com/quickwit-oss/tantivy/blob/67889269cae67063c372bc236b102d632a021568/src/index/index_meta.rs",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 26148,
+          "local_fetched_text_sha256": "384b6003ddd3430932bf49a0ae896152f5927e4f35b3d58b019dfff5e497872e"
+        },
+        {
+          "path": "src/lib.rs",
+          "url": "https://github.com/quickwit-oss/tantivy/blob/67889269cae67063c372bc236b102d632a021568/src/lib.rs",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 49057,
+          "local_fetched_text_sha256": "d9aafa88c929b11260d973b93791ae7e92aea7feb5939c1f0f8d0b85ca640c82"
+        },
+        {
+          "path": "src/query/bm25.rs",
+          "url": "https://github.com/quickwit-oss/tantivy/blob/67889269cae67063c372bc236b102d632a021568/src/query/bm25.rs",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 8152,
+          "local_fetched_text_sha256": "181398bfb53ef8589bd7c3ab7686302924306608a63ca40986d5ebe3e686a3ed"
+        },
+        {
+          "path": "src/query/fuzzy_query.rs",
+          "url": "https://github.com/quickwit-oss/tantivy/blob/67889269cae67063c372bc236b102d632a021568/src/query/fuzzy_query.rs",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 14524,
+          "local_fetched_text_sha256": "4e19e4ce2f5cf554d2f690180243dd6d8563e18f3d9d77ad449bf5140eed04d0"
+        },
+        {
+          "path": "src/query/phrase_query/phrase_query.rs",
+          "url": "https://github.com/quickwit-oss/tantivy/blob/67889269cae67063c372bc236b102d632a021568/src/query/phrase_query/phrase_query.rs",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 5314,
+          "local_fetched_text_sha256": "3c27a667b5e4a47c15ba2f6f9b07e2734f2b5a8660646e3405b3fa1fab57e4ba"
+        },
+        {
+          "path": "src/query/query_parser/query_parser.rs",
+          "url": "https://github.com/quickwit-oss/tantivy/blob/67889269cae67063c372bc236b102d632a021568/src/query/query_parser/query_parser.rs",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 90080,
+          "local_fetched_text_sha256": "efd145bdc4b505cccfd648d3ac1fa5ab9111b41b11e9ce6c4674e66a8dc0d27e"
+        },
+        {
+          "path": "src/query/regex_query.rs",
+          "url": "https://github.com/quickwit-oss/tantivy/blob/67889269cae67063c372bc236b102d632a021568/src/query/regex_query.rs",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 6280,
+          "local_fetched_text_sha256": "b67619d87036af7d93bf8fbe19824e025fc4d49c17ff92bca7c7516c1ea26d39"
+        },
+        {
+          "path": "src/schema/index_record_option.rs",
+          "url": "https://github.com/quickwit-oss/tantivy/blob/67889269cae67063c372bc236b102d632a021568/src/schema/index_record_option.rs",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 2386,
+          "local_fetched_text_sha256": "ef1c11feba152de16f676f54e2fcdb926bd4214aa56be7756a8cca8c28b89a7c"
+        },
+        {
+          "path": "src/tokenizer/tokenized_string.rs",
+          "url": "https://github.com/quickwit-oss/tantivy/blob/67889269cae67063c372bc236b102d632a021568/src/tokenizer/tokenized_string.rs",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 3534,
+          "local_fetched_text_sha256": "d410ab2012529224433e0ad31f9ff394ac39f974ec114e749ec0404be682cd73"
+        },
+        {
+          "path": "src/tokenizer/tokenizer_manager.rs",
+          "url": "https://github.com/quickwit-oss/tantivy/blob/67889269cae67063c372bc236b102d632a021568/src/tokenizer/tokenizer_manager.rs",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 3005,
+          "local_fetched_text_sha256": "5b8c9ee9f3f9287ff3ae2e5350aef244ad09b8ffff21904c94c33ec4fb998c4e"
+        },
+        {
+          "path": "tokenizer-api/src/lib.rs",
+          "url": "https://github.com/quickwit-oss/tantivy/blob/67889269cae67063c372bc236b102d632a021568/tokenizer-api/src/lib.rs",
+          "review": "static_source_text_read_via_github_connector",
+          "local_fetched_text_bytes": null,
+          "local_fetched_text_sha256": null,
+          "note": "Content was read through the GitHub connector during this research; a separate local text snapshot was not retained, so no local-byte hash is asserted."
+        }
+      ]
+    },
+    {
+      "name": "Lucene",
+      "role": "reference_search_semantics",
+      "repository": "https://github.com/apache/lucene",
+      "research_version": "9.12.3",
+      "research_commit": "f965e930673c1f5cb478dc6a8907f5fc4ef7b539",
+      "annotated_tag_object": "17a092b66e97035f6e81fdb5a619553ecf6183f1",
+      "selected_product_runtime_dependency": false,
+      "version_evidence": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/pom.xml",
+      "source_read_record_count": 1,
+      "source_read_records": [
+        {
+          "path": "lucene/core/src/java/org/apache/lucene/search/similarities/BM25Similarity.java",
+          "url": "https://github.com/apache/lucene/blob/f965e930673c1f5cb478dc6a8907f5fc4ef7b539/lucene/core/src/java/org/apache/lucene/search/similarities/BM25Similarity.java",
+          "review": "static_source_text_read",
+          "local_fetched_text_bytes": 11048,
+          "local_fetched_text_sha256": "e5cae9ab1379c49f81778bda551b3741335bf198248605bc6bf1bb30c355747c"
+        }
+      ],
+      "documentation_read_records": [
+        {
+          "url": "https://lucene.apache.org/core/9_12_3/queryparser/org/apache/lucene/queryparser/classic/package-summary.html",
+          "scope": "Official versioned classic query syntax",
+          "version": "9.12.3"
+        },
+        {
+          "url": "https://lucene.apache.org/core/9_12_3/core/org/apache/lucene/search/similarities/BM25Similarity.html",
+          "scope": "Official versioned BM25 API documentation",
+          "version": "9.12.3"
+        }
+      ],
+      "scope_note": "Selected scoring source and versioned documentation only, not the full Lucene implementation."
+    },
+    {
+      "name": "Eclipse JGit",
+      "role": "dependency_of_reference_opengrok",
+      "reference_dependency_version": "7.2.1.202505142326-r",
+      "version_evidence": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/pom.xml",
+      "integration_source": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/GitRepository.java",
+      "jgit_source_commit": null,
+      "jgit_source_reviewed": false,
+      "approved_product_backend": null,
+      "scope_note": "OpenGrok's integration was reviewed. No Rust Git CLI/git2/gix replacement has been selected or shown equivalent."
+    },
+    {
+      "name": "Tree-sitter",
+      "role": "candidate_syntax_parser_documentation_only",
+      "selection_status": "CANDIDATE_NOT_SELECTED",
+      "research_version": null,
+      "research_commit": null,
+      "approved_product_version": null,
+      "approved_grammars": null,
+      "source_reviewed": false,
+      "documentation_read_records": [
+        {
+          "url": "https://tree-sitter.github.io/tree-sitter/",
+          "scope": "Official introduction, concrete syntax trees, incremental parsing, runtime and bindings",
+          "version": null,
+          "mutable": true
+        }
+      ],
+      "scope_note": "No runtime or grammar pinned. Documentation does not establish OpenGrok defs/refs/xref parity."
+    },
+    {
+      "name": "Universal Ctags",
+      "role": "candidate_bundled_analysis_helper_under_confirmed_D19_policy",
+      "repository": "https://github.com/universal-ctags/ctags",
+      "windows_build_repository": "https://github.com/universal-ctags/ctags-win32",
+      "research_version": null,
+      "research_commit": null,
+      "approved_product_version": null,
+      "approved_build_features": null,
+      "approved_binary_sha256": null,
+      "external_tool_policy": "bundled_when_required",
+      "external_tool_policy_decision": "D19",
+      "documentation_read_records": [
+        {
+          "url": "https://docs.ctags.io/en/latest/man/ctags-json-output.5.html",
+          "scope": "Official JSON output protocol and libjansson build requirement",
+          "version": null,
+          "mutable": true
+        }
+      ],
+      "integration_source": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/Ctags.java",
+      "scope_note": "OpenGrok integration reviewed. D19 confirms bundling necessary helpers; the Ctags build, features, JSON protocol migration and platform capabilities remain unselected and require G1 verification."
+    },
+    {
+      "name": "Git CLI",
+      "role": "candidate_bundled_scm_helper_under_confirmed_D19_policy",
+      "research_version": null,
+      "research_commit": null,
+      "approved_product_version": null,
+      "approved_binary_sha256": null,
+      "external_tool_policy": "bundled_when_required",
+      "external_tool_policy_decision": "D19",
+      "source_reviewed": false,
+      "documentation_read_records": [
+        {
+          "url": "https://git-scm.com/docs/git-log",
+          "scope": "Official log command documentation",
+          "version": null,
+          "mutable": true
+        },
+        {
+          "url": "https://git-scm.com/docs/git-blame",
+          "scope": "Official blame command documentation",
+          "version": null,
+          "mutable": true
+        },
+        {
+          "url": "https://git-scm.com/docs/git-diff",
+          "scope": "Official diff command documentation",
+          "version": null,
+          "mutable": true
+        }
+      ],
+      "scope_note": "D19 confirms bundling necessary SCM helpers; no Git CLI version or library backend is selected. Specific SCM capabilities require the original inventory and G1 verification; the same command name does not establish equivalence to OpenGrok JGit behavior."
+    }
+  ],
+  "unselected_product_configuration": {
+    "rust_toolchain": null,
+    "cargo_lock_sha256": null,
+    "release_profile": null,
+    "target_triples": null,
+    "minimum_os_versions": null,
+    "cpu_baseline": null,
+    "selected_search_engine": null,
+    "selected_search_engine_version": null,
+    "selected_crate_features": null,
+    "http_framework": null,
+    "async_runtime": null,
+    "template_engine": null,
+    "metadata_storage": null,
+    "index_schema_version": null,
+    "scm_backend": null,
+    "language_parser_backends": null,
+    "bundled_helper_builds": null,
+    "node_version": null,
+    "npm_version": null,
+    "source_asset_manifest": null,
+    "performance_acceptance_thresholds": null,
+    "search_benchmark_workload": null,
+    "search_benchmark_environment": null,
+    "performance_tradeoff_limits": null
+  },
+  "licensing_review": {
+    "component_metadata_only": true,
+    "opengrok_declared_default": "CDDL-1.0; version 1.0 only unless an associated source file states an exception",
+    "opengrok_license_source": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/LICENSE.txt",
+    "tantivy_cargo_declared_license": "MIT",
+    "product_license": null,
+    "complete_component_inventory": false,
+    "ported_file_provenance_complete": false,
+    "redistribution_review_complete": false,
+    "note": "Record reused, translated, modified and independently authored content per file. Language selection and a candidate crate's declared license do not establish the complete product's license."
+  },
+  "required_next_steps": [
+    "Confirm D04 and remaining D20 API/config/non-auth-plugin compatibility under D02's no-role/project-ACL scope. Apply local+LAN, about five concurrent users, bundled helpers and search-speed priority. Production deployment prioritizes Ubuntu 24.04 amd64; development and first complete validation start on confirmed Apple M1/arm64 macOS (aarch64-apple-darwin), followed by Ubuntu adaptation and complete native revalidation. Confirm actual/minimum macOS versions, Windows details, D16 management exposure and remaining source/SCM/distribution inputs. Record actual Ubuntu point release; numeric SLO, workload/hardware and tradeoffs remain open.",
+    "Build and run a separate reference oracle with exact artifacts, hashes, configuration and corpus.",
+    "Run parser/token/offset, search/scoring, xref/UI and SCM compatibility work first on Apple M1/arm64 macOS. After Ubuntu 24.04 amd64 adaptation, repeat complete native validation and retain separate evidence; Mac PASS cannot establish Linux PASS. Windows support and native validation remain required.",
+    "Prioritize end-to-end full-text/path/defs/cross-project search measurements on equivalent functionality, hardware and corpus; report cold/warm/concurrent behavior plus indexing/resource tradeoffs before making performance claims.",
+    "Pin product toolchain, Cargo dependency graph, features, target/ABI and native helpers after selection; publish a distinct runtime/build lock and artifact manifest.",
+    "Complete source and asset provenance, actual component license inventory and corresponding source delivery for the chosen artifacts.",
+    "The public repository https://github.com/swchen44/rustgrok is API-verified as created (id 1433282584, main). Initial planning content remains PENDING_INITIAL_PLANNING_COMMIT; upload it and record actual commit evidence separately. GitHub Release creation remains NOT_CREATED and product runtime tests remain NOT_RUN."
+  ]
+}

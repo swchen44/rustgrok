@@ -47,6 +47,7 @@ OpenGrok 研究基線為 1.14.20，commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2e
 | [16-github-bootstrap-and-release-handoff.md](docs/16-github-bootstrap-and-release-handoff.md) | rustgrok建立準備、Release產物與交接狀態 |
 | [sources.md](docs/sources.md) | 一級來源、版本與查核限制 |
 | [tests/README.md](tests/README.md) | 測試目錄與證據規約 |
+| [tools/README.md](tools/README.md) | 可重跑的規劃文件檢查與封裝腳本 |
 | [tests/matrix.json](tests/matrix.json) | 80 個完整測試規格；全部 planned |
 | [upstream/research-lock.json](upstream/research-lock.json) | 原版參照用鎖定資訊 |
 | [upstream/rust-research-lock.json](upstream/rust-research-lock.json) | Rust 候選研究紀錄；不是產品 Cargo.lock |

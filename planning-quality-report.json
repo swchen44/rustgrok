@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-10-25",
+  "scope": "planning artifact structure only; not a product test run",
+  "files_checked": 44,
+  "requirements_with_test_specs": 38,
+  "planned_test_specs": 80,
+  "work_packages": 44,
+  "product_tests_executed": false,
+  "errors": [],
+  "checks": [
+    "UTF-8 and no invisible formatting controls",
+    "JSON parses",
+    "Markdown local links resolve",
+    "Unique test IDs",
+    "38 requirements mapped",
+    "Required test-spec fields present",
+    "All tests planned; release gate G6",
+    "Traceability WP IDs resolve",
+    "38 SRS IDs match requirements",
+    "All 80 tests and 44 work packages map bidirectionally",
+    "Work-package dependency graph is acyclic",
+    "D01/D02/D11/D19/D21 confirmed; D01-D21 unique",
+    "Referenced requirement/test IDs exist"
+  ]
+}
