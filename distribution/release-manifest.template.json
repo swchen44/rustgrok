@@ -12,7 +12,11 @@
     "repository_id": 1433282584,
     "actual_url": "https://github.com/swchen44/rustgrok",
     "visibility_status": "user_confirmed",
-    "default_branch": "main"
+    "default_branch": "main",
+    "initial_planning_commit_sha": "526f619089703f710c915af303e54aea7d25226e",
+    "initial_planning_tree_sha": "3af8b051938022e067b29a8ccc4d7acac51205b2",
+    "initial_planning_verified_files": 46,
+    "planning_contents_status": "initial_commit_tree_verified"
   },
   "release": {
     "destination": "GitHub Releases",

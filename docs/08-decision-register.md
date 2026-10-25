@@ -12,7 +12,7 @@
 |---|---|---|---|
 | D01 | USER_CONFIRMED | 採 Rust 重寫產品核心；保留自帶Web Server、npm、內網、多專案、macOS／Ubuntu24.04 amd64／Windows64位元、原版功能與style目標 | 現行v0.6設計；原版Java／Tomcat改作獨立reference oracle；精確平台見D03，HTTP框架、搜尋引擎與工具版本仍需驗證 |
 | D02 | USER_CONFIRMED | 同一產品支援local與LAN共用，約5人同時使用，不做使用者角色／RBAC／專案ACL管理 | 約5人是容量情境，不是QPS或同時requests硬值；不追加帳號／SSO／登入為必交，管理操作暴露仍依D16提案與D20相容盤點 |
-| D11 | USER_CONFIRMED | 建立public新repo swchen44/rustgrok，release packages放GitHub Releases | repo已實際建立，creation_status為created；規劃內容commit尚待提交，Release／artifact未建立，分階段以metadata與hash驗證 |
+| D11 | USER_CONFIRMED | 建立public新repo swchen44/rustgrok，release packages放GitHub Releases | repo已建立，creation_status為created；首次規劃已提交main並核對，產品Release／artifact未建立，分階段以metadata與hash驗證 |
 | D19 | USER_CONFIRMED | Rust核心可隨包附必要Ctags、Git及其他SCM工具；主要產品profile採bundled helpers | 工具清單、固定版本、各OS／CPU payload、能力、授權與所需SCM仍依inventory驗證；不把外裝或禁止helpers列為必交profile，不授權自動下載或git pull |
 | D21 | USER_CONFIRMED | 效能優先方向為搜尋速度 | 約5人情境已知；數值SLO、資料規模／硬體／request負載、CPU／RAM／磁碟預算與取捨仍OPEN，不代表接受排序／功能差異或無限資源 |
 
@@ -30,7 +30,7 @@ v0.5確認新repo名`rustgrok`及GitHub Releases用途；帳號`swchen44`已查�
 
 v0.6使用者回覆「1. public 2. M1」：D11的public已USER_CONFIRMED；D03的Mac CPU為M1／Apple Silicon arm64。`aarch64-apple-darwin`僅是對應target映射，不能由M1推定實際／最低macOS或toolchain；這些仍待D03／G1。
 
-同輪已實際建立[swchen44/rustgrok](https://github.com/swchen44/rustgrok)，`creation_status: created`；GitHub頁面與connector確認repo id=`1433282584`、visibility=`public`、default branch=`main`、push／admin權限true，建立時size=0。規劃內容commit尚待提交，目前無Release；不把repo建立當成產品或發行已完成。
+同輪已實際建立[swchen44/rustgrok](https://github.com/swchen44/rustgrok)，`creation_status: created`；repo id=`1433282584`、visibility=`public`、default branch=`main`、push／admin權限true，size=0僅是初建空repo的歷史觀測。首次規劃已推main並回讀驗證：[commit 526f619](https://github.com/swchen44/rustgrok/commit/526f619089703f710c915af303e54aea7d25226e)，tree=`3af8b051938022e067b29a8ccc4d7acac51205b2`，該快照46個檔案的Git blob SHA均與提交時本地一致。目前無產品Release，未執行GitHub CI；文件提交與檢查不代表產品測試PASS。
 
 選Rust不代表已選定Tantivy、Tree-sitter、axum或Tokio，也不代表已接受查詢、排名或插件差異。若某個Rust候選庫不符契約，先調整相容層或重新評估Rust技術方案，不自動改回Java產品。
 

@@ -12,7 +12,7 @@
 
 本輪**沒有批准任何Java plugin bridge**。只有未來D20明確批准特定插件bridge、另立獨立profile、測項與gates後，才可驗證該額外交付；它不得取代Rust搜尋、索引、Web及host核心，也不得讓本版標準profile的無JVM測項免驗或通過例外。
 
-公開repo **[swchen44/rustgrok](https://github.com/swchen44/rustgrok)** 已回讀確認建立成功，ID **1433282584**、default branch **main**，發行包放 **GitHub Releases**。建立回讀時size=0、內容未提交且沒有產品Release；後續內容上傳需另記實際commit回讀。產品仍未實作，repo建立不代表binary已發布或任何產品測項通過。
+公開repo **[swchen44/rustgrok](https://github.com/swchen44/rustgrok)** 已建立，ID **1433282584**、default branch **main**。初始完整規劃已提交並核實commit [526f619089703f710c915af303e54aea7d25226e](https://github.com/swchen44/rustgrok/commit/526f619089703f710c915af303e54aea7d25226e)、tree `3af8b051938022e067b29a8ccc4d7acac51205b2`；已回讀**46個檔案，blob SHA全數與當時本地規劃快照相符**。這是來源與上傳完整性檢查，**不是產品PASS**。產品仍未實作、尚無產品Release、CI未跑，80項產品測試全為planned。建立時size=0僅是歷史狀態；後續收據更新不預填未知SHA。產品發行包仍規劃放GitHub Releases。
 
 ## 1. 驗證目標與交付現況
 

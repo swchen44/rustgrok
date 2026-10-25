@@ -131,4 +131,4 @@ CDDL 敘述依 OpenGrok LICENSE.txt 與來源檔紀錄，作為來源盤點及�
 | [GitHub About repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories) | Public／Private可見性選擇；v0.6使用者已指定Public並完成建立 |
 | [Rust平台支援](https://doc.rust-lang.org/rustc/platform-support.html) | x86_64 Linux與macOS targets存在；Mac架構於v0.6確認M1／arm64；具體toolchain、GNU/musl與最低OS仍按產品驗證選型，不以Rust平台級別代替產品PASS |
 
-v0.5建立表單只備妥尚未送出；v0.6使用者確認Public與M1後已完成建立。GitHub metadata回讀：swchen44/rustgrok、id1433282584、public、main，push／admin可用。README首個commit為6764a8efa3f4764133c397fc40fc71cafa330444。完整規劃提交另依Git history核實，沒有產品Release或runtime驗收證據。
+v0.5建立表單只備妥尚未送出；v0.6使用者確認Public與M1後已完成建立。GitHub metadata回讀：swchen44/rustgrok、id1433282584、public、main，push／admin可用。README首個commit為6764a8efa3f4764133c397fc40fc71cafa330444。完整規劃已提交為526f619089703f710c915af303e54aea7d25226e，46個blob逐一核對一致；後續交接收據更新另依Git history追蹤。沒有產品Release或runtime驗收證據。

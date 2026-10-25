@@ -250,4 +250,4 @@ GitHub自動提供tag時點repo內容的source ZIP／tarball；這不是已建�
 
 GitHub新repo名稱、public與Release目的地已定；npm scope/name仍待指定。trusted publishing／provenance若之後採用，依實際repo與npm能力設定；公開repo不等於已完成npm發布設定，也不以provenance替代功能驗證。[npm trusted publishing](https://docs.npmjs.com/trusted-publishers/)
 
-目前沒有已完成的Rust產品binary、npm套件或ZIP；本文件是可檢閱的實作與發行規劃。
+首次規劃已提交main並回讀核對，見[規劃commit 526f619](https://github.com/swchen44/rustgrok/commit/526f619089703f710c915af303e54aea7d25226e)。目前沒有已完成的Rust產品binary、npm套件、原生ZIP或產品Release；本文件是實作與發行規劃。文件提交／檢查不代表產品測試PASS，也沒有執行GitHub CI。

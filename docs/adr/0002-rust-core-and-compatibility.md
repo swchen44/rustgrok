@@ -8,7 +8,7 @@
 | 本機與內網共用、約 5 人、無角色／專案 ACL 管理 | **CONFIRMED**（D02）；管理操作開放位置仍依 D16 |
 | Ubuntu 24.04 amd64 正式部署優先 | **CONFIRMED**；Rust 架構名稱 x86_64；point release 隨實測環境記錄 |
 | 先 Apple M1／arm64 macOS 開發／完整驗證，再 Ubuntu 適配／完整 native 重驗 | M1 CPU **USER_CONFIRMED**；target mapping aarch64-apple-darwin；macOS 實際／最低版本、Windows 詳細規格仍 OPEN |
-| 公開 GitHub repo swchen44/rustgrok；release packages 放 GitHub Releases | public **USER_CONFIRMED**，repo 已建立；規劃初始提交待完成，Release 尚未建立 |
+| 公開 GitHub repo swchen44/rustgrok；release packages 放 GitHub Releases | public **USER_CONFIRMED**；初始規劃已提交 main 並逐檔核實 46 檔，Release 尚未建立 |
 | 必要 Ctags／Git／其他 SCM helpers 隨包 | **CONFIRMED**（D19）；工具版本／build／具體能力待 G1 |
 | 搜尋速度優先 | **CONFIRMED**（D21）；數值 SLO／環境／資源取捨仍 OPEN |
 | crates、engine、templates、storage 與 modules | **PROPOSED**，待 G1 spikes |
@@ -21,7 +21,7 @@
 
 使用者先決定：「我還是想要改寫rust 因為效能比較好」，確立 Rust 核心方向；其後回覆「A+搜尋速度」，確認必要 Ctags／Git／SCM helpers 隨包，以及搜尋速度優先。這些選擇不當成本案已量測加速的證據，不再重新詢問已確認的方向。
 
-使用者確認「3, 約5人， 不用權限管理」，之後確認 Ubuntu「24.04」及「amd64」，另指定 macOS 先開發／完整驗證、Ubuntu 後適配／完整 native 重驗。約 5 是同時使用者估計，不是 5 QPS 或硬上限；不強迫新帳號、SSO 或登入，管理可達性仍待 D16。使用者另確認 public 與 M1；公開 repo swchen44/rustgrok 已建立，規劃初始提交待完成、Release 尚未建立。Mac M1／arm64 已定，實際及最低 macOS 版本仍未定。
+使用者確認「3, 約5人， 不用權限管理」，之後確認 Ubuntu「24.04」及「amd64」，另指定 macOS 先開發／完整驗證、Ubuntu 後適配／完整 native 重驗。約 5 是同時使用者估計，不是 5 QPS 或硬上限；不強迫新帳號、SSO 或登入，管理可達性仍待 D16。使用者另確認 public 與 M1；公開 repo swchen44/rustgrok 的初始規劃已提交 main，46 檔 Git blob SHA 讀回一致；Release 尚未建立。Mac M1／arm64 已定，實際及最低 macOS 版本仍未定。
 
 原版搜尋有自訂 query parser、欄位／語言 analyzers、Lucene 排名與跨 project 搜尋，動態 UI 由 JSP 提供。Rust 須重新建立這些行為契約，不能只換 server 或引擎便宣稱同等。[S1][S2]
 
@@ -34,7 +34,7 @@
 5. **搜尋速度優先。** D21 已確認首要目標；同語料、硬體、功能與資源條件量測全文 query、path、defs 與跨 project 搜尋。數值 SLO、代表環境、query mix 與可接受資源／更新取捨仍 OPEN，不先承諾加速倍數。
 6. **必要 helpers 隨包。** D19 已確認 Rust 核心可附帶必要 Ctags／Git／其他 SCM 工具；將其相依與授權納入發行閉包，不要求使用者另裝必要工具或隱性連外下載。精確版本、build、features 與各 SCM 能力依 G1／原 inventory 驗證。
 7. **本機與 LAN 都可使用，約 5 人，無角色／專案 ACL 管理。** 不強迫新帳號／SSO／登入；原 authorization／RBAC plugin parity 不再是 mandatory 產品能力或交付阻擋。非 auth plugins 仍保留盤點，不因這項決定省略。
-8. **公開 repo 已建立，發行包放 GitHub Releases。** public 由使用者確認；[swchen44/rustgrok](https://github.com/swchen44/rustgrok) 已建立並經 API 核實，ID 1433282584、default branch main。Owner swchen44 是登入帳號／表單及 API 觀察。建立狀態 CREATED、表單 SUBMITTED_SUCCESSFULLY；規劃內容為 PENDING_INITIAL_PLANNING_COMMIT，Release 為 NOT_CREATED。
+8. **公開 repo 已建立，發行包放 GitHub Releases。** public 由使用者確認；[swchen44/rustgrok](https://github.com/swchen44/rustgrok) 已建立並經 API 核實，ID 1433282584、default branch main。Owner swchen44 是登入帳號／表單及 API 觀察。建立狀態 CREATED、表單 SUBMITTED_SUCCESSFULLY；規劃內容為 COMMITTED_AND_TREE_VERIFIED：初始 commit [526f619089703f710c915af303e54aea7d25226e](https://github.com/swchen44/rustgrok/commit/526f619089703f710c915af303e54aea7d25226e)、tree `3af8b051938022e067b29a8ccc4d7acac51205b2`，46 檔逐一讀回核對 Git blob SHA 一致。此收據描述初始快照，後續收據修訂不冒稱包含於該 tree；Release 為 NOT_CREATED，產品測試維持 NOT_RUN。
 
 此策略允許必要 native helpers，由 Rust 核心管理；尚未鎖定任何 helper binary，也沒有承諾單一 executable 或所有依賴皆由 Rust 撰寫。
 
@@ -74,7 +74,7 @@ Tantivy 為搜尋引擎候選，Tree-sitter 為語法分析候選。Axum／Tokio
 |---|---|---|
 | D02 | **CONFIRMED：local＋LAN、約 5 人、無角色／project ACL 管理** | 不強迫新帳號／SSO／登入；約 5 人不是 QPS 或硬上限；非 auth plugin 仍盤點 |
 | D03 | **正式優先部署 Ubuntu 24.04 amd64；先 Apple M1／arm64 Mac 完整驗證，再 Ubuntu native 重驗** | Ubuntu CPU 對應 x86_64，Mac target mapping aarch64-apple-darwin；macOS 實際／最低版本、Windows 規格仍 OPEN，Mac PASS 不代替 Linux PASS |
-| D11 | **public 已確認，swchen44/rustgrok 已建立，發行包使用 GitHub Releases** | repo CREATED／ID 1433282584／main；規劃內容 PENDING_INITIAL_PLANNING_COMMIT，Release NOT_CREATED |
+| D11 | **public 已確認，swchen44/rustgrok 初始規劃已提交並核實** | repo CREATED／ID 1433282584／main；內容 COMMITTED_AND_TREE_VERIFIED，verified_files 46，Release NOT_CREATED |
 | D04 | 使用者現版／客製版或 1.14.20 | 1.14.20 僅研究 oracle，非已批准驗收版本 |
 | D16 | 管理操作在哪開放仍 OPEN | 主機 CLI／本機 control、LAN 共用讀者路徑是工程提案，尚未批准管理端點可達性 |
 | D19 | **CONFIRMED：必要 Ctags／Git／SCM helpers 隨包** | 精確工具／build／各 SCM 能力依 G1；不是已完成分發或相容驗證 |

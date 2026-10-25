@@ -1,6 +1,6 @@
 # Rust Monorepo 與 GitHub 設計
 
-版本：v0.6，2026-10-25。**Rust與既定功能範圍不變；Mac M1／arm64先開發／完整驗證，再於Ubuntu24.04 amd64適配／原生重驗，正式部署仍Ubuntu優先。public repo swchen44/rustgrok已實際建立，發行包放GitHub Releases。** 規劃內容尚待提交，尚無Release；macOS版本、npm scope/name與新程式碼授權仍待定，具體工具仍為候選。
+版本：v0.6，2026-10-25。**Rust與既定功能範圍不變；Mac M1／arm64先開發／完整驗證，再於Ubuntu24.04 amd64適配／原生重驗，正式部署仍Ubuntu優先。public repo swchen44/rustgrok已建立，首次規劃已提交main並核對，發行包將放GitHub Releases。** 尚無產品Release；macOS版本、npm scope/name與新程式碼授權仍待定，具體工具仍為候選。
 
 ## 1. Repository 的責任
 
@@ -12,7 +12,7 @@ D02的同一產品支援local與LAN共用，不做使用者角色／RBAC／專�
 
 Cargo官方workspace支援共用Cargo.lock、依賴與metadata，root profiles負責共同建置設定，因此適合跨多個Rust crate維持一致版本與feature規則。[Cargo workspaces](https://doc.rust-lang.org/cargo/reference/workspaces.html)
 
-這份交接包目前完成的是文件、研究lock、測試規劃與模板，尚未建立可運行的Rust crate、Cargo.lock或npm套件。遠端repo已建立，但規劃內容commit尚待提交，產品Release尚未建立；各階段分開記錄。規劃一個路徑不等於該模組已完成。
+這份交接包目前完成的是文件、研究lock、測試規劃、模板與文件生成／檢查工程工具，尚未建立可運行的Rust crate、Cargo.lock或npm套件。遠端repo與首次規劃提交已完成，產品Release尚未建立；各階段分開記錄。文件工具不是產品測試，規劃一個路徑也不等於該模組已完成。
 
 ## 2. 候選目錄
 
@@ -39,6 +39,7 @@ Cargo官方workspace支援共用Cargo.lock、依賴與metadata，root profiles�
 | npm/cli/ | 通用npm入口的薄JSlauncher與package metadata | 候選主npm套件 |
 | npm/platforms/ | 各OS/CPU native package的模板與封裝manifest | 候選平台npm套件；不把全部binary放Git |
 | xtask/ | Rust開發／建置輔助：驗資產、打包、SBOM、release manifest與reference orchestration | 開發工具，不隨產品強迫終端使用者執行 |
+| tools/ | 文件生成與一致性檢查；目前包含build_planning_package.py與README.md | 實際工程工具，非Rust產品實作／產品test，不代表GitHub CI已執行 |
 | docs/ | 需求、設計、實作、驗證、決策與維運文件 | GitHub；本交接包的主要交付 |
 | distribution/ | release manifest模板與發行產物清單契約 | GitHub；模板不是已建置或已發布證據 |
 | docs/adr/ | Rust選擇、query/index相容策略、web/render與分發決策 | GitHub，記錄批准／未決／取代狀態 |
@@ -175,12 +176,16 @@ trusted publishing與provenance若之後採用，需依實際repo與npm能力設
 
 ## 10. 初始GitHub交付
 
-public repo `swchen44/rustgrok`已建立，發行包放GitHub Releases；D11已USER_CONFIRMED，不再詢問名稱或可見性，也不再次建立repo。接續交付流程：
+public repo `swchen44/rustgrok`與首次規劃提交已完成，發行包將放GitHub Releases；D11已USER_CONFIRMED，不再詢問名稱或可見性，也不再次建立repo。後續修訂沿用交付流程：
 
 1. 核對實際repo metadata與main分支；若已有README、AGENTS或其他內容，先讀取並保留既有工作。
 2. 新空repo使用清楚的規劃初始提交；若目的地已有內容，使用獨立規劃分支與PR。
-3. 上傳本次Rust v0.6 README、docs、tests規劃與來源研究lock；保存v0.1被取代及後續各輪需求確認的歷史，不把Java包裝方向當現行設計。
+3. 首次Rust v0.6 README、docs、tests規劃與研究lock已提交；後續修訂以新commit保存，保留歷史，不把Java包裝方向當現行設計。
 4. 將已決定要做的G0/G1工作建立Issues／milestones；OPEN事項是decision，不能標成已批准feature。
 5. 核對commit／tree與檔案hash，回報可檢閱的repo／commit／PR連結。
 
-目前`creation_status: created`。已由GitHub頁面與connector metadata確認[swchen44/rustgrok](https://github.com/swchen44/rustgrok)：repo id=`1433282584`、visibility=`public`、default branch=`main`、push／admin權限為true；建立時size=0。規劃內容尚未提交，commit待後續實際回填；目前沒有Release或已發布產品artifact。repo建立成功不能當內容提交、產品建置或Release完成；觀測與交接詳見[16](16-github-bootstrap-and-release-handoff.md)。
+目前`creation_status: created`、首次規劃提交狀態為completed。[swchen44/rustgrok](https://github.com/swchen44/rustgrok)的repo id=`1433282584`、visibility=`public`、default branch=`main`、push／admin權限為true；size=0僅為最初空repo建立時的歷史觀測。
+
+首次規劃已推main：[commit 526f619089703f710c915af303e54aea7d25226e](https://github.com/swchen44/rustgrok/commit/526f619089703f710c915af303e54aea7d25226e)，tree=`3af8b051938022e067b29a8ccc4d7acac51205b2`。回讀該快照46個檔案，每項Git blob SHA均與提交時本地檔案相符；這是首次規劃快照的提交證據，後續修訂另存commit，不預填尚未知的SHA。
+
+目前沒有產品Release或已發布產品artifact，也沒有執行GitHub CI。repo／文件提交與文件工程檢查不等於Rust產品建置或測試PASS；觀測與交接詳見[16](16-github-bootstrap-and-release-handoff.md)。

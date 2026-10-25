@@ -9,7 +9,8 @@
 | 使用者指示 | 新repo rustgrok、Public、release packages放GitHub；首輪Mac為M1 |
 | Repository | [swchen44/rustgrok](https://github.com/swchen44/rustgrok)，已建立 |
 | 已回讀metadata | repository ID 1433282584；visibility public；default branch main；push／admin可用 |
-| 首個README提交 | 6764a8efa3f4764133c397fc40fc71cafa330444；其後完整規劃提交以Git history核實 |
+| 首個README提交 | 6764a8efa3f4764133c397fc40fc71cafa330444 |
+| 完整初始規劃提交 | [526f619](https://github.com/swchen44/rustgrok/commit/526f619089703f710c915af303e54aea7d25226e)；tree 3af8b051938022e067b29a8ccc4d7acac51205b2；46個檔案blob SHA與提交時本地一致 |
 | 本次初始規劃提交內容 | README、AGENTS、docs、tests規格、upstream研究台帳、distribution發行模板與規劃包生成腳本 |
 | 已確認首輪平台 | Apple M1／macOS arm64；actual／minimum macOS版本仍待D03 |
 | 產品狀態 | 沒有Rust runtime、Cargo.lock、正式npm TGZ或產品ZIP；80項產品測試仍planned |
@@ -25,7 +26,7 @@ Public已由使用者確認，GitHub repository及後續公開Release可供公�
 
 ## 3. How：首次提交與後續維護
 
-1. repo已建立並回讀ID／URL／Public／main；README首個commit已取得真實SHA。完整文件批次以該HEAD為基準整合。
+1. repo已建立並回讀ID／URL／Public／main；README首個commit已取得真實SHA。完整規劃批次已提交為526f619，並核對遠端tree內容。
 2. 將規劃包內容放repo根目錄，不再多包一層opengrok-host-planning。後續若HEAD變動，先讀既有內容與AGENTS再整合，不強制覆蓋。
 3. 原始碼、docs、tests、來源台帳、依賴／發行規格皆保存在此repo。企業source/index、憑證、私人語料與暫存下載工具不屬於本產品提交範圍。
 4. 用一個可審查的tree／commit提交完整規劃，更新main時核對expected HEAD；提交後讀回tree，比對檔名、blob hash與內容完整性。
@@ -33,7 +34,7 @@ Public已由使用者確認，GitHub repository及後續公開Release可供公�
 6. [tools/build_planning_package.py](https://github.com/swchen44/rustgrok/blob/main/tools/build_planning_package.py)可在clone後重跑文件、JSON、需求／工作包／測試追溯檢查並生成合訂本與ZIP；操作見[tools/README.md](../tools/README.md)。
 7. 版本v0.6是規劃文件版本，不能假作runtime release版本。正式binary完成後再按下列G4–G6發行契約處理。
 
-實際完整提交SHA以Git history及本輪交付回報核實；本文件不嵌入自身commit hash，避免每次修改造成自我引用。
+上述收據指初始規劃快照；本次收據文字與後續變更另以Git history追蹤，不宣稱它們也包含在初始tree，亦不嵌入自身未知commit hash。
 
 ## 4. Release資產設計
 

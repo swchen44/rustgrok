@@ -35,8 +35,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 6794,
-      "sha256": "84441e83ffde7cd3930ec666393581b4c8a2c40fb7186ac641b92407a752afc9"
+      "bytes": 6966,
+      "sha256": "74c9bcf8886fb0646cb8fb54b499aafb0846215f25c9d48f3d52a9d9ac81ec8c"
     },
     {
       "path": "assets/README.md",
@@ -50,13 +50,13 @@
     },
     {
       "path": "distribution/release-manifest.template.json",
-      "bytes": 8696,
-      "sha256": "19be8376203cb948d95307d428cbb685e25d21d4ac642c4d2403ef65db46f2d8"
+      "bytes": 8959,
+      "sha256": "0a785c0b90e366bb8c06a77868fb5d1dad7ce7eb53f0c77224dc62d799625fe0"
     },
     {
       "path": "docs/00-executive-brief.md",
-      "bytes": 2664,
-      "sha256": "62bab023b5086887cd9c5910595fb5ddecee4b57949c8496ac6a6fec6393f534"
+      "bytes": 2779,
+      "sha256": "d713abed46d226a9d3602cc17dba23d58bdbc7278b6e88dc6e0a71459c5fa298"
     },
     {
       "path": "docs/01-upstream-research.md",
@@ -80,33 +80,33 @@
     },
     {
       "path": "docs/05-verification-plan.md",
-      "bytes": 39885,
-      "sha256": "29583a0dfa5a4740c1175bf23b295869a6fda3704c60ed16670531221da24c65"
+      "bytes": 40205,
+      "sha256": "b95f06338bc9600fc1fc6740fa3b18644d78233e36b9a57d874710280e59ac3d"
     },
     {
       "path": "docs/06-packaging-and-offline.md",
-      "bytes": 29367,
-      "sha256": "92971ea0f9333577c00bb1a2cf697fb2a2633c993608924ee3c058608b31ef33"
+      "bytes": 29610,
+      "sha256": "08c1995e309e37a70b6f28912ae311c304a75729b93a4c58859e166522ae14bd"
     },
     {
       "path": "docs/07-monorepo-and-github.md",
-      "bytes": 21604,
-      "sha256": "34265046184e1695c1464d93d2b9715cbdb8e971ca574060b7466ce82979971f"
+      "bytes": 22289,
+      "sha256": "aec2724d42e0cedf5a4a7cffdfabcd1fc03fc587a2b1220e92c068e2c83c9fe6"
     },
     {
       "path": "docs/08-decision-register.md",
-      "bytes": 17250,
-      "sha256": "499f21dfe18190400ca086585fb600850f2aaa4d4c3aba95868ceb3e7c883ecf"
+      "bytes": 17503,
+      "sha256": "7adf0ea106ce22ace30b9577b074bb2a535de9fcce2bfeba5e7088922a6a3115"
     },
     {
       "path": "docs/09-risk-register.md",
-      "bytes": 17654,
-      "sha256": "e4f0366635ac9b8235ab9d9bfb4d9fa37c8ca3d032e5d2cc5b4295e53362a018"
+      "bytes": 17759,
+      "sha256": "f7e3832738b3ee2d9b1264fa1b01200fb7ec375bb7f5630429bfa0bc79b32a44"
     },
     {
       "path": "docs/10-agent-handoff.md",
-      "bytes": 8274,
-      "sha256": "57f3805e667dd9fd48f6ce8d8eafd63a75c6b94cb23e35d6cf28dff922009841"
+      "bytes": 8345,
+      "sha256": "c3f254709476e2c731e4c0711f879c4d68d5c760cfadbfab17dfb60a50897a03"
     },
     {
       "path": "docs/11-traceability.md",
@@ -115,8 +115,8 @@
     },
     {
       "path": "docs/12-rust-compatibility.md",
-      "bytes": 34991,
-      "sha256": "8437ab492ea6b278e2a91c41926b99712887d0697ef911f7c16b05ca4c02b640"
+      "bytes": 35421,
+      "sha256": "9be93816b91e89b6190893860063c12df4d21dbc867de9e22d5f6a0d711e8bac"
     },
     {
       "path": "docs/13-rust-change-impact.md",
@@ -135,8 +135,8 @@
     },
     {
       "path": "docs/16-github-bootstrap-and-release-handoff.md",
-      "bytes": 8201,
-      "sha256": "b9eade1bd2e018a0a503f657b0d239a93549d1598507a1816bfdcb3c71ad6702"
+      "bytes": 8428,
+      "sha256": "33eb98f36c1de88169e638b5f7f79bfa3e59dc8356a869d5500a249a12791d55"
     },
     {
       "path": "docs/adr/0001-runtime-and-core-reuse.proposed.md",
@@ -145,13 +145,13 @@
     },
     {
       "path": "docs/adr/0002-rust-core-and-compatibility.md",
-      "bytes": 15373,
-      "sha256": "8d8f86ca67e51697bae561dc757be438110d8bd22a8dc8ee85a47915d0d93fc2"
+      "bytes": 15744,
+      "sha256": "a944c85300bc16ec0308bcfe3c33c902328781333d1b7675daf16396879d0516"
     },
     {
       "path": "docs/sources.md",
-      "bytes": 19129,
-      "sha256": "8bec8de0691f92ab664a0a39babb99224224c1d174f42251ca8eabb7ded6576a"
+      "bytes": 19232,
+      "sha256": "a8c99e4f8882542ef6de10c1b2961cff241fd43889a644ce408b85ecb907d00e"
     },
     {
       "path": "npm/README.md",
@@ -165,8 +165,8 @@
     },
     {
       "path": "tests/README.md",
-      "bytes": 8786,
-      "sha256": "c8ec87838324892752d2992eba323287aad93e65a5b23e2759d29b8be62d9e5e"
+      "bytes": 9001,
+      "sha256": "0f821d6acda93a6d59788e5551c307cb2b698e8d5af47c1987161bb0b0b2d39c"
     },
     {
       "path": "tests/evidence/README.md",
@@ -185,8 +185,8 @@
     },
     {
       "path": "tests/matrix.json",
-      "bytes": 146622,
-      "sha256": "43010aa57f1be04eade26b3a51951c92f8831fb44d18f5dc88788e13ea053497"
+      "bytes": 147506,
+      "sha256": "81ef584c14940e2c8e8010408bca9cc51d855f81e8c8b481843aa85a8a4806eb"
     },
     {
       "path": "tests/performance/README.md",
@@ -215,13 +215,13 @@
     },
     {
       "path": "upstream/research-lock.json",
-      "bytes": 13085,
-      "sha256": "135d1078ad8655d61e9aec8d6f6b783a008f897b7edef6dfb3c019c9ff8813d2"
+      "bytes": 13827,
+      "sha256": "bcbf8393b5d21e324272c2b6f2c216766ce063718a287a94caf3dd53a85f43a5"
     },
     {
       "path": "upstream/rust-research-lock.json",
-      "bytes": 36063,
-      "sha256": "d27e0beeca902ac997ee1a0c95a20650376892d0c86539e97f427e6cf9956496"
+      "bytes": 36812,
+      "sha256": "06eff7e617fc1f559af086354e29f182c1b70939f9d2215ab5f37e7077fe5902"
     },
     {
       "path": "upstream/source-review-manifest.json",

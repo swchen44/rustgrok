@@ -173,7 +173,7 @@
       "release_package_destination": "GitHub Releases",
       "release_package_destination_status": "CONFIRMED",
       "release_artifacts_published": false,
-      "scope_note": "The user confirmed public visibility. GitHub API verified the created swchen44/rustgrok repository, id 1433282584, default branch main and observed push/admin permissions. Owner remains an authenticated-account/form/API observation. The creation form was submitted successfully. Initial planning content upload is pending and no GitHub Release or product test result exists.",
+      "scope_note": "The user confirmed public visibility. GitHub API verified swchen44/rustgrok, id 1433282584, default branch main and observed push/admin permissions. Owner remains an authenticated-account/form/API observation. The initial planning commit is now on main and all 46 files were read back with matching Git blob SHAs. GitHub Release remains NOT_CREATED and product runtime tests remain NOT_RUN.",
       "owner_status": "OBSERVED_AUTHENTICATED_ACCOUNT_AND_CREATION_FORM",
       "planned_repository_full_name": "swchen44/rustgrok",
       "creation_form_status": "SUBMITTED_SUCCESSFULLY",
@@ -185,7 +185,7 @@
       "repository_id": 1433282584,
       "visibility_user_response": "public",
       "default_branch": "main",
-      "contents_upload_status": "PENDING_INITIAL_PLANNING_COMMIT",
+      "contents_upload_status": "COMMITTED_AND_TREE_VERIFIED",
       "release_creation_status": "NOT_CREATED",
       "creation_verification": {
         "method": "GitHub API",
@@ -197,7 +197,13 @@
           "admin": true
         },
         "size_reported_at_creation": 0
-      }
+      },
+      "initial_planning_commit_sha": "526f619089703f710c915af303e54aea7d25226e",
+      "tree_sha": "3af8b051938022e067b29a8ccc4d7acac51205b2",
+      "verified_files": 46,
+      "initial_planning_commit_url": "https://github.com/swchen44/rustgrok/commit/526f619089703f710c915af303e54aea7d25226e",
+      "contents_verification_method": "PER_FILE_GIT_BLOB_SHA_READBACK_MATCHED_INITIAL_PLANNING_TREE",
+      "receipt_scope_note": "This records the verified initial planning snapshot. Later receipt-only edits require a later commit and are not asserted to be contained in this initial tree; no unknown follow-up commit is recorded."
     }
   },
   "verification": {
@@ -652,6 +658,6 @@
     "Prioritize end-to-end full-text/path/defs/cross-project search measurements on equivalent functionality, hardware and corpus; report cold/warm/concurrent behavior plus indexing/resource tradeoffs before making performance claims.",
     "Pin product toolchain, Cargo dependency graph, features, target/ABI and native helpers after selection; publish a distinct runtime/build lock and artifact manifest.",
     "Complete source and asset provenance, actual component license inventory and corresponding source delivery for the chosen artifacts.",
-    "The public repository https://github.com/swchen44/rustgrok is API-verified as created (id 1433282584, main). Initial planning content remains PENDING_INITIAL_PLANNING_COMMIT; upload it and record actual commit evidence separately. GitHub Release creation remains NOT_CREATED and product runtime tests remain NOT_RUN."
+    "Initial planning is committed and tree-verified at https://github.com/swchen44/rustgrok/commit/526f619089703f710c915af303e54aea7d25226e (tree 3af8b051938022e067b29a8ccc4d7acac51205b2, 46 matching file blob SHAs). Preserve that initial snapshot receipt; save later receipt changes in a subsequent commit and record only observed commit identities. GitHub Release remains NOT_CREATED and product runtime tests remain NOT_RUN."
   ]
 }

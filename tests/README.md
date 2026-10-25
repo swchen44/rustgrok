@@ -51,7 +51,7 @@ PERF-001/002、PRJ-002及RST-008/010/012沿用原ID。按全文／defs／refs／
 
 ## 發行資產驗收
 
-公開repo [swchen44/rustgrok](https://github.com/swchen44/rustgrok) 已回讀建立成功，ID `1433282584`、default branch `main`；發行包放GitHub Releases。建立回讀時內容未提交、沒有產品Release，後續push需另記commit證據，不因repo已建就宣稱產品binary已發布。REL-001/002先驗候選檔及文件，REL-005回讀實際Release的tag/commit、asset ID／名稱／大小／類型、OS/arch、版本與checksum，下載後核對bytes及各平台原生結果。
+公開repo [swchen44/rustgrok](https://github.com/swchen44/rustgrok) 已建立，ID `1433282584`、default branch `main`。初始完整規劃已提交並核實commit `526f619089703f710c915af303e54aea7d25226e`、tree `3af8b051938022e067b29a8ccc4d7acac51205b2`；46個檔案blob SHA全部與當時本地規劃快照匹配。這只是來源／上傳完整性核對，不是產品PASS：產品Release尚無、CI未跑、80項測試仍planned。後續收據更新不預填未知SHA；產品發行包仍放GitHub Releases。REL-001/002先驗候選檔及文件，REL-005回讀實際Release的tag/commit、asset ID／名稱／大小／類型、OS/arch、版本與checksum，下載後核對bytes及各平台原生結果。
 
 PKG-001/003使用同一版實際TGZ／ZIP驗安裝及完整離線閉包；每平台都要有自己的run，不以跨編譯或Mac PASS代替Linux／Windows。trace可放CI artifacts，但正式發行包必須對應GitHub Releases資產；public與repo建立已確認；正式Release發布後再驗公開下載，不虛構目前已有產品binary。
 

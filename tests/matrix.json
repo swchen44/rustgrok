@@ -43,7 +43,7 @@
     "效能測試包含1-user參照與約5-user互動情境，client採不同project/query並共用server cache、加入背景index。約5人不是5 QPS、5個in-flight requests或hard cap；實際rate／think-time／並行另記，不自行填SLO。",
     "正式部署優先Ubuntu24.04 amd64；首輪開發平台已確認Apple M1／Apple Silicon arm64，先完成全部Mac移植、功能、介面與包裝，再於Ubuntu完整原生重驗。macOS實際／最低版本待確認，Windows承諾保留；不再詢問Intel或ARM。",
     "平台順序不變更既有Test IDs／gate映射。Mac平台完成不是全域跨平台gate通過；每個OS/CPU以獨立run、artifact hash及結果判定，Mac PASS不可轉成Linux PASS，跨編譯只產生artifact。",
-    "已回讀GitHub公開repo swchen44/rustgrok建立成功：URL https://github.com/swchen44/rustgrok，ID 1433282584，default branch main。建立回讀時size=0、內容未提交，尚無產品Release；後續內容上傳以實際commit回讀另記，不因repo已建就把REL-005標passed。",
+    "公開repo swchen44/rustgrok（ID 1433282584、main）已建立；初始完整規劃已提交commit 526f619089703f710c915af303e54aea7d25226e，tree 3af8b051938022e067b29a8ccc4d7acac51205b2。已回讀46個檔案且各blob SHA與當時本地規劃快照相符；這是來源／提交完整性核對，不是產品PASS。產品Release尚無、CI未跑、80項產品測試仍planned；後續收據更新commit不在此預填。",
     "REL-001/002於G4驗待發行檔及完整離線操作，REL-005於G6回讀實際GitHub Release asset metadata／checksum／bytes；必要時用同一已存在PKG ID重驗下載產物，不新增測項。",
     "M1的arm64平台證據須包含主機CPU、實際macOS版本、payload架構／Mach-O slices與程序原生／翻譯狀態；Rust核心、npm執行環境與必要helpers不可用Rosetta x86_64執行冒充native arm64 passed。"
   ],
@@ -2083,14 +2083,14 @@
       ],
       "title": "rustgrok GitHub Releases資產與交接可追溯",
       "preconditions": [
-        "公開repo swchen44/rustgrok已回讀建立成功（ID 1433282584，main）；建立回讀時內容未提交且沒有產品Release。正式G6仍需各平台驗收、G5部署pilot與批准SLO完成；後續push與產品Release須各有實際commit／asset證據，npm仍由使用者發布。"
+        "公開repo swchen44/rustgrok已建立；初始規劃commit 526f619089703f710c915af303e54aea7d25226e／tree 3af8b051938022e067b29a8ccc4d7acac51205b2及46檔blob SHA已回讀核實。產品Release尚無、CI未跑。正式G6仍需各平台驗收、G5部署pilot與批准SLO；規劃上傳不等於REL-005或產品PASS，npm仍由使用者發布。"
       ],
       "steps": [
-        "沿用已核實owner swchen44與公開repo https://github.com/swchen44/rustgrok（ID 1433282584、main），內容提交後回讀commit/tree並核對docs/tests/source/CI/ADR；不再詢問visibility或把只有repo建立當完整交接通過。",
+        "沿用已核實公開repo https://github.com/swchen44/rustgrok（ID 1433282584、main）；初始規劃commit 526f619089703f710c915af303e54aea7d25226e及46檔已核實。正式產品交接另回讀最終commit/tree核對docs/tests/source/CI/ADR，不把規劃來源核對當完整交接通過。",
         "正式產品具實作與驗收證據後，將各平台TGZ／portable ZIP、checksums、SBOM/notices及必要source放GitHub Releases；核對tag/version/source commit與draft/prerelease狀態，不以Actions暫存代替發行包。",
         "回讀公開Release與asset ID／名稱／大小／類型、OS/arch及版本metadata，實際下載exact bytes核SHA-256及各平台證據；正式發布後另驗公開讀取／下載，不將未發布draft或不存在binary當可取得資產。",
         "按既有PKG-001/003與REL-002用下載產物核對可離線安裝閉包；如果下載bytes與候選不同，重驗受影響流程，不沿用舊passed或Mac證據。",
-        "核對README下載／安裝連結、handoff及決策狀態；目前只確認repo建立，未提供commit或產品Release證據前不得聲稱內容已push或binary已發布。"
+        "核對README下載／安裝連結、handoff及決策狀態；目前已確認初始規劃上傳，產品Release尚無、CI未跑。後續提交及正式產品發布各需自己的commit／asset證據，不預填未知SHA，也不把46檔blob匹配當產品PASS。"
       ],
       "expected": "公開swchen44/rustgrok的正式Release assets須對應tag/commit、checksum及每平台原生驗收並可離線安裝；repo建立、內容push與產品Release分別取證，不能以建立repo推論REL-005或產品驗收已通過。",
       "evidence": [
@@ -2543,7 +2543,7 @@
     "D21": "搜尋速度優先；約5位同時使用者為已知代表情境，驗證另設1人參照；未批准具體SLO、corpus/hardware、request率／think-time／每人並行或改善倍數。",
     "D02": "local本機與LAN都支援，不做帳號／角色／RBAC／project ACL；已登記projects共同可讀。免登入入口與管理面開放政策尚非已批准。",
     "D03": "首輪Mac為Apple M1／Apple Silicon arm64；先完整移植／功能／介面／包裝，再於Ubuntu24.04 amd64適配及完整原生重驗。Ubuntu為正式部署優先，macOS實際／最低版本及Windows細節仍未決。",
-    "D11": "已選public且已回讀公開repo swchen44/rustgrok建立成功：ID 1433282584、https://github.com/swchen44/rustgrok、main。發行包放GitHub Releases；建立回讀時內容未提交且無產品Release，後續push／發布需另有證據。"
+    "D11": "公開swchen44/rustgrok已建立（ID 1433282584、main），發行包放GitHub Releases。初始規劃commit 526f619089703f710c915af303e54aea7d25226e／tree 3af8b051938022e067b29a8ccc4d7acac51205b2與46檔blob SHA已核實；這不是產品測試通過，尚無產品Release且CI未跑。"
   },
   "open_decisions": {
     "D20": "排序、舊index/config/JAR及原REST管理相容仍需盤點；D02已取消帳號／角色／project ACL的mandatory要求，不可由原版parity偷偷加回，也不可默開LAN管理。",
@@ -2587,7 +2587,7 @@
     "repository_url": "https://github.com/swchen44/rustgrok",
     "visibility_status": "confirmed",
     "package_destination": "GitHub Releases",
-    "repository_state": "已回讀公開swchen44/rustgrok建立成功；建立回讀時size=0、內容未提交，尚無產品Release。後續內容push及Release須另回讀commit/asset證據。",
+    "repository_state": "公開repo已建立且初始完整規劃已提交main並回讀核實。creation_readback_size=0僅是建立時歷史狀態，不是目前未提交；產品Release尚無，CI未跑。",
     "product_artifact_state": "not_implemented_not_released",
     "verification": "G4候選檔、G6實際Release回讀，asset metadata/checksum/bytes須對上tag/commit及各平台原生證據。",
     "repository_owner": "swchen44",
@@ -2598,10 +2598,20 @@
     "visibility": "public",
     "repository_creation_status": "created_verified",
     "creation_readback_size": 0,
-    "content_state": "no_commit_verified_at_creation_readback",
+    "content_state": "initial_planning_committed_verified",
     "verified_permissions": {
       "push": true,
       "admin": true
-    }
+    },
+    "initial_planning_submission": {
+      "branch": "main",
+      "commit": "526f619089703f710c915af303e54aea7d25226e",
+      "tree": "3af8b051938022e067b29a8ccc4d7acac51205b2",
+      "file_count": 46,
+      "blob_sha_verification": "all_46_match_local_initial_planning_snapshot",
+      "meaning": "規劃來源及上傳完整性核對，不是產品功能／效能／發行測試PASS；不表示後續收據更動已提交。"
+    },
+    "ci_execution_state": "not_run",
+    "product_release_state": "none"
   }
 }

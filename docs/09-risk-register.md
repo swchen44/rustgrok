@@ -44,7 +44,7 @@ v0.3的R11／R12曾以完整登入／ACL矩陣描述風險；依D02在v0.4調整
 | R20 | pending | 把已知M1／arm64當作已知macOS版本，或SDK／簽章／quarantine不符，下載後不能啟動 | 記實際／最低macOS、SDK／toolchain與M1原生環境，再完整驗證最終ZIP及簽章後hash | 不由CPU推定OS；修平台矩陣與發行方式，一個Mac tuple更不代表Ubuntu通過，不停用系統保護 |
 | R21 | pending | CI預裝Node／Java／Cargo／Ctags／Git／共享庫遮住成品缺依賴 | clean-machine與binary dependency report；主要bundled profile屏蔽系統helpers驗閉包 | 重做offline gate；ZIP要驗無Node／Java／Rust toolchain的適用流程；不把external-only列必交profile |
 | R22 | pending | Rust管理API／CLI漏掉原Python tools或automation的行為 | D16/D20；命令、參數、JSON、非同步完成／錯誤契約盤點 | 完成Rust adapter或提出明確遷移，不用新命令名稱假稱相容 |
-| R23 | pending | public rustgrok已建立，但內容提交／Release上傳／取用未完成，誤把repo成功當完整交付 | 已有repo id 1433282584／public／main證據；後續核對真實commit／Release連結及遠端asset／manifest hash | repo建立部分已完成；內容commit、產品與Release驗收仍分開記錄，不把風險整體標已解 |
+| R23 | pending | public rustgrok與首次規劃提交已完成，但產品Release上傳／取用未完成，誤把文件交付當產品完成 | 已核對首次規劃[commit 526f619](https://github.com/swchen44/rustgrok/commit/526f619089703f710c915af303e54aea7d25226e)的46個Git blob；產品Release／asset／manifest hash仍待實際驗證 | repo及文件提交部分完成；沒有產品Release或GitHub CI執行，不把風險整體標已解或產品測試標PASS |
 | R24 | pending | 搜尋速度與約5人情境已知，但把人數當QPS／request上限，或以Mac結果推估Ubuntu效能／工期 | D09/D12/D21量化契約；Mac首輪完整量測後，在Ubuntu24.04 amd64原生重測，G5用代表資料SLO | 分平台補硬體與request模型，不移植PASS／數值，不添加假SLO或分散式必備 |
 
 ## 3. Rust重寫新增風險

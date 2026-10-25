@@ -31,7 +31,7 @@
     "Select exact Java/Tomcat/Ctags/SCM builds only as needed to run the independent reference oracle; record source, license and binary metadata.",
     "Run separate native oracle and Rust compatibility/performance experiments first for Apple M1/arm64 macOS, then complete Ubuntu 24.04 amd64 platform adaptation and native revalidation. Preserve independent evidence per platform; Mac PASS is not Linux PASS. Prioritize full-text/path/defs/cross-project search while recording indexing and resource tradeoffs.",
     "Create a separate approved Rust toolchain/Cargo/native-artifact lock after concrete technology selection; do not treat this file as that lock.",
-    "Use the API-verified public repository https://github.com/swchen44/rustgrok (id 1433282584, main). Upload the initial planning contents and record the successful commit separately; current contents status is PENDING_INITIAL_PLANNING_COMMIT. Release packages will use GitHub Releases, but no Release or product artifact has been published."
+    "Preserve the verified initial planning receipt for https://github.com/swchen44/rustgrok/commit/526f619089703f710c915af303e54aea7d25226e (tree 3af8b051938022e067b29a8ccc4d7acac51205b2, 46 files read back with matching Git blob SHAs). Initial planning content is COMMITTED_AND_TREE_VERIFIED. Save subsequent receipt-only changes in a later commit without inventing its SHA. GitHub Release and product artifact publication remain incomplete."
   ],
   "role": "independent_reference_oracle_for_rust_rewrite",
   "release_metadata_url": "https://api.github.com/repos/oracle/opengrok/releases/tags/1.14.20",
@@ -204,7 +204,7 @@
       "release_package_destination": "GitHub Releases",
       "release_package_destination_status": "CONFIRMED",
       "release_artifacts_published": false,
-      "scope_note": "The user confirmed public visibility. GitHub API verified the created swchen44/rustgrok repository, id 1433282584, default branch main and observed push/admin permissions. Owner remains an authenticated-account/form/API observation. The creation form was submitted successfully. Initial planning content upload is pending and no GitHub Release or product test result exists.",
+      "scope_note": "The user confirmed public visibility. GitHub API verified swchen44/rustgrok, id 1433282584, default branch main and observed push/admin permissions. Owner remains an authenticated-account/form/API observation. The initial planning commit is now on main and all 46 files were read back with matching Git blob SHAs. GitHub Release remains NOT_CREATED and product runtime tests remain NOT_RUN.",
       "owner_status": "OBSERVED_AUTHENTICATED_ACCOUNT_AND_CREATION_FORM",
       "planned_repository_full_name": "swchen44/rustgrok",
       "creation_form_status": "SUBMITTED_SUCCESSFULLY",
@@ -216,7 +216,7 @@
       "repository_id": 1433282584,
       "visibility_user_response": "public",
       "default_branch": "main",
-      "contents_upload_status": "PENDING_INITIAL_PLANNING_COMMIT",
+      "contents_upload_status": "COMMITTED_AND_TREE_VERIFIED",
       "release_creation_status": "NOT_CREATED",
       "creation_verification": {
         "method": "GitHub API",
@@ -228,7 +228,13 @@
           "admin": true
         },
         "size_reported_at_creation": 0
-      }
+      },
+      "initial_planning_commit_sha": "526f619089703f710c915af303e54aea7d25226e",
+      "tree_sha": "3af8b051938022e067b29a8ccc4d7acac51205b2",
+      "verified_files": 46,
+      "initial_planning_commit_url": "https://github.com/swchen44/rustgrok/commit/526f619089703f710c915af303e54aea7d25226e",
+      "contents_verification_method": "PER_FILE_GIT_BLOB_SHA_READBACK_MATCHED_INITIAL_PLANNING_TREE",
+      "receipt_scope_note": "This records the verified initial planning snapshot. Later receipt-only edits require a later commit and are not asserted to be contained in this initial tree; no unknown follow-up commit is recorded."
     }
   },
   "declared_license": {

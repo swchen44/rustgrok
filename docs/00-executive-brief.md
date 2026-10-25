@@ -26,6 +26,6 @@
 
 ## GitHub與Release交接
 
-已建立公開[swchen44/rustgrok](https://github.com/swchen44/rustgrok)，repo ID1433282584、default branch main。產品Release仍未建立；本初始規劃提交的SHA以Git history核實。後續將原始碼、docs、tests、CI與release manifest放同一Monorepo，ZIP／npm TGZ與可追溯checksums、SBOM、來源放GitHub Releases；npm由使用者發布。具體交接見[16 GitHub與Release](16-github-bootstrap-and-release-handoff.md)。
+已建立公開[swchen44/rustgrok](https://github.com/swchen44/rustgrok)，repo ID1433282584、default branch main。[初始規劃提交526f619](https://github.com/swchen44/rustgrok/commit/526f619089703f710c915af303e54aea7d25226e)已保存46個檔案且逐一核對blob SHA一致；產品Release仍未建立。後續將原始碼、docs、tests、CI與release manifest放同一Monorepo，ZIP／npm TGZ與可追溯checksums、SBOM、來源放GitHub Releases；npm由使用者發布。具體交接見[16 GitHub與Release](16-github-bootstrap-and-release-handoff.md)。
 
 目前保留38需求、44工作包、80測試規格，所有產品執行仍planned／not_run。此包是規劃交付，尚無Rust產品、實測速度或正式npm套件。

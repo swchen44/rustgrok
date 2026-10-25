@@ -59,4 +59,4 @@ OpenGrok 研究基線為 1.14.20，commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2e
 
 這份 ZIP 是可提交 GitHub 的**規劃與文件包**，不是已可執行的 Rust 程式或最終產品離線包。沒有用空白 tests／占位 npm test 偽裝可驗收產品。
 
-公開repository已建立：[swchen44/rustgrok](https://github.com/swchen44/rustgrok)，預設分支main，repo ID 1433282584。本初始提交將完整規劃放repo根目錄，實際提交SHA與後續變更以Git history為準。正式產品發行包將放[GitHub Releases](https://github.com/swchen44/rustgrok/releases)；目前沒有產品Release。企業source、索引與憑證不屬於要上傳的產品原始碼。npm由使用者自行發布。
+公開repository已建立：[swchen44/rustgrok](https://github.com/swchen44/rustgrok)，預設分支main，repo ID 1433282584。完整規劃已在[初始提交526f619](https://github.com/swchen44/rustgrok/commit/526f619089703f710c915af303e54aea7d25226e)保存至repo根目錄，46個檔案的Git blob SHA已逐一回讀並與提交時本地一致。此後續交接紀錄更新另以Git history追蹤。正式產品發行包將放[GitHub Releases](https://github.com/swchen44/rustgrok/releases)；目前沒有產品Release。企業source、索引與憑證不屬於要上傳的產品原始碼。npm由使用者自行發布。

@@ -6,7 +6,7 @@
 - 最新確認：D02 依「3, 約5人， 不用權限管理」支援本機與內網共用、約 5 位同時使用者，不做使用者角色／專案 ACL 管理，不強迫新帳號、SSO 或登入。原版 authorization／RBAC plugins 不再是 mandatory 產品功能或完整 parity 阻擋；其他 plugins 仍須盤點。
 - 正式部署優先：Ubuntu 24.04 amd64 已確認；Rust 架構命名對應 x86_64。實際 24.04.x point release 隨測試環境記錄，不作本輪需求確認阻擋。
 - 開發／完整驗證順序：使用者已確認首輪開發機為 Apple M1／arm64，Rust target mapping 為 aarch64-apple-darwin；先 macOS 完整驗證，再做 Ubuntu 24.04 amd64 平台適配及完整 native 重驗。Mac PASS 不能當作 Linux PASS。macOS 實際／最低版本及 Windows 詳細平台仍依 D03 待定，Windows 支援保留。
-- GitHub：使用者已確認 public；公開 repo [swchen44/rustgrok](https://github.com/swchen44/rustgrok) 已建立並經 API 核實，預設分支 main。規劃內容仍待初始提交，GitHub Release 尚未建立；repo 建立不代表已有產品或測試結果。
+- GitHub：使用者已確認 public；公開 repo [swchen44/rustgrok](https://github.com/swchen44/rustgrok) 已建立並經 API 核實，預設分支 main。初始規劃已提交 main，並讀回逐一核對 46 檔 Git blob SHA 一致；GitHub Release 尚未建立，規劃內容核實不代表已有產品或測試結果。
 - 仍待細化：helper 精確版本／build／各 SCM 能力依 G1 與原 inventory 核對；搜尋數值 SLO、代表工作量／環境及資源取捨仍 OPEN。D16 管理操作開放位置、D20 其餘相容邊界與 D04 原版介面版本待決。除 D02 明確排除的權限管理範圍，沒有批准其他功能／style 差異或 Java bridge。
 - 候選：Tantivy、Tree-sitter 與其他 Rust 函式庫均未被選為最終依賴。
 - 驗證狀態：僅官方文件與固定版本 source review；**未編譯 Rust 原型、未執行原版／Rust differential、未實測效能。**
@@ -249,7 +249,9 @@ Tantivy 使用MIT，但它的授權不能覆蓋被移植的OpenGrok內容。Ctag
 
 使用者已確認 repository visibility 為 public。公開 repo [swchen44/rustgrok](https://github.com/swchen44/rustgrok) 已成功建立，API 核實 repository ID 為 1433282584、owner 為 swchen44、default branch 為 main；建立表單狀態為 SUBMITTED_SUCCESSFULLY。Owner 的來源仍是已登入帳號／建立表單及 API 觀察，不另改稱使用者逐字指定。
 
-本紀錄的規劃內容上傳狀態為 PENDING_INITIAL_PLANNING_COMMIT；GitHub Release 為 NOT_CREATED，尚未發布 release packages。使用者要求的 GitHub Releases、npm 與離線交付保持；repo 建立成功不代表產品實作、測試或發行已完成。
+規劃內容上傳狀態為 **COMMITTED_AND_TREE_VERIFIED**。初始規劃 commit 為 [526f619089703f710c915af303e54aea7d25226e](https://github.com/swchen44/rustgrok/commit/526f619089703f710c915af303e54aea7d25226e)，tree 為 `3af8b051938022e067b29a8ccc4d7acac51205b2`；46 份規劃檔案已逐一讀回核對 Git blob SHA 一致。這份收據指向初始規劃快照，不聲稱後續收據更新也包含在同一個 tree。
+
+GitHub Release 仍為 NOT_CREATED，尚未發布 release packages；產品測試仍為 NOT_RUN。GitHub Releases、npm 與離線交付要求保持，規劃內容提交與核實不等於產品實作或發行已完成。
 
 ### D19：必要工具隨包附帶 — CONFIRMED
 
