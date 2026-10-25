@@ -11,6 +11,7 @@
 | 公開 GitHub repo swchen44/rustgrok；release packages 放 GitHub Releases | public **USER_CONFIRMED**；初始規劃已提交 main 並逐檔核實 46 檔，Release 尚未建立 |
 | 必要 Ctags／Git／其他 SCM helpers 隨包 | **CONFIRMED**（D19）；工具版本／build／具體能力待 G1 |
 | 搜尋速度優先 | **CONFIRMED**（D21）；數值 SLO／環境／資源取捨仍 OPEN |
+| 功能、style 與排序驗收基線 | **USER_CONFIRMED**（D04）：OpenGrok 1.14.20／commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3；oracle 仍 NOT_RUN |
 | crates、engine、templates、storage 與 modules | **PROPOSED**，待 G1 spikes |
 | OpenGrok 功能與 style | D02 免除角色／ACL 及 authorization／RBAC plugins 的 mandatory parity；其餘原要求維持 |
 | runtime／parity／效能驗證 | **NOT_RUN** |
@@ -75,7 +76,7 @@ Tantivy 為搜尋引擎候選，Tree-sitter 為語法分析候選。Axum／Tokio
 | D02 | **CONFIRMED：local＋LAN、約 5 人、無角色／project ACL 管理** | 不強迫新帳號／SSO／登入；約 5 人不是 QPS 或硬上限；非 auth plugin 仍盤點 |
 | D03 | **正式優先部署 Ubuntu 24.04 amd64；先 Apple M1／arm64 Mac 完整驗證，再 Ubuntu native 重驗** | Ubuntu CPU 對應 x86_64，Mac target mapping aarch64-apple-darwin；macOS 實際／最低版本、Windows 規格仍 OPEN，Mac PASS 不代替 Linux PASS |
 | D11 | **public 已確認，swchen44/rustgrok 初始規劃已提交並核實** | repo CREATED／ID 1433282584／main；內容 COMMITTED_AND_TREE_VERIFIED，verified_files 46，Release NOT_CREATED |
-| D04 | 使用者現版／客製版或 1.14.20 | 1.14.20 僅研究 oracle，非已批准驗收版本 |
+| D04 | **USER_CONFIRMED：OpenGrok 1.14.20 為功能、style 與排序的正式驗收基線** | 固定 commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3；產物下載／hash 核對及 oracle 執行未完成，D20 精確相容契約仍 OPEN |
 | D16 | 管理操作在哪開放仍 OPEN | 主機 CLI／本機 control、LAN 共用讀者路徑是工程提案，尚未批准管理端點可達性 |
 | D19 | **CONFIRMED：必要 Ctags／Git／SCM helpers 隨包** | 精確工具／build／各 SCM 能力依 G1；不是已完成分發或相容驗證 |
 | D20 | 命中／排序／score、UI／URL／REST、config／index／cache／非 auth JAR／automation | D02 的角色／ACL／authorization parity 排除已明確；其他無默認差異豁免，bridge 未批准 |

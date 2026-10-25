@@ -1,6 +1,6 @@
 {
   "schema_version": "0.6",
-  "purpose": "reference_oracle_research_baseline_only",
+  "purpose": "approved_reference_oracle_baseline_with_static_research_records",
   "status": "not_an_approved_product_runtime_lock",
   "researched_at": "2026-10-25",
   "timezone": "Asia/Taipei",
@@ -21,11 +21,11 @@
     "jakarta_servlet_api": "6.0.0",
     "jgit": "7.2.1.202505142326-r"
   },
-  "acceptance_baseline_approved": false,
+  "acceptance_baseline_approved": true,
   "runtime_binaries_pinned": false,
   "native_runtime_tests_executed": false,
   "required_next_steps": [
-    "Confirm the acceptance oracle and UI baseline under D04. Preserve functionality and style except D02's explicit exclusion of user-role/project ACL management and mandatory authorization/RBAC plugin parity; retain non-auth plugin inventory.",
+    "Use the D04-approved OpenGrok 1.14.20 baseline at commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3. Preserve functionality and style except D02's explicit exclusion of user-role/project ACL management and mandatory authorization/RBAC plugin parity; retain non-auth plugin inventory. Complete the remaining D20 compatibility contracts.",
     "Apply local+LAN support, about five concurrent users without role/project ACL management, bundled helpers and search-speed priority. Production deployment prioritizes Ubuntu 24.04 amd64; first develop and fully validate on confirmed Apple M1/arm64 macOS (aarch64-apple-darwin), then adapt Ubuntu and repeat complete native validation. Confirm actual/minimum macOS versions and Windows details under D03, D16 management exposure, D06/D07 details and remaining D20 compatibility. Record the actual Ubuntu point release with runtime evidence. Helper builds, numeric SLO, workload, hardware and tradeoffs remain open; five users is neither five QPS nor a hard limit.",
     "Download reference assets and independently recompute their hashes.",
     "Select exact Java/Tomcat/Ctags/SCM builds only as needed to run the independent reference oracle; record source, license and binary metadata.",
@@ -251,5 +251,12 @@
     "upstream/source-review-manifest.json",
     "upstream/rust-research-lock.json"
   ],
-  "scope_note": "Static source and official release metadata review only. Original OpenGrok version and release asset values are preserved for a separate reference oracle; they do not specify the Rust product runtime. Release digest is API-reported and has not been independently recomputed."
+  "scope_note": "Static source and official release metadata review only. Original OpenGrok version and release asset values are preserved for a separate reference oracle; they do not specify the Rust product runtime. Release digest is API-reported and has not been independently recomputed.",
+  "acceptance_baseline_confirmation": {
+    "status": "USER_CONFIRMED",
+    "decided_at": "2026-10-25",
+    "user_statement": "OK",
+    "question_summary": "Use OpenGrok 1.14.20 as the formal acceptance baseline for functionality, style and ranking.",
+    "scope": "Baseline selection only; D20 compatibility details remain open and runtime verification is not implied."
+  }
 }

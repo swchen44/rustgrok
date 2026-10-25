@@ -17,8 +17,12 @@
       "user_statement": "我還是想要改寫rust 因為效能比較好"
     },
     "D04": {
-      "status": "OPEN",
-      "value": null
+      "status": "USER_CONFIRMED",
+      "value": "OpenGrok 1.14.20 formal acceptance baseline for functionality, style and ranking",
+      "commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+      "decided_at": "2026-10-25",
+      "user_statement": "OK",
+      "scope_note": "Baseline selection only; D20 compatibility details remain open. Oracle and Rust runtime tests remain NOT_RUN."
     },
     "D19": {
       "status": "CONFIRMED",
@@ -652,7 +656,7 @@
     "note": "Record reused, translated, modified and independently authored content per file. Language selection and a candidate crate's declared license do not establish the complete product's license."
   },
   "required_next_steps": [
-    "Confirm D04 and remaining D20 API/config/non-auth-plugin compatibility under D02's no-role/project-ACL scope. Apply local+LAN, about five concurrent users, bundled helpers and search-speed priority. Production deployment prioritizes Ubuntu 24.04 amd64; development and first complete validation start on confirmed Apple M1/arm64 macOS (aarch64-apple-darwin), followed by Ubuntu adaptation and complete native revalidation. Confirm actual/minimum macOS versions, Windows details, D16 management exposure and remaining source/SCM/distribution inputs. Record actual Ubuntu point release; numeric SLO, workload/hardware and tradeoffs remain open.",
+    "Use the D04-approved OpenGrok 1.14.20 baseline and confirm remaining D20 API/config/non-auth-plugin compatibility under D02's no-role/project-ACL scope. Apply local+LAN, about five concurrent users, bundled helpers and search-speed priority. Production deployment prioritizes Ubuntu 24.04 amd64; development and first complete validation start on confirmed Apple M1/arm64 macOS (aarch64-apple-darwin), followed by Ubuntu adaptation and complete native revalidation. Confirm actual/minimum macOS versions, Windows details, D16 management exposure and remaining source/SCM/distribution inputs. Record actual Ubuntu point release; numeric SLO, workload/hardware and tradeoffs remain open.",
     "Build and run a separate reference oracle with exact artifacts, hashes, configuration and corpus.",
     "Run parser/token/offset, search/scoring, xref/UI and SCM compatibility work first on Apple M1/arm64 macOS. After Ubuntu 24.04 amd64 adaptation, repeat complete native validation and retain separate evidence; Mac PASS cannot establish Linux PASS. Windows support and native validation remain required.",
     "Prioritize end-to-end full-text/path/defs/cross-project search measurements on equivalent functionality, hardware and corpus; report cold/warm/concurrent behavior plus indexing/resource tradeoffs before making performance claims.",

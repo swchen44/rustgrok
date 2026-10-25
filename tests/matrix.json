@@ -7,7 +7,8 @@
   "research_upstream": {
     "tag": "1.14.20",
     "commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
-    "acceptance_baseline_status": "待使用者確認；研究基準不等於已核准驗收版本"
+    "acceptance_baseline_status": "USER_CONFIRMED",
+    "acceptance_baseline_decision": "D04"
   },
   "all_test_statuses_are_planned": true,
   "requirements_namespace": {

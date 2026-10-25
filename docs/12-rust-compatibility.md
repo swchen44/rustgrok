@@ -7,7 +7,7 @@
 - 正式部署優先：Ubuntu 24.04 amd64 已確認；Rust 架構命名對應 x86_64。實際 24.04.x point release 隨測試環境記錄，不作本輪需求確認阻擋。
 - 開發／完整驗證順序：使用者已確認首輪開發機為 Apple M1／arm64，Rust target mapping 為 aarch64-apple-darwin；先 macOS 完整驗證，再做 Ubuntu 24.04 amd64 平台適配及完整 native 重驗。Mac PASS 不能當作 Linux PASS。macOS 實際／最低版本及 Windows 詳細平台仍依 D03 待定，Windows 支援保留。
 - GitHub：使用者已確認 public；公開 repo [swchen44/rustgrok](https://github.com/swchen44/rustgrok) 已建立並經 API 核實，預設分支 main。初始規劃已提交 main，並讀回逐一核對 46 檔 Git blob SHA 一致；GitHub Release 尚未建立，規劃內容核實不代表已有產品或測試結果。
-- 仍待細化：helper 精確版本／build／各 SCM 能力依 G1 與原 inventory 核對；搜尋數值 SLO、代表工作量／環境及資源取捨仍 OPEN。D16 管理操作開放位置、D20 其餘相容邊界與 D04 原版介面版本待決。除 D02 明確排除的權限管理範圍，沒有批准其他功能／style 差異或 Java bridge。
+- 仍待細化：helper 精確版本／build／各 SCM 能力依 G1 與原 inventory 核對；搜尋數值 SLO、代表工作量／環境及資源取捨仍 OPEN。D16 管理操作開放位置、D20 其餘相容邊界待決；D04 已確認 OpenGrok 1.14.20 為功能、style 與排序的正式驗收基線。除 D02 明確排除的權限管理範圍，沒有批准其他功能／style 差異或 Java bridge。
 - 候選：Tantivy、Tree-sitter 與其他 Rust 函式庫均未被選為最終依賴。
 - 驗證狀態：僅官方文件與固定版本 source review；**未編譯 Rust 原型、未執行原版／Rust differential、未實測效能。**
 - 決策原則：D02 明確不要求的角色／ACL 與 authorization／RBAC plugin parity 從 mandatory 範圍移除；其餘功能與 style 要求保持。改用 Rust 不自動批准差異，非授權範圍的差異仍列為未達標或待釐清。
@@ -30,7 +30,7 @@ Rust 可減少 JVM 啟動與執行環境負擔，但使用 Rust 本身不能證�
 
 | 元件 | 本輪研究版本／定位 | 用途 |
 |---|---|---|
-| OpenGrok | 1.14.20；commit `3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3` | 研究用功能 oracle，正式使用者基準未批准 |
+| OpenGrok | 1.14.20；commit `3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3` | D04 已批准的功能、style 與排序驗收基線；oracle runtime 尚未執行 |
 | Lucene | 9.12.3；commit `f965e930673c1f5cb478dc6a8907f5fc4ef7b539` | 對照原版 parser／scorer 語意 |
 | Tantivy | tag 0.27.0；commit `67889269cae67063c372bc236b102d632a021568` | 候選引擎靜態研究；不是已選版 |
 | Tantivy tag object | `a22c1b184e861d1065b964bb45f013ef8945dae4`；tagger 日期 2026-10-17 | 明確區分 annotated tag 與實際 commit |

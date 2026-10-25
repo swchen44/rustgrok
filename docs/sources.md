@@ -10,7 +10,7 @@
 
 | 對象 | 固定來源 | 角色與限制 |
 |---|---|---|
-| OpenGrok 1.14.20 | commit `3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3`；[release API](https://api.github.com/repos/oracle/opengrok/releases/tags/1.14.20)、[tag API](https://api.github.com/repos/oracle/opengrok/git/ref/tags/1.14.20) | 功能／UI 研究 oracle；D04 正式驗收版本未批准 |
+| OpenGrok 1.14.20 | commit `3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3`；[release API](https://api.github.com/repos/oracle/opengrok/releases/tags/1.14.20)、[tag API](https://api.github.com/repos/oracle/opengrok/git/ref/tags/1.14.20) | D04 已批准的功能、style 與排序驗收基線；oracle 產物 hash 核對與執行尚未完成 |
 | Lucene 9.12.3 | commit `f965e930673c1f5cb478dc6a8907f5fc4ef7b539`；[BM25Similarity](https://github.com/apache/lucene/blob/f965e930673c1f5cb478dc6a8907f5fc4ef7b539/lucene/core/src/java/org/apache/lucene/search/similarities/BM25Similarity.java) | 對照原版引擎語意，非 Rust 產品相依 |
 | Tantivy 0.27.0 | commit `67889269cae67063c372bc236b102d632a021568`；[tag API](https://api.github.com/repos/quickwit-oss/tantivy/git/ref/tags/0.27.0)、[annotated tag](https://api.github.com/repos/quickwit-oss/tantivy/git/tags/a22c1b184e861d1065b964bb45f013ef8945dae4) | 候選引擎靜態研究，尚未選為產品依賴 |
 

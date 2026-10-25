@@ -8,10 +8,12 @@
 
 D02已確認本機與LAN雙模式、約5人代表負載、不做角色／project ACL。D03最新確認Ubuntu24.04 amd64為主要部署目標，先在macOS開發及完整驗證，再Ubuntu平台實作／適配及完整原生重驗。D11確認Public repo rustgrok，已建立於swchen44帳號，release packages放GitHub Releases。首輪Mac另確認M1／arm64；macOS實際／最低版本仍待提供。
 
+D04 後續已由使用者回覆「OK」確認：以 OpenGrok 1.14.20／commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3 作為功能、style 與排序的正式驗收基線。版本選定不代表 oracle 已執行，也不批准 D20 的任何行為差異或遷移方式。
+
 ## 1. 狀態與來源
 
 - CONFIRMED：本次使用者明確說明的需求。
-- DERIVED：把使用者的「同原版」或交付目標拆成可驗證項，詳細範圍待基線確認。
+- DERIVED：把使用者的「同原版」或交付目標拆成可驗證項；D04 已固定 1.14.20，詳細 inventory 與 D20 相容契約仍待完成。
 - PROPOSED：工程建議，使用者尚未批准。
 - CONDITIONAL：只在某項決策選定後適用。
 - OPEN：缺少會改變設計的資料，禁止默認填入。

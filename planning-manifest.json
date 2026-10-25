@@ -30,18 +30,23 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 2740,
-      "sha256": "2e20302282c079e523951d20e2e81c99395f63f9d3931e53c1157bba88ed4522"
+      "bytes": 3512,
+      "sha256": "c95d69777ad012e86390d2dc51d9df2567fd53104958f13d0f3631ad9141f858"
+    },
+    {
+      "path": "GLOSSARY.md",
+      "bytes": 476,
+      "sha256": "03dc6bea683b429d1723f8b6a24b1f315593b9db0804ddb92344afa181260f25"
     },
     {
       "path": "README.md",
-      "bytes": 6966,
-      "sha256": "74c9bcf8886fb0646cb8fb54b499aafb0846215f25c9d48f3d52a9d9ac81ec8c"
+      "bytes": 7077,
+      "sha256": "cffd169fc82ab4d6c459e539920316004ec1a3fdf8c775dfb66012b7dc908f89"
     },
     {
       "path": "assets/README.md",
-      "bytes": 443,
-      "sha256": "2ae11408bbe11785fdeaf09fb69d2f39255aa53db40ee7c0116a2fcb97218e31"
+      "bytes": 503,
+      "sha256": "fbc9f40f38fa2123fc250419ad36d47ca706f7f6a280ca3037a2dc15b63a526b"
     },
     {
       "path": "crates/README.md",
@@ -60,13 +65,13 @@
     },
     {
       "path": "docs/01-upstream-research.md",
-      "bytes": 23516,
-      "sha256": "52ead80503b516bba0631cf5c4d8c692e0ca551f5684f2c8b9d86028bf220b0e"
+      "bytes": 23577,
+      "sha256": "306faaa44f22d7cc43a35720cb2700b072cdda7bb7734f5a9061ac58a31d47ea"
     },
     {
       "path": "docs/02-requirements.md",
-      "bytes": 15922,
-      "sha256": "f656a9a4e0e2679959aab82fadf9ec7865accdccb4ec73c911d982138fc49238"
+      "bytes": 16240,
+      "sha256": "d2d6069c352d5e9a095b4944057d0a5308f6d1fd0ef90d271da597c72975db93"
     },
     {
       "path": "docs/03-system-design.md",
@@ -95,18 +100,18 @@
     },
     {
       "path": "docs/08-decision-register.md",
-      "bytes": 17503,
-      "sha256": "7adf0ea106ce22ace30b9577b074bb2a535de9fcce2bfeba5e7088922a6a3115"
+      "bytes": 18357,
+      "sha256": "13262c12fa3cdbeb46ff9982e1e05f60fd4a232dd2eeec4084cdced54568e49a"
     },
     {
       "path": "docs/09-risk-register.md",
-      "bytes": 17759,
-      "sha256": "f7e3832738b3ee2d9b1264fa1b01200fb7ec375bb7f5630429bfa0bc79b32a44"
+      "bytes": 17774,
+      "sha256": "5cda6a8e867b60a609b6c21db06c4155a16f8d5674398dff6787db8a6c7bce7a"
     },
     {
       "path": "docs/10-agent-handoff.md",
-      "bytes": 8345,
-      "sha256": "c3f254709476e2c731e4c0711f879c4d68d5c760cfadbfab17dfb60a50897a03"
+      "bytes": 8490,
+      "sha256": "4b80d8e05dc140f7c1c609b4ac10b324fab18703a7f4310aaf9cad2cc876697c"
     },
     {
       "path": "docs/11-traceability.md",
@@ -115,8 +120,8 @@
     },
     {
       "path": "docs/12-rust-compatibility.md",
-      "bytes": 35421,
-      "sha256": "9be93816b91e89b6190893860063c12df4d21dbc867de9e22d5f6a0d711e8bac"
+      "bytes": 35504,
+      "sha256": "8555951b8c2711cf260a18e09f0d26f1d168d2969981afc0e27173e4fe581360"
     },
     {
       "path": "docs/13-rust-change-impact.md",
@@ -125,8 +130,8 @@
     },
     {
       "path": "docs/14-search-performance-plan.md",
-      "bytes": 11119,
-      "sha256": "2bac68b78e53b6abaeedf41f4a0ec321c7c36a97d2838dd411ff1179dc6a099d"
+      "bytes": 11184,
+      "sha256": "7eb53923c5c02de4da7711bca88835e8ee55e0a2668c0046205916452b23c750"
     },
     {
       "path": "docs/15-deployment-and-linux-priority.md",
@@ -145,13 +150,28 @@
     },
     {
       "path": "docs/adr/0002-rust-core-and-compatibility.md",
-      "bytes": 15744,
-      "sha256": "a944c85300bc16ec0308bcfe3c33c902328781333d1b7675daf16396879d0516"
+      "bytes": 16044,
+      "sha256": "dd2d96ad7589096636b5c9213373bca2c397cad9324ee83db3c13c84d7c9c660"
+    },
+    {
+      "path": "docs/agents/domain.md",
+      "bytes": 929,
+      "sha256": "8c8ef1002cbd80e8a100e8e087c85159604f3ce09c3dfa2825f7f145e9a95049"
+    },
+    {
+      "path": "docs/agents/issue-tracker.md",
+      "bytes": 1186,
+      "sha256": "5f3dac11928a2584cac634c529e3270ce4035e32f5cde9c868b924ece33f1af1"
+    },
+    {
+      "path": "docs/agents/triage-labels.md",
+      "bytes": 409,
+      "sha256": "f651509f0e755f77678348f61eccb8cfef2bffe7bd0826216af01994fcc47f4c"
     },
     {
       "path": "docs/sources.md",
-      "bytes": 19232,
-      "sha256": "a8c99e4f8882542ef6de10c1b2961cff241fd43889a644ce408b85ecb907d00e"
+      "bytes": 19274,
+      "sha256": "04aebaec3053f7eda655aad253284572dce09a4720f3add9345424cdfedda4bf"
     },
     {
       "path": "npm/README.md",
@@ -161,7 +181,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 805,
-      "sha256": "0b43beb46ce6524624c1d69b2acc06c0da24d0bb1078d3f6afbd794d92c313d6"
+      "sha256": "6e85943f72d1cc37db6bd91f763fd98460a78690ea58eb27ff17223fc0410571"
     },
     {
       "path": "tests/README.md",
@@ -180,13 +200,13 @@
     },
     {
       "path": "tests/fixtures/corpus-manifest.template.json",
-      "bytes": 2439,
-      "sha256": "b684e7c7a3e683b32bfba934402077c2a85f6c4abc51c822ed24d3a489a0659f"
+      "bytes": 2529,
+      "sha256": "111542dbf56b201df7be7e359cac67f313c64c740d17e897b6a9d5a8aaf30a9f"
     },
     {
       "path": "tests/matrix.json",
-      "bytes": 147506,
-      "sha256": "81ef584c14940e2c8e8010408bca9cc51d855f81e8c8b481843aa85a8a4806eb"
+      "bytes": 147500,
+      "sha256": "2c52f9b357c748193ef4bb72378ced953b14864965d9f550e16ee83b29776a6c"
     },
     {
       "path": "tests/performance/README.md",
@@ -215,13 +235,13 @@
     },
     {
       "path": "upstream/research-lock.json",
-      "bytes": 13827,
-      "sha256": "bcbf8393b5d21e324272c2b6f2c216766ce063718a287a94caf3dd53a85f43a5"
+      "bytes": 14320,
+      "sha256": "530151980e35ec900606d2394eba5b21ed21a319ebbce5c08304bdc2fc0297e9"
     },
     {
       "path": "upstream/rust-research-lock.json",
-      "bytes": 36812,
-      "sha256": "06eff7e617fc1f559af086354e29f182c1b70939f9d2215ab5f37e7077fe5902"
+      "bytes": 37200,
+      "sha256": "8a5a796e0a3cd59617fe5394217b6781fb84175cfd60f2cbe8cc097a8fbc137c"
     },
     {
       "path": "upstream/source-review-manifest.json",

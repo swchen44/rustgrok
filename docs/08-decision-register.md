@@ -1,6 +1,6 @@
 # 決策登錄與需求訪談
 
-版本：v0.6，2026-10-25。**D01／D02／D19／D21的既定方向不變。D03已確認Mac M1／arm64先完整開發驗證，再Ubuntu24.04 amd64完整原生重驗，正式部署仍Ubuntu優先；D11已確認public新repo rustgrok與GitHub Releases交付。macOS版本、Windows細節、npm名稱、授權與其餘契約仍OPEN；repo實際建立狀態另記。**
+版本：v0.6，2026-10-25。**D01／D02／D19／D21的既定方向不變；後續 D04 已確認 OpenGrok 1.14.20 正式驗收基線。D03已確認Mac M1／arm64先完整開發驗證，再Ubuntu24.04 amd64完整原生重驗，正式部署仍Ubuntu優先；D11已確認public新repo rustgrok與GitHub Releases交付。macOS版本、Windows細節、npm名稱、授權與其餘契約仍OPEN；repo實際建立狀態另記。**
 
 ## 1. 狀態與決策歷史
 
@@ -12,6 +12,7 @@
 |---|---|---|---|
 | D01 | USER_CONFIRMED | 採 Rust 重寫產品核心；保留自帶Web Server、npm、內網、多專案、macOS／Ubuntu24.04 amd64／Windows64位元、原版功能與style目標 | 現行v0.6設計；原版Java／Tomcat改作獨立reference oracle；精確平台見D03，HTTP框架、搜尋引擎與工具版本仍需驗證 |
 | D02 | USER_CONFIRMED | 同一產品支援local與LAN共用，約5人同時使用，不做使用者角色／RBAC／專案ACL管理 | 約5人是容量情境，不是QPS或同時requests硬值；不追加帳號／SSO／登入為必交，管理操作暴露仍依D16提案與D20相容盤點 |
+| D04 | USER_CONFIRMED | OpenGrok 1.14.20／commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3 為功能、style 與排序的正式驗收基線 | 適用現行 v0.6 的 oracle、資產、UI、query 與排序差異驗證；產物 hash 核對及 runtime 尚未完成，D20 的精確相容與遷移契約仍 OPEN |
 | D11 | USER_CONFIRMED | 建立public新repo swchen44/rustgrok，release packages放GitHub Releases | repo已建立，creation_status為created；首次規劃已提交main並核對，產品Release／artifact未建立，分階段以metadata與hash驗證 |
 | D19 | USER_CONFIRMED | Rust核心可隨包附必要Ctags、Git及其他SCM工具；主要產品profile採bundled helpers | 工具清單、固定版本、各OS／CPU payload、能力、授權與所需SCM仍依inventory驗證；不把外裝或禁止helpers列為必交profile，不授權自動下載或git pull |
 | D21 | USER_CONFIRMED | 效能優先方向為搜尋速度 | 約5人情境已知；數值SLO、資料規模／硬體／request負載、CPU／RAM／磁碟預算與取捨仍OPEN，不代表接受排序／功能差異或無限資源 |
@@ -34,13 +35,14 @@ v0.6使用者回覆「1. public 2. M1」：D11的public已USER_CONFIRMED；D03�
 
 選Rust不代表已選定Tantivy、Tree-sitter、axum或Tokio，也不代表已接受查詢、排名或插件差異。若某個Rust候選庫不符契約，先調整相容層或重新評估Rust技術方案，不自動改回Java產品。
 
+後續 grill-with-docs 訪談於 2026-10-25 提問：「是否採用目前研究鎖定的 OpenGrok 1.14.20，作為功能、style 與排序的正式驗收基準？」使用者回覆原文：「OK」。D04 因此由 OPEN 轉為 USER_CONFIRMED，沿用既有固定 commit；先前僅作研究基線的歷史保留於本段。此答覆沒有批准命中／排序差異、score 容差、舊格式相容方式或 Java plugin bridge。受影響需求為 FR-001–FR-012、FR-020、FR-022、NFR-005、NFR-010、NFR-016；工作包與測試 IDs 依 docs/11-traceability.md、tests/traceability.json 追溯。更新 README、SRS、ADR-0002、交接與研究 lock／測試基線 metadata；所有產品測試仍 planned／not_run。
+
 ## 2. 接下來優先釐清的事項
 
-D02、D11、D19與D21已確認；D03／D09已有Mac M1／arm64、Ubuntu24.04 amd64、驗證順序及約5人情境。接著完成macOS版本／Windows細節、工具inventory及量化契約；D04、D20仍影響原版oracle與相容層。可以分輪回答；不再詢問Mac CPU、Ubuntu版本／CPU、repo名稱／公開性、local／LAN或權限管理。
+D02、D04、D11、D19與D21已確認；D03／D09已有Mac M1／arm64、Ubuntu24.04 amd64、驗證順序及約5人情境。D04 已固定 OpenGrok 1.14.20；接著完成 macOS 版本／Windows 細節、工具 inventory、D20 相容契約及量化門檻。可以分輪回答；不再詢問原版基線版本、Mac CPU、Ubuntu版本／CPU、repo名稱／公開性、local／LAN或權限管理。
 
 | ID | 狀態 | 要回答的問題 | 選項／所需資訊 | 影響與誰決定 |
 |---|---|---|---|---|
-| D04 | OPEN | 原版功能與style以目前哪個版本／客製版，或研究版1.14.20為基準？ | 版本、可分享畫面、客製CSS／首頁／插件摘要；研究版不自動成為正式基線 | oracle、資產來源、UI與全部相容測試；使用者決定 |
 | D20 | OPEN | 「完全相同」在查詢、排序、API、資料格式與插件各層要求什麼相容程度？ | 全部原功能／style要求繼續；將既有XML、Lucene index、cache、JAR plugins、API與score/tie精度分項確認 | 是否需移植、converter、明確bridge或可批准差異；使用者決定，未決不自動放寬 |
 
 ### 2.1 已確認的使用模式與管理邊界

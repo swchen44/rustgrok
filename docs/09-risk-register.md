@@ -69,7 +69,7 @@ Rustquery／analyzer／scorer、JGit與SSR的具體來源和已讀差異見[12�
 
 ## 4. 優先阻擋返工的證據順序
 
-1. **G0先固定剩餘邊界：** D04原版基線、D20相容層次、D03的macOS版本／Windows細節及D16管理暴露。M1／arm64、Ubuntu24.04 amd64、Mac先驗順序、public rustgrok／GitHub Releases與既定Rust／功能方向已確認，不反覆詢問；遠端建立結果另外驗證。
+1. **G0先固定剩餘邊界：** D20相容層次、D03的macOS版本／Windows細節及D16管理暴露。D04 已確認 OpenGrok 1.14.20；M1／arm64、Ubuntu24.04 amd64、Mac先驗順序、public rustgrok／GitHub Releases與既定Rust／功能方向已確認，不反覆詢問；遠端建立結果另外驗證。
 2. **G1先驗最難語意：** R25／R26／R27的parser、tokens、scorer與跨project統計，搭配R28／R29／R31的Unicode、xref與原style頁面。選庫之前取得能定位差異的證據。
 3. **同時驗原生分發與工作生命週期：** R03／R06／R07／R20／R21／R34／R35，先Mac M1／arm64完整適用驗證，再Ubuntu24.04 amd64實作／適配及原生重驗；Windows原生證據與G4全平台承諾不變，不共用跨平台PASS或把單一OS版本實測當全部平台證據。
 4. **依搜尋速度優先提早量測但不超額宣稱：** R16／R24／R33在約5人使用情境對等價slice量測，記錄實際request分布、CPU／RAM／磁碟與索引成本；數值SLO及取捨待確認，完整語言、SCM、插件／資料相容與代表工作量仍在G3/G5驗收。

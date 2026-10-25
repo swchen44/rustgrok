@@ -33,7 +33,7 @@ D02本機＋LAN、約5人、無RBAC／project ACL已確認。最新D03為Ubuntu2
 
 1. 讀 README、02、08、ADR-0002，再讀 01／03／04／05／06／07／12／13；目標 repo 若已有 AGENTS，先讀既有指引。
 2. 把新答覆寫入 Dxx，保留舊決策歷史；不要把 Rust 再變回未定，不重問已授權的動作。
-3. D19已選A、D21已選搜尋優先；接著收具體工具inventory、D20相容邊界與D09搜尋規模／硬體；D02不再重問；接著確認D03的macOS實際／最低版本；M1／arm64、Ubuntu amd64、repo名稱與Public不重問，D04基線及D16管理入口仍待決。
+3. D19已選A、D21已選搜尋優先；D04 後續已確認 OpenGrok 1.14.20／commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3 為功能、style 與排序的正式驗收基線，不重問版本。接著收具體工具inventory、D20相容邊界與D09搜尋規模／硬體；D02不再重問；接著確認D03的macOS實際／最低版本；M1／arm64、Ubuntu amd64、repo名稱與Public不重問，D16管理入口仍待決。
 4. 先完成不受 OPEN 決策阻擋的來源台帳、功能 inventory、公開 deterministic corpus 與 oracle 方案。具體受阻的工作標明決策，不因此停掉全部工作。
 5. 取得指定 repo 後先讀取現況，再以 reviewable commit／PR 保存 docs/tests；不擅選另一個 repo，也不假稱已推送。
 6. 先於macOS執行G1高風險實驗，完成Mac全部適用功能／UI／包裝後再進Ubuntu24.04 amd64適配與完整原生重驗：AST/token／scoring scope、原 CSS/JS 搭 Rust SSR、跨平台 native 分發、source一致性、SCM及早期公平 benchmark。
@@ -81,7 +81,7 @@ D21已選搜尋速度第一優先。依[14搜尋效能設計](14-search-performa
 | D19剩餘細節 | A已確認；固定必要工具清單、build／能力、各平台與授權 | bundled adapter與依賴閉包實驗 |
 | D20／D10 | 是否有舊設定、Lucene indexes、JAR plugins、API scripts；逐項相容需要 | 公開 fixture、query／UI observable inventory |
 | D21／D09 | 搜尋優先與約5人已知；資料量、query mix／到達率、硬體與SLO | benchmark schema、分組查詢與profiling方法 |
-| D04／D16 | 實際OpenGrok基線；管理操作主機CLI／本機控制面或LAN入口 | D02已定雙模式約5人無ACL；不新增角色系統 |
+| D16 | 管理操作主機CLI／本機控制面或LAN入口 | D04 已定 OpenGrok 1.14.20；D02已定雙模式約5人無ACL；不新增角色系統 |
 | D03／D07 | Ubuntu24.04 amd64與首輪M1／arm64已定；macOS版本、browser／registry與安裝權限 | 準備Mac原生arm64、Linux完整重驗與Windows契約 |
 | D11 | Public swchen44/rustgrok及GitHub Releases已確認，repo已建立 | 用Git history核實本規劃提交；後續實作按相同repo保存，不再重問D11 |
 

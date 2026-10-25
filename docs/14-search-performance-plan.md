@@ -127,4 +127,4 @@ profile之後再比較allocation/copy減少、批次metadata讀取、預計算�
 
 v0.3已確認A與搜尋優先；v0.4加入雙模式約5人、無權限管理。v0.5確認Ubuntu24.04 amd64為主要部署，但開發及完整首輪驗證改在macOS，其後Ubuntu完整原生重驗。兩平台的原版/Rust公平比較各在同一硬體進行，不以Mac結果推算Linux改善倍數。
 
-v0.6已確認M1／arm64與Public，repo已建立；接著補D03的macOS實際／最低版本。Ubuntu24.04 amd64、Mac先驗、架構、rustgrok名稱／可見性及GitHub Releases不再重問。之後收D09資料量／硬體、D04原版及D16管理入口。約5人已知，不要求重答人數，也不換成假QPS。
+v0.6已確認M1／arm64與Public，repo已建立；後續 D04 已確認 OpenGrok 1.14.20 為正式驗收基線。接著補D03的macOS實際／最低版本。原版版本、Ubuntu24.04 amd64、Mac先驗、架構、rustgrok名稱／可見性及GitHub Releases不再重問。之後收D09資料量／硬體及D16管理入口。約5人已知，不要求重答人數，也不換成假QPS。

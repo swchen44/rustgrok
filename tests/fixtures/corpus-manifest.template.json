@@ -2,7 +2,7 @@
   "schema_version": "0.6",
   "status": "template_not_generated",
   "private_source_allowed": false,
-  "acceptance_upstream": "OPEN_D04",
+  "acceptance_upstream": "OpenGrok 1.14.20@3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
   "generation_seed": null,
   "projects": [
     {
@@ -53,5 +53,6 @@
     "priority": "search_latency",
     "interactive_users_estimate": 5
   },
-  "helper_profile": "bundled_required_helpers"
+  "helper_profile": "bundled_required_helpers",
+  "acceptance_baseline_decision": "D04"
 }

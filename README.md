@@ -22,7 +22,7 @@ GitHub repo名稱：**rustgrok**（使用者指定）。產品顯示名稱、npm
 - D19 已選 A：必要 Ctags／Git／其他 SCM 工具隨包，正式工具清單、版本與平台能力仍要驗證；D21 已選搜尋速度優先。D20 原設定／索引／plugins 與排序相容邊界，以及數值 SLO、容量和資源取捨仍待確認。
 - Rust 改善效能是目標，尚無產品量測結果或提升倍數。
 
-OpenGrok 研究基線為 1.14.20，commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3。它不能代替使用者目前版本／公司客製版的正式驗收基線（D04）。
+OpenGrok 1.14.20，commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3，已由使用者確認為功能、style 與排序的正式驗收基線（D04）。oracle 產物下載、hash 核對與實際執行尚未完成；D20 的資料格式、插件及精確相容契約仍待釐清。
 
 ## 閱讀順序
 
@@ -36,7 +36,7 @@ OpenGrok 研究基線為 1.14.20，commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2e
 | [05-verification-plan.md](docs/05-verification-plan.md) | 原版差異、平台、離線、故障與效能驗證 |
 | [06-packaging-and-offline.md](docs/06-packaging-and-offline.md) | Rust binary、npm、ZIP 與離線依賴閉包 |
 | [07-monorepo-and-github.md](docs/07-monorepo-and-github.md) | Cargo/npm Monorepo、CI、Issues、PR 與 GitHub |
-| [08-decision-register.md](docs/08-decision-register.md) | D01／D02／D11／D19／D21已決，M1先驗／Ubuntu部署及剩餘事項 |
+| [08-decision-register.md](docs/08-decision-register.md) | D01／D02／D04／D11／D19／D21已決，M1先驗／Ubuntu部署及剩餘事項 |
 | [09-risk-register.md](docs/09-risk-register.md) | 返工風險、提早驗證與處置 |
 | [10-agent-handoff.md](docs/10-agent-handoff.md) | 給 Codex／實作 Agent 的指引 |
 | [11-traceability.md](docs/11-traceability.md) | 38 需求、44 工作包、80 測試規格的雙向對照 |
