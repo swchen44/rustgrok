@@ -8,6 +8,7 @@
 - D04 已確認 OpenGrok 1.14.20／commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3 為功能、style 與排序的正式驗收基線；不重問版本。oracle 執行與產品測試仍未完成，D20 精確相容契約另行釐清。
 - Q2–Q5 已接受：index/cache 可從 source 重建並保留原資料供回復；source 外部更新、產品手動＋排程索引；首版 CLI 前景＋背景。D16 基本邊界為 LAN 搜尋／瀏覽，主機 CLI／本機控制面管理；2026-10-26 已確認新增管理網頁只限主機本機瀏覽器，LAN 維持搜尋／瀏覽；頁面及有副作用的管理 API 均須遵守此邊界。watch、系統服務／登入自啟與其他未答項不由此代決。
 - Q6 已確認沒有需搬移的既有 XML、客製 JAR、API scripts 或舊書籤；不因此刪減原版內建能力。Q7 已知10個project、每project source約50 MB，合計推算約500 MB；每project可多Git repo或git-in-git。Project不等同repository；repo發現、檔案歸屬及history／annotate(blame)／diff照OpenGrok 1.14.20同配置查證，不自訂巢狀政策，也不縮成Git-only。硬體、history大小、精確bytes與SLO仍未定。
+- Q8／D12 已確認更新期間維持上一成功版本搜尋，新索引與相關資料完整就緒後整批切換。保留新舊資料的代價已接受；新鮮度／磁碟數值、來源變動、raw／閱讀版本與發布scope仍待契約及G1證據，不自行選snapshot實作，不把engine局部commit當全體原子發布。
 - 依新答覆移除使用者權限管理／RBAC／project ACL需求；其餘原功能與原style保留，不縮成Git-only、少數語言、近似排名或新UI。不要加必需帳號／SSO；免登入閱讀是提案。D16 已選本機管理網頁／主機 CLI／本機控制面，LAN 搜尋／瀏覽，不重問此可達範圍。Windows 原生支持不能用 WSL 代替。
 - Tantivy／Axum／Tokio／Tree-sitter 等是候選；版本與功能符合性經 G1 驗證後再凍結。Rust 已選不代表這些庫已選。
 - query、tokens、offsets、scoring scope、generation、DOM／HTTP 契約先寫清楚，再並行實作；引擎 defaults 不代表 OpenGrok 語意。

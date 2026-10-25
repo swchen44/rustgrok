@@ -184,14 +184,14 @@
       ],
       "title": "加／改／刪／rename 檔案後增量索引",
       "preconditions": [
-        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+        "D12已選更新期間維持上一成功搜尋、新index及相關資料完整後整批切換；準備可區分新舊generation的公開fixture，source／raw版本另按凍結契約。"
       ],
       "steps": [
         "保存第一版 golden 結果，分別加入、修改、刪除及rename檔案。",
-        "執行增量索引後搜尋新增與舊內容，檢查line/xref。",
+        "增量索引期間持續查上一成功generation，核對命中／排序並記錄line/xref/cache來源版本；新index與必要關聯資料完整後才發布，不接受未完成component。snippet/raw/xref依另行凍結的閱讀契約核對，不把Q8當成全source snapshot。",
         "另從零完整重建同一最終來源，比較增量結果與完整結果。"
       ],
-      "expected": "新結果正確、舊結果消失；未變資料保持；與 full rebuild 相同",
+      "expected": "更新期間上一成功搜尋可用；完整發布後新結果正確、舊結果消失且與full rebuild等價。發布完整性與source／raw內容版本分開驗，不以舊index證明live source已凍結。",
       "evidence": [
         "evidence/<release>/<run>/SRC-002/result.json",
         "evidence/<release>/<run>/SRC-002/attachments/"
@@ -569,11 +569,11 @@
       ],
       "title": "A reindex 同時搜尋 B，及 A/B 同時更新",
       "preconditions": [
-        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+        "D12已選更新期間維持上一成功搜尋及完整後整批發布；跨project publish scope、scoring與reader契約須凍結，未決值不猜測。"
       ],
       "steps": [
         "完成A/B索引，先跑1人參照，再以約5個互動client採不同project/query組合查詢A、B及A+B；保留固定query IDs、獨立瀏覽狀態與共用server cache。",
-        "對A執行完整及增量重建，再依核准budget同時更新A/B；保留同project讀寫與跨project搜尋兩種情境。",
+        "對A執行full及incremental重建，在已發布generation持續搜尋A、B、A+B；依核准budget更新A/B，保存每次查詢的generation／scoring scope，必要資料完整後才切換，不假定十個project必須同步重建。",
         "按client與query組別記錄hits/order/freshness、p50/p95/p99、queue wait、timeouts／錯誤、共用cache hits/misses及全process成本；另記實際request率、think-time與in-flight，不把約5人當5 QPS或請求hard cap。",
         "G2先驗兩種人數情境的正確性與已記錄研究負載；G5依批准corpus/hardware、request率／think-time／每人並行及搜尋／資源／可用性門檻驗收，未批准數值不補入。local/LAN拓撲分報。"
       ],
@@ -1401,14 +1401,14 @@
       ],
       "title": "full/incremental indexing 的各 commit 階段中斷",
       "preconditions": [
-        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。"
+        "D12已選維持上一成功搜尋、新資料完整後整批切換；預備最後完整generation及可追溯的pending資料。"
       ],
       "steps": [
         "在Rust scan/parse/tokenize/segment write/index commit/xref/config publish/reader swap等邊界注入終止。",
         "重啟檢查journal/schema/generation及query/raw/xref結果。",
-        "驗證一致舊版或新版、或明確rebuild-required；不以索引引擎局部commit假設整個產品已原子化。"
+        "驗新資料未完整時不發布；最後完整generation可用時，更新失敗或中斷不得清除它。重啟只接受可驗證完整的舊／新版；首次無成功generation或資料確已損毀時明示not-ready／rebuild-required，不以局部engine commit假裝ready。"
       ],
-      "expected": "restart 後是可驗證的先前／新 generation 或明確要求重建；不偽裝健康",
+      "expected": "不發布部分新generation；先前完整版本可用時維持／恢復其搜尋，重啟選中完整舊／新版且有證據，無可用版本時明確未ready。",
       "evidence": [
         "evidence/<release>/<run>/REC-001/result.json",
         "evidence/<release>/<run>/REC-001/attachments/"
@@ -1437,7 +1437,7 @@
       "steps": [
         "注入disk full、permission denied、分析器或外部工具hang、allocation失敗情境或程序終止。",
         "測Rust panic策略、worker取消、queue恢復及restart，不把OOM行為假定可catch。",
-        "核對source/data完整、exit/status/log及恢復，結果依可用平台故障機制記錄。"
+        "核對source/data完整與exit/status/log；disk full等build失敗時不發布部分新資料，若最後完整generation可用應保留其搜尋；記錄舊／新資料磁碟峰值及恢復，不填未批准RTO/RPO。"
       ],
       "expected": "operation failed 原因可查；來源不變；最後可用版本可回復",
       "evidence": [
@@ -2410,7 +2410,7 @@
         "對固定最終來源分別從零full build與多步add/edit/delete/rename增量build。",
         "比較query/rank/token/xref/history與logical document coverage，另記錄segment/merge/schema/generation狀態。",
         "在native engine commit、metadata publish、reader swap及Windows檔鎖階段fault inject，驗證重啟與rollback。",
-        "測取消／reader世代切換／memory-mapped檔案生命週期與並行讀取；Windows open-file刪除／替換路徑必須有原生證據。"
+        "依D12在更新期間持續搜尋上一成功generation，測取消／完整reader世代切換／mmap生命週期與並行讀取；記錄prepared/published、reader generation及磁碟成本。Windows open-file刪除／替換仍須原生證據。"
       ],
       "expected": "full/incremental對同一來源有同等行為；Rust格式自有version契約，不假稱Lucene/Tantivy binary互通。",
       "evidence": [
@@ -2550,13 +2550,15 @@
     "D15": "首版CLI前景＋背景；系統服務／登入自啟後續待決。",
     "D16": "管理網頁只限主機本機瀏覽器，保留主機 CLI／本機控制面管理，LAN 維持搜尋／瀏覽；2026-10-26 使用者確認。",
     "D05": "部分已決：10個project，每project可含多Git repo及git-in-git；repo發現、檔案歸屬、history／blame／diff照固定OpenGrok同配置。",
-    "D09": "部分已決：約5人、10個project、每project source約50 MB，合計推算約500 MB。硬體、history大小、query mix、SLO與資源預算未定。"
+    "D09": "部分已決：約5人、10個project、每project source約50 MB，合計推算約500 MB。硬體、history大小、query mix、SLO與資源預算未定。",
+    "D12": "Q8 Yes：更新期間持續上一成功版本搜尋，新index及相關資料完整後整批切換；接受更新期間上一版內容及新舊資料保留成本。"
   },
   "open_decisions": {
     "D20": "無需客製舊資料遷移；固定基線的原版query／ranking精度、內建config／非權限plugin／API／URL契約仍須完成inventory與驗證。",
     "D09": "已知10個project與每project約50 MB source；CPU／RAM／SSD或NAS、history、files/LOC、query mix、request率／think-time／每人並行及SLO／資源門檻仍OPEN，不能外推index/RSS或QPS。",
     "D03": "M1／Apple Silicon arm64與Ubuntu24.04 amd64均已確認；macOS實際版本／最低支援版本、Windows版本／CPU、硬體資源等剩餘條件仍OPEN。不再詢問Mac Intel或ARM。",
-    "D16": "可達範圍已確認；剩餘管理頁面操作、具體控制及既有 REST／automation 相容另設計及盤點，不新增強制登入／SSO／RBAC。"
+    "D16": "可達範圍已確認；剩餘管理頁面操作、具體控制及既有 REST／automation 相容另設計及盤點，不新增強制登入／SSO／RBAC。",
+    "D12": "發布政策已決；剩餘source／raw閱讀版本、publish scope、snapshot/journal實作、新鮮度／磁碟／RTO/RPO數值及runtime證據，不外推程式升級零停機。"
   },
   "platform_execution_policy": {
     "production_priority": {

@@ -149,6 +149,19 @@
         "numeric SLO and resource budgets"
       ],
       "runtime_measurement_status": "NOT_RUN"
+    },
+    "index_update_publication_policy": {
+      "decision": "D12",
+      "status": "USER_CONFIRMED",
+      "during_update": "last_successful_generation",
+      "switch": "after_complete_index_and_related_data",
+      "freshness_limit": null,
+      "disk_budget": null,
+      "source_change_to_publish_ms": null,
+      "prepared_at": null,
+      "published_at": null,
+      "reader_generation_samples": null,
+      "retained_old_new_data_peak_bytes": null
     }
   },
   "timing_contract": {

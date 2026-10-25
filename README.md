@@ -28,6 +28,8 @@ OpenGrok 1.14.20，commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3，已由使�
 
 Q6 已確認沒有需搬移的既有 XML 設定、客製 JAR、API scripts 或舊書籤。Q7 的代表規模為10個專案，每專案 source 約50 MB，合計推算約500 MB；一個專案可有多個 Git repo，也可能巢狀 Git。Git history、annotate/blame、diff 與 repo 發現／歸屬依 OpenGrok 1.14.20 同配置對照；project 不等同 repository，既有原版其他能力仍保留。硬體、history體積、query mix 與數值 SLO 尚未指定。
 
+Q8／D12 已確認更新期間繼續提供上一成功版本的搜尋，新索引與相關資料完整就緒後整批切換；更新期間上一版內容及新舊資料磁碟成本已接受，數值門檻與實作方式另驗證，見[ADR-0003](docs/adr/0003-published-generation-switch.md)。
+
 ## 閱讀順序
 
 | 文件 | 用途 |
@@ -46,6 +48,7 @@ Q6 已確認沒有需搬移的既有 XML 設定、客製 JAR、API scripts 或�
 | [11-traceability.md](docs/11-traceability.md) | 38 需求、44 工作包、80 測試規格的雙向對照 |
 | [12-rust-compatibility.md](docs/12-rust-compatibility.md) | parser／analyzer／BM25／xref／SCM 的讀碼差異 |
 | [多repo／巢狀Git研究](docs/research/2026-10-26-opengrok-nested-git.md) | 固定原版的repo發現、檔案歸屬與history／blame／diff證據；runtime尚未驗證 |
+| [來源閱讀一致性研究](docs/research/2026-10-26-opengrok-source-view-consistency.md) | 固定原版的index命中、snippet、xref、raw讀取來源；不把Q8外推成source snapshot |
 | [13-rust-change-impact.md](docs/13-rust-change-impact.md) | v0.1 → v0.2歷史變更與先做的實驗 |
 | [14-search-performance-plan.md](docs/14-search-performance-plan.md) | 搜尋優先的設計、量測、實驗順序與決策變更 |
 | [15-deployment-and-linux-priority.md](docs/15-deployment-and-linux-priority.md) | 本機＋LAN、約5人、macOS先驗與Ubuntu amd64部署 |

@@ -76,6 +76,8 @@ generation/config/已註冊project集合變更時，舊entry不能用於新狀�
 
 比較「只有讀取」、「增量更新」、「full/merge」的分組延遲，同時記錄source變更到新generation可查的時間。搜尋優先的排程應避免互相餓死；具體配額、降速或暫停策略須看數據，不先接受index無限延後。
 
+D12 已確認更新期間搜尋上一成功generation，新索引與相關資料完整後整批發布。量測須同時保存source變更、job開始、prepared及published時間、reader generation與新舊資料磁碟峰值；不能只報舊generation的低延遲而省略發布等待或把新鮮度延遲當免費收益。絕對門檻仍待D09／D12／D21。
+
 ### 4.4 不改語意的引擎優化
 
 profile之後再比較allocation/copy減少、批次metadata讀取、預計算可穩定統計、reader重用、有效Top K與skip策略。每個優化都附parity regression。

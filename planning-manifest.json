@@ -30,18 +30,18 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 4481,
-      "sha256": "71c5054a98606570f91928f00d1c42713098b2e11a5d1c9f890ebba90373a5e6"
+      "bytes": 4817,
+      "sha256": "34a089cff9ae83b30ce81393cad27bf9bef59db5ebcf1301cd1746c7af800799"
     },
     {
       "path": "GLOSSARY.md",
-      "bytes": 1353,
-      "sha256": "2d12aa4a5031fd1d801bc11175b4d1da814123d05c3ec8a990aaf6e243d3adfd"
+      "bytes": 1577,
+      "sha256": "bbcbaac6e33736af1ceb1a158f50bfe64211217690f84747a44a1a33f63108f4"
     },
     {
       "path": "README.md",
-      "bytes": 8183,
-      "sha256": "6b0ff8a9579a1dd9ebb7ad796aa5cf6d7ccc15f937c6b4776ca674df95c5d7ee"
+      "bytes": 8673,
+      "sha256": "3d2664333637a824d8ee64054a130d3ac50300d905ee8b9256d5a662b8bd4a0a"
     },
     {
       "path": "assets/README.md",
@@ -70,13 +70,13 @@
     },
     {
       "path": "docs/02-requirements.md",
-      "bytes": 17087,
-      "sha256": "1f87d620ea0a71523d0eb9bf055c4f96e3d850324c219394cce01dedcaa2e260"
+      "bytes": 17204,
+      "sha256": "beadca75e5b2b0eace16711d8eca8236ad3c921fbe70c67e03084d6a1b654eb5"
     },
     {
       "path": "docs/03-system-design.md",
-      "bytes": 23507,
-      "sha256": "5fe2760b353d8120f884321d33862830d25b21bcc9b7ca469877cce30f4123cb"
+      "bytes": 24456,
+      "sha256": "4fd0bfd3c41d28ffe11a0199cd0644012c1cb6600b8aae567603529392912676"
     },
     {
       "path": "docs/04-implementation-plan.md",
@@ -100,8 +100,8 @@
     },
     {
       "path": "docs/08-decision-register.md",
-      "bytes": 20945,
-      "sha256": "356c1648320776174d1df55b532b10508aeaac6f8d3df53026bc4281c03787e4"
+      "bytes": 21790,
+      "sha256": "8e90b70e8701b4c0de22b4281398f4dc50559e805e9590007b31e3a176a8996c"
     },
     {
       "path": "docs/09-risk-register.md",
@@ -110,8 +110,8 @@
     },
     {
       "path": "docs/10-agent-handoff.md",
-      "bytes": 8972,
-      "sha256": "4b5b7f7934916600b6896c8484446e1c2fa6aecd7e13784eaae90011cd05aac4"
+      "bytes": 9279,
+      "sha256": "3f31c0e98272091888cbd1ba4990a8930f0717f2709f18d17e19631c1a4d267e"
     },
     {
       "path": "docs/11-traceability.md",
@@ -130,8 +130,8 @@
     },
     {
       "path": "docs/14-search-performance-plan.md",
-      "bytes": 11370,
-      "sha256": "7092043b1d5cf3947424acb0bdde20873c3be49db6a7f719569141718aae2a0d"
+      "bytes": 11733,
+      "sha256": "5e93ababe11f5ca9dc91d12883294c9682b96ed564ef897c6893c0c145c3cba1"
     },
     {
       "path": "docs/15-deployment-and-linux-priority.md",
@@ -150,8 +150,13 @@
     },
     {
       "path": "docs/adr/0002-rust-core-and-compatibility.md",
-      "bytes": 16175,
-      "sha256": "b169a236b22fa941003e8f361e219068c9fdcdf343baf4bd02b9333954baf653"
+      "bytes": 16431,
+      "sha256": "54409e440c52dbba991e8cca6048b380f37212e6732f4660b92717982f35d25b"
+    },
+    {
+      "path": "docs/adr/0003-published-generation-switch.md",
+      "bytes": 1510,
+      "sha256": "bc98fa3a4d5e0a6392ccba8739f8acb4b9df217b96516462405e65007e6f85a5"
     },
     {
       "path": "docs/agents/domain.md",
@@ -174,6 +179,11 @@
       "sha256": "69de136db965626db822e43d7db4815f1456d8896f79882b666f5ff1d4511037"
     },
     {
+      "path": "docs/research/2026-10-26-opengrok-source-view-consistency.md",
+      "bytes": 12850,
+      "sha256": "a28a23be960c18a73dfc70840b27f060bb82cd6b63641f95829c73fa2fa2c61e"
+    },
+    {
       "path": "docs/sources.md",
       "bytes": 19274,
       "sha256": "04aebaec3053f7eda655aad253284572dce09a4720f3add9345424cdfedda4bf"
@@ -186,7 +196,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 805,
-      "sha256": "247eef130386a4054095d5d6d8ceeb995298e2d58e9e6f9431f84e0eb7f9e7d9"
+      "sha256": "beb38232c985dba78a448bbfd552dbd488e5c1af321637ba6347fa5ed157abb3"
     },
     {
       "path": "tests/README.md",
@@ -210,8 +220,8 @@
     },
     {
       "path": "tests/matrix.json",
-      "bytes": 150657,
-      "sha256": "711e4801ef70d1ee17312c474e0472e4103bca5b2fec39ff5c0fa7c668c3e7a4"
+      "bytes": 152156,
+      "sha256": "0323f9bb141cded9cacf2b5a769e88769ef01dd441c85bb7bfaf8b8fcba54a20"
     },
     {
       "path": "tests/performance/README.md",
@@ -220,8 +230,8 @@
     },
     {
       "path": "tests/performance/search-benchmark-manifest.template.json",
-      "bytes": 7519,
-      "sha256": "0e1173df1b744357ac7be6070b8843ed82d4a0a4174b1e444f3240a19068f1a3"
+      "bytes": 7980,
+      "sha256": "8d52d8226fca3961dce80ffd1411a1dadf7bfbf9d3110de68dde2f6fd8b7968b"
     },
     {
       "path": "tests/traceability.json",
@@ -230,23 +240,23 @@
     },
     {
       "path": "tools/README.md",
-      "bytes": 1299,
-      "sha256": "b8ac902bb36de7821e7afd909fd8046929ba2881ed2439df904bc587c680554f"
+      "bytes": 1327,
+      "sha256": "53ec38ed62332050e621d0fd8919629d835f7594212276839e4b90588e6071d2"
     },
     {
       "path": "tools/build_planning_package.py",
-      "bytes": 11711,
-      "sha256": "05346c784fcd27fe78ba8997d62b8d27be2c93d02a05cfc9a06c6891b1844759"
+      "bytes": 11634,
+      "sha256": "e18c4b2c7eb7104b8d060d4c055579cb96532107af72292d70a60ee7e55447a1"
     },
     {
       "path": "upstream/research-lock.json",
-      "bytes": 19633,
-      "sha256": "72c477e7fc175519b98dd60568e98fd42e1cfd24decd53943e8d3c8d9cba219c"
+      "bytes": 20889,
+      "sha256": "e6f138197cdcebef03bddddec35073fe4d7546a41c663aa66f525c4bb6054591"
     },
     {
       "path": "upstream/rust-research-lock.json",
-      "bytes": 42910,
-      "sha256": "30a6a5b1dfad02414bf4fbf1030139ee238353c1805f3732fc1daab315081382"
+      "bytes": 44237,
+      "sha256": "af7b759da2a5754f9c9f557536e762a4730252097aa8436f3b636dbfc8257edb"
     },
     {
       "path": "upstream/source-review-manifest.json",

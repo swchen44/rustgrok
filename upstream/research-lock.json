@@ -353,6 +353,32 @@
         "runtime_verification": "NOT_RUN",
         "linked_worktree_complete_behavior": "UNKNOWN"
       }
+    },
+    "index_update_publication": {
+      "decision_id": "D12",
+      "status": "USER_CONFIRMED",
+      "confirmed_at": "2026-10-26",
+      "user_statement": "Q8 Yes",
+      "during_index_update": "serve_last_successfully_published_search_generation",
+      "publication": "switch_only_after_new_index_and_required_related_data_are_complete",
+      "partially_prepared_generation_may_be_published": false,
+      "old_content_during_rebuild_accepted": true,
+      "retain_old_and_new_data_cost_accepted": true,
+      "freshness_limit": null,
+      "disk_budget": null,
+      "rto_rpo": null,
+      "source_snapshot_implementation": "NOT_SELECTED",
+      "raw_and_source_view_version_contract": "PENDING_FIXED_BASELINE_RESEARCH_AND_CONTRACT",
+      "cross_project_publish_scope": "NOT_FROZEN",
+      "application_binary_upgrade_zero_downtime": "NOT_APPROVED_BY_THIS_DECISION",
+      "implementation_and_runtime_verification": "NOT_RUN",
+      "adr": "docs/adr/0003-published-generation-switch.md",
+      "source_view_research": {
+        "path": "docs/research/2026-10-26-opengrok-source-view-consistency.md",
+        "status": "STATIC_SOURCE_REVIEW",
+        "runtime_verification": "NOT_RUN",
+        "user_visible_source_read_policy": "OPEN"
+      }
     }
   },
   "declared_license": {

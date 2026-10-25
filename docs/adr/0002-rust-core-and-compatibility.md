@@ -78,6 +78,7 @@ Tantivy 為搜尋引擎候選，Tree-sitter 為語法分析候選。Axum／Tokio
 | D11 | **public 已確認，swchen44/rustgrok 初始規劃已提交並核實** | repo CREATED／ID 1433282584／main；內容 COMMITTED_AND_TREE_VERIFIED，verified_files 46，Release NOT_CREATED |
 | D04 | **USER_CONFIRMED：OpenGrok 1.14.20 為功能、style 與排序的正式驗收基線** | 固定 commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3；產物下載／hash 核對及 oracle 執行未完成，D20 精確相容契約仍 OPEN |
 | D16 | **USER_CONFIRMED：管理網頁只限主機本機瀏覽器；LAN 搜尋／瀏覽** | 保留主機 CLI／本機 control 管理；2026-10-26 確認網頁範圍，頁面操作、具體控制及 runtime 驗證待完成 |
+| D12 | **USER_CONFIRMED：更新時維持上一成功搜尋，新資料完整後整批切換** | [ADR-0003](0003-published-generation-switch.md)；接受更新期間上一版內容及新舊資料磁碟成本，數值／來源策略與實作仍待驗證 |
 | D19 | **CONFIRMED：必要 Ctags／Git／SCM helpers 隨包** | 精確工具／build／各 SCM 能力依 G1；不是已完成分發或相容驗證 |
 | D20 | 命中／排序／score、UI／URL／REST、config／index／cache／非 auth JAR／automation | D02 的角色／ACL／authorization parity 排除已明確；其他無默認差異豁免，bridge 未批准 |
 | D21 | **CONFIRMED：搜尋速度優先** | 數值 SLO、query mix／規模／環境與 RSS／磁碟／索引時間／新鮮度取捨仍 OPEN |

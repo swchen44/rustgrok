@@ -86,7 +86,7 @@ D05仍決定來源布局、跨磁碟、symlink/junction、NAS/UNC；改Rust不�
 
 Rust自己提供實體writer鎖與持久queue，不繼承上游Lucene lock。每個index只能一writer，global registry/config發佈亦有受控序列；不同projects並行受CPU/RAM/IO預算控制。
 
-候選generation序列：
+D12 已確認發布政策：更新期間維持上一成功版本搜尋；新索引及相關資料完整就緒後整批切換。下列 generation 序列為實現此政策的候選機制，engine／storage、跨project publish scope與來源版本策略仍待G1：
 
 1. 取source manifest與config revision、建立job。
 2. 分析變更，寫pending index/xref/history。
@@ -95,7 +95,9 @@ Rust自己提供實體writer鎖與持久queue，不繼承上游Lucene lock。每
 5. 通知reader reload，驗證新generation可查。
 6. 標記job成功，再依policy清舊資料。
 
-Tantivy commit不等於index/xref/history/config全體原子提交。停機切換、shadow、snapshot或可恢復journal是待驗方案。Windows reader handles與mmap可能妨礙rename/delete。只保留舊index仍不能保證live raw source是舊內容，強一致性需相應source策略。
+Tantivy commit不等於index/xref/history/config全體原子提交。D12 已選更新期間維持搜尋，不以停機更新作正常發布方案；shadow、snapshot或可恢復journal等機制仍待驗。必要component未完整就緒不得發布，失敗時保留最後完整generation；首次沒有已發布generation時不能假裝ready。Windows reader handles與mmap可能妨礙rename/delete。只保留舊index仍不能保證live raw source是舊內容；raw／閱讀版本需獨立查證原版與凍結契約，Q8未自動批准全source snapshot或十個project同步重建。
+
+原版各入口並非一律讀同份source snapshot；固定 source 的讀取分支與Q8邊界見[來源閱讀一致性研究](research/2026-10-26-opengrok-source-view-consistency.md)。使用者尚未選定沿用原版live／SCM讀取分支或額外綁定搜尋版本快照，兩者的使用者可見差異不可當作純內部實作默選。
 
 ## 6. 排程、記憶體與取消
 
@@ -199,7 +201,7 @@ stateDiagram-v2
 - **Failed/Cancelled**：保留可診斷錯誤與必要pending資料，按policy回收；不得刪使用者source。restart能識別並清理殘留工作。
 - **重複請求**：request/job identity避免網路重試重開互相競爭的writer；是否合併重複full/incremental jobs由queue契約明確定義。
 
-這個狀態機是工程提案，不代替D12對服務可用性與資料新鮮度的選擇。
+D12 已確認上述維持搜尋及整批發布政策；這個狀態機仍是工程提案，新鮮度／磁碟／RTO/RPO數值與各reader／source策略須另驗證。
 
 ### 12.4 服務邊界與控制面
 

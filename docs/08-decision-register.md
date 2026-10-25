@@ -16,6 +16,7 @@
 | D08 | USER_CONFIRMED | source 由外部工具更新；產品支援手動及排程索引 | Q4；watch 未指定，排程頻率、dirty source 與一致性細節仍待定；不由產品自動 pull/reset 或修改 source |
 | D10 | USER_CONFIRMED | 目前沒有必須沿用的既有 XML 設定、客製 JAR plugins、API scripts 或舊書籤 | 2026-10-26 Q6 回覆「沒有」；Q2 index/cache 可從 source 重建並保留原資料。這是目前遷移輸入的盤點結果，原版內建設定、API、插件功能與 URL 的相容目標仍依 D04／D20 保留 |
 | D11 | USER_CONFIRMED | 建立public新repo swchen44/rustgrok，release packages放GitHub Releases | repo已建立，creation_status為created；首次規劃已提交main並核對，產品Release／artifact未建立，分階段以metadata與hash驗證 |
+| D12 | USER_CONFIRMED | 索引更新期間維持上一個成功版本的搜尋；新索引與相關資料完整就緒後整批切換 | 2026-10-26 Q8 回覆「Q8 Yes」；接受更新期間搜尋上一版及保留新舊資料的磁碟成本。新鮮度／磁碟門檻、來源變動處理、raw／閱讀版本、故障回復與publish scope的具體契約仍待驗證；不凍結某種引擎或snapshot實作 |
 | D15 | USER_CONFIRMED | 首版提供 CLI 前景與背景執行 | Q5；系統服務／登入自啟留待後續決定；不由此推定 root、systemd、launchd 或 Windows Service 必要 |
 | D16 | USER_CONFIRMED | 管理網頁只限主機本機瀏覽器；保留主機 CLI／本機控制面管理，LAN 維持搜尋／瀏覽 | 2026-10-26 已確認網頁範圍；具體頁面操作、REST／automation 相容與控制細節仍須設計及盤點；頁面和有副作用 API 均須符合本機限定邊界 |
 | D19 | USER_CONFIRMED | Rust核心可隨包附必要Ctags、Git及其他SCM工具；主要產品profile採bundled helpers | 工具清單、固定版本、各OS／CPU payload、能力、授權與所需SCM仍依inventory驗證；不把外裝或禁止helpers列為必交profile，不授權自動下載或git pull |
@@ -42,6 +43,8 @@ v0.6使用者回覆「1. public 2. M1」：D11的public已USER_CONFIRMED；D03�
 後續 grill-with-docs 訪談於 2026-10-25 提問：「是否採用目前研究鎖定的 OpenGrok 1.14.20，作為功能、style 與排序的正式驗收基準？」使用者回覆原文：「OK」。D04 因此由 OPEN 轉為 USER_CONFIRMED，沿用既有固定 commit；先前僅作研究基線的歷史保留於本段。此答覆沒有批准命中／排序差異、score 容差、舊格式相容方式或 Java plugin bridge。受影響需求為 FR-001–FR-012、FR-020、FR-022、NFR-005、NFR-010、NFR-016；工作包與測試 IDs 依 docs/11-traceability.md、tests/traceability.json 追溯。更新 README、SRS、ADR-0002、交接與研究 lock／測試基線 metadata；所有產品測試仍 planned／not_run。
 
 ## 2. 接下來優先釐清的事項
+
+2026-10-26 Q8 使用者原文：「Q8 Yes」，接受「更新時持續提供上一個成功版本搜尋，新索引與相關資料完整就緒後整批切換」，以及已說明的更新期間上一版內容與新舊資料磁碟成本。D12 因此由 OPEN 轉為 USER_CONFIRMED。這決定搜尋可用性與發布政策；並未選定來源snapshot／copy方式、raw/download內容版本、跨project發布範圍、RTO/RPO、最大新鮮度延遲或磁碟上限。對應 FR-009、NFR-005、NFR-007、NFR-012、NFR-016 及既有 SRC-002、PRJ-002、REC-001、REC-002、RST-009；其餘 WP／test IDs 依追溯表。記錄於 ADR-0003，產品測項仍 planned／not_run。
 
 2026-10-26 Q6 使用者回覆「沒有」，確認沒有需搬移的既有 XML 設定、客製 JAR、API scripts 或舊書籤。Q7 使用者提供摘要：10 個專案，每個專案 source 約 50 MB，各專案可含多個 Git repo，也可能 git-in-git；Git 查詢及 blame 等行為依 OpenGrok。總 source 約 500 MB 是 10×50 MB 的推算值；MB 的十進位／二進位定義、`.git`／history 體積、files／LOC、每專案 repo 數及硬體仍未提供，不換算成精確 bytes 或資源上限。D05／D09 部分資料因此已決，不再重問專案數或 source 規模。Project 與 repository 分開建模；巢狀 repo 的發現、歸屬與 history／annotate／diff 依固定 OpenGrok 1.14.20 的原始行為及相同配置查證，不自行選一個 project 等於一個 repo、最近 root 等政策。Git 是已知使用情境，不縮減其餘原版 SCM／語言範圍。對應 FR-006、FR-007、FR-009、FR-020、NFR-005、NFR-006、NFR-016；WP 與 test IDs 依追溯表，產品驗證仍 planned／not_run。
 
@@ -123,7 +126,6 @@ Rust採用本身不是效能驗收。G1先在功能等價的slice量測並標示
 
 | ID | 狀態 | 問題 | 選項／決策要點與影響 |
 |---|---|---|---|
-| D12 | OPEN | 索引更新／升級能否中斷？需要何種一致性與回復？ | eventual／停機／shadow generation／source snapshot；RTO/RPO與磁碟預算。Rust index commit不等於index/xref/history/config全體原子提交 |
 | D13 | OPEN | 原生離線ZIP的精確內容、啟動與發行方式？ | 原生binary、依D19隨包策略完成inventory的helpers／共享庫／資產、CLI或雙擊入口、mac簽章/notarization及企業驗證要求。ZIP可直接跑Rust，不預設需要打包Node |
 | D14 | OPEN | npm包型、名稱與發布體驗？ | 通用薄JSlauncher＋平台包／各平台native-bin package／offline TGZ；scope/name、registry限制、精確支援npm版本。發布仍由使用者自己執行 |
 | D17 | OPEN | 產品名稱、新程式碼授權與來源交付方式？ | 名稱不冒充官方；新Rust／JS內容、移植檔及原資產逐件處理；repo/source archives政策。改寫Rust不自動將衍生內容變成MIT |

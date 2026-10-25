@@ -81,6 +81,7 @@ D21已選搜尋速度第一優先。依[14搜尋效能設計](14-search-performa
 | D19剩餘細節 | A已確認；固定必要工具清單、build／能力、各平台與授權 | bundled adapter與依賴閉包實驗 |
 | D20／D10 | Q6 已確認無既有 XML／客製JAR／API scripts／舊書籤需搬移；不重問客製清單 | Q2 可從 source 重建 index/cache 並保留原資料；繼續原版內建能力與 observable inventory |
 | D21／D09 | 已知約5人、10個project、每project source約50 MB；query mix／到達率、硬體與SLO仍OPEN | 每project可多repo／巢狀Git；benchmark實測bytes／history／repo數另記，不以project代repo |
+| D12 | 更新期間維持搜尋及整批發布已確認；剩餘source／raw閱讀策略、新鮮度／磁碟／RTO/RPO門檻與跨project publish scope | 依ADR-0003驗generation完整性、publish與故障回復；不把engine局部commit當全體原子發布，也不自行承諾程式升級零停機 |
 | D16 | 管理網頁操作集合、具體控制及既有 automation | 管理網頁只限主機本機瀏覽器，保留主機 CLI／本機控制面，LAN 搜尋／瀏覽；不新增角色系統 |
 | D03／D07 | Ubuntu24.04 amd64與首輪M1／arm64已定；macOS版本、browser／registry與安裝權限 | 準備Mac原生arm64、Linux完整重驗與Windows契約 |
 | D11 | Public swchen44/rustgrok及GitHub Releases已確認，repo已建立 | 用Git history核實本規劃提交；後續實作按相同repo保存，不再重問D11 |
