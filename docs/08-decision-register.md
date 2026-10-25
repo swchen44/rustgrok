@@ -16,11 +16,11 @@
 | D08 | USER_CONFIRMED | source 由外部工具更新；產品支援手動及排程索引 | Q4；watch 未指定，排程頻率、dirty source 與一致性細節仍待定；不由產品自動 pull/reset 或修改 source |
 | D11 | USER_CONFIRMED | 建立public新repo swchen44/rustgrok，release packages放GitHub Releases | repo已建立，creation_status為created；首次規劃已提交main並核對，產品Release／artifact未建立，分階段以metadata與hash驗證 |
 | D15 | USER_CONFIRMED | 首版提供 CLI 前景與背景執行 | Q5；系統服務／登入自啟留待後續決定；不由此推定 root、systemd、launchd 或 Windows Service 必要 |
-| D16 | USER_CONFIRMED | LAN 提供搜尋／瀏覽；新增專案、重建、設定及停機由主機 CLI／本機控制面處理 | Q3 基本管理邊界已接受；使用者另問網頁設定，管理網頁的本機／LAN可達範圍待確認；既有 REST／automation 與具體控制仍須盤點 |
+| D16 | USER_CONFIRMED | 管理網頁只限主機本機瀏覽器；保留主機 CLI／本機控制面管理，LAN 維持搜尋／瀏覽 | 2026-10-26 已確認網頁範圍；具體頁面操作、REST／automation 相容與控制細節仍須設計及盤點；頁面和有副作用 API 均須符合本機限定邊界 |
 | D19 | USER_CONFIRMED | Rust核心可隨包附必要Ctags、Git及其他SCM工具；主要產品profile採bundled helpers | 工具清單、固定版本、各OS／CPU payload、能力、授權與所需SCM仍依inventory驗證；不把外裝或禁止helpers列為必交profile，不授權自動下載或git pull |
 | D21 | USER_CONFIRMED | 效能優先方向為搜尋速度 | 約5人情境已知；數值SLO、資料規模／硬體／request負載、CPU／RAM／磁碟預算與取捨仍OPEN，不代表接受排序／功能差異或無限資源 |
 
-確認來源為本次對話，日期2026-10-25；上表是決定摘要。v0.1以「能否隨npm附JVM」為核心的選型問題已 **SUPERSEDED**。原先混在該問題中的Ctags／Git等工具政策移至D19，Node/npm環境限制仍由D07管理。
+確認來源為本次對話，初始日期2026-10-25；D16 網頁範圍於2026-10-26補齊，上表是決定摘要。v0.1以「能否隨npm附JVM」為核心的選型問題已 **SUPERSEDED**。原先混在該問題中的Ctags／Git等工具政策移至D19，Node/npm環境限制仍由D07管理。
 
 v0.2時D19工具政策與D21效能優先順序均為OPEN。使用者回覆「A+搜尋速度」，A對應Rust核心隨包附必要工具，因此兩項策略於v0.3轉為USER_CONFIRMED。精確工具產物與數值效能契約並未隨此回覆自動確定；不再重問是否選A／B／C或搜尋速度是否優先。
 
@@ -54,7 +54,7 @@ D02、D04、D11、D19與D21已確認；D03／D09已有Mac M1／arm64、Ubuntu24.
 
 D02排除的是使用者角色／RBAC／專案ACL管理，不把這項選擇自動擴成帳號、SSO或登入系統需求。免登入讀者入口為PROPOSED方案，不另設必答的登入確認關卡。
 
-D16 的基本方案已由 Q3 確認：「主機 CLI 或本機控制介面管理，LAN 只提供搜尋／瀏覽等讀取操作」。使用者追加詢問網頁設定，網頁從本機或 LAN 可達尚待確認；不能把網頁介面直接當作已批准 LAN 管理。既有 REST 管理相容仍依 D16／D20 盤點端點與 automation，不默刪原功能。
+D16 的基本方案已由 Q3 確認：「主機 CLI 或本機控制介面管理，LAN 只提供搜尋／瀏覽等讀取操作」。2026-10-26 使用者回覆原文：「1. 只限主機本機瀏覽器，LAN 維持搜尋／瀏覽」，確認新增管理網頁的可達範圍；原先網頁範圍 OPEN 的歷史已由此答覆補齊。具體頁面操作、控制措施與既有 REST／automation 相容另設計及盤點。影響 FR-011、FR-015、FR-017、NFR-008，對應工作包及測試 IDs 依 tests/traceability.json；本輪直接更新 API-002／SEC-005，不新增測項數。管理頁面與有副作用的 API 均須符合本機限定，LAN 實際不可達需原生測試取得證據；目前產品測試仍 planned。
 
 ## 3. D19：隨包策略已確認，具體工具仍須驗證
 

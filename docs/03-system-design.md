@@ -125,7 +125,7 @@ start檢查platform/config/依賴/lock/port，再初始化storage/reader/worker/
 
 D02已確認local＋LAN兩種模式、約5人共用、不做使用者／角色／project ACL管理。同一Rust binary用配置選擇loopback或明確LAN介面；read routes共同存取服務內已註冊projects。免新增登入頁／帳號為工程提案，不列必需SSO或auth插件。資料根目錄、URL、檔案與process邊界仍是程式契約。
 
-D16 已確認主機 CLI／本機控制面處理 project/index/config/stop，LAN 提供搜尋／瀏覽讀者路由；使用者另問網頁設定，管理網頁可達範圍仍待確認。需要既有REST管理相容時另盤點D16/D20，相關token/Origin等依實際控制面決策。企業source/index/secrets不進GitHub/npm，runtime不自動CDN/telemetry/download。
+D16 已確認主機 CLI／本機控制面處理 project/index/config/stop，LAN 提供搜尋／瀏覽讀者路由；管理網頁已確認只限主機本機瀏覽器；LAN 維持搜尋／瀏覽。管理頁面及有副作用的 API 都須遵守此邊界，不能只隱藏網頁入口。需要既有REST管理相容時另盤點D16/D20，相關token/Origin等依實際控制面決策。企業source/index/secrets不進GitHub/npm，runtime不自動CDN/telemetry/download。
 
 ## 11. 效能契約
 

@@ -7,7 +7,7 @@
 - 正式部署優先：Ubuntu 24.04 amd64 已確認；Rust 架構命名對應 x86_64。實際 24.04.x point release 隨測試環境記錄，不作本輪需求確認阻擋。
 - 開發／完整驗證順序：使用者已確認首輪開發機為 Apple M1／arm64，Rust target mapping 為 aarch64-apple-darwin；先 macOS 完整驗證，再做 Ubuntu 24.04 amd64 平台適配及完整 native 重驗。Mac PASS 不能當作 Linux PASS。macOS 實際／最低版本及 Windows 詳細平台仍依 D03 待定，Windows 支援保留。
 - GitHub：使用者已確認 public；公開 repo [swchen44/rustgrok](https://github.com/swchen44/rustgrok) 已建立並經 API 核實，預設分支 main。初始規劃已提交 main，並讀回逐一核對 46 檔 Git blob SHA 一致；GitHub Release 尚未建立，規劃內容核實不代表已有產品或測試結果。
-- 仍待細化：helper 精確版本／build／各 SCM 能力依 G1 與原 inventory 核對；搜尋數值 SLO、代表工作量／環境及資源取捨仍 OPEN。D16 新增管理網頁可達範圍及 D20 其餘相容邊界待決；D04 已確認 OpenGrok 1.14.20 為功能、style 與排序的正式驗收基線。除 D02 明確排除的權限管理範圍，沒有批准其他功能／style 差異或 Java bridge。
+- 仍待細化：helper 精確版本／build／各 SCM 能力依 G1 與原 inventory 核對；搜尋數值 SLO、代表工作量／環境及資源取捨仍 OPEN。D16 已定本機管理網頁與 LAN 讀者面，具體控制及 D20 其餘相容邊界待決；D04 已確認 OpenGrok 1.14.20 為功能、style 與排序的正式驗收基線。除 D02 明確排除的權限管理範圍，沒有批准其他功能／style 差異或 Java bridge。
 - 候選：Tantivy、Tree-sitter 與其他 Rust 函式庫均未被選為最終依賴。
 - 驗證狀態：僅官方文件與固定版本 source review；**未編譯 Rust 原型、未執行原版／Rust differential、未實測效能。**
 - 決策原則：D02 明確不要求的角色／ACL 與 authorization／RBAC plugin parity 從 mandatory 範圍移除；其餘功能與 style 要求保持。改用 Rust 不自動批准差異，非授權範圍的差異仍列為未達標或待釐清。
@@ -233,7 +233,7 @@ Tantivy 使用MIT，但它的授權不能覆蓋被移植的OpenGrok內容。Ctag
 
 使用者原文「3, 約5人， 不用權限管理」確認本機與 LAN 都要支援，約 5 位同時使用者，不做使用者角色或 project ACL 管理，不強迫新增帳號、SSO 或登入。authorization／RBAC plugins 的完整相容不再是產品 mandatory 功能或全 parity 阻擋；非 auth plugins 保留 D20 盤點。
 
-約 5 人是使用規模估計，不是 5 QPS、固定同時查詢數或產品硬上限。Q3 已確認 LAN 共用搜尋／瀏覽讀者路徑、主機 CLI／本機 control 處理管理；使用者追加網頁設定，管理網頁可達範圍依 D16 待確認，未因此批准 LAN 管理寫入。
+約 5 人是使用規模估計，不是 5 QPS、固定同時查詢數或產品硬上限。Q3 已確認 LAN 共用搜尋／瀏覽讀者路徑、主機 CLI／本機 control 處理管理；2026-10-26 已確認管理網頁只限主機本機瀏覽器，LAN 維持搜尋／瀏覽；具體控制與 runtime 證據仍待完成。
 
 ### D03：Ubuntu 24.04 amd64 正式部署優先；Apple M1 macOS 先開發與完整驗證
 

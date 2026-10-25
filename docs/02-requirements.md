@@ -56,7 +56,7 @@ D04 後續已由使用者回覆「OK」確認：以 OpenGrok 1.14.20／commit 3c
 
 ### UC04 內網共用
 
-D02已確認本機與LAN共用，約5人同時使用，不做使用者／角色／project ACL管理。讀者共同存取服務內已註冊專案，保留原版搜尋與閱讀介面。免登入閱讀為工程提案，不新增必需帳號／SSO。D16 已確認專案、索引、設定及 stop 等管理操作由主機 CLI／本機控制面處理，LAN 提供搜尋／瀏覽；使用者另問網頁設定，管理網頁本機／LAN可達範圍待確認。
+D02已確認本機與LAN共用，約5人同時使用，不做使用者／角色／project ACL管理。讀者共同存取服務內已註冊專案，保留原版搜尋與閱讀介面。免登入閱讀為工程提案，不新增必需帳號／SSO。D16 已確認專案、索引、設定及 stop 等管理操作由主機 CLI／本機控制面處理，LAN 提供搜尋／瀏覽；2026-10-26 已確認管理網頁只限主機本機瀏覽器，LAN 維持搜尋／瀏覽。
 
 ### UC05 更新、移機與復原
 
@@ -82,7 +82,7 @@ D02已確認本機與LAN共用，約5人同時使用，不做使用者／角色�
 | FR-014 | 提供啟動、停止、狀態、診斷等 host lifecycle 入口 | PROPOSED | 可重複 start/stop、不殺錯 process、不遺留孩子程序；命令名待 CLI 設計凍結 |
 | FR-015 | 專案加入、列出、移除、索引操作 | DERIVED/PROPOSED；D05 | 設定與 runtime 同步；移除產品註冊與刪除使用者 source 是不同動作；不默默刪 source |
 | FR-016 | 設定、索引、cache/log 與 npm 安裝目錄分離並持久保存 | PROPOSED | npm upgrade/uninstall 不刪 workspace；原始碼路徑與索引可清楚識別 |
-| FR-017 | 同一產品支援本機與LAN共用，無使用者／角色／project ACL管理 | CONFIRMED；D02／D16基本邊界已決，管理網頁範圍OPEN | loopback與明確LAN listen都驗；共同讀取已註冊projects的search/raw/xref/history/suggester/read APIs；不把不用權限管理解讀成任意管理操作皆對LAN開放 |
+| FR-017 | 同一產品支援本機與LAN共用，無使用者／角色／project ACL管理 | CONFIRMED；D02／D16已定本機管理網頁與LAN讀者面 | loopback與明確LAN listen都驗；共同讀取已註冊projects的search/raw/xref/history/suggester/read APIs；不把不用權限管理解讀成任意管理操作皆對LAN開放 |
 | FR-018 | 內網執行時不需要外網服務 | CONFIRMED/DERIVED；D07 | 阻斷外網後完整指定流程；不自動下載CDN、fonts、native binary、ctags或送telemetry |
 | FR-019 | 外部 source 更新、產品手動及 scheduled indexing；watch另定 | CONFIRMED手動／排程；D08，watch未指定 | 驗手動及排程索引；產品不自動 pull/reset 或改寫 source；watch 不由此代決 |
 | FR-020 | 既有 OpenGrok 設定／索引／書籤的相容或遷移 | index/cache重建已確認；D10／D20其餘OPEN | 從 source 重建 index/cache 並保留原資料供回復；XML、JAR、舊URL及其餘匯入逐項確認，不宣稱直接讀Lucene |
@@ -100,7 +100,7 @@ D02已確認本機與LAN共用，約5人同時使用，不做使用者／角色�
 | NFR-005 | 搜尋速度第一優先；首頁、xref與索引性能同時記錄 | CONFIRMED優先；數值OPEN，D09/D21 | 1人參照＋約5人互動負載；按query/project測server／browser latency、cold/warm、p50/p95/p99、queue、timeouts與並行索引；人數非QPS／請求硬上限，門檻待批 |
 | NFR-006 | 記憶體、磁碟、CPU、套件大小限制 | OPEN；D09 | 分別記Rust server/index workers、npm launcher（如常駐）、ctags/SCM、總RSS及index/temp/backup peak bytes；原版Java成本獨立記錄；不可虛構上限 |
 | NFR-007 | 崩潰、取消與重啟可診斷可復原 | PROPOSED | ctags hang、Rust程序panic/abort/OOM、disk full、kill/reboot、殘留 PID／lock、最後成功索引狀態 |
-| NFR-008 | 本機／LAN資料根目錄、程序與管理邊界 | DERIVED；D02／D16基本邊界已定，管理網頁範圍與控制細節待決 | 路徑traversal/symlink、source escaping、process identity及低權限仍驗；不要求RBAC/專案ACL。控制面token／Origin等僅依D16實際介面決策驗證 |
+| NFR-008 | 本機／LAN資料根目錄、程序與管理邊界 | DERIVED；D02／D16已定可達範圍，控制細節待設計 | 路徑traversal/symlink、source escaping、process identity及低權限仍驗；不要求RBAC/專案ACL。控制面token／Origin等僅依D16實際介面決策驗證 |
 | NFR-009 | 可追溯、固定版本、完整依賴的供應鏈 | PROPOSED | hashes、SBOM、build來源與編譯參數；不得用 latest 或未核實下載器發佈 |
 | NFR-010 | 遵守原版與各 runtime 的再散布授權 | 必要工程／發佈條件 | notices、CDDL modifications、必要 source/build instructions、Rust crates、來源移植、ctags/Git與native libraries各自條件 |
 | NFR-011 | 可定位故障的 log 與診斷，避免暴露 source/secrets | PROPOSED | job id、階段、exit、原生binary與工具版本、明確支援包；token 與企業程式碼不入一般 log |

@@ -1,5 +1,6 @@
 from pathlib import Path
 import json, re, hashlib, zipfile, unicodedata
+from datetime import datetime, timedelta, timezone
 
 import argparse
 
@@ -7,6 +8,7 @@ parser = argparse.ArgumentParser(description="Validate and build the v0.6 rustgr
 parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
 parser.add_argument("--output-dir", type=Path)
 args = parser.parse_args()
+run_date = datetime.now(timezone(timedelta(hours=8))).date().isoformat()
 root = args.root.resolve()
 base = args.output_dir.resolve() if args.output_dir else root / "dist"
 if base == root or (root in base.parents and base != root / "dist"):
@@ -91,7 +93,7 @@ for path in files:
 
 assert not errors, errors
 report = {
-    "checked_at": "2026-10-25", "scope": "planning artifact structure only; not a product test run",
+    "checked_at": run_date, "scope": "planning artifact structure only; not a product test run",
     "files_checked": len(files), "requirements_with_test_specs": 38, "planned_test_specs": 80,
     "work_packages": 44, "product_tests_executed": False, "errors": [],
     "checks": ["UTF-8 and no invisible formatting controls", "JSON parses", "Markdown local links resolve",
@@ -166,7 +168,7 @@ for p in package_files():
     if p.is_file() and p.name != "planning-manifest.json":
         manifest.append({"path": p.relative_to(root).as_posix(), "bytes": p.stat().st_size, "sha256": hashlib.sha256(p.read_bytes()).hexdigest()})
 (root / "planning-manifest.json").write_text(json.dumps({
-    "version": "0.6", "kind": "planning_package_not_runtime_distribution", "generated_date": "2026-10-25",
+    "version": "0.6", "kind": "planning_package_not_runtime_distribution", "generated_date": run_date,
     "files": manifest, "manifest_excludes_itself": True}, ensure_ascii=False, indent=2) + "\n")
 archive = base / "OpenGrok-Rust-Host-Monorepo-Plan-v0.6.zip"
 with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as z:

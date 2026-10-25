@@ -6,7 +6,7 @@
 
 本版所有產品測項適用於**標準Rust profile**：不包含或依賴JVM/Tomcat，不執行WAR/JSP，也不呼叫Java完成未移植功能。原版OpenGrok/JVM/Tomcat只在**獨立測試參照環境**執行。使用者已確認 **D19：A，隨包附帶必要helpers**，以及 **D21：搜尋速度優先**。排序、舊index/config與JAR plugins等相容邊界仍為D20 OPEN；搜尋SLO數值、corpus、hardware、request率、think-time、每人請求並行與負載分布仍待確認。未決前不放寬完整同等要求。
 
-使用者選擇**本機local與LAN都支援、約5人同時使用、不用權限管理**。因此帳號、角色、RBAC及project ACL不列為mandatory需求，已登記專案採共同可讀正向驗證。約5人是代表互動負載，不是5 QPS、5個in-flight requests或硬性人數上限。免登入讀者入口只是工程建議，不能寫成使用者已批准，也不新增強制登入／SSO要求。管理操作開放何處、token／CSRF／本機控制面仍依D16／D20確認。
+使用者選擇**本機local與LAN都支援、約5人同時使用、不用權限管理**。因此帳號、角色、RBAC及project ACL不列為mandatory需求，已登記專案採共同可讀正向驗證。約5人是代表互動負載，不是5 QPS、5個in-flight requests或硬性人數上限。免登入讀者入口只是工程建議，不能寫成使用者已批准，也不新增強制登入／SSO要求。D16 已確認本機管理網頁／主機 CLI／本機控制面、LAN 搜尋／瀏覽；token／CSRF 等具體控制與既有介面相容另依 D16／D20 設計及盤點。
 
 所有主要runtime驗收均使用bundled產物，必要ctags／SCM helpers的精確清單、版本、native依賴及授權由功能inventory鎖定。B「要求使用者外裝工具」與C「不使用helpers」不是本版mandatory交付profile。缺helper、錯版本、損壞或不相容binary仍須故障注入驗證；這些負測不代表正常交付可缺件，也不允許從系統PATH或外網偷偷補件。
 
@@ -78,7 +78,7 @@ Rust parser/analyzer的內部結構可以不同，但必須先對齊語意。當
 
 SRV-001、SEC-002驗證兩種運作模式及共同讀取：local模式核對本機listener邊界；LAN模式由多個獨立client讀取同一批已登記projects，涵蓋search、suggest、xref、raw、history、diff、download、直接URL與read API。不建立允許／禁止專案的角色帳戶，不因取消RBAC而把測項skip算passed。不同client的project選取、query與cache結果仍需正確，不可互相污染；來源root外的檔案與管理狀態不因共同可讀而自動開放。
 
-管理面與讀者面分開盤點。Q3 已確認**主機CLI／本機控制面管理、LAN搜尋／瀏覽讀者面只讀**；使用者追加的管理網頁可達範圍仍待確認。API-001/002/004與SEC-005依D16／D20列出原REST管理端點、verbs、狀態改變及所需控制；token、Host/Origin、CSRF、transport等只在選定政策下驗證。不把「不用權限管理」解讀為已允許所有LAN讀者改配置、reindex或停止服務，也不把管理面待決重新變成登入／RBAC需求。
+管理面與讀者面分開盤點。Q3 已確認**主機CLI／本機控制面管理、LAN搜尋／瀏覽讀者面只讀**；2026-10-26 已確認管理網頁只限主機本機瀏覽器，LAN 維持搜尋／瀏覽；驗頁面及有副作用的管理 API 均不對 LAN 開放。API-001/002/004與SEC-005依D16／D20列出原REST管理端點、verbs、狀態改變及所需控制；token、Host/Origin、CSRF、transport等只在選定政策下驗證。不把「不用權限管理」解讀為已允許所有LAN讀者改配置、reindex或停止服務，也不把管理面待決重新變成登入／RBAC需求。
 
 ## 4. Golden corpus與property測試
 
@@ -217,7 +217,7 @@ ID保持穩定，原有需求不因換語言被刪除。下列為內容更新的
 | SCM-002 | FR-006, FR-011, FR-021 | 每個已批准 SCM adapter/client | G3 |
 | SCM-003 | FR-006, NFR-011 | 無 repo、SCM command missing／timeout／nonzero | G3 |
 | API-001 | FR-011, FR-021, FR-022 | 盤點全部上游 API 的 request/response/status | G3 |
-| API-002 | FR-011, FR-017, NFR-008 | 讀者API共同可讀與管理端點邊界（D16待決） | G3 |
+| API-002 | FR-011, FR-017, NFR-008 | 讀者API共同可讀與本機管理網頁／API邊界 | G3 |
 | API-003 | FR-011, FR-003, NFR-008, FR-022 | query pagination integer overflow/negative/out-of-range | G3 |
 | PKG-001 | FR-013, NFR-001, NFR-002, FR-021 | clean supported OS；從 packed tgz 安裝並啟動 | G1／G4 |
 | PKG-002 | FR-018, NFR-002, NFR-015, FR-021 | npm install scripts 禁用；外網出口阻斷、只開內網 registry | G1／G4 |
@@ -238,7 +238,7 @@ ID保持穩定，原有需求不因換語言被刪除。下列為內容更新的
 | SEC-002 | FR-017, NFR-008 | local／LAN共同可讀，無角色與project ACL | G3／G4 |
 | SEC-003 | FR-005, FR-009, NFR-008 | traversal/double decoding/symlink escapes／HTML/shell payload | G3／G4 |
 | SEC-004 | FR-018, NFR-008 | runtime outbound monitoring、proxy env、telemetry | G3／G4 |
-| SEC-005 | FR-017, NFR-008 | local／LAN讀者與管理控制面邊界（D16待決） | G3／G4 |
+| SEC-005 | FR-017, NFR-008 | 本機管理網頁／控制面與LAN讀者面邊界 | G3／G4 |
 | PERF-001 | NFR-005, NFR-006, FR-021, NFR-016 | 搜尋優先：同硬體原OpenGrok與Rust公平分組量測 | G1／G5 |
 | PERF-002 | FR-007, FR-009, NFR-005, NFR-006, FR-021, NFR-016 | 使用者內網pilot：各類查詢／並行reindex與批准搜尋SLO | G5 |
 | REL-001 | NFR-002, NFR-003, NFR-009, NFR-010 | 發行候選TGZ／ZIP、metadata／checksum與原生安裝 | G4 |
@@ -271,7 +271,7 @@ ID保持穩定，原有需求不因換語言被刪除。下列為內容更新的
 
 | Gate | 與舊封裝方案的差異 | 必要證據 |
 |---|---|---|
-| G0 需求 | Rust、bundled helpers、搜尋優先、local＋LAN、約5人與無權限管理已確認；Mac先開發驗證，Ubuntu24.04 amd64部署優先；repo名rustgrok | D03 macOS實際／最低版本、Windows與剩餘環境；已建公開repo的內容提交／回讀證據、D16管理、D20相容及具體SLO待決 |
+| G0 需求 | Rust、bundled helpers、搜尋優先、local＋LAN、約5人與無權限管理已確認；Mac先開發驗證，Ubuntu24.04 amd64部署優先；repo名rustgrok | D03 macOS實際／最低版本、Windows與剩餘環境；已建公開repo的內容提交／回讀證據、D16具體控制、D20相容及具體SLO待決 |
 | G1 最難語意與效能可行性 | 不再以「WAR啟動成功」當核心可行；提前驗parser/analyzer/scorer/xref以及公平收益 | 獨立oracle、難query／sparse fields／跨project／Unicode片段、原生Rust slice、startup/index/query/RSS等基準與profile；沒有倍數承諾 |
 | G2 Rust垂直流程 | install→init/project→Rust index→RustHTTP→原UIsearch/xref/history→stop/restart | exact npm prototype、持久資料／writer控制、Rust核心執行證據；僅里程碑不是完整驗收 |
 | G3 全parity | 本版確認範圍內的語言/SCM/plugin/config/API與UI逐項移植／相容證據 | 原68及RST語意測項完整，含共同可讀正向契約；不把已取消mandatory的RBAC留作永遠阻擋；D16/D20差異結案 |
@@ -293,7 +293,7 @@ Diagnostics至少包含parser AST/plan、field tokens/positions/offset座標、i
 
 發行包指定放GitHub Releases，不能只留在有期限的CI artifacts。REL-001/002於G4驗發布候選的完整檔案與操作；REL-005於G6回讀rustgrok實際Release的tag／commit、asset名稱／ID／大小／類型、OS/arch、版本及checksum，下載後與候選bytes核對，必要時重跑PKG-001/003的同一離線安裝流程。每個npm TGZ／portable ZIP都對應其native平台、helpers、SBOM／licenses與必要source；不能把GitHub自動source archive當可執行包。repo已確認public且建立完成；正式Release發布後驗公開下載，現在產品未實作，不能宣稱binary已發布。
 
-Release-ready需mandatory測項有對應實測結果，不能有未說明planned/blocked/failed/skipped；依已確認local＋LAN／共同可讀、D19 bundled及D21搜尋優先驗收。macOS實際／最低版本、Windows／硬體等剩餘環境、D16管理邊界、D20及具體SLO／負載等必要決策先確認；已建公開repo另補齊內容提交與正式Release回讀證據，不重問owner或visibility。移除mandatory RBAC後以共同可讀測試取得證據，不用skip算passed。80項規格有追蹤不等於80項已通過。本版只檢查文件結構，沒有執行Rust產品或性能驗收。
+Release-ready需mandatory測項有對應實測結果，不能有未說明planned/blocked/failed/skipped；依已確認local＋LAN／共同可讀、D19 bundled及D21搜尋優先驗收。macOS實際／最低版本、Windows／硬體等剩餘環境、D16管理邊界已確認；具體控制、D20及SLO／負載等剩餘必要契約先完成；已建公開repo另補齊內容提交與正式Release回讀證據，不重問owner或visibility。移除mandatory RBAC後以共同可讀測試取得證據，不用skip算passed。80項規格有追蹤不等於80項已通過。本版只檢查文件結構，沒有執行Rust產品或性能驗收。
 
 ## 10. 官方來源與已讀原始碼
 

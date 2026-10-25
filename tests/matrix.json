@@ -40,7 +40,7 @@
     "B外裝工具與C無helpers不是本版mandatory profile；缺helper、錯版本、損毀或不相容binary仍以故障注入負測，不代表可交付缺件產品，亦不允許外網補件。",
     "D21已確認搜尋速度優先。依query類別、單／跨project、cold/warm/cache命中率及並行index分報server queue／處理與browser體驗；慢查詢、timeouts與未完成請求不可從平均或分位統計中隱去。",
     "D02已確認本機local與LAN都支援、約5位同時使用者、不用權限管理。既有SEC-002改驗共同可讀正向契約，取消帳號／角色／RBAC／project ACL作mandatory，不把這些項目保留為永久blocked或skip算passed。",
-    "免登入讀者入口只是工程建議，不是使用者已批准；不得新增強制登入／SSO要求。Q3 已確認主機CLI／本機控制面管理、LAN搜尋／瀏覽；新增管理網頁可達範圍及 token／CSRF 等細節仍依 D16/D20 確認。",
+    "免登入讀者入口只是工程建議，不是使用者已批准；不得新增強制登入／SSO要求。Q3 已確認主機CLI／本機控制面管理、LAN搜尋／瀏覽；2026-10-26 已確認管理網頁只限主機本機瀏覽器；token／CSRF 等具體控制及既有相容依 D16/D20 另設計。",
     "效能測試包含1-user參照與約5-user互動情境，client採不同project/query並共用server cache、加入背景index。約5人不是5 QPS、5個in-flight requests或hard cap；實際rate／think-time／並行另記，不自行填SLO。",
     "正式部署優先Ubuntu24.04 amd64；首輪開發平台已確認Apple M1／Apple Silicon arm64，先完成全部Mac移植、功能、介面與包裝，再於Ubuntu完整原生重驗。macOS實際／最低版本待確認，Windows承諾保留；不再詢問Intel或ARM。",
     "平台順序不變更既有Test IDs／gate映射。Mac平台完成不是全域跨平台gate通過；每個OS/CPU以獨立run、artifact hash及結果判定，Mac PASS不可轉成Linux PASS，跨編譯只產生artifact。",
@@ -985,17 +985,17 @@
         "FR-017",
         "NFR-008"
       ],
-      "title": "讀者API與已選管理邊界；管理網頁範圍待決",
+      "title": "本機管理網頁／API與LAN搜尋瀏覽邊界",
       "preconditions": [
-        "Q3 已確認 LAN 搜尋／瀏覽、主機 CLI／本機控制面管理；新增管理網頁的本機／LAN可達範圍與具體 token／CSRF／transport 契約仍待確認，不建立角色／project ACL 前置。"
+        "D16 已確認管理網頁只限主機本機瀏覽器，保留主機 CLI／本機控制面，LAN 維持搜尋／瀏覽；具體操作及 token／CSRF／transport 等控制另設計，不建立角色／project ACL 前置。"
       ],
       "steps": [
         "以獨立client對已登記projects執行read API，確認查詢內容與範圍共同可讀；不要求建立帳號、角色、ACL或SSO。",
         "列出 config/reindex/project/control 端點副作用，核對已選讀者／管理 listener 分界；網頁介面不自動代表可從 LAN 管理。",
-        "驗主機 CLI／本機控制面的管理操作及 LAN 管理隔離；新增管理網頁按後續批准的可達範圍驗收，未決部分單獨標示。",
+        "由主機本機瀏覽器驗管理網頁與其批准操作；由第二台 LAN client 直接請求管理頁面 URL 及有副作用的 API／HTTP methods，確認管理不可達而搜尋／瀏覽可用，不能只隱藏導覽入口。",
         "只有政策選定token時才測missing／wrong／correct及洩漏；未選token則驗批准的管理控制，不強迫增加token或登入。任何實際secret不得出現在argv/log/browser bundle。"
       ],
-      "expected": "LAN 讀者 API 共同可讀，主機 CLI／本機控制面管理與 LAN 管理隔離符合 Q3；管理網頁及具體控制依後續批准契約，不默開 LAN mutation，也不新增角色／project ACL。",
+      "expected": "主機本機瀏覽器可存取管理網頁並執行批准操作，LAN 只提供搜尋／瀏覽；管理頁面及有副作用 API 均符合本機限定邊界，控制按實際凍結契約驗收，不新增角色／project ACL。",
       "evidence": [
         "evidence/<release>/<run>/API-002/result.json",
         "evidence/<release>/<run>/API-002/attachments/"
@@ -1638,17 +1638,17 @@
         "FR-017",
         "NFR-008"
       ],
-      "title": "已選local／LAN管理邊界與待決管理網頁範圍",
+      "title": "本機管理網頁／控制面與LAN讀者面隔離",
       "preconditions": [
-        "Q3 已確認主機 CLI／本機控制面管理、LAN 搜尋／瀏覽；管理網頁可達範圍及 Host/Origin/CSRF/token／transport 細節仍待確認。"
+        "D16 已確認管理網頁只限主機本機瀏覽器，主機 CLI／本機控制面管理，LAN 維持搜尋／瀏覽；具體 Host/Origin/CSRF/token／transport 契約另設計。"
       ],
       "steps": [
         "建立read／mutation端點表，分別列local與LAN的listener、可達範圍與副作用；不把免登入讀者提案或no-AuthZ當成管理開放授權。",
-        "測已選主機 CLI／本機控制面操作、LAN 讀者共同讀取及 LAN 管理端點隔離；正式證據依已確認邊界保存，新增管理網頁的待決範圍分開標示。",
+        "由主機本機瀏覽器測管理頁與批准操作，並由獨立 LAN client 測頁面及管理 API 直接請求均受隔離；同時確認 LAN 搜尋／瀏覽可用，證據分開記錄。",
         "依選定控制面實際測Host/Origin、跨origin頁面、DNS rebinding、CSRF與client管理請求的相關情境；只有選用token／TLS等時測其明確契約，不虛構已批准配置。",
         "若政策未選某種控制，驗證批准的替代邊界及其證據；不新增帳號／角色／RBAC／project ACL前置，也不因在內網就默開有副作用端點。"
       ],
-      "expected": "已選 LAN 讀者與主機 CLI／本機控制面管理邊界可驗；新增管理網頁及其控制依後續批准範圍，不把尚未決定的擴充標為通過，不默開 LAN 管理。",
+      "expected": "本機管理網頁／主機控制面及 LAN 讀者面符合已確認邊界；頁面與有副作用 API 都限制管理可達範圍，具體控制按實際凍結契約驗證，不新增角色／project ACL。",
       "evidence": [
         "evidence/<release>/<run>/SEC-005/result.json",
         "evidence/<release>/<run>/SEC-005/attachments/"
@@ -2548,13 +2548,13 @@
     "D08": "外部工具更新source；產品手動＋排程索引，watch未指定。",
     "D10": "Q2 部分已決：index/cache從source重建，保留原資料供回復；XML/JAR/URL等仍OPEN。",
     "D15": "首版CLI前景＋背景；系統服務／登入自啟後續待決。",
-    "D16": "Q3 基本邊界：LAN搜尋／瀏覽，主機CLI／本機控制面管理；新增管理網頁可達範圍另問。"
+    "D16": "管理網頁只限主機本機瀏覽器，保留主機 CLI／本機控制面管理，LAN 維持搜尋／瀏覽；2026-10-26 使用者確認。"
   },
   "open_decisions": {
     "D20": "index/cache可從source重建且保留原資料已確認；排序精度、XML/JAR/URL及原REST管理automation等剩餘相容仍需盤點。",
     "D09": "約5人代表情境已知，不等於5 QPS、5requests或hard cap；具體搜尋SLO、corpus/hardware、query mix、request率／think-time／每人並行及其他成本門檻仍OPEN。",
     "D03": "M1／Apple Silicon arm64與Ubuntu24.04 amd64均已確認；macOS實際版本／最低支援版本、Windows版本／CPU、硬體資源等剩餘條件仍OPEN。不再詢問Mac Intel或ARM。",
-    "D16": "新增管理網頁的本機／LAN可達範圍及具體操作／控制；Q3基本邊界已確認，不新增強制登入／SSO／RBAC。"
+    "D16": "可達範圍已確認；剩餘管理頁面操作、具體控制及既有 REST／automation 相容另設計及盤點，不新增強制登入／SSO／RBAC。"
   },
   "platform_execution_policy": {
     "production_priority": {

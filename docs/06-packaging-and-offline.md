@@ -10,7 +10,7 @@
 
 產品的搜尋／索引核心與自帶 HTTP server 採 Rust。npm 負責提供可安裝的發行包；不將「npm 發行」解讀成搜尋或 server 業務仍由 Node 執行。D19 已確認可隨包附必要 Ctags、Git 及其他 SCM 工具，採 bundled helpers 為主要產品 profile；D21 已確認搜尋速度優先。原版 OpenGrok 的外觀、操作與功能要求繼續有效，D20 未批准放寬前不能縮減相容範圍。
 
-D02已確認同一產品支援local與LAN共用，約5人同時使用，不做使用者角色、RBAC或專案ACL管理。約5人是容量情境，不是5 QPS、5個同時HTTP requests或固定連線上限；資料量、硬體與數值SLO仍待D09／D21補齊。帳號、SSO與登入不列為必交需求；免登入讀者入口可作PROPOSED方案，管理操作暴露仍依D16另定。
+D02已確認同一產品支援local與LAN共用，約5人同時使用，不做使用者角色、RBAC或專案ACL管理。約5人是容量情境，不是5 QPS、5個同時HTTP requests或固定連線上限；資料量、硬體與數值SLO仍待D09／D21補齊。帳號、SSO與登入不列為必交需求；免登入讀者入口可作PROPOSED方案，D16 已確認主機 CLI／本機控制面與只限主機本機瀏覽器的管理網頁，LAN 維持搜尋／瀏覽。
 
 候選設計把 CLI 命令、設定、索引工作、HTTP server 與停止／恢復邏輯放進 Rust executable。通用 npm 入口可用很薄的 JavaScript launcher 選擇平台產物並轉交執行；portable ZIP 可直接執行同一版本的 Rust binary，無須 Node、JRE、Tomcat 或 Rust 編譯工具。仍需的作業系統 ABI、共享函式庫與 Ctags／SCM 工具必須另外盤點。
 
@@ -128,7 +128,7 @@ Tokio＋axum 是候選；axum 以 Tokio／Hyper 為基礎，能由程式建立 l
 
 D02已確認local與LAN兩種模式。是否需要TLS及憑證來源依部署條件確認；若採用，盤點TLS library、crypto backend、certificate／trust roots，不把外置reverse proxy變成使用者必裝條件。
 
-Q3 已確認主機 CLI 或本機控制介面處理重建、設定與停機，LAN 入口提供搜尋／瀏覽等讀取操作。使用者另問網頁設定，管理網頁可達範圍仍待確認；D16／D20須盤點既有REST管理及automation相容，不能默刪原介面。沒有權限管理不等於任何LAN讀者都能重建或停機，也不要求另建使用者角色系統。
+Q3 已確認主機 CLI 或本機控制介面處理重建、設定與停機，LAN 入口提供搜尋／瀏覽等讀取操作。管理網頁已確認只限主機本機瀏覽器，LAN 維持搜尋／瀏覽；D16／D20須盤點既有REST管理及automation相容，不能默刪原介面。沒有權限管理不等於任何LAN讀者都能重建或停機，也不要求另建使用者角色系統。
 
 ## 5. Rust 執行與平台風險
 

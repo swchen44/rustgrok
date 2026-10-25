@@ -156,18 +156,23 @@
     },
     "D16": {
       "status": "USER_CONFIRMED",
-      "value": "host_cli_or_local_control_management_lan_reader_routes",
+      "value": "host_cli_local_control_and_local_browser_web_management_lan_reader_routes",
       "decided_at": "2026-10-25",
       "user_statement": "Q2-Q5 照你的，about Q3 網頁是不是也能加設置?",
       "selected_design": {
-        "management": "host_cli_or_local_control",
-        "lan": "search_and_browse_reader_routes"
+        "management": "host_cli_local_control_and_local_browser_web",
+        "lan": "search_and_browse_reader_routes",
+        "web_management": "service_host_local_browser_only"
       },
       "web_management": {
-        "status": "OPEN",
-        "question": "User asked whether settings can also be provided on the web; local-only versus LAN reachability is not yet selected."
+        "status": "USER_CONFIRMED",
+        "reachability": "service_host_local_browser_only",
+        "lan_management_allowed": false,
+        "confirmed_at": "2026-10-26",
+        "user_statement": "1. 只限主機本機瀏覽器，LAN 維持搜尋／瀏覽",
+        "remaining_scope": "Concrete page operations, controls, existing API/automation compatibility and runtime verification remain to be completed."
       },
-      "scope_note": "Q3 base boundary accepted. Web management reachability and concrete controls remain open. No user-role/project ACL system or LAN management writes are implied."
+      "scope_note": "Q3 base boundary and local-browser-only management web are confirmed. LAN remains search/browse only. Pages and state-changing management APIs must enforce the boundary. Concrete controls remain to be designed; runtime tests remain NOT_RUN."
     },
     "D11": {
       "status": "CONFIRMED",
@@ -691,7 +696,7 @@
     "note": "Record reused, translated, modified and independently authored content per file. Language selection and a candidate crate's declared license do not establish the complete product's license."
   },
   "required_next_steps": [
-    "Use the D04-approved OpenGrok 1.14.20 baseline and confirm remaining D20 API/config/non-auth-plugin compatibility under D02's no-role/project-ACL scope. Apply local+LAN, about five concurrent users, bundled helpers and search-speed priority. Production deployment prioritizes Ubuntu 24.04 amd64; development and first complete validation start on confirmed Apple M1/arm64 macOS (aarch64-apple-darwin), followed by Ubuntu adaptation and complete native revalidation. Confirm actual/minimum macOS versions, Windows details, D16 web-management reachability and concrete controls and remaining source/SCM/distribution inputs. Record actual Ubuntu point release; numeric SLO, workload/hardware and tradeoffs remain open.",
+    "Use the D04-approved OpenGrok 1.14.20 baseline and confirm remaining D20 API/config/non-auth-plugin compatibility under D02's no-role/project-ACL scope. Apply local+LAN, about five concurrent users, bundled helpers and search-speed priority. Production deployment prioritizes Ubuntu 24.04 amd64; development and first complete validation start on confirmed Apple M1/arm64 macOS (aarch64-apple-darwin), followed by Ubuntu adaptation and complete native revalidation. Confirm actual/minimum macOS versions, Windows details, D16 concrete controls for confirmed local-browser-only web management and remaining source/SCM/distribution inputs. Record actual Ubuntu point release; numeric SLO, workload/hardware and tradeoffs remain open.",
     "Build and run a separate reference oracle with exact artifacts, hashes, configuration and corpus.",
     "Run parser/token/offset, search/scoring, xref/UI and SCM compatibility work first on Apple M1/arm64 macOS. After Ubuntu 24.04 amd64 adaptation, repeat complete native validation and retain separate evidence; Mac PASS cannot establish Linux PASS. Windows support and native validation remain required.",
     "Prioritize end-to-end full-text/path/defs/cross-project search measurements on equivalent functionality, hardware and corpus; report cold/warm/concurrent behavior plus indexing/resource tradeoffs before making performance claims.",

@@ -1,7 +1,7 @@
 {
   "version": "0.6",
   "kind": "planning_package_not_runtime_distribution",
-  "generated_date": "2026-10-25",
+  "generated_date": "2026-10-26",
   "files": [
     {
       "path": ".github/ISSUE_TEMPLATE/compatibility-bug.md",
@@ -30,18 +30,18 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 3925,
-      "sha256": "99e3004a85c0f4f16b052a0027bec98f06a880c1f33b260806a9abc9b3d30ba7"
+      "bytes": 4026,
+      "sha256": "ab52fcef45e8481fe9a0c888cd96c483ab29a8b9d45a11aa76be3143bb1007f6"
     },
     {
       "path": "GLOSSARY.md",
-      "bytes": 744,
-      "sha256": "0b3b5e4072cf407a59dbb41e536851beb586bd4411e943b7d82eec14e5b12d94"
+      "bytes": 934,
+      "sha256": "36d6768850f042de929bfe00ec79dc491afc1870367bb3f18627beb07ca165e8"
     },
     {
       "path": "README.md",
-      "bytes": 7486,
-      "sha256": "aaae3aac4a61acc70bd306aa225052455491754839d99c72f0cfbe90599bacbb"
+      "bytes": 7549,
+      "sha256": "c218a1bc732129265752026b4fb9515692b24f468191f094ff6c8eb35359ac50"
     },
     {
       "path": "assets/README.md",
@@ -70,13 +70,13 @@
     },
     {
       "path": "docs/02-requirements.md",
-      "bytes": 16537,
-      "sha256": "4964dc7e75f98e6266cae1e2d4b2b26ab21b8650b8266c96d1cc28fd76d1dc23"
+      "bytes": 16527,
+      "sha256": "df94aa6aa885115c3764c3c51791fbca4c74d723ba4545de4e497d909281b92e"
     },
     {
       "path": "docs/03-system-design.md",
-      "bytes": 22727,
-      "sha256": "67241fcebf3b8ac61525255ba36b45a35279e1ba92bc7b184c5abea3759cf4e7"
+      "bytes": 22826,
+      "sha256": "dfbbf2465b5fe53dfe682506abaf6e6c8b35c2f1ae6fe3903867b503746a1426"
     },
     {
       "path": "docs/04-implementation-plan.md",
@@ -85,13 +85,13 @@
     },
     {
       "path": "docs/05-verification-plan.md",
-      "bytes": 40250,
-      "sha256": "e7576c73fa6f4dd833b9a78583251d889ee7941a346da4b526254e5a1ae99409"
+      "bytes": 40456,
+      "sha256": "2d5522171a9528109a416ab6ef4d9107d4a5b6de4b44d3f411b29f7fb1d2ea26"
     },
     {
       "path": "docs/06-packaging-and-offline.md",
-      "bytes": 29617,
-      "sha256": "63720ad7d441cf23ee5c6483203165e0e0aeaf9e9bf8edebf1e27001dad11f7d"
+      "bytes": 29708,
+      "sha256": "1005208db6199e00abcc2406f731a77dd1c8a0f78f158b839ce20975239da5ce"
     },
     {
       "path": "docs/07-monorepo-and-github.md",
@@ -100,18 +100,18 @@
     },
     {
       "path": "docs/08-decision-register.md",
-      "bytes": 19239,
-      "sha256": "e8263833c05b1198d51dbc630686e3cd1f60dd417bf7dd06ff0e934c98c85bc1"
+      "bytes": 19666,
+      "sha256": "3a7315631734afa5da1d63bfb966432588fc0e24f5d70bbf20e4161251243195"
     },
     {
       "path": "docs/09-risk-register.md",
-      "bytes": 17836,
-      "sha256": "f388bf5256bd0389e0b345600d5b7ce31a846603e5d5a3b55fb82394a6a4e1f8"
+      "bytes": 17922,
+      "sha256": "c5cae9262626af2031752758a1958e0b6e4ff55871cb608e0c95a80bc1bebc6e"
     },
     {
       "path": "docs/10-agent-handoff.md",
-      "bytes": 8669,
-      "sha256": "70b91693aaa2e6e551251907065613c046f1888044f2ed22a36442fffedb18ce"
+      "bytes": 8865,
+      "sha256": "eb60d83d2d1025611b0e737a7f2dfa19ee8898b14691a94b7b0db959947bc474"
     },
     {
       "path": "docs/11-traceability.md",
@@ -120,8 +120,8 @@
     },
     {
       "path": "docs/12-rust-compatibility.md",
-      "bytes": 35482,
-      "sha256": "f217e3c6e51c2263f3bbadc40a2bdbf4c853197b50163ee5c437dfe00e1c7dfb"
+      "bytes": 35534,
+      "sha256": "6dccb990c5e1ddad3cef6a694c9874dda8f531251cff31906ecb5b1115af246e"
     },
     {
       "path": "docs/13-rust-change-impact.md",
@@ -135,8 +135,8 @@
     },
     {
       "path": "docs/15-deployment-and-linux-priority.md",
-      "bytes": 9371,
-      "sha256": "0115c84b4502d8271d590ea585999532333ab6208d881aa353238681fbab0aca"
+      "bytes": 9509,
+      "sha256": "4b74678004fbb99a7e5506fcc467f0f6822b518cbcbacbccc7261d2396f308cc"
     },
     {
       "path": "docs/16-github-bootstrap-and-release-handoff.md",
@@ -150,8 +150,8 @@
     },
     {
       "path": "docs/adr/0002-rust-core-and-compatibility.md",
-      "bytes": 16121,
-      "sha256": "ea39318273a15a44d6efbba6b7cd1b410d578e48b1be610268957d9c38769364"
+      "bytes": 16175,
+      "sha256": "b169a236b22fa941003e8f361e219068c9fdcdf343baf4bd02b9333954baf653"
     },
     {
       "path": "docs/agents/domain.md",
@@ -181,7 +181,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 805,
-      "sha256": "6e85943f72d1cc37db6bd91f763fd98460a78690ea58eb27ff17223fc0410571"
+      "sha256": "cc04b2a3ea33b9f025a1668f2d7534eda4d989fea3a4c1afd01233b4c7190194"
     },
     {
       "path": "tests/README.md",
@@ -205,8 +205,8 @@
     },
     {
       "path": "tests/matrix.json",
-      "bytes": 148584,
-      "sha256": "0326c8297dd55d7c715049d38fdac7252aeda576fd613d887ecb7886336d4ffa"
+      "bytes": 148824,
+      "sha256": "583c01eb38cc58a49e12131da8ee32ed5d6f44784fb01c719dc82d301b4c647c"
     },
     {
       "path": "tests/performance/README.md",
@@ -225,23 +225,23 @@
     },
     {
       "path": "tools/README.md",
-      "bytes": 1000,
-      "sha256": "5b89cbbf64d0b685531c5f8a54d3fb38d92dc61a476a600baf85dd20faab76ea"
+      "bytes": 1171,
+      "sha256": "ff3fe67e23fca8645d0cf5a695033e1ea6158facbcdc91634ac1d2c181ce5884"
     },
     {
       "path": "tools/build_planning_package.py",
-      "bytes": 11531,
-      "sha256": "babc37cea6c940ca8c51f904e60c1f3b549a599c9f107dae0995621d35dd0e06"
+      "bytes": 11647,
+      "sha256": "fafed37eb329519c7c6122eb6b94689cf7136198675a64409f0d08f16e586fa3"
     },
     {
       "path": "upstream/research-lock.json",
-      "bytes": 16035,
-      "sha256": "61abce903969558b9398ef988e0ce852ac585664f808b051aebf2b1ad104f345"
+      "bytes": 16480,
+      "sha256": "6cbce137be4b9e2a65a2c6d7de4f623748df5145b7475ee00e0bcc81574cf89d"
     },
     {
       "path": "upstream/rust-research-lock.json",
-      "bytes": 38726,
-      "sha256": "7aec0528e0acbc93c2862e6d55e328f4192f1195b6b2ad81b0916a29a67c324a"
+      "bytes": 39171,
+      "sha256": "dcaecac52db0e17b3c278b9e62dc1858dd5a63565e972d6b551dbe4c4ee97595"
     },
     {
       "path": "upstream/source-review-manifest.json",

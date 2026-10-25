@@ -39,7 +39,7 @@
 
 此策略允許必要 native helpers，由 Rust 核心管理；尚未鎖定任何 helper binary，也沒有承諾單一 executable 或所有依賴皆由 Rust 撰寫。
 
-Q3 已確認 LAN 共用搜尋／瀏覽讀者路徑，主機 CLI／本機 control 處理管理。使用者追加網頁設定問題，管理網頁限本機或開 LAN 仍待確認；未由這項提問批准 LAN 管理寫入。
+Q3 已確認 LAN 共用搜尋／瀏覽讀者路徑，主機 CLI／本機 control 處理管理。2026-10-26 使用者選定管理網頁只限主機本機瀏覽器，LAN 維持搜尋／瀏覽。頁面與有副作用 API 的具體控制仍須設計及實測。
 
 特定舊 Java plugin 的 bridge **尚未批准**。若 D20 發現需求，須取得新的明確使用者決定，另建可辨識的 profile、依賴／授權清單與獨立測試；bridge 不能取代 Rust 搜尋／索引核心。原版只作 oracle 是目前基線，不預先封死使用者未來明確選擇。
 
@@ -77,7 +77,7 @@ Tantivy 為搜尋引擎候選，Tree-sitter 為語法分析候選。Axum／Tokio
 | D03 | **正式優先部署 Ubuntu 24.04 amd64；先 Apple M1／arm64 Mac 完整驗證，再 Ubuntu native 重驗** | Ubuntu CPU 對應 x86_64，Mac target mapping aarch64-apple-darwin；macOS 實際／最低版本、Windows 規格仍 OPEN，Mac PASS 不代替 Linux PASS |
 | D11 | **public 已確認，swchen44/rustgrok 初始規劃已提交並核實** | repo CREATED／ID 1433282584／main；內容 COMMITTED_AND_TREE_VERIFIED，verified_files 46，Release NOT_CREATED |
 | D04 | **USER_CONFIRMED：OpenGrok 1.14.20 為功能、style 與排序的正式驗收基線** | 固定 commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3；產物下載／hash 核對及 oracle 執行未完成，D20 精確相容契約仍 OPEN |
-| D16 | **基本邊界 USER_CONFIRMED；管理網頁範圍 OPEN** | Q3 已採主機 CLI／本機 control 管理、LAN 搜尋／瀏覽；使用者追加網頁設定，其可達範圍及具體控制待定 |
+| D16 | **USER_CONFIRMED：管理網頁只限主機本機瀏覽器；LAN 搜尋／瀏覽** | 保留主機 CLI／本機 control 管理；2026-10-26 確認網頁範圍，頁面操作、具體控制及 runtime 驗證待完成 |
 | D19 | **CONFIRMED：必要 Ctags／Git／SCM helpers 隨包** | 精確工具／build／各 SCM 能力依 G1；不是已完成分發或相容驗證 |
 | D20 | 命中／排序／score、UI／URL／REST、config／index／cache／非 auth JAR／automation | D02 的角色／ACL／authorization parity 排除已明確；其他無默認差異豁免，bridge 未批准 |
 | D21 | **CONFIRMED：搜尋速度優先** | 數值 SLO、query mix／規模／環境與 RSS／磁碟／索引時間／新鮮度取捨仍 OPEN |

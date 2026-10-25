@@ -26,7 +26,7 @@
   "native_runtime_tests_executed": false,
   "required_next_steps": [
     "Use the D04-approved OpenGrok 1.14.20 baseline at commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3. Preserve functionality and style except D02's explicit exclusion of user-role/project ACL management and mandatory authorization/RBAC plugin parity; retain non-auth plugin inventory. Complete the remaining D20 compatibility contracts.",
-    "Apply local+LAN support, about five concurrent users without role/project ACL management, bundled helpers and search-speed priority. Production deployment prioritizes Ubuntu 24.04 amd64; first develop and fully validate on confirmed Apple M1/arm64 macOS (aarch64-apple-darwin), then adapt Ubuntu and repeat complete native validation. Confirm actual/minimum macOS versions and Windows details under D03, D16 web-management reachability and concrete controls, D06/D07 details and remaining D20 compatibility. Record the actual Ubuntu point release with runtime evidence. Helper builds, numeric SLO, workload, hardware and tradeoffs remain open; five users is neither five QPS nor a hard limit.",
+    "Apply local+LAN support, about five concurrent users without role/project ACL management, bundled helpers and search-speed priority. Production deployment prioritizes Ubuntu 24.04 amd64; first develop and fully validate on confirmed Apple M1/arm64 macOS (aarch64-apple-darwin), then adapt Ubuntu and repeat complete native validation. Confirm actual/minimum macOS versions and Windows details under D03, D16 concrete controls for confirmed local-browser-only web management, D06/D07 details and remaining D20 compatibility. Record the actual Ubuntu point release with runtime evidence. Helper builds, numeric SLO, workload, hardware and tradeoffs remain open; five users is neither five QPS nor a hard limit.",
     "Download reference assets and independently recompute their hashes.",
     "Select exact Java/Tomcat/Ctags/SCM builds only as needed to run the independent reference oracle; record source, license and binary metadata.",
     "Run separate native oracle and Rust compatibility/performance experiments first for Apple M1/arm64 macOS, then complete Ubuntu 24.04 amd64 platform adaptation and native revalidation. Preserve independent evidence per platform; Mac PASS is not Linux PASS. Prioritize full-text/path/defs/cross-project search while recording indexing and resource tradeoffs.",
@@ -170,18 +170,23 @@
     "management_operation_exposure": {
       "decision_id": "D16",
       "status": "USER_CONFIRMED",
-      "value": "host_cli_or_local_control_management_lan_reader_routes",
+      "value": "host_cli_local_control_and_local_browser_web_management_lan_reader_routes",
       "decided_at": "2026-10-25",
       "user_statement": "Q2-Q5 照你的，about Q3 網頁是不是也能加設置?",
       "selected_design": {
-        "management": "host_cli_or_local_control",
-        "lan": "search_and_browse_reader_routes"
+        "management": "host_cli_local_control_and_local_browser_web",
+        "lan": "search_and_browse_reader_routes",
+        "web_management": "service_host_local_browser_only"
       },
       "web_management": {
-        "status": "OPEN",
-        "question": "User asked whether settings can also be provided on the web; local-only versus LAN reachability is not yet selected."
+        "status": "USER_CONFIRMED",
+        "reachability": "service_host_local_browser_only",
+        "lan_management_allowed": false,
+        "confirmed_at": "2026-10-26",
+        "user_statement": "1. 只限主機本機瀏覽器，LAN 維持搜尋／瀏覽",
+        "remaining_scope": "Concrete page operations, controls, existing API/automation compatibility and runtime verification remain to be completed."
       },
-      "scope_note": "Q3 base boundary accepted. Web management reachability and concrete controls remain open. No user-role/project ACL system or LAN management writes are implied."
+      "scope_note": "Q3 base boundary and local-browser-only management web are confirmed. LAN remains search/browse only. Pages and state-changing management APIs must enforce the boundary. Concrete controls remain to be designed; runtime tests remain NOT_RUN."
     },
     "approved_scope_adjustments": [
       {
