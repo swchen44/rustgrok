@@ -154,7 +154,7 @@ Rust 管理層必須設計互斥與持久任務狀態，避免同一專案重複
 
 這些排除不等於功能一定失敗；代表官方 CI 不是我們產品的完整驗收證據。第一個平台 spike 應優先在原生 Windows 64 位元執行：首次索引、definitions/refs/xref、history/blame/diff、增刪專案、非 ASCII／空白路徑、來源映射、停止重啟與更新。WSL 測試不能取代原生 Windows 驗收。
 
-後續v0.5決策已確認Ubuntu24.04 amd64為主要部署目標，並先在macOS開發及完整驗證，再到Ubuntu原生重驗。v0.6已確認首輪M1／Apple Silicon arm64；macOS實際／最低版本與Windows具體版本／CPU仍待提供；它們決定其餘發行矩陣。此需求更新不改寫上述原版CI的靜態研究結果。
+後續v0.5決策已確認Ubuntu24.04 amd64為主要部署目標，並先在macOS開發及完整驗證，再到Ubuntu原生重驗。v0.6已確認首輪M1／Apple Silicon arm64；後續已觀測開發Mac15.7.7並確認Windows11 x64；最低macOS、實際Windows build／ABI與原生證據仍待完成。此需求更新不改寫上述原版CI的靜態研究結果。
 
 ## 7. 架構決策更新與原候選退場
 

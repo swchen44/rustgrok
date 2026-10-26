@@ -1,0 +1,100 @@
+{
+  "schema_version": "0.6",
+  "artifact_kind": "development_host_observation_not_product_test",
+  "observed_at": "2026-10-26T08:12:38+08:00",
+  "timezone": "Asia/Taipei",
+  "product_tests_executed": false,
+  "product_toolchain_frozen": false,
+  "host": {
+    "os": "macOS",
+    "version": "15.7.7",
+    "build": "24G720",
+    "architecture": "arm64",
+    "hardware_model": "MacBookAir10,1",
+    "memory_bytes": 8589934592,
+    "physical_cpu_count": 8,
+    "logical_cpu_count": 8
+  },
+  "commands": [
+    {
+      "command": "sw_vers -productVersion",
+      "exit_code": 0,
+      "observed_value": "15.7.7"
+    },
+    {
+      "command": "sw_vers -buildVersion",
+      "exit_code": 0,
+      "observed_value": "24G720"
+    },
+    {
+      "command": "uname -m",
+      "exit_code": 0,
+      "observed_value": "arm64"
+    },
+    {
+      "command": "sysctl -n hw.model hw.memsize hw.physicalcpu hw.logicalcpu",
+      "exit_code": 0,
+      "observed_values": [
+        "MacBookAir10,1",
+        "8589934592",
+        "8",
+        "8"
+      ]
+    },
+    {
+      "command": "rustc --version",
+      "exit_code": 0,
+      "observed_value": "rustc 1.94.0 (4a4ef493e 2026-03-02)"
+    },
+    {
+      "command": "cargo --version",
+      "exit_code": 0,
+      "observed_value": "cargo 1.94.0 (85eff7c80 2026-01-15)"
+    },
+    {
+      "command": "node --version",
+      "exit_code": 0,
+      "observed_value": "v26.0.0"
+    },
+    {
+      "command": "npm --version",
+      "exit_code": 0,
+      "observed_value": "11.12.1"
+    },
+    {
+      "command": "ctags --options=NONE --version",
+      "exit_code": 0,
+      "observed_summary": "Universal Ctags 6.2.1; compiled Oct 25 2025, 13:15:24; output version 1.1"
+    },
+    {
+      "command": "git --version",
+      "exit_code": 0,
+      "observed_value": "git version 2.39.5 (Apple Git-154)"
+    },
+    {
+      "command": "python3 --version",
+      "exit_code": 0,
+      "observed_value": "Python 3.13.2"
+    },
+    {
+      "command": "xcode-select -p",
+      "exit_code": 0,
+      "observed_value": "/Library/Developer/CommandLineTools"
+    },
+    {
+      "command": "xcrun --show-sdk-version",
+      "exit_code": 0,
+      "observed_value": "15.5"
+    },
+    {
+      "command": "/usr/libexec/java_home -V",
+      "exit_code": 0,
+      "observed_summary": "Registered Oracle Java 1.8.301.09 x86_64 browser plugin only; no Java launcher executed and no verified Java 21 oracle."
+    }
+  ],
+  "limits": [
+    "Development-host observations only; minimum macOS and product SDK/toolchain/helper builds are not selected.",
+    "Does not establish Ubuntu/Windows runtime acceptance or a product resource budget.",
+    "Tool binary architecture was not inspected; host arm64 alone does not prove every tool is native arm64."
+  ]
+}

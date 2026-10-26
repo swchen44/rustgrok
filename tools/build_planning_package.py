@@ -105,7 +105,7 @@ report = {
 }
 (root / "planning-quality-report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
 
-order = [root / "README.md", root / "GLOSSARY.md"] + sorted(root.glob("docs/[0-9][0-9]-*.md")) + sorted(root.glob("docs/research/*.md")) + [
+order = [root / "README.md", root / "GLOSSARY.md", root / "LICENSE.md"] + sorted(root.glob("docs/[0-9][0-9]-*.md")) + sorted(root.glob("docs/research/*.md")) + [
     root / "docs/sources.md"] + sorted(root.glob("docs/adr/*.md")) + [
     root / "tests/README.md", root / "tests/fixtures/README.md", root / "tests/evidence/README.md", root / "AGENTS.md",
     root / "crates/README.md", root / "npm/README.md", root / "assets/README.md", root / ".github/workflows/README.md",
@@ -118,6 +118,7 @@ appendices = [("upstream/research-lock.json", "research-lock", "研究版本鎖�
               ("upstream/rust-research-lock.json", "rust-research-lock", "Rust 候選與相容性研究鎖定"),
               ("tests/fixtures/corpus-manifest.template.json", "corpus-template", "待建立語料的規格模板"),
               ("tests/traceability.json", "traceability-json", "機器可讀需求對照"),
+              ("tests/evidence/development-host-observation-2026-10-26.json", "development-host-observation", "開發主機觀測；非產品測試"),
               ("tests/performance/search-benchmark-manifest.template.json", "search-benchmark-template", "搜尋效能量測模板"),
               ("distribution/release-manifest.template.json", "release-manifest-template", "GitHub Release產物追溯模板")]
 anchors[(root / "tests/matrix.json").resolve()] = "test-matrix"

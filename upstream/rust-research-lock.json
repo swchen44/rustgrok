@@ -110,7 +110,7 @@
       "target_cpu_architecture": "amd64",
       "macos_support_required": true,
       "windows_64_bit_support_required": true,
-      "scope_note": "Production deployment prioritizes Ubuntu 24.04 amd64 (Rust architecture x86_64). The user confirmed Apple M1/arm64 for the first macOS development and complete-validation machine; Rust target mapping is aarch64-apple-darwin. Actual/minimum macOS versions remain open. Ubuntu adaptation and complete native revalidation follow; Mac PASS never substitutes for Linux PASS. Windows support/details are retained, and all runtime validation remains NOT_RUN.",
+      "scope_note": "Ubuntu 24.04 amd64 remains primary deployment; develop and completely validate Apple M1 macOS arm64 first, then adapt/revalidate Ubuntu natively. Windows 11 x64 is user confirmed; exact build/ABI/runtime evidence remain pending. macOS 15.7.7 is an observed development host, not a product PASS or minimum OS. Mac PASS cannot replace Linux/Windows PASS.",
       "user_statement_history": [
         "要優先使用在 linux ubuntu 24.02",
         "24.04",
@@ -119,7 +119,7 @@
       "original_requested_ubuntu_version": "24.04",
       "ubuntu_point_release": null,
       "ubuntu_point_release_policy": "Record the actual point release in the test-environment manifest; it is not a current requirements-clarification blocker.",
-      "remaining_platform_detail_status": "MACOS_ACTUAL_MINIMUM_OS_AND_WINDOWS_DETAILS_OPEN",
+      "remaining_platform_detail_status": "MINIMUM_MACOS_WINDOWS_BUILD_ABI_BROWSER_AND_NATIVE_RUNTIME_PENDING",
       "priority_scope": "production_deployment",
       "ubuntu_cpu_status": "CONFIRMED",
       "ubuntu_rust_architecture": "x86_64",
@@ -132,9 +132,10 @@
         "processor_model": "Apple M1",
         "cpu_status": "USER_CONFIRMED",
         "rust_target_mapping": "aarch64-apple-darwin",
-        "actual_os_version": null,
-        "actual_os_version_status": "OPEN",
-        "minimum_os_version_status": "OPEN"
+        "actual_os_version": "15.7.7",
+        "actual_os_version_status": "OBSERVED_DEVELOPMENT_HOST_ONLY",
+        "minimum_os_version_status": "OPEN",
+        "host_observation": "tests/evidence/development-host-observation-2026-10-26.json"
       },
       "following_platform_work": {
         "status": "CONFIRMED",
@@ -151,8 +152,8 @@
       },
       "macos_cpu_architecture": "arm64",
       "macos_minimum_os_version": null,
-      "windows_cpu_architecture": null,
-      "windows_os_version": null,
+      "windows_cpu_architecture": "x64",
+      "windows_os_version": "11",
       "shared_core_design": {
         "status": "PROPOSED_ENGINEERING_DESIGN",
         "one_rust_product_core": true,
@@ -163,9 +164,13 @@
       "macos_cpu_status": "USER_CONFIRMED",
       "macos_cpu_user_response": "M1",
       "macos_rust_target_mapping": "aarch64-apple-darwin",
-      "macos_actual_os_version": null,
-      "macos_actual_os_version_status": "OPEN",
-      "macos_minimum_os_version_status": "OPEN"
+      "macos_actual_os_version": "15.7.7",
+      "macos_actual_os_version_status": "OBSERVED_DEVELOPMENT_HOST_ONLY",
+      "macos_minimum_os_version_status": "OPEN",
+      "windows_rust_architecture": "x86_64",
+      "windows_tuple_status": "USER_CONFIRMED_WINDOWS_11_X64_BUILD_ABI_AND_RUNTIME_PENDING",
+      "windows_tuple_user_statement": "Q12 windows 11 x64, 主要用在 linux ,",
+      "development_host_observation": "tests/evidence/development-host-observation-2026-10-26.json"
     },
     "D16": {
       "status": "USER_CONFIRMED",
@@ -302,14 +307,19 @@
       },
       "remaining_open": [
         "files/LOC",
-        "languages",
+        "per-language proportions and complete upstream inventory",
         "query mix/arrival pattern",
         "history size/depth",
         "CPU/RAM",
         "local SSD versus NAS",
         "numeric SLO and resource budgets"
       ],
-      "runtime_measurement_status": "NOT_RUN"
+      "runtime_measurement_status": "NOT_RUN",
+      "priority_languages": [
+        "C",
+        "Python",
+        "JavaScript"
+      ]
     },
     "D05": {
       "status": "PARTIALLY_CONFIRMED",
@@ -374,6 +384,53 @@
         "index_build_source_consistency_mechanism": "NOT_FROZEN",
         "runtime_verification": "NOT_RUN"
       }
+    },
+    "D07": {
+      "status": "USER_CONFIRMED",
+      "confirmed_at": "2026-10-26",
+      "user_statement": "Q10 both",
+      "registry_or_company_mirror_supported": true,
+      "transferred_tgz_zip_supported": true,
+      "registry_url": null,
+      "target_node_npm_versions": null,
+      "install_script_and_enterprise_policy": "OPEN",
+      "offline_build_required": "NOT_SPECIFIED",
+      "npm_publication_owner": "user"
+    },
+    "D06": {
+      "status": "PARTIALLY_CONFIRMED",
+      "confirmed_at": "2026-10-26",
+      "priority_languages": [
+        "C",
+        "Python",
+        "JavaScript"
+      ],
+      "priority_status": "USER_CONFIRMED",
+      "other_upstream_languages_retained": true,
+      "git_only_scope_approved": false,
+      "language_proportions": null,
+      "complete_analyzer_scm_inventory": "PENDING"
+    },
+    "D14": {
+      "status": "PARTIALLY_CONFIRMED",
+      "confirmed_at": "2026-10-26",
+      "display_name": "Rustgrok",
+      "npm_main_package_name": "rustgrok",
+      "main_package_scoped": false,
+      "name_selection_status": "USER_CONFIRMED",
+      "package_shape_platform_names": "PENDING_G1",
+      "npm_published": false,
+      "name_reserved": false,
+      "scope_ownership_verified": false
+    },
+    "D17": {
+      "status": "USER_CONFIRMED",
+      "confirmed_at": "2026-10-26",
+      "new_independent_original_rust_js_license": "MIT",
+      "ported_reused_modified_and_third_party_contents": "retain_applicable_per_file_terms_notices_and_source_obligations",
+      "whole_product_relicensed_to_mit": false,
+      "complete_per_file_inventory": false,
+      "document": "LICENSE.md"
     }
   },
   "verification": {
@@ -819,10 +876,13 @@
     "complete_component_inventory": false,
     "ported_file_provenance_complete": false,
     "redistribution_review_complete": false,
-    "note": "Record reused, translated, modified and independently authored content per file. Language selection and a candidate crate's declared license do not establish the complete product's license."
+    "note": "Record reused, translated, modified and independently authored content per file. Language selection and a candidate crate's declared license do not establish the complete product's license.",
+    "new_independent_original_rust_js_license": "MIT",
+    "new_code_policy_document": "LICENSE.md",
+    "whole_product_single_license_selected": false
   },
   "required_next_steps": [
-    "Use the D04-approved OpenGrok 1.14.20 baseline and confirm remaining D20 API/config/non-auth-plugin compatibility under D02's no-role/project-ACL scope. Apply local+LAN, about five concurrent users, bundled helpers and search-speed priority. Production deployment prioritizes Ubuntu 24.04 amd64; development and first complete validation start on confirmed Apple M1/arm64 macOS (aarch64-apple-darwin), followed by Ubuntu adaptation and complete native revalidation. Confirm actual/minimum macOS versions, Windows details, D16 concrete controls for confirmed local-browser-only web management and remaining source/SCM/distribution inputs. Record actual Ubuntu point release; numeric SLO, workload/hardware and tradeoffs remain open.",
+    "Use the D04-approved OpenGrok 1.14.20 baseline and confirm remaining D20 API/config/non-auth-plugin compatibility under D02's no-role/project-ACL scope. Apply local+LAN, about five concurrent users, bundled helpers and search-speed priority. Production deployment prioritizes Ubuntu 24.04 amd64; development and first complete validation start on confirmed Apple M1/arm64 macOS (aarch64-apple-darwin), followed by Ubuntu adaptation and complete native revalidation. Complete minimum macOS and actual Windows 11 x64 build/ABI/native environment, D16 concrete controls for confirmed local-browser-only web management and remaining source/SCM/distribution inputs. Record actual Ubuntu point release; numeric SLO, workload/hardware and tradeoffs remain open.",
     "Build and run a separate reference oracle with exact artifacts, hashes, configuration and corpus.",
     "Run parser/token/offset, search/scoring, xref/UI and SCM compatibility work first on Apple M1/arm64 macOS. After Ubuntu 24.04 amd64 adaptation, repeat complete native validation and retain separate evidence; Mac PASS cannot establish Linux PASS. Windows support and native validation remain required.",
     "Prioritize end-to-end full-text/path/defs/cross-project search measurements on equivalent functionality, hardware and corpus; report cold/warm/concurrent behavior plus indexing/resource tradeoffs before making performance claims.",

@@ -1,6 +1,6 @@
 # 決策登錄與需求訪談
 
-版本：v0.6，2026-10-25。**D01／D02／D19／D21的既定方向不變；後續 D04 已確認 OpenGrok 1.14.20 正式驗收基線。D03已確認Mac M1／arm64先完整開發驗證，再Ubuntu24.04 amd64完整原生重驗，正式部署仍Ubuntu優先；D11已確認public新repo rustgrok與GitHub Releases交付。macOS版本、Windows細節、npm名稱、授權與其餘契約仍OPEN；repo實際建立狀態另記。**
+版本：v0.6，2026-10-25。**D01／D02／D19／D21的既定方向不變；後續 D04 已確認 OpenGrok 1.14.20 正式驗收基線。D03已確認Mac M1／arm64先完整開發驗證，再Ubuntu24.04 amd64完整原生重驗，正式部署仍Ubuntu優先；D11已確認public新repo rustgrok與GitHub Releases交付。後續已補Windows11 x64、開發Mac15.7.7觀測、主套件rustgrok及新原創碼MIT分工；最低macOS、平台實際build／ABI、精確工具及其餘契約仍OPEN；repo實際建立狀態另記。**
 
 ## 1. 狀態與決策歷史
 
@@ -13,12 +13,14 @@
 | D01 | USER_CONFIRMED | 採 Rust 重寫產品核心；保留自帶Web Server、npm、內網、多專案、macOS／Ubuntu24.04 amd64／Windows64位元、原版功能與style目標 | 現行v0.6設計；原版Java／Tomcat改作獨立reference oracle；精確平台見D03，HTTP框架、搜尋引擎與工具版本仍需驗證 |
 | D02 | USER_CONFIRMED | 同一產品支援local與LAN共用，約5人同時使用，不做使用者角色／RBAC／專案ACL管理 | 約5人是容量情境，不是QPS或同時requests硬值；不追加帳號／SSO／登入為必交，管理操作暴露仍依D16提案與D20相容盤點 |
 | D04 | USER_CONFIRMED | OpenGrok 1.14.20／commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3 為功能、style 與排序的正式驗收基線 | 適用現行 v0.6 的 oracle、資產、UI、query 與排序差異驗證；產物 hash 核對及 runtime 尚未完成，D20 的精確相容與遷移契約仍 OPEN |
+| D07 | USER_CONFIRMED | 同時支援 npm registry／公司mirror 安裝，以及搬入tgz／ZIP的離線安裝 | 2026-10-26 Q10回覆「both」；兩路徑都需獨立實際包驗證。具體registry位址、Node/npm版本、scripts／權限政策、大小限制及是否需離線build仍未定；不自行公開npm發布 |
 | D08 | USER_CONFIRMED | source 由外部工具更新；產品支援手動及排程索引 | Q4；watch 未指定，排程頻率、dirty source 與一致性細節仍待定；不由產品自動 pull/reset 或修改 source |
 | D10 | USER_CONFIRMED | 目前沒有必須沿用的既有 XML 設定、客製 JAR plugins、API scripts 或舊書籤 | 2026-10-26 Q6 回覆「沒有」；Q2 index/cache 可從 source 重建並保留原資料。這是目前遷移輸入的盤點結果，原版內建設定、API、插件功能與 URL 的相容目標仍依 D04／D20 保留 |
 | D11 | USER_CONFIRMED | 建立public新repo swchen44/rustgrok，release packages放GitHub Releases | repo已建立，creation_status為created；首次規劃已提交main並核對，產品Release／artifact未建立，分階段以metadata與hash驗證 |
 | D12 | USER_CONFIRMED | 更新期間維持上一成功搜尋，新索引與必要關聯資料完整後整批切換；閱讀沿固定原版live／SCM分支 | Q8接受發布政策及新舊資料保留成本；Q9回覆「1」選沿原版snippet／xref／raw讀取。搜尋版本不自動固定全部閱讀內容；新鮮度／磁碟數值、索引期間source變動、故障回復及publish scope仍待契約與證據 |
 | D15 | USER_CONFIRMED | 首版提供 CLI 前景與背景執行 | Q5；系統服務／登入自啟留待後續決定；不由此推定 root、systemd、launchd 或 Windows Service 必要 |
 | D16 | USER_CONFIRMED | 管理網頁只限主機本機瀏覽器；保留主機 CLI／本機控制面管理，LAN 維持搜尋／瀏覽 | 2026-10-26 已確認網頁範圍；具體頁面操作、REST／automation 相容與控制細節仍須設計及盤點；頁面和有副作用 API 均須符合本機限定邊界 |
+| D17 | USER_CONFIRMED | 顯示名稱Rustgrok；可辨識為獨立原創的新增Rust／JS採MIT | Q13／Q14已接受提案；沿用、修改、移植OpenGrok及第三方內容保持各自適用條件、notices與來源交付。不是全產品MIT或完整逐檔盤點已完成，細節見LICENSE.md |
 | D19 | USER_CONFIRMED | Rust核心可隨包附必要Ctags、Git及其他SCM工具；主要產品profile採bundled helpers | 工具清單、固定版本、各OS／CPU payload、能力、授權與所需SCM仍依inventory驗證；不把外裝或禁止helpers列為必交profile，不授權自動下載或git pull |
 | D21 | USER_CONFIRMED | 效能優先方向為搜尋速度 | 約5人情境已知；數值SLO、資料規模／硬體／request負載、CPU／RAM／磁碟預算與取捨仍OPEN，不代表接受排序／功能差異或無限資源 |
 
@@ -43,6 +45,10 @@ v0.6使用者回覆「1. public 2. M1」：D11的public已USER_CONFIRMED；D03�
 後續 grill-with-docs 訪談於 2026-10-25 提問：「是否採用目前研究鎖定的 OpenGrok 1.14.20，作為功能、style 與排序的正式驗收基準？」使用者回覆原文：「OK」。D04 因此由 OPEN 轉為 USER_CONFIRMED，沿用既有固定 commit；先前僅作研究基線的歷史保留於本段。此答覆沒有批准命中／排序差異、score 容差、舊格式相容方式或 Java plugin bridge。受影響需求為 FR-001–FR-012、FR-020、FR-022、NFR-005、NFR-010、NFR-016；工作包與測試 IDs 依 docs/11-traceability.md、tests/traceability.json 追溯。更新 README、SRS、ADR-0002、交接與研究 lock／測試基線 metadata；所有產品測試仍 planned／not_run。
 
 ## 2. 接下來優先釐清的事項
+
+2026-10-26 Q13使用者選「採用這兩個名稱（建議）」：產品顯示名稱Rustgrok、npm主套件rustgrok。Q14選「採用這個授權分工（建議）」：可辨識為獨立原創的新增Rust／JS採MIT；沿用、修改、移植OpenGrok與第三方內容保留其適用條件、notices及來源交付。npm匿名查詢HTTP404只代表觀測時未查到metadata，不是名稱保留或發布權限；npm發布仍由使用者執行。D14主套件名稱已決，split／單包等包型與平台包命名待G1；D17命名／授權政策轉USER_CONFIRMED，逐檔分類與artifact license/source驗證仍是必要工作。對應NFR-002、NFR-009、NFR-010、NFR-013與既有PKG／REL測項；未發布產品。
+
+2026-10-26 Q10–Q12使用者原文：「Q10 both」「Q11 C,python,js」「Q12 windows 11 x64, 主要用在 linux ,」。D07安裝模式已確認registry／mirror與搬入tgz／ZIP兩者；D06優先加強驗證語言為C、Python、JavaScript，其餘原版語言／SCM仍保留。D03新增Windows 11 x64正式目標，未指定實際Windows build或ABI/toolchain；主要部署仍Ubuntu24.04 amd64，Mac先完整開發驗證、Ubuntu後適配原生重驗的順序不變。Mac本機另以唯讀probe觀測為15.7.7／24G720、arm64、8 GiB RAM，觀測不等於最低OS、正式toolchain或runtime PASS，證據見tests/evidence/development-host-observation-2026-10-26.json。對應NFR-001／002／003／015、FR-008／018及既有OS-001、WIN-001、PKG-001／002／003、RST-003，不增加測項數。npm名稱、新獨立碼授權、精確依賴、macOS最低版本、Ubuntu硬體及數值SLO仍OPEN。
 
 2026-10-26 Q8 使用者原文：「Q8 Yes」，接受「更新時持續提供上一個成功版本搜尋，新索引與相關資料完整就緒後整批切換」，以及已說明的更新期間上一版內容與新舊資料磁碟成本。D12 因此由 OPEN 轉為 USER_CONFIRMED。這決定搜尋可用性與發布政策；並未選定來源snapshot／copy方式、raw/download內容版本、跨project發布範圍、RTO/RPO、最大新鮮度延遲或磁碟上限。對應 FR-009、NFR-005、NFR-007、NFR-012、NFR-016 及既有 SRC-002、PRJ-002、REC-001、REC-002、RST-009；其餘 WP／test IDs 依追溯表。記錄於 ADR-0003，產品測項仍 planned／not_run。
 
@@ -116,10 +122,9 @@ Rust採用本身不是效能驗收。G1先在功能等價的slice量測並標示
 
 | ID | 狀態 | 問題 | 選項／所需資訊與影響 |
 |---|---|---|---|
-| D03 | OPEN | Mac M1／arm64與Ubuntu24.04 amd64已確認；macOS版本／Windows／browser細節？ | 先M1 Mac完整開發驗證，再Ubuntu適配與完整原生重驗，正式部署Ubuntu優先；Mac實際／最低OS、SDK／toolchain、Windows版本／CPU與browser仍待定。Mac PASS不代Linux PASS，G4承諾不變 |
+| D03 | OPEN | 已定Mac M1／arm64、Ubuntu24.04 amd64、Windows11 x64；最低macOS／browser與實際平台環境？ | Mac實測15.7.7／24G720只屬開發host觀測；最低macOS、正式SDK／toolchain、Windows實際build／ABI及browser仍待定。Mac先、Ubuntu後完整原生重驗，Linux主要部署優先不變 |
 | D05 | OPEN | 已知10個project、每project可多repo／巢狀Git；其餘來源布局與更新並行契約？ | 專案數與邏輯拓撲已確認；主機路徑／分散磁碟／NAS／UNC、實際每project repo數及同時重建細節仍待定。巢狀Git依D04原版查證，不自訂歸屬政策 |
-| D06 | OPEN | 語言、SCM與原版擴充清單？ | 實際語言、Git／SVN／Perforce／Mercurial等、history／annotate／plugins使用。用於inventory、優先測試與adapter，不能當成只做常用子集的授權 |
-| D07 | OPEN | npm與內網限制？ | public npm／公司mirror／私有registry／只匯入TGZ／完全離線；Node/npm版本、install scripts、一般使用者權限、binary與大小policy；是否需要離線build。影響包型與clean-machine測試 |
+| D06 | OPEN | 已知C／Python／JavaScript優先、Git多repo／巢狀使用；原版完整inventory及額外環境細節？ | 優先語言已確認，不重問；其餘原版語言、SCM、history／annotate與內建plugins仍按D04盤點，不能當成只做三種語言／Git-only的授權 |
 | D09 | OPEN | 已知約5人、10個project、每project source約50 MB；硬體及量化門檻？ | 總source推算約500 MB，不含尚未界定的history／index成本；files/LOC、每project repo數、CPU/RAM/SSD/NAS、query分布／request並行與SLO仍OPEN，不代填QPS、bytes或資源預算 |
 
 「尚未提供語言／SCM／plugins清單」不等於不需要。若要分期或以常用子集先發布，須明確提出差異與影響，取得使用者批准；prototype scope本身不會縮小最終需求。
@@ -129,8 +134,7 @@ Rust採用本身不是效能驗收。G1先在功能等價的slice量測並標示
 | ID | 狀態 | 問題 | 選項／決策要點與影響 |
 |---|---|---|---|
 | D13 | OPEN | 原生離線ZIP的精確內容、啟動與發行方式？ | 原生binary、依D19隨包策略完成inventory的helpers／共享庫／資產、CLI或雙擊入口、mac簽章/notarization及企業驗證要求。ZIP可直接跑Rust，不預設需要打包Node |
-| D14 | OPEN | npm包型、名稱與發布體驗？ | 通用薄JSlauncher＋平台包／各平台native-bin package／offline TGZ；scope/name、registry限制、精確支援npm版本。發布仍由使用者自己執行 |
-| D17 | OPEN | 產品名稱、新程式碼授權與來源交付方式？ | 名稱不冒充官方；新Rust／JS內容、移植檔及原資產逐件處理；repo/source archives政策。改寫Rust不自動將衍生內容變成MIT |
+| D14 | OPEN | 主套件rustgrok已定；包型及平台包分工？ | 主套件不加scope；split平台包或其他包型依G1實驗，不能猜scope權限。registry位址／Node/npm／版本與發布順序仍待凍結，npm仍由使用者發布 |
 | D18 | OPEN | 上游相容、安全更新與產品支援如何維護？ | OpenGrok相容基線、Rust toolchain／crates、helpers、browser與native依賴的人工review頻率、支援週期、企業導入節奏；不在內網runtime自動連外更新 |
 
 ## 8. 決策確認與變更紀錄

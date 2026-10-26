@@ -2,7 +2,7 @@
 
 版本：v0.6，2026-10-25。**Rust核心、工具隨包、搜尋速度優先及既定使用模式不變；先在Mac M1／arm64完整開發驗證，再於Ubuntu24.04 amd64適配與原生重驗，正式優先部署仍為Ubuntu。rustgrok採public、發行包放GitHub Releases已確認；實際建立狀態另記。macOS版本、框架等仍待定，尚未產出或驗證可安裝產品。**
 
-本文件取代 v0.1 的 Java/Tomcat 產品包裝設計。需求對照為 NFR-001、NFR-002、NFR-003、NFR-009、NFR-010、NFR-012、NFR-015，以及 FR-013、FR-016、FR-018。GitHub repo名稱rustgrok已確認；npm scope/name與範例CLI命令仍為占位，不由repo名稱代填；確認內容以[決策表](08-decision-register.md)為準。
+本文件取代 v0.1 的 Java/Tomcat 產品包裝設計。需求對照為 NFR-001、NFR-002、NFR-003、NFR-009、NFR-010、NFR-012、NFR-015，以及 FR-013、FR-016、FR-018。GitHub repo名稱rustgrok已確認；npm主套件rustgrok已由Q13選定；平台包名、包型與範例CLI命令仍待G1，確認內容以[決策表](08-decision-register.md)為準。
 
 ## 1. 分發與執行邊界
 
@@ -81,7 +81,7 @@ unsupported OS／CPU、`--omit=optional`、payload 缺失或版本不一致時�
 
 ### 3.1 目標平台
 
-正式優先部署目標已確認為Ubuntu24.04 **amd64**。開發與驗證順序為先在**Mac M1／Apple Silicon arm64**完成開發與該平台完整適用驗證，再於Ubuntu24.04 amd64進行實作／平台適配及原生重驗。M1不代表某個macOS版本：實際版本／最低OS仍待D03，SDK／toolchain在G1驗證；Windows原承諾保留，G4仍覆蓋全部承諾平台。Ubuntu官方資訊見[releases](https://releases.ubuntu.com/)、[release cycle](https://ubuntu.com/about/release-cycle)。
+正式優先部署目標已確認為Ubuntu24.04 **amd64**。開發與驗證順序為先在**Mac M1／Apple Silicon arm64**完成開發與該平台完整適用驗證，再於Ubuntu24.04 amd64進行實作／平台適配及原生重驗。開發M1已觀測macOS15.7.7／24G720，最低OS與正式SDK／toolchain仍待G1；Windows11 x64已確認，G4仍覆蓋全部承諾平台。Ubuntu官方資訊見[releases](https://releases.ubuntu.com/)、[release cycle](https://ubuntu.com/about/release-cycle)。
 
 macOS的完整適用驗證包含功能／原style相容、npm／ZIP、離線、程序與檔案生命週期、恢復及效能量測；Ubuntu以相同契約及平台對應產物原生重跑，另外驗證Linux ABI、helpers與系統行為。**Mac PASS不等於Ubuntu PASS**；兩者的環境、產物hash與證據分開保存，不因共享Rust原始碼或crosscompile成功便沿用另一平台的結果。
 
@@ -89,7 +89,7 @@ macOS的完整適用驗證包含功能／原style相容、npm／ZIP、離線、�
 |---|---|---|
 | macOS M1／Apple Silicon arm64 | `aarch64-apple-darwin`（target映射） | CPU與完整首驗已確認；實際／最低macOS、deployment target、SDK、toolchain與簽章待G1驗證 |
 | Ubuntu24.04 amd64 | `x86_64-unknown-linux-gnu` | OS／CPU與正式部署優先已確認；GNU target為候選，另驗glibc／共享庫ABI、指令集基線與helpers |
-| Windows 64 位元 | `x86_64-pc-windows-msvc` | 原支援承諾保留；x64與最低Windows版本、是否需ARM64、CRT及helper依賴待確認 |
+| Windows11 x64 | `x86_64-pc-windows-msvc` | Q12已確認OS／CPU；MSVC target仍為候選，實際build、CRT／helper依賴與原生驗證待完成，不自行擴成ARM64 |
 
 Rust target tiers、OS 最低條件與 toolchain 可用性會變動，實作時須鎖定 toolchain 再確認；不把今天的 `latest` 文件當作發布支援保證。`--target` 編譯成功也不能替代原生運行與功能驗收。[Rust platform support](https://doc.rust-lang.org/rustc/platform-support.html)、[Windows MSVC](https://doc.rust-lang.org/rustc/platform-support/windows-msvc.html)、[macOS targets](https://doc.rust-lang.org/rustc/platform-support/apple-darwin.html)
 
@@ -97,17 +97,17 @@ Rust target tiers、OS 最低條件與 toolchain 可用性會變動，實作時�
 
 ### 3.2 候選發布產物
 
-發行包放public repo `rustgrok` 的GitHub Releases已確認。下列檔名為候選規則，npm scope/name仍待使用者指定；repo名稱不自動確定npm名稱。每個正式支援tuple提供獨立原生ZIP，manifest標明最低OS與CPU；M1／arm64已確定，macOS版本與Windows細節仍須確認並實測。
+發行包放public repo `rustgrok` 的GitHub Releases已確認。下列檔名規則仍須實作驗證；Q13已確認npm主套件rustgrok，平台包型／名稱待G1。每個正式支援tuple提供獨立原生ZIP，manifest標明最低OS與CPU；M1／arm64與Windows11 x64已確定；最低macOS、Windows實際build／ABI及各包原生證據仍待完成。
 
 | 產物 | 內容 |
 |---|---|
-| `<package-name>` | npm主入口名稱模板；薄JS launcher、精確平台dependency版本與診斷metadata，不含Node server業務 |
-| `<package-name>-<platform>` | npm平台包名稱模板；同版Rust binary、manifest、helpers／非系統共享庫與licenses；實際scope/name依D14 |
+| `rustgrok` | 已確認npm主入口名稱；薄JS launcher、精確平台dependency版本與診斷metadata，不含Node server業務 |
+| `<platform-package-name>` | 平台包型／名稱待G1；同版Rust binary、manifest、helpers／非系統共享庫與licenses，不猜scope權限 |
 | 主入口與各平台的實際npm `.tgz` | 經`npm pack`與安裝驗證的同版TGZ；放GitHub Release供使用者自行發布npm或匯入內網registry |
-| `<package-name>-<version>-<platform>-offline.tgz` | offline檔名模板，實際名稱與package metadata由打包流程決定；選定入口＋native payload＋完整production依賴閉包，cold cache可安裝 |
+| `rustgrok-<version>-<platform>-offline.tgz` | offline檔名模板，實際名稱與package metadata由打包流程決定；選定入口＋native payload＋完整production依賴閉包，cold cache可安裝 |
 | `rustgrok-<version>-linux-amd64.zip` | 已確認目標Ubuntu24.04 amd64；Rust executable、必要resources/helpers、可再散布共享庫、notices、manifest與說明；無Node/JRE/Tomcat前提，不泛稱所有Linux均支援 |
 | `rustgrok-<version>-darwin-arm64.zip` | 已確認Mac M1／Apple Silicon arm64，內容閉包同上；實際／最低macOS、SDK與toolchain仍須確認並實測 |
-| `rustgrok-<version>-windows-<confirmed-arch>.zip` | 每個最終承諾Windows tuple提供對應原生ZIP，內容閉包同上；CPU／最低OS待D03，不預設x64 |
+| `rustgrok-<version>-windows-x64.zip` | Windows11 x64對應原生ZIP，內容閉包同上；實際build／ABI、依賴與原生驗證待完成 |
 | `SHA256SUMS`、`release-manifest.json` | 最終簽章／封裝後每個asset的檔名、byte size、SHA-256；manifest關聯產品commit／tag、tuple、最低OS、features、helpers與原生驗證證據 |
 | SBOM、licenses／notices、source archives、release notes | 對應原始碼／crates／native依賴／helpers／assets、授權與應交付來源；包含功能／格式相容、升級與已知限制 |
 | 獨立 debug-symbol artifact | 供故障定位的符號檔；是否公開與保留期限待決，不強迫所有使用者下載 |
@@ -248,6 +248,6 @@ GitHub自動提供tag時點repo內容的source ZIP／tarball；這不是已建�
 
 使用者已說明將自行上傳npm。本計畫交付確切 `.tgz`、發布順序、scope/access設定與核驗方式，**不自動執行公開npm發布**。若採split packages，先發布同版平台包，再發布精確依賴它們的通用入口；發布的是已驗證bytes，不在publish前重新下載或重建不同內容。
 
-GitHub新repo名稱、public與Release目的地已定；npm scope/name仍待指定。trusted publishing／provenance若之後採用，依實際repo與npm能力設定；公開repo不等於已完成npm發布設定，也不以provenance替代功能驗證。[npm trusted publishing](https://docs.npmjs.com/trusted-publishers/)
+GitHub新repo名稱、public與Release目的地已定；npm主套件rustgrok已定，平台包命名／包型待G1。trusted publishing／provenance若之後採用，依實際repo與npm能力設定；公開repo不等於已完成npm發布設定，也不以provenance替代功能驗證。[npm trusted publishing](https://docs.npmjs.com/trusted-publishers/)
 
 首次規劃已提交main並回讀核對，見[規劃commit 526f619](https://github.com/swchen44/rustgrok/commit/526f619089703f710c915af303e54aea7d25226e)。目前沒有已完成的Rust產品binary、npm套件、原生ZIP或產品Release；本文件是實作與發行規劃。文件提交／檢查不代表產品測試PASS，也沒有執行GitHub CI。

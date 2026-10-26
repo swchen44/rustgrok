@@ -1,10 +1,10 @@
 # Rust Monorepo 與 GitHub 設計
 
-版本：v0.6，2026-10-25。**Rust與既定功能範圍不變；Mac M1／arm64先開發／完整驗證，再於Ubuntu24.04 amd64適配／原生重驗，正式部署仍Ubuntu優先。public repo swchen44/rustgrok已建立，首次規劃已提交main並核對，發行包將放GitHub Releases。** 尚無產品Release；macOS版本、npm scope/name與新程式碼授權仍待定，具體工具仍為候選。
+版本：v0.6，2026-10-25。**Rust與既定功能範圍不變；Mac M1／arm64先開發／完整驗證，再於Ubuntu24.04 amd64適配／原生重驗，正式部署仍Ubuntu優先。public repo swchen44/rustgrok已建立，首次規劃已提交main並核對，發行包將放GitHub Releases。** 尚無產品Release；最低macOS、平台包型與具體工具仍待G1；Q13主套件rustgrok、Q14原創Rust／JS的MIT分工已確認，沿用／移植條件依LICENSE.md保留。
 
 ## 1. Repository 的責任
 
-public Monorepo [swchen44/rustgrok](https://github.com/swchen44/rustgrok)已建立，用於保存Rust原始碼、OpenGrok相容研究、原版style資產、模板、npm分發描述、docs、tests與發行紀錄。帳號、名稱、public與Releases用途已確認，實際metadata見第10節。下列`grok-host`路徑為工程占位，npm名稱用`<package-name>`模板，不因repo定名而自動凍結。
+public Monorepo [swchen44/rustgrok](https://github.com/swchen44/rustgrok)已建立，用於保存Rust原始碼、OpenGrok相容研究、原版style資產、模板、npm分發描述、docs、tests與發行紀錄。帳號、名稱、public與Releases用途已確認，實際metadata見第10節。下列`grok-host`路徑為工程占位，npm主套件rustgrok已由Q13另行確認，平台包型及名稱仍待G1。
 
 Cargo workspace管理Rust程式；npm workspace或獨立npm package模板只管理薄launcher、平台包描述及需要的前端測試工具。npm不是第二套server架構，也不在Node層維護另一份專案／索引狀態。產品不以Java、Tomcat或Maven為runtime前提；原版Java reference若保留，只服務驗證。
 
@@ -164,13 +164,13 @@ PR描述先說明問題與使用者影響，再寫改動及行為；附requireme
 
 產品release tag對應`rustgrok`完整Monorepo tree與runtime/helper/asset manifest。每個承諾tuple的原生ZIP、同版npm主入口／平台TGZ、離線依賴閉包、checksums、SBOM、licenses／notices與source放該repo的GitHub Releases；大binary不塞Git歷史。split npm packages先供應平台包再供應主入口，版本必須精確匹配。
 
-檔名規則以`rustgrok-<version>-linux-amd64.zip`（Ubuntu24.04）、`rustgrok-<version>-darwin-arm64.zip`（Mac M1）及`rustgrok-<version>-windows-<confirmed-arch>.zip`為提案；npm使用`<package-name>`模板，不代選scope/name。詳細流程見[16 GitHub bootstrap與Release handoff](16-github-bootstrap-and-release-handoff.md)，asset欄位見[release manifest模板](../distribution/release-manifest.template.json)；占位與空hash不是建置或發布證據。
+檔名規則以`rustgrok-<version>-linux-amd64.zip`（Ubuntu24.04）、`rustgrok-<version>-darwin-arm64.zip`（Mac M1）及`rustgrok-<version>-windows-x64.zip`為提案；npm主套件使用已確認的rustgrok，平台包名稱依G1。詳細流程見[16 GitHub bootstrap與Release handoff](16-github-bootstrap-and-release-handoff.md)，asset欄位見[release manifest模板](../distribution/release-manifest.template.json)；占位與空hash不是建置或發布證據。
 
 Release manifest逐asset記錄檔名、大小、SHA-256、tuple、最低OS、依賴及原生驗證證據；上傳後核驗遠端bytes與本地已測產物一致。普通TGZ集合不自動構成離線依賴閉包，仍須冷cache／阻網安裝驗證。GitHub自動source ZIP只代表tag時點repo內容，native產物及repo外應交付來源另附。[GitHub about releases](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases)
 
 GitHub目前每個Release最多1000 assets，每個asset須小於2 GiB；有read access可讀Release，write access才可管理。D11已選public，正式發布的Release採公開取用；仍需實際repo／asset建立與下載核驗，不能把公開性決策當交付完成。限制與超限處理見[06分發設計](06-packaging-and-offline.md)。[GitHub release limits](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases)、[repository visibility](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories)
 
-使用者已指定由自己上傳npm。最後交付的是可檢閱、已驗證的TGZ及操作說明，不自動執行`npm publish`；npm scope/name仍待D14。新repo `rustgrok`按已確認的public建立，這不包含啟用Pages或另部署公開網站。GitHub建置／上傳結果與npm發布狀態分開回報。
+使用者已指定由自己上傳npm。最後交付的是可檢閱、已驗證的TGZ及操作說明，不自動執行`npm publish`；npm主套件rustgrok已定，平台包型與版本／發布順序仍待D14／G1。新repo `rustgrok`按已確認的public建立，這不包含啟用Pages或另部署公開網站。GitHub建置／上傳結果與npm發布狀態分開回報。
 
 trusted publishing與provenance若之後採用，需依實際repo與npm能力設定；repo採public不代表npm發布設定已完成，使用者手動發布的安排不變。[npm trusted publishing](https://docs.npmjs.com/trusted-publishers/)
 

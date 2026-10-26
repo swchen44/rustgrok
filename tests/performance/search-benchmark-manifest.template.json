@@ -7,8 +7,10 @@
     "D19": "A: bundled necessary Ctags/SCM helpers confirmed",
     "D21": "Search speed first confirmed",
     "D02": "local+LAN; approximately 5 simultaneous people; no role/project ACL management",
-    "D03": "Primary deployment Ubuntu 24.04 amd64 confirmed; develop and fully verify natively on Apple M1 macOS arm64 first, then adapt and fully reverify natively on Ubuntu. macOS actual/minimum version OPEN.",
-    "D11": "Public swchen44/rustgrok created (id 1433282584, main); GitHub Releases packages confirmed; product release not yet created."
+    "D03": "Ubuntu 24.04 amd64 primary deployment, M1 macOS arm64 first, then Ubuntu native revalidation; Windows 11 x64 confirmed. Development macOS 15.7.7 observed; minimum macOS/build/ABI/runtime evidence pending.",
+    "D11": "Public swchen44/rustgrok created (id 1433282584, main); GitHub Releases packages confirmed; product release not yet created.",
+    "D06": "C/Python/JavaScript priority; retain other original languages.",
+    "D07": "Registry/mirror and transferred tgz/ZIP install paths both confirmed."
   },
   "req_ids": [
     "FR-003",
@@ -141,14 +143,19 @@
       },
       "remaining_open": [
         "files/LOC",
-        "languages",
+        "per-language proportions and complete upstream inventory",
         "query mix/arrival pattern",
         "history size/depth",
         "CPU/RAM",
         "local SSD versus NAS",
         "numeric SLO and resource budgets"
       ],
-      "runtime_measurement_status": "NOT_RUN"
+      "runtime_measurement_status": "NOT_RUN",
+      "priority_languages": [
+        "C",
+        "Python",
+        "JavaScript"
+      ]
     },
     "index_update_publication_policy": {
       "decision": "D12",
@@ -230,5 +237,6 @@
     "Record native arm64 execution separately from Rosetta x86_64; translated runs cannot count as native M1 acceptance.",
     "2026-10-26 user estimate: 10 projects, each approximately 50 MB source; multiple/nested Git repositories may exist within one project. This is planning input, not measured corpus bytes, history/index size or a performance result. Corpus fields remain null until actual generation and measurement.",
     "Q9 selects original source-reading rules. Measure index generation and snippet/xref/raw source/revision separately during updates; do not compare a snapshot-reading candidate against a live-reading reference as equivalent workload."
-  ]
+  ],
+  "development_host_observation": "tests/evidence/development-host-observation-2026-10-26.json"
 }

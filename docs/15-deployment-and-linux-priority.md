@@ -15,7 +15,7 @@
 
 D02取消使用者角色、RBAC、project ACL與相關authorization plugin的mandatory功能／parity。原版搜尋、排名、UI style與其餘功能保留；不新增必交帳號管理、SSO或登入頁。免登入讀者入口是工程建議，不將「不用權限管理」額外解讀成已批准任何認證機制或管理操作暴露方式。
 
-D03確認Ubuntu24.04 amd64為主要部署目標；macOS先開發及第一輪完整驗證，其後Ubuntu原生完整重驗。Mac已確認M1／arm64，macOS版本與Windows細節尚未指定，三平台支援保留。
+D03確認Ubuntu24.04 amd64為主要部署目標；macOS先開發及第一輪完整驗證，其後Ubuntu原生完整重驗。Mac已確認M1／arm64，開發host觀測macOS15.7.7；Windows11 x64已確認。最低macOS、Windows實際build／ABI與原生證據待補，三平台支援保留。
 
 ## 2. 開發平台與部署目標分開記錄
 
@@ -24,7 +24,7 @@ D03確認Ubuntu24.04 amd64為主要部署目標；macOS先開發及第一輪完�
 | 正式主要部署 | Ubuntu 24.04 amd64 | desktop/server、CPU型號／cores、RAM與磁碟 |
 | 開發及第一輪完整驗證 | M1 Mac／Apple Silicon arm64 | 最低macOS／實測OS；原生執行與Rosetta狀態記錄 |
 | 第二輪 | Ubuntu24.04 amd64平台實作／適配及完整原生重驗 | 真實24.04.x映像與build/helper依賴 |
-| 其他承諾平台 | Windows64 | OS版本、CPU、企業環境；最終原生驗收保留 |
+| 其他承諾平台 | Windows11 x64 | OS／CPU已確認；實際build、ABI／企業環境與最終原生驗收待完成 |
 | GitHub | Public swchen44/rustgrok已建立，發行包放GitHub Releases | repo ID1433282584、main；產品Release尚未建立 |
 
 Ubuntu的amd64與Rust中的x86_64是對應架構名稱；具體GNU／musl ABI、toolchain與CPU feature baseline是後續工程選型，不能因已知amd64而假定AVX等擴充一定可用。Mac硬體已由使用者直接確認為M1，對應Apple Silicon arm64；macOS版本不能由CPU型號推定。

@@ -7,7 +7,7 @@
 | Rust 核心重寫 | **ACCEPTED BY USER**（D01） |
 | 本機與內網共用、約 5 人、無角色／專案 ACL 管理 | **CONFIRMED**（D02）；管理操作開放位置仍依 D16 |
 | Ubuntu 24.04 amd64 正式部署優先 | **CONFIRMED**；Rust 架構名稱 x86_64；point release 隨實測環境記錄 |
-| 先 Apple M1／arm64 macOS 開發／完整驗證，再 Ubuntu 適配／完整 native 重驗 | M1 CPU **USER_CONFIRMED**；target mapping aarch64-apple-darwin；macOS 實際／最低版本、Windows 詳細規格仍 OPEN |
+| 先 Apple M1／arm64 macOS 開發／完整驗證，再 Ubuntu 適配／完整 native 重驗 | M1 CPU **USER_CONFIRMED**；target mapping aarch64-apple-darwin；開發macOS15.7.7已觀測、Windows11 x64已確認；最低macOS與實際build／ABI／runtime仍待完成 |
 | 公開 GitHub repo swchen44/rustgrok；release packages 放 GitHub Releases | public **USER_CONFIRMED**；初始規劃已提交 main 並逐檔核實 46 檔，Release 尚未建立 |
 | 必要 Ctags／Git／其他 SCM helpers 隨包 | **CONFIRMED**（D19）；工具版本／build／具體能力待 G1 |
 | 搜尋速度優先 | **CONFIRMED**（D21）；數值 SLO／環境／資源取捨仍 OPEN |
@@ -31,7 +31,7 @@
 1. **Rust 負責產品核心。** 搜尋、索引、query interpretation、Web 與 host 管理由 Rust 實作；npm 作分發與必要啟動入口。具體 crate／process 邊界未定。
 2. **依確認範圍保持原版功能與 style。** D02 不要求角色／ACL 與 authorization／RBAC plugin parity；其餘頁面、操作、路由及功能目標保留。沿用 CSS／JS／圖示須維持其 DOM／資料／事件契約；JSP 動態邏輯移植 Rust templates／handlers，模板引擎未定。
 3. **標準 Rust profile 不帶 JVM。** Java／Tomcat 原 OpenGrok 放在獨立測試參照環境，提供 tokens、query、結果、xref、history 與 UI oracle。不得以 Rust 外殼暗中啟動 Java backend 代替重寫。
-4. **Ubuntu 24.04 amd64 正式部署優先，Apple M1 macOS 先開發驗證。** 使用者已確認 M1／arm64，Rust target mapping 為 aarch64-apple-darwin；先完成 Mac 開發與第一輪完整驗證，再做 Ubuntu 平台適配及完整 native 重驗。Mac PASS 不替代 Linux PASS。npm／ZIP 共用同一 Rust 核心，分平台 build／adapter 是工程設計，不另建第二套產品。macOS 實際／最低版本與 Windows 詳細規格依 D03 待定；Windows 保留，WSL 不能代替原生 Windows。實際 Ubuntu point release 隨測試環境記錄。
+4. **Ubuntu 24.04 amd64 正式部署優先，Apple M1 macOS 先開發驗證。** 使用者已確認 M1／arm64，Rust target mapping 為 aarch64-apple-darwin；先完成 Mac 開發與第一輪完整驗證，再做 Ubuntu 平台適配及完整 native 重驗。Mac PASS 不替代 Linux PASS。npm／ZIP 共用同一 Rust 核心，分平台 build／adapter 是工程設計，不另建第二套產品。開發macOS15.7.7已觀測、Windows11 x64已確認；最低macOS、Windows實際build／ABI依D03待驗；WSL 不能代替原生 Windows。實際 Ubuntu point release 隨測試環境記錄。
 5. **搜尋速度優先。** D21 已確認首要目標；同語料、硬體、功能與資源條件量測全文 query、path、defs 與跨 project 搜尋。數值 SLO、代表環境、query mix 與可接受資源／更新取捨仍 OPEN，不先承諾加速倍數。
 6. **必要 helpers 隨包。** D19 已確認 Rust 核心可附帶必要 Ctags／Git／其他 SCM 工具；將其相依與授權納入發行閉包，不要求使用者另裝必要工具或隱性連外下載。精確版本、build、features 與各 SCM 能力依 G1／原 inventory 驗證。
 7. **本機與 LAN 都可使用，約 5 人，無角色／專案 ACL 管理。** 不強迫新帳號／SSO／登入；原 authorization／RBAC plugin parity 不再是 mandatory 產品能力或交付阻擋。非 auth plugins 仍保留盤點，不因這項決定省略。
@@ -74,7 +74,7 @@ Tantivy 為搜尋引擎候選，Tree-sitter 為語法分析候選。Axum／Tokio
 | 決策 | 已確認／待細化內容 | 目前界線 |
 |---|---|---|
 | D02 | **CONFIRMED：local＋LAN、約 5 人、無角色／project ACL 管理** | 不強迫新帳號／SSO／登入；約 5 人不是 QPS 或硬上限；非 auth plugin 仍盤點 |
-| D03 | **正式優先部署 Ubuntu 24.04 amd64；先 Apple M1／arm64 Mac 完整驗證，再 Ubuntu native 重驗** | Ubuntu CPU 對應 x86_64，Mac target mapping aarch64-apple-darwin；macOS 實際／最低版本、Windows 規格仍 OPEN，Mac PASS 不代替 Linux PASS |
+| D03 | **正式優先部署 Ubuntu 24.04 amd64；先 Apple M1／arm64 Mac 完整驗證，再 Ubuntu native 重驗** | Ubuntu CPU 對應 x86_64，Mac target mapping aarch64-apple-darwin；開發macOS15.7.7已觀測、Windows11 x64已定；最低macOS及實際build／ABI仍OPEN，Mac PASS 不代替 Linux PASS |
 | D11 | **public 已確認，swchen44/rustgrok 初始規劃已提交並核實** | repo CREATED／ID 1433282584／main；內容 COMMITTED_AND_TREE_VERIFIED，verified_files 46，Release NOT_CREATED |
 | D04 | **USER_CONFIRMED：OpenGrok 1.14.20 為功能、style 與排序的正式驗收基線** | 固定 commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3；產物下載／hash 核對及 oracle 執行未完成，D20 精確相容契約仍 OPEN |
 | D16 | **USER_CONFIRMED：管理網頁只限主機本機瀏覽器；LAN 搜尋／瀏覽** | 保留主機 CLI／本機 control 管理；2026-10-26 確認網頁範圍，頁面操作、具體控制及 runtime 驗證待完成 |
@@ -103,7 +103,7 @@ Rust、必要 helpers 隨包、搜尋優先、本機＋LAN 無權限管理、Ubu
 
 Rust 是語言決策，不是重新授權決策。OpenGrok LICENSE.txt 宣告預設 CDDL 1.0 only，並提示檔案例外。沿用資產、翻譯／移植碼、tests 與獨立新增碼應分別記錄 origin、commit、notices、修改及適用條款，依實際內容核對發行時的 source 對應要求。[S8]
 
-本 ADR 不預判所有 Rust 檔案的法律屬性，也不宣告全產品可統一改成 MIT。Tantivy Cargo.toml 的 MIT 宣告僅描述該元件，不覆蓋 OpenGrok 或其他資產。產品名稱與新增碼授權仍屬 D17，發行前依實際 source／artifact inventory 核對。
+本 ADR 不預判所有 Rust 檔案的法律屬性，也不宣告全產品可統一改成 MIT。Tantivy Cargo.toml 的 MIT 宣告僅描述該元件，不覆蓋 OpenGrok 或其他資產。Q13／Q14已確認顯示名稱Rustgrok及獨立原創新增Rust／JS採MIT，沿用、修改、移植與第三方仍按其適用條件處理；見根目錄LICENSE.md，發行前依實際source／artifact inventory核對。
 
 ## 8. Primary sources
 

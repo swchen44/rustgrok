@@ -1,12 +1,12 @@
-# rustgrok：OpenGrok Rust 重寫研究與實作交接包 v0.6
+# Rustgrok：OpenGrok Rust 重寫研究與實作交接包 v0.6
 
 日期：2026-10-25。  
 狀態：**Rust、必要工具隨包、搜尋優先、本機＋LAN約5人且無權限管理已確認。先在macOS開發及完整驗證，再於主要部署目標Ubuntu 24.04 amd64適配與完整原生重驗。Public repo rustgrok已建立；首輪Mac為M1／arm64，GitHub Releases交付已確認；macOS版本等仍待決。產品尚未實作或發布。**  
-GitHub repo名稱：**rustgrok**（使用者指定）。產品顯示名稱、npm scope/name與新增程式碼授權仍待決；repo名稱不表示與OpenGrok官方有關係，也不自動保留同名npm套件。
+GitHub repo名稱：**rustgrok**。Q13已確認產品顯示名稱 **Rustgrok**、npm主套件 **rustgrok**；Q14已確認獨立原創新增Rust／JS採MIT，沿用、修改、移植及第三方內容保持各自適用條件，見[授權範圍](LICENSE.md)。名稱查詢不等於保留或實際發布，npm仍由使用者自行發布。
 
 ## 已確認的目標
 
-把 OpenGrok 做成內網可用、自帶 Web Server、支援多專案的產品；功能、外觀、style 與操作沿用原版。以 **Rust 重寫搜尋、索引、Web 與 host 管理主體**，目的是改善效能。目標環境保留macOS、Ubuntu 24.04 amd64、Windows64；macOS先開發及第一輪完整驗證，再做Ubuntu amd64適配與完整原生重驗，主要部署優先為Ubuntu；以 npm 分發並交由使用者上傳 npm，也可交付離線 ZIP。原始碼、docs、tests 與開發紀錄進同一個 GitHub Monorepo。重大決策要與使用者討論，不猜測意圖。
+把 OpenGrok 做成內網可用、自帶 Web Server、支援多專案的產品；功能、外觀、style 與操作沿用原版。以 **Rust 重寫搜尋、索引、Web 與 host 管理主體**，目的是改善效能。目標環境保留macOS、Ubuntu 24.04 amd64、Windows11 x64；macOS先開發及第一輪完整驗證，再做Ubuntu amd64適配與完整原生重驗，主要部署優先為Ubuntu；以 npm 分發並交由使用者上傳 npm，也可交付離線 ZIP。原始碼、docs、tests 與開發紀錄進同一個 GitHub Monorepo。重大決策要與使用者討論，不猜測意圖。
 
 使用者先確認「我還是想要改寫rust 因為效能比較好」，再回答「A+搜尋速度」。現行方向是 Rust 核心、必要 Ctags／SCM 工具隨包、搜尋速度第一優先。原版 Java 保留為獨立參照；v0.1 Java/Tomcat 產品包裝建議已被取代。
 
@@ -32,6 +32,10 @@ Q8／D12 已確認更新期間繼續提供上一成功版本的搜尋，新索�
 
 Q9 已選沿用原版閱讀規則：snippet、xref、raw／download依固定OpenGrok的live source／SCM分支與相同配置處理，不額外把全部閱讀綁定搜尋版本快照；搜尋命中與打開的內容可能各有來源版本。這不免除索引建置期間的來源一致性處理，runtime仍待驗證。
 
+Q10–Q12 已確認兩種安裝路徑都支援：npm registry／公司mirror，以及搬入tgz／ZIP；C、Python、JavaScript優先深測，保留原版其他語言；Windows目標為11 x64。主要部署仍Ubuntu24.04 amd64，Mac先完整驗證、Ubuntu後原生重驗不變。開發Mac已觀測macOS15.7.7／arm64；最低macOS、Ubuntu硬體、browser與數值SLO等另定。
+
+Q13／Q14已確認命名與新原創碼的授權分工；[查核紀錄](docs/research/2026-10-26-naming-and-license-boundaries.md)保留registry觀測及上游條款來源。尚無產品套件、名稱保留、npm發布或完整逐檔授權盤點結果。
+
 ## 閱讀順序
 
 | 文件 | 用途 |
@@ -55,6 +59,7 @@ Q9 已選沿用原版閱讀規則：snippet、xref、raw／download依固定Open
 | [14-search-performance-plan.md](docs/14-search-performance-plan.md) | 搜尋優先的設計、量測、實驗順序與決策變更 |
 | [15-deployment-and-linux-priority.md](docs/15-deployment-and-linux-priority.md) | 本機＋LAN、約5人、macOS先驗與Ubuntu amd64部署 |
 | [16-github-bootstrap-and-release-handoff.md](docs/16-github-bootstrap-and-release-handoff.md) | rustgrok建立準備、Release產物與交接狀態 |
+| [18-g0-g1-entry-review.md](docs/18-g0-g1-entry-review.md) | 本輪已確認事項、G0／G1下一步產物與OPEN事項的實際阻擋範圍 |
 | [sources.md](docs/sources.md) | 一級來源、版本與查核限制 |
 | [tests/README.md](tests/README.md) | 測試目錄與證據規約 |
 | [tools/README.md](tools/README.md) | 可重跑的規劃文件檢查與封裝腳本 |

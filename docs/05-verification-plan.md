@@ -225,7 +225,7 @@ ID保持穩定，原有需求不因換語言被刪除。下列為內容更新的
 | PKG-004 | FR-013, NFR-004, FR-021 | 無JVM/Tomcat/Rust工具鏈、非管理員環境的成品啟動 | G1／G4 |
 | PKG-005 | FR-016, NFR-001, NFR-002 | npm global/local install、空白／中文／長 install path | G1／G4 |
 | PKG-006 | NFR-001, NFR-009, FR-021 | platform/CPU mismatch、corrupt payload/hash mismatch | G1／G4 |
-| OS-001 | NFR-001, FR-004, FR-006, FR-010, FR-013, FR-021 | Windows 64 位元原生，不藉 WSL／Docker | G1／G4 |
+| OS-001 | NFR-001, FR-004, FR-006, FR-010, FR-013, FR-021 | Windows11 x64原生，不藉WSL／Docker | G1／G4 |
 | OS-002 | FR-014, NFR-001, NFR-007, FR-021 | Ctrl+C、正常 stop、crash、parent exit、port conflict | G1／G4 |
 | OS-003 | NFR-001, NFR-004 | Apple M1 macOS原生arm64先完整驗證 | G1／G4 |
 | OS-004 | NFR-001, NFR-004 | Ubuntu24.04 amd64適配與完整原生重驗 | G1／G4 |

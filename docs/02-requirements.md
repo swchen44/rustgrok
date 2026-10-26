@@ -31,7 +31,7 @@ D04 後續已由使用者回覆「OK」確認：以 OpenGrok 1.14.20／commit 3c
 | U03 | host版本、自帶Web Server；本機＋LAN均支援 | CONFIRMED，D02 | FR-013、FR-014、FR-017 |
 | U04 | 同時使用多個專案 | CONFIRMED，並行含義待定 | FR-007、FR-009、FR-015 |
 | U05 | 內網可用，最後 npm 打包 | CONFIRMED | FR-018、NFR-002、NFR-015 |
-| U06 | macOS／Ubuntu24.04 amd64／Windows64；Ubuntu為主要部署目標 | CONFIRMED平台與Ubuntu CPU；Mac OS版本／Windows細節OPEN | NFR-001 |
+| U06 | macOS／Ubuntu24.04 amd64／Windows11 x64；Ubuntu為主要部署目標 | CONFIRMEDOS／CPU與順序；最低macOS、build／ABI及runtime證據待補 | NFR-001 |
 | U07 | 可提供離線 ZIP | 候選交付，細節待定 | NFR-003 |
 | U08 | 新GitHub Monorepo rustgrok含docs/tests，發行包放GitHub Releases | CONFIRMED名稱、Public與交付平台；repo已建立 | NFR-013、NFR-014 |
 | U09 | 詳細實作與驗證計畫；決策先討論 | CONFIRMED | 全部文件、D01–D21 |
@@ -95,8 +95,8 @@ D02已確認本機與LAN共用，約5人同時使用，不做使用者／角色�
 
 | ID | 需求 | 狀態 | 驗收方向 |
 |---|---|---|---|
-| NFR-001 | macOS先開發驗證；主要部署Ubuntu24.04 amd64；保留Windows64 | CONFIRMED順序與Ubuntu tuple；Mac OS版本／Windows細節OPEN | Mac全部適用功能／介面／包裝驗證後，Ubuntu以真包完整原生重驗；各平台證據分開，Windows不用WSL替代 |
-| NFR-002 | npm 可安裝的最終產品 | CONFIRMED；scope/name/npm version OPEN | 測實際 npm pack 的 .tgz；安裝版，不只 source checkout |
+| NFR-001 | macOS先開發驗證；主要部署Ubuntu24.04 amd64；Windows11 x64 | CONFIRMED順序與OS／CPU；最低macOS、實際Windows build／ABI及runtime證據待補 | Mac全部適用功能／介面／包裝驗證後，Ubuntu以真包完整原生重驗；各平台證據分開，Windows不用WSL替代 |
+| NFR-002 | npm 可安裝的最終產品 | CONFIRMED主套件rustgrok；Node/npm版本及包型待G1 | 測實際 npm pack 的 .tgz；安裝版，不只 source checkout |
 | NFR-003 | 離線 ZIP 交付 | PROPOSED，使用者允許 | native ZIP可直接執行而不依賴Node；helpers、啟動方式、架構分包、executable bits與Gatekeeper依D13/D19驗收 |
 | NFR-004 | 一般使用者權限安裝及運作 | PROPOSED；D07 | 不能用admin裝好的Git/ctags/shared libraries、symlink權限或系統PATH遮掉依賴；產品不需JRE |
 | NFR-005 | 搜尋速度第一優先；首頁、xref與索引性能同時記錄 | CONFIRMED優先；數值OPEN，D09/D21 | 1人參照＋約5人互動負載；按query/project測server／browser latency、cold/warm、p50/p95/p99、queue、timeouts與並行索引；人數非QPS／請求硬上限，門檻待批 |
@@ -116,16 +116,16 @@ D02已確認本機與LAN共用，約5人同時使用，不做使用者／角色�
 
 | OS | 已知 | 還需要使用者資訊 | 不能擅自替代 |
 |---|---|---|---|
-| macOS | 首輪開發／完整驗證為M1 Apple Silicon arm64 | macOS實際／最低版本；是否另交Intel x64尚未指定 | 原生arm64執行，Rosetta x86_64結果分開記錄 |
+| macOS | 首輪為M1 arm64，開發host觀測15.7.7／24G720 | 最低macOS與正式SDK／toolchain；是否另交Intel x64尚未指定 | 原生arm64執行，Rosetta x86_64結果分開記錄 |
 | Ubuntu | Ubuntu24.04 amd64主要部署目標；接續Mac完整驗證 | desktop/server、CPU型號／cores、RAM與磁碟；實測記錄24.04.x映像 | amd64已確認；Mac PASS或ubuntu-latest名稱不能替代Ubuntu實際執行證據 |
-| Windows | 64 位元，本計畫候選為 x64 | Windows 10／11／Server 版本；PowerShell/cmd 限制；管理員權限 | WSL／Docker／Git Bash 不代替原生產品支持 |
+| Windows | Windows11 x64已由Q12確認 | 實際build、ABI/toolchain、PowerShell/cmd及企業政策 | WSL／Docker／Git Bash 不代替原生產品支持 |
 | Browser | 沿用 OpenGrok | Chrome／Edge／Firefox／Safari，版本與企業政策 | Linux Chromium 圖片不代替所有 OS/browser |
 
 ## 7. 性能與容量驗收契約（空值保留）
 
 | 項目 | 使用者提供／測試計畫 |
 |---|---|
-| projects 數、repository 數、source files／GB／LOC、history 年數 | OPEN，不以單一小 fixture 推論企業規模 |
+| projects 數、repository 數、source files／GB／LOC、history 年數 | 已知10個project、每project source約50 MB、可多repo／巢狀Git；實際repo數、files／LOC／history仍OPEN，不以小fixture或source估算推論index／RAM |
 | CPU 型號／cores、RAM、SSD/NAS、抗毒軟體 | OPEN，記錄詳細測試 host |
 | 同時使用人數、每秒queries、index concurrency | 約5人已提供；互動到達率、實際同時requests與index concurrency仍OPEN，不以5人直接填5QPS |
 | cold/warm query延遲及其他SLO | 搜尋優先已確認；所有數值OPEN。按查詢分組報p50/p95/p99、timeout/error rate、樣本數；startup/xref/index/reindex作持續觀測 |

@@ -16,7 +16,7 @@
 | 產品狀態 | 沒有Rust runtime、Cargo.lock、正式npm TGZ或產品ZIP；80項產品測試仍planned |
 | 正式產品Release | 尚未建立；repository與文件提交不代表產品已發布 |
 
-本輪已依使用者Public決策建立repository，不再詢問可見性、repo名稱或Mac CPU。repo名稱不自動決定產品商標、npm scope/name或D17新程式碼授權。
+本輪已依使用者Public決策建立repository，不再詢問可見性、repo名稱或Mac CPU。Q13另已確認顯示名稱Rustgrok／npm主套件rustgrok，Q14確認原創Rust／JS採MIT與沿用／移植條件分工；不推成全產品MIT或scope所有權。
 
 ## 2. 可見性與發行目的地
 
@@ -38,14 +38,14 @@ Public已由使用者確認，GitHub repository及後續公開Release可供公�
 
 ## 4. Release資產設計
 
-以下檔名為工程提案，`<version>`、`<confirmed-arch>`與`<package-name>`均是待實作時填入的占位值。
+以下檔名為工程提案，`<version>`與平台包名稱仍待實作；主套件rustgrok及Windows x64已由使用者選定。
 
 | 產物 | 內容與驗證要求 |
 |---|---|
 | `rustgrok-<version>-linux-amd64.zip` | 對Ubuntu24.04 amd64驗證的Rust binary、必要helpers／共享庫／assets及啟動說明 |
 | `rustgrok-<version>-darwin-arm64.zip` | M1／arm64同版產物；macOS版本另記，原生執行、quarantine／paths／helpers與Rosetta狀態證據 |
-| `rustgrok-<version>-windows-<confirmed-arch>.zip` | 已確認Windows64 tuple的產物；不能拿WSL產物充當Windows原生 |
-| `<package-name>-<version>.tgz`及平台TGZ | npm主入口與平台payload；名稱依D14，沒有因repo叫rustgrok就確定npm名稱 |
+| `rustgrok-<version>-windows-x64.zip` | 已確認Windows11 x64的產物；不能拿WSL產物充當Windows原生 |
+| `rustgrok-<version>.tgz`及平台TGZ | npm主入口rustgrok已定；平台包型／名稱待G1，版本與真包證據另凍結 |
 | 完整離線npm套件組 | 包含實際需要的依賴閉包和安裝方式；將TGZ並排放Release不能單獨證明離線安裝成立 |
 | release-manifest.json | commit、tag、toolchain／lock摘要、各平台、helpers、每項payload hash及對應test evidence |
 | SHA256SUMS | 最終payload及release-manifest的SHA-256；不對自己計hash，避免循環依賴 |

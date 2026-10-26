@@ -37,7 +37,8 @@
     "JGit-compatible merge/rename/blame whitespace and history behavior",
     "Rust SSR DOM/URL/JS globals and original style contracts",
     "Full versus incremental indexing equivalence, deletion and generation recovery",
-    "Project/repository identities remain distinct; multiple sibling Git repositories and plain nested Git layouts are compared against identical OpenGrok 1.14.20 discovery/history configuration, without equating nested paths to project groups or submodules."
+    "Project/repository identities remain distinct; multiple sibling Git repositories and plain nested Git layouts are compared against identical OpenGrok 1.14.20 discovery/history configuration, without equating nested paths to project groups or submodules.",
+    "Deepen C, Python and JavaScript token/defs/refs/xref fixtures first while retaining the complete upstream analyzer inventory."
   ],
   "note": "This is a fixture specification template; files/repositories/history have not been generated.",
   "reference_role": "Independent OpenGrok oracle; not a product runtime",
@@ -74,7 +75,12 @@
       "repository_count": null,
       "history_annotate_blame_diff_policy": "Match OpenGrok 1.14.20 at the pinned commit under identical configuration; do not invent repository discovery or file-ownership rules.",
       "git_only_scope_approved": false
-    }
+    },
+    "priority_languages": [
+      "C",
+      "Python",
+      "JavaScript"
+    ]
   },
   "helper_profile": "bundled_required_helpers",
   "acceptance_baseline_decision": "D04"

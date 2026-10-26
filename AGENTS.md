@@ -4,16 +4,17 @@
 
 - 使用者要求與最新答覆優先；Rust 核心重寫（D01）已確定，不再詢問是否改用 Java 包裝。
 - 搜尋、索引、Web 與 host 管理在 Rust；npm 是分發入口。Java/OpenGrok 僅供獨立 oracle。特定舊 JAR plugins 若需要 bridge，先處理 D20，不默加 JVM。
-- D19 已選 A：必要 Ctags／SCM 工具隨包；D21 已確認搜尋速度第一優先，不重問。D02已確認本機＋LAN、約5人、不用角色／專案ACL。Ubuntu24.04 amd64為主要部署目標；先macOS開發及完整驗證，再Ubuntu平台適配與完整原生重驗，Mac PASS不能當Linux PASS。Mac已確認M1／Apple Silicon arm64；macOS實際／最低版本、Windows細節、精確工具build、SLO與資源取捨仍OPEN，不重問Mac架構、Ubuntu版本或CPU。
+- D19 已選 A：必要 Ctags／SCM 工具隨包；D21 已確認搜尋速度第一優先，不重問。D02已確認本機＋LAN、約5人、不用角色／專案ACL。Ubuntu24.04 amd64為主要部署目標；先macOS開發及完整驗證，再Ubuntu平台適配與完整原生重驗，Mac PASS不能當Linux PASS。Mac已確認M1／Apple Silicon arm64；最低macOS、Windows實際build／ABI、精確工具build、SLO與資源取捨仍OPEN，不重問Mac架構、Ubuntu版本或CPU。
 - D04 已確認 OpenGrok 1.14.20／commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3 為功能、style 與排序的正式驗收基線；不重問版本。oracle 執行與產品測試仍未完成，D20 精確相容契約另行釐清。
 - Q2–Q5 已接受：index/cache 可從 source 重建並保留原資料供回復；source 外部更新、產品手動＋排程索引；首版 CLI 前景＋背景。D16 基本邊界為 LAN 搜尋／瀏覽，主機 CLI／本機控制面管理；2026-10-26 已確認新增管理網頁只限主機本機瀏覽器，LAN 維持搜尋／瀏覽；頁面及有副作用的管理 API 均須遵守此邊界。watch、系統服務／登入自啟與其他未答項不由此代決。
 - Q6 已確認沒有需搬移的既有 XML、客製 JAR、API scripts 或舊書籤；不因此刪減原版內建能力。Q7 已知10個project、每project source約50 MB，合計推算約500 MB；每project可多Git repo或git-in-git。Project不等同repository；repo發現、檔案歸屬及history／annotate(blame)／diff照OpenGrok 1.14.20同配置查證，不自訂巢狀政策，也不縮成Git-only。硬體、history大小、精確bytes與SLO仍未定。
 - Q8／D12 已確認更新期間維持上一成功版本搜尋，新索引與必要關聯資料完整後整批切換。Q9選1：snippet／xref／raw／download沿OpenGrok 1.14.20同配置的live／SCM讀取分支，不新增閱讀用source snapshot或改URL。新鮮度／磁碟數值、建置期間來源變動及publish scope仍待G1契約與證據；engine局部commit不代表全體發布，搜尋版本也不等於所有閱讀內容同版。
+- Q10兩種安裝皆要：npm registry／公司mirror及搬入tgz／ZIP；具體registry／Node/npm／scripts政策未定。Q11優先深測C、Python、JavaScript，不裁減原版其他語言。Q12已確認Windows11 x64，主要部署仍Ubuntu24.04 amd64；Mac先驗／Ubuntu後原生重驗不變，不重問Windows OS／CPU。Mac開發host已觀測15.7.7／24G720、arm64，最低macOS與正式toolchain未定。
 - 依新答覆移除使用者權限管理／RBAC／project ACL需求；其餘原功能與原style保留，不縮成Git-only、少數語言、近似排名或新UI。不要加必需帳號／SSO；免登入閱讀是提案。D16 已選本機管理網頁／主機 CLI／本機控制面，LAN 搜尋／瀏覽，不重問此可達範圍。Windows 原生支持不能用 WSL 代替。
 - Tantivy／Axum／Tokio／Tree-sitter 等是候選；版本與功能符合性經 G1 驗證後再凍結。Rust 已選不代表這些庫已選。
 - query、tokens、offsets、scoring scope、generation、DOM／HTTP 契約先寫清楚，再並行實作；引擎 defaults 不代表 OpenGrok 語意。
 - 保留沿用與移植內容的來源、commit、license、notices；Java 翻成 Rust 不自動消除來源條件。
-- 使用者指定新GitHub repo rustgrok，產品程式碼、docs/tests與發行證據放該Monorepo，發行包放GitHub Releases。公開repo swchen44/rustgrok已建立（id1433282584、main）；Public已由使用者確認，不再重問可見性。不得把repo名稱當成npm名稱或新程式碼授權已決。企業source/index/secrets不外傳。
+- 使用者指定新GitHub repo rustgrok，產品程式碼、docs/tests與發行證據放該Monorepo，發行包放GitHub Releases。公開repo swchen44/rustgrok已建立（id1433282584、main）；Public不重問。Q13已確認顯示名稱Rustgrok、npm主套件rustgrok；Q14獨立原創新增Rust／JS採MIT，沿用／移植／第三方條件按LICENSE.md與逐檔provenance保留。不得擴成全產品MIT或猜npm scope所有權；企業source/index/secrets不外傳。
 - 工作包用 WP-ID；需求 FR/NFR、決策 Dxx、測試 IDs 各自追溯，不能互代。
 - 只有實際執行的測試可標 passed；planned/blocked/skipped 不算通過。結構檢查成功不等於產品通過。
 - 性能優化先處理搜尋延遲；以同功能、同資料、同硬體、合理調校／暖機的參照及 Rust release 測量。不得靠漏結果、改排名、延後資料更新或無限資源換取未批准的改善；不預設倍數。

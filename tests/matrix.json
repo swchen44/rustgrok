@@ -28,7 +28,7 @@
     "所有測項為planned，未執行Rust原型、性能比較或產品驗收；舊68個test IDs完整保留。",
     "本版所有產品測項適用標準Rust profile：不包含或依賴JVM/Tomcat、不執行WAR/JSP、不呼叫Java完成未移植功能；原版Java/OpenGrok只在獨立oracle運行。",
     "本輪沒有批准Java plugin bridge。未來只有D20明確批准特定插件bridge並另立profile、測項與gates，才可驗證該額外交付；不得取代Rust核心或放寬本版標準profile的無JVM要求。",
-    "Windows已確認需求是64位元；OS版本與CPU tuple依D03批准，不能默認x64。所有目標平台依核准tuple原生驗證。",
+    "Q12已確認Windows11 x64；實際build／ABI及原生環境另記。所有目標平台依核准tuple原生驗證。",
     "npm安裝需要核准Node/npm，JS launcher的執行前提依批准形式驗證；native ZIP直接啟動Rust binary，另在無Node/npm環境驗證。",
     "gate為最早實驗；acceptance_gate為完成驗收；release_gate=G6為發布交接覆核。",
     "正確性與性能是兩個獨立結果；較快但缺功能／少索引內容／不同查詢語意不得稱等價性能提升。",
@@ -1051,15 +1051,16 @@
       ],
       "title": "clean supported OS；從 packed tgz 安裝並啟動",
       "preconditions": [
-        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。",
-        "平台順序為Mac完整功能／介面／包裝完成後，Ubuntu24.04 amd64適配及完整原生重驗；Windows原生承諾保留。每平台使用自己的實際發行候選及hash，不繼承Mac結果。"
+        "Q10已確認registry／mirror及搬入tgz／ZIP兩種安裝路徑；按平台各自packed artifact驗證，不把搬入檔案當完整依賴閉包證據。具體Node/npm與registry政策另凍結。",
+        "平台順序為Mac完整功能／介面／包裝完成後，Ubuntu24.04 amd64適配及完整原生重驗；Windows11 x64原生承諾已確認。每平台使用自己的實際發行候選及hash，不繼承Mac結果。"
       ],
       "steps": [
         "在核准OS/arch clean VM事先提供核准Node/npm，不預裝ctags/SCM helpers；安裝實際bundled npm tgz，不使用monorepo source或cargo build。",
         "按文件啟動Rust server，建立索引，搜尋/xref/history後停止。",
         "記錄執行樹與載入依賴：核心來自發布Rust binary，必要helpers來自隨包版本；不啟動Java/Tomcat、不借developer cache或系統PATH工具。",
         "對照待發行或已確認rustgrok GitHub Release的asset manifest，記錄version／OS／arch／檔名／大小／checksum；G6下載回讀後需能對上同一實測bytes，不將source archive當npm產品。",
-        "M1情境核對平台resolver選取macOS arm64 payload與bundled helpers，記錄npm／Rust程序實際架構；不能因Rosetta可執行x86_64就通過arm64安裝驗收。"
+        "M1情境核對平台resolver選取macOS arm64 payload與bundled helpers，記錄npm／Rust程序實際架構；不能因Rosetta可執行x86_64就通過arm64安裝驗收。",
+        "分別由已核准registry／mirror與移入的實際TGZ安裝；相同功能與payload閉包在各路徑驗證，不自行公開npm發布。"
       ],
       "expected": "production files與必要bundled helpers完整，實際可index/search/xref/history；無dev workspace、預裝工具或PATH隱性依賴。",
       "evidence": [
@@ -1085,8 +1086,8 @@
       ],
       "title": "npm install scripts 禁用；外網出口阻斷、只開內網 registry",
       "preconditions": [
-        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。",
-        "平台順序為Mac完整功能／介面／包裝完成後，Ubuntu24.04 amd64適配及完整原生重驗；Windows原生承諾保留。每平台使用自己的實際發行候選及hash，不繼承Mac結果。"
+        "Q10已確認registry／mirror及搬入tgz／ZIP兩種安裝路徑；按平台各自packed artifact驗證，不把搬入檔案當完整依賴閉包證據。具體Node/npm與registry政策另凍結。",
+        "平台順序為Mac完整功能／介面／包裝完成後，Ubuntu24.04 amd64適配及完整原生重驗；Windows11 x64原生承諾已確認。每平台使用自己的實際發行候選及hash，不繼承Mac結果。"
       ],
       "steps": [
         "事先提供核准Node/npm，清空cache，設定允許的內網registry，封鎖其他出口，禁用install scripts。",
@@ -1117,8 +1118,8 @@
       ],
       "title": "完全斷網／空 npm cache，從完整 offline ZIP/tgz bundle 安裝",
       "preconditions": [
-        "使用已核准版本／配置與可重現fixture；未決條件不可用猜測填入。",
-        "平台順序為Mac完整功能／介面／包裝完成後，Ubuntu24.04 amd64適配及完整原生重驗；Windows原生承諾保留。每平台使用自己的實際發行候選及hash，不繼承Mac結果。"
+        "Q10已確認registry／mirror及搬入tgz／ZIP兩種安裝路徑；按平台各自packed artifact驗證，不把搬入檔案當完整依賴閉包證據。具體Node/npm與registry政策另凍結。",
+        "平台順序為Mac完整功能／介面／包裝完成後，Ubuntu24.04 amd64適配及完整原生重驗；Windows11 x64原生承諾已確認。每平台使用自己的實際發行候選及hash，不繼承Mac結果。"
       ],
       "steps": [
         "從待發行資產集合或已發布的公開swchen44/rustgrok GitHub Release取得對應平台完整離線ZIP／TGZ閉包，先核對metadata與checksum再移入隔離環境。repo已建立不代表產品Release已存在；目前產品未實作。",
@@ -1126,7 +1127,7 @@
         "native ZIP情境不安裝Node/npm，直接解壓並以Rust binary完成start/index/query。",
         "離線npm TGZ情境事先提供核准Node/npm，使用空npm cache與完整依賴閉包完成安裝/start/index/query；JS launcher按批准前提運作。",
         "確認兩種標準Rust交付皆含必要bundled helpers，無cargo/npm/npx網路抓取、無Java/Tomcat、無預裝ctags/SCM或其他隱性依賴；系統ABI前提另依manifest核對。",
-        "Mac流程完成後，Ubuntu24.04 amd64用自己的payload在clean原生環境重跑全部離線步驟；Windows亦保留原生證據，不因共同manifest或跨編譯而免驗。"
+        "Mac流程完成後，Ubuntu24.04 amd64用自己的payload在clean原生環境重跑全部離線步驟；Windows11 x64亦須獨立原生證據，不因共同manifest或跨編譯而免驗。"
       ],
       "expected": "native ZIP在無Node/npm下完成指定流程；離線npm TGZ在核准Node/npm與空cache下完成。兩者HTTP/DNS/程序證據顯示不依賴任何網路下載、無Java依賴；npx不觸發抓取。",
       "evidence": [
@@ -1246,12 +1247,12 @@
         "FR-013",
         "FR-021"
       ],
-      "title": "Windows 64 位元原生，不藉 WSL／Docker",
+      "title": "Windows11 x64原生，不藉WSL／Docker",
       "preconditions": [
-        "Windows64位元承諾保留，OS版本／CPU tuple須經D03確認；Mac先開發與Ubuntu部署優先不刪除Windows原生驗收。"
+        "Q12已確認Windows11 x64；實際build／ABI、packed artifact與native test host須記錄。Mac先、Ubuntu主要部署不刪除Windows原生驗收。"
       ],
       "steps": [
-        "在D03核准的Windows 64位元OS版本／CPU tuple原生系統安裝標準Rust成品，不預設x64，無WSL/Docker/Java依賴。",
+        "在原生Windows11 x64安裝標準Rust成品，記錄實際build／ABI與artifact hash；無WSL／Docker／Java runtime依賴，不以跨編譯代替原生驗證。",
         "完整測xref/history/suggester/project CRUD/index/query/stop及檔案鎖。",
         "上游Windows跳過測試只是oracle的證據缺口；以Rust實際結果判定，不把原版skip直接當Rust缺陷或免測理由。",
         "以Windows實際發行物完整重跑適用功能／UI／封裝測項並保存獨立run；不得沿用Mac或Ubuntu passed，跨編譯只作artifact來源紀錄。"
@@ -1840,7 +1841,7 @@
       ],
       "title": "原版Windows證據缺口對應行為的Rust補驗",
       "preconditions": [
-        "相關需求與平台／交付契約須先核准；未決則實際執行狀態應標blocked。"
+        "Windows11 x64目標已確認；使用該平台實際artifact與原生環境，逐項核對原版Windows evidence缺口，不把上游skip當成Rust免驗。"
       ],
       "steps": [
         "列出原版Windows profile排除的xref/history/Mercurial/symlink/project控制領域。",
@@ -2213,7 +2214,7 @@
         "Rust、bundled helpers、搜尋優先、local＋LAN、約5人及無權限管理已確認。開發驗證先完成macOS移植／功能／介面／包裝，再於Ubuntu24.04 amd64適配及完整原生重驗；Ubuntu為部署優先。macOS實際／最低版本、Windows環境、oracle、D16/D20、SLO及負載未決處明列。G1研究配置不冒稱完整平台或SLO已通過。"
       ],
       "steps": [
-        "以每個承諾analyzer輸出term、type、position increment、offset與field normalization對照。",
+        "先加深C、Python、JavaScript的term／type／positions／offset及defs／refs／xref對照，再完成原版所有承諾analyzer；使用者優先順序不縮減原版語言範圍。",
         "測長identifier、單字元、大小寫、註解/字串/標點、UTF-8/BOM/CRLF、emoji與combining characters。",
         "明確轉換Java UTF-16 offset與Rust byte offset為共同來源區間；測索引與query端使用相同規則。"
       ],
@@ -2545,7 +2546,7 @@
     "D19": "A：隨包附帶必要helpers，主要runtime驗收採bundled；B外裝與C無helpers非本版mandatory profile。",
     "D21": "搜尋速度優先；約5位同時使用者為已知代表情境，驗證另設1人參照；未批准具體SLO、corpus/hardware、request率／think-time／每人並行或改善倍數。",
     "D02": "local本機與LAN都支援，不做帳號／角色／RBAC／project ACL；已登記projects共同可讀。免登入入口與管理面開放政策尚非已批准。",
-    "D03": "首輪Mac為Apple M1／Apple Silicon arm64；先完整移植／功能／介面／包裝，再於Ubuntu24.04 amd64適配及完整原生重驗。Ubuntu為正式部署優先，macOS實際／最低版本及Windows細節仍未決。",
+    "D03": "M1 arm64 Mac先完整驗證、Ubuntu24.04 amd64後適配原生重驗且主要部署優先；Windows11 x64已確認。開發Mac15.7.7／24G720只屬觀測，最低macOS、實際Windows build／ABI與runtime證據待完成。",
     "D11": "公開swchen44/rustgrok已建立（ID 1433282584、main），發行包放GitHub Releases。初始規劃commit 526f619089703f710c915af303e54aea7d25226e／tree 3af8b051938022e067b29a8ccc4d7acac51205b2與46檔blob SHA已核實；這不是產品測試通過，尚無產品Release且CI未跑。",
     "D08": "外部工具更新source；產品手動＋排程索引，watch未指定。",
     "D10": "目前無需沿用的既有XML／客製JAR／API scripts／舊書籤；index/cache可從source重建並保留原資料。原版內建能力仍按固定基線驗證。",
@@ -2553,12 +2554,16 @@
     "D16": "管理網頁只限主機本機瀏覽器，保留主機 CLI／本機控制面管理，LAN 維持搜尋／瀏覽；2026-10-26 使用者確認。",
     "D05": "部分已決：10個project，每project可含多Git repo及git-in-git；repo發現、檔案歸屬、history／blame／diff照固定OpenGrok同配置。",
     "D09": "部分已決：約5人、10個project、每project source約50 MB，合計推算約500 MB。硬體、history大小、query mix、SLO與資源預算未定。",
-    "D12": "Q8 Yes：更新期間持續上一成功版本搜尋，新index及相關資料完整後整批切換；接受更新期間上一版內容及新舊資料保留成本。 Q9選1：snippet／xref／raw／download沿固定原版live／SCM讀取，未要求閱讀用source snapshot。"
+    "D12": "Q8 Yes：更新期間持續上一成功版本搜尋，新index及相關資料完整後整批切換；接受更新期間上一版內容及新舊資料保留成本。 Q9選1：snippet／xref／raw／download沿固定原版live／SCM讀取，未要求閱讀用source snapshot。",
+    "D06": "C、Python、JavaScript優先深測，原版其他語言／SCM保留。",
+    "D07": "registry／公司mirror與搬入tgz／ZIP兩種安裝皆要，仍由使用者發布npm。",
+    "D14": "主套件npm名稱rustgrok已確認，包型及平台包命名待G1。",
+    "D17": "顯示名稱Rustgrok；獨立原創新增Rust／JS採MIT，沿用／移植／第三方各自適用條件保留。"
   },
   "open_decisions": {
     "D20": "無需客製舊資料遷移；固定基線的原版query／ranking精度、內建config／非權限plugin／API／URL契約仍須完成inventory與驗證。",
     "D09": "已知10個project與每project約50 MB source；CPU／RAM／SSD或NAS、history、files/LOC、query mix、request率／think-time／每人並行及SLO／資源門檻仍OPEN，不能外推index/RSS或QPS。",
-    "D03": "M1／Apple Silicon arm64與Ubuntu24.04 amd64均已確認；macOS實際版本／最低支援版本、Windows版本／CPU、硬體資源等剩餘條件仍OPEN。不再詢問Mac Intel或ARM。",
+    "D03": "最低macOS、正式SDK/toolchain、Windows11 x64實際build／ABI、browser及原生證據待完成；不重問Mac／Windows OS／CPU。",
     "D16": "可達範圍已確認；剩餘管理頁面操作、具體控制及既有 REST／automation 相容另設計及盤點，不新增強制登入／SSO／RBAC。",
     "D12": "發布及原版來源閱讀政策均已決；剩餘建置期間來源變動、publish scope、內部snapshot/journal實作、新鮮度／磁碟／RTO/RPO數值及runtime證據，不外推程式升級零停機。"
   },
@@ -2572,14 +2577,14 @@
     "development_validation_order": [
       {
         "phase": "macos_complete",
-        "scope": "首輪Apple M1原生arm64已確認；先完成所有移植、功能／API／SCM／query／UI及npm／ZIP包裝，macOS實際／最低版本待確認，不只垂直切片。"
+        "scope": "首輪Apple M1原生arm64，開發host觀測macOS15.7.7／8 GiB；先完成全部適用功能／API／SCM／query／UI與npm／ZIP驗證，不只垂直切片。最低macOS及正式toolchain待G1，觀測不代表產品PASS。"
       },
       {
         "phase": "ubuntu_native_revalidation",
         "scope": "Mac階段完成後，Ubuntu24.04 amd64做平台適配，完整重跑所有Linux適用既有測項；性能／pilot按原gate驗。"
       }
     ],
-    "windows": "Windows64位元最終原生驗收保留；CPU／版本待確認，不以Mac、Linux、WSL或Docker結果替代。",
+    "windows": "Windows11 x64已確認，實際build／ABI與原生artifact驗證待完成；不以Mac、Linux、WSL、Docker或cross-compile替代。",
     "result_policy": "每平台獨立run/manifest/artifact hash/結果。跨編譯不算runtime evidence；Linux修改共用程式後回歸受影響Mac契約。 M1須記錄實際native arm64／translation狀態；Rosetta x86_64不能冒充arm64結果。",
     "gate_policy": "平台工作階段不是新增gate；所有原gate映射不變，跨平台gate待全部承諾平台證據齊全才關閉。",
     "first_macos_target": {
@@ -2587,9 +2592,11 @@
       "cpu_family": "Apple Silicon",
       "arch": "arm64",
       "architecture_status": "confirmed",
-      "actual_macos_version": null,
+      "actual_macos_version": "15.7.7",
       "minimum_macos_version": null,
-      "execution_requirement": "native arm64；Rosetta x86_64不能算arm64 PASS"
+      "execution_requirement": "native arm64；Rosetta x86_64不能算arm64 PASS",
+      "actual_os_status": "OBSERVED_DEVELOPMENT_HOST_ONLY",
+      "host_observation": "tests/evidence/development-host-observation-2026-10-26.json"
     }
   },
   "release_destination_policy": {

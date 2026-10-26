@@ -73,14 +73,16 @@
       "platform_id": "windows_supported",
       "development_order": null,
       "os": "windows",
-      "architecture": null,
+      "architecture": "x64",
       "minimum_os": null,
       "actual_os": null,
       "role": "retained_supported_platform_native_acceptance_required",
-      "tuple_status": "awaiting_D03",
+      "tuple_status": "user_confirmed_windows_11_x64_exact_build_abi_and_native_runtime_pending",
       "runtime_result": "not_run",
       "artifact_sha256": null,
-      "evidence_run_id": null
+      "evidence_run_id": null,
+      "requested_os_version": "11",
+      "rust_architecture": "x86_64"
     }
   ],
   "naming_status": "proposed_engineering_templates_not_existing_files",
@@ -115,7 +117,7 @@
     },
     {
       "kind": "native_zip_windows",
-      "filename_template": "rustgrok-<version>-windows-<confirmed-arch>.zip",
+      "filename_template": "rustgrok-<version>-windows-x64.zip",
       "platform_id": "windows_supported",
       "actual_filename": null,
       "bytes": null,
@@ -129,7 +131,7 @@
     },
     {
       "kind": "npm_launcher_tgz",
-      "filename_template": "<package-name>-<version>.tgz",
+      "filename_template": "rustgrok-<version>.tgz",
       "platform_id": null,
       "actual_filename": null,
       "bytes": null,
@@ -260,7 +262,7 @@
   },
   "npm_publication": {
     "actor": "user",
-    "package_name": null,
+    "package_name": "rustgrok",
     "scope": null,
     "registry": null,
     "status": "not_published"
@@ -274,5 +276,19 @@
     "The planning-package version is not a runtime-release version.",
     "Do not upload private enterprise source, indexes or credentials.",
     "No implicit runtime downloads of helpers or native payloads."
-  ]
+  ],
+  "product_naming": {
+    "display_name": "Rustgrok",
+    "npm_main_package_name": "rustgrok",
+    "status": "USER_CONFIRMED"
+  },
+  "license_policy": {
+    "status": "USER_CONFIRMED",
+    "confirmed_at": "2026-10-26",
+    "new_independent_original_rust_js_license": "MIT",
+    "ported_reused_modified_and_third_party_contents": "retain_applicable_per_file_terms_notices_and_source_obligations",
+    "whole_product_relicensed_to_mit": false,
+    "complete_per_file_inventory": false,
+    "document": "LICENSE.md"
+  }
 }

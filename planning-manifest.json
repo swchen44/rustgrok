@@ -30,8 +30,8 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 4928,
-      "sha256": "5649b92edaec0a4ebe7a3017002f40830101bbd6a9717780feb43475cac16907"
+      "bytes": 5461,
+      "sha256": "247c3a492063c187dc2fb67953ea7c8827b97e81fb7e3a89db2dd909c2d85988"
     },
     {
       "path": "GLOSSARY.md",
@@ -39,9 +39,14 @@
       "sha256": "3b7bad86aa0cde4e252558f4bc0e241a5095fdb5cd93c0a59abf2b209267d0c9"
     },
     {
+      "path": "LICENSE.md",
+      "bytes": 1474,
+      "sha256": "6da37171cf3b6c2912feebbaf4b3fc949b5737c3a3f7fae7587a39946c472149"
+    },
+    {
       "path": "README.md",
-      "bytes": 8996,
-      "sha256": "1a00abf6530ee8c21ffb8214d654d25d18944f2eb24562c6e15f5ee9a53c14e3"
+      "bytes": 9908,
+      "sha256": "c206fed88689bf1909a893c40faa5dc03fbbbff41443fb909905db1059669c97"
     },
     {
       "path": "assets/README.md",
@@ -55,8 +60,8 @@
     },
     {
       "path": "distribution/release-manifest.template.json",
-      "bytes": 8959,
-      "sha256": "0a785c0b90e366bb8c06a77868fb5d1dad7ce7eb53f0c77224dc62d799625fe0"
+      "bytes": 9598,
+      "sha256": "9d82b9aae954c906e434f374f7aab9e6ef730664c315f635782be5deff9a3396"
     },
     {
       "path": "docs/00-executive-brief.md",
@@ -65,13 +70,13 @@
     },
     {
       "path": "docs/01-upstream-research.md",
-      "bytes": 23577,
-      "sha256": "306faaa44f22d7cc43a35720cb2700b072cdda7bb7734f5a9061ac58a31d47ea"
+      "bytes": 23599,
+      "sha256": "a0f70b5045b0d209f52bae72ca3c10a397c75d4314b3c931e828e13070c262c7"
     },
     {
       "path": "docs/02-requirements.md",
-      "bytes": 17204,
-      "sha256": "beadca75e5b2b0eace16711d8eca8236ad3c921fbe70c67e03084d6a1b654eb5"
+      "bytes": 17370,
+      "sha256": "1d40be58cccc5c41952d4ef09319ccf519018baea50c56c7808204be7113a6d2"
     },
     {
       "path": "docs/03-system-design.md",
@@ -80,28 +85,28 @@
     },
     {
       "path": "docs/04-implementation-plan.md",
-      "bytes": 12551,
-      "sha256": "cb5e970f7e2fed0c3c77f8f24e181edbb58c33704b8975c9ed3ad9db86d5e5a1"
+      "bytes": 12560,
+      "sha256": "984c2ede39dab0df9125117405f49404bca03b92aabbb54450821cafebe07f44"
     },
     {
       "path": "docs/05-verification-plan.md",
-      "bytes": 40446,
-      "sha256": "11180d4ae507e54525afa4dd55e3da23b0acb77ffb27e95a63e37555f020d5fc"
+      "bytes": 40441,
+      "sha256": "38635dc134e4d615fcb063b1e9d1368e657dcb2a531cfb789969c9ccc0a00186"
     },
     {
       "path": "docs/06-packaging-and-offline.md",
-      "bytes": 29708,
-      "sha256": "1005208db6199e00abcc2406f731a77dd1c8a0f78f158b839ce20975239da5ce"
+      "bytes": 29773,
+      "sha256": "2bb806e3f56e48636e289325f22060825aec465e5e7168a4b34197c9aa07656d"
     },
     {
       "path": "docs/07-monorepo-and-github.md",
-      "bytes": 22289,
-      "sha256": "aec2724d42e0cedf5a4a7cffdfabcd1fc03fc587a2b1220e92c068e2c83c9fe6"
+      "bytes": 22417,
+      "sha256": "2fa2a686e0b689b239b0d8a59507b59023b191571173ba9e324bc5dae7115d76"
     },
     {
       "path": "docs/08-decision-register.md",
-      "bytes": 22487,
-      "sha256": "417e162f8963bdbc65c4dafb466d6b1b6ce5ad6d3ae44259b56da31e5a8b21a8"
+      "bytes": 24452,
+      "sha256": "96bbbbef8abac8e379c7ef3beae0e2ab2314664658ff750b44c08ca882c69f3d"
     },
     {
       "path": "docs/09-risk-register.md",
@@ -110,8 +115,8 @@
     },
     {
       "path": "docs/10-agent-handoff.md",
-      "bytes": 9301,
-      "sha256": "de6326f5c4026c6d45df027793a7b064779798641a51aa48f1b25472df15ed50"
+      "bytes": 9471,
+      "sha256": "cf9f3e622b1e5c4333d5b7f7a3fcc20ce91a6a525ec22edb0aca24589f39e952"
     },
     {
       "path": "docs/11-traceability.md",
@@ -135,13 +140,18 @@
     },
     {
       "path": "docs/15-deployment-and-linux-priority.md",
-      "bytes": 9638,
-      "sha256": "d4f1466368549c9d778273bb53623d3079f4d3527bb52786cf501dd85a140d25"
+      "bytes": 9743,
+      "sha256": "39b2e5519f402ef38b787136d70d66c87f2a7e30157bdce4baa434af845b1e89"
     },
     {
       "path": "docs/16-github-bootstrap-and-release-handoff.md",
-      "bytes": 8428,
-      "sha256": "33eb98f36c1de88169e638b5f7f79bfa3e59dc8356a869d5500a249a12791d55"
+      "bytes": 8500,
+      "sha256": "c8cbd45fd54b5f4241908be794601b225032e371916e0d32ccd24732d2a4ab6c"
+    },
+    {
+      "path": "docs/18-g0-g1-entry-review.md",
+      "bytes": 4787,
+      "sha256": "825e347d9ac5e99bcf63d29dcfd04ff32131f684d46d8af39ce004e39e694f2d"
     },
     {
       "path": "docs/adr/0001-runtime-and-core-reuse.proposed.md",
@@ -150,8 +160,8 @@
     },
     {
       "path": "docs/adr/0002-rust-core-and-compatibility.md",
-      "bytes": 16431,
-      "sha256": "54409e440c52dbba991e8cca6048b380f37212e6732f4660b92717982f35d25b"
+      "bytes": 16662,
+      "sha256": "051be337e037b72ff8d914c6da67aae8ce9bfc7058dfe4ad4c7f0556f03d4f99"
     },
     {
       "path": "docs/adr/0003-published-generation-switch.md",
@@ -174,6 +184,11 @@
       "sha256": "f651509f0e755f77678348f61eccb8cfef2bffe7bd0826216af01994fcc47f4c"
     },
     {
+      "path": "docs/research/2026-10-26-naming-and-license-boundaries.md",
+      "bytes": 5065,
+      "sha256": "461207321bcb70c85ac1965f4e21e0c1c61d3d91e204df58b9213b5c644fe214"
+    },
+    {
       "path": "docs/research/2026-10-26-opengrok-nested-git.md",
       "bytes": 24798,
       "sha256": "69de136db965626db822e43d7db4815f1456d8896f79882b666f5ff1d4511037"
@@ -190,13 +205,13 @@
     },
     {
       "path": "npm/README.md",
-      "bytes": 964,
-      "sha256": "90a92e12c213d01a2c49edf1349a0b64b7ddedf47b9eebf7d24461b210285685"
+      "bytes": 1029,
+      "sha256": "71ed64db7835555aec78f39476848dab86c1fe115fff242cfbffea9e4fc29d84"
     },
     {
       "path": "planning-quality-report.json",
       "bytes": 805,
-      "sha256": "beb38232c985dba78a448bbfd552dbd488e5c1af321637ba6347fa5ed157abb3"
+      "sha256": "f9afe2d85f1c15605716702811e91a7d183876326c6ee36a4564060d7e243563"
     },
     {
       "path": "tests/README.md",
@@ -209,19 +224,24 @@
       "sha256": "9dceb235377196c3d443c11cac1249a097c1a66fce5d47983ff831f9b03bf2f0"
     },
     {
+      "path": "tests/evidence/development-host-observation-2026-10-26.json",
+      "bytes": 2757,
+      "sha256": "2ecad0e0ab98d3a21ce868fd05e64b4cd1a6ef489499f250c44316a2ba2ee9b7"
+    },
+    {
       "path": "tests/fixtures/README.md",
       "bytes": 885,
       "sha256": "21b7eee5f8feca13864a00c52d08dc105b16a93bd4db3f72e7d929e95bf02adf"
     },
     {
       "path": "tests/fixtures/corpus-manifest.template.json",
-      "bytes": 3446,
-      "sha256": "651e97f1950f4acf2b5060724dab25061596e866dd387f64a23553527fadcb18"
+      "bytes": 3660,
+      "sha256": "b734b6e05c4676c6df978e3909299671d010484db2b1693e311bb66ba47cd320"
     },
     {
       "path": "tests/matrix.json",
-      "bytes": 153724,
-      "sha256": "76f98e23bcfd3820ef0c438a505dc7301e7ea2965764058892e120d5b779890a"
+      "bytes": 154993,
+      "sha256": "9fdd040c1aaf0e7fcfc8ff4cbc2701fd1677f0d6872b62efc6fb0eae22b49188"
     },
     {
       "path": "tests/performance/README.md",
@@ -230,8 +250,8 @@
     },
     {
       "path": "tests/performance/search-benchmark-manifest.template.json",
-      "bytes": 8428,
-      "sha256": "9364502b3d506128542165d228a61a5d36ddf7914e5da6e6770762cc7acb624a"
+      "bytes": 8830,
+      "sha256": "eebd57094266ae4c7ae754bc575e4fe8b7ffaba498a25bf5cc57c3eeeb368127"
     },
     {
       "path": "tests/traceability.json",
@@ -245,18 +265,18 @@
     },
     {
       "path": "tools/build_planning_package.py",
-      "bytes": 11634,
-      "sha256": "e18c4b2c7eb7104b8d060d4c055579cb96532107af72292d70a60ee7e55447a1"
+      "bytes": 11806,
+      "sha256": "e9ddcc465f0bd35a5d73ca738b144e64edcfab69ac8e2f7247794ee4473fc5db"
     },
     {
       "path": "upstream/research-lock.json",
-      "bytes": 21724,
-      "sha256": "7cbb9d1eb7ebe3ef1711255df8ac70e19d07b340aa3560938d4f5233eb97c32e"
+      "bytes": 24206,
+      "sha256": "d079a331d0be89193252faa0051f2296bd783bd5e290a138e9734cd3d7d23a87"
     },
     {
       "path": "upstream/rust-research-lock.json",
-      "bytes": 45072,
-      "sha256": "88a64a6465c829eafa9c22a8fab25b53e220ff7baaf443cf3a8fd6b76299c9ba"
+      "bytes": 47418,
+      "sha256": "6013b185b1d3766c736fa2f3c5a12b99ac8eb96098f629780bb524b377b695ab"
     },
     {
       "path": "upstream/source-review-manifest.json",

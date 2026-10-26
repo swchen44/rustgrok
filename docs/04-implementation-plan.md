@@ -16,7 +16,7 @@
 | G1 | AST/token/score/跨project/UI移植、原生binary與offline、早期公平benchmark | 最昂貴差異有證據與可行解；數據不足不得大量展開 |
 | G2 | macOS先完成Rust安裝→project→index→HTTP搜尋→xref→stop垂直流程 | 真發行包、兩project、持久資料、Rust核心、原style基本頁 |
 | G3 | 全query/UI/xref/history/analyzer/SCM/API與適用plugin相容（無RBAC需求） | mandatory功能逐項有證據，不偷偷縮減 |
-| G4 | macOS完整階段後，Ubuntu24.04 amd64適配及完整native重驗；Windows承諾tuple驗收 | 每tuple的功能／UI／包裝／離線／故障／升級證據完整，依賴可重現；Mac階段完成不代替全域G4 |
+| G4 | macOS完整階段後，Ubuntu24.04 amd64適配及完整native重驗；Windows11 x64原生驗收 | 每tuple的功能／UI／包裝／離線／故障／升級證據完整，依賴可重現；Mac階段完成不代替全域G4 |
 | G5 | 使用者內網pilot與批准SLO | 正確性相同下查詢/索引/RSS等達成核准目標；使用者驗收 |
 | G6 | rustgrok GitHub tag/Release、npm/tgz/ZIP、source/SBOM/checksum與交接 | 每項對上source與test結果；由使用者發布npm |
 
@@ -31,7 +31,7 @@ G1 benchmark只回答可行性及瓶頸，不等於全功能已較快。正式�
 | WP | 工作 | 產出與完成條件 | 依賴 |
 |---|---|---|---|
 | WP-A01 | 記錄Rust/A/搜尋/雙模式無ACL/Mac先驗/Ubuntu amd64/rustgrok；確認剩餘決策 | 更新SRS/決策，保留未決；不把Rust等同全純Rust或已接受排名差異 | 無 |
-| WP-A02 | 確認OS/CPU/browser、最低版本、registry與權限 | Ubuntu24.04 amd64已定；首輪Mac已確認M1／arm64，確認macOS實際／最低版本與硬體，其後Linux原生環境及Windows矩陣 | WP-A01 |
+| WP-A02 | 確認OS/CPU/browser、最低版本、registry與權限 | Ubuntu24.04 amd64已定；首輪Mac已確認M1 arm64並觀測macOS15.7.7／8 GiB；最低macOS待定，其後Linux原生環境及Windows11 x64矩陣 | WP-A01 |
 | WP-A03 | 收source布局/語言/SCM/規模/性能痛點與更新模式 | corpus dimensions、D05–D09/D12及benchmark工作負載草案 | WP-A01 |
 | WP-A04 | 鎖定OpenGrok source/assets與Rust候選庫研究版本 | 來源hash/授權台帳、oracle版本；候選庫不可浮動latest當release | WP-A01 |
 | WP-A05 | 盤點routes、queries、analyzers、SCM、plugins與工具 | 每feature有Req/Test ID、原行為與待決相容層次 | WP-A04 |
