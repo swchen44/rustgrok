@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "role": "limited_original_CLI_probe_no_index_HTTP_or_product_acceptance",
+  "executed_at": "2026-11-01T07:42:48+08:00",
+  "work_packages": [
+    "WP-A04",
+    "WP-A05",
+    "WP-A06"
+  ],
+  "related_test_ids": [
+    "REF-001",
+    "REF-003"
+  ],
+  "full_test_cases_passed": [],
+  "opengrok_commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+  "release_archive_sha256": "f33d78f950ba7ed974caa9153120e4f26f9c7f4d63c1f48b7a0350e12d8e346d",
+  "indexer_jar_sha256": "bc1f4650710cb92c4a43221c826018c6358bcbc30bf2aaa86688261a0f145aa1",
+  "runtime": "verified Temurin21.0.13+9 JRE aarch64/mac for help/version only; complete JDK oracle pending",
+  "commands": [
+    {
+      "topic": "version",
+      "argv": [
+        "<verified-JRE>/bin/java",
+        "-jar",
+        "<verified-OpenGrok-release>/lib/opengrok.jar",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout_bytes": 63,
+      "stdout_sha256": "7ae4d0a3f519290fe01376d42f2a1690d12f381790fd124e8cd814918e61812a",
+      "stderr_bytes": 115,
+      "stderr_sha256": "35bab31d5f8c4ed42384781ffeed27189d8949f7525f788250f227c9475d35b7",
+      "local_raw_stdout": "/Users/swchen.tw/Library/Caches/rustgrok/oracle/cli-probe-2026-11-01/version.stdout.txt",
+      "local_raw_stderr": "/Users/swchen.tw/Library/Caches/rustgrok/oracle/cli-probe-2026-11-01/version.stderr.txt",
+      "raw_stdout": "tests/evidence/oracle-cli-2026-11-01/version.stdout.txt",
+      "raw_stderr": "tests/evidence/oracle-cli-2026-11-01/version.stderr.txt"
+    },
+    {
+      "topic": "guru",
+      "argv": [
+        "<verified-JRE>/bin/java",
+        "-jar",
+        "<verified-OpenGrok-release>/lib/opengrok.jar",
+        "--help",
+        "guru"
+      ],
+      "exit_code": 0,
+      "stdout_bytes": 6501,
+      "stdout_sha256": "3d5f52f76899831dfbc37659ce2b943f990d184779c2e859d1a3b9c24ff6b4b7",
+      "stderr_bytes": 118,
+      "stderr_sha256": "922ce969da2d92baeb3929daa426503399eebee433423a266af8d62506239c7e",
+      "local_raw_stdout": "/Users/swchen.tw/Library/Caches/rustgrok/oracle/cli-probe-2026-11-01/guru.stdout.txt",
+      "local_raw_stderr": "/Users/swchen.tw/Library/Caches/rustgrok/oracle/cli-probe-2026-11-01/guru.stderr.txt",
+      "raw_stdout": "tests/evidence/oracle-cli-2026-11-01/guru.stdout.txt",
+      "raw_stderr": "tests/evidence/oracle-cli-2026-11-01/guru.stderr.txt"
+    },
+    {
+      "topic": "repos",
+      "argv": [
+        "<verified-JRE>/bin/java",
+        "-jar",
+        "<verified-OpenGrok-release>/lib/opengrok.jar",
+        "--help",
+        "repos"
+      ],
+      "exit_code": 1,
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 1407,
+      "stderr_sha256": "fc3d3867a1bf3bc6faf55cf9d8c9a8458336c8b0322a326de8d5466adc530aac",
+      "local_raw_stdout": "/Users/swchen.tw/Library/Caches/rustgrok/oracle/cli-probe-2026-11-01/repos.stdout.txt",
+      "local_raw_stderr": "/Users/swchen.tw/Library/Caches/rustgrok/oracle/cli-probe-2026-11-01/repos.stderr.txt",
+      "raw_stdout": "tests/evidence/oracle-cli-2026-11-01/repos.stdout.txt",
+      "raw_stderr": "tests/evidence/oracle-cli-2026-11-01/repos.stderr.txt"
+    },
+    {
+      "topic": "ctags",
+      "argv": [
+        "<verified-JRE>/bin/java",
+        "-jar",
+        "<verified-OpenGrok-release>/lib/opengrok.jar",
+        "--help",
+        "ctags"
+      ],
+      "exit_code": 1,
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 1363,
+      "stderr_sha256": "0dfe4a68df9b2ddbac1171f10e05ad7376d3a56d9581f55afcf96347a8b0b98c",
+      "local_raw_stdout": "/Users/swchen.tw/Library/Caches/rustgrok/oracle/cli-probe-2026-11-01/ctags.stdout.txt",
+      "local_raw_stderr": "/Users/swchen.tw/Library/Caches/rustgrok/oracle/cli-probe-2026-11-01/ctags.stderr.txt",
+      "raw_stdout": "tests/evidence/oracle-cli-2026-11-01/ctags.stdout.txt",
+      "raw_stderr": "tests/evidence/oracle-cli-2026-11-01/ctags.stderr.txt"
+    }
+  ],
+  "indexing_execution": "NOT_RUN",
+  "http_execution": "NOT_RUN",
+  "product_execution": "NOT_RUN",
+  "notes": [
+    "No Rust parser/normalizer generated these outputs.",
+    "Version/help/guru output is a limited original CLI probe; it does not prove complete REF-001/REF-003, analyzer tokenization, SCM capabilities or full oracle setup.",
+    "Complete oracle requires full JDK and actual config/corpus/index/HTTP evidence."
+  ],
+  "platform": {
+    "os": "macOS",
+    "version": "15.7.7",
+    "build": "24G720",
+    "architecture": "arm64"
+  },
+  "observed_failures": {
+    "topics": [
+      "repos",
+      "ctags"
+    ],
+    "exit_code": 1,
+    "exception": "NullPointerException: Indexer.env is null in exitWithHelp, then shutdownSearchExecutor path",
+    "source_evidence": [
+      "opengrok-indexer/src/main/java/org/opengrok/indexer/index/Indexer.java:209",
+      "opengrok-indexer/src/main/java/org/opengrok/indexer/index/Indexer.java:1344",
+      "opengrok-indexer/src/main/java/org/opengrok/indexer/index/Indexer.java:1357"
+    ],
+    "jdk_recheck": "PENDING; do not attribute failure to JRE or silently patch original baseline"
+  }
+}

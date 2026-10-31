@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "locked_at": "2026-11-01",
+  "role": "independent_development_oracle_only",
+  "product_dependency_lock": false,
+  "work_packages": [
+    "WP-A04",
+    "WP-A06"
+  ],
+  "source": {
+    "repository": "https://github.com/oracle/opengrok",
+    "tag": "1.14.20",
+    "commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+    "tree": "e332eb280a5362d5ff639c0263acb1e0168b227e",
+    "tracked_entries": 1816,
+    "tree_identity_verified": true,
+    "all_blob_bytes_verified": true,
+    "checkout_status": "COMPLETE after HTTP/1.1 retry; clean worktree, all 1816 file bytes matched Git blobs; git fsck --full exit0",
+    "source_tree_manifest": "upstream/opengrok-source-tree.json",
+    "total_tracked_bytes": 11245647
+  },
+  "artifacts": [
+    {
+      "name": "opengrok-1.14.20.tar.gz",
+      "version": "1.14.20",
+      "url": "https://github.com/oracle/opengrok/releases/download/1.14.20/opengrok-1.14.20.tar.gz",
+      "publisher_metadata_url": "https://api.github.com/repos/oracle/opengrok/releases/tags/1.14.20",
+      "expected_bytes": 92575612,
+      "expected_sha256": "f33d78f950ba7ed974caa9153120e4f26f9c7f4d63c1f48b7a0350e12d8e346d",
+      "downloaded_and_hash_verified": true,
+      "release_inventory": "upstream/opengrok-release-inventory.json"
+    },
+    {
+      "name": "OpenJDK21U-jre_aarch64_mac_hotspot_21.0.13_9.tar.gz",
+      "version": "jdk-21.0.13+9",
+      "type": "jre",
+      "architecture": "aarch64",
+      "os": "mac",
+      "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jre_aarch64_mac_hotspot_21.0.13_9.tar.gz",
+      "publisher_metadata_url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jre_aarch64_mac_hotspot_21.0.13_9.tar.gz.json",
+      "checksum_url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jre_aarch64_mac_hotspot_21.0.13_9.tar.gz.sha256.txt",
+      "expected_bytes": 47935740,
+      "expected_sha256": "225bab0a09491ef06835488cd942f5d2befa9a0410a2484f0c8bbcf7506ec09a",
+      "downloaded_and_hash_verified": true,
+      "selection_scope": "Runtime acquisition/version probe only. Pinned upstream Dockerfile uses jdk21 and exports jdk.compiler; this JRE does not establish complete OpenGrok/suggester or compiler-based diagnostics. A full JDK is required for the planned complete oracle.",
+      "product_runtime": false,
+      "native_version_probe": "tests/evidence/oracle-acquisition-2026-11-01.json"
+    },
+    {
+      "name": "apache-tomcat-10.1.60.tar.gz",
+      "version": "10.1.60",
+      "url": "https://archive.apache.org/dist/tomcat/tomcat-10/v10.1.60/bin/apache-tomcat-10.1.60.tar.gz",
+      "checksum_url": "https://archive.apache.org/dist/tomcat/tomcat-10/v10.1.60/bin/apache-tomcat-10.1.60.tar.gz.sha512",
+      "expected_bytes": 14435753,
+      "expected_sha512": "aa06508300ca137a023b74b8600f2c1b3248412eb85d4fc5e2f337c6c4d3776f4491e272f79856ac541cfab0fc35537111ae4f3cfcd0bbe702c0a3610a61bd04",
+      "observed_sha256": "ba8998cb41b3695f3c2d47224c70f44035e9c6385652fdafdb64ac31c354efbd",
+      "downloaded_and_hash_verified": true,
+      "selection_scope": "Matches pinned OpenGrok Dockerfile tomcat:10.1.60-jdk21 version family; not a product dependency."
+    },
+    {
+      "name": "OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.13_9.tar.gz",
+      "version": "jdk-21.0.13+9",
+      "type": "jdk",
+      "architecture": "aarch64",
+      "os": "mac",
+      "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.13_9.tar.gz",
+      "publisher_metadata_url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.13_9.tar.gz.json",
+      "checksum_url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.13_9.tar.gz.sha256.txt",
+      "expected_bytes": 199754598,
+      "expected_sha256": "bf036b35b071bfb2f54f2c0af8ee8d88afa95ee6eb3dce02c0f94cfc2524d04a",
+      "downloaded_and_hash_verified": false,
+      "selection_scope": "Planned complete independent oracle: includes javac/jdk.compiler for diagnostics and pinned upstream JVM module flags. Not yet executed.",
+      "product_runtime": false
+    }
+  ],
+  "verification_receipt": "tests/evidence/oracle-acquisition-2026-11-01.json",
+  "signature_verification": "NOT_RUN",
+  "oracle_runtime_execution": "LIMITED_CLI_PROBE_ONLY; INDEX_AND_HTTP_NOT_RUN",
+  "complete_licensing_inventory": false,
+  "notes": [
+    "Expected upstream hashes are not proof of a completed download. Execution is gated on local whole-file checksum verification.",
+    "The source manifest records exact Git tree identity; complete materialization and per-file SHA-256 remain separate.",
+    "OpenGrok Lucene/JGit dependencies will be inventoried from the verified distribution; do not introduce a second unpinned dependency set.",
+    "Preinstalled Ctags/Git observations do not freeze the Rust bundled helper profile.",
+    "The smaller JRE was acquired only for bootstrap/version probing; do not treat its size or successful startup as complete oracle dependency validation. Source evidence: pinned Dockerfile lines44 and109-113, SuggesterProjectData.java lines363-374."
+  ],
+  "full_oracle_requires_complete_jdk": true
+}

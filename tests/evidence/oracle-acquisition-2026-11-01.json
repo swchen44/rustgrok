@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "role": "independent_oracle_acquisition_not_product_test",
+  "observed_at": "2026-11-01T06:31:24+08:00",
+  "work_packages": [
+    "WP-A04",
+    "WP-A06"
+  ],
+  "issues": [
+    "https://github.com/swchen44/rustgrok/issues/1",
+    "https://github.com/swchen44/rustgrok/issues/3"
+  ],
+  "related_test_ids": [
+    "REF-001",
+    "REF-002"
+  ],
+  "full_test_cases_passed": [],
+  "product_tests_executed": false,
+  "source": {
+    "repository": "https://github.com/oracle/opengrok",
+    "tag": "1.14.20",
+    "commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+    "tree": "e332eb280a5362d5ff639c0263acb1e0168b227e",
+    "tracked_entries": 1816,
+    "tree_identity_verified": true,
+    "all_blob_bytes_verified": true,
+    "checkout_status": "COMPLETE after HTTP/1.1 retry; clean worktree, all 1816 file bytes matched Git blobs; git fsck --full exit0",
+    "source_tree_manifest": "upstream/opengrok-source-tree.json",
+    "verified_excerpts": [
+      {
+        "path": "LICENSE.txt",
+        "bytes": 19087,
+        "sha256": "fcfd57e9dc09bb7a6f9f66da96f5b16fda522e87bf893ddcdfa45641af097bf9",
+        "git_blob_sha1": "a474897c667f5862850fcec83b0a11abf1fc4dee",
+        "git_blob_matches": true
+      },
+      {
+        "path": "NOTICE.txt",
+        "bytes": 1381,
+        "sha256": "c9a03170d56b52bc3d03e442327c6ed78a5e51a532455d9dacde390e09ce4dcc",
+        "git_blob_sha1": "e3b818ac575c9d4264a39f4681406ba90cf77942",
+        "git_blob_matches": true
+      },
+      {
+        "path": "Dockerfile",
+        "bytes": 5444,
+        "sha256": "b08f49b3d61eccc7eee6ee8eac09329b7da4d6869e41e632c211832d73dd4b17",
+        "git_blob_sha1": "24c6b5f1f383f1b618b88d5af6bc4de659e564f1",
+        "git_blob_matches": true
+      },
+      {
+        "path": "opengrok-web/src/main/webapp/WEB-INF/web.xml",
+        "bytes": 10000,
+        "sha256": "43ec0bdae87388fc5668aaee4e76e2ee8258852c25e83f68cbb22b81cca1eeb5",
+        "git_blob_sha1": "d61c889237f5e0de51070be4fcb5da7612d4521f",
+        "git_blob_matches": true
+      },
+      {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/AnalyzerGuru.java",
+        "bytes": 48815,
+        "sha256": "43e6e16a651d0fe5ad91ee31d6c36c0128c5608a58d2ac195b86a2a7570110ef",
+        "git_blob_sha1": "a6921f776ace01b57e22ad8a586240d1288c38c4",
+        "git_blob_matches": true
+      },
+      {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/RepositoryFactory.java",
+        "bytes": 14029,
+        "sha256": "d41395ca47220ccc822b306dc552626a8fa4d72bb27eb8ac4063e31bd70ae167",
+        "git_blob_sha1": "aaffb5ce5e829647eb7835592260356a4c03c35a",
+        "git_blob_matches": true
+      }
+    ],
+    "license_review": "Upstream LICENSE/NOTICE bytes verified against exact Git blob IDs; full per-file review remains pending.",
+    "total_tracked_bytes": 11245647
+  },
+  "artifacts": [
+    {
+      "name": "apache-tomcat-10.1.60.tar.gz",
+      "version": "10.1.60",
+      "role": "oracle_servlet_container_only",
+      "url": "https://archive.apache.org/dist/tomcat/tomcat-10/v10.1.60/bin/apache-tomcat-10.1.60.tar.gz",
+      "bytes": 14435753,
+      "sha256": "ba8998cb41b3695f3c2d47224c70f44035e9c6385652fdafdb64ac31c354efbd",
+      "sha512": "aa06508300ca137a023b74b8600f2c1b3248412eb85d4fc5e2f337c6c4d3776f4491e272f79856ac541cfab0fc35537111ae4f3cfcd0bbe702c0a3610a61bd04",
+      "publisher_checksum_url": "https://archive.apache.org/dist/tomcat/tomcat-10/v10.1.60/bin/apache-tomcat-10.1.60.tar.gz.sha512",
+      "publisher_checksum_algorithm": "sha512",
+      "publisher_checksum_matches": true,
+      "signature_verified": false,
+      "extracted": true,
+      "archive_members": 752,
+      "license_notice_files": [
+        {
+          "path": "LICENSE",
+          "bytes": 60393,
+          "sha256": "89913555c281e3d82ad9c4eff4184396c791379dd412117faeb1c23dd4770e21",
+          "complete_per_file_license_review": false
+        },
+        {
+          "path": "NOTICE",
+          "bytes": 2333,
+          "sha256": "5d47adae503db6be0b3a1823bff4420e29bcb0a63e43c254a58fa0320a310e83",
+          "complete_per_file_license_review": false
+        }
+      ]
+    }
+  ],
+  "opengrok_release_hash_verified": true,
+  "java_runtime_hash_verified": true,
+  "oracle_runtime_execution": "LIMITED_CLI_PROBE_ONLY; INDEX_AND_HTTP_NOT_RUN",
+  "product_runtime_execution": "NOT_RUN",
+  "notes": [
+    "Tomcat 10.1.60 matches the pinned upstream Dockerfile; this pins one development oracle only, not Rust product dependencies.",
+    "Full JDK download remains incomplete; verified OpenGrok release was used only for limited CLI probes. Verified compact JRE was executed for version/module probing only.",
+    "All 1816 source file bytes and Tomcat archive checksum verified; OpenGrok release is now verified; full JDK download remains incomplete; verified JRE version/module probe does not establish complete oracle readiness. This is not complete WP-A04, REF-001, REF-002 or license acceptance.",
+    "Original --version/--help guru exit0; --help repos/ctags exit1 with Indexer.env null. Raw failures preserved; no index/HTTP execution or full test-case PASS."
+  ],
+  "helper_observations": [
+    {
+      "role": "development_oracle_candidate_not_selected_product_bundle",
+      "name": "Universal Ctags",
+      "version": "6.2.1",
+      "output_version": "1.1",
+      "path": "/opt/homebrew/Cellar/universal-ctags/6.2.1/bin/ctags",
+      "binary_format": "Mach-O 64-bit executable arm64",
+      "bytes": 1770624,
+      "sha256": "f3f91789a30b39d592b244cd4aa0d7eec6ed3445b499c69ffc27564cef7292a0",
+      "features": [
+        "wildcards",
+        "regex",
+        "gnulib_fnmatch",
+        "gnulib_regex",
+        "iconv",
+        "option-directory",
+        "xpath",
+        "json",
+        "interactive",
+        "yaml",
+        "case-insensitive-filenames",
+        "packcc",
+        "optscript",
+        "pcre2"
+      ],
+      "bundled_product_helper_acceptance": "NOT_RUN"
+    }
+  ],
+  "bootstrap_input_manifest": "tests/evidence/oracle-bootstrap-inputs-2026-11-01.json",
+  "updated_at": "2026-11-01T07:44:59+08:00",
+  "jre_native_version_probe": {
+    "role": "verified_JRE_native_version_probe_not_OpenGrok_or_product_acceptance",
+    "executed_at": "2026-11-01T07:39:42+08:00",
+    "archive": "OpenJDK21U-jre_aarch64_mac_hotspot_21.0.13_9.tar.gz",
+    "archive_bytes": 47935740,
+    "archive_sha256": "225bab0a09491ef06835488cd942f5d2befa9a0410a2484f0c8bbcf7506ec09a",
+    "publisher_checksum_matches": true,
+    "signature_verified": false,
+    "java_binary_bytes": 70432,
+    "java_binary_sha256": "0f642542ea1f0be6957557c0db96653ec128113bb5a4aaa7c2534d1d72ddb51f",
+    "java_binary_format": "/Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/jdk-21.0.13+9-jre/Contents/Home/bin/java: Mach-O 64-bit executable arm64",
+    "version_command_exit": 0,
+    "version_stdout": "openjdk 21.0.13 2026-10-20 LTS\nOpenJDK Runtime Environment Temurin-21.0.13+9 (build 21.0.13+9-LTS)\nOpenJDK 64-Bit Server VM Temurin-21.0.13+9 (build 21.0.13+9-LTS, mixed mode, sharing)\n",
+    "version_stderr": "",
+    "module_count": 49,
+    "jdk_compiler_module_present": false,
+    "open_grok_execution": "NOT_RUN",
+    "full_test_cases_passed": [],
+    "platform": {
+      "os": "macOS",
+      "version": "15.7.7",
+      "build": "24G720",
+      "architecture": "arm64"
+    }
+  },
+  "full_jdk_hash_verified": false,
+  "release_inventory": "upstream/opengrok-release-inventory.json",
+  "cli_probe": "tests/evidence/oracle-cli-probe-2026-11-01.json"
+}

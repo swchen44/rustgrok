@@ -1,0 +1,2 @@
+11月 01, 2026 7:42:47 上午 org.opengrok.indexer.index.Indexer parseOptions
+資訊: Indexer options: [--help, guru]

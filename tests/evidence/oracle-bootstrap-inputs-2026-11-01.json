@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "role": "limited_oracle_bootstrap_input_not_WP_A07_formal_corpus",
+  "created_at": "2026-11-01T06:54:54+08:00",
+  "projects": 2,
+  "repositories": 3,
+  "source_files": 3,
+  "source_bytes": 2418,
+  "files": [
+    {
+      "project": "alpha",
+      "repository_path": "alpha/component-c",
+      "file_path": "alpha/component-c/main.c",
+      "bytes": 730,
+      "sha256": "0afb5b45d1538ee86e23b046100c8e458614ba71e50f16c05bda1a52de0edb17",
+      "upstream_origin": "opengrok-indexer/src/test/resources/sources/c/main.c",
+      "upstream_commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+      "content_modified": false,
+      "repository_head": "a018b40334862b961f929db52ba4a7f2ddf44f41",
+      "repository_tree": "b1a9862d5628177748c3c49c24c5d7bf8aa4ba22",
+      "history": "one fixed-date initial commit; no rename/merge/nested-repository acceptance"
+    },
+    {
+      "project": "alpha",
+      "repository_path": "alpha/component-js",
+      "file_path": "alpha/component-js/function.js",
+      "bytes": 821,
+      "sha256": "7e37130f0b5a078fea055a885632cdc00e1989def53e4fafe8b52a75824f8805",
+      "upstream_origin": "opengrok-indexer/src/test/resources/sources/javascript/function.js",
+      "upstream_commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+      "content_modified": false,
+      "repository_head": "30aa0d6ee53a4dd920bedb157ead5176b698d434",
+      "repository_tree": "d9ff251420efe29ab05f052ff762398fedfa33c5",
+      "history": "one fixed-date initial commit; no rename/merge/nested-repository acceptance"
+    },
+    {
+      "project": "beta",
+      "repository_path": "beta",
+      "file_path": "beta/main.py",
+      "bytes": 867,
+      "sha256": "c30bc720a38c39709e22f6bba1996b58c0a4e2e25d8cc6ea1bff7a348efde3f0",
+      "upstream_origin": "opengrok-indexer/src/test/resources/sources/python/main.py",
+      "upstream_commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+      "content_modified": false,
+      "repository_head": "d84917c09c9e699a80f72197cc0ce96a4a56f60e",
+      "repository_tree": "0c079f6780865f9b54ab8788c83ea1f0d781351b",
+      "history": "one fixed-date initial commit; no rename/merge/nested-repository acceptance"
+    }
+  ],
+  "generation": "Unmodified public upstream fixtures, fixed Git identity/date/message, no user git identity or global settings changed. Inputs are indexed, never executed.",
+  "source_read_permission": "Public pinned upstream fixtures only; no enterprise source/index/secrets.",
+  "license_provenance": "Upstream LICENSE.txt/NOTICE.txt and per-file conditions retained; no new MIT relicensing of copied fixtures. Files are local oracle inputs, not product distribution.",
+  "runtime_status": "NOT_RUN",
+  "full_test_cases_passed": [],
+  "representative_500_MB_workload": false,
+  "formal_WP_A07_corpus_complete": false
+}

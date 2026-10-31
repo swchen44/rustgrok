@@ -1,0 +1,287 @@
+List of analyzers:
+The names of the analyzers (left column) can be used for the -A indexer option:
+
+Ada        : Ada
+Asm        : Asm
+BZip2      : Bzip(2)
+C          : C
+CSharp     : C#
+Cxx        : C++
+Clojure    : Clojure
+Cobol      : COBOL
+Eiffel     : Eiffel
+ELF        : ELF
+Erlang     : Erlang
+File       : N/A
+Fortran    : Fortran
+Golang     : Golang
+GZIP       : GZIP
+Haskell    : Haskell
+HCL        : HCL
+Ignorant   : N/A
+Image      : Image file
+Jar        : Jar
+Java       : Java
+JavaClass  : Java class
+JavaScript : JavaScript
+Json       : Json
+Kotlin     : Kotlin
+Lisp       : Lisp
+Lua        : Lua
+Mandoc     : Manual pages
+OCaml      : OCaml
+Pascal     : Pascal
+Perl       : Perl
+Php        : PHP
+PLSQL      : PL/SQL
+Plain      : Plain Text
+Powershell : PowerShell script
+Python     : Python
+R          : R
+Ruby       : Ruby
+Rust       : Rust
+Scala      : Scala
+Sh         : Shell script
+SQL        : SQL
+Swift      : Swift
+Tar        : Tar
+Tcl        : Tcl
+Terraform  : Terraform
+Troff      : Troff
+TypeScript : TypeScript
+Uuencode   : UUEncoded
+Verilog    : Verilog
+VB         : Visual Basic
+XML        : XML
+Yaml       : Yaml
+Zip        : Zip
+
+AnalyzerGuru prefixes:
+MAKEFILE*  : Shell script
+
+AnalyzerGuru extensions:
+*.ada     : Ada
+*.adb     : Ada
+*.ads     : Ada
+*.afm     : IgnorantAnalyzerFactory
+*.aidl    : Java
+*.asax    : XML
+*.ascx    : XML
+*.asm     : Asm
+*.aspx    : XML
+*.awk     : Shell script
+*.bas     : Visual Basic
+*.base64  : UUEncoded
+*.bash    : Shell script
+*.bdf     : IgnorantAnalyzerFactory
+*.bmp     : Image file
+*.bz      : Bzip(2)
+*.bz2     : Bzip(2)
+*.c       : C
+*.c++     : C++
+*.cbl     : COBOL
+*.cbl     : COBOL
+*.cc      : C++
+*.class   : Java class
+*.clj     : Clojure
+*.cljs    : Clojure
+*.cljx    : Clojure
+*.cls     : Visual Basic
+*.cob     : COBOL
+*.cob     : COBOL
+*.com     : Shell script
+*.conf    : Shell script
+*.cpp     : C++
+*.cpy     : COBOL
+*.cpy     : COBOL
+*.cs      : C#
+*.csh     : Shell script
+*.ctl     : Visual Basic
+*.cu      : C++
+*.cuh     : C++
+*.cxx     : C++
+*.d       : C
+*.e       : Eiffel
+*.ear     : Jar
+*.el      : Lisp
+*.erl     : Erlang
+*.escript : Erlang
+*.exp     : Tcl
+*.f       : Fortran
+*.f03     : Fortran
+*.f08     : Fortran
+*.f15     : Fortran
+*.f77     : Fortran
+*.f90     : Fortran
+*.f95     : Fortran
+*.flg     : Shell script
+*.frm     : Visual Basic
+*.gif     : Image file
+*.gmk     : Shell script
+*.go      : Golang
+*.gz      : GZIP
+*.h       : C
+*.hcl     : HCL
+*.hh      : C++
+*.hpp     : C++
+*.hrl     : Erlang
+*.hs      : Haskell
+*.hsc     : Haskell
+*.htm     : XML
+*.html    : XML
+*.hxx     : C++
+*.i       : C
+*.itcl    : Tcl
+*.itk     : Tcl
+*.jar     : Jar
+*.jav     : Java
+*.java    : Java
+*.jpeg    : Image file
+*.jpg     : Image file
+*.js      : JavaScript
+*.json    : Json
+*.ksh     : Shell script
+*.kshlib  : Shell script
+*.kt      : Kotlin
+*.kts     : Kotlin
+*.l       : C
+*.lex     : C
+*.lib     : IgnorantAnalyzerFactory
+*.lisp    : Lisp
+*.lsp     : Lisp
+*.lua     : Lua
+*.master  : XML
+*.mk      : Shell script
+*.ml      : OCaml
+*.mli     : OCaml
+*.p5      : Shell script
+*.pas     : Pascal
+*.pck     : PL/SQL
+*.pdb     : IgnorantAnalyzerFactory
+*.pdf     : IgnorantAnalyzerFactory
+*.perl    : Perl
+*.ph      : Perl
+*.php     : PHP
+*.php3    : PHP
+*.php4    : PHP
+*.phps    : PHP
+*.phtml   : PHP
+*.pkb     : PL/SQL
+*.pks     : PL/SQL
+*.pl      : Perl
+*.plb     : PL/SQL
+*.pld     : PL/SQL
+*.pls     : PL/SQL
+*.plx     : Perl
+*.pm      : Perl
+*.png     : Image file
+*.ps      : IgnorantAnalyzerFactory
+*.ps1     : PowerShell script
+*.psm1    : PowerShell script
+*.py      : Python
+*.r       : R
+*.rb      : Ruby
+*.rda     : R
+*.rdata   : R
+*.rds     : R
+*.rs      : Rust
+*.ruby    : Ruby
+*.s       : Asm
+*.scala   : Scala
+*.scm     : Lisp
+*.sh      : Shell script
+*.spec    : Shell script
+*.sql     : SQL
+*.sv      : Verilog
+*.svh     : Verilog
+*.swift   : Swift
+*.tar     : Tar
+*.tcc     : C++
+*.tcl     : Tcl
+*.tclx    : Tcl
+*.tf      : Terraform
+*.tfvars  : Terraform
+*.tiff    : Image file
+*.tk      : Tcl
+*.tm      : Tcl
+*.ts      : TypeScript
+*.txx     : C++
+*.uu      : UUEncoded
+*.uue     : UUEncoded
+*.v       : Verilog
+*.vb      : Visual Basic
+*.vbs     : Visual Basic
+*.vh      : Verilog
+*.war     : Jar
+*.wish    : Tcl
+*.x       : C
+*.xaml    : XML
+*.xcl     : Shell script
+*.xml     : XML
+*.xpm     : IgnorantAnalyzerFactory
+*.xs      : C
+*.y       : C
+*.yacc    : C
+*.yaml    : Yaml
+*.yml     : Yaml
+*.zip     : Zip
+
+AnalyzerGuru magic strings:
+BZh                     : Bzip(2)
+\{7f}ELF                : ELF
+#!/usr/bin/env escript  : Erlang
+#!escript               : Erlang
+\{1f}\{8b}              : GZIP
+!<arch>                 : IgnorantAnalyzerFactory
+# PaCkAg                : IgnorantAnalyzerFactory
+%!PS-                   : IgnorantAnalyzerFactory
+%PDF                    : IgnorantAnalyzerFactory
+Microsoft C/C++ MSF     : IgnorantAnalyzerFactory
+#!/bin/perl             : Perl
+#!/usr/bin/env perl     : Perl
+#!/usr/bin/perl         : Perl
+#!/usr/local/bin/perl   : Perl
+#!perl                  : Perl
+#!/bin/php              : PHP
+#!/usr/bin/env php      : PHP
+#!/usr/bin/php          : PHP
+#!php                   : PHP
+#!/bin/python           : Python
+#!/usr/bin/env python   : Python
+#!/usr/bin/python       : Python
+#!python                : Python
+#!/bin/ruby             : Ruby
+#!/usr/bin/env ruby     : Ruby
+#!/usr/bin/ruby         : Ruby
+#!/usr/local/bin/ruby   : Ruby
+#!ruby                  : Ruby
+#!                      : Shell script
+begin 4                 : UUEncoded
+begin 6                 : UUEncoded
+begin 7                 : UUEncoded
+begin-b                 : UUEncoded
+<!--                    : XML
+<!DO                    : XML
+<!EN                    : XML
+<?XM                    : XML
+<?Xm                    : XML
+<?xm                    : XML
+<HEA                    : XML
+<hea                    : XML
+<HTM                    : XML
+<htm                    : XML
+<TIT                    : XML
+<tit                    : XML
+<XML                    : XML
+<xml                    : XML
+
+AnalyzerGuru magic matchers:
+Java class  : 0xCAFEBABE magic with major_version from JDK 1.1 to Java SE 9
+Jar         : PK\{3}\{4} magic signature with 0xCAFE Extra Field ID
+Zip         : PK\{3}\{4} magic signature
+Manual pages : heuristic matcher
+Troff       : heuristic matcher
+Plain Text  : UTF-8, UTF-16BE, or UTF-16LE Byte Order Mark is present; or
+              initial bytes are all UTF-8-encoded graphic characters or
+              whitespace
+

@@ -1,6 +1,6 @@
 # G0／G1 執行基線確認
 
-日期：2026-10-26。狀態：**待使用者確認本輪設計共識；不是G0／G1已通過。** 已選事項見[決策表](08-decision-register.md)，完整44個工作包與依賴見[實作計畫](04-implementation-plan.md)。本頁不新增工作包、需求或測試ID。
+日期：2026-10-26；執行更新：2026-11-01。狀態：**使用者以「status and continue」要求繼續，依既有基線啟動不受OPEN項阻擋的G0工作；不是G0／G1已通過，也不把未答事項視為已選。** 已選事項見[決策表](08-decision-register.md)，完整44個工作包與依賴見[實作計畫](04-implementation-plan.md)。本頁不新增工作包、需求或測試ID。
 
 ## 已確認的實驗邊界
 
@@ -16,7 +16,7 @@
 | 既有WP | 下一步可審查產物 | 驗證邊界 |
 |---|---|---|
 | WP-A01／A02／A03 | 已選／OPEN清單、host觀測、平台與代表工作量契約 | 已有[開發host觀測](../tests/evidence/development-host-observation-2026-10-26.json)；最低OS、Linux硬體等不代填，不能將WP整體提前標完成 |
-| WP-A04／A05 | 固定版本原版source／release及hash、來源／license台帳、routes／query／analyzer／SCM inventory | 現有hash部分只來自release API；實際下載重算前不標verified，原版全部能力持續盤點 |
+| WP-A04／A05 | 固定版本原版source／release及hash、來源／license台帳、routes／query／analyzer／SCM inventory | 2026-11-01已驗OpenGrok source／release與selected source assets；完整JDK、逐檔license及其餘功能／runtime持續盤點，見19執行紀錄 |
 | WP-A06 | 獨立Java/OpenGrok oracle與配置、啟動／查詢／history原始證據 | 目前未有可核實Java21 oracle；取得所需固定工具至user home或允許位置、驗來源與hash，不能把Java帶進產品runtime |
 | WP-A07 | 公開deterministic corpus與Git history，含C／Python／JS、多repo／nested、Unicode等 | 合成資料不含企業source；精確bytes、repo數、seed及實際hash另記，不把約500 MB估計當測量結果 |
 | WP-A08 | tokens／query／ranking／DOM等分層差異harness與有限normalization | 禁止任意sort、epsilon或遮罩吞掉相容差異；未有oracle輸出前不建立假golden |

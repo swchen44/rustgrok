@@ -1,0 +1,16 @@
+11月 01, 2026 7:42:48 上午 org.opengrok.indexer.index.Indexer parseOptions
+資訊: Indexer options: [--help, ctags]
+11月 01, 2026 7:42:48 上午 org.opengrok.indexer.index.Indexer runMain
+嚴重: Unexpected Exception
+java.lang.NullPointerException: Cannot invoke "org.opengrok.indexer.configuration.RuntimeEnvironment.setCtags(String)" because "org.opengrok.indexer.index.Indexer.env" is null
+	at org.opengrok.indexer.index.Indexer.exitWithHelp(Indexer.java:1344)
+	at org.opengrok.indexer.index.Indexer.runMain(Indexer.java:209)
+	at org.opengrok.indexer.index.Indexer.main(Indexer.java:170)
+
+Exception: Cannot invoke "org.opengrok.indexer.configuration.RuntimeEnvironment.setCtags(String)" because "org.opengrok.indexer.index.Indexer.env" is null
+11月 01, 2026 7:42:48 上午 org.opengrok.indexer.util.Executor lambda$registerErrorHandler$2
+嚴重: Uncaught exception in thread main with ID 1: Cannot invoke "org.opengrok.indexer.configuration.RuntimeEnvironment.shutdownSearchExecutor()" because "org.opengrok.indexer.index.Indexer.env" is null
+java.lang.NullPointerException: Cannot invoke "org.opengrok.indexer.configuration.RuntimeEnvironment.shutdownSearchExecutor()" because "org.opengrok.indexer.index.Indexer.env" is null
+	at org.opengrok.indexer.index.Indexer.runMain(Indexer.java:444)
+	at org.opengrok.indexer.index.Indexer.main(Indexer.java:170)
+

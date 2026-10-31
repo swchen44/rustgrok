@@ -256,3 +256,7 @@ Rust 延伸研究另外讀取 CustomQueryParser、CompatibleAnalyser、PathToken
 - [S17 distribution assembly](https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/distribution/assembly.xml)
 - [S18 GitRepository：JGit history/blame](https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/GitRepository.java)；JGit 精確依賴版本見 S05。
 
+
+## 2026-11-01 後續執行證據
+
+以上保留原靜態研究的時間邊界。後續已驗固定source／release bytes，取得archive／WAR／source assets inventory，並執行有限原版CLI探測；索引／HTTP與Rust產品測試仍未執行。實際成功、失敗、未完成的完整JDK與後續步驟見[G0執行紀錄](19-g0-execution-log.md)，不能將本章早期「未下載」狀態當成最新取得狀態。

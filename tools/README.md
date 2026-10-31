@@ -14,6 +14,8 @@ python3 tools/build_planning_package.py
 
 合訂本包含根目錄詞彙表、`docs/research/*.md` 的研究紀錄及 `docs/adr/*.md` 的決策，相關本地連結轉成合訂本內的 anchors。
 
+G0的固定上游檔案hash、部分功能母表、oracle產物lock／取得紀錄及有限bootstrap輸入也列入附錄。這些是來源與前置證據，不能代替80項完整測試結果。需求／測試ID掃描明確辨識 `SHA-256` 與 `SHA-512` 為hash演算法名稱。
+
 檢查涵蓋JSON解析、UTF-8／隱形控制字元、Markdown相對連結、需求與測試雙向對照、44個工作包覆蓋與依賴無循環、決策ID及已確認狀態、ZIP與檔案hash一致。產品測試仍必須按tests/matrix.json實作與執行，不能把此工具成功當作產品驗收。
 
 未來若需求、測試數量或版本變更，需連同此規劃版的固定契約更新；不自動把planned改成passed。

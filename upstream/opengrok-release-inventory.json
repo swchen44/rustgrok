@@ -1,0 +1,1493 @@
+{
+  "schema_version": 1,
+  "role": "verified_original_release_archive_inventory_not_product_SBOM_or_UI_acceptance",
+  "observed_at": "2026-11-01T07:43:48+08:00",
+  "opengrok_commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+  "archive": {
+    "name": "opengrok-1.14.20.tar.gz",
+    "bytes": 92575612,
+    "sha256": "f33d78f950ba7ed974caa9153120e4f26f9c7f4d63c1f48b7a0350e12d8e346d",
+    "publisher_digest_matches": true,
+    "signature_verified": false,
+    "members": [
+      {
+        "path": "opengrok-1.14.20/lib/opengrok.jar",
+        "kind": "file",
+        "mode": "0o644",
+        "bytes": 2216123,
+        "sha256": "bc1f4650710cb92c4a43221c826018c6358bcbc30bf2aaa86688261a0f145aa1"
+      },
+      {
+        "path": "opengrok-1.14.20/share/lib/plugins.jar",
+        "kind": "file",
+        "mode": "0o644",
+        "bytes": 58413,
+        "sha256": "c7bcd9e7cff1b59478ef2cce405a81781bba90221b293f02626c088e14b2dd23"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/source.war",
+        "kind": "file",
+        "mode": "0o644",
+        "bytes": 55597516,
+        "sha256": "98358675a4e8547b065c72253c37f573d9ccd38816a64664be0da4dd223a9419"
+      },
+      {
+        "path": "opengrok-1.14.20/tools/opengrok-tools.tar.gz",
+        "kind": "file",
+        "mode": "0o644",
+        "bytes": 50870,
+        "sha256": "c35c8665579630f0a7f94e56a9236d530ef677a647a0a3e649851b05475b96cb"
+      },
+      {
+        "path": "opengrok-1.14.20/tools/README.txt",
+        "kind": "file",
+        "mode": "0o644",
+        "bytes": 1594,
+        "sha256": "9d409692d727dc48915b8f1085fe34697af48d5488fead467a1ad081758f5133"
+      },
+      {
+        "path": "opengrok-1.14.20/doc/logging.properties.template",
+        "kind": "file",
+        "mode": "0o644",
+        "bytes": 875,
+        "sha256": "50eb668cf00ca5d01925bdbf2a3982a1573929b8774a2eb5faba5a15ea9ac116"
+      },
+      {
+        "path": "opengrok-1.14.20/doc/LICENSE-eclipse.txt",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 11319,
+        "sha256": "9145f737b37af12e64a960a0032f8e9d0a7618f87bb15d2631f5ff31a2a7eec0"
+      },
+      {
+        "path": "opengrok-1.14.20/doc/logging.properties",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 2771,
+        "sha256": "fcb9dd39b7b26ae9b41a99529727efecccc19c78ca950bc70e6e869554e29dab"
+      },
+      {
+        "path": "opengrok-1.14.20/doc/LICENSE-ecma.txt",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 2103,
+        "sha256": "ae939bb342609a3ae7d49081df9eef2cc0d6f4b8dc5f0b1b93e92393a82fed8e"
+      },
+      {
+        "path": "opengrok-1.14.20/doc/LICENSE-scala.txt",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 1854,
+        "sha256": "69b9efa29ece3d787ce1886e24b002c6e752c33cea3735fe86ca163763041e03"
+      },
+      {
+        "path": "opengrok-1.14.20/doc/LICENSE-adaic.org.txt",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 4505,
+        "sha256": "a75eaa2322a71e14fba7808e3657e30ebc893c97c47c45dd99f18991f1bbd231"
+      },
+      {
+        "path": "opengrok-1.14.20/doc/README.md",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 3271,
+        "sha256": "a84a908f878dd456817f4864b1b2f451dd3576d3dc98e6652af77fe037de9f43"
+      },
+      {
+        "path": "opengrok-1.14.20/doc/LICENSE-ruby.txt",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 4681,
+        "sha256": "e679fc6761f2077e1c002cec23cdee80c5791dd01b13d943b27c246ac641beba"
+      },
+      {
+        "path": "opengrok-1.14.20/doc/LICENSE.txt",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 19087,
+        "sha256": "fcfd57e9dc09bb7a6f9f66da96f5b16fda522e87bf893ddcdfa45641af097bf9"
+      },
+      {
+        "path": "opengrok-1.14.20/doc/LICENSE-mandoc.txt",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 2531,
+        "sha256": "c3b322d43d81d4aead5c372fdb1d4ed5d19e1465a4a81ccee4666b05855edb53"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/ant-launcher-1.10.14.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 18871,
+        "sha256": "f0909725a7a24e393888f3fbb558347abf506ce2f7ebc581ff26331b94d951a5"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/classmate-1.5.1.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 67815,
+        "sha256": "aab4de3006808c09d25dd4ff4a3611cfb63c95463cfd99e73d2e1680d229a33b"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/commons-lang3-3.18.0.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 702952,
+        "sha256": "4eeeae8d20c078abb64b015ec158add383ac581571cddc45c68f0c9ae0230720"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/micrometer-observation-1.14.1.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 74947,
+        "sha256": "72bf1ae38cd80ededaf2351bd2bc185ade3134a454dff6742517df14e73ddbb4"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/commons-io-2.15.1.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 501218,
+        "sha256": "a58af12ee1b68cfd2ebb0c27caef164f084381a00ec81a48cc275fd7ea54e154"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/expressly-5.0.0.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 171797,
+        "sha256": "b0c872737bb8381921b304d0952854666d1ba320b9b3c5bf4d70a09a86b61524"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/lucene-memory-9.12.3.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 63938,
+        "sha256": "54ebbfd18e33933a063510d3d0d71ee84adb7d1a8e9eda8c744e7221e5c3ee40"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/bcel-6.7.0.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 716107,
+        "sha256": "e4a3c54b422efa954c8549caaea993655e59911759206702885e78e6b7fe9c84"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/ant-1.10.14.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 2303167,
+        "sha256": "4cbbd9243de4c1042d61d9a15db4c43c90ff93b16d78b39481da1c956c8e9671"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/LatencyUtils-2.0.3.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 29779,
+        "sha256": "a32a9ffa06b2f4e01c5360f8f9df7bc5d9454a5d373cd8f361347fa5a57165ec"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jakarta.ws.rs-api-3.1.0.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 154815,
+        "sha256": "6b3b3628b8b4aedda0d24c3354335e985497d8ef3c510b8f3028e920d5b8663d"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/istack-commons-runtime-4.0.1.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 29896,
+        "sha256": "9f91115f449384886f572bd62c8812ee1004273d4b5c85cac65179ad4c16990f"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/webjars-locator-core-0.59.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 19081,
+        "sha256": "86e89c3504205ecfbc169cffcbc220bb2f4a68077acc5a95692d1129bf0e53fb"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/slf4j-api-2.0.13.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 68605,
+        "sha256": "e7c2a48e8515ba1f49fa637d57b4e2f590b3f5bd97407ac699c3aa5efb1204a9"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/prometheus-metrics-exposition-formats-1.3.3.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 2099874,
+        "sha256": "38db66d2d97fa824ee708ddaeb3a358b1b920ec0af5afd8e66d1d9e10017473f"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/lucene-sandbox-9.12.3.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 305303,
+        "sha256": "21cf9ad1bb97265983c698b9c5eb071b1a4a1d4f0f74b98c6e61ad8f04c5c9d7"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/micrometer-registry-prometheus-1.14.1.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 41894,
+        "sha256": "82c73d756ff174fa1d36695c2ec49c7a506e62868f9f6ff55f3f7631d32ea536"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jakarta.activation-api-2.0.1.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 47824,
+        "sha256": "118e66670e3b0baaad3c98cfec8147f6961e0665dde940d605020f2290e461c3"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/HdrHistogram-2.2.2.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 177206,
+        "sha256": "22d1d4316c4ec13a68b559e98c8256d69071593731da96136640f864fa14fad8"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/cron-utils-9.1.6.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 167731,
+        "sha256": "236c606093fd81e69274a5fc8b56f6b5be8fdf22d16ddf6841098486ef6cf12c"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/javassist-3.30.2-GA.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 794714,
+        "sha256": "eba37290994b5e4868f3af98ff113f6244a6b099385d9ad46881307d3cb01aaf"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/classgraph-4.8.173.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 570679,
+        "sha256": "699841fd9028af0124e9b66067e0e543211611971a8a066ae212690888a5aaee"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/lucene-highlighter-9.12.3.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 274458,
+        "sha256": "4cfa3c462ddd253bc8663d89afef821daff30dcb5b376a764e4e55b926bca7b9"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/lucene-core-9.12.3.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 4266133,
+        "sha256": "b64a3f8098a7572034fb30085cdee01b34ec81fb0e5a31b471536af58dc6c01b"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/commons-codec-1.18.0.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 373045,
+        "sha256": "ba005f304cef92a3dede24a38ad5ac9b8afccf0d8f75839d6c1338634cf7f6e4"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jersey-common-3.1.7.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 1242688,
+        "sha256": "23f4a38bc704d1839ec56f073145f2d4f4609d61dd3bb39ead2223b5a3b05a68"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/aopalliance-repackaged-3.0.6.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 27419,
+        "sha256": "a82b6d1a348324ef88dc807c7cd7aaf633985cbff7b30036fb61a1b86981d840"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/micrometer-core-1.14.1.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 875850,
+        "sha256": "e8a8af4456b074a96eb0bb623ac6ad021692d340847f6faef8f30b381c6a2817"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jakarta.xml.bind-api-4.0.2.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 131033,
+        "sha256": "0d6bcfe47763e85047acf7c398336dc84ff85ebcad0a7cb6f3b9d3e981245406"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/lucene-suggest-9.12.3.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 240359,
+        "sha256": "c9a8907109668d6313b6b5c4e13913b99d7295e01334a90e90baba9571797097"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jakarta.inject-api-2.0.1.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 10681,
+        "sha256": "f7dc98062fccf14126abb751b64fab12c312566e8cbdc8483598bffcea93af7c"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jaxb-runtime-3.0.2.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 913701,
+        "sha256": "7b3a3784b9c6e343a8d38fc108602ba810177f03f2d8d1e7258b1cef7fd9d4c7"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jakarta.activation-2.0.1.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 62154,
+        "sha256": "b9e24b7dd6e07495562ea96531be3130c96dba4d78e1dfd88adbbdebf4332871"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/JavaEWAH-1.2.3.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 170567,
+        "sha256": "d65226949713c4c61a784f41c51167e7b0316f93764398ebba9e4336b3d954c2"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/prometheus-metrics-config-1.3.3.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 33157,
+        "sha256": "1b619be29b1a02a53615665226c2d2e0a84e53a7368311fc5921837d824aeeeb"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jackson-annotations-2.17.1.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 78491,
+        "sha256": "fccad82e13172c0e4384db71577219c9b8631c0820f4b18daaa57016fb661c76"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/org.suigeneris.jrcs.rcs-0.4.2.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 62882,
+        "sha256": "4be0d9cc6b08430e2faa38876164ebd1b9ab9c5858176d40d2f82b70d80d207c"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jboss-logging-3.5.3.Final.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 59207,
+        "sha256": "7b119460de174195aca412dfed52ca0bbef0ece26c2d74301b6172cfadf4ff59"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/lucene-queryparser-9.12.3.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 422172,
+        "sha256": "5db83a184512fd7a46cf7b34efa997b5f1b28ad1cee26dd665180b19eab0a1b1"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jersey-hk2-3.1.7.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 77953,
+        "sha256": "6069d059cca2eec07aa89b730912424c98b57822930665f7545d77ce00806c3d"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/hk2-utils-3.0.6.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 132025,
+        "sha256": "fc84d85a0744b576d9ec7db5845eeb998ed532a9450dd19c8c922c3ee6926206"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jersey-bean-validation-3.1.7.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 60244,
+        "sha256": "25c1ccf595c2d7e92e48b4e3421c31f98d79a67d2c2efadbf44c33bd7e5cafa0"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/org.eclipse.jgit-7.2.1.202505142326-r.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 3280286,
+        "sha256": "9f3b69423f695abd21ad2cca0e8caf108444750c32486bfafc1c101671ecd944"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/lucene-backward-codecs-9.12.3.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 760789,
+        "sha256": "ce01b8ea5ae485f4c42f2a2e4bde8526adaf3de782238f6b7464c1f3944a36f8"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jaxb-core-3.0.2.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 139727,
+        "sha256": "f9a360b939597643b2676e35fc497afb561d20e8a513128a5c0070366db11bbd"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/org.suigeneris.jrcs.diff-0.4.2.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 24439,
+        "sha256": "5fd35ce177154ef55dd474e8bef7c89f109132107ac14b5b876c3b5c4d20536d"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/osgi-resource-locator-1.0.3.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 19479,
+        "sha256": "aab5d7849f7cfcda2cc7c541ba1bd365151d42276f151c825387245dfde3dd74"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jersey-server-3.1.7.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 982031,
+        "sha256": "ac0132f783585ab261f91184c76af8839802f8d5c430c5f6dc69820b68f70fe1"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jackson-databind-2.17.1.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 1649385,
+        "sha256": "b6ca2f7d5b1ab245cec5495ec339773d2d90554c48592590673fb18f4400a948"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jakarta.validation-api-3.0.2.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 93298,
+        "sha256": "291c25e6910cc6a7ebd96d4c6baebf6d7c37676c5482c2d96146e901b62c1fc9"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jackson-module-jakarta-xmlbind-annotations-2.17.0.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 32407,
+        "sha256": "6792cecc5fecacec0cf7e5151d43794a05002c578344cfc19dac3ee7fbb98c6f"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/hk2-locator-3.0.6.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 205288,
+        "sha256": "e2664d21b017c3aa1518b913264602bea604edc54d356103c10afba99abd04fc"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jersey-client-3.1.7.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 302369,
+        "sha256": "6d4cf4bd192cf92a54955f7500c7240084aeed9c28db85a3307e79aa183aec94"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/lucene-join-9.12.3.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 177212,
+        "sha256": "62d90a550a1117d521cded9504d7c73288bcdbdf691b68d17caf04ad01efbf46"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/micrometer-commons-1.14.1.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 47821,
+        "sha256": "cce1da029abbde9fdac7cd0c853d611fd67c62c5da9e8b673179aa7ae4d1c9a1"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/lucene-queries-9.12.3.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 513409,
+        "sha256": "81c8993da5dcca9da5e4041b623f00169868e37988691434b14fc910c700a30c"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/versioncompare-1.5.0.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 7909,
+        "sha256": "b228bda1972cc55b24d697d046c56055ef68c23ed984ac6268ae843d355dc8f4"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jersey-entity-filtering-3.1.7.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 83990,
+        "sha256": "784511b2d67447af00ae88149f3cf57c88cbfe4974701b799d46d30872cd4021"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jakarta.el-api-5.0.1.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 88314,
+        "sha256": "90432d18281717b363b819978c6a172433a2654b77eb87c863c22fc19c20eced"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/prometheus-metrics-tracer-common-1.3.3.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 3265,
+        "sha256": "72c850edd9d048cb31c1f4906f832706f18ac6db6d8bc791d49da6aaee2249b3"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jakarta.annotation-api-2.1.1.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 26141,
+        "sha256": "5f65fdaf424eee2b55e1d882ba9bb376be93fb09b37b808be6e22e8851c909fe"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jackson-core-2.17.1.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 581860,
+        "sha256": "ddb26c8a1f1a84535e8213c48b35b253370434e3287b3cf15777856fc4e58ce6"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jackson-dataformat-smile-2.17.1.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 96601,
+        "sha256": "f6f9ad7e11b4788c911932762bba5e6abd81948b1e5729ae3bec90d8732fbc6b"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/hibernate-validator-8.0.1.Final.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 1327426,
+        "sha256": "8c1244a498231091fe723d9666a93444ee9f93607245c6b29829dc5fe57a335c"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/hk2-api-3.0.6.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 207576,
+        "sha256": "c049a21a9fd9316c7e291a2bc28835f70d25affb623dc1599a83b6b84ec83a4f"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/micrometer-registry-statsd-1.14.1.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 5825380,
+        "sha256": "044f824375821f67439ea857f4345b22cb2e7401c22e9169be7b0766e1cda11a"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/commons-compress-1.26.0.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 1078328,
+        "sha256": "051aceb8bbcc62d0f5b2b8ac72c53767f9c59bfbd050151e65bef6f51c8ed9c9"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/jersey-media-json-jackson-3.1.7.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 85633,
+        "sha256": "31adfab566f0b0e7ed166dddb16bf6a87c06438df8fa96b7b42920d30a36904b"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/lucene-facet-9.12.3.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 351720,
+        "sha256": "688e9b71fecba026e44f0a228cc0e09af3c9aec5e1f5b10e9f102a6730ef7dec"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/prometheus-metrics-core-1.3.3.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 95460,
+        "sha256": "7fd5f0412c3582ffc2acc8bf391c2730c97e76337c11f207948f1496057d6d6d"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/lucene-analysis-common-9.12.3.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 1726657,
+        "sha256": "fa571bd7caf0f0b4faf46a72ca004a7836f348c31d92bd522dddcc3d128d287e"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/txw2-3.0.2.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 72003,
+        "sha256": "b4bcf94fb0a759456e2521724513baec94b78e93127544af162e3cff08d93343"
+      },
+      {
+        "path": "opengrok-1.14.20/lib/prometheus-metrics-model-1.3.3.jar",
+        "kind": "file",
+        "mode": "0o100644",
+        "bytes": 90850,
+        "sha256": "ca7eedab2b0098ab1b1ef1973271df70ddc5d0b7b32adf6a4a04481e7618b571"
+      }
+    ]
+  },
+  "indexer_jar": {
+    "bytes": 2216123,
+    "sha256": "bc1f4650710cb92c4a43221c826018c6358bcbc30bf2aaa86688261a0f145aa1",
+    "indexer_classfile_major": 65,
+    "manifest_text": "Manifest-Version: 1.0\r\nCreated-By: Maven Jar Plugin 3.2.0\r\nBuild-Jdk-Spec: 21\r\nClass-Path: bcel-6.7.0.jar commons-lang3-3.18.0.jar commons-compress-1.2\r\n 6.0.jar lucene-core-9.12.3.jar lucene-analysis-common-9.12.3.jar lucene\r\n -highlighter-9.12.3.jar lucene-join-9.12.3.jar lucene-memory-9.12.3.jar\r\n  lucene-queries-9.12.3.jar lucene-queryparser-9.12.3.jar lucene-sandbox\r\n -9.12.3.jar lucene-facet-9.12.3.jar lucene-backward-codecs-9.12.3.jar l\r\n ucene-suggest-9.12.3.jar ant-1.10.14.jar ant-launcher-1.10.14.jar jerse\r\n y-bean-validation-3.1.7.jar jakarta.inject-api-2.0.1.jar jersey-common-\r\n 3.1.7.jar jakarta.annotation-api-2.1.1.jar osgi-resource-locator-1.0.3.\r\n jar jersey-server-3.1.7.jar jakarta.validation-api-3.0.2.jar hibernate-\r\n validator-8.0.1.Final.jar classmate-1.5.1.jar jboss-logging-3.5.3.Final\r\n .jar jakarta.el-api-5.0.1.jar expressly-5.0.0.jar jakarta.ws.rs-api-3.1\r\n .0.jar jersey-media-json-jackson-3.1.7.jar jersey-entity-filtering-3.1.\r\n 7.jar jackson-module-jakarta-xmlbind-annotations-2.17.0.jar jakarta.xml\r\n .bind-api-4.0.2.jar jersey-client-3.1.7.jar jersey-hk2-3.1.7.jar hk2-lo\r\n cator-3.0.6.jar aopalliance-repackaged-3.0.6.jar hk2-api-3.0.6.jar hk2-\r\n utils-3.0.6.jar javassist-3.30.2-GA.jar webjars-locator-core-0.59.jar s\r\n lf4j-api-2.0.13.jar classgraph-4.8.173.jar cron-utils-9.1.6.jar org.sui\r\n generis.jrcs.diff-0.4.2.jar org.suigeneris.jrcs.rcs-0.4.2.jar jaxb-runt\r\n ime-3.0.2.jar jakarta.activation-2.0.1.jar jaxb-core-3.0.2.jar txw2-3.0\r\n .2.jar istack-commons-runtime-4.0.1.jar jakarta.activation-api-2.0.1.ja\r\n r jackson-core-2.17.1.jar jackson-databind-2.17.1.jar jackson-dataforma\r\n t-smile-2.17.1.jar jackson-annotations-2.17.1.jar micrometer-core-1.14.\r\n 1.jar micrometer-commons-1.14.1.jar micrometer-observation-1.14.1.jar H\r\n drHistogram-2.2.2.jar LatencyUtils-2.0.3.jar micrometer-registry-promet\r\n heus-1.14.1.jar prometheus-metrics-core-1.3.3.jar prometheus-metrics-mo\r\n del-1.3.3.jar prometheus-metrics-config-1.3.3.jar prometheus-metrics-tr\r\n acer-common-1.3.3.jar prometheus-metrics-exposition-formats-1.3.3.jar m\r\n icrometer-registry-statsd-1.14.1.jar org.eclipse.jgit-7.2.1.20250514232\r\n 6-r.jar JavaEWAH-1.2.3.jar commons-codec-1.18.0.jar versioncompare-1.5.\r\n 0.jar\r\nMain-Class: org.opengrok.indexer.index.Indexer\r\n\r\n"
+  },
+  "web_war": {
+    "bytes": 55597516,
+    "sha256": "98358675a4e8547b065c72253c37f573d9ccd38816a64664be0da4dd223a9419",
+    "zip_integrity": "testzip returned None",
+    "member_count": 300,
+    "file_count": 273,
+    "web_inf_lib": [
+      {
+        "path": "WEB-INF/lib/chronicle-values-2.27ea0.jar",
+        "bytes": 157806,
+        "sha256": "7d826a72a6ff64af8c7c3c74a144b2a5432ab8cc182637c4bfa24c3f21cd9b26"
+      },
+      {
+        "path": "WEB-INF/lib/lucene-memory-9.12.3.jar",
+        "bytes": 63938,
+        "sha256": "54ebbfd18e33933a063510d3d0d71ee84adb7d1a8e9eda8c744e7221e5c3ee40"
+      },
+      {
+        "path": "WEB-INF/lib/bcel-6.7.0.jar",
+        "bytes": 716107,
+        "sha256": "e4a3c54b422efa954c8549caaea993655e59911759206702885e78e6b7fe9c84"
+      },
+      {
+        "path": "WEB-INF/lib/LatencyUtils-2.0.3.jar",
+        "bytes": 29779,
+        "sha256": "a32a9ffa06b2f4e01c5360f8f9df7bc5d9454a5d373cd8f361347fa5a57165ec"
+      },
+      {
+        "path": "WEB-INF/lib/jakarta.ws.rs-api-3.1.0.jar",
+        "bytes": 154815,
+        "sha256": "6b3b3628b8b4aedda0d24c3354335e985497d8ef3c510b8f3028e920d5b8663d"
+      },
+      {
+        "path": "WEB-INF/lib/jettison-1.5.4.jar",
+        "bytes": 90184,
+        "sha256": "fc3a68a7c17688ee50817340fef265d8d3f6c192c92bbee00d17f18a6d3dfeda"
+      },
+      {
+        "path": "WEB-INF/lib/opengrok-1.14.20.jar",
+        "bytes": 2216123,
+        "sha256": "bc1f4650710cb92c4a43221c826018c6358bcbc30bf2aaa86688261a0f145aa1"
+      },
+      {
+        "path": "WEB-INF/lib/lucene-core-9.12.3.jar",
+        "bytes": 4266133,
+        "sha256": "b64a3f8098a7572034fb30085cdee01b34ec81fb0e5a31b471536af58dc6c01b"
+      },
+      {
+        "path": "WEB-INF/lib/commons-io-2.14.0.jar",
+        "bytes": 494227,
+        "sha256": "e35d1df7232568ed4b81d9a9ed94a0159b3ff6cf1915cc21eef5cb55d7b157a2"
+      },
+      {
+        "path": "WEB-INF/lib/org.suigeneris.jrcs.diff-0.4.2.jar",
+        "bytes": 24439,
+        "sha256": "5fd35ce177154ef55dd474e8bef7c89f109132107ac14b5b876c3b5c4d20536d"
+      },
+      {
+        "path": "WEB-INF/lib/osgi-resource-locator-1.0.3.jar",
+        "bytes": 19479,
+        "sha256": "aab5d7849f7cfcda2cc7c541ba1bd365151d42276f151c825387245dfde3dd74"
+      },
+      {
+        "path": "WEB-INF/lib/jakarta.servlet.jsp.jstl-api-3.0.0.jar",
+        "bytes": 46041,
+        "sha256": "f244245440772c1502b09d6511c0e15e53d42f21a3a9dccdf96a955a758a92bd"
+      },
+      {
+        "path": "WEB-INF/lib/jackson-databind-2.17.1.jar",
+        "bytes": 1649385,
+        "sha256": "b6ca2f7d5b1ab245cec5495ec339773d2d90554c48592590673fb18f4400a948"
+      },
+      {
+        "path": "WEB-INF/lib/jersey-client-3.1.7.jar",
+        "bytes": 302369,
+        "sha256": "6d4cf4bd192cf92a54955f7500c7240084aeed9c28db85a3307e79aa183aec94"
+      },
+      {
+        "path": "WEB-INF/lib/lucene-queries-9.12.3.jar",
+        "bytes": 513409,
+        "sha256": "81c8993da5dcca9da5e4041b623f00169868e37988691434b14fc910c700a30c"
+      },
+      {
+        "path": "WEB-INF/lib/prometheus-metrics-tracer-common-1.3.3.jar",
+        "bytes": 3265,
+        "sha256": "72c850edd9d048cb31c1f4906f832706f18ac6db6d8bc791d49da6aaee2249b3"
+      },
+      {
+        "path": "WEB-INF/lib/jnr-a64asm-1.0.0.jar",
+        "bytes": 86270,
+        "sha256": "53ae5ea7fa5c284e8279aa348e7b9de4548b0cae10bfd058fa217c791875e4cf"
+      },
+      {
+        "path": "WEB-INF/lib/jackson-dataformat-smile-2.17.1.jar",
+        "bytes": 96601,
+        "sha256": "f6f9ad7e11b4788c911932762bba5e6abd81948b1e5729ae3bec90d8732fbc6b"
+      },
+      {
+        "path": "WEB-INF/lib/showdown-2.1.0.jar",
+        "bytes": 171401,
+        "sha256": "7190ff2d5091264accd8a39183678d49cb64b8c3067155cb948c934370647499"
+      },
+      {
+        "path": "WEB-INF/lib/hibernate-validator-8.0.1.Final.jar",
+        "bytes": 1327426,
+        "sha256": "8c1244a498231091fe723d9666a93444ee9f93607245c6b29829dc5fe57a335c"
+      },
+      {
+        "path": "WEB-INF/lib/jersey-media-json-jackson-3.1.7.jar",
+        "bytes": 85633,
+        "sha256": "31adfab566f0b0e7ed166dddb16bf6a87c06438df8fa96b7b42920d30a36904b"
+      },
+      {
+        "path": "WEB-INF/lib/affinity-3.27ea0.jar",
+        "bytes": 83171,
+        "sha256": "ba0ff77f90f15f8ad40b6acc8e12c36907b9fc54446a0437e8bc7fb3b52bab87"
+      },
+      {
+        "path": "WEB-INF/lib/lucene-facet-9.12.3.jar",
+        "bytes": 351720,
+        "sha256": "688e9b71fecba026e44f0a228cc0e09af3c9aec5e1f5b10e9f102a6730ef7dec"
+      },
+      {
+        "path": "WEB-INF/lib/prometheus-metrics-core-1.3.3.jar",
+        "bytes": 95460,
+        "sha256": "7fd5f0412c3582ffc2acc8bf391c2730c97e76337c11f207948f1496057d6d6d"
+      },
+      {
+        "path": "WEB-INF/lib/jffi-1.3.12-native.jar",
+        "bytes": 1015369,
+        "sha256": "c7b947702f27d2e432b561afc4a8cee01f03d43629e5d657b92d617f672bff90"
+      },
+      {
+        "path": "WEB-INF/lib/jackson-dataformat-yaml-2.17.1.jar",
+        "bytes": 55417,
+        "sha256": "83f38459593bc10caeb1fa2653616813b1743b6bed67163c8ae8e5a4d32a5456"
+      },
+      {
+        "path": "WEB-INF/lib/txw2-3.0.2.jar",
+        "bytes": 72003,
+        "sha256": "b4bcf94fb0a759456e2521724513baec94b78e93127544af162e3cff08d93343"
+      },
+      {
+        "path": "WEB-INF/lib/classmate-1.5.1.jar",
+        "bytes": 67815,
+        "sha256": "aab4de3006808c09d25dd4ff4a3611cfb63c95463cfd99e73d2e1680d229a33b"
+      },
+      {
+        "path": "WEB-INF/lib/micrometer-observation-1.14.1.jar",
+        "bytes": 74947,
+        "sha256": "72bf1ae38cd80ededaf2351bd2bc185ade3134a454dff6742517df14e73ddbb4"
+      },
+      {
+        "path": "WEB-INF/lib/expressly-5.0.0.jar",
+        "bytes": 171797,
+        "sha256": "b0c872737bb8381921b304d0952854666d1ba320b9b3c5bf4d70a09a86b61524"
+      },
+      {
+        "path": "WEB-INF/lib/chronicle-bytes-2.27ea0.jar",
+        "bytes": 476715,
+        "sha256": "b3ba0eb154b562d6a1b39349d0e2f800a7e93c4d5f80d90c22723166c33b99fb"
+      },
+      {
+        "path": "WEB-INF/lib/chronicle-threads-2.27ea0.jar",
+        "bytes": 99484,
+        "sha256": "773f442d22b9e33f237f4d7c93ffd52eb6a021a63c39d05145020385c9c97c8a"
+      },
+      {
+        "path": "WEB-INF/lib/jersey-container-servlet-core-3.1.7.jar",
+        "bytes": 74491,
+        "sha256": "8546b256ed24ce98cdd1de9879a590b347b572604b4c3e782964e57cf795990b"
+      },
+      {
+        "path": "WEB-INF/lib/modelmapper-3.1.1.jar",
+        "bytes": 4323069,
+        "sha256": "da850cff9b651d8150f7e2cdcf78e5aca14b2242c501ddbc05f3c55a6cd0172a"
+      },
+      {
+        "path": "WEB-INF/lib/JavaEWAH-1.2.3.jar",
+        "bytes": 170567,
+        "sha256": "d65226949713c4c61a784f41c51167e7b0316f93764398ebba9e4336b3d954c2"
+      },
+      {
+        "path": "WEB-INF/lib/jnr-constants-0.10.4.jar",
+        "bytes": 1579612,
+        "sha256": "9a5b8cf9798d9d0331b8d8966c5235a22c4307676e35803a24659e6d76096f78"
+      },
+      {
+        "path": "WEB-INF/lib/lucene-backward-codecs-9.12.3.jar",
+        "bytes": 760789,
+        "sha256": "ce01b8ea5ae485f4c42f2a2e4bde8526adaf3de782238f6b7464c1f3944a36f8"
+      },
+      {
+        "path": "WEB-INF/lib/jaxb-core-3.0.2.jar",
+        "bytes": 139727,
+        "sha256": "f9a360b939597643b2676e35fc497afb561d20e8a513128a5c0070366db11bbd"
+      },
+      {
+        "path": "WEB-INF/lib/jersey-server-3.1.7.jar",
+        "bytes": 982031,
+        "sha256": "ac0132f783585ab261f91184c76af8839802f8d5c430c5f6dc69820b68f70fe1"
+      },
+      {
+        "path": "WEB-INF/lib/versioncompare-1.5.0.jar",
+        "bytes": 7909,
+        "sha256": "b228bda1972cc55b24d697d046c56055ef68c23ed984ac6268ae843d355dc8f4"
+      },
+      {
+        "path": "WEB-INF/lib/jffi-1.3.12.jar",
+        "bytes": 156243,
+        "sha256": "d7ddb6e9f11133600894eb04f95a9d834caefa4acfc86ef9ad59e7555297bbd3"
+      },
+      {
+        "path": "WEB-INF/lib/jersey-entity-filtering-3.1.7.jar",
+        "bytes": 83990,
+        "sha256": "784511b2d67447af00ae88149f3cf57c88cbfe4974701b799d46d30872cd4021"
+      },
+      {
+        "path": "WEB-INF/lib/jakarta.annotation-api-2.1.1.jar",
+        "bytes": 26141,
+        "sha256": "5f65fdaf424eee2b55e1d882ba9bb376be93fb09b37b808be6e22e8851c909fe"
+      },
+      {
+        "path": "WEB-INF/lib/jackson-core-2.17.1.jar",
+        "bytes": 581860,
+        "sha256": "ddb26c8a1f1a84535e8213c48b35b253370434e3287b3cf15777856fc4e58ce6"
+      },
+      {
+        "path": "WEB-INF/lib/commons-compress-1.26.0.jar",
+        "bytes": 1078328,
+        "sha256": "051aceb8bbcc62d0f5b2b8ac72c53767f9c59bfbd050151e65bef6f51c8ed9c9"
+      },
+      {
+        "path": "WEB-INF/lib/prometheus-metrics-model-1.3.3.jar",
+        "bytes": 90850,
+        "sha256": "ca7eedab2b0098ab1b1ef1973271df70ddc5d0b7b32adf6a4a04481e7618b571"
+      },
+      {
+        "path": "WEB-INF/lib/ant-launcher-1.10.14.jar",
+        "bytes": 18871,
+        "sha256": "f0909725a7a24e393888f3fbb558347abf506ce2f7ebc581ff26331b94d951a5"
+      },
+      {
+        "path": "WEB-INF/lib/commons-lang3-3.18.0.jar",
+        "bytes": 702952,
+        "sha256": "4eeeae8d20c078abb64b015ec158add383ac581571cddc45c68f0c9ae0230720"
+      },
+      {
+        "path": "WEB-INF/lib/ant-1.10.14.jar",
+        "bytes": 2303167,
+        "sha256": "4cbbd9243de4c1042d61d9a15db4c43c90ff93b16d78b39481da1c956c8e9671"
+      },
+      {
+        "path": "WEB-INF/lib/istack-commons-runtime-4.0.1.jar",
+        "bytes": 29896,
+        "sha256": "9f91115f449384886f572bd62c8812ee1004273d4b5c85cac65179ad4c16990f"
+      },
+      {
+        "path": "WEB-INF/lib/xss-1.0.10.jar",
+        "bytes": 43469,
+        "sha256": "8a3c2d198a4c1ebc9ab18bd364b06d77787eddea1f5614f506a071d35ce3badc"
+      },
+      {
+        "path": "WEB-INF/lib/webjars-locator-core-0.59.jar",
+        "bytes": 19081,
+        "sha256": "86e89c3504205ecfbc169cffcbc220bb2f4a68077acc5a95692d1129bf0e53fb"
+      },
+      {
+        "path": "WEB-INF/lib/slf4j-api-2.0.13.jar",
+        "bytes": 68605,
+        "sha256": "e7c2a48e8515ba1f49fa637d57b4e2f590b3f5bd97407ac699c3aa5efb1204a9"
+      },
+      {
+        "path": "WEB-INF/lib/compiler-2.27ea0.jar",
+        "bytes": 23655,
+        "sha256": "e07f4928ff0f2bd380d8e6a4aed304166a8d067831341e2d36f1c35c8a05173b"
+      },
+      {
+        "path": "WEB-INF/lib/prometheus-metrics-exposition-formats-1.3.3.jar",
+        "bytes": 2099874,
+        "sha256": "38db66d2d97fa824ee708ddaeb3a358b1b920ec0af5afd8e66d1d9e10017473f"
+      },
+      {
+        "path": "WEB-INF/lib/suggester-1.14.20.jar",
+        "bytes": 99361,
+        "sha256": "44a84018c4c097d49348efd76488c5e60a145b094639d274ec5a7b9b375a163d"
+      },
+      {
+        "path": "WEB-INF/lib/lucene-sandbox-9.12.3.jar",
+        "bytes": 305303,
+        "sha256": "21cf9ad1bb97265983c698b9c5eb071b1a4a1d4f0f74b98c6e61ad8f04c5c9d7"
+      },
+      {
+        "path": "WEB-INF/lib/jakarta.el-api-5.0.0.jar",
+        "bytes": 87908,
+        "sha256": "57b822380207900f5145c2a687384c50fd41495d388a235791d96ae3b9bfd36d"
+      },
+      {
+        "path": "WEB-INF/lib/javapoet-1.13.0.jar",
+        "bytes": 106068,
+        "sha256": "4c7517e848a71b36d069d12bb3bf46a70fd4cda3105d822b0ed2e19c00b69291"
+      },
+      {
+        "path": "WEB-INF/lib/cron-utils-9.1.6.jar",
+        "bytes": 167731,
+        "sha256": "236c606093fd81e69274a5fc8b56f6b5be8fdf22d16ddf6841098486ef6cf12c"
+      },
+      {
+        "path": "WEB-INF/lib/posix-2.27ea0.jar",
+        "bytes": 38400,
+        "sha256": "057cf8b7a0df5beccfcefebcdda49cb890bcdf0134f5e033b40b602c7e3f0c39"
+      },
+      {
+        "path": "WEB-INF/lib/classgraph-4.8.173.jar",
+        "bytes": 570679,
+        "sha256": "699841fd9028af0124e9b66067e0e543211611971a8a066ae212690888a5aaee"
+      },
+      {
+        "path": "WEB-INF/lib/chronicle-analytics-0.EMPTY.jar",
+        "bytes": 5442,
+        "sha256": "3a05bd5c9d02f9932b7fbb89ba7028a147877d3f36a3fc90f3eeb657e92059b0"
+      },
+      {
+        "path": "WEB-INF/lib/lucene-highlighter-9.12.3.jar",
+        "bytes": 274458,
+        "sha256": "4cfa3c462ddd253bc8663d89afef821daff30dcb5b376a764e4e55b926bca7b9"
+      },
+      {
+        "path": "WEB-INF/lib/commons-codec-1.18.0.jar",
+        "bytes": 373045,
+        "sha256": "ba005f304cef92a3dede24a38ad5ac9b8afccf0d8f75839d6c1338634cf7f6e4"
+      },
+      {
+        "path": "WEB-INF/lib/xstream-1.4.20.jar",
+        "bytes": 644649,
+        "sha256": "87df0f0be57c92037d0110fbb225a30b651702dc275653d285afcfef31bc2e81"
+      },
+      {
+        "path": "WEB-INF/lib/aopalliance-repackaged-3.0.6.jar",
+        "bytes": 27419,
+        "sha256": "a82b6d1a348324ef88dc807c7cd7aaf633985cbff7b30036fb61a1b86981d840"
+      },
+      {
+        "path": "WEB-INF/lib/micrometer-core-1.14.1.jar",
+        "bytes": 875850,
+        "sha256": "e8a8af4456b074a96eb0bb623ac6ad021692d340847f6faef8f30b381c6a2817"
+      },
+      {
+        "path": "WEB-INF/lib/jakarta.xml.bind-api-4.0.2.jar",
+        "bytes": 131033,
+        "sha256": "0d6bcfe47763e85047acf7c398336dc84ff85ebcad0a7cb6f3b9d3e981245406"
+      },
+      {
+        "path": "WEB-INF/lib/xmlpull-1.1.3.1.jar",
+        "bytes": 7188,
+        "sha256": "34e08ee62116071cbb69c0ed70d15a7a5b208d62798c59f2120bb8929324cb63"
+      },
+      {
+        "path": "WEB-INF/lib/lucene-suggest-9.12.3.jar",
+        "bytes": 240359,
+        "sha256": "c9a8907109668d6313b6b5c4e13913b99d7295e01334a90e90baba9571797097"
+      },
+      {
+        "path": "WEB-INF/lib/mxparser-1.2.2.jar",
+        "bytes": 29680,
+        "sha256": "aeeee23a3303d811bca8790ea7f25b534314861c03cff36dafdcc2180969eb97"
+      },
+      {
+        "path": "WEB-INF/lib/chronicle-algorithms-2.27ea0.jar",
+        "bytes": 139952,
+        "sha256": "0fa13e6def719993bbd3677a43809379b385fc91e5e30cd95179ce5f76abe9a4"
+      },
+      {
+        "path": "WEB-INF/lib/cglib-3.3.0.jar",
+        "bytes": 306864,
+        "sha256": "9fe0c26d7464140ccdfe019ac687be1fb906122b508ab54beb810db0f09a9212"
+      },
+      {
+        "path": "WEB-INF/lib/jakarta.inject-api-2.0.1.jar",
+        "bytes": 10681,
+        "sha256": "f7dc98062fccf14126abb751b64fab12c312566e8cbdc8483598bffcea93af7c"
+      },
+      {
+        "path": "WEB-INF/lib/jquery-3.6.4.jar",
+        "bytes": 316805,
+        "sha256": "206b6297a1d0cd6c802a1ac58b5820976581391f649934a57eea4776a7af7d22"
+      },
+      {
+        "path": "WEB-INF/lib/jersey-container-servlet-3.1.7.jar",
+        "bytes": 31988,
+        "sha256": "4f5cfab656632b752f664c5992941197d879516d34614746927194c369ee6aae"
+      },
+      {
+        "path": "WEB-INF/lib/jaxb-runtime-3.0.2.jar",
+        "bytes": 913701,
+        "sha256": "7b3a3784b9c6e343a8d38fc108602ba810177f03f2d8d1e7258b1cef7fd9d4c7"
+      },
+      {
+        "path": "WEB-INF/lib/prometheus-metrics-config-1.3.3.jar",
+        "bytes": 33157,
+        "sha256": "1b619be29b1a02a53615665226c2d2e0a84e53a7368311fc5921837d824aeeeb"
+      },
+      {
+        "path": "WEB-INF/lib/jackson-annotations-2.17.1.jar",
+        "bytes": 78491,
+        "sha256": "fccad82e13172c0e4384db71577219c9b8631c0820f4b18daaa57016fb661c76"
+      },
+      {
+        "path": "WEB-INF/lib/org.suigeneris.jrcs.rcs-0.4.2.jar",
+        "bytes": 62882,
+        "sha256": "4be0d9cc6b08430e2faa38876164ebd1b9ab9c5858176d40d2f82b70d80d207c"
+      },
+      {
+        "path": "WEB-INF/lib/jboss-logging-3.5.3.Final.jar",
+        "bytes": 59207,
+        "sha256": "7b119460de174195aca412dfed52ca0bbef0ece26c2d74301b6172cfadf4ff59"
+      },
+      {
+        "path": "WEB-INF/lib/lucene-queryparser-9.12.3.jar",
+        "bytes": 422172,
+        "sha256": "5db83a184512fd7a46cf7b34efa997b5f1b28ad1cee26dd665180b19eab0a1b1"
+      },
+      {
+        "path": "WEB-INF/lib/chronicle-core-2.27ea0.jar",
+        "bytes": 408382,
+        "sha256": "fee51c0cc391d93b197add7b59a080a629a763d5b147435ab52f8c0c2884064b"
+      },
+      {
+        "path": "WEB-INF/lib/snakeyaml-2.2.jar",
+        "bytes": 334352,
+        "sha256": "1467931448a0817696ae2805b7b8b20bfb082652bf9c4efaed528930dc49389b"
+      },
+      {
+        "path": "WEB-INF/lib/jersey-hk2-3.1.7.jar",
+        "bytes": 77953,
+        "sha256": "6069d059cca2eec07aa89b730912424c98b57822930665f7545d77ce00806c3d"
+      },
+      {
+        "path": "WEB-INF/lib/hk2-utils-3.0.6.jar",
+        "bytes": 132025,
+        "sha256": "fc84d85a0744b576d9ec7db5845eeb998ed532a9450dd19c8c922c3ee6926206"
+      },
+      {
+        "path": "WEB-INF/lib/jersey-bean-validation-3.1.7.jar",
+        "bytes": 60244,
+        "sha256": "25c1ccf595c2d7e92e48b4e3421c31f98d79a67d2c2efadbf44c33bd7e5cafa0"
+      },
+      {
+        "path": "WEB-INF/lib/asm-7.1.jar",
+        "bytes": 114762,
+        "sha256": "4ab2fa2b6d2cc9ccb1eaa05ea329c407b47b13ed2915f62f8c4b8cc96258d4de"
+      },
+      {
+        "path": "WEB-INF/lib/org.eclipse.jgit-7.2.1.202505142326-r.jar",
+        "bytes": 3280286,
+        "sha256": "9f3b69423f695abd21ad2cca0e8caf108444750c32486bfafc1c101671ecd944"
+      },
+      {
+        "path": "WEB-INF/lib/jakarta.validation-api-3.0.2.jar",
+        "bytes": 93298,
+        "sha256": "291c25e6910cc6a7ebd96d4c6baebf6d7c37676c5482c2d96146e901b62c1fc9"
+      },
+      {
+        "path": "WEB-INF/lib/tablesorter-2.31.3.jar",
+        "bytes": 378642,
+        "sha256": "6751ea629ddf07e3f5e343bb16650b23d6043ebf12e39f1e32f445f8ccfdaec2"
+      },
+      {
+        "path": "WEB-INF/lib/chronicle-wire-2.27ea0.jar",
+        "bytes": 817992,
+        "sha256": "162f9063c6dfcaf8d8906c1c63f462889f010b19532e6af2c6f7d0910f1437cc"
+      },
+      {
+        "path": "WEB-INF/lib/jackson-module-jakarta-xmlbind-annotations-2.17.0.jar",
+        "bytes": 32407,
+        "sha256": "6792cecc5fecacec0cf7e5151d43794a05002c578344cfc19dac3ee7fbb98c6f"
+      },
+      {
+        "path": "WEB-INF/lib/hk2-locator-3.0.6.jar",
+        "bytes": 205288,
+        "sha256": "e2664d21b017c3aa1518b913264602bea604edc54d356103c10afba99abd04fc"
+      },
+      {
+        "path": "WEB-INF/lib/lucene-join-9.12.3.jar",
+        "bytes": 177212,
+        "sha256": "62d90a550a1117d521cded9504d7c73288bcdbdf691b68d17caf04ad01efbf46"
+      },
+      {
+        "path": "WEB-INF/lib/micrometer-commons-1.14.1.jar",
+        "bytes": 47821,
+        "sha256": "cce1da029abbde9fdac7cd0c853d611fd67c62c5da9e8b673179aa7ae4d1c9a1"
+      },
+      {
+        "path": "WEB-INF/lib/jna-5.5.0.jar",
+        "bytes": 1506993,
+        "sha256": "b308faebfe4ed409de8410e0a632d164b2126b035f6eacff968d3908cafb4d9e"
+      },
+      {
+        "path": "WEB-INF/lib/hk2-api-3.0.6.jar",
+        "bytes": 207576,
+        "sha256": "c049a21a9fd9316c7e291a2bc28835f70d25affb623dc1599a83b6b84ec83a4f"
+      },
+      {
+        "path": "WEB-INF/lib/slf4j-nop-1.7.30.jar",
+        "bytes": 4020,
+        "sha256": "2d550dcefaea23d223b72027dbc7cbdb7327676ccefdd9cfe49cf9ea8e9ac8e0"
+      },
+      {
+        "path": "WEB-INF/lib/micrometer-registry-statsd-1.14.1.jar",
+        "bytes": 5825380,
+        "sha256": "044f824375821f67439ea857f4345b22cb2e7401c22e9169be7b0766e1cda11a"
+      },
+      {
+        "path": "WEB-INF/lib/jna-platform-5.5.0.jar",
+        "bytes": 2681931,
+        "sha256": "24d81621f82ac29fcdd9a74116031f5907a2343158e616f4573bbfa2434ae0d5"
+      },
+      {
+        "path": "WEB-INF/lib/micrometer-registry-prometheus-1.14.1.jar",
+        "bytes": 41894,
+        "sha256": "82c73d756ff174fa1d36695c2ec49c7a506e62868f9f6ff55f3f7631d32ea536"
+      },
+      {
+        "path": "WEB-INF/lib/jakarta.activation-api-2.0.1.jar",
+        "bytes": 47824,
+        "sha256": "118e66670e3b0baaad3c98cfec8147f6961e0665dde940d605020f2290e461c3"
+      },
+      {
+        "path": "WEB-INF/lib/HdrHistogram-2.2.2.jar",
+        "bytes": 177206,
+        "sha256": "22d1d4316c4ec13a68b559e98c8256d69071593731da96136640f864fa14fad8"
+      },
+      {
+        "path": "WEB-INF/lib/javassist-3.30.2-GA.jar",
+        "bytes": 794714,
+        "sha256": "eba37290994b5e4868f3af98ff113f6244a6b099385d9ad46881307d3cb01aaf"
+      },
+      {
+        "path": "WEB-INF/lib/jersey-common-3.1.7.jar",
+        "bytes": 1242688,
+        "sha256": "23f4a38bc704d1839ec56f073145f2d4f4609d61dd3bb39ead2223b5a3b05a68"
+      },
+      {
+        "path": "WEB-INF/lib/jakarta.activation-2.0.1.jar",
+        "bytes": 62154,
+        "sha256": "b9e24b7dd6e07495562ea96531be3130c96dba4d78e1dfd88adbbdebf4332871"
+      },
+      {
+        "path": "WEB-INF/lib/jnr-ffi-2.2.15.jar",
+        "bytes": 737832,
+        "sha256": "a34ef74dc7d44d1575e522b47ab41116953c3128a61f9a35a6a9fd4a9d47a195"
+      },
+      {
+        "path": "WEB-INF/lib/jakarta.servlet.jsp.jstl-3.0.1.jar",
+        "bytes": 3711043,
+        "sha256": "5cc6e60b9e74d38c25fe4f2d22dfd40577f5b8396bc885f7061cd2c525a43b86"
+      },
+      {
+        "path": "WEB-INF/lib/jnr-x86asm-1.0.2.jar",
+        "bytes": 219943,
+        "sha256": "39f3675b910e6e9b93825f8284bec9f4ad3044cd20a6f7c8ff9e2f8695ebf21e"
+      },
+      {
+        "path": "WEB-INF/lib/chronicle-map-3.27ea0.jar",
+        "bytes": 766710,
+        "sha256": "040e594444d782f1c10b60d672aba22d8c8807c8ba74fab922a2632716abac4b"
+      },
+      {
+        "path": "WEB-INF/lib/lucene-analysis-common-9.12.3.jar",
+        "bytes": 1726657,
+        "sha256": "fa571bd7caf0f0b4faf46a72ca004a7836f348c31d92bd522dddcc3d128d287e"
+      }
+    ],
+    "source_asset_comparison": [
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/font/SunSansRegular.woff2",
+        "war_path": "default/font/SunSansRegular.woff2",
+        "source_sha256": "90aeb1269f880f8f2d2d83c574e659990399dab5f2131600c657820c8e6371a3",
+        "war_sha256": "90aeb1269f880f8f2d2d83c574e659990399dab5f2131600c657820c8e6371a3",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/img/Logo.png",
+        "war_path": "default/img/Logo.png",
+        "source_sha256": "56151fdc69bfc0d0715f1252494311762e21a91ce2475c76da5070734673e075",
+        "war_sha256": "56151fdc69bfc0d0715f1252494311762e21a91ce2475c76da5070734673e075",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/img/apple-touch-icon.png",
+        "war_path": "default/img/apple-touch-icon.png",
+        "source_sha256": "d7d54036b4c4e2602857aeb9950f1aa424632fb071b0d0d58d30cd74272135e9",
+        "war_sha256": "d7d54036b4c4e2602857aeb9950f1aa424632fb071b0d0d58d30cd74272135e9",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/img/bg.png",
+        "war_path": "default/img/bg.png",
+        "source_sha256": "c0c42c9c577bb12651270073ef9cfea94f445099d00b6d34a8f58cc511dbbb23",
+        "war_sha256": "c0c42c9c577bb12651270073ef9cfea94f445099d00b6d34a8f58cc511dbbb23",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/img/button1.png",
+        "war_path": "default/img/button1.png",
+        "source_sha256": "aef8225c258a8a35c67de421d997250575bf1976738a7895d1c6cd10641edc50",
+        "war_sha256": "aef8225c258a8a35c67de421d997250575bf1976738a7895d1c6cd10641edc50",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/img/button2.png",
+        "war_path": "default/img/button2.png",
+        "source_sha256": "2320573d5cb97795dc8c0c2938c22bf1efdb749e50fcd9480505df6a7e6c45e2",
+        "war_sha256": "2320573d5cb97795dc8c0c2938c22bf1efdb749e50fcd9480505df6a7e6c45e2",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/img/button3.png",
+        "war_path": "default/img/button3.png",
+        "source_sha256": "3c69ae284936e963b711b0afbc702078bcc18373714c13c7074ebb135af57ab7",
+        "war_sha256": "3c69ae284936e963b711b0afbc702078bcc18373714c13c7074ebb135af57ab7",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/img/diff-jumper.png",
+        "war_path": "default/img/diff-jumper.png",
+        "source_sha256": "8d8980a56358a92a2e1f1ef00fb23f55b112c2e6426033e27854ae7bbe778f20",
+        "war_sha256": "8d8980a56358a92a2e1f1ef00fb23f55b112c2e6426033e27854ae7bbe778f20",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/img/diff-jumping.png",
+        "war_path": "default/img/diff-jumping.png",
+        "source_sha256": "00ae79c0351e39b556e84284b6dd999c4c4a772032f61c9078973f94e9ab0566",
+        "war_sha256": "00ae79c0351e39b556e84284b6dd999c4c4a772032f61c9078973f94e9ab0566",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/img/favicon.svg",
+        "war_path": "default/img/favicon.svg",
+        "source_sha256": "5c5f260fd53707697d59a2fb49cf92ebbccddaf7816b7fa1cf7ef0f692ec3732",
+        "war_sha256": "5c5f260fd53707697d59a2fb49cf92ebbccddaf7816b7fa1cf7ef0f692ec3732",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/img/folding.png",
+        "war_path": "default/img/folding.png",
+        "source_sha256": "7c2a4ae324f2d263b38b9388a3ae94ce93d59a81bec4f84393093e20a481e78b",
+        "war_sha256": "7c2a4ae324f2d263b38b9388a3ae94ce93d59a81bec4f84393093e20a481e78b",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/img/google-touch-icon.png",
+        "war_path": "default/img/google-touch-icon.png",
+        "source_sha256": "dbea28011f2098cb896503b45483a866c58c6715f9951f5d5aa747089c0b7f85",
+        "war_sha256": "dbea28011f2098cb896503b45483a866c58c6715f9951f5d5aa747089c0b7f85",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/img/indicator.gif",
+        "war_path": "default/img/indicator.gif",
+        "source_sha256": "d3e3944d4649450dee66a55c69eeced2d825b6ca1a349f72c75fd3780ae3f006",
+        "war_sha256": "d3e3944d4649450dee66a55c69eeced2d825b6ca1a349f72c75fd3780ae3f006",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/img/intelli-window.png",
+        "war_path": "default/img/intelli-window.png",
+        "source_sha256": "ae3239cbe2594ab1559fbe800dd4b1b50769ed0f409da748a156a3fb7917f9ba",
+        "war_sha256": "ae3239cbe2594ab1559fbe800dd4b1b50769ed0f409da748a156a3fb7917f9ba",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/img/mask-icon.svg",
+        "war_path": "default/img/mask-icon.svg",
+        "source_sha256": "298a442eb2748b8c4d522977189d7c8e19c6843f0aa44ef74639e27faa0a0330",
+        "war_sha256": "298a442eb2748b8c4d522977189d7c8e19c6843f0aa44ef74639e27faa0a0330",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/img/rss.png",
+        "war_path": "default/img/rss.png",
+        "source_sha256": "038c41651b71b4ae55c37f0ca137ee5d0c2127a04a6733387de5325145d2eb1c",
+        "war_sha256": "038c41651b71b4ae55c37f0ca137ee5d0c2127a04a6733387de5325145d2eb1c",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/img/servedby.png",
+        "war_path": "default/img/servedby.png",
+        "source_sha256": "002f0da50b642b540b79ca5cd590e722ad7ba8f2835d0434450856dff19e240c",
+        "war_sha256": "002f0da50b642b540b79ca5cd590e722ad7ba8f2835d0434450856dff19e240c",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/img/symbol-highlighting.png",
+        "war_path": "default/img/symbol-highlighting.png",
+        "source_sha256": "cd6e5badcb662c2862415369f157293a51dfef148ebac756e776cd1044fbc582",
+        "war_sha256": "cd6e5badcb662c2862415369f157293a51dfef148ebac756e776cd1044fbc582",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/img/transparent_pixel.gif",
+        "war_path": "default/img/transparent_pixel.gif",
+        "source_sha256": "4b0d57fe7010909115da0c3e3b5cac13ca16f3eba6462a397da140f3cd211507",
+        "war_sha256": "4b0d57fe7010909115da0c3e3b5cac13ca16f3eba6462a397da140f3cd211507",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/img/unfolding.png",
+        "war_path": "default/img/unfolding.png",
+        "source_sha256": "c588d83a9c82b97af4d9f89f6cc7ce4b4618607357fdde86aa365d43a76dc482",
+        "war_sha256": "c588d83a9c82b97af4d9f89f6cc7ce4b4618607357fdde86aa365d43a76dc482",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/jquery-ui-1.12.1-custom.min.css",
+        "war_path": "default/jquery-ui-1.12.1-custom.min.css",
+        "source_sha256": "5bbb38503690ef314d6c7b4e3607fbfa2cef911a06bb15ef8bcc4d4a3f1813e9",
+        "war_sha256": "5bbb38503690ef314d6c7b4e3607fbfa2cef911a06bb15ef8bcc4d4a3f1813e9",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/jquery-ui-1.12.1-custom.structure.min.css",
+        "war_path": "default/jquery-ui-1.12.1-custom.structure.min.css",
+        "source_sha256": "6bf736777d414761017833c8b7d6d6bf97ba4880eaba45b09502b21ecf4f9d5a",
+        "war_sha256": "6bf736777d414761017833c8b7d6d6bf97ba4880eaba45b09502b21ecf4f9d5a",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/jquery-ui-1.12.1-custom.theme.min.css",
+        "war_path": "default/jquery-ui-1.12.1-custom.theme.min.css",
+        "source_sha256": "98be5224f99e7c3a276d2ef97298a8451c85d3ba2c4cfa0a9aad479153068c1a",
+        "war_sha256": "98be5224f99e7c3a276d2ef97298a8451c85d3ba2c4cfa0a9aad479153068c1a",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/jquery.autocomplete.css",
+        "war_path": "default/jquery.autocomplete.css",
+        "source_sha256": "0722c05c323336d131ef9962486d4953e19167bd76f91d1fc7d74127ab5a0d64",
+        "war_sha256": "0722c05c323336d131ef9962486d4953e19167bd76f91d1fc7d74127ab5a0d64",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/jquery.combo.css",
+        "war_path": "default/jquery.combo.css",
+        "source_sha256": "76dc657a3f78362076b8c96b6834c7da1e4178bda8e6c8be45d2c044705031fd",
+        "war_sha256": "76dc657a3f78362076b8c96b6834c7da1e4178bda8e6c8be45d2c044705031fd",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/jquery.tablesorter.css",
+        "war_path": "default/jquery.tablesorter.css",
+        "source_sha256": "8275672f15b982daab2dbad7a14e55c5d598a96984fcf908427bf876429e9fa6",
+        "war_sha256": "8275672f15b982daab2dbad7a14e55c5d598a96984fcf908427bf876429e9fa6",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/jquery.tooltip.css",
+        "war_path": "default/jquery.tooltip.css",
+        "source_sha256": "a1b366099221848935b549f39164d51cb35a933bb0f1bf8b7925fa718aa0460b",
+        "war_sha256": "a1b366099221848935b549f39164d51cb35a933bb0f1bf8b7925fa718aa0460b",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/mandoc-1.0.0.css",
+        "war_path": "default/mandoc-1.0.0.css",
+        "source_sha256": "9322f6dbaac374dde662ef06593927c912bec2e7be03d49e5e0c1594ecad962e",
+        "war_sha256": "9322f6dbaac374dde662ef06593927c912bec2e7be03d49e5e0c1594ecad962e",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/print-1.0.3.css",
+        "war_path": "default/print-1.0.3.css",
+        "source_sha256": "eb9a1d9877e902858cb6d4ee5dcc38adec3d36ad75f94206f2fbc1fb5ac27a6b",
+        "war_sha256": "eb9a1d9877e902858cb6d4ee5dcc38adec3d36ad75f94206f2fbc1fb5ac27a6b",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/searchable-option-list-2.0.3.css",
+        "war_path": "default/searchable-option-list-2.0.3.css",
+        "source_sha256": "aaf92cae1bf12297c231d6d9116a16e3b879efcf4295221ecf304e354134ca1f",
+        "war_sha256": "aaf92cae1bf12297c231d6d9116a16e3b879efcf4295221ecf304e354134ca1f",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/default/style-1.0.6.css",
+        "war_path": "default/style-1.0.6.css",
+        "source_sha256": "7d5fce9fa13ad42bcb512ac504cca5c41f3a4960fb67fb315570d34aff5bcc7c",
+        "war_sha256": "7d5fce9fa13ad42bcb512ac504cca5c41f3a4960fb67fb315570d34aff5bcc7c",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/js/diff-0.0.5.js",
+        "war_path": "js/diff-0.0.5.js",
+        "source_sha256": "d4bab9d3332231680fa9c83da0fc7c5c52e781c25115495e39f6329e610794eb",
+        "war_sha256": "d4bab9d3332231680fa9c83da0fc7c5c52e781c25115495e39f6329e610794eb",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/js/jquery-ui-1.12.1-custom.min.js",
+        "war_path": "js/jquery-ui-1.12.1-custom.min.js",
+        "source_sha256": "8409a7e854768813c7bb80d2fd867d084ceca50371586d3b62967c2a34bd8323",
+        "war_sha256": "8409a7e854768813c7bb80d2fd867d084ceca50371586d3b62967c2a34bd8323",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/js/jquery-ui-1.12.1-draggable.min.js",
+        "war_path": "js/jquery-ui-1.12.1-draggable.min.js",
+        "source_sha256": "2d275d25a3330a2709a7dcc061899fb21145bf2b15cdc062f731fdefc3d99783",
+        "war_sha256": "2d275d25a3330a2709a7dcc061899fb21145bf2b15cdc062f731fdefc3d99783",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/js/jquery.caret-1.5.2.min.js",
+        "war_path": "js/jquery.caret-1.5.2.min.js",
+        "source_sha256": "194639a9a1a08f792481babba3a8f52300260a7c4bfd843917c39c76c80813de",
+        "war_sha256": "194639a9a1a08f792481babba3a8f52300260a7c4bfd843917c39c76c80813de",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/js/repos-0.0.3.js",
+        "war_path": "js/repos-0.0.3.js",
+        "source_sha256": "43ab493d6ff64a44acf029b38bc1588b041d143183af9d15f3284b122b8dd594",
+        "war_sha256": "43ab493d6ff64a44acf029b38bc1588b041d143183af9d15f3284b122b8dd594",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/js/searchable-option-list-2.0.16.js",
+        "war_path": "js/searchable-option-list-2.0.16.js",
+        "source_sha256": "d855d901db8c9e8d96b6e27e6976fab1c2f51e8b27d50948f447856549bdaa94",
+        "war_sha256": "d855d901db8c9e8d96b6e27e6976fab1c2f51e8b27d50948f447856549bdaa94",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/js/tablesorter-parsers-0.0.4.js",
+        "war_path": "js/tablesorter-parsers-0.0.4.js",
+        "source_sha256": "aefd64620533cfdcbdb5f1837c61d1ca5e7cc3ac8a52d3828f1e5611193c28af",
+        "war_sha256": "aefd64620533cfdcbdb5f1837c61d1ca5e7cc3ac8a52d3828f1e5611193c28af",
+        "matches": true
+      },
+      {
+        "source_path": "opengrok-web/src/main/webapp/js/utils-0.0.48.js",
+        "war_path": "js/utils-0.0.48.js",
+        "source_sha256": "3b12da1b0916018c7cef8fb60aac5a0653750bc5a326cc11df96c9394cce2ff2",
+        "war_sha256": "3b12da1b0916018c7cef8fb60aac5a0653750bc5a326cc11df96c9394cce2ff2",
+        "matches": true
+      }
+    ],
+    "matched_source_assets": 39,
+    "full_UI_DOM_runtime_acceptance": "NOT_RUN"
+  },
+  "source_NOTICE_in_archive": false,
+  "licensing_review": "Actual LICENSE-* files are inventoried; dependency and per-file obligations remain pending. Source root NOTICE is separately verified; absence of an identically named archive file is an inventory observation, not a licensing conclusion.",
+  "oracle_index_HTTP_execution": "NOT_RUN",
+  "product_execution": "NOT_RUN",
+  "full_test_cases_passed": []
+}

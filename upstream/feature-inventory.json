@@ -1,0 +1,2984 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-01",
+  "status": "PARTIAL_STATIC_SOURCE_INVENTORY_NOT_PARITY_ACCEPTANCE",
+  "work_package": "WP-A05",
+  "issue": "https://github.com/swchen44/rustgrok/issues/2",
+  "commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+  "tree": "e332eb280a5362d5ff639c0263acb1e0168b227e",
+  "source_excerpts_verified": [
+    {
+      "path": "LICENSE.txt",
+      "bytes": 19087,
+      "sha256": "fcfd57e9dc09bb7a6f9f66da96f5b16fda522e87bf893ddcdfa45641af097bf9",
+      "git_blob_sha1": "a474897c667f5862850fcec83b0a11abf1fc4dee",
+      "git_blob_matches": true
+    },
+    {
+      "path": "NOTICE.txt",
+      "bytes": 1381,
+      "sha256": "c9a03170d56b52bc3d03e442327c6ed78a5e51a532455d9dacde390e09ce4dcc",
+      "git_blob_sha1": "e3b818ac575c9d4264a39f4681406ba90cf77942",
+      "git_blob_matches": true
+    },
+    {
+      "path": "Dockerfile",
+      "bytes": 5444,
+      "sha256": "b08f49b3d61eccc7eee6ee8eac09329b7da4d6869e41e632c211832d73dd4b17",
+      "git_blob_sha1": "24c6b5f1f383f1b618b88d5af6bc4de659e564f1",
+      "git_blob_matches": true
+    },
+    {
+      "path": "opengrok-web/src/main/webapp/WEB-INF/web.xml",
+      "bytes": 10000,
+      "sha256": "43ec0bdae87388fc5668aaee4e76e2ee8258852c25e83f68cbb22b81cca1eeb5",
+      "git_blob_sha1": "d61c889237f5e0de51070be4fcb5da7612d4521f",
+      "git_blob_matches": true
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/AnalyzerGuru.java",
+      "bytes": 48815,
+      "sha256": "43e6e16a651d0fe5ad91ee31d6c36c0128c5608a58d2ac195b86a2a7570110ef",
+      "git_blob_sha1": "a6921f776ace01b57e22ad8a586240d1288c38c4",
+      "git_blob_matches": true
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/RepositoryFactory.java",
+      "bytes": 14029,
+      "sha256": "d41395ca47220ccc822b306dc552626a8fa4d72bb27eb8ac4063e31bd70ae167",
+      "git_blob_sha1": "aaffb5ce5e829647eb7835592260356a4c03c35a",
+      "git_blob_matches": true
+    }
+  ],
+  "web_descriptor_source": {
+    "path": "opengrok-web/src/main/webapp/WEB-INF/web.xml",
+    "git_blob_sha1": "d61c889237f5e0de51070be4fcb5da7612d4521f",
+    "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/WEB-INF/web.xml"
+  },
+  "servlet_declarations": [
+    {
+      "name": "search",
+      "jsp": "/search.jsp",
+      "class": null
+    },
+    {
+      "name": "history",
+      "jsp": "/history.jsp",
+      "class": null
+    },
+    {
+      "name": "lister",
+      "jsp": "/list.jsp",
+      "class": null
+    },
+    {
+      "name": "diff",
+      "jsp": "/diff.jsp",
+      "class": null
+    },
+    {
+      "name": "more",
+      "jsp": "/more.jsp",
+      "class": null
+    },
+    {
+      "name": "rss",
+      "jsp": "/rss.jsp",
+      "class": null
+    },
+    {
+      "name": "opensearch",
+      "jsp": "/opensearch.jsp",
+      "class": null
+    },
+    {
+      "name": "raw",
+      "jsp": null,
+      "class": "org.opengrok.web.GetFile"
+    },
+    {
+      "name": "download",
+      "jsp": null,
+      "class": "org.opengrok.web.GetFile"
+    },
+    {
+      "name": "error",
+      "jsp": "/error.jsp",
+      "class": null
+    },
+    {
+      "name": "enoent",
+      "jsp": "/enoent.jsp",
+      "class": null
+    },
+    {
+      "name": "eforbidden",
+      "jsp": "/eforbidden.jsp",
+      "class": null
+    }
+  ],
+  "servlet_mappings": [
+    {
+      "servlet": "search",
+      "patterns": [
+        "/search"
+      ],
+      "verbs_and_parameters": "NOT_EXPANDED",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011",
+        "FR-012",
+        "FR-013"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "API-001"
+      ]
+    },
+    {
+      "servlet": "opensearch",
+      "patterns": [
+        "/opensearch"
+      ],
+      "verbs_and_parameters": "NOT_EXPANDED",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011",
+        "FR-012",
+        "FR-013"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "API-001"
+      ]
+    },
+    {
+      "servlet": "history",
+      "patterns": [
+        "/history/*"
+      ],
+      "verbs_and_parameters": "NOT_EXPANDED",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011",
+        "FR-012",
+        "FR-013"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "API-001"
+      ]
+    },
+    {
+      "servlet": "lister",
+      "patterns": [
+        "/xref/*"
+      ],
+      "verbs_and_parameters": "NOT_EXPANDED",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011",
+        "FR-012",
+        "FR-013"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "API-001"
+      ]
+    },
+    {
+      "servlet": "raw",
+      "patterns": [
+        "/raw/*"
+      ],
+      "verbs_and_parameters": "NOT_EXPANDED",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011",
+        "FR-012",
+        "FR-013"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "API-001"
+      ]
+    },
+    {
+      "servlet": "download",
+      "patterns": [
+        "/download/*"
+      ],
+      "verbs_and_parameters": "NOT_EXPANDED",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011",
+        "FR-012",
+        "FR-013"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "API-001"
+      ]
+    },
+    {
+      "servlet": "search",
+      "patterns": [
+        "/s"
+      ],
+      "verbs_and_parameters": "NOT_EXPANDED",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011",
+        "FR-012",
+        "FR-013"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "API-001"
+      ]
+    },
+    {
+      "servlet": "diff",
+      "patterns": [
+        "/diff/*"
+      ],
+      "verbs_and_parameters": "NOT_EXPANDED",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011",
+        "FR-012",
+        "FR-013"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "API-001"
+      ]
+    },
+    {
+      "servlet": "more",
+      "patterns": [
+        "/more/*"
+      ],
+      "verbs_and_parameters": "NOT_EXPANDED",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011",
+        "FR-012",
+        "FR-013"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "API-001"
+      ]
+    },
+    {
+      "servlet": "rss",
+      "patterns": [
+        "/rss/*"
+      ],
+      "verbs_and_parameters": "NOT_EXPANDED",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011",
+        "FR-012",
+        "FR-013"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "API-001"
+      ]
+    },
+    {
+      "servlet": "error",
+      "patterns": [
+        "/error"
+      ],
+      "verbs_and_parameters": "NOT_EXPANDED",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011",
+        "FR-012",
+        "FR-013"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "API-001"
+      ]
+    },
+    {
+      "servlet": "enoent",
+      "patterns": [
+        "/enoent"
+      ],
+      "verbs_and_parameters": "NOT_EXPANDED",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011",
+        "FR-012",
+        "FR-013"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "API-001"
+      ]
+    },
+    {
+      "servlet": "eforbidden",
+      "patterns": [
+        "/eforbidden"
+      ],
+      "verbs_and_parameters": "NOT_EXPANDED",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011",
+        "FR-012",
+        "FR-013"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "API-001"
+      ]
+    }
+  ],
+  "filter_declarations": [
+    {
+      "name": "StatisticsFilter",
+      "class": "org.opengrok.web.StatisticsFilter"
+    },
+    {
+      "name": "AuthorizationFilter",
+      "class": "org.opengrok.web.AuthorizationFilter"
+    },
+    {
+      "name": "ExpiresHalfHourFilter",
+      "class": "org.opengrok.web.ResponseHeaderFilter"
+    },
+    {
+      "name": "ExpiresOneDayFilter",
+      "class": "org.opengrok.web.ResponseHeaderFilter"
+    },
+    {
+      "name": "ExpiresOneYearFilter",
+      "class": "org.opengrok.web.ResponseHeaderFilter"
+    },
+    {
+      "name": "CookieFilter",
+      "class": "org.opengrok.web.CookieFilter"
+    }
+  ],
+  "rest_controller_files": [
+    {
+      "source": {
+        "path": "opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/AnnotationController.java",
+        "git_blob_sha1": "cab737bea522aa7eda6c1c3c4a931f4fc0f27d0c",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/AnnotationController.java"
+      },
+      "endpoint_methods": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "API-001",
+        "API-002",
+        "API-003",
+        "API-004"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-rest-inventory.md"
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/ConfigurationController.java",
+        "git_blob_sha1": "4e3ee3d6156d2761670d18d7a479bdc75684ea70",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/ConfigurationController.java"
+      },
+      "endpoint_methods": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "API-001",
+        "API-002",
+        "API-003",
+        "API-004"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-rest-inventory.md"
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/DirectoryListingController.java",
+        "git_blob_sha1": "41291116b0b13733348cbcf7184d21917e53d4d4",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/DirectoryListingController.java"
+      },
+      "endpoint_methods": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "API-001",
+        "API-002",
+        "API-003",
+        "API-004"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-rest-inventory.md"
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/FileController.java",
+        "git_blob_sha1": "981d24fc844ab90c50fe89651db0bd684f1d1dde",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/FileController.java"
+      },
+      "endpoint_methods": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "API-001",
+        "API-002",
+        "API-003",
+        "API-004"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-rest-inventory.md"
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/GroupsController.java",
+        "git_blob_sha1": "42a1e5540ad0b4397c7634c74a4444a22ee5f8a9",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/GroupsController.java"
+      },
+      "endpoint_methods": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "API-001",
+        "API-002",
+        "API-003",
+        "API-004"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-rest-inventory.md"
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/HistoryController.java",
+        "git_blob_sha1": "09f66798111b1ed9722c07a9706402e749ac0799",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/HistoryController.java"
+      },
+      "endpoint_methods": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "API-001",
+        "API-002",
+        "API-003",
+        "API-004"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-rest-inventory.md"
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/MessagesController.java",
+        "git_blob_sha1": "255b2c6d042d8693a230e1d2928deb342c876e8c",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/MessagesController.java"
+      },
+      "endpoint_methods": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "API-001",
+        "API-002",
+        "API-003",
+        "API-004"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-rest-inventory.md"
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/ProjectsController.java",
+        "git_blob_sha1": "6b64e21cd5f8754959097cf73dacebc0f67d9947",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/ProjectsController.java"
+      },
+      "endpoint_methods": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "API-001",
+        "API-002",
+        "API-003",
+        "API-004"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-rest-inventory.md"
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/RepositoriesController.java",
+        "git_blob_sha1": "bd0be15be535360395368b26e3f8bb02f4a7dfa1",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/RepositoriesController.java"
+      },
+      "endpoint_methods": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "API-001",
+        "API-002",
+        "API-003",
+        "API-004"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-rest-inventory.md"
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/SearchController.java",
+        "git_blob_sha1": "f952174920b92e5d46ae03a24d945d198a47ea39",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/SearchController.java"
+      },
+      "endpoint_methods": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "API-001",
+        "API-002",
+        "API-003",
+        "API-004"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-rest-inventory.md"
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/StatusController.java",
+        "git_blob_sha1": "63a41195ae6741fe588d179f9e5c3f132852cca2",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/StatusController.java"
+      },
+      "endpoint_methods": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "API-001",
+        "API-002",
+        "API-003",
+        "API-004"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-rest-inventory.md"
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/SuggesterController.java",
+        "git_blob_sha1": "b62df9a03aa619b3403e6cdf632b21e49d872197",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/SuggesterController.java"
+      },
+      "endpoint_methods": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "API-001",
+        "API-002",
+        "API-003",
+        "API-004"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-rest-inventory.md"
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/SystemController.java",
+        "git_blob_sha1": "f2563e49cd885f367270c9570c8c9f63559d5350",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/SystemController.java"
+      },
+      "endpoint_methods": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "API-001",
+        "API-002",
+        "API-003",
+        "API-004"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-rest-inventory.md"
+    }
+  ],
+  "analyzer_registry_source": {
+    "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/AnalyzerGuru.java",
+    "git_blob_sha1": "a6921f776ace01b57e22ad8a586240d1288c38c4",
+    "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/AnalyzerGuru.java"
+  },
+  "analyzer_registrations": [
+    {
+      "registration_order": 1,
+      "expression": "DEFAULT_ANALYZER_FACTORY",
+      "factory": "FileAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/FileAnalyzerFactory.java",
+        "git_blob_sha1": "2bef715a34cd854282e7c3058d231ae1c78db941",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/FileAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 2,
+      "expression": "new IgnorantAnalyzerFactory()",
+      "factory": "IgnorantAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/data/IgnorantAnalyzerFactory.java",
+        "git_blob_sha1": "27057ca32d28d2076cc6f4e1503849039ff27ea1",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/data/IgnorantAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 3,
+      "expression": "new BZip2AnalyzerFactory()",
+      "factory": "BZip2AnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/archive/BZip2AnalyzerFactory.java",
+        "git_blob_sha1": "8db838bc084bc648a19aa6e9d18968a2190291b0",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/archive/BZip2AnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 4,
+      "expression": "new XMLAnalyzerFactory()",
+      "factory": "XMLAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/plain/XMLAnalyzerFactory.java",
+        "git_blob_sha1": "2a9da9f25b4f8423497b8fd4fda50eedbabaf523",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/plain/XMLAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 5,
+      "expression": "new YamlAnalyzerFactory()",
+      "factory": "YamlAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/yaml/YamlAnalyzerFactory.java",
+        "git_blob_sha1": "40a4d280787c8c618021cd39d9cda715b0791812",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/yaml/YamlAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 6,
+      "expression": "MandocAnalyzerFactory.DEFAULT_INSTANCE",
+      "factory": "MandocAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/document/MandocAnalyzerFactory.java",
+        "git_blob_sha1": "8b2b591f6c565506ea865f0a0286607b6752e1e0",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/document/MandocAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 7,
+      "expression": "TroffAnalyzerFactory.DEFAULT_INSTANCE",
+      "factory": "TroffAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/document/TroffAnalyzerFactory.java",
+        "git_blob_sha1": "5652cafb1a7f5b720cbf1ac7dfba01883d9868c6",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/document/TroffAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 8,
+      "expression": "new ELFAnalyzerFactory()",
+      "factory": "ELFAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/executables/ELFAnalyzerFactory.java",
+        "git_blob_sha1": "e073087c6740a64cfc38b0f49fec83f405db2f24",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/executables/ELFAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 9,
+      "expression": "JavaClassAnalyzerFactory.DEFAULT_INSTANCE",
+      "factory": "JavaClassAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/executables/JavaClassAnalyzerFactory.java",
+        "git_blob_sha1": "470f7471a77a0f3b46ddea82ddfdc5ea92599a01",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/executables/JavaClassAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 10,
+      "expression": "new ImageAnalyzerFactory()",
+      "factory": "ImageAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/data/ImageAnalyzerFactory.java",
+        "git_blob_sha1": "948e13db82806bfe27f5b7ad764defa73756e406",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/data/ImageAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 11,
+      "expression": "JarAnalyzerFactory.DEFAULT_INSTANCE",
+      "factory": "JarAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/executables/JarAnalyzerFactory.java",
+        "git_blob_sha1": "3805296262709ae6e5e273ca3af6c7f1b0e56292",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/executables/JarAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 12,
+      "expression": "ZipAnalyzerFactory.DEFAULT_INSTANCE",
+      "factory": "ZipAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/archive/ZipAnalyzerFactory.java",
+        "git_blob_sha1": "d4b9426ec648b952a0cb3f48435b552e45f71998",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/archive/ZipAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 13,
+      "expression": "new TarAnalyzerFactory()",
+      "factory": "TarAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/archive/TarAnalyzerFactory.java",
+        "git_blob_sha1": "fbafd2a39a4198e33c4033c57ef288750ce0b8ed",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/archive/TarAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 14,
+      "expression": "new CAnalyzerFactory()",
+      "factory": "CAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/c/CAnalyzerFactory.java",
+        "git_blob_sha1": "ae7dcdd5052ef12f5a232b692e6d4611fd7ec584",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/c/CAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 15,
+      "expression": "new CSharpAnalyzerFactory()",
+      "factory": "CSharpAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/csharp/CSharpAnalyzerFactory.java",
+        "git_blob_sha1": "173538bc0a31c59dfe498be31a5ed09eeccc08a9",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/csharp/CSharpAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 16,
+      "expression": "new VBAnalyzerFactory()",
+      "factory": "VBAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/vb/VBAnalyzerFactory.java",
+        "git_blob_sha1": "bc57853d3d9f1cded69e73c34a9ed360e0c819d5",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/vb/VBAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 17,
+      "expression": "new CxxAnalyzerFactory()",
+      "factory": "CxxAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/c/CxxAnalyzerFactory.java",
+        "git_blob_sha1": "2d63e989df8e059e5b6ad52a43e4944f2b69a1da",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/c/CxxAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 18,
+      "expression": "new ErlangAnalyzerFactory()",
+      "factory": "ErlangAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/erlang/ErlangAnalyzerFactory.java",
+        "git_blob_sha1": "c774fc4fd359567544bdfd2ae4a700fc800293fb",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/erlang/ErlangAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 19,
+      "expression": "new ShAnalyzerFactory()",
+      "factory": "ShAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/sh/ShAnalyzerFactory.java",
+        "git_blob_sha1": "51704ffd96efe2cc3cf7d90bd42ec7031b22f33c",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/sh/ShAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 20,
+      "expression": "new PowershellAnalyzerFactory()",
+      "factory": "PowershellAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/powershell/PowershellAnalyzerFactory.java",
+        "git_blob_sha1": "d978ed962abf6c75b2b916d15b02bf449c3a8434",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/powershell/PowershellAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 21,
+      "expression": "new UuencodeAnalyzerFactory()",
+      "factory": "UuencodeAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/uue/UuencodeAnalyzerFactory.java",
+        "git_blob_sha1": "6c15866c3670edcd002ef23ac8957ea07e444203",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/uue/UuencodeAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 22,
+      "expression": "new GZIPAnalyzerFactory()",
+      "factory": "GZIPAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/archive/GZIPAnalyzerFactory.java",
+        "git_blob_sha1": "2cf4a5e8712ddd89831013597f7d1af2fbec590c",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/archive/GZIPAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 23,
+      "expression": "new JavaAnalyzerFactory()",
+      "factory": "JavaAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/java/JavaAnalyzerFactory.java",
+        "git_blob_sha1": "34f52c9eb33322f56d5f087af83bdb225646f0ed",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/java/JavaAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 24,
+      "expression": "new JavaScriptAnalyzerFactory()",
+      "factory": "JavaScriptAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/javascript/JavaScriptAnalyzerFactory.java",
+        "git_blob_sha1": "4af0a095db7f60a8c70680ba3c279cc458ee407b",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/javascript/JavaScriptAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 25,
+      "expression": "new KotlinAnalyzerFactory()",
+      "factory": "KotlinAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/kotlin/KotlinAnalyzerFactory.java",
+        "git_blob_sha1": "4ff0e74c6e983a9fa1bf041682d875b40eb27a18",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/kotlin/KotlinAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 26,
+      "expression": "new SwiftAnalyzerFactory()",
+      "factory": "SwiftAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/swift/SwiftAnalyzerFactory.java",
+        "git_blob_sha1": "32b02fe1c39f4a6aed5ec8e7600ebfc9b836f43a",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/swift/SwiftAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 27,
+      "expression": "new JsonAnalyzerFactory()",
+      "factory": "JsonAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/json/JsonAnalyzerFactory.java",
+        "git_blob_sha1": "7751fd022ebdf6fe79573372ff47f906b7de6a7d",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/json/JsonAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 28,
+      "expression": "new PythonAnalyzerFactory()",
+      "factory": "PythonAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/python/PythonAnalyzerFactory.java",
+        "git_blob_sha1": "92c0114fa1b12300a8074be402b141837b265e0d",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/python/PythonAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 29,
+      "expression": "new RustAnalyzerFactory()",
+      "factory": "RustAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/rust/RustAnalyzerFactory.java",
+        "git_blob_sha1": "d4b300636a1e2aee5ec07d9eb71162484df73ed3",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/rust/RustAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 30,
+      "expression": "new PerlAnalyzerFactory()",
+      "factory": "PerlAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/perl/PerlAnalyzerFactory.java",
+        "git_blob_sha1": "b2f622d34c4a9009eee81ea6fa0452549beef57e",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/perl/PerlAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 31,
+      "expression": "new PhpAnalyzerFactory()",
+      "factory": "PhpAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/php/PhpAnalyzerFactory.java",
+        "git_blob_sha1": "f515cb6f2836e272ff27e84462426d02cee2f9e9",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/php/PhpAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 32,
+      "expression": "new LispAnalyzerFactory()",
+      "factory": "LispAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/lisp/LispAnalyzerFactory.java",
+        "git_blob_sha1": "ff9d0d781410222d83c5785877248fdc6134bcc8",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/lisp/LispAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 33,
+      "expression": "new TclAnalyzerFactory()",
+      "factory": "TclAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/tcl/TclAnalyzerFactory.java",
+        "git_blob_sha1": "8ed26351979f2ad12f745095887ea92884a6d7d7",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/tcl/TclAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 34,
+      "expression": "new ScalaAnalyzerFactory()",
+      "factory": "ScalaAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/scala/ScalaAnalyzerFactory.java",
+        "git_blob_sha1": "686ddbb8d5a2aaea447af99ed5c4cea9d112f942",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/scala/ScalaAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 35,
+      "expression": "new ClojureAnalyzerFactory()",
+      "factory": "ClojureAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/clojure/ClojureAnalyzerFactory.java",
+        "git_blob_sha1": "6638245b5c5f713ddfafc933ad0fb64cad902bc0",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/clojure/ClojureAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 36,
+      "expression": "new SQLAnalyzerFactory()",
+      "factory": "SQLAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/sql/SQLAnalyzerFactory.java",
+        "git_blob_sha1": "d02242a59b9b1a5db12320003fb10da3f09a4404",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/sql/SQLAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 37,
+      "expression": "new PLSQLAnalyzerFactory()",
+      "factory": "PLSQLAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/sql/PLSQLAnalyzerFactory.java",
+        "git_blob_sha1": "bde0977d4d773925cde917ca4f3de43ad4b0d870",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/sql/PLSQLAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 38,
+      "expression": "new FortranAnalyzerFactory()",
+      "factory": "FortranAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/fortran/FortranAnalyzerFactory.java",
+        "git_blob_sha1": "f3ec4b32a5371a41b9e2f909075050cdc4cf6f36",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/fortran/FortranAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 39,
+      "expression": "new HaskellAnalyzerFactory()",
+      "factory": "HaskellAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/haskell/HaskellAnalyzerFactory.java",
+        "git_blob_sha1": "b1e6c772402ac5fc3213eb052c1dd13f0ae6b560",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/haskell/HaskellAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 40,
+      "expression": "new GolangAnalyzerFactory()",
+      "factory": "GolangAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/golang/GolangAnalyzerFactory.java",
+        "git_blob_sha1": "67288e5b22d632b6e6b8ff68766ea61f764a91b8",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/golang/GolangAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 41,
+      "expression": "new LuaAnalyzerFactory()",
+      "factory": "LuaAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/lua/LuaAnalyzerFactory.java",
+        "git_blob_sha1": "9f9228f929dfbd671f32cd1737306265e08617ab",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/lua/LuaAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 42,
+      "expression": "new OCamlAnalyzerFactory()",
+      "factory": "OCamlAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/ocaml/OCamlAnalyzerFactory.java",
+        "git_blob_sha1": "7025ed30037d98c4bc9185ad283e977f2cb767d4",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/ocaml/OCamlAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 43,
+      "expression": "new PascalAnalyzerFactory()",
+      "factory": "PascalAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/pascal/PascalAnalyzerFactory.java",
+        "git_blob_sha1": "746570fff0ba97422720cf5020791b9f2fb5f66f",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/pascal/PascalAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 44,
+      "expression": "new AdaAnalyzerFactory()",
+      "factory": "AdaAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/ada/AdaAnalyzerFactory.java",
+        "git_blob_sha1": "5c1bec4563c43faa52791ff575e2e8adae6fb12c",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/ada/AdaAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 45,
+      "expression": "new RubyAnalyzerFactory()",
+      "factory": "RubyAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/ruby/RubyAnalyzerFactory.java",
+        "git_blob_sha1": "7889d1e7b766914b919c2716870e045740558c21",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/ruby/RubyAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 46,
+      "expression": "new EiffelAnalyzerFactory()",
+      "factory": "EiffelAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/eiffel/EiffelAnalyzerFactory.java",
+        "git_blob_sha1": "4905dd5ed781889db72c816322782b2d94b740ec",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/eiffel/EiffelAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 47,
+      "expression": "new VerilogAnalyzerFactory()",
+      "factory": "VerilogAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/verilog/VerilogAnalyzerFactory.java",
+        "git_blob_sha1": "6d47e530ab4559fd847f65a58e3592a31716b733",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/verilog/VerilogAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 48,
+      "expression": "new TypeScriptAnalyzerFactory()",
+      "factory": "TypeScriptAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/typescript/TypeScriptAnalyzerFactory.java",
+        "git_blob_sha1": "909bd65c5ddbced2e18cd6b1716292b4163aa93d",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/typescript/TypeScriptAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 49,
+      "expression": "new AsmAnalyzerFactory()",
+      "factory": "AsmAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/asm/AsmAnalyzerFactory.java",
+        "git_blob_sha1": "260012ee897155490796a9cd2d15ead508801952",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/asm/AsmAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 50,
+      "expression": "new HCLAnalyzerFactory()",
+      "factory": "HCLAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/hcl/HCLAnalyzerFactory.java",
+        "git_blob_sha1": "ece4e5f0e55a9b95e276e225dd3ff7ed4e8508f7",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/hcl/HCLAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 51,
+      "expression": "new TerraformAnalyzerFactory()",
+      "factory": "TerraformAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/terraform/TerraformAnalyzerFactory.java",
+        "git_blob_sha1": "ca86df563b6dfceb88400753c5b9f013e5461c4e",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/terraform/TerraformAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 52,
+      "expression": "new CobolAnalyzerFactory()",
+      "factory": "CobolAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/cobol/CobolAnalyzerFactory.java",
+        "git_blob_sha1": "fe5cd4c19a10ef754994da31b8062e26ebceaea8",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/cobol/CobolAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 53,
+      "expression": "new RAnalyzerFactory()",
+      "factory": "RAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/r/RAnalyzerFactory.java",
+        "git_blob_sha1": "39eb16d5bdd5f84509845b03348c15dc97cf30b4",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/r/RAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    },
+    {
+      "registration_order": 54,
+      "expression": "PlainAnalyzerFactory.DEFAULT_INSTANCE",
+      "factory": "PlainAnalyzerFactory",
+      "factory_source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/plain/PlainAnalyzerFactory.java",
+        "git_blob_sha1": "a70e2da30c752a71e423932b2fdc38fcc478f80a",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/plain/PlainAnalyzerFactory.java"
+      },
+      "recognition_rules": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-008"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SRC-001",
+        "RST-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-analyzer-inventory.md"
+    }
+  ],
+  "repository_registry_source": {
+    "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/RepositoryFactory.java",
+    "git_blob_sha1": "aaffb5ce5e829647eb7835592260356a4c03c35a",
+    "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/RepositoryFactory.java"
+  },
+  "repository_registrations": [
+    {
+      "registration_order": 1,
+      "adapter": "GitRepository",
+      "source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/GitRepository.java",
+        "git_blob_sha1": "babc70e607149b802696fbe0e1877ec750d7aec2",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/GitRepository.java"
+      },
+      "capabilities_and_helpers": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-006",
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SCM-001",
+        "SCM-002",
+        "SCM-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-scm-capabilities.md"
+    },
+    {
+      "registration_order": 2,
+      "adapter": "MercurialRepository",
+      "source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/MercurialRepository.java",
+        "git_blob_sha1": "172d8113cb24aea5bee1616f5b5183f1cca973cd",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/MercurialRepository.java"
+      },
+      "capabilities_and_helpers": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-006",
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SCM-001",
+        "SCM-002",
+        "SCM-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-scm-capabilities.md"
+    },
+    {
+      "registration_order": 3,
+      "adapter": "RepoRepository",
+      "source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/RepoRepository.java",
+        "git_blob_sha1": "8b230f4d0ceb7c640b4800f09d865cddc491319f",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/RepoRepository.java"
+      },
+      "capabilities_and_helpers": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-006",
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SCM-001",
+        "SCM-002",
+        "SCM-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-scm-capabilities.md"
+    },
+    {
+      "registration_order": 4,
+      "adapter": "BitKeeperRepository",
+      "source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/BitKeeperRepository.java",
+        "git_blob_sha1": "917d55520936eec1d9793c8514d90e1d50b5390f",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/BitKeeperRepository.java"
+      },
+      "capabilities_and_helpers": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-006",
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SCM-001",
+        "SCM-002",
+        "SCM-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-scm-capabilities.md"
+    },
+    {
+      "registration_order": 5,
+      "adapter": "BazaarRepository",
+      "source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/BazaarRepository.java",
+        "git_blob_sha1": "844e3aeb0fb30853732957ae3d1cd79989fd3ac4",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/BazaarRepository.java"
+      },
+      "capabilities_and_helpers": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-006",
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SCM-001",
+        "SCM-002",
+        "SCM-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-scm-capabilities.md"
+    },
+    {
+      "registration_order": 6,
+      "adapter": "MonotoneRepository",
+      "source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/MonotoneRepository.java",
+        "git_blob_sha1": "5be37a9d888d78fd1523b27f00b5d0271d4ef56f",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/MonotoneRepository.java"
+      },
+      "capabilities_and_helpers": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-006",
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SCM-001",
+        "SCM-002",
+        "SCM-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-scm-capabilities.md"
+    },
+    {
+      "registration_order": 7,
+      "adapter": "SubversionRepository",
+      "source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/SubversionRepository.java",
+        "git_blob_sha1": "910e027e2353dc135bde64e5d9525ebb00744569",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/SubversionRepository.java"
+      },
+      "capabilities_and_helpers": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-006",
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SCM-001",
+        "SCM-002",
+        "SCM-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-scm-capabilities.md"
+    },
+    {
+      "registration_order": 8,
+      "adapter": "SCCSRepository",
+      "source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/SCCSRepository.java",
+        "git_blob_sha1": "282cd35fb1d28bff6d2e4ba177bd844aea61fae0",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/SCCSRepository.java"
+      },
+      "capabilities_and_helpers": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-006",
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SCM-001",
+        "SCM-002",
+        "SCM-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-scm-capabilities.md"
+    },
+    {
+      "registration_order": 9,
+      "adapter": "RazorRepository",
+      "source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/RazorRepository.java",
+        "git_blob_sha1": "95fd339e03f8ba141e482020dbbe01e67d4be91d",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/RazorRepository.java"
+      },
+      "capabilities_and_helpers": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-006",
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SCM-001",
+        "SCM-002",
+        "SCM-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-scm-capabilities.md"
+    },
+    {
+      "registration_order": 10,
+      "adapter": "RCSRepository",
+      "source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/RCSRepository.java",
+        "git_blob_sha1": "11f8cc45f917cdcbcdc37a6548da6cc55e62e346",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/RCSRepository.java"
+      },
+      "capabilities_and_helpers": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-006",
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SCM-001",
+        "SCM-002",
+        "SCM-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-scm-capabilities.md"
+    },
+    {
+      "registration_order": 11,
+      "adapter": "CVSRepository",
+      "source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/CVSRepository.java",
+        "git_blob_sha1": "5da32d5b86ed49ba3057aca425a3bcc278adc174",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/CVSRepository.java"
+      },
+      "capabilities_and_helpers": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-006",
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SCM-001",
+        "SCM-002",
+        "SCM-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-scm-capabilities.md"
+    },
+    {
+      "registration_order": 12,
+      "adapter": "SSCMRepository",
+      "source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/SSCMRepository.java",
+        "git_blob_sha1": "b366219602c4c915b80405c8296048eb716e0836",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/SSCMRepository.java"
+      },
+      "capabilities_and_helpers": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-006",
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SCM-001",
+        "SCM-002",
+        "SCM-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-scm-capabilities.md"
+    },
+    {
+      "registration_order": 13,
+      "adapter": "AccuRevRepository",
+      "source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/AccuRevRepository.java",
+        "git_blob_sha1": "2f321203791f3712cdedab65d4e67d922c1a67cf",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/AccuRevRepository.java"
+      },
+      "capabilities_and_helpers": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-006",
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SCM-001",
+        "SCM-002",
+        "SCM-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-scm-capabilities.md"
+    },
+    {
+      "registration_order": 14,
+      "adapter": "ClearCaseRepository",
+      "source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/ClearCaseRepository.java",
+        "git_blob_sha1": "85b74f3f10029de06221122bd0a02a2e10df83a1",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/ClearCaseRepository.java"
+      },
+      "capabilities_and_helpers": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-006",
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SCM-001",
+        "SCM-002",
+        "SCM-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-scm-capabilities.md"
+    },
+    {
+      "registration_order": 15,
+      "adapter": "PerforceRepository",
+      "source": {
+        "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/history/PerforceRepository.java",
+        "git_blob_sha1": "e37f671d447b29a2782e770538d154525ee2d0a3",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-indexer/src/main/java/org/opengrok/indexer/history/PerforceRepository.java"
+      },
+      "capabilities_and_helpers": "DOCUMENTED_IN_STATIC_NOTE",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-006",
+        "FR-011"
+      ],
+      "test_ids": [
+        "REF-003",
+        "SCM-001",
+        "SCM-002",
+        "SCM-003"
+      ],
+      "detail_note": "docs/research/2026-11-01-opengrok-scm-capabilities.md"
+    }
+  ],
+  "extension_selected_source_assets": [
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/font/SunSansRegular.woff2",
+        "git_blob_sha1": "f214fc61853499e2745b4aaa632d87722789f834",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/font/SunSansRegular.woff2",
+        "git_blob_matches": true
+      },
+      "bytes": 17216,
+      "sha256": "90aeb1269f880f8f2d2d83c574e659990399dab5f2131600c657820c8e6371a3",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/img/Logo.png",
+        "git_blob_sha1": "8c9b05d438226de9c7f41b3928165dc05335b3d0",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/img/Logo.png",
+        "git_blob_matches": true
+      },
+      "bytes": 2680,
+      "sha256": "56151fdc69bfc0d0715f1252494311762e21a91ce2475c76da5070734673e075",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/img/apple-touch-icon.png",
+        "git_blob_sha1": "66ea4b328db4e85caafab87986a7dc00c1505f8a",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/img/apple-touch-icon.png",
+        "git_blob_matches": true
+      },
+      "bytes": 6938,
+      "sha256": "d7d54036b4c4e2602857aeb9950f1aa424632fb071b0d0d58d30cd74272135e9",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/img/bg.png",
+        "git_blob_sha1": "c4a0a2478a5213a2cdb41791e64b3911e592a477",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/img/bg.png",
+        "git_blob_matches": true
+      },
+      "bytes": 768,
+      "sha256": "c0c42c9c577bb12651270073ef9cfea94f445099d00b6d34a8f58cc511dbbb23",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/img/button1.png",
+        "git_blob_sha1": "720e35c1116413a2356c9bfc91d740fc47599fa7",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/img/button1.png",
+        "git_blob_matches": true
+      },
+      "bytes": 433,
+      "sha256": "aef8225c258a8a35c67de421d997250575bf1976738a7895d1c6cd10641edc50",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/img/button2.png",
+        "git_blob_sha1": "2b18d4e43492ecffdf1064c82f45bdd6810c6f0c",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/img/button2.png",
+        "git_blob_matches": true
+      },
+      "bytes": 434,
+      "sha256": "2320573d5cb97795dc8c0c2938c22bf1efdb749e50fcd9480505df6a7e6c45e2",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/img/button3.png",
+        "git_blob_sha1": "73b3e42cf45c7f17f148da92506ddb093866a618",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/img/button3.png",
+        "git_blob_matches": true
+      },
+      "bytes": 436,
+      "sha256": "3c69ae284936e963b711b0afbc702078bcc18373714c13c7074ebb135af57ab7",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/img/diff-jumper.png",
+        "git_blob_sha1": "0961b9bcf677e98f897b650e2ef578135981d180",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/img/diff-jumper.png",
+        "git_blob_matches": true
+      },
+      "bytes": 27043,
+      "sha256": "8d8980a56358a92a2e1f1ef00fb23f55b112c2e6426033e27854ae7bbe778f20",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/img/diff-jumping.png",
+        "git_blob_sha1": "389f0e034703100095c1bcc593ad8f0c0b4ca830",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/img/diff-jumping.png",
+        "git_blob_matches": true
+      },
+      "bytes": 52553,
+      "sha256": "00ae79c0351e39b556e84284b6dd999c4c4a772032f61c9078973f94e9ab0566",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/img/favicon.svg",
+        "git_blob_sha1": "e41dbd16962b3ed837c34d340e81dab90bc77b75",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/img/favicon.svg",
+        "git_blob_matches": true
+      },
+      "bytes": 5317,
+      "sha256": "5c5f260fd53707697d59a2fb49cf92ebbccddaf7816b7fa1cf7ef0f692ec3732",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/img/folding.png",
+        "git_blob_sha1": "c207bace8fe7d0ff3ac788e8d828fca7f169597c",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/img/folding.png",
+        "git_blob_matches": true
+      },
+      "bytes": 189,
+      "sha256": "7c2a4ae324f2d263b38b9388a3ae94ce93d59a81bec4f84393093e20a481e78b",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/img/google-touch-icon.png",
+        "git_blob_sha1": "a170fb77526c3e2bf24c7e8908005303b31c2c59",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/img/google-touch-icon.png",
+        "git_blob_matches": true
+      },
+      "bytes": 20700,
+      "sha256": "dbea28011f2098cb896503b45483a866c58c6715f9951f5d5aa747089c0b7f85",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/img/indicator.gif",
+        "git_blob_sha1": "085ccaecaf5fa5c34bc14cd2c2ed5cbbd8e25dcb",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/img/indicator.gif",
+        "git_blob_matches": true
+      },
+      "bytes": 1553,
+      "sha256": "d3e3944d4649450dee66a55c69eeced2d825b6ca1a349f72c75fd3780ae3f006",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/img/intelli-window.png",
+        "git_blob_sha1": "1b827282e7c4fe100591bd9e5a089c491c1539a6",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/img/intelli-window.png",
+        "git_blob_matches": true
+      },
+      "bytes": 75289,
+      "sha256": "ae3239cbe2594ab1559fbe800dd4b1b50769ed0f409da748a156a3fb7917f9ba",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/img/mask-icon.svg",
+        "git_blob_sha1": "f0a0804fc0341fdc70cd63feae5cdbf32445d4c2",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/img/mask-icon.svg",
+        "git_blob_matches": true
+      },
+      "bytes": 3244,
+      "sha256": "298a442eb2748b8c4d522977189d7c8e19c6843f0aa44ef74639e27faa0a0330",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/img/rss.png",
+        "git_blob_sha1": "b036f7152bd705536c7e3a7eb2d46d8bbb426102",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/img/rss.png",
+        "git_blob_matches": true
+      },
+      "bytes": 280,
+      "sha256": "038c41651b71b4ae55c37f0ca137ee5d0c2127a04a6733387de5325145d2eb1c",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/img/servedby.png",
+        "git_blob_sha1": "dfe6efc7c78273ad83e3acceea64413e8e65181f",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/img/servedby.png",
+        "git_blob_matches": true
+      },
+      "bytes": 2837,
+      "sha256": "002f0da50b642b540b79ca5cd590e722ad7ba8f2835d0434450856dff19e240c",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/img/symbol-highlighting.png",
+        "git_blob_sha1": "9b1b851ac6dcea1c9e4af57b2b2425b57edf9a6c",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/img/symbol-highlighting.png",
+        "git_blob_matches": true
+      },
+      "bytes": 33598,
+      "sha256": "cd6e5badcb662c2862415369f157293a51dfef148ebac756e776cd1044fbc582",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/img/transparent_pixel.gif",
+        "git_blob_sha1": "0b6452b3775aeb7b554d1a5ec36461d439070385",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/img/transparent_pixel.gif",
+        "git_blob_matches": true
+      },
+      "bytes": 807,
+      "sha256": "4b0d57fe7010909115da0c3e3b5cac13ca16f3eba6462a397da140f3cd211507",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/img/unfolding.png",
+        "git_blob_sha1": "07207bac67fd538625f2ef511e4927859459ecc7",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/img/unfolding.png",
+        "git_blob_matches": true
+      },
+      "bytes": 200,
+      "sha256": "c588d83a9c82b97af4d9f89f6cc7ce4b4618607357fdde86aa365d43a76dc482",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/jquery-ui-1.12.1-custom.min.css",
+        "git_blob_sha1": "3603c36d12ce81dcd11d4dc0f3d4e043da5f9aad",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/jquery-ui-1.12.1-custom.min.css",
+        "git_blob_matches": true
+      },
+      "bytes": 16947,
+      "sha256": "5bbb38503690ef314d6c7b4e3607fbfa2cef911a06bb15ef8bcc4d4a3f1813e9",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/jquery-ui-1.12.1-custom.structure.min.css",
+        "git_blob_sha1": "bead52e65202b8423176e5d6f872445eb70b2eba",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/jquery-ui-1.12.1-custom.structure.min.css",
+        "git_blob_matches": true
+      },
+      "bytes": 1953,
+      "sha256": "6bf736777d414761017833c8b7d6d6bf97ba4880eaba45b09502b21ecf4f9d5a",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/jquery-ui-1.12.1-custom.theme.min.css",
+        "git_blob_sha1": "49418be316b3bd402c9d35a8db0f57f8ad06b4ad",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/jquery-ui-1.12.1-custom.theme.min.css",
+        "git_blob_matches": true
+      },
+      "bytes": 13847,
+      "sha256": "98be5224f99e7c3a276d2ef97298a8451c85d3ba2c4cfa0a9aad479153068c1a",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/jquery.autocomplete.css",
+        "git_blob_sha1": "f39b44ab816d47c7c8b093c860f5fa4d30b29c05",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/jquery.autocomplete.css",
+        "git_blob_matches": true
+      },
+      "bytes": 785,
+      "sha256": "0722c05c323336d131ef9962486d4953e19167bd76f91d1fc7d74127ab5a0d64",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/jquery.combo.css",
+        "git_blob_sha1": "bf6eec513bc5858d8a318814e2e21ef32e97edc5",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/jquery.combo.css",
+        "git_blob_matches": true
+      },
+      "bytes": 1094,
+      "sha256": "76dc657a3f78362076b8c96b6834c7da1e4178bda8e6c8be45d2c044705031fd",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/jquery.tablesorter.css",
+        "git_blob_sha1": "763772b91d90855091a1f8dbabaca7204ebb9fa3",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/jquery.tablesorter.css",
+        "git_blob_matches": true
+      },
+      "bytes": 1891,
+      "sha256": "8275672f15b982daab2dbad7a14e55c5d598a96984fcf908427bf876429e9fa6",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/jquery.tooltip.css",
+        "git_blob_sha1": "42b1c859f1d61322a2c4a8862c5960008177148f",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/jquery.tooltip.css",
+        "git_blob_matches": true
+      },
+      "bytes": 126,
+      "sha256": "a1b366099221848935b549f39164d51cb35a933bb0f1bf8b7925fa718aa0460b",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/mandoc-1.0.0.css",
+        "git_blob_sha1": "2d7e38c1f1b707743e12d137434dcc018ee00991",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/mandoc-1.0.0.css",
+        "git_blob_matches": true
+      },
+      "bytes": 4397,
+      "sha256": "9322f6dbaac374dde662ef06593927c912bec2e7be03d49e5e0c1594ecad962e",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/print-1.0.3.css",
+        "git_blob_sha1": "06c2ff5ce204095875e57bd7fd4d98121b46da6b",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/print-1.0.3.css",
+        "git_blob_matches": true
+      },
+      "bytes": 10840,
+      "sha256": "eb9a1d9877e902858cb6d4ee5dcc38adec3d36ad75f94206f2fbc1fb5ac27a6b",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/searchable-option-list-2.0.3.css",
+        "git_blob_sha1": "e575b93d7062e151b72197802d72f88efbc9acf7",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/searchable-option-list-2.0.3.css",
+        "git_blob_matches": true
+      },
+      "bytes": 7010,
+      "sha256": "aaf92cae1bf12297c231d6d9116a16e3b879efcf4295221ecf304e354134ca1f",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/default/style-1.0.6.css",
+        "git_blob_sha1": "f17414d143aaa7f62e8b7b3d4fac4c5e6a2bbe94",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/default/style-1.0.6.css",
+        "git_blob_matches": true
+      },
+      "bytes": 40618,
+      "sha256": "7d5fce9fa13ad42bcb512ac504cca5c41f3a4960fb67fb315570d34aff5bcc7c",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/js/diff-0.0.5.js",
+        "git_blob_sha1": "4d4675d88b6e4d25fd85aaf3386cc34fbcc9c0de",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/js/diff-0.0.5.js",
+        "git_blob_matches": true
+      },
+      "bytes": 10923,
+      "sha256": "d4bab9d3332231680fa9c83da0fc7c5c52e781c25115495e39f6329e610794eb",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/js/jquery-ui-1.12.1-custom.min.js",
+        "git_blob_sha1": "bae6c97027fea1f029d895d5db1d15943bd67ced",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/js/jquery-ui-1.12.1-custom.min.js",
+        "git_blob_matches": true
+      },
+      "bytes": 38048,
+      "sha256": "8409a7e854768813c7bb80d2fd867d084ceca50371586d3b62967c2a34bd8323",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/js/jquery-ui-1.12.1-draggable.min.js",
+        "git_blob_sha1": "4eb89cb80a0032008ff006f759381c81e0aa5055",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/js/jquery-ui-1.12.1-draggable.min.js",
+        "git_blob_matches": true
+      },
+      "bytes": 30737,
+      "sha256": "2d275d25a3330a2709a7dcc061899fb21145bf2b15cdc062f731fdefc3d99783",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/js/jquery.caret-1.5.2.min.js",
+        "git_blob_sha1": "4576480261a76940dd108f2e32dee2f7b96d89c5",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/js/jquery.caret-1.5.2.min.js",
+        "git_blob_matches": true
+      },
+      "bytes": 4382,
+      "sha256": "194639a9a1a08f792481babba3a8f52300260a7c4bfd843917c39c76c80813de",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/js/repos-0.0.3.js",
+        "git_blob_sha1": "6278ad5eef809d0dd079ffbddc26936ff5a972e0",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/js/repos-0.0.3.js",
+        "git_blob_matches": true
+      },
+      "bytes": 5645,
+      "sha256": "43ab493d6ff64a44acf029b38bc1588b041d143183af9d15f3284b122b8dd594",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/js/searchable-option-list-2.0.16.js",
+        "git_blob_sha1": "81c318f4fa337ee9d12235343f82e74f290c4838",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/js/searchable-option-list-2.0.16.js",
+        "git_blob_matches": true
+      },
+      "bytes": 56887,
+      "sha256": "d855d901db8c9e8d96b6e27e6976fab1c2f51e8b27d50948f447856549bdaa94",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/js/tablesorter-parsers-0.0.4.js",
+        "git_blob_sha1": "f30c3a6e2523c047a059767b265b6e979dfed515",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/js/tablesorter-parsers-0.0.4.js",
+        "git_blob_matches": true
+      },
+      "bytes": 2852,
+      "sha256": "aefd64620533cfdcbdb5f1837c61d1ca5e7cc3ac8a52d3828f1e5611193c28af",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    },
+    {
+      "source": {
+        "path": "opengrok-web/src/main/webapp/js/utils-0.0.48.js",
+        "git_blob_sha1": "72bd9023180d99409fd021863333951ced12f94b",
+        "url": "https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/opengrok-web/src/main/webapp/js/utils-0.0.48.js",
+        "git_blob_matches": true
+      },
+      "bytes": 94068,
+      "sha256": "3b12da1b0916018c7cef8fb60aac5a0653750bc5a326cc11df96c9394cce2ff2",
+      "license_per_file_review": "PENDING",
+      "parity_status": "NOT_RUN",
+      "req_ids": [
+        "FR-012",
+        "NFR-010"
+      ],
+      "test_ids": [
+        "REF-003",
+        "UI-001",
+        "REL-004"
+      ]
+    }
+  ],
+  "exclusions": {
+    "D02": "User-role/project ACL management and mandatory authorization/RBAC plugin parity excluded by the user; not silently reintroduced."
+  },
+  "pending": [
+    "JSP/inline UI handlers, runtime REST/DOM/error/content-negotiation verification and D16 reachability contract",
+    "Query grammar, field-specific analysis, tokens/offsets, scoring statistics and ranking contracts",
+    "Analyzer/JFlex fine semantics, dynamic factory configuration and runtime guru output; all 54 registrations are statically documented",
+    "SCM native capability verification, exact helper builds/licensing and proprietary vendor environments; all 15 registered adapters are statically documented",
+    "Suggester/config/non-auth extension contracts and Java bridge decisions if actually required",
+    "Complete per-file licensing, nested dependency/source correspondence and rendered UI verification; actual archive/WAR/JAR inventory and all 39 selected source-to-WAR asset hashes are recorded",
+    "Feature-to-Rust implementation mapping, differential harness and runtime acceptance"
+  ],
+  "notes": [
+    "54 analyzer array entries include DEFAULT_ANALYZER_FACTORY (FileAnalyzerFactory), plus 53 explicitly named factory expressions; the source tree has 55 *AnalyzerFactory.java files including the base class. These are not 54 programming languages.",
+    "13 servlet mapping rows include /search and /s aliases, and do not enumerate JAX-RS methods or direct JSP URLs.",
+    "39 source assets come from an explicit extension filter and are not the complete WAR asset inventory.",
+    "Registration order is preserved; nothing is sorted to hide semantic or ranking differences.",
+    "This inventory does not satisfy full REF-003 acceptance; all 80 test cases remain planned."
+  ],
+  "source_materialization": "All 1816 tracked files matched Git blob IDs; SHA-256 recorded. This does not complete per-file license or runtime parity.",
+  "updated_at": "2026-11-01T06:39:00+08:00",
+  "static_detail_notes": {
+    "analyzers": "docs/research/2026-11-01-opengrok-analyzer-inventory.md",
+    "scm": "docs/research/2026-11-01-opengrok-scm-capabilities.md",
+    "rest": "docs/research/2026-11-01-opengrok-rest-inventory.md"
+  },
+  "rest_static_coverage": {
+    "controller_files": 13,
+    "http_annotated_java_methods": 48,
+    "distinct_verb_path_keys": 47,
+    "verbs": {
+      "GET": 28,
+      "PUT": 7,
+      "POST": 7,
+      "DELETE": 6
+    },
+    "runtime_http_execution": "NOT_RUN",
+    "machine_method_rows": "NOT_GENERATED; complete method tables are in the static detail note"
+  },
+  "verified_release_inventory": "upstream/opengrok-release-inventory.json",
+  "limited_original_cli_probe": "tests/evidence/oracle-cli-probe-2026-11-01.json"
+}

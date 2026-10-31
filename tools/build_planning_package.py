@@ -88,7 +88,7 @@ known_ids = reqs | all_tests
 for path in files:
     if path.suffix != ".md": continue
     for token in re.findall(r"\b[A-Z]{2,4}-\d{3}\b", path.read_text()):
-        if token.startswith("ADR-") or token == "SHA-256": continue
+        if token.startswith("ADR-") or token in {"SHA-256", "SHA-512"}: continue
         assert token in known_ids, (str(path), token)
 
 assert not errors, errors
@@ -116,6 +116,13 @@ anchors = {p.resolve(): anchor(p) for p in order}
 appendices = [("upstream/research-lock.json", "research-lock", "研究版本鎖定資料"),
               ("upstream/source-review-manifest.json", "source-review-manifest", "原始碼查核 manifest"),
               ("upstream/rust-research-lock.json", "rust-research-lock", "Rust 候選與相容性研究鎖定"),
+              ("upstream/opengrok-source-tree.json", "opengrok-source-tree", "固定上游檔案與實際 byte hashes"),
+              ("upstream/feature-inventory.json", "feature-inventory", "部分靜態功能母表；非相容性驗收"),
+              ("upstream/oracle-artifacts.lock.json", "oracle-artifacts-lock", "獨立 oracle 產物；非產品依賴鎖"),
+              ("tests/evidence/oracle-acquisition-2026-11-01.json", "oracle-acquisition", "Oracle 取得紀錄；非完整產品測試"),
+              ("tests/evidence/oracle-bootstrap-inputs-2026-11-01.json", "oracle-bootstrap-inputs", "有限 oracle 啟動輸入；非正式 corpus"),
+              ("upstream/opengrok-release-inventory.json", "opengrok-release-inventory", "已驗原版 archive／WAR／資產清單"),
+              ("tests/evidence/oracle-cli-probe-2026-11-01.json", "oracle-cli-probe", "有限原版 CLI 探測；含失敗輸出"),
               ("tests/fixtures/corpus-manifest.template.json", "corpus-template", "待建立語料的規格模板"),
               ("tests/traceability.json", "traceability-json", "機器可讀需求對照"),
               ("tests/evidence/development-host-observation-2026-10-26.json", "development-host-observation", "開發主機觀測；非產品測試"),

@@ -22,7 +22,7 @@ GitHub repo名稱：**rustgrok**。Q13已確認產品顯示名稱 **Rustgrok**�
 - D19 已選 A：必要 Ctags／Git／其他 SCM 工具隨包，正式工具清單、版本與平台能力仍要驗證；D21 已選搜尋速度優先。D20 原設定／索引／plugins 與排序相容邊界，以及數值 SLO、容量和資源取捨仍待確認。
 - Rust 改善效能是目標，尚無產品量測結果或提升倍數。
 
-OpenGrok 1.14.20，commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3，已由使用者確認為功能、style 與排序的正式驗收基線（D04）。oracle 產物下載、hash 核對與實際執行尚未完成；D20 的資料格式、插件及精確相容契約仍待釐清。
+OpenGrok 1.14.20，commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3，已由使用者確認為功能、style 與排序的正式驗收基線（D04）。OpenGrok source／release已於2026-11-01核對hash；完整oracle依賴、索引／HTTP與產品測試仍未完成；D20 的資料格式、插件及精確相容契約仍待釐清。
 
 後續 Q2–Q5 已確認：索引／cache 可從 source 重建且保留原資料供回復；source 外部更新，產品手動＋排程索引；首版 CLI 前景／背景。管理基本邊界採 LAN 搜尋／瀏覽、主機 CLI／本機控制面管理；2026-10-26 已確認管理網頁只限主機本機瀏覽器，LAN 維持搜尋／瀏覽；具體操作與控制細節另設計。watch、系統服務／登入自啟及其餘未決契約另列於決策表。
 
@@ -69,6 +69,8 @@ Q13／Q14已確認命名與新原創碼的授權分工；[查核紀錄](docs/res
 | [ADR-0002](docs/adr/0002-rust-core-and-compatibility.md) | Rust 方向已接受；候選技術選型仍待證據 |
 
 ## 完成狀態與交接
+
+2026-11-01 已開始 G0 執行，工作由 [WP-A04 #1](https://github.com/swchen44/rustgrok/issues/1)、[WP-A05 #2](https://github.com/swchen44/rustgrok/issues/2)、[WP-A06 #3](https://github.com/swchen44/rustgrok/issues/3) 追蹤。已保存固定 Git tree 與部分靜態功能清單；Tomcat oracle archive 已獨立驗 SHA-512。完整 source checkout 的 1,816 檔已逐一核對 Git blob 與 SHA-256；OpenGrok release與compact JRE已驗hash並執行有限CLI探測；完整JDK仍在取得，尚無oracle索引／HTTP或產品測試PASS。現況、證據及未完成邊界見 [G0 執行紀錄](docs/19-g0-execution-log.md)。
 
 完成官方文件與關鍵原始碼靜態研究，以及需求、設計、實作、驗證與分發計畫更新。未宣稱完整逐行審查整個上游，也未在目標 OS 建置／啟動產品。全部 80 測試是規格，沒有產品功能、效能、離線或視覺 PASS。
 

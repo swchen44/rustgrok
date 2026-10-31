@@ -1,7 +1,7 @@
 {
   "version": "0.6",
   "kind": "planning_package_not_runtime_distribution",
-  "generated_date": "2026-10-26",
+  "generated_date": "2026-11-01",
   "files": [
     {
       "path": ".github/ISSUE_TEMPLATE/compatibility-bug.md",
@@ -45,8 +45,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 9908,
-      "sha256": "c206fed88689bf1909a893c40faa5dc03fbbbff41443fb909905db1059669c97"
+      "bytes": 10597,
+      "sha256": "afbf065e4a39cc70959abb119503be45e991ec175592292e47ac29b09e59754b"
     },
     {
       "path": "assets/README.md",
@@ -70,8 +70,8 @@
     },
     {
       "path": "docs/01-upstream-research.md",
-      "bytes": 23599,
-      "sha256": "a0f70b5045b0d209f52bae72ca3c10a397c75d4314b3c931e828e13070c262c7"
+      "bytes": 24026,
+      "sha256": "40dfd23daae30197c80e29ef44ba02ded1c2f5b0342e2b50a695b9d5599dea3c"
     },
     {
       "path": "docs/02-requirements.md",
@@ -150,8 +150,13 @@
     },
     {
       "path": "docs/18-g0-g1-entry-review.md",
-      "bytes": 4787,
-      "sha256": "825e347d9ac5e99bcf63d29dcfd04ff32131f684d46d8af39ce004e39e694f2d"
+      "bytes": 4962,
+      "sha256": "6edd66191da96db3649ecd397176adc93d7e76b4e00c4f2f1e8c7381002c7ee7"
+    },
+    {
+      "path": "docs/19-g0-execution-log.md",
+      "bytes": 8070,
+      "sha256": "5e7f7be366d074af47b9a0916403149ffb945ad6fff700df3d84ac6b52b83d74"
     },
     {
       "path": "docs/adr/0001-runtime-and-core-reuse.proposed.md",
@@ -199,6 +204,26 @@
       "sha256": "784944627c18e3ebd00b1d2ba7f323d217af577eedb134671feb2e79593b04f7"
     },
     {
+      "path": "docs/research/2026-11-01-opengrok-analyzer-inventory.md",
+      "bytes": 61436,
+      "sha256": "b0138db1faf96c694ffa1cb66098d6fa03994652be999d88ceee1dbfbb149d6d"
+    },
+    {
+      "path": "docs/research/2026-11-01-opengrok-inventory-entrypoints.md",
+      "bytes": 21299,
+      "sha256": "fc44a121464aa65c62650f4b6bf822dc366e15622e0acd8a3a94155bd1228f71"
+    },
+    {
+      "path": "docs/research/2026-11-01-opengrok-rest-inventory.md",
+      "bytes": 54550,
+      "sha256": "68c7259b7593c6ee0cdbd969976cd4ee9f2d2f9d053fd4a8e3fd0e6353dac9c7"
+    },
+    {
+      "path": "docs/research/2026-11-01-opengrok-scm-capabilities.md",
+      "bytes": 33403,
+      "sha256": "aae22e89eecf53e786455002eb64aba7688e178487e0c9ddce519f166b284f3f"
+    },
+    {
       "path": "docs/sources.md",
       "bytes": 19274,
       "sha256": "04aebaec3053f7eda655aad253284572dce09a4720f3add9345424cdfedda4bf"
@@ -211,7 +236,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 805,
-      "sha256": "f9afe2d85f1c15605716702811e91a7d183876326c6ee36a4564060d7e243563"
+      "sha256": "69287bb3eb34baaaba23f6d09771855f29558636ba63a03a39ae34a55f53034a"
     },
     {
       "path": "tests/README.md",
@@ -220,13 +245,68 @@
     },
     {
       "path": "tests/evidence/README.md",
-      "bytes": 770,
-      "sha256": "9dceb235377196c3d443c11cac1249a097c1a66fce5d47983ff831f9b03bf2f0"
+      "bytes": 1042,
+      "sha256": "035ea6db295fc6995915eb6c670de68f361712491fe2e30219e24cd52b154f0b"
     },
     {
       "path": "tests/evidence/development-host-observation-2026-10-26.json",
       "bytes": 2757,
       "sha256": "2ecad0e0ab98d3a21ce868fd05e64b4cd1a6ef489499f250c44316a2ba2ee9b7"
+    },
+    {
+      "path": "tests/evidence/oracle-acquisition-2026-11-01.json",
+      "bytes": 7540,
+      "sha256": "653db72cb66376a94ec1e5082daee27d75e2c2db298a389462dfe7ba59b794df"
+    },
+    {
+      "path": "tests/evidence/oracle-bootstrap-inputs-2026-11-01.json",
+      "bytes": 2817,
+      "sha256": "a688d5f0e163ace17aea484e5f1c4f179d9f55dc0409116820db56d72a9d9877"
+    },
+    {
+      "path": "tests/evidence/oracle-cli-2026-11-01/ctags.stderr.txt",
+      "bytes": 1363,
+      "sha256": "0dfe4a68df9b2ddbac1171f10e05ad7376d3a56d9581f55afcf96347a8b0b98c"
+    },
+    {
+      "path": "tests/evidence/oracle-cli-2026-11-01/ctags.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/oracle-cli-2026-11-01/guru.stderr.txt",
+      "bytes": 118,
+      "sha256": "922ce969da2d92baeb3929daa426503399eebee433423a266af8d62506239c7e"
+    },
+    {
+      "path": "tests/evidence/oracle-cli-2026-11-01/guru.stdout.txt",
+      "bytes": 6501,
+      "sha256": "3d5f52f76899831dfbc37659ce2b943f990d184779c2e859d1a3b9c24ff6b4b7"
+    },
+    {
+      "path": "tests/evidence/oracle-cli-2026-11-01/repos.stderr.txt",
+      "bytes": 1407,
+      "sha256": "fc3d3867a1bf3bc6faf55cf9d8c9a8458336c8b0322a326de8d5466adc530aac"
+    },
+    {
+      "path": "tests/evidence/oracle-cli-2026-11-01/repos.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/oracle-cli-2026-11-01/version.stderr.txt",
+      "bytes": 115,
+      "sha256": "35bab31d5f8c4ed42384781ffeed27189d8949f7525f788250f227c9475d35b7"
+    },
+    {
+      "path": "tests/evidence/oracle-cli-2026-11-01/version.stdout.txt",
+      "bytes": 63,
+      "sha256": "7ae4d0a3f519290fe01376d42f2a1690d12f381790fd124e8cd814918e61812a"
+    },
+    {
+      "path": "tests/evidence/oracle-cli-probe-2026-11-01.json",
+      "bytes": 5197,
+      "sha256": "0c2c2a2303bb7f997f671df682b4e5448f92f2609e05a174a9b764f86275aaf4"
     },
     {
       "path": "tests/fixtures/README.md",
@@ -260,18 +340,38 @@
     },
     {
       "path": "tools/README.md",
-      "bytes": 1327,
-      "sha256": "53ec38ed62332050e621d0fd8919629d835f7594212276839e4b90588e6071d2"
+      "bytes": 1609,
+      "sha256": "948fa1e7e18c1ab1d4c9ed0abe5275632a621e34fe1ada66bf47e05705ea68b8"
     },
     {
       "path": "tools/build_planning_package.py",
-      "bytes": 11806,
-      "sha256": "e9ddcc465f0bd35a5d73ca738b144e64edcfab69ac8e2f7247794ee4473fc5db"
+      "bytes": 12741,
+      "sha256": "444e33f8fd9e4b974e41a3df21fd2f5f55c0da4a3e66e79b755e1561b044e42e"
+    },
+    {
+      "path": "upstream/feature-inventory.json",
+      "bytes": 106581,
+      "sha256": "97fac3e8d062c383bc2fd2aa5ceba39a3c6f6ee10b38d982d99ab8c1bc697739"
+    },
+    {
+      "path": "upstream/opengrok-release-inventory.json",
+      "bytes": 60214,
+      "sha256": "dd50a536a7469a13f6c82dafd3eab6020f7466ff42c5e8614f63efa024384531"
+    },
+    {
+      "path": "upstream/opengrok-source-tree.json",
+      "bytes": 667829,
+      "sha256": "e1e65bf754eb2617604dfa3725771757957e61b5a4fa475b2492ee4d23d4187f"
+    },
+    {
+      "path": "upstream/oracle-artifacts.lock.json",
+      "bytes": 5392,
+      "sha256": "af59a97d9047f26e73d4fda553cb506e619c756660987a78dc92f57a3f147b81"
     },
     {
       "path": "upstream/research-lock.json",
-      "bytes": 24206,
-      "sha256": "d079a331d0be89193252faa0051f2296bd783bd5e290a138e9734cd3d7d23a87"
+      "bytes": 25353,
+      "sha256": "9c8538973592d7f7818795f33c99fafae598fe96cca81fa0cc2820228785fb22"
     },
     {
       "path": "upstream/rust-research-lock.json",
