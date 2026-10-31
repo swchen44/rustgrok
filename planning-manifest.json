@@ -4,6 +4,11 @@
   "generated_date": "2026-11-01",
   "files": [
     {
+      "path": ".gitattributes",
+      "bytes": 160,
+      "sha256": "c92787c511f71ae1947f6b253ee73aed48accd1b4a18fc8bd20081daa59edbbf"
+    },
+    {
       "path": ".github/ISSUE_TEMPLATE/compatibility-bug.md",
       "bytes": 512,
       "sha256": "cc8395a8d9f269f0b80a9ccb6aedbabf2d16c6ac8776777e74d9b6bb77cb0e0a"
@@ -220,8 +225,8 @@
     },
     {
       "path": "docs/research/2026-11-01-opengrok-scm-capabilities.md",
-      "bytes": 33403,
-      "sha256": "aae22e89eecf53e786455002eb64aba7688e178487e0c9ddce519f166b284f3f"
+      "bytes": 33402,
+      "sha256": "caf75fd2890caeb74a6ff58a67e8dfd7bd5e52379aa4868627081180f2f29407"
     },
     {
       "path": "docs/sources.md",
@@ -236,7 +241,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 805,
-      "sha256": "69287bb3eb34baaaba23f6d09771855f29558636ba63a03a39ae34a55f53034a"
+      "sha256": "41b9e276a4d63589fba247a5d056f959c326d6af5aae2247107eded7a1e7cf86"
     },
     {
       "path": "tests/README.md",
@@ -245,8 +250,8 @@
     },
     {
       "path": "tests/evidence/README.md",
-      "bytes": 1042,
-      "sha256": "035ea6db295fc6995915eb6c670de68f361712491fe2e30219e24cd52b154f0b"
+      "bytes": 1320,
+      "sha256": "0371d1cb7243fd49d1952b8577de0174d7febd9e79f66e6587190585b0672920"
     },
     {
       "path": "tests/evidence/development-host-observation-2026-10-26.json",

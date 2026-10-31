@@ -1,0 +1,2 @@
+# Preserve raw oracle bytes, including final blank lines emitted by the original CLI.
+tests/evidence/oracle-cli-2026-11-01/*.txt -text whitespace=-blank-at-eof

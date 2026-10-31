@@ -230,4 +230,3 @@
 ## 7. 本輪receipt
 
 只新增本筆記；不執行SCM executable／Java產品，不安裝、不建立Issue、不commit／push、不改其他inventory或machine manifest。固定source的可讀／hash核對是來源證據，**不等於SCM runtime或Rust產品PASS**。
-
