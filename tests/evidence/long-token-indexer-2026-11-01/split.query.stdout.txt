@@ -1,0 +1,1 @@
+query=+path:split +path:. +path:c type=org.apache.lucene.search.BooleanQuery maxDoc=3

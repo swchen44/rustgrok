@@ -1,4 +1,4 @@
-Scope: independently authored Rust code in src/main.rs only.
+Scope: independently authored Rust code in src/main.rs and examples/full_token_probe.rs only.
 This notice does not relicense upstream OpenGrok, dependencies, Python, or Java.
 
 MIT License

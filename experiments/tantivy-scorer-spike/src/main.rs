@@ -1,11 +1,14 @@
 // SPDX-License-Identifier: MIT
 // Independent G1 scorer probe. Tantivy defaults are not OpenGrok compatibility.
+mod full_tokenizer;
 use std::{env, fs, process};
 use tantivy::{
     collector::{Count, TopDocs},
     doc,
     query::QueryParser,
-    schema::{Schema, Value, STORED, STRING, TEXT},
+    schema::{
+        IndexRecordOption, Schema, TextFieldIndexing, TextOptions, Value, STORED, STRING, TEXT,
+    },
     Index, TantivyDocument,
 };
 
@@ -47,10 +50,28 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if selected.len() > 10_000 {
         return Err("probe limited to 10000 documents".into());
     }
+    if field_name == "full" {
+        full_tokenizer::validate(&query_text)?;
+        for document in &selected {
+            full_tokenizer::validate(document["content"].as_str().ok_or("missing content")?)?;
+        }
+    }
     let mut builder = Schema::builder();
     let path = builder.add_text_field("path", STRING | STORED);
-    let text = builder.add_text_field("text", TEXT);
+    let options = TextOptions::default().set_indexing_options(
+        TextFieldIndexing::default()
+            .set_tokenizer("opengrok_full_g1")
+            .set_index_option(IndexRecordOption::WithFreqsAndPositions),
+    );
+    let text = if field_name == "full" {
+        builder.add_text_field("text", options)
+    } else {
+        builder.add_text_field("text", TEXT)
+    };
     let index = Index::create_in_ram(builder.build());
+    index
+        .tokenizers()
+        .register("opengrok_full_g1", full_tokenizer::FullTokenizer::default());
     let mut writer = index.writer_with_num_threads(1, 50_000_000)?;
     for document in &selected {
         let path_str = document["path"].as_str().ok_or("missing path")?;
@@ -77,8 +98,13 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let mut parser = QueryParser::for_index(&index, vec![text]);
     parser.set_conjunction_by_default();
     let query = parser.parse_query(&query_text)?;
-    let (count, top) =
-        searcher.search(&query, &(Count, TopDocs::with_limit(selected.len().max(1)).order_by_score()))?;
+    let (count, top) = searcher.search(
+        &query,
+        &(
+            Count,
+            TopDocs::with_limit(selected.len().max(1)).order_by_score(),
+        ),
+    )?;
     let mut hits = Vec::new();
     for (score, address) in top {
         let document: TantivyDocument = searcher.doc(address)?;

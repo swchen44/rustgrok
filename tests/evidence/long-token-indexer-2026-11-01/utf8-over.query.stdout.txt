@@ -1,0 +1,1 @@
+query=+path:utf8-over +path:. +path:c type=org.apache.lucene.search.BooleanQuery maxDoc=3

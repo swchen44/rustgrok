@@ -5,8 +5,8 @@
   "files": [
     {
       "path": ".gitattributes",
-      "bytes": 939,
-      "sha256": "b72854aa4e0e4a6f82a5dd233cbeaa0b38fcc9f5a4ca9deb81cd7357372909dd"
+      "bytes": 1266,
+      "sha256": "0b418a2f051e4528b19ca085bd7091d018879d4a58d32a51ce50c1f9b69ac087"
     },
     {
       "path": ".github/ISSUE_TEMPLATE/compatibility-bug.md",
@@ -279,9 +279,24 @@
       "sha256": "7a89779f0667e500add0615a37660dfd527c06776c503b676e54f660cb80be8b"
     },
     {
+      "path": "experiments/search-spike/oracle-diagnostics/RustgrokIndexInventory.java",
+      "bytes": 797,
+      "sha256": "32fe4b0b202ab18f33476985013809330d97f9b0c7af91f126ccfc665bb49210"
+    },
+    {
+      "path": "experiments/search-spike/oracle-diagnostics/RustgrokLongTokenProbe.java",
+      "bytes": 1259,
+      "sha256": "d80d9ccde9e04d531044f668681657c71679514c0d0dece329efaec9dd24b0dd"
+    },
+    {
       "path": "experiments/search-spike/oracle-diagnostics/RustgrokScoreProbe.java",
-      "bytes": 1688,
-      "sha256": "d9c8557cc990eaa342861a1a266938c14ed5f927f9c1f51d40fc50f4b0d79302"
+      "bytes": 1764,
+      "sha256": "321044071574df591884047b3498010e5f2412f7fe7e330ad43e3296a7a202a9"
+    },
+    {
+      "path": "experiments/search-spike/oracle-diagnostics/RustgrokTokenProbe.java",
+      "bytes": 850,
+      "sha256": "d66c487a6dda05f04430b8691b81fc3800a45fa49f41f2693c94cb5042c23989"
     },
     {
       "path": "experiments/search-spike/src/main.rs",
@@ -315,33 +330,58 @@
     },
     {
       "path": "experiments/tantivy-scorer-spike/Cargo.lock",
-      "bytes": 28225,
-      "sha256": "c8838afe950e1e7f75ee973ce5928c436573abf6486230a2b43a284ad0d5e337"
+      "bytes": 28251,
+      "sha256": "8bb3283c45fb5ebd7a8821dbfdcdcb9c5f79d7285df770e7f4a37f813db1fef5"
     },
     {
       "path": "experiments/tantivy-scorer-spike/Cargo.toml",
-      "bytes": 216,
-      "sha256": "9f75dfc9901b9b4c60c1632d773c23b5cfa9c47dd7b896135307dc6793a076f3"
+      "bytes": 247,
+      "sha256": "a6e6e60da1b9ea2a070fa36bba110b583762fd7d384987ae38ce0d4a2bf81591"
+    },
+    {
+      "path": "experiments/tantivy-scorer-spike/LICENSE.txt",
+      "bytes": 19087,
+      "sha256": "fcfd57e9dc09bb7a6f9f66da96f5b16fda522e87bf893ddcdfa45641af097bf9"
+    },
+    {
+      "path": "experiments/tantivy-scorer-spike/OPENGROK-NOTICE.txt",
+      "bytes": 1381,
+      "sha256": "c9a03170d56b52bc3d03e442327c6ed78a5e51a532455d9dacde390e09ce4dcc"
     },
     {
       "path": "experiments/tantivy-scorer-spike/README.md",
-      "bytes": 1328,
-      "sha256": "faa60d816036ab0ccab7474d9006550e5a70e863b968b201b23e801bb75ca545"
+      "bytes": 2426,
+      "sha256": "04078daac27ac437f3614fc5100a36c77c38d9a275667867bc874ba2ec13b2ba"
     },
     {
       "path": "experiments/tantivy-scorer-spike/RUST-LICENSE-MIT.txt",
-      "bytes": 1208,
-      "sha256": "2378ef6829158c1080c92e6722d818174e9fd170d4d0990adb5ed77486bb0acc"
+      "bytes": 1241,
+      "sha256": "9740bd145fcb57a919197393a37f3cdb20098e25fd3fda780444e3ce19d9b893"
+    },
+    {
+      "path": "experiments/tantivy-scorer-spike/examples/full_token_probe.rs",
+      "bytes": 655,
+      "sha256": "e327836b54ae7e1266e9aab0a02ee5aff622e5d2e9c8fa316b4a1403fd8f3cf7"
+    },
+    {
+      "path": "experiments/tantivy-scorer-spike/src/full_tokenizer.rs",
+      "bytes": 4197,
+      "sha256": "b687d47ebb061c55c78373f4a33dfa8f40edd3a53363e29a2e347f4b6e14735b"
     },
     {
       "path": "experiments/tantivy-scorer-spike/src/main.rs",
-      "bytes": 3988,
-      "sha256": "7322e17885fbb54995f0553803ec530e25ef1afcff158752013414470f3fd4ba"
+      "bytes": 4790,
+      "sha256": "6fc651e1b3781b7afbc7bb6b675e002e82beb3c68925cccbdb7e124afbfbeadb"
+    },
+    {
+      "path": "experiments/tantivy-scorer-spike/tests/test_full_tokens.py",
+      "bytes": 919,
+      "sha256": "36a943151006643d161721ebdaea7646627af2ee39e63fe8dbe67b4b8c68c496"
     },
     {
       "path": "experiments/tantivy-scorer-spike/tests/test_scorer_cli.py",
-      "bytes": 1389,
-      "sha256": "74a6bda0b957e3f9a74d6edf3b5a57834d8397e75544e644bdd37f21100fd2e6"
+      "bytes": 4177,
+      "sha256": "4a7fabbd6de00d10036ce490caecfd4dbd1900b19b846c73109b09af237280ab"
     },
     {
       "path": "npm/README.md",
@@ -351,7 +391,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 807,
-      "sha256": "d0b26b978ac45fa22a46413e99506c667c2047f640a09d69ae864cb9a924d0db"
+      "sha256": "22d16199aabb96fda60eb28b4c6639c222862c5b874362bebbff24831567664a"
     },
     {
       "path": "tests/README.md",
@@ -392,6 +432,216 @@
       "path": "tests/evidence/development-host-observation-2026-10-26.json",
       "bytes": 2757,
       "sha256": "2ecad0e0ab98d3a21ce868fd05e64b4cd1a6ef489499f250c44316a2ba2ee9b7"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/README.md",
+      "bytes": 5638,
+      "sha256": "770a772d86e1031b33a9c68dbc22f555e075fb069b387554b47c6106eac27089"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/candidate-after.json",
+      "bytes": 1031,
+      "sha256": "81478f9514f365eae2a585208b54018a93f88f4492abedb0bd6c086420614ee6"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/candidate-before.json",
+      "bytes": 4729,
+      "sha256": "8423d5b2610c8dbcde02b609974067fd1cb40900a0eb1202273625af5d7302c7"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/casefold-offset-comparison.json",
+      "bytes": 2371,
+      "sha256": "48a3337a6476900a52ff1fb2a7a0509e61f915d35891d962d5729d9d76d3b682"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/corpus-c.candidate.txt",
+      "bytes": 2928,
+      "sha256": "c1a51c85cc6ec03f7aa8fe850090b7eb7ecedb99034dfc3d13991cc65b7a45c2"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/corpus-c.oracle.txt",
+      "bytes": 2928,
+      "sha256": "c1a51c85cc6ec03f7aa8fe850090b7eb7ecedb99034dfc3d13991cc65b7a45c2"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/corpus-js.candidate.txt",
+      "bytes": 3362,
+      "sha256": "8ab85fbdfe8c33cd921a30335f5cf42d76d3740f9b26858a9fb405eaea252137"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/corpus-js.oracle.txt",
+      "bytes": 3362,
+      "sha256": "8ab85fbdfe8c33cd921a30335f5cf42d76d3740f9b26858a9fb405eaea252137"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/corpus-python.candidate.txt",
+      "bytes": 3657,
+      "sha256": "fb0916081426f9b8692b01fe6833c56a732f9eb12c32b7ffd5ff7743eca63fca"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/corpus-python.oracle.txt",
+      "bytes": 3657,
+      "sha256": "fb0916081426f9b8692b01fe6833c56a732f9eb12c32b7ffd5ff7743eca63fca"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/corpus-token-comparison.json",
+      "bytes": 1772,
+      "sha256": "d9a6775365514504c2da6551aa498c4adb37196f860af63ea973b6d1e25c8b77"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/diagnostic.json",
+      "bytes": 1739,
+      "sha256": "cb5a4d76d89cfa1d20622209cfbea314bcb0f9f0e5e409c81c37e6fb6433a6b3"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/full-both-adapted.json",
+      "bytes": 4738,
+      "sha256": "d7e0b2a989cc07e8c9fa5ac39cd333e53b45e79fffae79cf5bdba20c1c747612"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/identifiers.candidate-before.txt",
+      "bytes": 160,
+      "sha256": "63631605330fa1651908987af2f615968f0979fa035ed9b7ed8cf237088c01fb"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/identifiers.candidate.txt",
+      "bytes": 160,
+      "sha256": "63631605330fa1651908987af2f615968f0979fa035ed9b7ed8cf237088c01fb"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/identifiers.oracle.txt",
+      "bytes": 160,
+      "sha256": "63631605330fa1651908987af2f615968f0979fa035ed9b7ed8cf237088c01fb"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/long_identifier.candidate-before.txt",
+      "bytes": 40029,
+      "sha256": "ab1b25e37575676ee876fb38cb5317e5e2d00ae986ff971b9eaa067d28f0ba71"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/long_identifier.candidate.txt",
+      "bytes": 32795,
+      "sha256": "b086dc07e10d615cb1f085bf2fc4244e65b063cde50a3808ae20e9a314d027e1"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/long_identifier.oracle.txt",
+      "bytes": 32795,
+      "sha256": "b086dc07e10d615cb1f085bf2fc4244e65b063cde50a3808ae20e9a314d027e1"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/oracle-query.stderr.txt",
+      "bytes": 765,
+      "sha256": "3bf5f2ebbf4644d4a0457a8fcdb933c21b51691e98a767093ae78283feb399e6"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/oracle-query.txt",
+      "bytes": 771,
+      "sha256": "381dd2231e88f6c5b2aaffbc8d5a60bf4a2d3522b5a4e3ebd4b21586b937048e"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/oracle-tokens.txt",
+      "bytes": 160,
+      "sha256": "63631605330fa1651908987af2f615968f0979fa035ed9b7ed8cf237088c01fb"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/punctuation.candidate-before.txt",
+      "bytes": 266,
+      "sha256": "45c00df1b683146ee87088da7c279ba3b67cde13397c2d31e743ebaa790d9c44"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/punctuation.candidate.txt",
+      "bytes": 276,
+      "sha256": "43b46f5a6ba04cd3d0c8a711e773c991a40ecdbb6cf90ca7cfd0e2f82c9379d3"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/punctuation.oracle.txt",
+      "bytes": 276,
+      "sha256": "43b46f5a6ba04cd3d0c8a711e773c991a40ecdbb6cf90ca7cfd0e2f82c9379d3"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/surrogate-candidate-after.exit.txt",
+      "bytes": 4,
+      "sha256": "39b8dc3fc8b44765c8e6f1adee04c5b465e555ab791cc42d0d9e810d5b64297c"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/surrogate-candidate-after.stderr.txt",
+      "bytes": 232,
+      "sha256": "3ca4e8bb0cb1c3925624050831b3f0ba37236de48f86c814a7fd5c79e4ea5028"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/surrogate-candidate-before-summary.txt",
+      "bytes": 102,
+      "sha256": "53a4b7f437c9dc743fb8558aca098523ed53c533dfbb2a293f7cd4a51d5587c9"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/surrogate-oracle-summary.txt",
+      "bytes": 106,
+      "sha256": "9a17486d335fff523fa2768dd86c0b47c8ddfeb6776e8d1026eca80d6bbec627"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/tantivy-default-tokens.txt",
+      "bytes": 71,
+      "sha256": "0b9bff8dde6fd14ebedc2826402e83f973497be0df939da98bb0a21b21a3e164"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/token-comparison.json",
+      "bytes": 4947,
+      "sha256": "d973560d8c78c252546794f30f384863e9f7f07b654448c9a21d58528f5a270d"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/turkish-after-astral.candidate.txt",
+      "bytes": 19,
+      "sha256": "d5332f0d9331dbf05bbf8b3f927f03af45060a6bed702b1981659a5089eb68e4"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/turkish-after-astral.oracle.txt",
+      "bytes": 19,
+      "sha256": "5e18f7cd3114bb8e99376616627409e1af642b263ef447da133460f350eadf09"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/turkish-internal.candidate.txt",
+      "bytes": 12,
+      "sha256": "bc43c17712cc3676abee506e762feb038a549c9f2c7ceaa61070c7ea4770587b"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/turkish-internal.oracle.txt",
+      "bytes": 12,
+      "sha256": "bc43c17712cc3676abee506e762feb038a549c9f2c7ceaa61070c7ea4770587b"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/turkish-prefix.candidate.txt",
+      "bytes": 11,
+      "sha256": "a018c7cc385f79ee42914e4eb1e321dc4848a5e6656aef0f4881bf774fb84669"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/turkish-prefix.oracle.txt",
+      "bytes": 11,
+      "sha256": "a018c7cc385f79ee42914e4eb1e321dc4848a5e6656aef0f4881bf774fb84669"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/turkish-single.candidate.txt",
+      "bytes": 10,
+      "sha256": "e4e9850d556636e07d0647808660a2809589e63d9263c56c4cb8ac8171420432"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/turkish-single.oracle.txt",
+      "bytes": 10,
+      "sha256": "e4e9850d556636e07d0647808660a2809589e63d9263c56c4cb8ac8171420432"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/unicode.candidate-before.txt",
+      "bytes": 94,
+      "sha256": "a88b35a7a912553abe0d4228532b3fae28a4d0411f4954953bceecfbb6ddde79"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/unicode.candidate.txt",
+      "bytes": 94,
+      "sha256": "a88b35a7a912553abe0d4228532b3fae28a4d0411f4954953bceecfbb6ddde79"
+    },
+    {
+      "path": "tests/evidence/full-token-diagnostic-2026-11-01/unicode.oracle.txt",
+      "bytes": 92,
+      "sha256": "b41dbdfc0ce8c45c76017f89b1d3a2e59c3cec34fb631a70e79bf7e5380d495f"
     },
     {
       "path": "tests/evidence/live-path-benchmark-2026-11-01/README.md",
@@ -3664,6 +3914,76 @@
       "sha256": "3901056c6388b01da7c0182e0d198499abdb9c66b6462cd95975cfea8e1de600"
     },
     {
+      "path": "tests/evidence/long-token-indexer-2026-11-01/README.md",
+      "bytes": 1876,
+      "sha256": "e93a1c5e49f8696ad87937810cfbfdef057871e148a3b8f85610e877339802dd"
+    },
+    {
+      "path": "tests/evidence/long-token-indexer-2026-11-01/result.json",
+      "bytes": 5087,
+      "sha256": "615370b73cbca2485d021959843eeec931c8524175a44e09b227c72011bac2c8"
+    },
+    {
+      "path": "tests/evidence/long-token-indexer-2026-11-01/split.indexer.stderr.txt",
+      "bytes": 5636,
+      "sha256": "a918c6210e60aeb8b4f2c8fc8d0e707e1a62effac95ddc594dc9fb816dd461ab"
+    },
+    {
+      "path": "tests/evidence/long-token-indexer-2026-11-01/split.indexer.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/long-token-indexer-2026-11-01/split.inventory.stderr.txt",
+      "bytes": 765,
+      "sha256": "932041d5bc15fa6b0b0449c9b2da06b08cb716ce7f16cb6843b33e83f5de9fdd"
+    },
+    {
+      "path": "tests/evidence/long-token-indexer-2026-11-01/split.inventory.stdout.txt",
+      "bytes": 74,
+      "sha256": "5eb526999e130be2908a577bb7f44773fcfc3d08c8d20941cccc3379f67cec36"
+    },
+    {
+      "path": "tests/evidence/long-token-indexer-2026-11-01/split.query.stderr.txt",
+      "bytes": 765,
+      "sha256": "ecfb73ded6d3486c25be299d86bd4639040df2c161fa66d4819b547dcbf1dca3"
+    },
+    {
+      "path": "tests/evidence/long-token-indexer-2026-11-01/split.query.stdout.txt",
+      "bytes": 86,
+      "sha256": "c2b7409cbd50b3b9f9b45bb2dfb85ccdce8faf10bdf467e75238e3db2356ef58"
+    },
+    {
+      "path": "tests/evidence/long-token-indexer-2026-11-01/utf8-over.indexer.stderr.txt",
+      "bytes": 6345,
+      "sha256": "422e2b29bc03352de536fd369d797d8c0a159d72cdd5ccdcd959821e720ee739"
+    },
+    {
+      "path": "tests/evidence/long-token-indexer-2026-11-01/utf8-over.indexer.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/long-token-indexer-2026-11-01/utf8-over.inventory.stderr.txt",
+      "bytes": 765,
+      "sha256": "180714dc0df125ea8a741cffd63d4021f233ade43a1f97baa70e14dda9a2b4e4"
+    },
+    {
+      "path": "tests/evidence/long-token-indexer-2026-11-01/utf8-over.inventory.stdout.txt",
+      "bytes": 74,
+      "sha256": "5eb526999e130be2908a577bb7f44773fcfc3d08c8d20941cccc3379f67cec36"
+    },
+    {
+      "path": "tests/evidence/long-token-indexer-2026-11-01/utf8-over.query.stderr.txt",
+      "bytes": 765,
+      "sha256": "ecfb73ded6d3486c25be299d86bd4639040df2c161fa66d4819b547dcbf1dca3"
+    },
+    {
+      "path": "tests/evidence/long-token-indexer-2026-11-01/utf8-over.query.stdout.txt",
+      "bytes": 90,
+      "sha256": "aaceee267838355ccbbec3780b615bba113bd79017c64744e363558d3dd519b1"
+    },
+    {
       "path": "tests/evidence/oracle-acquisition-2026-11-01.json",
       "bytes": 7698,
       "sha256": "1b9beabf2f492a27d5bab280fa037e654b0b949742b9c4b88ab00f775f51b5bf"
@@ -4887,6 +5207,86 @@
       "path": "tests/evidence/search-spike-2026-11-01/score-other-cases/reference_beta.txt",
       "bytes": 1424,
       "sha256": "dcd16867b8dcbe136dc91f31b09376d01cbec33a840d025310613870949b7310"
+    },
+    {
+      "path": "tests/evidence/tantivy-full-adapter-2026-11-01/README.md",
+      "bytes": 1058,
+      "sha256": "8b125bc0762d91a602fbe328f5f3889bf2e16f43ed2a9b39a0dfe96dbb3b7f00"
+    },
+    {
+      "path": "tests/evidence/tantivy-full-adapter-2026-11-01/comparison.json",
+      "bytes": 5657,
+      "sha256": "7e3c9e737dea4e849cb0ea543683e4105245fe061d8176b40739f2e4324c42b8"
+    },
+    {
+      "path": "tests/evidence/tantivy-full-adapter-2026-11-01/definition_alpha.candidate.json",
+      "bytes": 2897,
+      "sha256": "6d923334f3532ae6576763bf834b3326702f477d9540772cce5e1d0cb33df028"
+    },
+    {
+      "path": "tests/evidence/tantivy-full-adapter-2026-11-01/definition_alpha.oracle.json",
+      "bytes": 425,
+      "sha256": "1cead9b2a2a91226f161b0949459310cefd3416e570ade2543e4550e140deb0f"
+    },
+    {
+      "path": "tests/evidence/tantivy-full-adapter-2026-11-01/definition_beta.candidate.json",
+      "bytes": 1938,
+      "sha256": "09da6f5871980a7095b3f4715ddfb6973a3ff17880784b8c1eb6ab837bf6cd3f"
+    },
+    {
+      "path": "tests/evidence/tantivy-full-adapter-2026-11-01/definition_beta.oracle.json",
+      "bytes": 284,
+      "sha256": "c68a992c4b0c78a912de388df1b8af32a62ce8f75fe780067adda03c8298526c"
+    },
+    {
+      "path": "tests/evidence/tantivy-full-adapter-2026-11-01/full_alpha.candidate.json",
+      "bytes": 2902,
+      "sha256": "66943976ad88bae7fe00c4d1cd13c7c51627e8559dd85c511a8c1c31a51891d4"
+    },
+    {
+      "path": "tests/evidence/tantivy-full-adapter-2026-11-01/full_alpha.oracle.json",
+      "bytes": 426,
+      "sha256": "1c4112a8f724c319e2b969848970bbed76323aeeeb4fd7ccfa599ae0d6ab45a6"
+    },
+    {
+      "path": "tests/evidence/tantivy-full-adapter-2026-11-01/full_both.candidate.json",
+      "bytes": 4738,
+      "sha256": "d7e0b2a989cc07e8c9fa5ac39cd333e53b45e79fffae79cf5bdba20c1c747612"
+    },
+    {
+      "path": "tests/evidence/tantivy-full-adapter-2026-11-01/full_both.oracle.json",
+      "bytes": 694,
+      "sha256": "81b3ffb58be9f72ca17a230a5f6a30e9df61f19143eab4a4c89361b7ebfb6054"
+    },
+    {
+      "path": "tests/evidence/tantivy-full-adapter-2026-11-01/path_alpha.candidate.json",
+      "bytes": 854,
+      "sha256": "998f23ac403d0d305b430d2b3535edf30d4711f25a0a589bf0d95cc10852cd51"
+    },
+    {
+      "path": "tests/evidence/tantivy-full-adapter-2026-11-01/path_alpha.oracle.json",
+      "bytes": 144,
+      "sha256": "002ec1790b1837fe7ec8777cb565cbd0b246bf14c54c77baa4d548977ce7acae"
+    },
+    {
+      "path": "tests/evidence/tantivy-full-adapter-2026-11-01/reference_alpha.candidate.json",
+      "bytes": 2891,
+      "sha256": "b91e01b5a93b02ad1e43d7af2129422475a37abaf052bd08507df0f3dfc62112"
+    },
+    {
+      "path": "tests/evidence/tantivy-full-adapter-2026-11-01/reference_alpha.oracle.json",
+      "bytes": 425,
+      "sha256": "f4fa9f3c852d916e31b296cb9b612eee493e57913ae6fd5b0beea44cc2557cee"
+    },
+    {
+      "path": "tests/evidence/tantivy-full-adapter-2026-11-01/reference_beta.candidate.json",
+      "bytes": 1945,
+      "sha256": "a29d437876f162a0c5c42d16017591fce419eeed9213ce73b3b4b96d90349030"
+    },
+    {
+      "path": "tests/evidence/tantivy-full-adapter-2026-11-01/reference_beta.oracle.json",
+      "bytes": 341,
+      "sha256": "f1429a2bc2e8de409cf3d3fcf13f435f51122c39417ebe9b74a30af80cc5cc8f"
     },
     {
       "path": "tests/evidence/tantivy-scorer-2026-11-01/README.md",
