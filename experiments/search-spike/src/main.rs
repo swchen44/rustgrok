@@ -139,7 +139,7 @@ fn search(index: &Path, args: &[String]) -> Result<String, String> {
         let q = query.to_lowercase();
         let lines: Vec<usize> = match field.as_str() {
             "path" => {
-                if d.path.to_lowercase().contains(&q) {
+                if path_response::path_matches(&d.path, &query) {
                     vec![]
                 } else {
                     continue;

@@ -19,12 +19,15 @@
 /*
  * SearchEngine.java: Copyright (c) 2005, 2026, Oracle and/or its affiliates. All rights reserved.
  * Portions Copyright (c) 2018, Chris Fraire <cfraire@me.com>.
+ * PathTokenizer.java: Copyright (c) 2005, 2025, Oracle and/or its affiliates. All rights reserved.
+ * Portions Copyright (c) 2018, Chris Fraire <cfraire@me.com>.
  * SearchController.java: Copyright (c) 2018, 2026, Oracle and/or its affiliates. All rights reserved.
  * Portions Copyright (c) 2020, Chris Fraire <cfraire@me.com>.
  *
  * Adapted to Rust in 2026 for the restricted path-only no-context response.
  * Original: OpenGrok 1.14.20, commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3,
  * opengrok-indexer/src/main/java/org/opengrok/indexer/search/SearchEngine.java:440-510,
+ * opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/PathTokenizer.java:50-131,
  * opengrok-web/src/main/java/org/opengrok/web/api/v1/controller/SearchController.java:122-134.
  * This module does not implement the general original API. See ../OPENGROK-NOTICE.txt.
  */
@@ -81,4 +84,50 @@ pub fn render(raw: &str, start: usize, max: usize, elapsed_ms: u128) -> Result<S
         end_document,
     })
     .map_err(|e| e.to_string())
+}
+
+// Port of the path token boundaries used by the pinned upstream analyzer.
+// Query parsing is a restricted spike and does not implement Lucene syntax.
+fn path_terms(value: &str) -> Vec<String> {
+    let mut chars = value.chars().peekable();
+    let mut output = Vec::new();
+    while let Some(mut current) = chars.next() {
+        while current == '/' {
+            match chars.next() {
+                Some(next) => current = next,
+                None => return output,
+            }
+        }
+        let mut term = String::new();
+        term.push(current);
+        loop {
+            match chars.next() {
+                Some('.') => {
+                    output.push(term.to_lowercase());
+                    output.push(".".into());
+                    break;
+                }
+                Some('/') => {
+                    output.push(term.to_lowercase());
+                    break;
+                }
+                Some(c) if c.is_whitespace() => {
+                    output.push(term.to_lowercase());
+                    break;
+                }
+                Some(c) => term.push(c),
+                None => {
+                    output.push(term.to_lowercase());
+                    return output;
+                }
+            }
+        }
+    }
+    output
+}
+
+pub fn path_matches(path: &str, query: &str) -> bool {
+    let terms = path_terms(path);
+    let query_terms = path_terms(query);
+    !query_terms.is_empty() && query_terms.iter().all(|term| terms.contains(term))
 }

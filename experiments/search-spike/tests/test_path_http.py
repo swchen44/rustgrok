@@ -53,6 +53,11 @@ class PathResponse(unittest.TestCase):
                 self.assertEqual(empty['resultCount'], 0)
                 self.assertEqual(empty['results'], {})
                 self.assertEqual((empty['startDocument'], empty['endDocument']), (0, 0))
+                with urllib.request.urlopen(f'http://127.0.0.1:{port}/source/api/v1/search?path=novel&projects=alpha&start=1&maxresults=1') as response:
+                    substring_page = json.load(response)
+                self.assertEqual(substring_page['resultCount'], 0)
+                self.assertEqual(substring_page['results'], {})
+                self.assertEqual((substring_page['startDocument'], substring_page['endDocument']), (1, 1))
                 with self.assertRaises(urllib.error.HTTPError) as overflow:
                     urllib.request.urlopen(f'http://127.0.0.1:{port}/source/api/v1/search?path=novel_42.c&projects=alpha&start=2147483647&maxresults=1')
                 self.assertEqual(overflow.exception.code, 400)

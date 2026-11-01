@@ -9,3 +9,6 @@ tests/evidence/search-spike-2026-11-01/** -text whitespace=-blank-at-eof,-blank-
 
 # Preserve the unmodified upstream notice.
 experiments/search-spike/OPENGROK-NOTICE.txt -text whitespace=-blank-at-eof,-blank-at-eol
+
+# Preserve raw scorer diagnostic output from the original process.
+tests/evidence/path-ranking-diagnostic-2026-11-01/*.txt -text whitespace=-blank-at-eof,-blank-at-eol

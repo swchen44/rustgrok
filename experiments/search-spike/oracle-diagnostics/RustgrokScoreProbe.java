@@ -13,7 +13,7 @@ public class RustgrokScoreProbe {
     try (MultiReader reader = new MultiReader(readers.toArray(new IndexReader[0]))) {
       IndexSearcher searcher = new IndexSearcher(reader);
       QueryBuilder builder = new QueryBuilder();
-      Query query = switch (a[1]) {
+      Query query = a[1].startsWith("path=") ? builder.setPath(a[1].substring(5)).build() : switch (a[1]) {
         case "full" -> builder.setFreetext("main").build();
         case "def" -> builder.setDefs("main").build();
         case "symbol" -> builder.setRefs("main").build();
