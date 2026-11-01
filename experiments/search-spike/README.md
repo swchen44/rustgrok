@@ -39,7 +39,7 @@ python3 experiments/search-spike/differential.py \
 - 此次 `full_alpha` 與另外三筆原版白箱 score/explain 診斷的 source、原始輸出、classpath hashes 與索引身分邊界見 [score evidence](../../tests/evidence/search-spike-2026-11-01/README.md)。helper 使用 `IndexSearcher(reader)` 而非原版帶 executor 的完整 HTTP 路徑；只描述實際案例，不外推全部 query。
 - 本地 Ctags 並非已驗證的正式 bundled helper；沒有確認 clean 安裝、LAN、Windows、Ubuntu、效能、source 更新或 generation 行為。
 
-Rust `src/main.rs` 為獨立新增實驗，MIT 條款依 [RUST-LICENSE-MIT.txt](RUST-LICENSE-MIT.txt) 僅作用於此 Rust 檔案；權利人 attribution 待核實，未虛構個人。依賴及其他 Python／Java 診斷程式不因此改授權。使用的原版 fixtures、JAR／WAR 仍按各自來源與條款記錄。
+Rust `src/main.rs` 為獨立新增實驗，MIT 條款依 [RUST-LICENSE-MIT.txt](RUST-LICENSE-MIT.txt) 僅作用於此 Rust 檔案；使用者於 2026-11-01 確認權利人名稱為 `swchen44`。依賴及其他 Python／Java 診斷程式不因此改授權。使用的原版 fixtures、JAR／WAR 仍按各自來源與條款記錄。
 
 ### Second candidate acquisition attempt
 

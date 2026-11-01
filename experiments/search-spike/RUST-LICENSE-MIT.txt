@@ -1,10 +1,9 @@
 Scope: independently authored Rust code in src/main.rs only.
-Copyright attribution: pending verification; no individual holder is asserted.
 This notice does not relicense upstream OpenGrok, dependencies, Python, or Java.
 
 MIT License
 
-Copyright (c) [attribution pending verification]
+Copyright (c) 2026 swchen44
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

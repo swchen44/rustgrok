@@ -45,8 +45,8 @@
     },
     {
       "path": "LICENSE.md",
-      "bytes": 1474,
-      "sha256": "6da37171cf3b6c2912feebbaf4b3fc949b5737c3a3f7fae7587a39946c472149"
+      "bytes": 1573,
+      "sha256": "f3460dedb78378ca356b780d4d35b780d1aa0a933ef8a7b1a8625f61cc25f560"
     },
     {
       "path": "README.md",
@@ -110,8 +110,8 @@
     },
     {
       "path": "docs/08-decision-register.md",
-      "bytes": 24452,
-      "sha256": "96bbbbef8abac8e379c7ef3beae0e2ab2314664658ff750b44c08ca882c69f3d"
+      "bytes": 24792,
+      "sha256": "7496f0d804584c390a55671a4c7ff882c313611ad11f656bd896515052982afe"
     },
     {
       "path": "docs/09-risk-register.md",
@@ -250,13 +250,13 @@
     },
     {
       "path": "experiments/search-spike/README.md",
-      "bytes": 5722,
-      "sha256": "92547ac4f4339fe60f33e02c9a12436c4ce397109494f4149aa6176925530ec5"
+      "bytes": 5732,
+      "sha256": "92451c66c43893a8b17c17e31fea3e3446177e352c7e083ef229a7337ceeb59d"
     },
     {
       "path": "experiments/search-spike/RUST-LICENSE-MIT.txt",
-      "bytes": 1308,
-      "sha256": "0bc9482009944968ee7ba5255d848052c8f7dcb77551565621e626a665a78c6f"
+      "bytes": 1208,
+      "sha256": "2378ef6829158c1080c92e6722d818174e9fd170d4d0990adb5ed77486bb0acc"
     },
     {
       "path": "experiments/search-spike/capture_extra_oracle.py",
