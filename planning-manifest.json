@@ -416,7 +416,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 807,
-      "sha256": "744dfc646bc400fd4c6a7eff4ccc742adbeb4f9f9911c8354705ae55db7fc95e"
+      "sha256": "8af96f3d3f21c02959df3a82870d480b78aa7299e5e7393ebd9b96795e6ad1b0"
     },
     {
       "path": "tests/README.md",
@@ -435,8 +435,8 @@
     },
     {
       "path": "tests/contract/test_indexer_evidence.py",
-      "bytes": 2957,
-      "sha256": "7ccbe281e801bd04d4e5db8e48a2e80cbcf922a5280f8ae04126d0471045e594"
+      "bytes": 4071,
+      "sha256": "fa3fa1252cc7f9d2232bd08afc847a660c6de6533fd81becde05b05dbcab43ff"
     },
     {
       "path": "tests/contract/test_live_benchmark.py",
@@ -7415,8 +7415,13 @@
     },
     {
       "path": "tests/evidence/live-path-no-hit-verified-2026-11-01/README.md",
-      "bytes": 2829,
-      "sha256": "3dea00f9fdd950dfafede7819216456f883d75428938c03787f2405d1b04b85f"
+      "bytes": 3460,
+      "sha256": "9b68ffa126ed44ae5ce2fcf16cd9e9b1beb0f476081ab0cf0e9e6d294f47d88f"
+    },
+    {
+      "path": "tests/evidence/live-path-no-hit-verified-2026-11-01/candidate-index.json",
+      "bytes": 5414,
+      "sha256": "51f7f42c70eb4c2184c5e19ac1e9f329023ea3be865fb3accb8644c4597315d5"
     },
     {
       "path": "tests/evidence/live-path-no-hit-verified-2026-11-01/candidate-indexer.stderr.txt",
@@ -13855,8 +13860,13 @@
     },
     {
       "path": "tests/evidence/live-path-single-hit-verified-2026-11-01/README.md",
-      "bytes": 2838,
-      "sha256": "c9cc1b3a56c3dee782951cf226f61ea9b07b9d0382e0f89875eb0d5e3811af5f"
+      "bytes": 3469,
+      "sha256": "0d4848469faa4fb6963458238bc75d670cb2720e0b8b200b811ce2351227d83f"
+    },
+    {
+      "path": "tests/evidence/live-path-single-hit-verified-2026-11-01/candidate-index.json",
+      "bytes": 5414,
+      "sha256": "51f7f42c70eb4c2184c5e19ac1e9f329023ea3be865fb3accb8644c4597315d5"
     },
     {
       "path": "tests/evidence/live-path-single-hit-verified-2026-11-01/candidate-indexer.stderr.txt",
@@ -19185,8 +19195,8 @@
     },
     {
       "path": "tools/run_live_path_experiment.py",
-      "bytes": 16142,
-      "sha256": "79a3e6ae2d830f57c6b0dd970566800c9b636bbab8c7409d76560b7fcf5d561f"
+      "bytes": 16204,
+      "sha256": "71a952b1abf67e838a154bcf7e04c0e44b04c9de2a553d49c3828a6e84923be3"
     },
     {
       "path": "tools/search_benchmark_gate.py",

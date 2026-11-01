@@ -152,6 +152,6 @@ finally:
  (out/'capture-integrity.json').write_text(json.dumps({'original_capture_tree_sha256_before':original_hash,'original_capture_tree_sha256_after_run':after,'original_capture_unchanged':original_hash==after,**copy_receipt,'fresh_capture_tree_sha256_after_run':fresh_after,'fresh_capture_unchanged':fresh_after==copy_receipt['capture_tree_sha256_before']},indent=2)+'\n')
  shutil.rmtree(work)
  shutil.rmtree(fresh)
- index.unlink()
+ # Keep the public-corpus candidate index for independent content/hash audit.
  if fresh_after!=copy_receipt['capture_tree_sha256_before']: raise RuntimeError('fresh capture changed during experiment')
  if original_hash!=after: raise RuntimeError('original capture changed during experiment')

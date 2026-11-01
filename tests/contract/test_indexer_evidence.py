@@ -1,4 +1,5 @@
 """Benchmark index evidence must retain logs and reject known source-file failures."""
+import hashlib
 import json
 from pathlib import Path
 import sys
@@ -49,5 +50,22 @@ class IndexerEvidence(unittest.TestCase):
         self.assertFalse(verify_candidate_coverage(expected,docs)['complete'])
         docs[1]={'path':'/alpha/a.c','content':'source a'}
         self.assertFalse(verify_candidate_coverage(expected,docs)['complete'])
+
+    def test_saved_candidate_index_is_the_recorded_public_source_index(self):
+        fixture=ROOT/'tests/fixtures/public-source'
+        names={'main.c':'c/main.c','main.py':'python/main.py.fixture','function.js':'javascript/function.js'}
+        manifest=json.loads((fixture/'expected-corpus-manifest.json').read_text())
+        paths={'/'+r['path']+'/'+r['file'] for r in manifest['repositories']}
+        for case in ('no-hit','single-hit'):
+            with self.subTest(case=case):
+                evidence=ROOT/f'tests/evidence/live-path-{case}-verified-2026-11-01'
+                raw=(evidence/'candidate-index.json').read_bytes()
+                metadata=json.loads((evidence/'metadata.json').read_text())
+                docs=json.loads(raw)
+                self.assertEqual(hashlib.sha256(raw).hexdigest(),metadata['candidate_index_sha256'])
+                self.assertEqual(len(docs),5)
+                self.assertEqual({d['path'] for d in docs},paths)
+                for d in docs:
+                    self.assertEqual(d['content'],(fixture/names[Path(d['path']).name]).read_text())
 
 if __name__ == '__main__': unittest.main()
