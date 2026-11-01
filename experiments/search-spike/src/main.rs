@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 // Independently authored experimental code; not a port of OpenGrok source.
+mod path_response;
 use serde::{Deserialize, Serialize};
 use std::{
     env, fs,
@@ -224,6 +225,46 @@ fn serve(index: &Path, address: &str) -> Result<(), String> {
                 return Err("only GET supported".into());
             }
             let target = parts.next().ok_or("missing request target")?;
+            if let Some(raw) = target.strip_prefix("/source/api/v1/search?") {
+                let started = std::time::Instant::now();
+                let mut args = vec!["--field".to_string(), "path".to_string()];
+                let mut query = None;
+                let mut start: Option<usize> = None;
+                let mut max: Option<usize> = None;
+                for pair in raw.split('&') {
+                    let (key, value) = pair.split_once('=').ok_or("invalid query")?;
+                    let (key, value) = (decode(key)?, decode(value)?);
+                    match key.as_str() {
+                        "path" if query.is_none() => query = Some(value),
+                        "projects" => {
+                            args.push("--project".into());
+                            args.push(value);
+                        }
+                        "start" if start.is_none() => {
+                            start = Some(value.parse().map_err(|_| "invalid start")?)
+                        }
+                        "maxresults" if max.is_none() => {
+                            max = Some(value.parse().map_err(|_| "invalid maxresults")?)
+                        }
+                        _ => return Err("unsupported experimental path parameter".into()),
+                    }
+                }
+                let (start, max) = (
+                    start.ok_or("start is required")?,
+                    max.ok_or("maxresults is required")?,
+                );
+                if start
+                    .checked_add(max)
+                    .filter(|sum| *sum <= i32::MAX as usize)
+                    .is_none()
+                {
+                    return Err("invalid page range".into());
+                }
+                args.push("--query".into());
+                args.push(query.ok_or("path is required")?);
+                let result = search(index, &args)?;
+                return path_response::render(&result, start, max, started.elapsed().as_millis());
+            }
             let raw = target
                 .strip_prefix("/probe/search?")
                 .ok_or("unknown experimental endpoint")?;

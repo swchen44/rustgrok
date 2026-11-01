@@ -5,8 +5,8 @@
   "files": [
     {
       "path": ".gitattributes",
-      "bytes": 636,
-      "sha256": "58475a9287e805909ef3acad4c05de50069d2a1be1092a26daaa9fb51feb40d6"
+      "bytes": 770,
+      "sha256": "b1acc2c53765e5d86898bc2730224de9248431fcd694c95e18a21810f985b092"
     },
     {
       "path": ".github/ISSUE_TEMPLATE/compatibility-bug.md",
@@ -245,13 +245,23 @@
     },
     {
       "path": "experiments/search-spike/Cargo.toml",
-      "bytes": 204,
-      "sha256": "77d3946d285ffd4b0e57a964fd13acc5023e69c22a0ffef09fd402a461bae656"
+      "bytes": 217,
+      "sha256": "35dfef2ec1d26ff84bd86e64a518d4083bb22e5d707de2a58e1bf991be7d931e"
+    },
+    {
+      "path": "experiments/search-spike/LICENSE.txt",
+      "bytes": 19087,
+      "sha256": "fcfd57e9dc09bb7a6f9f66da96f5b16fda522e87bf893ddcdfa45641af097bf9"
+    },
+    {
+      "path": "experiments/search-spike/OPENGROK-NOTICE.txt",
+      "bytes": 1381,
+      "sha256": "c9a03170d56b52bc3d03e442327c6ed78a5e51a532455d9dacde390e09ce4dcc"
     },
     {
       "path": "experiments/search-spike/README.md",
-      "bytes": 5732,
-      "sha256": "92451c66c43893a8b17c17e31fea3e3446177e352c7e083ef229a7337ceeb59d"
+      "bytes": 6577,
+      "sha256": "565733659258944188448ca0918a9cec9d0eff3043b6ac68804113395e106305"
     },
     {
       "path": "experiments/search-spike/RUST-LICENSE-MIT.txt",
@@ -275,13 +285,58 @@
     },
     {
       "path": "experiments/search-spike/src/main.rs",
-      "bytes": 10596,
-      "sha256": "a8403aebf11727d7f1189cffd6d183296063227790766793c880b9f9a353eb3a"
+      "bytes": 12624,
+      "sha256": "bca121a25dcf97df053666ee4b53f50bb915474e0934131b4de322a5eb6387a2"
+    },
+    {
+      "path": "experiments/search-spike/src/path_response.rs",
+      "bytes": 3200,
+      "sha256": "4a8b8d967e9560e80f897b18bfa6bc268e399752d4cea1a05f1f07feae66a348"
     },
     {
       "path": "experiments/search-spike/tests/public_cli.py",
       "bytes": 11115,
       "sha256": "5ccfc6bda95e2459c42f01d98f30105c82cac0b8414913aa746e75bbf5560922"
+    },
+    {
+      "path": "experiments/search-spike/tests/test_path_http.py",
+      "bytes": 3009,
+      "sha256": "e0581fcbd414739d4ddf46c2ce82552d95cf29bb99ff76be62ca17a6013642dc"
+    },
+    {
+      "path": "experiments/tantivy-scorer-spike/.gitignore",
+      "bytes": 21,
+      "sha256": "1141064ed2630abfb4a4b52385d7e6c5676a9a51c3c01a4884a7cdaf05609a74"
+    },
+    {
+      "path": "experiments/tantivy-scorer-spike/Cargo.lock",
+      "bytes": 28225,
+      "sha256": "c8838afe950e1e7f75ee973ce5928c436573abf6486230a2b43a284ad0d5e337"
+    },
+    {
+      "path": "experiments/tantivy-scorer-spike/Cargo.toml",
+      "bytes": 216,
+      "sha256": "9f75dfc9901b9b4c60c1632d773c23b5cfa9c47dd7b896135307dc6793a076f3"
+    },
+    {
+      "path": "experiments/tantivy-scorer-spike/README.md",
+      "bytes": 1328,
+      "sha256": "faa60d816036ab0ccab7474d9006550e5a70e863b968b201b23e801bb75ca545"
+    },
+    {
+      "path": "experiments/tantivy-scorer-spike/RUST-LICENSE-MIT.txt",
+      "bytes": 1208,
+      "sha256": "2378ef6829158c1080c92e6722d818174e9fd170d4d0990adb5ed77486bb0acc"
+    },
+    {
+      "path": "experiments/tantivy-scorer-spike/src/main.rs",
+      "bytes": 3988,
+      "sha256": "7322e17885fbb54995f0553803ec530e25ef1afcff158752013414470f3fd4ba"
+    },
+    {
+      "path": "experiments/tantivy-scorer-spike/tests/test_scorer_cli.py",
+      "bytes": 1389,
+      "sha256": "74a6bda0b957e3f9a74d6edf3b5a57834d8397e75544e644bdd37f21100fd2e6"
     },
     {
       "path": "npm/README.md",
@@ -291,12 +346,17 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 806,
-      "sha256": "b79523962733e7c9803c60dfa69182bf65f2a2a0becfe11fa031a72fb86ab9b0"
+      "sha256": "db4ad8889c1e83b96afdc088a4fabb299580e5a8de4811a24dcdb2c63e962d00"
     },
     {
       "path": "tests/README.md",
       "bytes": 9001,
       "sha256": "0f821d6acda93a6d59788e5551c307cb2b698e8d5af47c1987161bb0b0b2d39c"
+    },
+    {
+      "path": "tests/contract/test_benchmark_gate.py",
+      "bytes": 2813,
+      "sha256": "0ad80b7b47e30274b9f1ee6ef49ddf80104bc3a865e6b1af3780682206100ccb"
     },
     {
       "path": "tests/contract/test_capture_baseline.py",
@@ -402,6 +462,26 @@
       "path": "tests/evidence/oracle-web-jre-probe-2026-11-01.json",
       "bytes": 1814,
       "sha256": "11e3184c869cad3f8fe5e6ebe7c7283c4e72f6acd8274dd3655692aec715fda0"
+    },
+    {
+      "path": "tests/evidence/path-response-2026-11-01/README.md",
+      "bytes": 1153,
+      "sha256": "498c74e6bff61becd43c0559b4a863c2c131c3297b15c39b115c7b72ba5db2a8"
+    },
+    {
+      "path": "tests/evidence/path-response-2026-11-01/candidate.json",
+      "bytes": 144,
+      "sha256": "7a4e6506c4ad2ac5c26db8cf7cccc20b14bd1cf2f29d6c99f59148ff8fd7fdd2"
+    },
+    {
+      "path": "tests/evidence/path-response-2026-11-01/oracle.json",
+      "bytes": 144,
+      "sha256": "002ec1790b1837fe7ec8777cb565cbd0b246bf14c54c77baa4d548977ce7acae"
+    },
+    {
+      "path": "tests/evidence/path-response-2026-11-01/precheck.json",
+      "bytes": 546,
+      "sha256": "37bfc526e6eb978a3d6179d4d2e1786ffad70744e91371c9cf833d4b78adb6c5"
     },
     {
       "path": "tests/evidence/search-baseline-2026-11-01/README.md",
@@ -1464,6 +1544,86 @@
       "sha256": "dcd16867b8dcbe136dc91f31b09376d01cbec33a840d025310613870949b7310"
     },
     {
+      "path": "tests/evidence/tantivy-scorer-2026-11-01/README.md",
+      "bytes": 1372,
+      "sha256": "70b7ad1ef2c57d12ddc88b82e1a10271c5a4f322b4cf6b3699dfac99a45d6b78"
+    },
+    {
+      "path": "tests/evidence/tantivy-scorer-2026-11-01/comparison.json",
+      "bytes": 5657,
+      "sha256": "b951680953ee952df34a8ee58ee17795c79f4558c1fadef2da213d1df98d86fa"
+    },
+    {
+      "path": "tests/evidence/tantivy-scorer-2026-11-01/definition_alpha.candidate.json",
+      "bytes": 2897,
+      "sha256": "6d923334f3532ae6576763bf834b3326702f477d9540772cce5e1d0cb33df028"
+    },
+    {
+      "path": "tests/evidence/tantivy-scorer-2026-11-01/definition_alpha.oracle.json",
+      "bytes": 425,
+      "sha256": "1cead9b2a2a91226f161b0949459310cefd3416e570ade2543e4550e140deb0f"
+    },
+    {
+      "path": "tests/evidence/tantivy-scorer-2026-11-01/definition_beta.candidate.json",
+      "bytes": 1938,
+      "sha256": "09da6f5871980a7095b3f4715ddfb6973a3ff17880784b8c1eb6ab837bf6cd3f"
+    },
+    {
+      "path": "tests/evidence/tantivy-scorer-2026-11-01/definition_beta.oracle.json",
+      "bytes": 284,
+      "sha256": "c68a992c4b0c78a912de388df1b8af32a62ce8f75fe780067adda03c8298526c"
+    },
+    {
+      "path": "tests/evidence/tantivy-scorer-2026-11-01/full_alpha.candidate.json",
+      "bytes": 2891,
+      "sha256": "b91e01b5a93b02ad1e43d7af2129422475a37abaf052bd08507df0f3dfc62112"
+    },
+    {
+      "path": "tests/evidence/tantivy-scorer-2026-11-01/full_alpha.oracle.json",
+      "bytes": 426,
+      "sha256": "1c4112a8f724c319e2b969848970bbed76323aeeeb4fd7ccfa599ae0d6ab45a6"
+    },
+    {
+      "path": "tests/evidence/tantivy-scorer-2026-11-01/full_both.candidate.json",
+      "bytes": 4729,
+      "sha256": "8423d5b2610c8dbcde02b609974067fd1cb40900a0eb1202273625af5d7302c7"
+    },
+    {
+      "path": "tests/evidence/tantivy-scorer-2026-11-01/full_both.oracle.json",
+      "bytes": 694,
+      "sha256": "81b3ffb58be9f72ca17a230a5f6a30e9df61f19143eab4a4c89361b7ebfb6054"
+    },
+    {
+      "path": "tests/evidence/tantivy-scorer-2026-11-01/path_alpha.candidate.json",
+      "bytes": 854,
+      "sha256": "998f23ac403d0d305b430d2b3535edf30d4711f25a0a589bf0d95cc10852cd51"
+    },
+    {
+      "path": "tests/evidence/tantivy-scorer-2026-11-01/path_alpha.oracle.json",
+      "bytes": 144,
+      "sha256": "002ec1790b1837fe7ec8777cb565cbd0b246bf14c54c77baa4d548977ce7acae"
+    },
+    {
+      "path": "tests/evidence/tantivy-scorer-2026-11-01/reference_alpha.candidate.json",
+      "bytes": 2891,
+      "sha256": "b91e01b5a93b02ad1e43d7af2129422475a37abaf052bd08507df0f3dfc62112"
+    },
+    {
+      "path": "tests/evidence/tantivy-scorer-2026-11-01/reference_alpha.oracle.json",
+      "bytes": 425,
+      "sha256": "f4fa9f3c852d916e31b296cb9b612eee493e57913ae6fd5b0beea44cc2557cee"
+    },
+    {
+      "path": "tests/evidence/tantivy-scorer-2026-11-01/reference_beta.candidate.json",
+      "bytes": 1945,
+      "sha256": "a29d437876f162a0c5c42d16017591fce419eeed9213ce73b3b4b96d90349030"
+    },
+    {
+      "path": "tests/evidence/tantivy-scorer-2026-11-01/reference_beta.oracle.json",
+      "bytes": 341,
+      "sha256": "f1429a2bc2e8de409cf3d3fcf13f435f51122c39417ebe9b74a30af80cc5cc8f"
+    },
+    {
       "path": "tests/fixtures/README.md",
       "bytes": 1485,
       "sha256": "bd2ef93f2bbc72ab647533e309a834cea05a36afb477cbe3697ec6a87edacea3"
@@ -1547,6 +1707,11 @@
       "path": "tools/capture_opengrok_baseline.py",
       "bytes": 21286,
       "sha256": "a5f88b097dd99eb1a9462f80f2659f0f2599fb1fb3d5211c17bf3b93381df3ec"
+    },
+    {
+      "path": "tools/search_benchmark_gate.py",
+      "bytes": 3995,
+      "sha256": "a98fef68054fcdc0e0964b16b419a67a6a8d5aef618172b31477b95ff73ecede"
     },
     {
       "path": "upstream/feature-inventory.json",

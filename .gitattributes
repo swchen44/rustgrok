@@ -6,3 +6,6 @@ tests/fixtures/public-source/** -text whitespace=-blank-at-eof,-blank-at-eol
 tests/evidence/search-baseline-2026-11-01/** -text whitespace=-blank-at-eof,-blank-at-eol
 # Preserve raw G1 oracle and candidate evidence without rewriting bytes.
 tests/evidence/search-spike-2026-11-01/** -text whitespace=-blank-at-eof,-blank-at-eol
+
+# Preserve the unmodified upstream notice.
+experiments/search-spike/OPENGROK-NOTICE.txt -text whitespace=-blank-at-eof,-blank-at-eol

@@ -1,0 +1,169 @@
+{
+  "scope": "Tantivy 0.27.0 defaults as experimental scoring candidate only; not selected product engine",
+  "documents_sha256": "51f7f42c70eb4c2184c5e19ac1e9f329023ea3be865fb3accb8644c4597315d5",
+  "binary_sha256": "2bd840e43099137b21573599afebccac45c4f91363d06d75abb786d6aab3fd5a",
+  "cargo_lock_sha256": "c8838afe950e1e7f75ee973ce5928c436573abf6486230a2b43a284ad0d5e337",
+  "count_matches": 7,
+  "ordered_path_matches": 4,
+  "cases": [
+    {
+      "name": "full_alpha",
+      "field": "full",
+      "query": "main",
+      "projects": [
+        "alpha"
+      ],
+      "oracle_count": 3,
+      "candidate_count": 3,
+      "oracle_ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/alpha/component-js/function.js",
+        "/alpha/component-c/nested-js/function.js"
+      ],
+      "candidate_ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ],
+      "ordered_paths_match": false,
+      "oracle_sha256": "1c4112a8f724c319e2b969848970bbed76323aeeeb4fd7ccfa599ae0d6ab45a6",
+      "candidate_sha256": "b91e01b5a93b02ad1e43d7af2129422475a37abaf052bd08507df0f3dfc62112"
+    },
+    {
+      "name": "path_alpha",
+      "field": "path",
+      "query": "main.c",
+      "projects": [
+        "alpha"
+      ],
+      "oracle_count": 1,
+      "candidate_count": 1,
+      "oracle_ordered_paths": [
+        "/alpha/component-c/main.c"
+      ],
+      "candidate_ordered_paths": [
+        "/alpha/component-c/main.c"
+      ],
+      "ordered_paths_match": true,
+      "oracle_sha256": "002ec1790b1837fe7ec8777cb565cbd0b246bf14c54c77baa4d548977ce7acae",
+      "candidate_sha256": "998f23ac403d0d305b430d2b3535edf30d4711f25a0a589bf0d95cc10852cd51"
+    },
+    {
+      "name": "definition_alpha",
+      "field": "def",
+      "query": "main",
+      "projects": [
+        "alpha"
+      ],
+      "oracle_count": 3,
+      "candidate_count": 3,
+      "oracle_ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/alpha/component-js/function.js",
+        "/alpha/component-c/nested-js/function.js"
+      ],
+      "candidate_ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ],
+      "ordered_paths_match": false,
+      "oracle_sha256": "1cead9b2a2a91226f161b0949459310cefd3416e570ade2543e4550e140deb0f",
+      "candidate_sha256": "6d923334f3532ae6576763bf834b3326702f477d9540772cce5e1d0cb33df028"
+    },
+    {
+      "name": "reference_beta",
+      "field": "symbol",
+      "query": "main",
+      "projects": [
+        "beta"
+      ],
+      "oracle_count": 2,
+      "candidate_count": 2,
+      "oracle_ordered_paths": [
+        "/beta/component-py/main.py",
+        "/beta/component-c/main.c"
+      ],
+      "candidate_ordered_paths": [
+        "/beta/component-py/main.py",
+        "/beta/component-c/main.c"
+      ],
+      "ordered_paths_match": true,
+      "oracle_sha256": "f1429a2bc2e8de409cf3d3fcf13f435f51122c39417ebe9b74a30af80cc5cc8f",
+      "candidate_sha256": "a29d437876f162a0c5c42d16017591fce419eeed9213ce73b3b4b96d90349030"
+    },
+    {
+      "name": "full_both",
+      "field": "full",
+      "query": "main",
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "oracle_count": 5,
+      "candidate_count": 5,
+      "oracle_ordered_paths": [
+        "/beta/component-py/main.py",
+        "/alpha/component-c/main.c",
+        "/beta/component-c/main.c",
+        "/alpha/component-js/function.js",
+        "/alpha/component-c/nested-js/function.js"
+      ],
+      "candidate_ordered_paths": [
+        "/beta/component-py/main.py",
+        "/beta/component-c/main.c",
+        "/alpha/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ],
+      "ordered_paths_match": false,
+      "oracle_sha256": "81b3ffb58be9f72ca17a230a5f6a30e9df61f19143eab4a4c89361b7ebfb6054",
+      "candidate_sha256": "8423d5b2610c8dbcde02b609974067fd1cb40900a0eb1202273625af5d7302c7"
+    },
+    {
+      "name": "definition_beta",
+      "field": "def",
+      "query": "main",
+      "projects": [
+        "beta"
+      ],
+      "oracle_count": 2,
+      "candidate_count": 2,
+      "oracle_ordered_paths": [
+        "/beta/component-c/main.c",
+        "/beta/component-py/main.py"
+      ],
+      "candidate_ordered_paths": [
+        "/beta/component-c/main.c",
+        "/beta/component-py/main.py"
+      ],
+      "ordered_paths_match": true,
+      "oracle_sha256": "c68a992c4b0c78a912de388df1b8af32a62ce8f75fe780067adda03c8298526c",
+      "candidate_sha256": "09da6f5871980a7095b3f4715ddfb6973a3ff17880784b8c1eb6ab837bf6cd3f"
+    },
+    {
+      "name": "reference_alpha",
+      "field": "symbol",
+      "query": "main",
+      "projects": [
+        "alpha"
+      ],
+      "oracle_count": 3,
+      "candidate_count": 3,
+      "oracle_ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ],
+      "candidate_ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ],
+      "ordered_paths_match": true,
+      "oracle_sha256": "f4fa9f3c852d916e31b296cb9b612eee493e57913ae6fd5b0beea44cc2557cee",
+      "candidate_sha256": "b91e01b5a93b02ad1e43d7af2129422475a37abaf052bd08507df0f3dfc62112"
+    }
+  ],
+  "limitations": "Raw candidate has no line numbers, snippets, tags, pagination, or original HTTP API. Seven captured cases and tiny corpus do not establish search parity or performance."
+}
