@@ -1,9 +1,10 @@
-import os,sys,subprocess,socket,time,pathlib,xml.etree.ElementTree as ET,urllib.request,urllib.error,threading,json,hashlib,platform,shutil,argparse
+import os,sys,subprocess,socket,time,pathlib,xml.etree.ElementTree as ET,urllib.request,urllib.error,urllib.parse,threading,json,hashlib,platform,shutil,argparse
 import capture_opengrok_baseline as baseline
 import http.cookiejar
-from search_benchmark_gate import comparison
+from search_benchmark_gate import comparison, finite_float, no_duplicate_keys
 from prepare_oracle_copy import prepare, tree_hash
 from oracle_http import configure_server, opener as safe_opener
+from indexer_evidence import record_indexer_logs, verify_candidate_coverage, verify_path_coverage
 root=pathlib.Path(__file__).resolve().parents[1]
 parser=argparse.ArgumentParser(description='Run a restricted live path-only HTTP preflight with a previously verified isolated oracle capture')
 for option in ('oracle-capture','corpus','output'): parser.add_argument('--'+option, type=pathlib.Path, required=True)
@@ -29,7 +30,10 @@ capture_cmd=[sys.executable,str(root/'tools/capture_opengrok_baseline.py'),'--co
 capture_process=subprocess.run(capture_cmd,capture_output=True,text=True,timeout=240)
 (out/'indexer.stdout.txt').write_text(capture_process.stdout)
 (out/'indexer.stderr.txt').write_text(capture_process.stderr)
+index_log_check=record_indexer_logs(fresh,out) if (fresh/'index.stdout.txt').is_file() and (fresh/'index.stderr.txt').is_file() else None
 if capture_process.returncode: raise RuntimeError('fresh original capture/index failed')
+if index_log_check is None: raise RuntimeError('fresh original indexer logs are missing')
+if index_log_check['status'] != 'NO_KNOWN_FILE_FAILURE_INDICATORS': raise RuntimeError('original indexing logs report failure or lack required completion markers')
 fresh_receipt=json.loads((fresh/'result.json').read_text())
 source_root=ET.parse(fresh/'configuration.xml').find('.//void[@property="sourceRoot"]/string')
 if source_root is None or pathlib.Path(source_root.text).resolve() != (corpus/'source').resolve(): raise RuntimeError('original sourceRoot differs from verified corpus')
@@ -40,6 +44,10 @@ index_process=subprocess.run(index_cmd,capture_output=True,text=True,timeout=180
 (out/'candidate-indexer.stdout.txt').write_text(index_process.stdout)
 (out/'candidate-indexer.stderr.txt').write_text(index_process.stderr)
 if index_process.returncode: raise RuntimeError('candidate indexing failed')
+expected_candidate={'/'+r['path'].strip('/')+'/'+r['file']:(corpus/'source'/r['path']/r['file']).read_text() for r in manifest['repositories']}
+candidate_coverage=verify_candidate_coverage(expected_candidate,json.loads(index.read_bytes(),object_pairs_hook=no_duplicate_keys))
+(out/'candidate-source-coverage.json').write_text(json.dumps(candidate_coverage,indent=2)+'\n')
+if not candidate_coverage['complete']: raise RuntimeError('candidate index does not contain the expected source files and contents')
 work=out/'oracle-work'
 copy_receipt=prepare(fresh,work)
 config=work/'configuration.xml'
@@ -69,6 +77,19 @@ try:
     if r.status==200: break
   except (OSError,urllib.error.URLError): time.sleep(1)
  else: raise RuntimeError('oracle readiness timeout')
+ # Check every expected fixture path by querying the independent original API.
+ # Preserve each response and reject a missing or extra document before timing.
+ coverage_responses={}
+ for basename in sorted({r['file'] for r in manifest['repositories']}):
+  params=[('path',basename),('projects','alpha'),('projects','beta'),('start','0'),('maxresults','100')]
+  with opener.open(f'http://127.0.0.1:{op}/source/api/v1/search?'+urllib.parse.urlencode(params),timeout=20) as response:
+   body=response.read()
+   if response.status != 200: raise RuntimeError('original source coverage query was not HTTP 200')
+  (out/('coverage-'+basename+'.body')).write_bytes(body)
+  coverage_responses[basename]=json.loads(body,object_pairs_hook=no_duplicate_keys,parse_float=finite_float,parse_constant=lambda x: (_ for _ in ()).throw(ValueError('non-finite')))
+ coverage=verify_path_coverage(manifest,coverage_responses)
+ (out/'original-path-coverage.json').write_text(json.dumps(coverage,indent=2)+'\n')
+ if not coverage['complete']: raise RuntimeError('original did not return all expected source paths')
  # Observe original first and cookie-bearing follow-up using an isolated in-memory jar.
  query={'single-hit':'/source/api/v1/search?path=main.c&projects=alpha&start=0&maxresults=10',
         'no-hit':'/source/api/v1/search?path=absentfile.c&projects=alpha&start=0&maxresults=10',

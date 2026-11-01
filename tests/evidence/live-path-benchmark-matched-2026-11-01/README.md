@@ -1,5 +1,7 @@
 # Live path-only HTTP experiment: limited observed response and session slice
 
+The original indexer's actual stdout/stderr for this measured fresh index were not retained before the capture was deleted. Original exit 0 alone does not prove all source files indexed; equal complete indexed data and a fair whole-data comparison were not established. The missing logs cannot be recovered from this record.
+
 Later review found the runner for this historical recording did not explicitly bind its Tomcat connector to loopback or disable the shutdown port, and its HTTP client could follow redirects without recording redirect history. The corpus was public; the record does not establish whether another host connected or whether a redirect happened. The current runner corrects both issues; see `../live-path-no-hit-strict-2026-11-01/README.md` for a subsequent limited run.
 
 On the same Mac, the independent original OpenGrok 1.14.20 JDK/Tomcat and the Rust release spike ran against the 3,969-byte public corpus. The original had `allowMostPopular=false`, an explicit deviation from its default for the deferred suggestions feature. The exact query was `path=main.c&projects=alpha&start=0&maxresults=10`, a single-result path query. JVM flags, hashes, configuration, platform, input/index sizes and resource snapshots are in metadata.json and resources.json.

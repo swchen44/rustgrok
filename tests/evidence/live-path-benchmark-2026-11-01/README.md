@@ -1,5 +1,7 @@
 # Live path-only HTTP comparison: blocked
 
+The original indexer's actual stdout/stderr for the recorded index were not retained before the fresh capture was deleted; original index completeness is unverified. The missing logs cannot be recovered from this record.
+
 Later review found the runner for this historical recording did not explicitly bind its Tomcat connector to loopback or disable the shutdown port, and its HTTP client could follow redirects without recording redirect history. The corpus was public; the record does not establish whether another host connected or whether a redirect happened. The current runner corrects both issues; see `../live-path-no-hit-strict-2026-11-01/README.md` for a subsequent limited run.
 
 The independent OpenGrok 1.14.20 JDK/Tomcat server and Rust release server ran simultaneously on the same Mac against the same 3,969-byte public source corpus. Original index configuration was changed to `allowMostPopular=false` because that functionality was explicitly deferred; this is **not** the original default. The exact query, original and candidate status/headers, body files, configuration, versions, hashes, Java flags, index sizes and sampled process RSS/CPU are in this directory. The two returned HTTP 200 and their ordered response bodies matched except for top-level `time`. The original returned `Set-Cookie: JSESSIONID=…; Path=/source; HttpOnly`, while the candidate did not. The token is redacted in the committed report and no token is needed to reproduce the observation.
