@@ -19105,8 +19105,8 @@
     },
     {
       "path": "tests/evidence/synthetic-search-gate-2026-11-01/README.md",
-      "bytes": 4822,
-      "sha256": "0b103d4a59edd979a3cfbe60359156c2a014b03662f1d7753260b6b04befba75"
+      "bytes": 5433,
+      "sha256": "f05032e6784080c33df4430882c10b882100011f96c6f605091789f82e270355"
     },
     {
       "path": "tests/evidence/synthetic-search-gate-2026-11-01/benchmark-multiple-hit/preflight-candidate.body",
