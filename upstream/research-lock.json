@@ -470,7 +470,7 @@
     "complete_product_license_review": false
   },
   "acceptance_baseline_decision": "D04",
-  "reference_oracle_execution": "LIMITED_CLI_PROBE_ONLY; INDEX_AND_HTTP_NOT_RUN",
+  "reference_oracle_execution": "LIMITED_CLI_AND_JRE_INDEX_PROBES; HTTP_AND_FULL_JDK_ORACLE_NOT_RUN",
   "product_runtime_execution": "NOT_RUN",
   "read_record_files": [
     "upstream/source-review-manifest.json",
@@ -494,7 +494,7 @@
     "all_source_blobs_verified": true,
     "opengrok_release_download_and_hash": "VERIFIED",
     "tomcat_10_1_60_publisher_sha512_matches": true,
-    "oracle_execution": "LIMITED_CLI_PROBE_ONLY; INDEX_AND_HTTP_NOT_RUN",
+    "oracle_execution": "LIMITED_CLI_AND_JRE_INDEX_PROBES; HTTP_AND_FULL_JDK_ORACLE_NOT_RUN",
     "full_REF_001_acceptance": "NOT_RUN",
     "release_inventory": "upstream/opengrok-release-inventory.json",
     "cli_probe": "tests/evidence/oracle-cli-probe-2026-11-01.json"

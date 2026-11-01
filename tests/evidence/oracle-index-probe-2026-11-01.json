@@ -1,0 +1,53 @@
+{
+  "started_at": "2026-11-01T08:24:24+08:00",
+  "finished_at": "2026-11-01T08:24:29+08:00",
+  "role": "limited_original_index_probe_using_verified_jre_not_complete_oracle",
+  "exit_code": 0,
+  "timeout": false,
+  "argv": [
+    "/Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/jdk-21.0.13+9-jre/Contents/Home/bin/java",
+    "-Xms128m",
+    "-Xmx512m",
+    "-jar",
+    "/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/opengrok.jar",
+    "-c",
+    "/opt/homebrew/bin/ctags",
+    "-s",
+    "/Users/swchen.tw/Library/Caches/rustgrok/oracle/bootstrap-2026-11-01/source",
+    "-d",
+    "/Users/swchen.tw/Library/Caches/rustgrok/oracle/bootstrap-2026-11-01/index-jre-probe",
+    "-W",
+    "/Users/swchen.tw/Library/Caches/rustgrok/oracle/bootstrap-2026-11-01/configuration-jre-probe.xml",
+    "-P",
+    "-S",
+    "-H",
+    "-T",
+    "2"
+  ],
+  "stdout_bytes": 0,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_bytes": 7469,
+  "stderr_sha256": "a83806c7e2821653f4963f537b5e0899a97f8f20922186d186dc1e6adb7470f7",
+  "configuration_exists": true,
+  "full_test_cases_passed": [],
+  "product_execution": "NOT_RUN",
+  "raw_stdout": "tests/evidence/oracle-cli-2026-11-01/index-jre-probe.stdout.txt",
+  "raw_stderr": "tests/evidence/oracle-cli-2026-11-01/index-jre-probe.stderr.txt",
+  "configuration_sha256": "f2762c79e505607a20125228e3a63fc1bf95357c39a5e70455eaf7263a058062",
+  "input_manifest": "tests/evidence/oracle-bootstrap-inputs-2026-11-01.json",
+  "observations": {
+    "projects_indexed": [
+      "alpha",
+      "beta"
+    ],
+    "repositories_reported": 3,
+    "index_output_files": 21,
+    "repository_heads_unchanged": true,
+    "repository_worktrees_clean": true,
+    "http_query_and_content_verification": "NOT_RUN",
+    "warnings": [
+      "restricted native-access method warning",
+      "Java vector incubator module not readable"
+    ]
+  }
+}

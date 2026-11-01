@@ -24,9 +24,9 @@
 - [固定 source tree](../upstream/opengrok-source-tree.json)：commit 與 tree 身分核對，1,816 tracked entries；包含 Git blob SHA-1，後續完整checkout成功，全部1,816檔已逐一比對Git blob並保存SHA-256，總11,245,647 bytes，git fsck通過。
 - [部分功能母表](../upstream/feature-inventory.json) 與 [盤點筆記](research/2026-11-01-opengrok-inventory-entrypoints.md)：12 servlet 宣告、13 mapping rows、13 REST controller 檔、54 analyzer 註冊 entries、15 SCM adapter entries、39 個指定副檔名的 source assets。54 包含 default FileAnalyzerFactory；這些計數不等於語言數、endpoint 數或已完成相容的功能數。
 - [Oracle 取得紀錄](../tests/evidence/oracle-acquisition-2026-11-01.json) 與 [獨立 oracle lock](../upstream/oracle-artifacts.lock.json)：Tomcat 10.1.60 的 14,435,753 bytes archive 已重算 SHA-512 並與 Apache 公布值一致，LICENSE／NOTICE hash 已保存。六個固定 source 摘錄已核對 Git blob 身分，含上游 LICENSE／NOTICE；完整逐檔授權仍未完成。
-- Compact Temurin21.0.13+9 JRE的47,935,740 bytes archive已驗官方SHA-256，實際`java --version`／`--list-modules` exit0；binary為Mach-O arm64，且沒有`jdk.compiler`。這只完成工具取得與版本探測，完整JDK仍在下載；OpenGrok release後續已驗hash並執行有限CLI探測，索引／HTTP仍未執行。
+- Compact Temurin21.0.13+9 JRE的47,935,740 bytes archive已驗官方SHA-256，實際`java --version`／`--list-modules` exit0；binary為Mach-O arm64，且沒有`jdk.compiler`。這只完成工具取得與版本探測，完整JDK仍在下載；OpenGrok release後續已驗hash並執行有限CLI探測，後續已執行有限JRE索引探測，HTTP仍未執行。
 - 已逐項展開 [54 analyzer entries](research/2026-11-01-opengrok-analyzer-inventory.md)、[REST methods](research/2026-11-01-opengrok-rest-inventory.md) 與 [15 SCM adapters](research/2026-11-01-opengrok-scm-capabilities.md)。REST 共有48個HTTP-annotated Java methods、47個verb/path keys；`file/content`兩種media variants共用route key。這些均為靜態source結果；UI、query細語意、工具build／再散布及runtime另驗。
-- [有限 bootstrap 輸入](../tests/evidence/oracle-bootstrap-inputs-2026-11-01.json)：2個project、3個Git repo、3份未修改的公開上游C／Python／JS fixture，總2,418 source bytes；固定Git身分／時間的一次初始commit，保留每份origin及hash。尚未索引／查詢，沒有rename／merge／nested完整驗收，不是WP-A07正式corpus或約500 MB的代表工作負載。
+- [有限 bootstrap 輸入](../tests/evidence/oracle-bootstrap-inputs-2026-11-01.json)：2個project、3個Git repo、3份未修改的公開上游C／Python／JS fixture，總2,418 source bytes；固定Git身分／時間的一次初始commit，保留每份origin及hash。已完成有限索引探測，尚未HTTP查詢，沒有rename／merge／nested完整驗收，不是WP-A07正式corpus或約500 MB的代表工作負載。
 
 初次完整 source checkout 發生 `HTTP/2 stream 3 was not closed cleanly: CANCEL`、`early EOF`，HTTP/1.1 重試已成功，source阻擋解除；release archives另列下載狀態。大型 archive 下載速度慢，改為保留分段已取得 bytes 續傳；未完成整檔 hash 核對前不解壓執行。這是取得資料的阻擋，沒有修改 D04 基線或放寬驗收。
 
@@ -55,3 +55,7 @@ Q15已向使用者提出本機管理網頁的具體操作集合，尚未收到�
 [CLI probe](../tests/evidence/oracle-cli-probe-2026-11-01.json)使用已驗的compact JRE：`--version`及`--help guru`exit0，版本回報1.14.20與D04 commit；`--help repos`／`ctags`exit1，原始stderr顯示`Indexer.env`在`exitWithHelp`為null，隨後shutdown亦失敗。成功及失敗的stdout／stderr均保存於[原始輸出](../tests/evidence/oracle-cli-2026-11-01/guru.stdout.txt)同目錄，未修改原版。完整JDK重核仍待完成，不能把失敗歸因於JRE或把部分CLI成功外推為完整oracle、SCM或analyzer驗收。
 
 原版archive未含名為`NOTICE.txt`的member；來源root NOTICE另有已驗bytes。這只是inventory觀察，完整依賴／授權、source對應及應交notices仍待逐項確認；沒有因此省略NOTICE或宣告發行授權通過。
+
+## 2026-11-01 限定 JRE 索引探測
+
+[原始證據](../tests/evidence/oracle-index-probe-2026-11-01.json)：以已驗OpenGrok release、Temurin 21 JRE及本機Universal Ctags 6.2.1，對公開2 project／3 Git repo／2,418 bytes輸入執行原版索引器，exit 0；log顯示3個repository、兩個project完成索引及寫入設定。輸入的3個Git HEAD與worktree事後均未變動。記錄的warning含native-access及vector module；此執行未驗HTTP、查詢結果、完整JDK或代表規模，不能標REF-001／REF-002或產品測試passed。
