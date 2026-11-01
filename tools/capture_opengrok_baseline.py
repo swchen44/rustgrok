@@ -303,7 +303,9 @@ def main():
                               'only five query cases; not full query/SCM/UI compatibility',
                               'unmodified raw responses include nondeterministic time field',
                               'no product runtime, performance or full test-case PASS asserted',
-                              'JDK archive and java/javac binaries verified; extracted JDK library tree not fully rehashed']}
+                              'JDK archive and java/javac binaries verified; extracted JDK library tree not fully rehashed',
+                              'ctags default option files are not inventoried; cross-host reproduction requires checking effective ctags configuration',
+                              'HTTP status and raw body captured; full response headers are not captured']}
     (output / 'result.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps({'output': str(output), 'cases': len(responses), 'statuses': [r['status'] for r in responses]}))
 

@@ -22,3 +22,5 @@ Oracle 固定只綁 loopback；inputs、index、runtime與證據輸出只使用�
 [第三次原始擷取](run-3/result.json)用最後版本工具與第一輪相同corpus，在無效GIT_DIR／不可用proxy下重跑五項HTTP查詢，均為200且事後corpus不變；各次有序路徑及差異保留於repeatability紀錄，未依結果排序。這只驗工具及固定原版的有限案例。
 
 後續依審查補強：`run-verified-1`／`run-verified-2` 在啟動前逐一核對 Tomcat 已解壓 `bin`、`conf`、`lib` 共74個檔案與官方已驗 archive 的bytes及owner executable mode，並拒絕額外檔案／symlink。第二輪另以無效 Git、proxy 與四項 Java options 環境重跑；兩輪各五項HTTP 200、事後 corpus未變。有序路徑及原始輸出均保留在兩輪目錄與repeatability紀錄，除最上層 `time` 以外不做其他正規化；JDK archive及java／javac本體已驗，JDK其餘解壓library尚未逐檔覆核。
+
+範圍界線：原版 Ctags 的每個預設 option file／有效外部設定尚未完整盤點；已記錄二進位hash／版本及 OpenGrok XML，但不同主機重跑前仍需核對 Ctags 實際設定。這裡保存HTTP狀態及原始body，沒有保存完整HTTP response headers；兩者都不代表完整HTTP契約已驗收。

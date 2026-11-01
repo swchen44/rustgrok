@@ -355,8 +355,8 @@
     },
     {
       "path": "tests/evidence/search-baseline-2026-11-01/README.md",
-      "bytes": 3704,
-      "sha256": "c0c388c0e3b27f5623ca1eb5dd0e6a39bc5c09b95546f4aa1da52c092b259214"
+      "bytes": 4037,
+      "sha256": "ed6d996df7be43aa307d99b544c5bf290b96c3cd8a7471fc5136f2b95ddf49d8"
     },
     {
       "path": "tests/evidence/search-baseline-2026-11-01/repeatability.json",
@@ -725,8 +725,8 @@
     },
     {
       "path": "tools/capture_opengrok_baseline.py",
-      "bytes": 17497,
-      "sha256": "67a6c9fd220b9122509e06fb5ff3981a29f669544d8b2e1886c53890a01aeb86"
+      "bytes": 17757,
+      "sha256": "7189a3149264dd2aa91091068a5e8b0330eea6d06c03c6bbc20a24b83e538611"
     },
     {
       "path": "upstream/feature-inventory.json",
