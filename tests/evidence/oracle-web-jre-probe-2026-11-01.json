@@ -1,0 +1,41 @@
+{
+  "started_at": "2026-11-01T08:48:51+08:00",
+  "role": "limited loopback JRE web probe; not full JDK oracle",
+  "port": 51641,
+  "responses": [
+    {
+      "path": "/source/",
+      "status": 200,
+      "bytes": 12543,
+      "sha256": "17392f3d60f3c2ba65da1c876d7a5545798b71b116ee3fd544788b2aed311b37"
+    },
+    {
+      "path": "/source/api/v1/search?full=main&projects=alpha",
+      "status": 200,
+      "bytes": 303,
+      "sha256": "10ca24cd47b289c151f043f0d8093b1d5844ac277270d4ddbca5be86b5104c00"
+    },
+    {
+      "path": "/source/raw/alpha/component-c/main.c",
+      "status": 200,
+      "bytes": 730,
+      "sha256": "0afb5b45d1538ee86e23b046100c8e458614ba71e50f16c05bda1a52de0edb17"
+    }
+  ],
+  "oracle_full_acceptance": "NOT_RUN",
+  "process_before_shutdown": null,
+  "process_after_shutdown": 143,
+  "console_sha256": "6668f33f09d1171622b6e4acacff0e91f6993ed13b5be03177c84fcc8abd879a",
+  "output_dir": "/Users/swchen.tw/Library/Caches/rustgrok/oracle/bootstrap-2026-11-01/tomcat-jre-probe-20261101-084851",
+  "raw_console": "tests/evidence/oracle-cli-2026-11-01/web-jre-probe.console.txt",
+  "raw_search_response": "tests/evidence/oracle-cli-2026-11-01/web-jre-probe.search.json",
+  "raw_file_matches_fixture_sha256": true,
+  "observations": [
+    "search returned two result paths for alpha: component-c/main.c and component-js/function.js",
+    "most popular completion disabled for alpha/beta after ClassNotFoundException com.sun.tools.javac.api.JavacTool",
+    "shutdown logged a remaining resource-releaser thread and JGit ThreadLocal warnings; process exited and listener closed",
+    "JRE configuration lacks jdk.compiler; repeat with verified full JDK and upstream module flags before drawing full oracle conclusions"
+  ],
+  "product_execution": "NOT_RUN",
+  "full_test_cases_passed": []
+}

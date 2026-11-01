@@ -160,8 +160,8 @@
     },
     {
       "path": "docs/19-g0-execution-log.md",
-      "bytes": 8683,
-      "sha256": "4bd441967a77816efacecb94987d71f0534d7a3af1798c87fe345d052f2367e9"
+      "bytes": 9353,
+      "sha256": "68951864bf7e249d7027d1c2cf84129aa133a0c29894bbee2f8ab539492c1607"
     },
     {
       "path": "docs/adr/0001-runtime-and-core-reuse.proposed.md",
@@ -241,7 +241,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 805,
-      "sha256": "9dcab879e6c6b17f0087c246f98d75678717631557d1e0375b0dd7fb6732af90"
+      "sha256": "3532710865f3ebe8bd1155bf88fd2f81d5125248796944ed4e1513c43e41f752"
     },
     {
       "path": "tests/README.md",
@@ -260,8 +260,8 @@
     },
     {
       "path": "tests/evidence/oracle-acquisition-2026-11-01.json",
-      "bytes": 7560,
-      "sha256": "8cbb96af326a51c25b757e2c7f2b16b83dd1661a2dab4097c00a9b0ee3477c25"
+      "bytes": 7556,
+      "sha256": "ff714856204a5bbf44ca1b3466c4a2f3523b923226a340174cbffd09e3b7e113"
     },
     {
       "path": "tests/evidence/oracle-bootstrap-inputs-2026-11-01.json",
@@ -319,6 +319,16 @@
       "sha256": "7ae4d0a3f519290fe01376d42f2a1690d12f381790fd124e8cd814918e61812a"
     },
     {
+      "path": "tests/evidence/oracle-cli-2026-11-01/web-jre-probe.console.txt",
+      "bytes": 21035,
+      "sha256": "6668f33f09d1171622b6e4acacff0e91f6993ed13b5be03177c84fcc8abd879a"
+    },
+    {
+      "path": "tests/evidence/oracle-cli-2026-11-01/web-jre-probe.search.json",
+      "bytes": 303,
+      "sha256": "10ca24cd47b289c151f043f0d8093b1d5844ac277270d4ddbca5be86b5104c00"
+    },
+    {
       "path": "tests/evidence/oracle-cli-probe-2026-11-01.json",
       "bytes": 5197,
       "sha256": "0c2c2a2303bb7f997f671df682b4e5448f92f2609e05a174a9b764f86275aaf4"
@@ -327,6 +337,11 @@
       "path": "tests/evidence/oracle-index-probe-2026-11-01.json",
       "bytes": 1953,
       "sha256": "ca394455b1a0be975a6fa1180ec5d5ed02c1f0294bd45d894c9005831eb6c85c"
+    },
+    {
+      "path": "tests/evidence/oracle-web-jre-probe-2026-11-01.json",
+      "bytes": 1814,
+      "sha256": "11e3184c869cad3f8fe5e6ebe7c7283c4e72f6acd8274dd3655692aec715fda0"
     },
     {
       "path": "tests/fixtures/README.md",
@@ -365,8 +380,8 @@
     },
     {
       "path": "tools/build_planning_package.py",
-      "bytes": 12741,
-      "sha256": "444e33f8fd9e4b974e41a3df21fd2f5f55c0da4a3e66e79b755e1561b044e42e"
+      "bytes": 12880,
+      "sha256": "b87eb9069d85267e15ac0951dddc4aae14fb41b8df4bdbeff2e4e5d2f99d5857"
     },
     {
       "path": "upstream/feature-inventory.json",
@@ -385,13 +400,13 @@
     },
     {
       "path": "upstream/oracle-artifacts.lock.json",
-      "bytes": 5412,
-      "sha256": "45e4feff8930329a5524acc70797da74fdc9ae06706fe6f254e23ffeea0f450f"
+      "bytes": 5408,
+      "sha256": "d711004f4b31930bdd85f39f067aa4b92972d66ce8a14c448c25f6bf848202a5"
     },
     {
       "path": "upstream/research-lock.json",
-      "bytes": 25393,
-      "sha256": "3714807bb99395a28fdddeb7131a0d60c4ee2e249726e0839c962b935e1a20cc"
+      "bytes": 25385,
+      "sha256": "586c2cb9cd22d0bab9a771849c517c7ef112b9d708b5cbcf9ab0b2215a18e873"
     },
     {
       "path": "upstream/rust-research-lock.json",

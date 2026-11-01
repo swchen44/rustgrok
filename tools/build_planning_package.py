@@ -123,6 +123,7 @@ appendices = [("upstream/research-lock.json", "research-lock", "研究版本鎖�
               ("tests/evidence/oracle-bootstrap-inputs-2026-11-01.json", "oracle-bootstrap-inputs", "有限 oracle 啟動輸入；非正式 corpus"),
               ("upstream/opengrok-release-inventory.json", "opengrok-release-inventory", "已驗原版 archive／WAR／資產清單"),
               ("tests/evidence/oracle-cli-probe-2026-11-01.json", "oracle-cli-probe", "有限原版 CLI 探測；含失敗輸出"),
+              ("tests/evidence/oracle-web-jre-probe-2026-11-01.json", "oracle-web-jre-probe", "有限 JRE HTTP 探測；含錯誤邊界"),
               ("tests/fixtures/corpus-manifest.template.json", "corpus-template", "待建立語料的規格模板"),
               ("tests/traceability.json", "traceability-json", "機器可讀需求對照"),
               ("tests/evidence/development-host-observation-2026-10-26.json", "development-host-observation", "開發主機觀測；非產品測試"),

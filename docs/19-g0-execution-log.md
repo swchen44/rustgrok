@@ -59,3 +59,9 @@ Q15已向使用者提出本機管理網頁的具體操作集合，尚未收到�
 ## 2026-11-01 限定 JRE 索引探測
 
 [原始證據](../tests/evidence/oracle-index-probe-2026-11-01.json)：以已驗OpenGrok release、Temurin 21 JRE及本機Universal Ctags 6.2.1，對公開2 project／3 Git repo／2,418 bytes輸入執行原版索引器，exit 0；log顯示3個repository、兩個project完成索引及寫入設定。輸入的3個Git HEAD與worktree事後均未變動。記錄的warning含native-access及vector module；此執行未驗HTTP、查詢結果、完整JDK或代表規模，不能標REF-001／REF-002或產品測試passed。
+
+## 2026-11-01 限定 JRE Web 探測
+
+[原始證據](../tests/evidence/oracle-web-jre-probe-2026-11-01.json)：使用相同小型索引，Tomcat只綁定127.0.0.1；首頁、alpha搜尋API及raw檔案均HTTP 200。搜尋`main`回傳C與JavaScript兩個路徑，raw內容SHA-256與公開fixture相符。程序結束後listener已關閉。
+
+Tomcat log顯示`ClassNotFoundException: com.sun.tools.javac.api.JavacTool`，兩個project的most popular completion被停用；關閉時另有resource-releaser thread與JGit ThreadLocal警告。這次JRE缺`jdk.compiler`，不能當完整oracle驗收；待完整JDK及上游module flags重新驗證，並保留本次原始log。
