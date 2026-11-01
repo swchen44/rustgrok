@@ -1,0 +1,48 @@
+{
+  "status": "BLOCKED_OUTPUT_DIFFERENCE",
+  "timed_samples": 0,
+  "warmup_per_endpoint_per_load": 20,
+  "samples_per_endpoint_per_load": 50,
+  "query": "/source/api/v1/search?path=synthetic000.c&projects=project00&projects=project01&projects=project02&projects=project03&projects=project04&projects=project05&projects=project06&projects=project07&projects=project08&projects=project09&start=0&maxresults=100",
+  "body_normalization": [
+    "top-level time value"
+  ],
+  "header_comparison_ignores": [
+    "date",
+    "content-length",
+    "connection"
+  ],
+  "full_product_parity": "NOT_ASSERTED",
+  "preflight": [
+    {
+      "body": "preflight-oracle.body",
+      "status": 200,
+      "headers": {
+        "Set-Cookie": "JSESSIONID=<redacted ephemeral session value>; Path=/source; HttpOnly",
+        "Content-Type": "application/json",
+        "Content-Length": "793",
+        "Date": "Sun, 01 Nov 2026 10:39:25 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": true,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5264000
+    },
+    {
+      "body": "preflight-candidate.body",
+      "status": 200,
+      "headers": {
+        "Set-Cookie": "JSESSIONID=<redacted ephemeral session value>; Path=/source; HttpOnly",
+        "Content-Type": "application/json",
+        "Content-Length": "793",
+        "Connection": "close"
+      },
+      "set_cookie_present": true,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2154209
+    }
+  ],
+  "preflight_body_and_content_type_match": false
+}

@@ -24,3 +24,7 @@ experiments/tantivy-scorer-spike/LICENSE-APACHE-2.0.txt -text whitespace=-blank-
 experiments/tantivy-scorer-spike/LUCENE-NOTICE.txt -text whitespace=-blank-at-eof,-blank-at-eol
 tests/evidence/lucene-single-term-2026-11-01/*.txt -text whitespace=-blank-at-eof,-blank-at-eol
 tests/evidence/sparse-single-term-2026-11-01/*.txt -text whitespace=-blank-at-eof,-blank-at-eol
+
+# Preserve the captured iostat output and copied Tomcat configuration bytes.
+tests/evidence/synthetic-search-gate-2026-11-01/iostat-*.txt -text whitespace=-blank-at-eof,-blank-at-eol
+tests/evidence/synthetic-search-gate-2026-11-01/tomcat-server.xml -text whitespace=-blank-at-eof,-blank-at-eol

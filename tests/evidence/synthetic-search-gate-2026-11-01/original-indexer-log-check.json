@@ -1,0 +1,21 @@
+{
+  "status": "NO_KNOWN_FILE_FAILURE_INDICATORS",
+  "streams": {
+    "stdout": {
+      "file": "original-indexer.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stderr": {
+      "file": "original-indexer.stderr.txt",
+      "sha256": "a7393935b96bced02e9dd083c567c732ba566406f0712a89e1ea0ec4607e84ae",
+      "bytes": 10071
+    }
+  },
+  "indicators": [],
+  "completion_markers": [
+    "Done indexing data of all repositories",
+    "Indexer finished with success"
+  ],
+  "limitation": "Absence of these particular log messages alone does not prove all source files were indexed."
+}

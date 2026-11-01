@@ -1,0 +1,104 @@
+01-Nov-2026 18:39:16.931 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.60
+01-Nov-2026 18:39:16.937 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 9 2026 22:35:59 UTC
+01-Nov-2026 18:39:16.938 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.60.0
+01-Nov-2026 18:39:16.938 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+01-Nov-2026 18:39:16.938 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            15.7.7
+01-Nov-2026 18:39:16.938 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          aarch64
+01-Nov-2026 18:39:16.938 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/jdk-21.0.13+9/Contents/Home
+01-Nov-2026 18:39:16.938 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.13+9-LTS
+01-Nov-2026 18:39:16.938 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Eclipse Adoptium
+01-Nov-2026 18:39:16.939 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /private/tmp/rustgrok-synthetic-search-gate-v1/tomcat
+01-Nov-2026 18:39:16.939 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/apache-tomcat-10.1.60
+01-Nov-2026 18:39:16.957 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/private/tmp/rustgrok-synthetic-search-gate-v1/tomcat/conf/logging.properties
+01-Nov-2026 18:39:16.957 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+01-Nov-2026 18:39:16.957 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+01-Nov-2026 18:39:16.957 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+01-Nov-2026 18:39:16.957 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.io.useCanonCaches=false
+01-Nov-2026 18:39:16.957 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+01-Nov-2026 18:39:16.957 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-Nov-2026 18:39:16.957 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+01-Nov-2026 18:39:16.957 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-Nov-2026 18:39:16.957 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+01-Nov-2026 18:39:16.957 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+01-Nov-2026 18:39:16.958 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+01-Nov-2026 18:39:16.958 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms128m
+01-Nov-2026 18:39:16.958 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx512m
+01-Nov-2026 18:39:16.958 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-exports=java.base/jdk.internal.ref=ALL-UNNAMED
+01-Nov-2026 18:39:16.958 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-exports=java.base/sun.nio.ch=ALL-UNNAMED
+01-Nov-2026 18:39:16.958 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED
+01-Nov-2026 18:39:16.958 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED
+01-Nov-2026 18:39:16.958 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=jdk.compiler/com.sun.tools.javac=ALL-UNNAMED
+01-Nov-2026 18:39:16.958 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-Nov-2026 18:39:16.958 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+01-Nov-2026 18:39:16.958 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-Nov-2026 18:39:16.958 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+01-Nov-2026 18:39:16.958 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/private/tmp/rustgrok-synthetic-search-gate-v1/tomcat
+01-Nov-2026 18:39:16.958 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/apache-tomcat-10.1.60
+01-Nov-2026 18:39:16.958 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/private/tmp/rustgrok-synthetic-search-gate-v1/tomcat/temp
+01-Nov-2026 18:39:16.964 資訊 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/Users/swchen.tw/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+01-Nov-2026 18:39:17.143 資訊 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-127.0.0.1-53684"]
+01-Nov-2026 18:39:17.166 資訊 [main] org.apache.catalina.startup.Catalina.load Server initialization in [355] milliseconds
+01-Nov-2026 18:39:17.190 資訊 [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+01-Nov-2026 18:39:17.190 資訊 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.60]
+01-Nov-2026 18:39:17.195 資訊 [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/private/tmp/rustgrok-synthetic-search-gate-v1/tomcat/conf/Catalina/localhost/source.xml]
+01-Nov-2026 18:39:19.666 資訊 [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2026 18:39:19.728 資訊 [main] org.opengrok.indexer.Metrics.<clinit> configuring PrometheusRegistry
+SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J(W): Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J(W): Ignoring binding found at [jar:file:/private/tmp/rustgrok-synthetic-search-gate-v1/tomcat/webapps/source/WEB-INF/lib/slf4j-nop-1.7.30.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J(W): See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+01-Nov-2026 18:39:19.792 資訊 [main] org.opengrok.web.WebappListener.contextInitialized Starting webapp with version 1.14.20 (3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3) on Java version: 21.0.13+9-LTS, name: OpenJDK 64-Bit Server VM, vendor: Eclipse Adoptium, arch: aarch64 with properties ncpu: 8, maxMemory: 512.0 MiB
+01-Nov-2026 18:39:19.793 資訊 [main] org.opengrok.indexer.configuration.Configuration.read Reading configuration from '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/configuration.xml'
+01-Nov-2026 18:39:19.842 資訊 [main] org.opengrok.web.WebappListener.contextInitialized running inside Apache Tomcat/10.1.60
+01-Nov-2026 18:39:19.844 警告 [main] org.opengrok.indexer.framework.PluginFramework.reload Plugin directory '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/../plugins' not found or not readable: All requests allowed.
+01-Nov-2026 18:39:19.847 資訊 [main] org.opengrok.indexer.configuration.Configuration.read Reading configuration from '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/configuration.xml'
+01-Nov-2026 18:39:19.854 資訊 [OpenGrok-index-check-32] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Checking index in '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project02' (mode VERSION)
+01-Nov-2026 18:39:19.854 資訊 [OpenGrok-index-check-31] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Checking index in '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project00' (mode VERSION)
+01-Nov-2026 18:39:19.854 資訊 [OpenGrok-index-check-34] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Checking index in '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project04' (mode VERSION)
+01-Nov-2026 18:39:19.854 資訊 [OpenGrok-index-check-33] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Checking index in '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project01' (mode VERSION)
+WARNING: A restricted method in java.lang.foreign.Linker has been called
+WARNING: java.lang.foreign.Linker::downcallHandle has been called by the unnamed module
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for this module
+
+01-Nov-2026 18:39:19.925 資訊 [OpenGrok-index-check-32] org.apache.lucene.store.MemorySegmentIndexInputProvider.<init> Using MemorySegmentIndexInput and native madvise support with Java 21 or later; to disable start with -Dorg.apache.lucene.store.MMapDirectory.enableMemorySegments=false
+01-Nov-2026 18:39:19.978 警告 [OpenGrok-index-check-32] org.apache.lucene.internal.vectorization.VectorizationProvider.lookup Java vector incubator module is not readable. For optimal vector performance, pass '--add-modules jdk.incubator.vector' to enable Vector API.
+01-Nov-2026 18:39:20.000 資訊 [OpenGrok-index-check-34] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Index check for directory '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project04' passed
+01-Nov-2026 18:39:20.000 資訊 [OpenGrok-index-check-32] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Index check for directory '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project02' passed
+01-Nov-2026 18:39:20.000 資訊 [OpenGrok-index-check-33] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Index check for directory '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project01' passed
+01-Nov-2026 18:39:20.000 資訊 [OpenGrok-index-check-31] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Index check for directory '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project00' passed
+01-Nov-2026 18:39:20.001 資訊 [OpenGrok-index-check-34] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Checking index in '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project03' (mode VERSION)
+01-Nov-2026 18:39:20.001 資訊 [OpenGrok-index-check-32] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Checking index in '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project06' (mode VERSION)
+01-Nov-2026 18:39:20.001 資訊 [OpenGrok-index-check-33] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Checking index in '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project05' (mode VERSION)
+01-Nov-2026 18:39:20.001 資訊 [OpenGrok-index-check-31] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Checking index in '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project08' (mode VERSION)
+01-Nov-2026 18:39:20.002 資訊 [OpenGrok-index-check-32] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Index check for directory '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project06' passed
+01-Nov-2026 18:39:20.003 資訊 [OpenGrok-index-check-31] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Index check for directory '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project08' passed
+01-Nov-2026 18:39:20.003 資訊 [OpenGrok-index-check-32] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Checking index in '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project07' (mode VERSION)
+01-Nov-2026 18:39:20.003 資訊 [OpenGrok-index-check-31] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Checking index in '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project09' (mode VERSION)
+01-Nov-2026 18:39:20.003 資訊 [OpenGrok-index-check-33] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Index check for directory '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project05' passed
+01-Nov-2026 18:39:20.003 資訊 [OpenGrok-index-check-34] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Index check for directory '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project03' passed
+01-Nov-2026 18:39:20.003 資訊 [OpenGrok-index-check-32] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Index check for directory '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project07' passed
+01-Nov-2026 18:39:20.004 資訊 [OpenGrok-index-check-31] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Index check for directory '/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project09' passed
+01-Nov-2026 18:39:20.192 資訊 [Thread-2] org.opengrok.suggest.Suggester.init Initializing suggester for [project00, project02, project04, project06, project08, project01, project03, project05, project07, project09]
+01-Nov-2026 18:39:20.238 警告 [Thread-2] org.opengrok.suggest.SuggesterProjectData.initFields Fields [defs, hist] will be ignored because they were not found in index directory 'MMapDirectory@/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project00 lockFactory=org.apache.lucene.store.NativeFSLockFactory@e2dc5e1'
+01-Nov-2026 18:39:20.245 警告 [Thread-2] org.opengrok.suggest.SuggesterProjectData.initFields Fields [defs, hist] will be ignored because they were not found in index directory 'MMapDirectory@/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project02 lockFactory=org.apache.lucene.store.NativeFSLockFactory@e2dc5e1'
+01-Nov-2026 18:39:20.249 警告 [Thread-2] org.opengrok.suggest.SuggesterProjectData.initFields Fields [defs, hist] will be ignored because they were not found in index directory 'MMapDirectory@/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project04 lockFactory=org.apache.lucene.store.NativeFSLockFactory@e2dc5e1'
+01-Nov-2026 18:39:20.253 警告 [Thread-2] org.opengrok.suggest.SuggesterProjectData.initFields Fields [defs, hist] will be ignored because they were not found in index directory 'MMapDirectory@/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project06 lockFactory=org.apache.lucene.store.NativeFSLockFactory@e2dc5e1'
+01-Nov-2026 18:39:20.258 警告 [Thread-2] org.opengrok.suggest.SuggesterProjectData.initFields Fields [defs, hist] will be ignored because they were not found in index directory 'MMapDirectory@/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project08 lockFactory=org.apache.lucene.store.NativeFSLockFactory@e2dc5e1'
+01-Nov-2026 18:39:20.263 警告 [Thread-2] org.opengrok.suggest.SuggesterProjectData.initFields Fields [defs, hist] will be ignored because they were not found in index directory 'MMapDirectory@/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project01 lockFactory=org.apache.lucene.store.NativeFSLockFactory@e2dc5e1'
+01-Nov-2026 18:39:20.267 警告 [Thread-2] org.opengrok.suggest.SuggesterProjectData.initFields Fields [defs, hist] will be ignored because they were not found in index directory 'MMapDirectory@/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project03 lockFactory=org.apache.lucene.store.NativeFSLockFactory@e2dc5e1'
+01-Nov-2026 18:39:20.273 警告 [Thread-2] org.opengrok.suggest.SuggesterProjectData.initFields Fields [defs, hist] will be ignored because they were not found in index directory 'MMapDirectory@/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project05 lockFactory=org.apache.lucene.store.NativeFSLockFactory@e2dc5e1'
+01-Nov-2026 18:39:20.283 警告 [Thread-2] org.opengrok.suggest.SuggesterProjectData.initFields Fields [defs, hist] will be ignored because they were not found in index directory 'MMapDirectory@/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project07 lockFactory=org.apache.lucene.store.NativeFSLockFactory@e2dc5e1'
+01-Nov-2026 18:39:20.290 警告 [Thread-2] org.opengrok.suggest.SuggesterProjectData.initFields Fields [defs, hist] will be ignored because they were not found in index directory 'MMapDirectory@/private/tmp/rustgrok-synthetic-search-gate-v1/oracle-work/index/index/project09 lockFactory=org.apache.lucene.store.NativeFSLockFactory@e2dc5e1'
+01-Nov-2026 18:39:20.330 資訊 [Thread-2] org.opengrok.suggest.Suggester.init Suggesters for [project00, project02, project04, project06, project08, project01, project03, project05, project07, project09] were initialized (took 0 seconds)
+01-Nov-2026 18:39:20.331 資訊 [Thread-2] org.opengrok.web.api.v1.suggester.provider.service.impl.SuggesterServiceImpl.scheduleRebuild Suggester rebuild not scheduled
+01-Nov-2026 18:39:20.638 INFO [main] org.hibernate.validator.internal.util.Version.<clinit> HV000001: Hibernate Validator 8.0.1.Final
+01-Nov-2026 18:39:21.824 資訊 [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/private/tmp/rustgrok-synthetic-search-gate-v1/tomcat/conf/Catalina/localhost/source.xml] has finished in [4,627] ms
+01-Nov-2026 18:39:21.828 資訊 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-127.0.0.1-53684"]
+01-Nov-2026 18:39:21.835 資訊 [main] org.apache.catalina.startup.Catalina.start Server startup in [4669] milliseconds
+01-Nov-2026 18:39:25.075 資訊 [Thread-3] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-127.0.0.1-53684"]
+01-Nov-2026 18:39:25.079 資訊 [Thread-3] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+01-Nov-2026 18:39:25.085 資訊 [Thread-3] org.opengrok.indexer.configuration.WatchDogService.stop Watchdog stopped
+01-Nov-2026 18:39:25.093 資訊 [Thread-3] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-127.0.0.1-53684"]
+01-Nov-2026 18:39:25.103 資訊 [Thread-3] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-127.0.0.1-53684"]
