@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Capture a limited fixed OpenGrok search baseline over loopback on macOS."""
 import argparse
+import configparser
 import datetime
 import hashlib
 import json
@@ -17,7 +18,7 @@ import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 
-from build_public_corpus import FILES, SOURCE_HASHES, source_path, git as fixture_git
+from build_public_corpus import FILES, INPUT, SOURCE_HASHES, source_path, git as fixture_git
 
 ROOT = Path(__file__).resolve().parents[1]
 COMMIT = '3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3'
@@ -97,11 +98,59 @@ def verified_tomcat_runtime(archive, home):
     return [expected[key] for key in sorted(expected)]
 
 
+def check_git_metadata(repo, repo_path):
+    """Reject local config and metadata that may change Git history semantics."""
+    dotgit = repo / '.git'
+    config_path = dotgit / 'config'
+    if dotgit.is_symlink() or not dotgit.is_dir() or config_path.is_symlink():
+        raise ValueError('unapproved Git configuration: unexpected .git or config')
+    parser = configparser.ConfigParser(interpolation=None, strict=True)
+    try:
+        with config_path.open(encoding='utf-8') as config:
+            parser.read_file(config)
+        allowed = {'repositoryformatversion', 'filemode', 'bare', 'logallrefupdates',
+                   'ignorecase', 'precomposeunicode'}
+        if parser.defaults() or set(parser.sections()) != {'core'} or not set(parser['core']) <= allowed:
+            raise ValueError('unapproved Git configuration: unexpected section or key')
+        core = parser['core']
+        if core.get('repositoryformatversion') != '0' or core.get('bare', '').lower() != 'false':
+            raise ValueError('unapproved Git configuration: unsupported object format or bare repository')
+        for name in ('filemode', 'logallrefupdates', 'ignorecase', 'precomposeunicode'):
+            if name in core and core[name].lower() not in ('true', 'false'):
+                raise ValueError('unapproved Git configuration: invalid boolean')
+    except (OSError, UnicodeError, configparser.Error) as exc:
+        raise ValueError('unapproved Git configuration: cannot safely parse local config') from exc
+    for name in ('shallow', 'info/grafts', 'objects/info/alternates', 'objects/info/http-alternates',
+                 'config.worktree'):
+        path = dotgit / name
+        if path.exists() or path.is_symlink():
+            raise ValueError(f'unapproved Git history metadata: {name}')
+    for name in ('HEAD', 'packed-refs', 'objects', 'refs', 'info'):
+        if (dotgit / name).is_symlink():
+            raise ValueError(f'unapproved Git history metadata: symlink {name}')
+    refs = dotgit / 'refs'
+    if refs.exists():
+        for directory, dirs, files in os.walk(refs, followlinks=False):
+            if any((Path(directory) / name).is_symlink() for name in dirs + files):
+                raise ValueError('unapproved Git history metadata: symlink in refs')
+    exclude = dotgit / 'info/exclude'
+    if exclude.is_symlink():
+        raise ValueError('unapproved Git history metadata: symlink exclude')
+    if repo_path == 'alpha/component-c':
+        if not exclude.is_file() or exclude.read_bytes() != b'nested-js/\n':
+            raise ValueError('unapproved Git history metadata: parent exclusion changed')
+    elif exclude.exists():
+        raise ValueError('unapproved Git history metadata: unexpected exclusion')
+
+
 def check_corpus(corpus):
     manifest = corpus / 'manifest.json'
     if not manifest.is_file():
         raise ValueError('corpus manifest missing')
     data = json.loads(manifest.read_text())
+    trusted = json.loads((INPUT / 'expected-corpus-manifest.json').read_text())
+    if data != trusted:
+        raise ValueError('unapproved Git history or corpus manifest metadata')
     if data.get('upstream_commit') != COMMIT or data.get('private_data') is not False:
         raise ValueError('corpus provenance is not the fixed public fixture')
     expected = {(project + '/' + component, Path(rel).name): SOURCE_HASHES[rel]
@@ -139,10 +188,18 @@ def check_corpus(corpus):
             raise ValueError('repository path outside corpus')
         if digest(repo / item['file']) != item['source_sha256']:
             raise ValueError('corpus source hash mismatch')
+        check_git_metadata(repo, item['path'])
         head = fixture_git(repo, 'rev-parse', 'HEAD')
+        refs = fixture_git(repo, 'for-each-ref', '--format=%(refname) %(objectname)').splitlines()
+        if refs != [f'refs/heads/main {head}']:
+            raise ValueError('unapproved Git history metadata: extra or changed refs')
+        tree = fixture_git(repo, 'rev-parse', 'HEAD^{tree}')
+        commits = fixture_git(repo, 'rev-list', '--reverse', 'HEAD').splitlines()
+        branch = fixture_git(repo, 'symbolic-ref', 'HEAD')
         dirty = fixture_git(repo, 'status', '--porcelain')
-        if head != item['revision'] or dirty:
-            raise ValueError('corpus Git revision changed or worktree dirty')
+        if (head != item['revision'] or tree != item['tree'] or commits != item['commits'] or
+                branch != 'refs/heads/main' or dirty):
+            raise ValueError('unapproved Git history or worktree change')
     return data
 
 

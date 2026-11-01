@@ -1,0 +1,30 @@
+{
+  "role": "public tooling tests and limited original oracle, not product acceptance",
+  "tests": {
+    "command": "python3 -m unittest discover -s tests/contract -v",
+    "exit_code": 0,
+    "tests_run": 13,
+    "log": "contract-tests.stdout.txt",
+    "log_sha256": "b072fc7480701ac73546b052839d3bae96529795c723086703e6b1da2eadd967"
+  },
+  "trusted_corpus_manifest": "tests/fixtures/public-source/expected-corpus-manifest.json",
+  "trusted_corpus_manifest_sha256": "88f491850b062ade1fbe157280f78b64b33774820c576dd83337cb11c7ab7c73",
+  "oracle_input_manifest_sha256": "88f491850b062ade1fbe157280f78b64b33774820c576dd83337cb11c7ab7c73",
+  "oracle_http_statuses": [
+    200,
+    200,
+    200,
+    200,
+    200
+  ],
+  "oracle_index_exit_code": 0,
+  "corpus_verified_unchanged_after_run": true,
+  "tomcat_verified_scope": [
+    "bin",
+    "conf",
+    "lib"
+  ],
+  "tomcat_runtime_file_count": 74,
+  "scope_limit": "JDK remaining extracted libraries and ctags default configuration not fully inventoried; no full product/SCM/HTTP-header or performance acceptance",
+  "product_tests_passed": []
+}

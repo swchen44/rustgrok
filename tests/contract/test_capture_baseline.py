@@ -123,5 +123,97 @@ class OracleCaptureContract(unittest.TestCase):
             self.assertFalse(output.exists())
 
 
+    def test_rejects_unapproved_history_even_if_manifest_is_forged(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            corpus = Path(tmp) / 'corpus'
+            subprocess.run(['python3', str(ROOT / 'tools/build_public_corpus.py'), '--output', str(corpus)],
+                           check=True, capture_output=True)
+            repo = corpus / 'source/alpha/component-c'
+            subprocess.run(['git', '-C', str(repo), '-c', 'user.name=Intruder',
+                            '-c', 'user.email=intruder@example.invalid', '-c', 'commit.gpgsign=false',
+                            '-c', 'core.hooksPath=/dev/null', 'commit', '--quiet', '--allow-empty',
+                            '-m', 'synthetic-unapproved-history'], check=True, capture_output=True)
+            manifest_path = corpus / 'manifest.json'
+            manifest = json.loads(manifest_path.read_text())
+            entry = next(e for e in manifest['repositories'] if e['path'] == 'alpha/component-c')
+            entry['revision'] = subprocess.check_output(['git', '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip()
+            entry['commits'].append(entry['revision'])
+            manifest_path.write_text(json.dumps(manifest))
+            output = Path(tmp) / 'capture'
+            result = subprocess.run(['python3', str(COMMAND), '--corpus', str(corpus),
+                                     '--output', str(output), '--cache', str(Path(tmp) / 'missing-cache')],
+                                    capture_output=True, text=True)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn('unapproved Git history', result.stderr)
+            self.assertFalse(output.exists())
+
+    def test_rejects_local_git_include_even_when_history_is_unchanged(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            corpus = Path(tmp) / 'corpus'
+            subprocess.run(['python3', str(ROOT / 'tools/build_public_corpus.py'), '--output', str(corpus)],
+                           check=True, capture_output=True)
+            repo = corpus / 'source/alpha/component-c'
+            subprocess.run(['git', '-C', str(repo), 'config', '--local', 'include.path',
+                            str(Path(tmp) / 'other-config')], check=True)
+            output = Path(tmp) / 'capture'
+            result = subprocess.run(['python3', str(COMMAND), '--corpus', str(corpus),
+                                     '--output', str(output), '--cache', str(Path(tmp) / 'missing-cache')],
+                                    capture_output=True, text=True)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn('unapproved Git configuration', result.stderr)
+            self.assertFalse(output.exists())
+
+    def test_rejects_git_grafts_even_when_manifest_and_head_match(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            corpus = Path(tmp) / 'corpus'
+            subprocess.run(['python3', str(ROOT / 'tools/build_public_corpus.py'), '--output', str(corpus)],
+                           check=True, capture_output=True)
+            repo = corpus / 'source/alpha/component-c'
+            head = subprocess.check_output(['git', '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip()
+            (repo / '.git/info/grafts').write_text(head + '\n')
+            output = Path(tmp) / 'capture'
+            result = subprocess.run(['python3', str(COMMAND), '--corpus', str(corpus),
+                                     '--output', str(output), '--cache', str(Path(tmp) / 'missing-cache')],
+                                    capture_output=True, text=True)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn('unapproved Git history metadata', result.stderr)
+            self.assertFalse(output.exists())
+
+
+    def test_rejects_unapproved_git_tag_even_when_head_is_unchanged(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            corpus = Path(tmp) / 'corpus'
+            subprocess.run(['python3', str(ROOT / 'tools/build_public_corpus.py'), '--output', str(corpus)],
+                           check=True, capture_output=True)
+            repo = corpus / 'source/alpha/component-c'
+            subprocess.run(['git', '-C', str(repo), 'tag', 'unapproved'], check=True)
+            output = Path(tmp) / 'capture'
+            result = subprocess.run(['python3', str(COMMAND), '--corpus', str(corpus),
+                                     '--output', str(output), '--cache', str(Path(tmp) / 'missing-cache')],
+                                    capture_output=True, text=True)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn('unapproved Git history metadata', result.stderr)
+            self.assertFalse(output.exists())
+
+
+    def test_rejects_git_replace_ref_that_changes_history_without_changing_head(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            corpus = Path(tmp) / 'corpus'
+            subprocess.run(['python3', str(ROOT / 'tools/build_public_corpus.py'), '--output', str(corpus)],
+                           check=True, capture_output=True)
+            repo = corpus / 'source/alpha/component-c'
+            head = subprocess.check_output(['git', '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip()
+            root = subprocess.check_output(['git', '-C', str(repo), 'rev-list', '--max-parents=0', 'HEAD'], text=True).strip()
+            subprocess.run(['git', '-C', str(repo), 'update-ref', 'refs/replace/' + head, root], check=True)
+            self.assertEqual(subprocess.check_output(['git', '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip(), head)
+            output = Path(tmp) / 'capture'
+            result = subprocess.run(['python3', str(COMMAND), '--corpus', str(corpus),
+                                     '--output', str(output), '--cache', str(Path(tmp) / 'missing-cache')],
+                                    capture_output=True, text=True)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn('unapproved Git history metadata', result.stderr)
+            self.assertFalse(output.exists())
+
+
 if __name__ == '__main__':
     unittest.main()

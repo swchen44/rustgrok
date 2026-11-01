@@ -31,10 +31,7 @@ def source_path(rel):
 
 
 def git(repo, *args, date='2020-01-01T00:00:00Z'):
-    environment = os.environ.copy()
-    for key in ('GIT_DIR', 'GIT_WORK_TREE', 'GIT_INDEX_FILE', 'GIT_OBJECT_DIRECTORY',
-                'GIT_ALTERNATE_OBJECT_DIRECTORIES', 'GIT_CONFIG_COUNT', 'GIT_CONFIG_PARAMETERS'):
-        environment.pop(key, None)
+    environment = {key: value for key, value in os.environ.items() if not key.startswith('GIT_')}
     environment.update(GIT_CONFIG_NOSYSTEM='1', GIT_CONFIG_GLOBAL=os.devnull,
                        GIT_AUTHOR_NAME='Rustgrok Public Fixture', GIT_AUTHOR_EMAIL='fixture@rustgrok.invalid',
                        GIT_COMMITTER_NAME='Rustgrok Public Fixture', GIT_COMMITTER_EMAIL='fixture@rustgrok.invalid',
@@ -90,6 +87,9 @@ def build(output):
                 'upstream_commit': UPSTREAM_COMMIT, 'private_data': False,
                 'license': 'Retain upstream LICENSE.txt and NOTICE.txt and per-file terms',
                 'repositories': entries}
+    trusted = json.loads((INPUT / 'expected-corpus-manifest.json').read_text())
+    if manifest != trusted:
+        raise ValueError('generated corpus does not match trusted deterministic history')
     (output / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
     return manifest
 

@@ -24,3 +24,5 @@ Oracle 固定只綁 loopback；inputs、index、runtime與證據輸出只使用�
 後續依審查補強：`run-verified-1`／`run-verified-2` 在啟動前逐一核對 Tomcat 已解壓 `bin`、`conf`、`lib` 共74個檔案與官方已驗 archive 的bytes及owner executable mode，並拒絕額外檔案／symlink。第二輪另以無效 Git、proxy 與四項 Java options 環境重跑；兩輪各五項HTTP 200、事後 corpus未變。有序路徑及原始輸出均保留在兩輪目錄與repeatability紀錄，除最上層 `time` 以外不做其他正規化；JDK archive及java／javac本體已驗，JDK其餘解壓library尚未逐檔覆核。
 
 範圍界線：原版 Ctags 的每個預設 option file／有效外部設定尚未完整盤點；已記錄二進位hash／版本及 OpenGrok XML，但不同主機重跑前仍需核對 Ctags 實際設定。這裡保存HTTP狀態及原始body，沒有保存完整HTTP response headers；兩者都不代表完整HTTP契約已驗收。
+
+後續修正 history 信任邊界：擷取前後均將外部 corpus manifest 與受版控固定定義比對，並檢查各 repo 的 HEAD、tree、完整 commit chain、main ref 與 worktree；拒絕可能改變 history 的額外 refs、graft、shallow、alternates 和非預期 local Git config。測試涵蓋外部 manifest 偽造＋額外 commit、Git include、graft、replace ref 與額外 tag。[修正後原版重跑](history-guard-final/result.json)在相同公開 corpus 上五項查詢均 HTTP 200，保留 raw 回應、設定及 log；此結果仍不代表完整 SCM 或產品驗收。
