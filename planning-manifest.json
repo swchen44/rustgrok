@@ -416,7 +416,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 807,
-      "sha256": "8af96f3d3f21c02959df3a82870d480b78aa7299e5e7393ebd9b96795e6ad1b0"
+      "sha256": "d138d982eeddda5529c14fd3792605bb443559ecd60ad66322f3f0b013800b17"
     },
     {
       "path": "tests/README.md",
@@ -432,6 +432,11 @@
       "path": "tests/contract/test_capture_baseline.py",
       "bytes": 13300,
       "sha256": "e6bb18c472addca10634617baac52879a570ffcc3be817d9573cd0f4a378d7f0"
+    },
+    {
+      "path": "tests/contract/test_index_resource_guard.py",
+      "bytes": 937,
+      "sha256": "34bf209a3e49fb3399197c5761003f5f9141d630aeac937c2228f1ee013b7044"
     },
     {
       "path": "tests/contract/test_indexer_evidence.py",
@@ -462,6 +467,21 @@
       "path": "tests/contract/test_public_corpus.py",
       "bytes": 2909,
       "sha256": "5d34e0a4521729ed196fecc60714c02e7b6d4e99d187a01f20d540ce5d83ecf0"
+    },
+    {
+      "path": "tests/contract/test_synthetic_corpus.py",
+      "bytes": 3286,
+      "sha256": "9cfe8415d526d3e5fe6b0d8364946bea1f6679dbfb78fa4f54c7d7d98542c000"
+    },
+    {
+      "path": "tests/contract/test_synthetic_evidence.py",
+      "bytes": 1903,
+      "sha256": "871eca10882faaf1dfe52c441e3372f016d102ad5469c0f19326e5af4cb46490"
+    },
+    {
+      "path": "tests/contract/test_synthetic_path_capture.py",
+      "bytes": 857,
+      "sha256": "ad35e668dc6ef33d4759cb62352736fb04894a2c9a249fd86e7ed2286f33d35e"
     },
     {
       "path": "tests/evidence/README.md",
@@ -18929,6 +18949,136 @@
       "sha256": "8598e0a109fa897814ab7af4cb281ab71964f54f72f8a873f83f4ef24045aab0"
     },
     {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/README.md",
+      "bytes": 4427,
+      "sha256": "d2114a7475006b736401b9e81375b703a32a2d11a25673470e9bc533c7defe6c"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/candidate-index.json",
+      "bytes": 2668891,
+      "sha256": "361247357a1b3105100e837af2a4318ac8e4aeb0feae6f212bb7189858035608"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/candidate.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/candidate.time.txt",
+      "bytes": 777,
+      "sha256": "17419679f96048d38c64d1ebf70c38111b9fbe997ea637d23223a4d98a732170"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/coverage.json",
+      "bytes": 5260,
+      "sha256": "059e817c5776f63e35037b27a1824c887de56b3ad024b4fec15b8f661245329f"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/disk-watch.json",
+      "bytes": 1613,
+      "sha256": "4b4f159a4f3b6a2b8bc9309ed7221641855589a46810846db7f6fa939c6bba75"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/earlier-blocked/coverage.json",
+      "bytes": 5187,
+      "sha256": "5b8300066342271046f2362bbc98dfa51a6b4f8cb636031b7355608eb2ab617b"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/earlier-blocked/disk-watch.json",
+      "bytes": 1689,
+      "sha256": "5eebac473711bacefb72f543333335ab43cb3734839b18caad12d4676dcdcd6b"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/earlier-blocked/index-report.json",
+      "bytes": 8533,
+      "sha256": "8a824a5c97c5890f01e61acb25ca6c1d946d3e265b7323481c46e86ab2192ef0"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/earlier-blocked/response-synthetic000.c.json",
+      "bytes": 794,
+      "sha256": "89b6857ffaa6caa16141c5e32d8d1d2cfa98da951c8c81da877b2e4fcc4d97b6"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/earlier-blocked/response-synthetic001.py.json",
+      "bytes": 803,
+      "sha256": "b4ffccbfc87659be094e9a21acae1f7c56443aaabdba590d46985e457194bdda"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/earlier-blocked/response-synthetic002.js.json",
+      "bytes": 803,
+      "sha256": "99f5e59028019a8fd3a054a3f0720fb98c0904c66cd6c7bfe3d08bfd52cc30a5"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/earlier-blocked/response-synthetic003.c.json",
+      "bytes": 793,
+      "sha256": "0a6329334db8ce037fc5f57616e4fd7d2d57517d8a5b42a93b4b037bafa7a3f6"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/host-context.json",
+      "bytes": 417,
+      "sha256": "f36911dac7bed942a91d181a99fa9694de0ca987a57eaf62f5996ab5ca7183e3"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/index.stderr.txt",
+      "bytes": 10071,
+      "sha256": "a7393935b96bced02e9dd083c567c732ba566406f0712a89e1ea0ec4607e84ae"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/index.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/index.time.txt",
+      "bytes": 777,
+      "sha256": "1923997117ea46efa3330ca19e843dc4bbecbe74c70df614f9251f560186e5ea"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/original-indexer-log-check.json",
+      "bytes": 657,
+      "sha256": "c62a0b8728c70d8422d274d32b980f6aba2ec5826c6b84ec9e21f002c9db4fd3"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/report.json",
+      "bytes": 8135,
+      "sha256": "051be49a2a4b845ef9595933fc1d65fcd7144935c47c4779b02dab3e6107ce1d"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/response-synthetic000.c.json",
+      "bytes": 794,
+      "sha256": "4cbcb54b8ca668ce5a935533ea1de95390cc58e7737d601f56fee639a3146cc3"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/response-synthetic001.py.json",
+      "bytes": 803,
+      "sha256": "d2600960222cf337c4c3aa99e805f99b8795a956aa850226d4221e32650bbdd4"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/response-synthetic002.js.json",
+      "bytes": 803,
+      "sha256": "99f5e59028019a8fd3a054a3f0720fb98c0904c66cd6c7bfe3d08bfd52cc30a5"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/response-synthetic003.c.json",
+      "bytes": 793,
+      "sha256": "a6fc76ea0e26e81ac29f5b34704b62607f7ef711398761ec3a6709f5c66ce884"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/synthetic-manifest.json",
+      "bytes": 6648,
+      "sha256": "f0fd32851e0be3bb3d02d7e6faf18f9adaf2e55616694ffe058ec2c90ffc2116"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/tomcat.stdout-stderr.txt",
+      "bytes": 19887,
+      "sha256": "53fe5063548a7739e67846a46e2520a6ac444d18803c081f22701d635015f240"
+    },
+    {
       "path": "tests/evidence/tantivy-full-adapter-2026-11-01/README.md",
       "bytes": 1058,
       "sha256": "8b125bc0762d91a602fbe328f5f3889bf2e16f43ed2a9b39a0dfe96dbb3b7f00"
@@ -19169,6 +19319,11 @@
       "sha256": "fb71080ebf6529cac1008dd4976a37c9a97a94e99b502fc874279b1d150d62a9"
     },
     {
+      "path": "tools/build_synthetic_corpus.py",
+      "bytes": 5300,
+      "sha256": "16db85b331dec3e5e411da0827ed9c126d26b0c2782d919383fe8c20630b053d"
+    },
+    {
       "path": "tools/capture_opengrok_baseline.py",
       "bytes": 20892,
       "sha256": "33587c34022b8ab220f02953b7eb20e9fcbba97474f4fd0de89fa95c8beea460"
@@ -19199,6 +19354,11 @@
       "sha256": "71a952b1abf67e838a154bcf7e04c0e44b04c9de2a553d49c3828a6e84923be3"
     },
     {
+      "path": "tools/run_synthetic_index_probe.py",
+      "bytes": 8210,
+      "sha256": "e8b644a330f47d133cb58c7580e3d598981847443e82351227cf90a8be964257"
+    },
+    {
       "path": "tools/search_benchmark_gate.py",
       "bytes": 4671,
       "sha256": "0a23e192ca52337af9deb6ab382d4f26ff9ac1831399dc9e0ad3818c7499dcaa"
@@ -19207,6 +19367,11 @@
       "path": "tools/search_live_benchmark.py",
       "bytes": 7908,
       "sha256": "12c9a0fad01f2e0b8336e516755b3b11beeaff85930600a9cd7410be4174ba3d"
+    },
+    {
+      "path": "tools/verify_synthetic_paths.py",
+      "bytes": 9740,
+      "sha256": "99020a6e02d5270e00da67d8b9205f7d1200da501d77b007a75ebd469e8a3e08"
     },
     {
       "path": "upstream/feature-inventory.json",
