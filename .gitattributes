@@ -1,2 +1,6 @@
 # Preserve raw oracle bytes, including final blank lines emitted by the original CLI.
 tests/evidence/oracle-cli-2026-11-01/*.txt -text whitespace=-blank-at-eof
+# Preserve upstream fixture bytes and their original whitespace.
+tests/fixtures/public-source/** -text whitespace=-blank-at-eof,-blank-at-eol
+# Keep original oracle captures byte-for-byte, including emitted blank final lines.
+tests/evidence/search-baseline-2026-11-01/** -text whitespace=-blank-at-eof,-blank-at-eol

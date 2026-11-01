@@ -1,0 +1,453 @@
+{
+  "scope": [
+    "bin",
+    "conf",
+    "lib"
+  ],
+  "files": [
+    {
+      "path": "bin/bootstrap.jar",
+      "bytes": 37044,
+      "sha256": "9988ed1e92a999d026713c859b8b17d534714f097f4d04ca22b5bfa89d13f96f",
+      "owner_executable": false
+    },
+    {
+      "path": "bin/catalina-tasks.xml",
+      "bytes": 1664,
+      "sha256": "0ac2415fb82af49cec5b30392377e590b3c139c5668bb36b6133319977a8507f",
+      "owner_executable": false
+    },
+    {
+      "path": "bin/catalina.bat",
+      "bytes": 15777,
+      "sha256": "5eb46b593825a6b1a229bd7da21b17ad90db86830b0ea0648ed00c30ad1a67f8",
+      "owner_executable": false
+    },
+    {
+      "path": "bin/catalina.sh",
+      "bytes": 24049,
+      "sha256": "f1d9568d1811d1aecc79e58346003e40b0a1d621503a38ba59a07d74f1f010e6",
+      "owner_executable": true
+    },
+    {
+      "path": "bin/ciphers.bat",
+      "bytes": 2123,
+      "sha256": "3475cdc1f0ba70ddd2322d0f7fbbe347ccd455991475dc30ee3743b008eef3c8",
+      "owner_executable": false
+    },
+    {
+      "path": "bin/ciphers.sh",
+      "bytes": 1997,
+      "sha256": "a090e10d2c249b20f42f0bce2777273d2441e40037ac7ffe7a0107d94d4fd1e0",
+      "owner_executable": true
+    },
+    {
+      "path": "bin/commons-daemon-native.tar.gz",
+      "bytes": 222622,
+      "sha256": "e0c60b8fb429275822da2f4ea74ed05c70e30657f824bb9b38132e9399b56b9b",
+      "owner_executable": false
+    },
+    {
+      "path": "bin/commons-daemon.jar",
+      "bytes": 27078,
+      "sha256": "83e1ac15d84d9acf9158fde381a3046334365c39d69e3257b8254002ccc232af",
+      "owner_executable": false
+    },
+    {
+      "path": "bin/configtest.bat",
+      "bytes": 2040,
+      "sha256": "ec4a051fda6df5f6675f767abe98acdd7fcb4fe59db76415db962e378ab0d1aa",
+      "owner_executable": false
+    },
+    {
+      "path": "bin/configtest.sh",
+      "bytes": 1922,
+      "sha256": "e91cb25289e002db08e5f135424c99251412b226f9c90f68cf85d714efd3265b",
+      "owner_executable": true
+    },
+    {
+      "path": "bin/daemon.sh",
+      "bytes": 8319,
+      "sha256": "287bcfb8b66193413026081964b6258ec09c130f6ad0fe4e5653bf204e51d3ca",
+      "owner_executable": true
+    },
+    {
+      "path": "bin/digest.bat",
+      "bytes": 2091,
+      "sha256": "392398aee97df8c035b235f53e4971997a554b4c68f8b76f5baf7a5bcb8b254e",
+      "owner_executable": false
+    },
+    {
+      "path": "bin/digest.sh",
+      "bytes": 1965,
+      "sha256": "8dc28b0ec386c463cdf7e3acac98595599f851aff4febdf2419d8cea395f1943",
+      "owner_executable": true
+    },
+    {
+      "path": "bin/makebase.bat",
+      "bytes": 3606,
+      "sha256": "ca8ae1ec25e5bdb60478fa158014766dfa5d6c45f8dd02b58ea89e74e7bac5b9",
+      "owner_executable": false
+    },
+    {
+      "path": "bin/makebase.sh",
+      "bytes": 3382,
+      "sha256": "46414322569822f5df6779a4b68b16acd352b07df63e544550aac3ac57570f0a",
+      "owner_executable": true
+    },
+    {
+      "path": "bin/migrate.bat",
+      "bytes": 2096,
+      "sha256": "43dbb6fef8d0257d41c3d236b2a1abf880513998b597411c2f108d7469c036bc",
+      "owner_executable": false
+    },
+    {
+      "path": "bin/migrate.sh",
+      "bytes": 1970,
+      "sha256": "c24b3f7e9110670ae0d5fd6e0802f8be02b874699fd220858f2a3ea3c2a2db2a",
+      "owner_executable": true
+    },
+    {
+      "path": "bin/setclasspath.bat",
+      "bytes": 3382,
+      "sha256": "612f21f66d794e05a8f1755d3e83c4aaee20ce4420a6f417d962ed6ab4901828",
+      "owner_executable": false
+    },
+    {
+      "path": "bin/setclasspath.sh",
+      "bytes": 3941,
+      "sha256": "523ae51fd774c46091439dfc038d6c48eb76e6758cbce4e133880667305c71da",
+      "owner_executable": true
+    },
+    {
+      "path": "bin/shutdown.bat",
+      "bytes": 2020,
+      "sha256": "5ba2e804579d3c2da340e4431336a06db433b157cfa3effd0c2dd163b269f219",
+      "owner_executable": false
+    },
+    {
+      "path": "bin/shutdown.sh",
+      "bytes": 1902,
+      "sha256": "fc3993ef11c0063720bc33ed9fe6baecc69a7b68d32bbdd5d77eec4c96943ced",
+      "owner_executable": true
+    },
+    {
+      "path": "bin/startup.bat",
+      "bytes": 2022,
+      "sha256": "32429ff3e1f18742cffe27b375762f76e00e228899f824e6c0ebc897fcaf8c2a",
+      "owner_executable": false
+    },
+    {
+      "path": "bin/startup.sh",
+      "bytes": 1904,
+      "sha256": "9e81c763e89426f3cca975482859ff06bd59e890be9c40485c68880376ecc972",
+      "owner_executable": true
+    },
+    {
+      "path": "bin/tomcat-juli.jar",
+      "bytes": 52515,
+      "sha256": "2744310ad3072283404134114f7631fdd7bf892ecc06a891dfaeee0d73d5baac",
+      "owner_executable": false
+    },
+    {
+      "path": "bin/tomcat-native.tar.gz",
+      "bytes": 471965,
+      "sha256": "785fdd99a202f442b085bc718d2fbeb393b85979aa4a2943302118c4acd68630",
+      "owner_executable": false
+    },
+    {
+      "path": "bin/tool-wrapper.bat",
+      "bytes": 3623,
+      "sha256": "65f35deaaeb2032f94b5084e0e71ca40d4c1d92a999f56f94ecd462285a0d6da",
+      "owner_executable": false
+    },
+    {
+      "path": "bin/tool-wrapper.sh",
+      "bytes": 4600,
+      "sha256": "639f5ebe4029bea6abaf28c157d1a51ec98f7827ad1a303f35c720ac12caa213",
+      "owner_executable": true
+    },
+    {
+      "path": "bin/version.bat",
+      "bytes": 2026,
+      "sha256": "10fed9a8bd5a3dfec510241ae40c671accf452d2e7c735fe822b16681406d263",
+      "owner_executable": false
+    },
+    {
+      "path": "bin/version.sh",
+      "bytes": 1908,
+      "sha256": "225ebbbecfabf1e750210e6d13c54102e9971f92c25ba2833e9afef85be4cf91",
+      "owner_executable": true
+    },
+    {
+      "path": "conf/catalina.policy",
+      "bytes": 12926,
+      "sha256": "3901b437142a9b2a5bb19a236e600dc9856d2850c61a46b9d002fe1e29be18ab",
+      "owner_executable": false
+    },
+    {
+      "path": "conf/catalina.properties",
+      "bytes": 7717,
+      "sha256": "46564b8b18e6889f73a234ee0bbe7e01b55ebc60fe062f98e38a10d50b444d50",
+      "owner_executable": false
+    },
+    {
+      "path": "conf/context.xml",
+      "bytes": 1411,
+      "sha256": "13ac8ee5407d2879c2beedb2d0a271ea05a195c3fe0a6cb7d0f753e8b6899786",
+      "owner_executable": false
+    },
+    {
+      "path": "conf/jaspic-providers.xml",
+      "bytes": 1149,
+      "sha256": "51f468e75c64c22cc81069011ec2d8d93669bafda917ca1c7504a0974dab9b00",
+      "owner_executable": false
+    },
+    {
+      "path": "conf/jaspic-providers.xsd",
+      "bytes": 2313,
+      "sha256": "1193d711efa79c35c370d06a0258e5fd5b5ee6d5b7adef548f5d2360e23a92d5",
+      "owner_executable": false
+    },
+    {
+      "path": "conf/logging.properties",
+      "bytes": 4003,
+      "sha256": "a891154c70e5ba42f2f82e72d209d70a1763962aee21d08fc592e595a1f273db",
+      "owner_executable": false
+    },
+    {
+      "path": "conf/server.xml",
+      "bytes": 7126,
+      "sha256": "5771ecf807db1a8390f6918b55f20e8565c0c8252f23ddde257e091e5a31a2ff",
+      "owner_executable": false
+    },
+    {
+      "path": "conf/tomcat-users.xml",
+      "bytes": 2756,
+      "sha256": "2622dee23b25d942b6b7ce8dc6b3568614746fc5242c6858752ee6d0d0b6491e",
+      "owner_executable": false
+    },
+    {
+      "path": "conf/tomcat-users.xsd",
+      "bytes": 2558,
+      "sha256": "92b525122778a9a6a59a3b3535dc7632f14abe1353715fb1e7d9e5422e997011",
+      "owner_executable": false
+    },
+    {
+      "path": "conf/web.xml",
+      "bytes": 173862,
+      "sha256": "4f099d0cce4a1a58cd3c8f6085a91cd0e5447261af5cbbc762b32c3319232fcc",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/annotations-api.jar",
+      "bytes": 14236,
+      "sha256": "e8aa49f02cbf77510c6a4a75903591cc06f676d29042c5eefc4db309d5ab8229",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/catalina-ant.jar",
+      "bytes": 57007,
+      "sha256": "6e8096209f0da40980871ef1b178e0d75f10bc1b17106a3195584e0ac5c63605",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/catalina-ha.jar",
+      "bytes": 128809,
+      "sha256": "398eb1d2a1ff0a3d7bab3e2e25eca80e31786abc020362632101e63aec57ad04",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/catalina-ssi.jar",
+      "bytes": 65870,
+      "sha256": "8f9a73040e9c71d3d29f9981bf8e0f8c30ad3d9224b06b2e03ddf592daff5468",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/catalina-storeconfig.jar",
+      "bytes": 83174,
+      "sha256": "13919cdd335532ee1506b5be41511afd90ab143b2c0dd138fafad107f5041eac",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/catalina-tribes.jar",
+      "bytes": 336321,
+      "sha256": "afcdc8d7de689f790e89d23a76f4dfbf63c2245ffb08cb4391a294b1e03decce",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/catalina.jar",
+      "bytes": 1873160,
+      "sha256": "abc38b7eef2bcbd1622eb3c9c0bbc8f844e161bc221d736c05e432a532ce7dbc",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/ecj-4.27.jar",
+      "bytes": 3160927,
+      "sha256": "f7686c4960cf70c2ebc5c500a73a8cfc04541b730c18f1c5c21329889b137f45",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/el-api.jar",
+      "bytes": 90962,
+      "sha256": "edf21e2ca26b37d42c84e6971f8824d3795bc4df52fafc1ed02b48c79f50f627",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/jakartaee-migration-1.0.12-shaded.jar",
+      "bytes": 1449719,
+      "sha256": "0cfab9437781bf3d1e6c834e5fa87ea31db7cc48717f55896b0750ce815ee382",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/jasper-el.jar",
+      "bytes": 180366,
+      "sha256": "2ef4dd141fdd871ed25f748fb3a19ebd73461d41aa7ec979420918b238502021",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/jasper.jar",
+      "bytes": 566579,
+      "sha256": "0d9e45ecaa67b7ddd2cbe516ef548f46ec9b892f81ec14d5ae7dff3726ee7b71",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/jaspic-api.jar",
+      "bytes": 28668,
+      "sha256": "47efb5fbeb42de7bc611b4d870dfe3f201d4543920799df1105a66b37e238520",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/jsp-api.jar",
+      "bytes": 78676,
+      "sha256": "0fb57b74efeb864f946c721b38bc7534ef4ef303d6e104ed1bde4b76cc16fc57",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/servlet-api.jar",
+      "bytes": 367066,
+      "sha256": "a015132ba0ce5896a53fe6e03df225c8bfc4cff07737bc28ecde20b77f7cdda3",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/tomcat-api.jar",
+      "bytes": 12027,
+      "sha256": "864fa6f200e8b06c30334dad5ab2aa3b471735abd3682090348eebae41897c66",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/tomcat-coyote-ffm.jar",
+      "bytes": 327356,
+      "sha256": "68cc4c66bdcc2aa5daa3457b59488c87a9beffaaabcfd36c64f329d822e20f08",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/tomcat-coyote.jar",
+      "bytes": 968342,
+      "sha256": "73b57c904a61ca52ef5517ff29e77594dab57ef65a47e0f499b44f84e180f3b6",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/tomcat-dbcp.jar",
+      "bytes": 350738,
+      "sha256": "558951f4df53786d6f6384221ebd837a9ee0ff8ad7be19913f42a53c7942f843",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/tomcat-i18n-cs.jar",
+      "bytes": 71335,
+      "sha256": "fefa96ed4b72c6cb3adb5d265a8b59d89b1aeff0f125f7d2725366f7d505eb01",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/tomcat-i18n-de.jar",
+      "bytes": 80661,
+      "sha256": "4ec79ecd24e5f5a0a04e87d8417941db411373dcdc40aa8d64d81eff95ed964e",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/tomcat-i18n-es.jar",
+      "bytes": 107932,
+      "sha256": "a099725e4e9c8f29137bfd6892795b07254e3b602842e378244596a94ef043b4",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/tomcat-i18n-fr.jar",
+      "bytes": 190723,
+      "sha256": "30380cb1b15e71ec53a5aa4f8cec3b38a4874858fbfa627567d6100075c00e3a",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/tomcat-i18n-ja.jar",
+      "bytes": 216695,
+      "sha256": "5d3387ad89f893bc9a55d305092c06dedaef9a9c638343bed7512167bfb3e978",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/tomcat-i18n-ko.jar",
+      "bytes": 196729,
+      "sha256": "504e2308f775edfc1608f74aebb93c7a31c466e2211a37107fbf4ce5b1df9ae8",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/tomcat-i18n-pt-BR.jar",
+      "bytes": 54619,
+      "sha256": "49e8a8cdcb0e09925ec2c0ff16270309a02de03636273880a4bfde1d5c3a69e1",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/tomcat-i18n-ru.jar",
+      "bytes": 73569,
+      "sha256": "a9629ba1d8c8d9b4700d3e0af3818713f410390d08acd4adae184e55095e3c56",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/tomcat-i18n-zh-CN.jar",
+      "bytes": 183770,
+      "sha256": "072d31fe6b2b194414598129af8cdac843a9e1a9b0fb1cdeb143483c1b572fbe",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/tomcat-jdbc.jar",
+      "bytes": 155630,
+      "sha256": "9561017fb670660030920b83bb376d20712f9e01163ebce07a54d76fa8b76f03",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/tomcat-jni.jar",
+      "bytes": 17734,
+      "sha256": "e69bd5ddfec37a1b8d0280ea0f1dc85e8b5ed25da5503c5268ac0f9b56322eae",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/tomcat-util-scan.jar",
+      "bytes": 234211,
+      "sha256": "9285c59198aeb1bde10447f96f13ef2d2fb0551d8885831209250909379e03a9",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/tomcat-util.jar",
+      "bytes": 240122,
+      "sha256": "78daffe68e8972fb92322ac5a75c4df49e758ea80a8028f4111cec15b4b6a7f8",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/tomcat-websocket.jar",
+      "bytes": 253768,
+      "sha256": "24d69e2377c75fe208318636a7e4c83312e6c7a65cb0bcd0a7901dc63acdc458",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/websocket-api.jar",
+      "bytes": 14842,
+      "sha256": "2639bae475d8eac6506259c619e87607abe0bb84dca0c668efe2ccd899bbd037",
+      "owner_executable": false
+    },
+    {
+      "path": "lib/websocket-client-api.jar",
+      "bytes": 32078,
+      "sha256": "405eacb5f2a646a672fa3aa9fe6b5ecc146dc5da92df4888c6dd656348125763",
+      "owner_executable": false
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+01-Nov-2026 12:08:46.113 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.60
+01-Nov-2026 12:08:46.116 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Sep 9 2026 22:35:59 UTC
+01-Nov-2026 12:08:46.116 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.60.0
+01-Nov-2026 12:08:46.116 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Mac OS X
+01-Nov-2026 12:08:46.116 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            15.7.7
+01-Nov-2026 12:08:46.116 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          aarch64
+01-Nov-2026 12:08:46.116 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/jdk-21.0.13+9/Contents/Home
+01-Nov-2026 12:08:46.116 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.13+9-LTS
+01-Nov-2026 12:08:46.117 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Eclipse Adoptium
+01-Nov-2026 12:08:46.117 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /private/tmp/rustgrok-i5-nested.w4YfVk/capture-postcheck/tomcat
+01-Nov-2026 12:08:46.117 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/apache-tomcat-10.1.60
+01-Nov-2026 12:08:46.122 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/private/tmp/rustgrok-i5-nested.w4YfVk/capture-postcheck/tomcat/conf/logging.properties
+01-Nov-2026 12:08:46.122 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+01-Nov-2026 12:08:46.123 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+01-Nov-2026 12:08:46.123 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+01-Nov-2026 12:08:46.123 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.io.useCanonCaches=false
+01-Nov-2026 12:08:46.123 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+01-Nov-2026 12:08:46.123 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-Nov-2026 12:08:46.123 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+01-Nov-2026 12:08:46.123 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-Nov-2026 12:08:46.123 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+01-Nov-2026 12:08:46.123 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+01-Nov-2026 12:08:46.123 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+01-Nov-2026 12:08:46.123 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms128m
+01-Nov-2026 12:08:46.123 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx512m
+01-Nov-2026 12:08:46.123 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-exports=java.base/jdk.internal.ref=ALL-UNNAMED
+01-Nov-2026 12:08:46.123 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-exports=java.base/sun.nio.ch=ALL-UNNAMED
+01-Nov-2026 12:08:46.123 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED
+01-Nov-2026 12:08:46.123 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED
+01-Nov-2026 12:08:46.124 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=jdk.compiler/com.sun.tools.javac=ALL-UNNAMED
+01-Nov-2026 12:08:46.124 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+01-Nov-2026 12:08:46.124 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+01-Nov-2026 12:08:46.124 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+01-Nov-2026 12:08:46.124 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+01-Nov-2026 12:08:46.124 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/private/tmp/rustgrok-i5-nested.w4YfVk/capture-postcheck/tomcat
+01-Nov-2026 12:08:46.124 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/apache-tomcat-10.1.60
+01-Nov-2026 12:08:46.124 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/private/tmp/rustgrok-i5-nested.w4YfVk/capture-postcheck/tomcat/temp
+01-Nov-2026 12:08:46.130 資訊 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/Users/swchen.tw/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+01-Nov-2026 12:08:46.273 資訊 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-127.0.0.1-56026"]
+01-Nov-2026 12:08:46.291 資訊 [main] org.apache.catalina.startup.Catalina.load Server initialization in [281] milliseconds
+01-Nov-2026 12:08:46.312 資訊 [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+01-Nov-2026 12:08:46.312 資訊 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.60]
+01-Nov-2026 12:08:46.316 資訊 [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [/private/tmp/rustgrok-i5-nested.w4YfVk/capture-postcheck/tomcat/conf/Catalina/localhost/source.xml]
+01-Nov-2026 12:08:48.692 資訊 [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+01-Nov-2026 12:08:48.746 資訊 [main] org.opengrok.indexer.Metrics.<clinit> configuring PrometheusRegistry
+SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J(W): Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J(W): Ignoring binding found at [jar:file:/private/tmp/rustgrok-i5-nested.w4YfVk/capture-postcheck/tomcat/webapps/source/WEB-INF/lib/slf4j-nop-1.7.30.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J(W): See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+01-Nov-2026 12:08:48.798 資訊 [main] org.opengrok.web.WebappListener.contextInitialized Starting webapp with version 1.14.20 (3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3) on Java version: 21.0.13+9-LTS, name: OpenJDK 64-Bit Server VM, vendor: Eclipse Adoptium, arch: aarch64 with properties ncpu: 8, maxMemory: 512.0 MiB
+01-Nov-2026 12:08:48.799 資訊 [main] org.opengrok.indexer.configuration.Configuration.read Reading configuration from '/private/tmp/rustgrok-i5-nested.w4YfVk/capture-postcheck/configuration.xml'
+01-Nov-2026 12:08:48.961 資訊 [main] org.opengrok.indexer.util.Statistics.logIt Done invalidating repositories (5 valid, 5 working) (took 124 ms)
+01-Nov-2026 12:08:48.963 資訊 [main] org.opengrok.web.WebappListener.contextInitialized running inside Apache Tomcat/10.1.60
+01-Nov-2026 12:08:48.966 警告 [main] org.opengrok.indexer.framework.PluginFramework.reload Plugin directory '/private/tmp/rustgrok-i5-nested.w4YfVk/capture-postcheck/index/../plugins' not found or not readable: All requests allowed.
+01-Nov-2026 12:08:48.969 資訊 [main] org.opengrok.indexer.configuration.Configuration.read Reading configuration from '/private/tmp/rustgrok-i5-nested.w4YfVk/capture-postcheck/configuration.xml'
+01-Nov-2026 12:08:48.973 資訊 [OpenGrok-index-check-38] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Checking index in '/private/tmp/rustgrok-i5-nested.w4YfVk/capture-postcheck/index/index/alpha' (mode VERSION)
+01-Nov-2026 12:08:48.973 資訊 [OpenGrok-index-check-39] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Checking index in '/private/tmp/rustgrok-i5-nested.w4YfVk/capture-postcheck/index/index/beta' (mode VERSION)
+WARNING: A restricted method in java.lang.foreign.Linker has been called
+WARNING: java.lang.foreign.Linker::downcallHandle has been called by the unnamed module
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for this module
+
+01-Nov-2026 12:08:49.014 資訊 [OpenGrok-index-check-38] org.apache.lucene.store.MemorySegmentIndexInputProvider.<init> Using MemorySegmentIndexInput and native madvise support with Java 21 or later; to disable start with -Dorg.apache.lucene.store.MMapDirectory.enableMemorySegments=false
+01-Nov-2026 12:08:49.067 警告 [OpenGrok-index-check-38] org.apache.lucene.internal.vectorization.VectorizationProvider.lookup Java vector incubator module is not readable. For optimal vector performance, pass '--add-modules jdk.incubator.vector' to enable Vector API.
+01-Nov-2026 12:08:49.087 資訊 [OpenGrok-index-check-38] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Index check for directory '/private/tmp/rustgrok-i5-nested.w4YfVk/capture-postcheck/index/index/alpha' passed
+01-Nov-2026 12:08:49.087 資訊 [OpenGrok-index-check-39] org.opengrok.indexer.index.IndexCheck.checkDirWithLogging Index check for directory '/private/tmp/rustgrok-i5-nested.w4YfVk/capture-postcheck/index/index/beta' passed
+01-Nov-2026 12:08:49.257 資訊 [Thread-3] org.opengrok.suggest.Suggester.init Initializing suggester for [alpha, beta]
+01-Nov-2026 12:08:49.681 INFO [main] org.hibernate.validator.internal.util.Version.<clinit> HV000001: Hibernate Validator 8.0.1.Final
+01-Nov-2026 12:08:50.729 資訊 [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [/private/tmp/rustgrok-i5-nested.w4YfVk/capture-postcheck/tomcat/conf/Catalina/localhost/source.xml] has finished in [4,412] ms
+01-Nov-2026 12:08:50.732 資訊 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-127.0.0.1-56026"]
+01-Nov-2026 12:08:50.739 資訊 [main] org.apache.catalina.startup.Catalina.start Server startup in [4446] milliseconds
+01-Nov-2026 12:08:51.027 資訊 [Thread-3] org.opengrok.suggest.Suggester.init Suggesters for [alpha, beta] were initialized (took 1 second)
+01-Nov-2026 12:08:51.034 資訊 [Thread-3] org.opengrok.web.api.v1.suggester.provider.service.impl.SuggesterServiceImpl.scheduleRebuild Scheduling suggester rebuild in PT11H51M8.972042S
+01-Nov-2026 12:08:51.434 資訊 [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-127.0.0.1-56026"]
+01-Nov-2026 12:08:51.439 資訊 [Thread-5] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+01-Nov-2026 12:08:51.445 資訊 [Thread-5] org.opengrok.indexer.configuration.WatchDogService.stop Watchdog stopped
+01-Nov-2026 12:08:51.449 警告 [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [source] appears to have started a thread named [background~resource~releaser] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.park(LockSupport.java:371)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:519)
+ java.base/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3780)
+ java.base/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3725)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1746)
+ java.base/java.util.concurrent.ArrayBlockingQueue.take(ArrayBlockingQueue.java:420)
+ net.openhft.chronicle.core.io.BackgroundResourceReleaser.runReleaseResources(BackgroundResourceReleaser.java:71)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+01-Nov-2026 12:08:51.457 嚴重 [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [source] created a ThreadLocal with key of type [java.lang.InheritableThreadLocal] (value [java.lang.InheritableThreadLocal@5a72988e]) and a value of type [org.eclipse.jgit.nls.NLS] (value [org.eclipse.jgit.nls.NLS@4f700722]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+01-Nov-2026 12:08:51.458 嚴重 [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [source] created a ThreadLocal with key of type [java.lang.ThreadLocal] (value [java.lang.ThreadLocal@2680dea]) and a value of type [net.openhft.chronicle.hash.impl.ContextHolder] (value [net.openhft.chronicle.hash.impl.ContextHolder@608343be]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+01-Nov-2026 12:08:51.458 嚴重 [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [source] created a ThreadLocal with key of type [java.lang.ThreadLocal] (value [java.lang.ThreadLocal@2efb01c8]) and a value of type [net.openhft.chronicle.hash.impl.ContextHolder] (value [net.openhft.chronicle.hash.impl.ContextHolder@61fd5a22]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+01-Nov-2026 12:08:51.458 嚴重 [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [source] created a ThreadLocal with key of type [java.lang.ThreadLocal] (value [java.lang.ThreadLocal@23380caa]) and a value of type [net.openhft.chronicle.hash.impl.ContextHolder] (value [net.openhft.chronicle.hash.impl.ContextHolder@595c35c0]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+01-Nov-2026 12:08:51.458 嚴重 [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [source] created a ThreadLocal with key of type [java.lang.ThreadLocal] (value [java.lang.ThreadLocal@2f5f8a62]) and a value of type [net.openhft.chronicle.hash.impl.ContextHolder] (value [net.openhft.chronicle.hash.impl.ContextHolder@24f8f9e1]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+01-Nov-2026 12:08:51.458 嚴重 [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [source] created a ThreadLocal with key of type [java.lang.ThreadLocal] (value [java.lang.ThreadLocal@2680dea]) and a value of type [net.openhft.chronicle.hash.impl.ContextHolder] (value [net.openhft.chronicle.hash.impl.ContextHolder@47c6fc88]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+01-Nov-2026 12:08:51.459 嚴重 [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalMapForLeaks The web application [source] created a ThreadLocal with key of type [java.lang.ThreadLocal] (value [java.lang.ThreadLocal@7f8c3385]) and a value of type [net.openhft.chronicle.hash.impl.ContextHolder] (value [net.openhft.chronicle.hash.impl.ContextHolder@2cd3ba8c]) but failed to remove it when the web application was stopped. Threads are going to be renewed over time to try and avoid a probable memory leak.
+01-Nov-2026 12:08:51.463 資訊 [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-127.0.0.1-56026"]
+01-Nov-2026 12:08:51.470 資訊 [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-127.0.0.1-56026"]

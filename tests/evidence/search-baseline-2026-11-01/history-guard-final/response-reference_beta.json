@@ -1,0 +1,1 @@
+{"time":3,"resultCount":2,"results":{"/beta/component-py/main.py":[{"line":"def <b>main</b>():","lineNumber":"43","tag":"function"},{"line":"    <b>main</b>()","lineNumber":"56","tag":null}],"/beta/component-c/main.c":[{"line":"int <b>main</b>(int argc, char **argv) {","lineNumber":"3","tag":"function"}]},"startDocument":0,"endDocument":1}
