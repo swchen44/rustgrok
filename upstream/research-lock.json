@@ -29,7 +29,7 @@
   "required_next_steps": [
     "Use the D04-approved OpenGrok 1.14.20 baseline at commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3. Preserve functionality and style except D02's explicit exclusion of user-role/project ACL management and mandatory authorization/RBAC plugin parity; retain non-auth plugin inventory. Complete the remaining D20 compatibility contracts.",
     "Apply local+LAN support, about five concurrent users without role/project ACL management, bundled helpers and search-speed priority. Production deployment prioritizes Ubuntu 24.04 amd64; first develop and fully validate on confirmed Apple M1/arm64 macOS (aarch64-apple-darwin), then adapt Ubuntu and repeat complete native validation. Use the observed development macOS 15.7.7 and user-confirmed Windows 11 x64; complete minimum macOS, Windows build/ABI and native environments under D03, D16 concrete controls for confirmed local-browser-only web management, D06/D07 details and remaining D20 compatibility. Record the actual Ubuntu point release with runtime evidence. Helper builds, numeric SLO, workload, hardware and tradeoffs remain open; five users is neither five QPS nor a hard limit.",
-    "Source bytes and OpenGrok release archive were independently verified on 2026-11-01. Complete the remaining full-JDK/dependency acquisition and independent oracle index/HTTP evidence.",
+    "Source bytes and OpenGrok release archive were independently verified on 2026-11-01. Complete extracted-library/helper provenance and independent oracle coverage beyond limited full-JDK index/HTTP cases.",
     "Select exact Java/Tomcat/Ctags/SCM builds only as needed to run the independent reference oracle; record source, license and binary metadata.",
     "Run separate native oracle and Rust compatibility/performance experiments first for Apple M1/arm64 macOS, then complete Ubuntu 24.04 amd64 platform adaptation and native revalidation. Preserve independent evidence per platform; Mac PASS is not Linux PASS. Prioritize full-text/path/defs/cross-project search while recording indexing and resource tradeoffs.",
     "Create a separate approved Rust toolchain/Cargo/native-artifact lock after concrete technology selection; do not treat this file as that lock.",
@@ -470,13 +470,13 @@
     "complete_product_license_review": false
   },
   "acceptance_baseline_decision": "D04",
-  "reference_oracle_execution": "LIMITED_CLI_INDEX_AND_JRE_HTTP_PROBES; FULL_JDK_ORACLE_NOT_RUN",
+  "reference_oracle_execution": "FULL_JDK_LIMITED_INDEX_HTTP_CAPTURE; FULL_ORACLE_ACCEPTANCE_NOT_RUN",
   "product_runtime_execution": "NOT_RUN",
   "read_record_files": [
     "upstream/source-review-manifest.json",
     "upstream/rust-research-lock.json"
   ],
-  "scope_note": "Fixed source bytes and OpenGrok release hash verified; selected static research and limited original CLI probes recorded separately. Full JDK oracle, index/HTTP, full licensing and Rust product acceptance remain incomplete.",
+  "scope_note": "Fixed source and OpenGrok/JDK release hashes verified; limited original CLI and full-JDK index/HTTP captures recorded. Full JDK extracted-library provenance, complete oracle, licensing and Rust product acceptance remain incomplete.",
   "acceptance_baseline_confirmation": {
     "status": "USER_CONFIRMED",
     "decided_at": "2026-10-25",
@@ -494,7 +494,7 @@
     "all_source_blobs_verified": true,
     "opengrok_release_download_and_hash": "VERIFIED",
     "tomcat_10_1_60_publisher_sha512_matches": true,
-    "oracle_execution": "LIMITED_CLI_INDEX_AND_JRE_HTTP_PROBES; FULL_JDK_ORACLE_NOT_RUN",
+    "oracle_execution": "FULL_JDK_LIMITED_INDEX_HTTP_CAPTURE; FULL_ORACLE_ACCEPTANCE_NOT_RUN",
     "full_REF_001_acceptance": "NOT_RUN",
     "release_inventory": "upstream/opengrok-release-inventory.json",
     "cli_probe": "tests/evidence/oracle-cli-probe-2026-11-01.json"

@@ -20,7 +20,7 @@
 | D12 | USER_CONFIRMED | 更新期間維持上一成功搜尋，新索引與必要關聯資料完整後整批切換；閱讀沿固定原版live／SCM分支 | Q8接受發布政策及新舊資料保留成本；Q9回覆「1」選沿原版snippet／xref／raw讀取。搜尋版本不自動固定全部閱讀內容；新鮮度／磁碟數值、索引期間source變動、故障回復及publish scope仍待契約與證據 |
 | D15 | USER_CONFIRMED | 首版提供 CLI 前景與背景執行 | Q5；系統服務／登入自啟留待後續決定；不由此推定 root、systemd、launchd 或 Windows Service 必要 |
 | D16 | USER_CONFIRMED | 管理網頁只限主機本機瀏覽器；保留主機 CLI／本機控制面管理，LAN 維持搜尋／瀏覽 | 2026-10-26 已確認網頁範圍；具體頁面操作、REST／automation 相容與控制細節仍須設計及盤點；頁面和有副作用 API 均須符合本機限定邊界 |
-| D17 | USER_CONFIRMED | 顯示名稱Rustgrok；可辨識為獨立原創的新增Rust／JS採MIT | Q13／Q14已接受提案；沿用、修改、移植OpenGrok及第三方內容保持各自適用條件、notices與來源交付。不是全產品MIT或完整逐檔盤點已完成，細節見LICENSE.md |
+| D17 | USER_CONFIRMED | 顯示名稱Rustgrok；可辨識為獨立原創的新增Rust／JS採MIT | Q13／Q14已接受提案；Q16確認獨立原創Rust／JS的MIT權利人名稱為`swchen44`；沿用、修改、移植OpenGrok及第三方內容保持各自適用條件、notices與來源交付。不是全產品MIT或完整逐檔盤點已完成，細節見LICENSE.md |
 | D19 | USER_CONFIRMED | Rust核心可隨包附必要Ctags、Git及其他SCM工具；主要產品profile採bundled helpers | 工具清單、固定版本、各OS／CPU payload、能力、授權與所需SCM仍依inventory驗證；不把外裝或禁止helpers列為必交profile，不授權自動下載或git pull |
 | D21 | USER_CONFIRMED | 效能優先方向為搜尋速度 | 約5人情境已知；數值SLO、資料規模／硬體／request負載、CPU／RAM／磁碟預算與取捨仍OPEN，不代表接受排序／功能差異或無限資源 |
 
@@ -144,3 +144,5 @@ Rust採用本身不是效能驗收。G1先在功能等價的slice量測並標示
 變更已確認決策時保留前值與取代原因；不得把v0.1 Java包裝方向無痕改成彷彿從未討論過，也不得讓舊方向留在現行gate中繼續約束Rust實作。
 
 進入G0/G1所需決策依04／05判定。依已確認的Rust、local／LAN約5人無權限管理、bundled helpers、搜尋速度、M1 Mac先驗／Ubuntu24.04 amd64部署與public rustgrok交付方向推進；不以已確認事項再次阻擋。若某項實作仍缺工具驗證、macOS版本／Windows細節、相容決策、SLO或D16管理暴露決策，標明實際阻擋與owner；遠端建立與測試另以證據判定，不誤標PASS或擅自填答案。
+
+2026-11-01 Q16：使用者確認可辨識為獨立原創的新增 Rust／JS 程式碼，MIT 聲明採用 GitHub 帳號名稱 `swchen44` 作為權利人名稱。此答覆不改變沿用、修改、移植 OpenGrok 內容、Java／Python 或第三方元件的適用授權。

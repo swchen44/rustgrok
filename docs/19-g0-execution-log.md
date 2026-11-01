@@ -24,7 +24,7 @@
 - [固定 source tree](../upstream/opengrok-source-tree.json)：commit 與 tree 身分核對，1,816 tracked entries；包含 Git blob SHA-1，後續完整checkout成功，全部1,816檔已逐一比對Git blob並保存SHA-256，總11,245,647 bytes，git fsck通過。
 - [部分功能母表](../upstream/feature-inventory.json) 與 [盤點筆記](research/2026-11-01-opengrok-inventory-entrypoints.md)：12 servlet 宣告、13 mapping rows、13 REST controller 檔、54 analyzer 註冊 entries、15 SCM adapter entries、39 個指定副檔名的 source assets。54 包含 default FileAnalyzerFactory；這些計數不等於語言數、endpoint 數或已完成相容的功能數。
 - [Oracle 取得紀錄](../tests/evidence/oracle-acquisition-2026-11-01.json) 與 [獨立 oracle lock](../upstream/oracle-artifacts.lock.json)：Tomcat 10.1.60 的 14,435,753 bytes archive 已重算 SHA-512 並與 Apache 公布值一致，LICENSE／NOTICE hash 已保存。六個固定 source 摘錄已核對 Git blob 身分，含上游 LICENSE／NOTICE；完整逐檔授權仍未完成。
-- Compact Temurin21.0.13+9 JRE的47,935,740 bytes archive已驗官方SHA-256，實際`java --version`／`--list-modules` exit0；binary為Mach-O arm64，且沒有`jdk.compiler`。這只完成工具取得與版本探測，完整JDK仍在下載；OpenGrok release後續已驗hash並執行有限CLI探測，後續已執行有限JRE索引探測，HTTP仍未執行。
+- Compact Temurin21.0.13+9 JRE的47,935,740 bytes archive已驗官方SHA-256，實際`java --version`／`--list-modules` exit0；binary為Mach-O arm64，且沒有`jdk.compiler`。這只完成工具取得與版本探測，該JRE階段當時仍缺完整JDK；後續JDK已驗archive、java／javac並執行有限原版索引／HTTP，見下述後續證據。
 - 已逐項展開 [54 analyzer entries](research/2026-11-01-opengrok-analyzer-inventory.md)、[REST methods](research/2026-11-01-opengrok-rest-inventory.md) 與 [15 SCM adapters](research/2026-11-01-opengrok-scm-capabilities.md)。REST 共有48個HTTP-annotated Java methods、47個verb/path keys；`file/content`兩種media variants共用route key。這些均為靜態source結果；UI、query細語意、工具build／再散布及runtime另驗。
 - [有限 bootstrap 輸入](../tests/evidence/oracle-bootstrap-inputs-2026-11-01.json)：2個project、3個Git repo、3份未修改的公開上游C／Python／JS fixture，總2,418 source bytes；固定Git身分／時間的一次初始commit，保留每份origin及hash。已完成有限索引探測，尚未HTTP查詢，沒有rename／merge／nested完整驗收，不是WP-A07正式corpus或約500 MB的代表工作負載。
 
@@ -35,10 +35,10 @@
 本輪開始前的local HEAD為 `234044d`；新的docs／metadata提交另以Git history核實。取得產物使用者目錄為 `~/Library/Caches/rustgrok/oracle/`：
 
 - `opengrok-1.14.20/source/` 是已完整驗byte hash的上游checkout，detached在D04 commit；`verified-source-excerpts/`保留初輪六份摘錄。
-- `toolchains/apache-tomcat-10.1.60/` 來自已驗官方SHA-512的archive；OpenGrok／compact JRE archives已完成整檔檢核，完整JDK仍須完成，以[oracle lock](../upstream/oracle-artifacts.lock.json)的expected bytes／hash為準，不能依檔案存在或parts總量判定成功。
+- `toolchains/apache-tomcat-10.1.60/` 來自已驗官方SHA-512的archive；OpenGrok／compact JRE／完整JDK archives均已完成整檔檢核，以[oracle lock](../upstream/oracle-artifacts.lock.json)的expected bytes／hash為準，不能依檔案存在或parts總量判定成功。
 - 本輪下載工作使用cache內的 `acquire-ranges.py` 與 `acquire-jdk-ranges.py`；`parts/{opengrok,jre,jdk}/` 保留續傳資料。接手時先確認現有下載程序及檔案狀態，避免同一個parts／archive有兩個writer；程序、tool session ID與cache均不是正式依賴鎖。
-- 原版[Dockerfile](https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/Dockerfile#L109-L113)有 `jdk.compiler` module flags，並使用 `tomcat:10.1.60-jdk21`。完整oracle以固定JDK21為前提；先取得的較小JRE僅供版本／取得探測，不藉此假稱完整suggester或compiler-based token／AST診斷可用。完整JDK尚未驗hash或執行。
-- 取得所需完整產物後，先核對archive hash、native ISA及實際版本，再建立只綁loopback的oracle及索引／HTTP smoke。有限CLI／guru原始輸出及失敗已先保存，仍須完整JDK配置重核。不要以小輸入、版本輸出或部分頁面成功取代REF-001／REF-002整項驗收；沒有建立Rust核心或產品發行物。
+- 原版[Dockerfile](https://github.com/oracle/opengrok/blob/3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3/Dockerfile#L109-L113)有 `jdk.compiler` module flags，並使用 `tomcat:10.1.60-jdk21`。完整oracle以固定JDK21為前提；先取得的較小JRE僅供版本／取得探測，不藉此假稱完整suggester或compiler-based token／AST診斷可用。完整JDK archive及java／javac已驗hash並用於有限原版查詢；其餘解壓library未逐檔驗hash。
+- 完整JDK與loopback原版索引／HTTP已用固定公開corpus取得有限基準；CLI／guru原始輸出及失敗已保存，原CLI失敗是否在完整JDK下重現仍待核對。不要以小輸入、版本輸出或部分頁面成功取代REF-001／REF-002整項驗收；沒有建立Rust核心或產品發行物。
 
 Q15已向使用者提出本機管理網頁的具體操作集合，尚未收到答覆；**保持OPEN，不採用預選項當答案**。D16的主機本機管理／LAN搜尋瀏覽範圍已確定，不重問；Q15不阻擋獨立oracle或靜態功能盤點。
 
@@ -64,4 +64,10 @@ Q15已向使用者提出本機管理網頁的具體操作集合，尚未收到�
 
 [原始證據](../tests/evidence/oracle-web-jre-probe-2026-11-01.json)：使用相同小型索引，Tomcat只綁定127.0.0.1；首頁、alpha搜尋API及raw檔案均HTTP 200。搜尋`main`回傳C與JavaScript兩個路徑，raw內容SHA-256與公開fixture相符。程序結束後listener已關閉。
 
-Tomcat log顯示`ClassNotFoundException: com.sun.tools.javac.api.JavacTool`，兩個project的most popular completion被停用；關閉時另有resource-releaser thread與JGit ThreadLocal警告。這次JRE缺`jdk.compiler`，不能當完整oracle驗收；待完整JDK及上游module flags重新驗證，並保留本次原始log。
+Tomcat log顯示`ClassNotFoundException: com.sun.tools.javac.api.JavacTool`，兩個project的most popular completion被停用；關閉時另有resource-releaser thread與JGit ThreadLocal警告。這次JRE缺`jdk.compiler`，不能當完整oracle驗收；本段記錄JRE時的事實；後續完整JDK有限搜尋基準已另行擷取，人氣建議依使用者要求暫緩驗收。
+
+## 後續完整 JDK 與 G1 搜尋實驗
+
+完整JDK 21.0.13+9 archive為199,754,598 bytes，SHA-256 `bf036b35b071bfb2f54f2c0af8ee8d88afa95ee6eb3dce02c0f94cfc2524d04a`，與官方metadata一致；java及javac為macOS arm64並已用於[有限原版基準](../tests/evidence/search-baseline-2026-11-01/README.md)。JDK其他解壓library尚未逐檔核對。
+
+Issue #6的[實驗與差異](../tests/evidence/search-spike-2026-11-01/README.md)記錄公開corpus七個query、原版score/explain及Rust候選；包含不相容的排序結果。它不構成完整oracle或產品驗收。

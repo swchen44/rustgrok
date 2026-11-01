@@ -4,3 +4,5 @@ tests/evidence/oracle-cli-2026-11-01/*.txt -text whitespace=-blank-at-eof
 tests/fixtures/public-source/** -text whitespace=-blank-at-eof,-blank-at-eol
 # Keep original oracle captures byte-for-byte, including emitted blank final lines.
 tests/evidence/search-baseline-2026-11-01/** -text whitespace=-blank-at-eof,-blank-at-eol
+# Preserve raw G1 oracle and candidate evidence without rewriting bytes.
+tests/evidence/search-spike-2026-11-01/** -text whitespace=-blank-at-eof,-blank-at-eol

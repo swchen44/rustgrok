@@ -70,7 +70,7 @@ Q13／Q14已確認命名與新原創碼的授權分工；[查核紀錄](docs/res
 
 ## 完成狀態與交接
 
-2026-11-01 已開始 G0 執行，工作由 [WP-A04 #1](https://github.com/swchen44/rustgrok/issues/1)、[WP-A05 #2](https://github.com/swchen44/rustgrok/issues/2)、[WP-A06 #3](https://github.com/swchen44/rustgrok/issues/3) 追蹤。已保存固定 Git tree 與部分靜態功能清單；Tomcat oracle archive 已獨立驗 SHA-512。完整 source checkout 的 1,816 檔已逐一核對 Git blob 與 SHA-256；OpenGrok release與compact JRE已驗hash並執行有限CLI探測；完整JDK仍在取得，尚無oracle索引／HTTP或產品測試PASS。現況、證據及未完成邊界見 [G0 執行紀錄](docs/19-g0-execution-log.md)。
+2026-11-01 已開始 G0 執行，工作由 [WP-A04 #1](https://github.com/swchen44/rustgrok/issues/1)、[WP-A05 #2](https://github.com/swchen44/rustgrok/issues/2)、[WP-A06 #3](https://github.com/swchen44/rustgrok/issues/3) 追蹤。已保存固定 Git tree 與部分靜態功能清單；Tomcat oracle archive 已獨立驗 SHA-512。完整 source checkout 的 1,816 檔已逐一核對 Git blob 與 SHA-256；OpenGrok release與compact JRE已驗hash並執行有限CLI探測；完整JDK已驗archive、java／javac並用於有限索引／HTTP；完整oracle及產品驗收未通過。現況、證據及未完成邊界見 [G0 執行紀錄](docs/19-g0-execution-log.md)。
 
 完成官方文件與關鍵原始碼靜態研究，以及需求、設計、實作、驗證與分發計畫更新。未宣稱完整逐行審查整個上游，也未在目標 OS 建置／啟動產品。全部 80 測試是規格，沒有產品功能、效能、離線或視覺 PASS。
 

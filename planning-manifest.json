@@ -5,8 +5,8 @@
   "files": [
     {
       "path": ".gitattributes",
-      "bytes": 476,
-      "sha256": "3ad359b34acbef9e41d1f476146a140ca8abb08a80c313b33a7158a17b3cac6e"
+      "bytes": 636,
+      "sha256": "58475a9287e805909ef3acad4c05de50069d2a1be1092a26daaa9fb51feb40d6"
     },
     {
       "path": ".github/ISSUE_TEMPLATE/compatibility-bug.md",
@@ -45,13 +45,13 @@
     },
     {
       "path": "LICENSE.md",
-      "bytes": 1474,
-      "sha256": "6da37171cf3b6c2912feebbaf4b3fc949b5737c3a3f7fae7587a39946c472149"
+      "bytes": 1573,
+      "sha256": "f3460dedb78378ca356b780d4d35b780d1aa0a933ef8a7b1a8625f61cc25f560"
     },
     {
       "path": "README.md",
-      "bytes": 10597,
-      "sha256": "afbf065e4a39cc70959abb119503be45e991ec175592292e47ac29b09e59754b"
+      "bytes": 10633,
+      "sha256": "5db418fd9635f0449d0e245e4eb680ac20b4f38da4fe847346a4d8567b83e161"
     },
     {
       "path": "assets/README.md",
@@ -75,8 +75,8 @@
     },
     {
       "path": "docs/01-upstream-research.md",
-      "bytes": 24026,
-      "sha256": "40dfd23daae30197c80e29ef44ba02ded1c2f5b0342e2b50a695b9d5599dea3c"
+      "bytes": 24032,
+      "sha256": "96e85fd80df3019cd9a04bed51aaa35ba49295efdea32824eb95c0fe89c16c91"
     },
     {
       "path": "docs/02-requirements.md",
@@ -110,8 +110,8 @@
     },
     {
       "path": "docs/08-decision-register.md",
-      "bytes": 24452,
-      "sha256": "96bbbbef8abac8e379c7ef3beae0e2ab2314664658ff750b44c08ca882c69f3d"
+      "bytes": 24792,
+      "sha256": "7496f0d804584c390a55671a4c7ff882c313611ad11f656bd896515052982afe"
     },
     {
       "path": "docs/09-risk-register.md",
@@ -160,8 +160,8 @@
     },
     {
       "path": "docs/19-g0-execution-log.md",
-      "bytes": 9353,
-      "sha256": "68951864bf7e249d7027d1c2cf84129aa133a0c29894bbee2f8ab539492c1607"
+      "bytes": 10005,
+      "sha256": "0111c9ae4e76a2bda32ca2bd2f5d9884132a88acf3364e65a71710fbded0031a"
     },
     {
       "path": "docs/adr/0001-runtime-and-core-reuse.proposed.md",
@@ -234,6 +234,56 @@
       "sha256": "04aebaec3053f7eda655aad253284572dce09a4720f3add9345424cdfedda4bf"
     },
     {
+      "path": "experiments/search-spike/.gitignore",
+      "bytes": 21,
+      "sha256": "1141064ed2630abfb4a4b52385d7e6c5676a9a51c3c01a4884a7cdaf05609a74"
+    },
+    {
+      "path": "experiments/search-spike/Cargo.lock",
+      "bytes": 2663,
+      "sha256": "d6f616f4c05678e2c6f0049bd645ba5c8f7f28f59fe2ef121199b351d1ad9945"
+    },
+    {
+      "path": "experiments/search-spike/Cargo.toml",
+      "bytes": 204,
+      "sha256": "77d3946d285ffd4b0e57a964fd13acc5023e69c22a0ffef09fd402a461bae656"
+    },
+    {
+      "path": "experiments/search-spike/README.md",
+      "bytes": 5732,
+      "sha256": "92451c66c43893a8b17c17e31fea3e3446177e352c7e083ef229a7337ceeb59d"
+    },
+    {
+      "path": "experiments/search-spike/RUST-LICENSE-MIT.txt",
+      "bytes": 1208,
+      "sha256": "2378ef6829158c1080c92e6722d818174e9fd170d4d0990adb5ed77486bb0acc"
+    },
+    {
+      "path": "experiments/search-spike/capture_extra_oracle.py",
+      "bytes": 520,
+      "sha256": "502880b2297ca2f6dda0fafa949b6ea55ad7399ed17eaba3befa024478a8d4de"
+    },
+    {
+      "path": "experiments/search-spike/differential.py",
+      "bytes": 5494,
+      "sha256": "7a89779f0667e500add0615a37660dfd527c06776c503b676e54f660cb80be8b"
+    },
+    {
+      "path": "experiments/search-spike/oracle-diagnostics/RustgrokScoreProbe.java",
+      "bytes": 1616,
+      "sha256": "2b8e35fd582f858e7c0bc9d9f5af1425a3cf7aba4acff5783170f99c4ac8435e"
+    },
+    {
+      "path": "experiments/search-spike/src/main.rs",
+      "bytes": 10596,
+      "sha256": "a8403aebf11727d7f1189cffd6d183296063227790766793c880b9f9a353eb3a"
+    },
+    {
+      "path": "experiments/search-spike/tests/public_cli.py",
+      "bytes": 11115,
+      "sha256": "5ccfc6bda95e2459c42f01d98f30105c82cac0b8414913aa746e75bbf5560922"
+    },
+    {
       "path": "npm/README.md",
       "bytes": 1029,
       "sha256": "71ed64db7835555aec78f39476848dab86c1fe115fff242cfbffea9e4fc29d84"
@@ -241,7 +291,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 806,
-      "sha256": "20288af247790974157507952a97ccbffdc73d70a898cfe43754c5bc4e45f94a"
+      "sha256": "b79523962733e7c9803c60dfa69182bf65f2a2a0becfe11fa031a72fb86ab9b0"
     },
     {
       "path": "tests/README.md",
@@ -270,8 +320,8 @@
     },
     {
       "path": "tests/evidence/oracle-acquisition-2026-11-01.json",
-      "bytes": 7556,
-      "sha256": "ff714856204a5bbf44ca1b3466c4a2f3523b923226a340174cbffd09e3b7e113"
+      "bytes": 7698,
+      "sha256": "1b9beabf2f492a27d5bab280fa037e654b0b949742b9c4b88ab00f775f51b5bf"
     },
     {
       "path": "tests/evidence/oracle-bootstrap-inputs-2026-11-01.json",
@@ -719,6 +769,701 @@
       "sha256": "ba18dd79dd37655433c2333a49b612abb9801e51318aaa67f8326c0eaa73d40f"
     },
     {
+      "path": "tests/evidence/search-spike-2026-11-01/README.md",
+      "bytes": 3516,
+      "sha256": "0ec86ba445308a6c3565e02504ccf04fbec863342d799ca8ab9d9fb3b6180fa8"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/comparison.json",
+      "bytes": 8921,
+      "sha256": "1e5e3617456386b3f01974e3c3e26648483e37fbb60981ef74264929d7b1aef4"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/definition_alpha.candidate.json",
+      "bytes": 218,
+      "sha256": "3e87b48a9912fa559e4d151e0875900e173d82427c50e5831aec00cfb7d030b3"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/definition_alpha.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/definition_alpha.oracle.json",
+      "bytes": 425,
+      "sha256": "1cead9b2a2a91226f161b0949459310cefd3416e570ade2543e4550e140deb0f"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/definition_beta.candidate.json",
+      "bytes": 141,
+      "sha256": "b9a1c5845aba3438bc6ab817d723d0b5e46dae4b23fa7861e3e6a60a0dcd85a0"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/definition_beta.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/definition_beta.oracle.json",
+      "bytes": 284,
+      "sha256": "c68a992c4b0c78a912de388df1b8af32a62ce8f75fe780067adda03c8298526c"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/full_alpha.candidate.json",
+      "bytes": 218,
+      "sha256": "3e87b48a9912fa559e4d151e0875900e173d82427c50e5831aec00cfb7d030b3"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/full_alpha.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/full_alpha.oracle.json",
+      "bytes": 426,
+      "sha256": "1c4112a8f724c319e2b969848970bbed76323aeeeb4fd7ccfa599ae0d6ab45a6"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/full_both.candidate.json",
+      "bytes": 332,
+      "sha256": "a9aa676134a6c8c16aad5bbee7e910cd38144c143d04b92333317208ed80dadb"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/full_both.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/full_both.oracle.json",
+      "bytes": 694,
+      "sha256": "81b3ffb58be9f72ca17a230a5f6a30e9df61f19143eab4a4c89361b7ebfb6054"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/path_alpha.candidate.json",
+      "bytes": 84,
+      "sha256": "2e7748afc7c34ca6ab8ab961be2673bb76e06742068768ee11cf4d96a6252105"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/path_alpha.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/path_alpha.oracle.json",
+      "bytes": 144,
+      "sha256": "002ec1790b1837fe7ec8777cb565cbd0b246bf14c54c77baa4d548977ce7acae"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/reference_alpha.candidate.json",
+      "bytes": 218,
+      "sha256": "3e87b48a9912fa559e4d151e0875900e173d82427c50e5831aec00cfb7d030b3"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/reference_alpha.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/reference_alpha.oracle.json",
+      "bytes": 425,
+      "sha256": "f4fa9f3c852d916e31b296cb9b612eee493e57913ae6fd5b0beea44cc2557cee"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/reference_beta.candidate.json",
+      "bytes": 144,
+      "sha256": "a68ca02bcb0ee5eb69937d51d0fdc09d205a2e32698bdcdd0e8a0bc114e3115b"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/reference_beta.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-cli/reference_beta.oracle.json",
+      "bytes": 341,
+      "sha256": "f1429a2bc2e8de409cf3d3fcf13f435f51122c39417ebe9b74a30af80cc5cc8f"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/comparison.json",
+      "bytes": 8914,
+      "sha256": "e9910ac31c60da1de3027644b0e9d13552b4ee9640a7f13e2ce502e74b9c2da0"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/definition_alpha.candidate.json",
+      "bytes": 217,
+      "sha256": "77bb95f998309a95ebd20822b5b8040e1353e1f309e1f7fb9140d649632ee724"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/definition_alpha.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/definition_alpha.oracle.json",
+      "bytes": 425,
+      "sha256": "1cead9b2a2a91226f161b0949459310cefd3416e570ade2543e4550e140deb0f"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/definition_beta.candidate.json",
+      "bytes": 140,
+      "sha256": "7ea108ad124bff70ea427284ef2500306fd95bf211a32aa9088eacb0c4b3371e"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/definition_beta.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/definition_beta.oracle.json",
+      "bytes": 284,
+      "sha256": "c68a992c4b0c78a912de388df1b8af32a62ce8f75fe780067adda03c8298526c"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/full_alpha.candidate.json",
+      "bytes": 217,
+      "sha256": "77bb95f998309a95ebd20822b5b8040e1353e1f309e1f7fb9140d649632ee724"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/full_alpha.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/full_alpha.oracle.json",
+      "bytes": 426,
+      "sha256": "1c4112a8f724c319e2b969848970bbed76323aeeeb4fd7ccfa599ae0d6ab45a6"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/full_both.candidate.json",
+      "bytes": 331,
+      "sha256": "33ab829e782e90ea1141d3722fc6e086f5cd7c9186d8d495f38a8d916958463e"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/full_both.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/full_both.oracle.json",
+      "bytes": 694,
+      "sha256": "81b3ffb58be9f72ca17a230a5f6a30e9df61f19143eab4a4c89361b7ebfb6054"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/path_alpha.candidate.json",
+      "bytes": 83,
+      "sha256": "dcc9bf843ce7b89bd812736e17e6e8f0f14436cecc2d97eac4008cd3d0663b08"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/path_alpha.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/path_alpha.oracle.json",
+      "bytes": 144,
+      "sha256": "002ec1790b1837fe7ec8777cb565cbd0b246bf14c54c77baa4d548977ce7acae"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/reference_alpha.candidate.json",
+      "bytes": 217,
+      "sha256": "77bb95f998309a95ebd20822b5b8040e1353e1f309e1f7fb9140d649632ee724"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/reference_alpha.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/reference_alpha.oracle.json",
+      "bytes": 425,
+      "sha256": "f4fa9f3c852d916e31b296cb9b612eee493e57913ae6fd5b0beea44cc2557cee"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/reference_beta.candidate.json",
+      "bytes": 143,
+      "sha256": "b50b62448b9e72135c55314a97658e8f77e1eeec1026f5450039abdce9a8589f"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/reference_beta.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-final-http/reference_beta.oracle.json",
+      "bytes": 341,
+      "sha256": "f1429a2bc2e8de409cf3d3fcf13f435f51122c39417ebe9b74a30af80cc5cc8f"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-first-five/comparison.json",
+      "bytes": 6384,
+      "sha256": "f2bee13faf2751b37b8ac9d30f34baad069534462150da7e96d724e32ade7628"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-first-five/definition_alpha.candidate.json",
+      "bytes": 218,
+      "sha256": "3e87b48a9912fa559e4d151e0875900e173d82427c50e5831aec00cfb7d030b3"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-first-five/definition_alpha.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-first-five/definition_alpha.oracle.json",
+      "bytes": 425,
+      "sha256": "1cead9b2a2a91226f161b0949459310cefd3416e570ade2543e4550e140deb0f"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-first-five/full_alpha.candidate.json",
+      "bytes": 218,
+      "sha256": "3e87b48a9912fa559e4d151e0875900e173d82427c50e5831aec00cfb7d030b3"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-first-five/full_alpha.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-first-five/full_alpha.oracle.json",
+      "bytes": 426,
+      "sha256": "1c4112a8f724c319e2b969848970bbed76323aeeeb4fd7ccfa599ae0d6ab45a6"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-first-five/full_both.candidate.json",
+      "bytes": 332,
+      "sha256": "a9aa676134a6c8c16aad5bbee7e910cd38144c143d04b92333317208ed80dadb"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-first-five/full_both.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-first-five/full_both.oracle.json",
+      "bytes": 694,
+      "sha256": "81b3ffb58be9f72ca17a230a5f6a30e9df61f19143eab4a4c89361b7ebfb6054"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-first-five/path_alpha.candidate.json",
+      "bytes": 84,
+      "sha256": "2e7748afc7c34ca6ab8ab961be2673bb76e06742068768ee11cf4d96a6252105"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-first-five/path_alpha.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-first-five/path_alpha.oracle.json",
+      "bytes": 144,
+      "sha256": "002ec1790b1837fe7ec8777cb565cbd0b246bf14c54c77baa4d548977ce7acae"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-first-five/reference_beta.candidate.json",
+      "bytes": 144,
+      "sha256": "a68ca02bcb0ee5eb69937d51d0fdc09d205a2e32698bdcdd0e8a0bc114e3115b"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-first-five/reference_beta.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-first-five/reference_beta.oracle.json",
+      "bytes": 341,
+      "sha256": "f1429a2bc2e8de409cf3d3fcf13f435f51122c39417ebe9b74a30af80cc5cc8f"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-server.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-server.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/comparison.json",
+      "bytes": 8914,
+      "sha256": "e9910ac31c60da1de3027644b0e9d13552b4ee9640a7f13e2ce502e74b9c2da0"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/definition_alpha.candidate.json",
+      "bytes": 217,
+      "sha256": "77bb95f998309a95ebd20822b5b8040e1353e1f309e1f7fb9140d649632ee724"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/definition_alpha.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/definition_alpha.oracle.json",
+      "bytes": 425,
+      "sha256": "1cead9b2a2a91226f161b0949459310cefd3416e570ade2543e4550e140deb0f"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/definition_beta.candidate.json",
+      "bytes": 140,
+      "sha256": "7ea108ad124bff70ea427284ef2500306fd95bf211a32aa9088eacb0c4b3371e"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/definition_beta.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/definition_beta.oracle.json",
+      "bytes": 284,
+      "sha256": "c68a992c4b0c78a912de388df1b8af32a62ce8f75fe780067adda03c8298526c"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/full_alpha.candidate.json",
+      "bytes": 217,
+      "sha256": "77bb95f998309a95ebd20822b5b8040e1353e1f309e1f7fb9140d649632ee724"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/full_alpha.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/full_alpha.oracle.json",
+      "bytes": 426,
+      "sha256": "1c4112a8f724c319e2b969848970bbed76323aeeeb4fd7ccfa599ae0d6ab45a6"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/full_both.candidate.json",
+      "bytes": 331,
+      "sha256": "33ab829e782e90ea1141d3722fc6e086f5cd7c9186d8d495f38a8d916958463e"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/full_both.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/full_both.oracle.json",
+      "bytes": 694,
+      "sha256": "81b3ffb58be9f72ca17a230a5f6a30e9df61f19143eab4a4c89361b7ebfb6054"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/path_alpha.candidate.json",
+      "bytes": 83,
+      "sha256": "dcc9bf843ce7b89bd812736e17e6e8f0f14436cecc2d97eac4008cd3d0663b08"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/path_alpha.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/path_alpha.oracle.json",
+      "bytes": 144,
+      "sha256": "002ec1790b1837fe7ec8777cb565cbd0b246bf14c54c77baa4d548977ce7acae"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/reference_alpha.candidate.json",
+      "bytes": 217,
+      "sha256": "77bb95f998309a95ebd20822b5b8040e1353e1f309e1f7fb9140d649632ee724"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/reference_alpha.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/reference_alpha.oracle.json",
+      "bytes": 425,
+      "sha256": "f4fa9f3c852d916e31b296cb9b612eee493e57913ae6fd5b0beea44cc2557cee"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/reference_beta.candidate.json",
+      "bytes": 143,
+      "sha256": "b50b62448b9e72135c55314a97658e8f77e1eeec1026f5450039abdce9a8589f"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/reference_beta.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-http-seven/reference_beta.oracle.json",
+      "bytes": 341,
+      "sha256": "f1429a2bc2e8de409cf3d3fcf13f435f51122c39417ebe9b74a30af80cc5cc8f"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/comparison.json",
+      "bytes": 8662,
+      "sha256": "c089001fe6db13b8cb2fec673e9d4d2409c5284110fbfd7033dcde3a086c353c"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/definition_alpha.candidate.json",
+      "bytes": 218,
+      "sha256": "3e87b48a9912fa559e4d151e0875900e173d82427c50e5831aec00cfb7d030b3"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/definition_alpha.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/definition_alpha.oracle.json",
+      "bytes": 425,
+      "sha256": "1cead9b2a2a91226f161b0949459310cefd3416e570ade2543e4550e140deb0f"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/definition_beta.candidate.json",
+      "bytes": 141,
+      "sha256": "b9a1c5845aba3438bc6ab817d723d0b5e46dae4b23fa7861e3e6a60a0dcd85a0"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/definition_beta.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/definition_beta.oracle.json",
+      "bytes": 284,
+      "sha256": "c68a992c4b0c78a912de388df1b8af32a62ce8f75fe780067adda03c8298526c"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/full_alpha.candidate.json",
+      "bytes": 218,
+      "sha256": "3e87b48a9912fa559e4d151e0875900e173d82427c50e5831aec00cfb7d030b3"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/full_alpha.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/full_alpha.oracle.json",
+      "bytes": 426,
+      "sha256": "1c4112a8f724c319e2b969848970bbed76323aeeeb4fd7ccfa599ae0d6ab45a6"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/full_both.candidate.json",
+      "bytes": 332,
+      "sha256": "a9aa676134a6c8c16aad5bbee7e910cd38144c143d04b92333317208ed80dadb"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/full_both.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/full_both.oracle.json",
+      "bytes": 694,
+      "sha256": "81b3ffb58be9f72ca17a230a5f6a30e9df61f19143eab4a4c89361b7ebfb6054"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/path_alpha.candidate.json",
+      "bytes": 84,
+      "sha256": "2e7748afc7c34ca6ab8ab961be2673bb76e06742068768ee11cf4d96a6252105"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/path_alpha.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/path_alpha.oracle.json",
+      "bytes": 144,
+      "sha256": "002ec1790b1837fe7ec8777cb565cbd0b246bf14c54c77baa4d548977ce7acae"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/reference_alpha.candidate.json",
+      "bytes": 218,
+      "sha256": "3e87b48a9912fa559e4d151e0875900e173d82427c50e5831aec00cfb7d030b3"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/reference_alpha.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/reference_alpha.oracle.json",
+      "bytes": 425,
+      "sha256": "f4fa9f3c852d916e31b296cb9b612eee493e57913ae6fd5b0beea44cc2557cee"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/reference_beta.candidate.json",
+      "bytes": 144,
+      "sha256": "a68ca02bcb0ee5eb69937d51d0fdc09d205a2e32698bdcdd0e8a0bc114e3115b"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/reference_beta.candidate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/candidate-seven/reference_beta.oracle.json",
+      "bytes": 341,
+      "sha256": "f1429a2bc2e8de409cf3d3fcf13f435f51122c39417ebe9b74a30af80cc5cc8f"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/experiment.json",
+      "bytes": 3482,
+      "sha256": "8db91c1ac589c886ce68ac95386e26f465810be1d00e5b21c222d2166a5122db"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/extra-oracle/configuration.xml",
+      "bytes": 8955,
+      "sha256": "c512a67d8be0e2bfb4d36ca96dc76ad8ee7eff458e175719f8fcf481a727300e"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/extra-oracle/corpus-manifest.json",
+      "bytes": 3070,
+      "sha256": "88f491850b062ade1fbe157280f78b64b33774820c576dd83337cb11c7ab7c73"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/extra-oracle/index.stderr.txt",
+      "bytes": 9295,
+      "sha256": "f79b021d106018dde2a57316983a8dc2ff6c5850dfe2eb9f52e40c854d1e426a"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/extra-oracle/index.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/extra-oracle/response-definition_beta.json",
+      "bytes": 284,
+      "sha256": "c68a992c4b0c78a912de388df1b8af32a62ce8f75fe780067adda03c8298526c"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/extra-oracle/response-reference_alpha.json",
+      "bytes": 425,
+      "sha256": "f4fa9f3c852d916e31b296cb9b612eee493e57913ae6fd5b0beea44cc2557cee"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/extra-oracle/result.json",
+      "bytes": 7607,
+      "sha256": "d4a14e908037e064d927fa9dec29d8f038aa2be42ba89b812e9766d0583fbabe"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/extra-oracle/tomcat-runtime-manifest.json",
+      "bytes": 14004,
+      "sha256": "048b685aaf5040a0074a5f544c4794dc15985141d3fa15f75fb94012967b70aa"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/extra-oracle/tomcat.stdout.txt",
+      "bytes": 15988,
+      "sha256": "3ce9f2a872f3638b4222e2ec57da9e91fd37e05d781c2f359009295343e831b6"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/oracle-inputs/response-definition_alpha.json",
+      "bytes": 425,
+      "sha256": "1cead9b2a2a91226f161b0949459310cefd3416e570ade2543e4550e140deb0f"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/oracle-inputs/response-definition_beta.json",
+      "bytes": 284,
+      "sha256": "c68a992c4b0c78a912de388df1b8af32a62ce8f75fe780067adda03c8298526c"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/oracle-inputs/response-full_alpha.json",
+      "bytes": 426,
+      "sha256": "1c4112a8f724c319e2b969848970bbed76323aeeeb4fd7ccfa599ae0d6ab45a6"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/oracle-inputs/response-full_both.json",
+      "bytes": 694,
+      "sha256": "81b3ffb58be9f72ca17a230a5f6a30e9df61f19143eab4a4c89361b7ebfb6054"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/oracle-inputs/response-path_alpha.json",
+      "bytes": 144,
+      "sha256": "002ec1790b1837fe7ec8777cb565cbd0b246bf14c54c77baa4d548977ce7acae"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/oracle-inputs/response-reference_alpha.json",
+      "bytes": 425,
+      "sha256": "f4fa9f3c852d916e31b296cb9b612eee493e57913ae6fd5b0beea44cc2557cee"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/oracle-inputs/response-reference_beta.json",
+      "bytes": 341,
+      "sha256": "f1429a2bc2e8de409cf3d3fcf13f435f51122c39417ebe9b74a30af80cc5cc8f"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/oracle-inputs.json",
+      "bytes": 1750,
+      "sha256": "c62370c6fe44dadc06caf67ccd28b590d569e47ec77c941d641f2baea5aa1370"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/score-full-alpha/diagnostic.json",
+      "bytes": 20318,
+      "sha256": "ac61449d23358868e5aa363bf1aa05cb5eb8dd3fba9cdadfc3636126a41c4e9c"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/score-full-alpha/run-1.stderr.txt",
+      "bytes": 767,
+      "sha256": "29f0b2f6b2ed9f25b01423475920fd84bbbf04475c778178ba67ce5ab7af77e1"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/score-full-alpha/run-1.stdout.txt",
+      "bytes": 2197,
+      "sha256": "8294dc4453da3ef19813b42afe91085814583364a8031e0cfd2312d05d6690eb"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/score-full-alpha/run-2.stderr.txt",
+      "bytes": 767,
+      "sha256": "ded201f19d1042512eb232d7322e10ce36dc2e1685b965b723b9eec85ba933ce"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/score-full-alpha/run-2.stdout.txt",
+      "bytes": 2197,
+      "sha256": "1f675ee2be4bb632ca766fd159fe60e78121c51643f2740aee261ad12eab06f1"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/score-other-cases/definition_alpha.err",
+      "bytes": 767,
+      "sha256": "e627b06369d8b0093d3add40c52cd7994533accc0cb4b7fc74e95a79ee637c1f"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/score-other-cases/definition_alpha.txt",
+      "bytes": 2150,
+      "sha256": "e0ecc7c87ece20f9e722bd97376f148f3ede6b2b82c9e295a4075554b327ca4f"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/score-other-cases/diagnostic.json",
+      "bytes": 10185,
+      "sha256": "18bdda092c421adc3d14ac2ea1b93f697bb0446df9c535391a8acd1a0a6724f4"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/score-other-cases/full_alpha.err",
+      "bytes": 767,
+      "sha256": "c37ba8f0195c162cfa799f272761c1d930e0fd35ec6964eaface374536530a27"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/score-other-cases/full_alpha.txt",
+      "bytes": 2197,
+      "sha256": "c62f18397f2e16df238e46dbd26a7d2b9deafffdcb16448720ef0e589c1e0e91"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/score-other-cases/full_both.err",
+      "bytes": 767,
+      "sha256": "e627b06369d8b0093d3add40c52cd7994533accc0cb4b7fc74e95a79ee637c1f"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/score-other-cases/full_both.txt",
+      "bytes": 3579,
+      "sha256": "f8beb5674489af8eb16dab7669dcf6ba1ecb096d8a8c1c32de00b4f19c60b6a5"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/score-other-cases/reference_beta.err",
+      "bytes": 767,
+      "sha256": "e627b06369d8b0093d3add40c52cd7994533accc0cb4b7fc74e95a79ee637c1f"
+    },
+    {
+      "path": "tests/evidence/search-spike-2026-11-01/score-other-cases/reference_beta.txt",
+      "bytes": 1424,
+      "sha256": "dcd16867b8dcbe136dc91f31b09376d01cbec33a840d025310613870949b7310"
+    },
+    {
       "path": "tests/fixtures/README.md",
       "bytes": 1485,
       "sha256": "bd2ef93f2bbc72ab647533e309a834cea05a36afb477cbe3697ec6a87edacea3"
@@ -820,13 +1565,13 @@
     },
     {
       "path": "upstream/oracle-artifacts.lock.json",
-      "bytes": 5408,
-      "sha256": "d711004f4b31930bdd85f39f067aa4b92972d66ce8a14c448c25f6bf848202a5"
+      "bytes": 5543,
+      "sha256": "27f2e7029354c5c3fe8a60c90cff5888393260e29a9b708c3613a5f2f76d4bac"
     },
     {
       "path": "upstream/research-lock.json",
-      "bytes": 25385,
-      "sha256": "586c2cb9cd22d0bab9a771849c517c7ef112b9d708b5cbcf9ab0b2215a18e873"
+      "bytes": 25423,
+      "sha256": "f0eb56b36b811ea0b19bf7748155d03fd28540f8779ad138dd95855d44241479"
     },
     {
       "path": "upstream/rust-research-lock.json",

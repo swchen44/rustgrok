@@ -259,4 +259,4 @@ Rust 延伸研究另外讀取 CustomQueryParser、CompatibleAnalyser、PathToken
 
 ## 2026-11-01 後續執行證據
 
-以上保留原靜態研究的時間邊界。後續已驗固定source／release bytes，取得archive／WAR／source assets inventory，並執行有限原版CLI探測；索引／HTTP與Rust產品測試仍未執行。實際成功、失敗、未完成的完整JDK與後續步驟見[G0執行紀錄](19-g0-execution-log.md)，不能將本章早期「未下載」狀態當成最新取得狀態。
+以上保留原靜態研究的時間邊界。後續已驗固定source／release bytes，取得archive／WAR／source assets inventory，並以完整JDK執行有限原版索引／HTTP探測；Rust產品測試仍未執行。實際成功、失敗與完整oracle未完成的後續步驟見[G0執行紀錄](19-g0-execution-log.md)，不能將本章早期「未下載」狀態當成最新取得狀態。
