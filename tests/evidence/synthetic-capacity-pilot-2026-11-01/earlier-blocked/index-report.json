@@ -1,0 +1,252 @@
+{
+  "status": "INDEX_COST_OBSERVED_PATH_COVERAGE_NOT_YET_VERIFIED",
+  "scope": "synthetic indexing feasibility only, no HTTP/search timing",
+  "source_bytes": 2621440,
+  "source_files": 40,
+  "projects": 10,
+  "reserve_bytes": 6442450944,
+  "candidate_binary_sha256": "0d06036588295b7ef1cfb88a597ea6f94c244eb6e74d1cf983681073b06d275a",
+  "original_command": [
+    "/Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/jdk-21.0.13+9/Contents/Home/bin/java",
+    "-Xms128m",
+    "-Xmx512m",
+    "-jar",
+    "/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/opengrok.jar",
+    "-c",
+    "/opt/homebrew/bin/ctags",
+    "-s",
+    "/private/tmp/rustgrok-synthetic-capacity-pilot/source",
+    "-d",
+    "/private/tmp/rustgrok-synthetic-index-pilot/oracle-index",
+    "-W",
+    "/private/tmp/rustgrok-synthetic-index-pilot/configuration.xml",
+    "-P",
+    "-S",
+    "-H",
+    "-T",
+    "2"
+  ],
+  "original_process": {
+    "status": "COMPLETED",
+    "exit_code": 0,
+    "elapsed_seconds": 2.245,
+    "samples": [
+      {
+        "elapsed_seconds": 0.002,
+        "free_bytes": 7629103104,
+        "process_group_ps": [
+          "92126 92126 92115   1184   0.0   0:00.00",
+          "92126 92128 92126     32   0.0   0:00.00"
+        ]
+      },
+      {
+        "elapsed_seconds": 0.284,
+        "free_bytes": 7629070336,
+        "process_group_ps": [
+          "92126 92126 92115   1184   0.3   0:00.00",
+          "92126 92128 92126  38528   7.4   0:00.07"
+        ]
+      },
+      {
+        "elapsed_seconds": 0.562,
+        "free_bytes": 7629066240,
+        "process_group_ps": [
+          "92126 92126 92115   1184   0.0   0:00.00",
+          "92126 92128 92126  86192 116.2   0:00.53"
+        ]
+      },
+      {
+        "elapsed_seconds": 0.838,
+        "free_bytes": 7628906496,
+        "process_group_ps": [
+          "92126 92126 92115    480   0.0   0:00.00",
+          "92126 92128 92126 114128 122.9   0:00.90"
+        ]
+      },
+      {
+        "elapsed_seconds": 1.119,
+        "free_bytes": 7628816384,
+        "process_group_ps": [
+          "92126 92126 92115    480   0.0   0:00.00",
+          "92126 92128 92126 150640 206.2   0:01.66",
+          "92126 92141 92128   4768   2.3   0:00.01",
+          "92126 92142 92128   4752   2.4   0:00.01"
+        ]
+      },
+      {
+        "elapsed_seconds": 1.4,
+        "free_bytes": 7628513280,
+        "process_group_ps": [
+          "92126 92126 92115    480   0.0   0:00.00",
+          "92126 92128 92126 199376 291.2   0:02.64",
+          "92126 92141 92128   5776   1.9   0:00.01",
+          "92126 92142 92128   5376   1.9   0:00.01"
+        ]
+      },
+      {
+        "elapsed_seconds": 1.681,
+        "free_bytes": 7628189696,
+        "process_group_ps": [
+          "92126 92126 92115    480   0.0   0:00.00",
+          "92126 92128 92126 205520 310.9   0:03.58",
+          "92126 92141 92128   5824   1.8   0:00.02",
+          "92126 92142 92128   6032   2.1   0:00.02"
+        ]
+      },
+      {
+        "elapsed_seconds": 1.965,
+        "free_bytes": 7627849728,
+        "process_group_ps": [
+          "92126 92126 92115    480   0.0   0:00.00",
+          "92126 92128 92126 206400 128.2   0:04.41"
+        ]
+      }
+    ],
+    "limitations": "sampled process group only; time -l IO reports block operation counts, not bytes"
+  },
+  "original_log_check": {
+    "status": "NO_KNOWN_FILE_FAILURE_INDICATORS",
+    "streams": {
+      "stdout": {
+        "file": "original-indexer.stdout.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "stderr": {
+        "file": "original-indexer.stderr.txt",
+        "sha256": "973ab420b525b6cee7724233637383d9b035db173821e6c8b58a2b4ebed68a4c",
+        "bytes": 10065
+      }
+    },
+    "indicators": [],
+    "completion_markers": [
+      "Done indexing data of all repositories",
+      "Indexer finished with success"
+    ],
+    "limitation": "Absence of these particular log messages alone does not prove all source files were indexed."
+  },
+  "candidate_command": [
+    "/Users/swchen.tw/git/rustgrok-issue-7/experiments/search-spike/target/release/rustgrok-search-spike",
+    "index",
+    "--source",
+    "/private/tmp/rustgrok-synthetic-capacity-pilot/source",
+    "--index",
+    "/private/tmp/rustgrok-synthetic-index-pilot/candidate-index.json",
+    "--ctags",
+    "/opt/homebrew/bin/ctags"
+  ],
+  "candidate_process": {
+    "status": "COMPLETED",
+    "exit_code": 0,
+    "elapsed_seconds": 0.3,
+    "samples": [
+      {
+        "elapsed_seconds": 0.004,
+        "free_bytes": 7627849728,
+        "process_group_ps": [
+          "92147 92147 92115   1184   0.0   0:00.00",
+          "92147 92149 92147     32   0.0   0:00.00"
+        ]
+      }
+    ],
+    "limitations": "sampled process group only; time -l IO reports block operation counts, not bytes"
+  },
+  "candidate_coverage": {
+    "complete": true,
+    "expected_paths": [
+      "/project00/synthetic000.c",
+      "/project00/synthetic001.py",
+      "/project00/synthetic002.js",
+      "/project00/synthetic003.c",
+      "/project01/synthetic000.c",
+      "/project01/synthetic001.py",
+      "/project01/synthetic002.js",
+      "/project01/synthetic003.c",
+      "/project02/synthetic000.c",
+      "/project02/synthetic001.py",
+      "/project02/synthetic002.js",
+      "/project02/synthetic003.c",
+      "/project03/synthetic000.c",
+      "/project03/synthetic001.py",
+      "/project03/synthetic002.js",
+      "/project03/synthetic003.c",
+      "/project04/synthetic000.c",
+      "/project04/synthetic001.py",
+      "/project04/synthetic002.js",
+      "/project04/synthetic003.c",
+      "/project05/synthetic000.c",
+      "/project05/synthetic001.py",
+      "/project05/synthetic002.js",
+      "/project05/synthetic003.c",
+      "/project06/synthetic000.c",
+      "/project06/synthetic001.py",
+      "/project06/synthetic002.js",
+      "/project06/synthetic003.c",
+      "/project07/synthetic000.c",
+      "/project07/synthetic001.py",
+      "/project07/synthetic002.js",
+      "/project07/synthetic003.c",
+      "/project08/synthetic000.c",
+      "/project08/synthetic001.py",
+      "/project08/synthetic002.js",
+      "/project08/synthetic003.c",
+      "/project09/synthetic000.c",
+      "/project09/synthetic001.py",
+      "/project09/synthetic002.js",
+      "/project09/synthetic003.c"
+    ],
+    "observed_paths": [
+      "/project01/synthetic001.py",
+      "/project01/synthetic003.c",
+      "/project01/synthetic000.c",
+      "/project01/synthetic002.js",
+      "/project06/synthetic001.py",
+      "/project06/synthetic003.c",
+      "/project06/synthetic000.c",
+      "/project06/synthetic002.js",
+      "/project08/synthetic001.py",
+      "/project08/synthetic003.c",
+      "/project08/synthetic000.c",
+      "/project08/synthetic002.js",
+      "/project09/synthetic001.py",
+      "/project09/synthetic003.c",
+      "/project09/synthetic000.c",
+      "/project09/synthetic002.js",
+      "/project07/synthetic001.py",
+      "/project07/synthetic003.c",
+      "/project07/synthetic000.c",
+      "/project07/synthetic002.js",
+      "/project00/synthetic001.py",
+      "/project00/synthetic003.c",
+      "/project00/synthetic000.c",
+      "/project00/synthetic002.js",
+      "/project05/synthetic001.py",
+      "/project05/synthetic003.c",
+      "/project05/synthetic000.c",
+      "/project05/synthetic002.js",
+      "/project02/synthetic001.py",
+      "/project02/synthetic003.c",
+      "/project02/synthetic000.c",
+      "/project02/synthetic002.js",
+      "/project03/synthetic001.py",
+      "/project03/synthetic003.c",
+      "/project03/synthetic000.c",
+      "/project03/synthetic002.js",
+      "/project04/synthetic001.py",
+      "/project04/synthetic003.c",
+      "/project04/synthetic000.c",
+      "/project04/synthetic002.js"
+    ],
+    "limitation": "Candidate source contents checked for this fixture only; it does not prove equal analyzers or all query features."
+  },
+  "original_index_bytes": 623836,
+  "candidate_index_bytes": 2668891,
+  "candidate_index_sha256": "361247357a1b3105100e837af2a4318ac8e4aeb0feae6f212bb7189858035608",
+  "original_path_coverage": "NOT_MEASURED",
+  "limitations": [
+    "synthetic repeated comments, no SCM history, not representative of real repositories",
+    "no original file path inventory yet; no search comparison",
+    "RSS/CPU/IO are sampled or process-level, not a product resource acceptance",
+    "source, indexes and temporary growth may exceed this pilot at larger sizes"
+  ]
+}
