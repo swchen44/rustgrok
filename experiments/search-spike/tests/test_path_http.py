@@ -33,6 +33,19 @@ class PathResponse(unittest.TestCase):
                         if proc.poll() is not None: self.fail('HTTP process exited before readiness')
                         time.sleep(.05)
                 else: self.fail('HTTP readiness timeout')
+                # First client gets a fresh session; a valid cookie reuses it.
+                first_cookie = response.headers.get('Set-Cookie')
+                self.assertRegex(first_cookie, r'^JSESSIONID=[0-9A-F]{32}; Path=/source; HttpOnly$')
+                token = first_cookie.split(';', 1)[0]
+                url = f'http://127.0.0.1:{port}/source/api/v1/search?path=novel_42.c&projects=alpha&start=0&maxresults=10'
+                request = urllib.request.Request(url, headers={'Cookie': token})
+                with urllib.request.urlopen(request) as valid: self.assertIsNone(valid.headers.get('Set-Cookie'))
+                with urllib.request.urlopen(url) as second: other = second.headers.get('Set-Cookie')
+                self.assertNotEqual(first_cookie, other)
+                request = urllib.request.Request(url, headers={'Cookie':'JSESSIONID=unknown'})
+                with urllib.request.urlopen(request) as invalid: replacement = invalid.headers.get('Set-Cookie')
+                self.assertRegex(replacement, r'^JSESSIONID=[0-9A-F]{32}; Path=/source; HttpOnly$')
+                self.assertNotEqual(first_cookie, replacement)
                 self.assertIsInstance(payload.pop('time'), int)
                 self.assertEqual(payload, {'resultCount': 1, 'results': {'/alpha/novel_42.c': [{'line':'...', 'lineNumber':'', 'tag':None}]}, 'startDocument':0, 'endDocument':0})
                 with urllib.request.urlopen(f'http://127.0.0.1:{port}/source/api/v1/search?path=absent.zz&projects=alpha&start=0&maxresults=10') as response:
