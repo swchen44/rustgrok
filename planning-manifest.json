@@ -416,7 +416,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 807,
-      "sha256": "d138d982eeddda5529c14fd3792605bb443559ecd60ad66322f3f0b013800b17"
+      "sha256": "fb92567432dcdf24fa46bdcd1ec617a06ba654230f3e65877252340a035f7306"
     },
     {
       "path": "tests/README.md",
@@ -475,8 +475,8 @@
     },
     {
       "path": "tests/contract/test_synthetic_evidence.py",
-      "bytes": 1903,
-      "sha256": "871eca10882faaf1dfe52c441e3372f016d102ad5469c0f19326e5af4cb46490"
+      "bytes": 2862,
+      "sha256": "cebede118e93c453f97c40062e8a53c8f5b3cd5e3cf67f9ed263a52ab09df905"
     },
     {
       "path": "tests/contract/test_synthetic_path_capture.py",
@@ -18950,8 +18950,8 @@
     },
     {
       "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/README.md",
-      "bytes": 4427,
-      "sha256": "d2114a7475006b736401b9e81375b703a32a2d11a25673470e9bc533c7defe6c"
+      "bytes": 4564,
+      "sha256": "ce635bb036d5681317c182c3178f12d7d1bc4fb88eacdf4cf7d1ec45027f2b2d"
     },
     {
       "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/candidate-index.json",
@@ -18999,6 +18999,16 @@
       "sha256": "8a824a5c97c5890f01e61acb25ca6c1d946d3e265b7323481c46e86ab2192ef0"
     },
     {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/earlier-blocked/original-indexer.stderr.txt",
+      "bytes": 10065,
+      "sha256": "973ab420b525b6cee7724233637383d9b035db173821e6c8b58a2b4ebed68a4c"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/earlier-blocked/original-indexer.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
       "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/earlier-blocked/response-synthetic000.c.json",
       "bytes": 794,
       "sha256": "89b6857ffaa6caa16141c5e32d8d1d2cfa98da951c8c81da877b2e4fcc4d97b6"
@@ -19042,6 +19052,16 @@
       "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/original-indexer-log-check.json",
       "bytes": 657,
       "sha256": "c62a0b8728c70d8422d274d32b980f6aba2ec5826c6b84ec9e21f002c9db4fd3"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/original-indexer.stderr.txt",
+      "bytes": 10071,
+      "sha256": "a7393935b96bced02e9dd083c567c732ba566406f0712a89e1ea0ec4607e84ae"
+    },
+    {
+      "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/original-indexer.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
       "path": "tests/evidence/synthetic-capacity-pilot-2026-11-01/report.json",

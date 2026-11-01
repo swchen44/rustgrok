@@ -12,6 +12,22 @@ from indexer_evidence import verify_candidate_coverage, verify_path_coverage
 
 
 class SyntheticEvidence(unittest.TestCase):
+    def test_indexer_log_references_exist_and_match_recorded_hashes(self):
+        base=ROOT/'tests/evidence/synthetic-capacity-pilot-2026-11-01'
+        receipt=json.loads((base/'original-indexer-log-check.json').read_text())
+        report=json.loads((base/'report.json').read_text())
+        self.assertEqual(receipt,report['original_log_check'])
+        for stream in receipt['streams'].values():
+            data=(base/stream['file']).read_bytes()
+            self.assertEqual(len(data),stream['bytes'])
+            self.assertEqual(hashlib.sha256(data).hexdigest(),stream['sha256'])
+        earlier=base/'earlier-blocked'
+        older=json.loads((earlier/'index-report.json').read_text())['original_log_check']
+        for stream in older['streams'].values():
+            data=(earlier/stream['file']).read_bytes()
+            self.assertEqual(len(data),stream['bytes'])
+            self.assertEqual(hashlib.sha256(data).hexdigest(),stream['sha256'])
+
     def test_recorded_candidate_contents_and_original_paths(self):
         base=ROOT/'tests/evidence/synthetic-capacity-pilot-2026-11-01'
         manifest=json.loads((base/'synthetic-manifest.json').read_text())
