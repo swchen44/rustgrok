@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "role": "public_small_search_fixture_not_performance_corpus",
+  "upstream_repository": "https://github.com/oracle/opengrok",
+  "upstream_commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+  "private_data": false,
+  "license": "Retain upstream LICENSE.txt and NOTICE.txt and per-file terms",
+  "repositories": [
+    {
+      "project": "alpha",
+      "path": "alpha/component-c",
+      "file": "main.c",
+      "language": "C",
+      "source_sha256": "0afb5b45d1538ee86e23b046100c8e458614ba71e50f16c05bda1a52de0edb17",
+      "source_bytes": 730,
+      "revision": "a77cb2e35336a0fa75a58c55027206fb35804304",
+      "tree": "b1a9862d5628177748c3c49c24c5d7bf8aa4ba22",
+      "commits": [
+        "f67245711bfdd2f7b5db9c70a67f384a3f6b65ff",
+        "a77cb2e35336a0fa75a58c55027206fb35804304"
+      ],
+      "origin": "opengrok-indexer/src/test/resources/sources/c/main.c"
+    },
+    {
+      "project": "alpha",
+      "path": "alpha/component-js",
+      "file": "function.js",
+      "language": "JavaScript",
+      "source_sha256": "7e37130f0b5a078fea055a885632cdc00e1989def53e4fafe8b52a75824f8805",
+      "source_bytes": 821,
+      "revision": "148046eaf98107c72cdec15a203c15c2887b763c",
+      "tree": "d9ff251420efe29ab05f052ff762398fedfa33c5",
+      "commits": [
+        "148046eaf98107c72cdec15a203c15c2887b763c"
+      ],
+      "origin": "opengrok-indexer/src/test/resources/sources/javascript/function.js"
+    },
+    {
+      "project": "alpha",
+      "path": "alpha/component-c/nested-js",
+      "file": "function.js",
+      "language": "JavaScript",
+      "source_sha256": "7e37130f0b5a078fea055a885632cdc00e1989def53e4fafe8b52a75824f8805",
+      "source_bytes": 821,
+      "revision": "148046eaf98107c72cdec15a203c15c2887b763c",
+      "tree": "d9ff251420efe29ab05f052ff762398fedfa33c5",
+      "commits": [
+        "148046eaf98107c72cdec15a203c15c2887b763c"
+      ],
+      "origin": "opengrok-indexer/src/test/resources/sources/javascript/function.js"
+    },
+    {
+      "project": "beta",
+      "path": "beta/component-c",
+      "file": "main.c",
+      "language": "C",
+      "source_sha256": "0afb5b45d1538ee86e23b046100c8e458614ba71e50f16c05bda1a52de0edb17",
+      "source_bytes": 730,
+      "revision": "a77cb2e35336a0fa75a58c55027206fb35804304",
+      "tree": "b1a9862d5628177748c3c49c24c5d7bf8aa4ba22",
+      "commits": [
+        "f67245711bfdd2f7b5db9c70a67f384a3f6b65ff",
+        "a77cb2e35336a0fa75a58c55027206fb35804304"
+      ],
+      "origin": "opengrok-indexer/src/test/resources/sources/c/main.c"
+    },
+    {
+      "project": "beta",
+      "path": "beta/component-py",
+      "file": "main.py",
+      "language": "Python",
+      "source_sha256": "c30bc720a38c39709e22f6bba1996b58c0a4e2e25d8cc6ea1bff7a348efde3f0",
+      "source_bytes": 867,
+      "revision": "2dce203660f36bbeef5cabc381d3e17f92ec98ef",
+      "tree": "0c079f6780865f9b54ab8788c83ea1f0d781351b",
+      "commits": [
+        "2dce203660f36bbeef5cabc381d3e17f92ec98ef"
+      ],
+      "origin": "opengrok-indexer/src/test/resources/sources/python/main.py"
+    }
+  ]
+}

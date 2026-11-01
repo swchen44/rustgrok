@@ -1,0 +1,313 @@
+{
+  "scope": "Two captures on one macOS host; not full parity or product acceptance",
+  "normalization_for_this_comparison": [
+    "remove top-level time only"
+  ],
+  "sort_or_reorder_applied": false,
+  "corpus_manifests_identical": true,
+  "corpus_unchanged_after_both_runs": true,
+  "cases": [
+    {
+      "file": "response-definition_alpha.json",
+      "run1_sha256": "9450f1e7da9e373f45942d4fc55ee240cca1cbc5d409cfb5c227d65b202f39df",
+      "run2_sha256": "1b44a948336dca5ca54f7365e3f35885e428509e4174691f43aab6c86ea50eef",
+      "run1_time_ms": 3,
+      "run2_time_ms": 4,
+      "same_content_excluding_time_order_considered_separately": true,
+      "matching_order": false,
+      "result_count": 3,
+      "run1_ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ],
+      "run2_ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/alpha/component-js/function.js",
+        "/alpha/component-c/nested-js/function.js"
+      ]
+    },
+    {
+      "file": "response-full_alpha.json",
+      "run1_sha256": "b8b3fbe4537fd897769e461cc286b677f7f3b227cee079e23fecf10a1bbf2650",
+      "run2_sha256": "922b2588464e2c91c2f00b22689f5fac08d4122cbeb18571216c3793e78f36fe",
+      "run1_time_ms": 53,
+      "run2_time_ms": 64,
+      "same_content_excluding_time_order_considered_separately": true,
+      "matching_order": false,
+      "result_count": 3,
+      "run1_ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ],
+      "run2_ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/alpha/component-js/function.js",
+        "/alpha/component-c/nested-js/function.js"
+      ]
+    },
+    {
+      "file": "response-full_both.json",
+      "run1_sha256": "b9b0ac918b7e69cd7d20c3ae923726a2172fdee72622a3972130bce52401dabe",
+      "run2_sha256": "81b3ffb58be9f72ca17a230a5f6a30e9df61f19143eab4a4c89361b7ebfb6054",
+      "run1_time_ms": 4,
+      "run2_time_ms": 4,
+      "same_content_excluding_time_order_considered_separately": true,
+      "matching_order": false,
+      "result_count": 5,
+      "run1_ordered_paths": [
+        "/beta/component-py/main.py",
+        "/alpha/component-c/main.c",
+        "/beta/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ],
+      "run2_ordered_paths": [
+        "/beta/component-py/main.py",
+        "/alpha/component-c/main.c",
+        "/beta/component-c/main.c",
+        "/alpha/component-js/function.js",
+        "/alpha/component-c/nested-js/function.js"
+      ]
+    },
+    {
+      "file": "response-path_alpha.json",
+      "run1_sha256": "fb1d7fee974819def31e55d1e8eee2baa8970e3cc56a86ef7286ecd32d78b83b",
+      "run2_sha256": "f37b0136bb657229f9871af8c73ca98fbd2acc491702095c8c32ded187f39b58",
+      "run1_time_ms": 6,
+      "run2_time_ms": 9,
+      "same_content_excluding_time_order_considered_separately": true,
+      "matching_order": true,
+      "result_count": 1,
+      "run1_ordered_paths": [
+        "/alpha/component-c/main.c"
+      ],
+      "run2_ordered_paths": [
+        "/alpha/component-c/main.c"
+      ]
+    },
+    {
+      "file": "response-reference_beta.json",
+      "run1_sha256": "cea1a6348e83c2a5c7d9ec1694f094bf4296080d13cc14520b0fb2fa4ea0e25f",
+      "run2_sha256": "669de66bab552edbedc646820c020f7126c6f3abfd2bd86b4d26c84db4811889",
+      "run1_time_ms": 3,
+      "run2_time_ms": 11,
+      "same_content_excluding_time_order_considered_separately": true,
+      "matching_order": true,
+      "result_count": 2,
+      "run1_ordered_paths": [
+        "/beta/component-py/main.py",
+        "/beta/component-c/main.c"
+      ],
+      "run2_ordered_paths": [
+        "/beta/component-py/main.py",
+        "/beta/component-c/main.c"
+      ]
+    }
+  ],
+  "ordering_differences_observed": [
+    "response-definition_alpha.json",
+    "response-full_alpha.json",
+    "response-full_both.json"
+  ],
+  "ordering_difference_cause": "UNKNOWN; API response does not expose score; do not assume ties or accept differences",
+  "run2_adverse_environment": {
+    "GIT_DIR": "/tmp/rustgrok-nonexistent-git",
+    "HTTP_PROXY": "http://127.0.0.1:1",
+    "http_proxy": "http://127.0.0.1:1",
+    "NO_PROXY": "",
+    "no_proxy": "",
+    "result": "All five HTTP 200; result content excluding time matched; three result path orders differed."
+  },
+  "warnings": "Read complete raw index and Tomcat logs in each run; Perforce p4 unavailable, native/vector warnings, shutdown resource releaser / ThreadLocal warnings. No Perforce functionality was tested.",
+  "runtime_or_platform_coverage": "Only original OpenGrok subset on macOS arm64; HTTP results not Rust parity",
+  "all_full_test_cases_passed": false,
+  "current_code_validation": {
+    "run": "run-3",
+    "corpus": "same as run-1",
+    "statuses": [
+      200,
+      200,
+      200,
+      200,
+      200
+    ],
+    "adverse_environment": "invalid GIT_DIR and unreachable proxy; NO_PROXY empty",
+    "corpus_unchanged_after_run": true,
+    "cases": [
+      {
+        "file": "response-definition_alpha.json",
+        "run3_sha256": "da51be13c031bfe82c04c4b529ffef2cc57b257c20cae138fe9212eecf9ccb82",
+        "same_content_excluding_time_order_compared_separately": true,
+        "same_path_order_as_run1": true,
+        "run3_ordered_paths": [
+          "/alpha/component-c/main.c",
+          "/alpha/component-c/nested-js/function.js",
+          "/alpha/component-js/function.js"
+        ]
+      },
+      {
+        "file": "response-full_alpha.json",
+        "run3_sha256": "db45028e8b603cee2476dddbb315ba560ca69482e5fdd36fc78978786a2c6adf",
+        "same_content_excluding_time_order_compared_separately": true,
+        "same_path_order_as_run1": true,
+        "run3_ordered_paths": [
+          "/alpha/component-c/main.c",
+          "/alpha/component-c/nested-js/function.js",
+          "/alpha/component-js/function.js"
+        ]
+      },
+      {
+        "file": "response-full_both.json",
+        "run3_sha256": "b9b0ac918b7e69cd7d20c3ae923726a2172fdee72622a3972130bce52401dabe",
+        "same_content_excluding_time_order_compared_separately": true,
+        "same_path_order_as_run1": true,
+        "run3_ordered_paths": [
+          "/beta/component-py/main.py",
+          "/alpha/component-c/main.c",
+          "/beta/component-c/main.c",
+          "/alpha/component-c/nested-js/function.js",
+          "/alpha/component-js/function.js"
+        ]
+      },
+      {
+        "file": "response-path_alpha.json",
+        "run3_sha256": "cb0351ba297127dc6c06e4ad23df1989dfc000c26abae6155006c9fa8196e17b",
+        "same_content_excluding_time_order_compared_separately": true,
+        "same_path_order_as_run1": true,
+        "run3_ordered_paths": [
+          "/alpha/component-c/main.c"
+        ]
+      },
+      {
+        "file": "response-reference_beta.json",
+        "run3_sha256": "cea1a6348e83c2a5c7d9ec1694f094bf4296080d13cc14520b0fb2fa4ea0e25f",
+        "same_content_excluding_time_order_compared_separately": true,
+        "same_path_order_as_run1": true,
+        "run3_ordered_paths": [
+          "/beta/component-py/main.py",
+          "/beta/component-c/main.c"
+        ]
+      }
+    ]
+  },
+  "verified_runtime_captures": {
+    "runs": [
+      "run-verified-1",
+      "run-verified-2"
+    ],
+    "tomcat_verified_scope": [
+      "bin",
+      "conf",
+      "lib"
+    ],
+    "tomcat_file_count": 74,
+    "all_HTTP_statuses_200": true,
+    "corpora_unchanged_after_run": true,
+    "run2_adverse_environment": {
+      "GIT_DIR": "/tmp/rustgrok-nonexistent-git",
+      "HTTP_PROXY": "http://127.0.0.1:1",
+      "NO_PROXY": "",
+      "JAVA_TOOL_OPTIONS": "-XX:NotARealJavaFlag",
+      "JDK_JAVA_OPTIONS": "-XX:NotARealJavaFlag",
+      "_JAVA_OPTIONS": "-XX:NotARealJavaFlag",
+      "JAVA_OPTS": "-XX:NotARealJavaFlag"
+    },
+    "cases": [
+      {
+        "file": "response-definition_alpha.json",
+        "run1_sha256": "1cead9b2a2a91226f161b0949459310cefd3416e570ade2543e4550e140deb0f",
+        "run2_sha256": "620a7ec92f8e034c8d65dd155211be30a343f18c64cb9dd4e73af057e287aec1",
+        "run1_time_ms": 2,
+        "run2_time_ms": 3,
+        "same_content_excluding_time_order_compared_separately": true,
+        "matching_order": true,
+        "run1_ordered_paths": [
+          "/alpha/component-c/main.c",
+          "/alpha/component-js/function.js",
+          "/alpha/component-c/nested-js/function.js"
+        ],
+        "run2_ordered_paths": [
+          "/alpha/component-c/main.c",
+          "/alpha/component-js/function.js",
+          "/alpha/component-c/nested-js/function.js"
+        ]
+      },
+      {
+        "file": "response-full_alpha.json",
+        "run1_sha256": "1c4112a8f724c319e2b969848970bbed76323aeeeb4fd7ccfa599ae0d6ab45a6",
+        "run2_sha256": "4176273da79eb356b968f2c8ebf95de4595b2eb5bba15f43f12710880399d41c",
+        "run1_time_ms": 51,
+        "run2_time_ms": 54,
+        "same_content_excluding_time_order_compared_separately": true,
+        "matching_order": true,
+        "run1_ordered_paths": [
+          "/alpha/component-c/main.c",
+          "/alpha/component-js/function.js",
+          "/alpha/component-c/nested-js/function.js"
+        ],
+        "run2_ordered_paths": [
+          "/alpha/component-c/main.c",
+          "/alpha/component-js/function.js",
+          "/alpha/component-c/nested-js/function.js"
+        ]
+      },
+      {
+        "file": "response-full_both.json",
+        "run1_sha256": "81b3ffb58be9f72ca17a230a5f6a30e9df61f19143eab4a4c89361b7ebfb6054",
+        "run2_sha256": "81b3ffb58be9f72ca17a230a5f6a30e9df61f19143eab4a4c89361b7ebfb6054",
+        "run1_time_ms": 4,
+        "run2_time_ms": 4,
+        "same_content_excluding_time_order_compared_separately": true,
+        "matching_order": true,
+        "run1_ordered_paths": [
+          "/beta/component-py/main.py",
+          "/alpha/component-c/main.c",
+          "/beta/component-c/main.c",
+          "/alpha/component-js/function.js",
+          "/alpha/component-c/nested-js/function.js"
+        ],
+        "run2_ordered_paths": [
+          "/beta/component-py/main.py",
+          "/alpha/component-c/main.c",
+          "/beta/component-c/main.c",
+          "/alpha/component-js/function.js",
+          "/alpha/component-c/nested-js/function.js"
+        ]
+      },
+      {
+        "file": "response-path_alpha.json",
+        "run1_sha256": "002ec1790b1837fe7ec8777cb565cbd0b246bf14c54c77baa4d548977ce7acae",
+        "run2_sha256": "fb1d7fee974819def31e55d1e8eee2baa8970e3cc56a86ef7286ecd32d78b83b",
+        "run1_time_ms": 5,
+        "run2_time_ms": 6,
+        "same_content_excluding_time_order_compared_separately": true,
+        "matching_order": true,
+        "run1_ordered_paths": [
+          "/alpha/component-c/main.c"
+        ],
+        "run2_ordered_paths": [
+          "/alpha/component-c/main.c"
+        ]
+      },
+      {
+        "file": "response-reference_beta.json",
+        "run1_sha256": "f1429a2bc2e8de409cf3d3fcf13f435f51122c39417ebe9b74a30af80cc5cc8f",
+        "run2_sha256": "cea1a6348e83c2a5c7d9ec1694f094bf4296080d13cc14520b0fb2fa4ea0e25f",
+        "run1_time_ms": 6,
+        "run2_time_ms": 3,
+        "same_content_excluding_time_order_compared_separately": true,
+        "matching_order": true,
+        "run1_ordered_paths": [
+          "/beta/component-py/main.py",
+          "/beta/component-c/main.c"
+        ],
+        "run2_ordered_paths": [
+          "/beta/component-py/main.py",
+          "/beta/component-c/main.c"
+        ]
+      }
+    ]
+  }
+}
