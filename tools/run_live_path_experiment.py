@@ -3,10 +3,15 @@ import capture_opengrok_baseline as baseline
 import http.cookiejar
 from search_benchmark_gate import comparison
 from prepare_oracle_copy import prepare, tree_hash
+from oracle_http import configure_server, opener as safe_opener
 root=pathlib.Path(__file__).resolve().parents[1]
 parser=argparse.ArgumentParser(description='Run a restricted live path-only HTTP preflight with a previously verified isolated oracle capture')
 for option in ('oracle-capture','corpus','output'): parser.add_argument('--'+option, type=pathlib.Path, required=True)
+parser.add_argument('--case', choices=('single-hit', 'no-hit', 'cross-project'), default='single-hit')
+parser.add_argument('--warmup', type=int, default=20)
+parser.add_argument('--samples', type=int, default=50)
 a=parser.parse_args();base=a.oracle_capture.resolve();out=a.output.resolve();corpus=a.corpus.resolve()
+if a.warmup < 1 or a.samples < 5 or a.samples % 5: parser.error('warmup must be positive; samples must be a positive multiple of 5')
 cache=pathlib.Path.home()/'Library/Caches/rustgrok/oracle'; tomcat=cache/'toolchains/apache-tomcat-10.1.60'; jdk=cache/'toolchains/jdk-21.0.13+9/Contents/Home'; binary=root/'experiments/search-spike/target/release/rustgrok-search-spike'
 if out == base or base in out.parents: parser.error('output must be outside capture')
 if out == root or root in out.parents or out == corpus or corpus in out.parents: parser.error('output must be outside repository and corpus')
@@ -48,7 +53,7 @@ ET.SubElement(context,'Parameter',{'name':'CONFIGURATION','value':str(config),'o
 ET.ElementTree(context).write(work/'tomcat/conf/Catalina/localhost/source.xml',encoding='utf-8',xml_declaration=True)
 def port():
  with socket.socket() as s: s.bind(('127.0.0.1',0)); return s.getsockname()[1]
-op=port(); cp=port(); server=ET.parse(work/'tomcat/conf/server.xml'); server.getroot().find('./Service/Connector').set('port',str(op));server.write(work/'tomcat/conf/server.xml',encoding='utf-8',xml_declaration=True)
+op=port(); cp=port(); configure_server(work/'tomcat/conf/server.xml',op)
 env={k:v for k,v in os.environ.items() if not k.startswith('GIT_') and k not in {'JAVA_TOOL_OPTIONS','JDK_JAVA_OPTIONS','_JAVA_OPTIONS','JAVA_OPTS','CLASSPATH','JAVA_HOME','JRE_HOME','CATALINA_OPTS','CATALINA_HOME','CATALINA_BASE','CATALINA_TMPDIR'}}
 env.update(GIT_CONFIG_NOSYSTEM='1',GIT_CONFIG_GLOBAL=os.devnull,JAVA_HOME=str(jdk),CATALINA_HOME=str(tomcat),CATALINA_BASE=str(work/'tomcat'),CATALINA_TMPDIR=str(work/'tomcat/temp'),CATALINA_OPTS='-Xms128m -Xmx512m --add-exports=java.base/jdk.internal.ref=ALL-UNNAMED --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED --add-opens=jdk.compiler/com.sun.tools.javac=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED')
 subprocess.run(['cargo','build','--locked','--offline','--release','--manifest-path',str(root/'experiments/search-spike/Cargo.toml')],check=True)
@@ -56,7 +61,7 @@ log=(out/'tomcat.log').open('wb'); rlog=(out/'candidate.log').open('wb'); proces
 try:
  oracle=subprocess.Popen([str(tomcat/'bin/catalina.sh'),'run'],env=env,stdout=log,stderr=subprocess.STDOUT,start_new_session=True);processes.append(oracle)
  candidate=subprocess.Popen([str(binary),'serve','--index',str(index),'--listen',f'127.0.0.1:{cp}'],stdout=rlog,stderr=subprocess.STDOUT,start_new_session=True);processes.append(candidate)
- opener=urllib.request.build_opener(urllib.request.ProxyHandler({}))
+ opener=safe_opener()
  for i in range(90):
   if oracle.poll() is not None or candidate.poll() is not None: raise RuntimeError('server exited')
   try:
@@ -65,9 +70,11 @@ try:
   except (OSError,urllib.error.URLError): time.sleep(1)
  else: raise RuntimeError('oracle readiness timeout')
  # Observe original first and cookie-bearing follow-up using an isolated in-memory jar.
- query='/source/api/v1/search?path=main.c&projects=alpha&start=0&maxresults=10'
+ query={'single-hit':'/source/api/v1/search?path=main.c&projects=alpha&start=0&maxresults=10',
+        'no-hit':'/source/api/v1/search?path=absentfile.c&projects=alpha&start=0&maxresults=10',
+        'cross-project':'/source/api/v1/search?path=main.c&projects=alpha&projects=beta&start=0&maxresults=10'}[a.case]
  jar=http.cookiejar.CookieJar()
- session_opener=urllib.request.build_opener(urllib.request.ProxyHandler({}),urllib.request.HTTPCookieProcessor(jar))
+ session_opener=safe_opener(urllib.request.HTTPCookieProcessor(jar))
  session_steps=[]; session_values=[]
  for label in ('first','followup'):
   cookie_sent = bool(list(jar))
@@ -99,17 +106,17 @@ try:
   paging.append({'path':path,'oracle_status':pair[0]['status'],'candidate_status':pair[1]['status'],'body_matches_except_time':comparison(pair[0]['parsed'],pair[1]['parsed']),'oracle_ordered_paths':list(pair[0]['parsed']['results']),'candidate_ordered_paths':list(pair[1]['parsed']['results']),'oracle_body':pair[0]['body'],'candidate_body':pair[1]['body']})
  (out/'paging-comparison.json').write_text(json.dumps({'cases':paging,'scope':'two pages of one cross-project query; no general parity assertion'},indent=2)+'\n')
  def monitor():
-  while not stop.wait(.2):
+  while not stop.wait(.05):
    p=subprocess.run(['ps','-p',f'{oracle.pid},{candidate.pid}','-o','pid=,ppid=,rss=,%cpu=,time='],capture_output=True,text=True)
    snapshots.append({'wall_ns':time.time_ns(),'raw_ps':p.stdout})
  thread=threading.Thread(target=monitor,daemon=True);thread.start()
- cmd=[sys.executable,str(root/'tools/search_live_benchmark.py'),'--oracle',f'http://127.0.0.1:{op}'+query,'--candidate',f'http://127.0.0.1:{cp}'+query,'--output',str(out/'run'),'--warmup','20','--samples','50']
+ cmd=[sys.executable,str(root/'tools/search_live_benchmark.py'),'--oracle',f'http://127.0.0.1:{op}'+query,'--candidate',f'http://127.0.0.1:{cp}'+query,'--output',str(out/'run'),'--warmup',str(a.warmup),'--samples',str(a.samples)]
  proc=subprocess.run(cmd,cwd=root,capture_output=True,text=True); stop.set();thread.join(); (out/'harness.stdout.txt').write_text(proc.stdout);(out/'harness.stderr.txt').write_text(proc.stderr)
- (out/'resources.json').write_text(json.dumps({'note':'200ms process snapshots, RSS KiB and instantaneous ps CPU percent; RSS includes shared pages and is not measured peak. Short processes and child processes may be missed.','oracle_pid':oracle.pid,'candidate_pid':candidate.pid,'samples':snapshots},indent=2)+'\n')
+ (out/'resources.json').write_text(json.dumps({'note':'50ms process snapshots, RSS KiB and instantaneous ps CPU percent; RSS includes shared pages and is not measured peak. Short processes and child processes may be missed.','oracle_pid':oracle.pid,'candidate_pid':candidate.pid,'samples':snapshots},indent=2)+'\n')
  def sha(p):return hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
  def total(p):return sum(f.stat().st_size for f in pathlib.Path(p).rglob('*') if f.is_file())
  def cmdout(*c):return subprocess.check_output(c,text=True).strip()
- meta={'scope':'single path-only live HTTP experiment; not full product parity or representative workload','time':time.strftime('%Y-%m-%dT%H:%M:%S%z'),'platform':platform.platform(),'cpu':cmdout('sysctl','-n','machdep.cpu.brand_string'),'memory_bytes':int(cmdout('sysctl','-n','hw.memsize')),'load_average':os.getloadavg(),'cache':'OS page cache and index caches not flushed; 20 warmup requests per endpoint','source_bytes':source_bytes,'public_corpus_manifest_sha256':sha(corpus/'manifest.json'),'oracle_baseline':fresh_receipt,'candidate_index_command':index_cmd,'candidate_index_exit':index_process.returncode,'corpus_verified_after_run':baseline.check_corpus(corpus)==manifest,'both_indexes_rebuilt_from_verified_corpus':True,'original_source_root_verified':str((corpus/'source').resolve()),'oracle_configuration_sha256':sha(config),'config_change':'allowMostPopular explicitly false; upstream default is true; most-popular is deferred','oracle_index_bytes':total(work/'index'),'oracle_index_tree_sha256':tree_hash(work/'index'),'candidate_index_bytes':index.stat().st_size,'candidate_index_sha256':sha(index),'candidate_binary_sha256':sha(binary),'candidate_lockfile_sha256':sha(root/'experiments/search-spike/Cargo.lock'),'rustc':cmdout('rustc','--version'),'cargo':cmdout('cargo','--version'),'JVM_options':env['CATALINA_OPTS'],'measurement_command':cmd,'benchmark_exit':proc.returncode,'limitations':['5 clients are a synthetic burst, endpoints measured sequentially, no concurrent production users','small source corpus only','one path result; no ranking discrimination','OS caches/background load/power not controlled','resource snapshots are not peak; only root server processes tracked','candidate scan is experimental, not complete OpenGrok REST or product']}
+ meta={'scope':'path-only live HTTP experiment; not full product parity or representative workload','case':a.case,'query':query,'time':time.strftime('%Y-%m-%dT%H:%M:%S%z'),'platform':platform.platform(),'cpu':cmdout('sysctl','-n','machdep.cpu.brand_string'),'memory_bytes':int(cmdout('sysctl','-n','hw.memsize')),'load_average':os.getloadavg(),'cache':f'OS page cache and index caches not flushed; {a.warmup} warmup requests per endpoint per load','source_bytes':source_bytes,'public_corpus_manifest_sha256':sha(corpus/'manifest.json'),'oracle_baseline':fresh_receipt,'candidate_index_command':index_cmd,'candidate_index_exit':index_process.returncode,'corpus_verified_after_run':baseline.check_corpus(corpus)==manifest,'both_indexes_rebuilt_from_verified_corpus':True,'original_source_root_verified':str((corpus/'source').resolve()),'oracle_configuration_sha256':sha(config),'config_change':'allowMostPopular explicitly false; upstream default is true; most-popular is deferred','oracle_index_bytes':total(work/'index'),'oracle_index_tree_sha256':tree_hash(work/'index'),'candidate_index_bytes':index.stat().st_size,'candidate_index_sha256':sha(index),'candidate_binary_sha256':sha(binary),'candidate_lockfile_sha256':sha(root/'experiments/search-spike/Cargo.lock'),'rustc':cmdout('rustc','--version'),'cargo':cmdout('cargo','--version'),'JVM_options':env['CATALINA_OPTS'],'measurement_command':cmd,'benchmark_exit':proc.returncode,'limitations':['5 clients are a synthetic burst, endpoints measured sequentially, no concurrent production users','small source corpus only','only one path query per run','OS caches/background load/power not controlled','resource snapshots are not peak; only root server processes tracked','candidate scan is experimental, not complete OpenGrok REST or product']}
  (out/'metadata.json').write_text(json.dumps(meta,indent=2)+'\n');print('benchmark exit',proc.returncode); print((out/'run/report.json').read_text()[:3500]);sys.exit(proc.returncode)
 finally:
  stop.set()

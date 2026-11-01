@@ -11,7 +11,8 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from search_benchmark_gate import comparison, no_duplicate_keys
+from search_benchmark_gate import comparison, finite_float, no_duplicate_keys
+from oracle_http import opener
 
 
 def main():
@@ -34,9 +35,8 @@ def main():
     def fetch(url, label, cookie=None):
         start=time.perf_counter_ns(); body=b''; status=None; headers={}; error=None
         try:
-            opener=urllib.request.build_opener(urllib.request.ProxyHandler({}))
             request=urllib.request.Request(url,headers={'Cookie':cookie} if cookie else {})
-            with opener.open(request,timeout=20) as r: body=r.read(); status=r.status; headers=dict(r.headers.items())
+            with opener().open(request,timeout=20) as r: body=r.read(); status=r.status; headers=dict(r.headers.items())
         except urllib.error.HTTPError as e: status=e.code; body=e.read(); headers=dict(e.headers.items()); error=str(e)
         except (OSError, urllib.error.URLError) as e: error=str(e)
         elapsed=time.perf_counter_ns()-start
@@ -50,7 +50,7 @@ def main():
             return name + '=<redacted ephemeral session value>' + ''.join(';'+part for part in attributes)
         headers={k: (redact_cookie(v) if k.lower() == 'set-cookie' else v) for k,v in headers.items()}
         item={'body':label+'.body','status':status,'headers':headers,'set_cookie_present':has_cookie,'cookie_supported':cookie_supported,'error':error,'elapsed_ns':elapsed,'_cookie':raw_cookie}
-        try: item['_parsed']=json.loads(body,object_pairs_hook=no_duplicate_keys,parse_constant=lambda x: (_ for _ in ()).throw(ValueError('non-finite')))
+        try: item['_parsed']=json.loads(body,object_pairs_hook=no_duplicate_keys,parse_float=finite_float,parse_constant=lambda x: (_ for _ in ()).throw(ValueError('non-finite')))
         except (ValueError,UnicodeDecodeError): item['_parsed']=None
         return item
     def equal(x,y):

@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import json
+import math
 from pathlib import Path
 import sys
 
@@ -18,9 +19,27 @@ def no_duplicate_keys(pairs):
 
 def load_response(path):
     raw = path.read_bytes()
-    value = json.loads(raw, object_pairs_hook=no_duplicate_keys,
+    value = json.loads(raw, object_pairs_hook=no_duplicate_keys, parse_float=finite_float,
                        parse_constant=lambda value: (_ for _ in ()).throw(ValueError('non-finite JSON number')))
     return raw, value
+
+
+def finite_float(value):
+    result = float(value)
+    if not math.isfinite(result):
+        raise ValueError('non-finite JSON number')
+    return result
+
+
+def strict_equal(left, right):
+    """JSON types must match recursively; integer and float parses stay distinct."""
+    if type(left) is not type(right):
+        return False
+    if isinstance(left, dict):
+        return left.keys() == right.keys() and all(strict_equal(left[k], right[k]) for k in left)
+    if isinstance(left, list):
+        return len(left) == len(right) and all(strict_equal(a, b) for a, b in zip(left, right))
+    return left == right
 
 
 def valid_shape(obj):
@@ -54,8 +73,8 @@ def comparison(oracle, candidate):
     left = {k: v for k, v in oracle.items() if k not in {'time', 'results'}}
     right = {k: v for k, v in candidate.items() if k not in {'time', 'results'}}
     # Python dict equality ignores order. Explicitly preserve the result path sequence.
-    return (left == right and list(oracle['results']) == list(candidate['results'])
-            and all(oracle['results'][key] == candidate['results'][key] for key in oracle['results']))
+    return (strict_equal(left, right) and list(oracle['results']) == list(candidate['results'])
+            and all(strict_equal(oracle['results'][key], candidate['results'][key]) for key in oracle['results']))
 
 
 def main():

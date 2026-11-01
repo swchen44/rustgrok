@@ -11,6 +11,10 @@ import unittest
 ROOT = Path(__file__).resolve().parents[2]
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
+        if getattr(self.server, 'redirect', False) and not self.path.startswith('/target'):
+            self.send_response(302); self.send_header('Location', '/target'); self.end_headers(); return
+        if self.path.startswith('/target'):
+            self.server.redirect_target_requests = getattr(self.server, 'redirect_target_requests', 0) + 1
         body = json.dumps({'time': 1, 'resultCount': 1, 'results': {'/a': [{'line': self.server.line, 'lineNumber': '', 'tag': None}]}, 'startDocument': 0, 'endDocument': 0}).encode()
         self.send_response(200); self.send_header('Content-Type', 'application/json');
         if getattr(self.server, 'cookie', False) and 'JSESSIONID=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' not in self.headers.get('Cookie', ''): self.send_header('Set-Cookie', 'JSESSIONID=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA; Path=/source; HttpOnly')
@@ -18,6 +22,23 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers(); self.wfile.write(body)
     def log_message(self, *_): pass
 class LiveBenchmark(unittest.TestCase):
+    def test_redirect_is_not_followed_and_no_timing_occurs(self):
+        servers = [ThreadingHTTPServer(('127.0.0.1', 0), Handler) for _ in range(2)]
+        for server in servers:
+            server.line = '...'; threading.Thread(target=server.serve_forever, daemon=True).start()
+        servers[0].redirect = True
+        try:
+            with tempfile.TemporaryDirectory() as tmp:
+                output = Path(tmp)/'output'
+                urls = ['http://127.0.0.1:%d/source/api/v1/search?path=a&start=0&maxresults=10' % s.server_port for s in servers]
+                result = subprocess.run([sys.executable, str(ROOT/'tools/search_live_benchmark.py'), '--oracle', urls[0], '--candidate', urls[1], '--output', str(output), '--warmup', '1', '--samples', '5'], capture_output=True)
+                self.assertNotEqual(result.returncode, 0)
+                report = json.loads((output/'report.json').read_text())
+                self.assertEqual(report['timed_samples'], 0)
+                self.assertEqual(report['preflight'][0]['status'], 302)
+                self.assertEqual(getattr(servers[0], 'redirect_target_requests', 0), 0)
+        finally:
+            for server in servers: server.shutdown(); server.server_close()
     def test_matching_responses_produce_single_and_five_client_samples(self):
         servers = [ThreadingHTTPServer(('127.0.0.1', 0), Handler) for _ in range(2)]
         for server in servers:

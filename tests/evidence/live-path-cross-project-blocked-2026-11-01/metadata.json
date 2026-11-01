@@ -1,0 +1,257 @@
+{
+  "scope": "path-only live HTTP experiment; not full product parity or representative workload",
+  "case": "cross-project",
+  "query": "/source/api/v1/search?path=main.c&projects=alpha&projects=beta&start=0&maxresults=10",
+  "time": "2026-11-01T16:46:08+0800",
+  "platform": "macOS-15.7.7-arm64-arm-64bit-Mach-O",
+  "cpu": "Apple M1",
+  "memory_bytes": 8589934592,
+  "load_average": [
+    4.548828125,
+    5.5537109375,
+    4.39697265625
+  ],
+  "cache": "OS page cache and index caches not flushed; 50 warmup requests per endpoint per load",
+  "source_bytes": 3969,
+  "public_corpus_manifest_sha256": "88f491850b062ade1fbe157280f78b64b33774820c576dd83337cb11c7ab7c73",
+  "oracle_baseline": {
+    "schema_version": 1,
+    "role": "limited_original_oracle_capture_not_full_acceptance",
+    "captured_at": "2026-11-01T16:46:02+08:00",
+    "upstream_commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+    "archive_sha256": "f33d78f950ba7ed974caa9153120e4f26f9c7f4d63c1f48b7a0350e12d8e346d",
+    "jdk_archive_sha256": "bf036b35b071bfb2f54f2c0af8ee8d88afa95ee6eb3dce02c0f94cfc2524d04a",
+    "jdk_archive_bytes": 199754598,
+    "tomcat_archive_sha512": "aa06508300ca137a023b74b8600f2c1b3248412eb85d4fc5e2f337c6c4d3776f4491e272f79856ac541cfab0fc35537111ae4f3cfcd0bbe702c0a3610a61bd04",
+    "jar_sha256": "bc1f4650710cb92c4a43221c826018c6358bcbc30bf2aaa86688261a0f145aa1",
+    "war_sha256": "98358675a4e8547b065c72253c37f573d9ccd38816a64664be0da4dd223a9419",
+    "java_sha256": "0f642542ea1f0be6957557c0db96653ec128113bb5a4aaa7c2534d1d72ddb51f",
+    "ctags_sha256": "f3f91789a30b39d592b244cd4aa0d7eec6ed3445b499c69ffc27564cef7292a0",
+    "java_version": "openjdk 21.0.13 2026-10-20 LTS\nOpenJDK Runtime Environment Temurin-21.0.13+9 (build 21.0.13+9-LTS)\nOpenJDK 64-Bit Server VM Temurin-21.0.13+9 (build 21.0.13+9-LTS, mixed mode, sharing)\n",
+    "ctags_version": "Universal Ctags 6.2.1, Copyright (C) 2015-2025 Universal Ctags Team\nUniversal Ctags is derived from Exuberant Ctags.\nExuberant Ctags 5.8, Copyright (C) 1996-2009 Darren Hiebert\n  Compiled: Oct 25 2025, 13:15:24\n  URL: https://ctags.io/\n  Output version: 1.1\n  Optional compiled features: +wildcards, +regex, +gnulib_fnmatch, +gnulib_regex, +iconv, +option-directory, +xpath, +json, +interactive, +yaml, +case-insensitive-filenames, +packcc, +optscript, +pcre2\n",
+    "javac_sha256": "40425235eaac99cccf8ed57522d946313d8b5200161d1faf846b3e60d554c2ed",
+    "javac_version": "javac 21.0.13\n",
+    "javac_format": "Mach-O 64-bit executable arm64",
+    "git_path": "/usr/bin/git",
+    "git_sha256": "7f30f076d0e9c38f772a76449fca9da8cf97f6a3d43b94c90a00e4f9ce7ad39e",
+    "git_version": "git version 2.39.5 (Apple Git-154)\n",
+    "tomcat_version": "10.1.60",
+    "tomcat_runtime_scope": [
+      "bin",
+      "conf",
+      "lib"
+    ],
+    "tomcat_runtime_file_count": 74,
+    "tomcat_runtime_manifest_sha256": "048b685aaf5040a0074a5f544c4794dc15985141d3fa15f75fb94012967b70aa",
+    "platform": {
+      "system": "Darwin",
+      "release": "24.6.0",
+      "machine": "arm64",
+      "macos_version": "15.7.7",
+      "macos_build": "24G720"
+    },
+    "corpus_manifest_sha256": "88f491850b062ade1fbe157280f78b64b33774820c576dd83337cb11c7ab7c73",
+    "repositories": [
+      {
+        "project": "alpha",
+        "path": "alpha/component-c",
+        "file": "main.c",
+        "language": "C",
+        "source_sha256": "0afb5b45d1538ee86e23b046100c8e458614ba71e50f16c05bda1a52de0edb17",
+        "source_bytes": 730,
+        "revision": "a77cb2e35336a0fa75a58c55027206fb35804304",
+        "tree": "b1a9862d5628177748c3c49c24c5d7bf8aa4ba22",
+        "commits": [
+          "f67245711bfdd2f7b5db9c70a67f384a3f6b65ff",
+          "a77cb2e35336a0fa75a58c55027206fb35804304"
+        ],
+        "origin": "opengrok-indexer/src/test/resources/sources/c/main.c"
+      },
+      {
+        "project": "alpha",
+        "path": "alpha/component-js",
+        "file": "function.js",
+        "language": "JavaScript",
+        "source_sha256": "7e37130f0b5a078fea055a885632cdc00e1989def53e4fafe8b52a75824f8805",
+        "source_bytes": 821,
+        "revision": "148046eaf98107c72cdec15a203c15c2887b763c",
+        "tree": "d9ff251420efe29ab05f052ff762398fedfa33c5",
+        "commits": [
+          "148046eaf98107c72cdec15a203c15c2887b763c"
+        ],
+        "origin": "opengrok-indexer/src/test/resources/sources/javascript/function.js"
+      },
+      {
+        "project": "alpha",
+        "path": "alpha/component-c/nested-js",
+        "file": "function.js",
+        "language": "JavaScript",
+        "source_sha256": "7e37130f0b5a078fea055a885632cdc00e1989def53e4fafe8b52a75824f8805",
+        "source_bytes": 821,
+        "revision": "148046eaf98107c72cdec15a203c15c2887b763c",
+        "tree": "d9ff251420efe29ab05f052ff762398fedfa33c5",
+        "commits": [
+          "148046eaf98107c72cdec15a203c15c2887b763c"
+        ],
+        "origin": "opengrok-indexer/src/test/resources/sources/javascript/function.js"
+      },
+      {
+        "project": "beta",
+        "path": "beta/component-c",
+        "file": "main.c",
+        "language": "C",
+        "source_sha256": "0afb5b45d1538ee86e23b046100c8e458614ba71e50f16c05bda1a52de0edb17",
+        "source_bytes": 730,
+        "revision": "a77cb2e35336a0fa75a58c55027206fb35804304",
+        "tree": "b1a9862d5628177748c3c49c24c5d7bf8aa4ba22",
+        "commits": [
+          "f67245711bfdd2f7b5db9c70a67f384a3f6b65ff",
+          "a77cb2e35336a0fa75a58c55027206fb35804304"
+        ],
+        "origin": "opengrok-indexer/src/test/resources/sources/c/main.c"
+      },
+      {
+        "project": "beta",
+        "path": "beta/component-py",
+        "file": "main.py",
+        "language": "Python",
+        "source_sha256": "c30bc720a38c39709e22f6bba1996b58c0a4e2e25d8cc6ea1bff7a348efde3f0",
+        "source_bytes": 867,
+        "revision": "2dce203660f36bbeef5cabc381d3e17f92ec98ef",
+        "tree": "0c079f6780865f9b54ab8788c83ea1f0d781351b",
+        "commits": [
+          "2dce203660f36bbeef5cabc381d3e17f92ec98ef"
+        ],
+        "origin": "opengrok-indexer/src/test/resources/sources/python/main.py"
+      }
+    ],
+    "corpus_verified_unchanged_after_run": true,
+    "configuration_sha256": "4cdc7bda625630fe5c50febefc9c8a46f03d54964730aad54c0b5f39f145005c",
+    "index_command": [
+      "/Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/jdk-21.0.13+9/Contents/Home/bin/java",
+      "-Xms128m",
+      "-Xmx512m",
+      "-jar",
+      "/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/opengrok.jar",
+      "-c",
+      "/opt/homebrew/bin/ctags",
+      "-s",
+      "/private/tmp/rustgrok-issue7-public-corpus/source",
+      "-d",
+      "/private/tmp/rustgrok-issue7-strict-cross-project/fresh-oracle-capture/index",
+      "-W",
+      "/private/tmp/rustgrok-issue7-strict-cross-project/fresh-oracle-capture/configuration.xml",
+      "-P",
+      "-S",
+      "-H",
+      "-T",
+      "2"
+    ],
+    "index_exit_code": 0,
+    "loopback": "127.0.0.1",
+    "port": 50156,
+    "tomcat_exit_code": 143,
+    "responses": [
+      {
+        "case": "full_alpha",
+        "path": "/source/api/v1/search?full=main&projects=alpha",
+        "status": 200,
+        "file": "response-full_alpha.json",
+        "bytes": 426,
+        "sha256": "b4bf9d4552ac0e4a5f9bb7e0aba7c14c02a2bb3f247e8d9d5d8913fdb5454215"
+      },
+      {
+        "case": "path_alpha",
+        "path": "/source/api/v1/search?path=main.c&projects=alpha",
+        "status": 200,
+        "file": "response-path_alpha.json",
+        "bytes": 144,
+        "sha256": "002ec1790b1837fe7ec8777cb565cbd0b246bf14c54c77baa4d548977ce7acae"
+      },
+      {
+        "case": "definition_alpha",
+        "path": "/source/api/v1/search?def=main&projects=alpha",
+        "status": 200,
+        "file": "response-definition_alpha.json",
+        "bytes": 425,
+        "sha256": "620a7ec92f8e034c8d65dd155211be30a343f18c64cb9dd4e73af057e287aec1"
+      },
+      {
+        "case": "reference_beta",
+        "path": "/source/api/v1/search?symbol=main&projects=beta",
+        "status": 200,
+        "file": "response-reference_beta.json",
+        "bytes": 341,
+        "sha256": "cea1a6348e83c2a5c7d9ec1694f094bf4296080d13cc14520b0fb2fa4ea0e25f"
+      },
+      {
+        "case": "full_both",
+        "path": "/source/api/v1/search?full=main&projects=alpha&projects=beta",
+        "status": 200,
+        "file": "response-full_both.json",
+        "bytes": 694,
+        "sha256": "32a975e182aee5dce447c682e97f25554939854204e82208a8f22901fe34d6e7"
+      }
+    ],
+    "index_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "index_stderr_sha256": "55b2de15b5b0e3d15373aaeca62e7e4d70d23b7f15743fae5b9241d86734aa28",
+    "tomcat_log_sha256": "b3e8cef9b1d0afbe589855462d7dbd25a966a4c15f6e88e40800549ea2782b85",
+    "limitations": [
+      "small public corpus, not representative workload",
+      "only five query cases; not full query/SCM/UI compatibility",
+      "unmodified raw responses include nondeterministic time field",
+      "no product runtime, performance or full test-case PASS asserted",
+      "JDK archive and java/javac binaries verified; extracted JDK library tree not fully rehashed",
+      "ctags default option files are not inventoried; cross-host reproduction requires checking effective ctags configuration",
+      "HTTP status and raw body captured; full response headers are not captured"
+    ]
+  },
+  "candidate_index_command": [
+    "/Users/swchen.tw/git/rustgrok-issue-7/experiments/search-spike/target/release/rustgrok-search-spike",
+    "index",
+    "--source",
+    "/private/tmp/rustgrok-issue7-public-corpus/source",
+    "--index",
+    "/private/tmp/rustgrok-issue7-strict-cross-project/candidate-index.json",
+    "--ctags",
+    "/opt/homebrew/bin/ctags"
+  ],
+  "candidate_index_exit": 0,
+  "corpus_verified_after_run": true,
+  "both_indexes_rebuilt_from_verified_corpus": true,
+  "original_source_root_verified": "/private/tmp/rustgrok-issue7-public-corpus/source",
+  "oracle_configuration_sha256": "2661caf910846821170b20584f51d57a2f6c8cb3e852b62f146858de2fe9de88",
+  "config_change": "allowMostPopular explicitly false; upstream default is true; most-popular is deferred",
+  "oracle_index_bytes": 447035,
+  "oracle_index_tree_sha256": "b0b71bd684aa9f97c2aef5acb6a19b54f19f2700c581663fcad1d15b24198071",
+  "candidate_index_bytes": 5414,
+  "candidate_index_sha256": "51f7f42c70eb4c2184c5e19ac1e9f329023ea3be865fb3accb8644c4597315d5",
+  "candidate_binary_sha256": "0d06036588295b7ef1cfb88a597ea6f94c244eb6e74d1cf983681073b06d275a",
+  "candidate_lockfile_sha256": "5bc0965cfc7182ee16d28c4a6b56ed98f23a67a263ecf65911fd57601dbae076",
+  "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+  "cargo": "cargo 1.94.0 (85eff7c80 2026-01-15)",
+  "JVM_options": "-Xms128m -Xmx512m --add-exports=java.base/jdk.internal.ref=ALL-UNNAMED --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED --add-opens=jdk.compiler/com.sun.tools.javac=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED",
+  "measurement_command": [
+    "/Library/Frameworks/Python.framework/Versions/3.13/bin/python3",
+    "/Users/swchen.tw/git/rustgrok-issue-7/tools/search_live_benchmark.py",
+    "--oracle",
+    "http://127.0.0.1:50168/source/api/v1/search?path=main.c&projects=alpha&projects=beta&start=0&maxresults=10",
+    "--candidate",
+    "http://127.0.0.1:50169/source/api/v1/search?path=main.c&projects=alpha&projects=beta&start=0&maxresults=10",
+    "--output",
+    "/private/tmp/rustgrok-issue7-strict-cross-project/run",
+    "--warmup",
+    "50",
+    "--samples",
+    "100"
+  ],
+  "benchmark_exit": 1,
+  "limitations": [
+    "5 clients are a synthetic burst, endpoints measured sequentially, no concurrent production users",
+    "small source corpus only",
+    "only one path query per run",
+    "OS caches/background load/power not controlled",
+    "resource snapshots are not peak; only root server processes tracked",
+    "candidate scan is experimental, not complete OpenGrok REST or product"
+  ]
+}

@@ -56,5 +56,20 @@ class SearchBenchmarkGate(unittest.TestCase):
         self.assertNotEqual(p.returncode, 0)
         self.assertEqual(report['status'], 'BLOCKED_HTTP_STATUS')
 
+    def test_nested_boolean_and_number_are_not_equivalent(self):
+        a = self.sample(); b = self.sample()
+        a['results']['/a'][0]['extra'] = {'nested': [True]}
+        b['results']['/a'][0]['extra'] = {'nested': [1]}
+        p, report = self.run_gate(a, b)
+        self.assertNotEqual(p.returncode, 0)
+        self.assertEqual(report['status'], 'BLOCKED_OUTPUT_DIFFERENCE')
+
+    def test_integer_and_fractional_number_types_are_distinct(self):
+        a = self.sample(); b = self.sample()
+        a['extension'] = 1; b['extension'] = 1.0
+        p, report = self.run_gate(a, b)
+        self.assertNotEqual(p.returncode, 0)
+        self.assertEqual(report['status'], 'BLOCKED_OUTPUT_DIFFERENCE')
+
 if __name__ == '__main__':
     unittest.main()

@@ -1,5 +1,6 @@
 """Public interface checks for the Tantivy G1 scorer candidate."""
 import json
+import hashlib
 import os
 from pathlib import Path
 import subprocess
@@ -9,6 +10,19 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 
 class ScorerProbe(unittest.TestCase):
+    def test_preserved_input_replays_recorded_candidate_pages(self):
+        repo=ROOT.parents[1]
+        evidence=repo/'tests/evidence/grouped-single-term-pages-2026-11-01/comparison.json'
+        docs=repo/'tests/evidence/lucene-single-term-2026-11-01/candidate-documents.json'
+        recorded=json.loads(evidence.read_text())
+        self.assertEqual(hashlib.sha256(docs.read_bytes()).hexdigest(),recorded['candidate_index_input_sha256'])
+        self.assertEqual(len(recorded['cases']),12)
+        for case in recorded['cases']:
+            cmd=['cargo','run','--release','--locked','--offline','--quiet','--manifest-path',str(ROOT/'Cargo.toml'),'--','--documents',str(docs),'--field','full','--query','main','--lucene-single-term','--start',str(case['start']),'--maxresults',str(case['maxresults'])]
+            for project in case['projects']: cmd.extend(['--project',project])
+            actual=json.loads(subprocess.check_output(cmd,text=True))
+            self.assertEqual((actual['resultCount'],actual['startDocument'],actual['endDocument'],[hit['path'] for hit in actual['hits']]),
+                             (case['candidate_count'],case['candidate_start'],case['candidate_end'],case['candidate_ordered_paths']))
     def test_underscore_identifier_results_match_original_on_public_corpus(self):
         repo = ROOT.parents[1]
         fixture = repo/'tests/fixtures/public-source'
