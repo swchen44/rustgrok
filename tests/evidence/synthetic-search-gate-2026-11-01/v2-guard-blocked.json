@@ -1,0 +1,13 @@
+{
+  "status": "BLOCKED_BEFORE_OUTPUT_CREATION",
+  "observed_free_bytes": 5749108736,
+  "reserve_bytes": 6442450944,
+  "observed_exit_code": 1,
+  "output_existed_at_evidence_capture": false,
+  "error_excerpt": "insufficient disk: free=5749108736 upcoming=0 reserve=6442450944",
+  "recording": "Values transcribed from the v2 subprocess error returned by the execution tool; v2 stdout/stderr were not redirected to a file.",
+  "limitations": [
+    "Space may change between observations; no timing was performed in v2.",
+    "This is a sampled guard, not a filesystem quota."
+  ]
+}

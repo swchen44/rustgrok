@@ -1,0 +1,3410 @@
+{
+  "status": "COMPLETED_RESTRICTED_CASE",
+  "timed_samples": 200,
+  "warmup_per_endpoint_per_load": 20,
+  "samples_per_endpoint_per_load": 50,
+  "query": "/source/api/v1/search?path=synthetic000.c&projects=project00&start=0&maxresults=100",
+  "body_normalization": [
+    "top-level time value"
+  ],
+  "header_comparison_ignores": [
+    "date",
+    "content-length",
+    "connection"
+  ],
+  "full_product_parity": "NOT_ASSERTED",
+  "preflight": [
+    {
+      "body": "preflight-oracle.body",
+      "status": 200,
+      "headers": {
+        "Set-Cookie": "JSESSIONID=<redacted ephemeral session value>; Path=/source; HttpOnly",
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": true,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 10200334
+    },
+    {
+      "body": "preflight-candidate.body",
+      "status": 200,
+      "headers": {
+        "Set-Cookie": "JSESSIONID=<redacted ephemeral session value>; Path=/source; HttpOnly",
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": true,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4556458
+    }
+  ],
+  "preflight_body_and_content_type_match": true,
+  "cookie_followup": [
+    {
+      "body": "followup-0.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4967542
+    },
+    {
+      "body": "followup-1.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2359458
+    }
+  ],
+  "samples": [
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-000.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3229000
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-001.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2537083
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-002.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2637667
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-003.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2257833
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-004.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2724625
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-005.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2659542
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-006.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2717667
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-007.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2885250
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-008.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3004125
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-009.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4079166
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-010.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2572750
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-011.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2547000
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-012.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2962125
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-013.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3113833
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-014.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3348333
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-015.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2979666
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-016.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2986833
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-017.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2653041
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-018.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2964916
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-019.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3081500
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-020.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2941667
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-021.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2810917
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-022.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2933834
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-023.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3124834
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-024.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3491000
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-025.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2463125
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-026.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2493875
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-027.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2535500
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-028.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2730875
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-029.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2614208
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-030.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3243250
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-031.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2949208
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-032.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3614375
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-033.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2994292
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-034.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3415958
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-035.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2850666
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-036.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3163500
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-037.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2574208
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-038.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2670584
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-039.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3151834
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-040.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2716125
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-041.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2699166
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-042.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2807584
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-043.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2852958
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-044.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2892917
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-045.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2940959
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-046.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2947000
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-047.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2747166
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-048.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2667500
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c1-endpoint0-049.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3046875
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-000.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2589167
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-001.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2351958
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-002.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2323167
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-003.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2208666
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-004.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2191541
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-005.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2438458
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-006.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2407792
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-007.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2173916
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-008.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2310833
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-009.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2265417
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-010.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2104292
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-011.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2057417
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-012.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2354250
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-013.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2214917
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-014.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2336084
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-015.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2237417
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-016.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 1999250
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-017.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2483834
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-018.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2243333
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-019.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2483833
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-020.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2207250
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-021.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2248625
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-022.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2064875
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-023.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2091917
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-024.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2137500
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-025.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2187583
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-026.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2383750
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-027.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2252667
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-028.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2365541
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-029.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2233292
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-030.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2306333
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-031.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2248458
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-032.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2276833
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-033.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2820542
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-034.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2355708
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-035.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2505791
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-036.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3288208
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-037.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2085500
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-038.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2471625
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-039.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2181084
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-040.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2370833
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-041.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2100583
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-042.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2144083
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-043.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2093750
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-044.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2200083
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-045.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2280917
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-046.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2338666
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-047.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2234042
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-048.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2178708
+    },
+    {
+      "concurrency": 1,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c1-endpoint1-049.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2311459
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c5-endpoint0-000.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 6045667
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 1,
+      "body": "sample-c5-endpoint0-001.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5966667
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 2,
+      "body": "sample-c5-endpoint0-002.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5614958
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 3,
+      "body": "sample-c5-endpoint0-003.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5195625
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 4,
+      "body": "sample-c5-endpoint0-004.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4845750
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c5-endpoint0-005.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5770833
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 1,
+      "body": "sample-c5-endpoint0-006.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5795959
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 2,
+      "body": "sample-c5-endpoint0-007.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4994625
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 3,
+      "body": "sample-c5-endpoint0-008.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4284167
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 4,
+      "body": "sample-c5-endpoint0-009.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3845250
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c5-endpoint0-010.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 6036625
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 1,
+      "body": "sample-c5-endpoint0-011.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5729167
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 2,
+      "body": "sample-c5-endpoint0-012.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4793292
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 3,
+      "body": "sample-c5-endpoint0-013.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4431375
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 4,
+      "body": "sample-c5-endpoint0-014.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3845542
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c5-endpoint0-015.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4043333
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 1,
+      "body": "sample-c5-endpoint0-016.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5224500
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 2,
+      "body": "sample-c5-endpoint0-017.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4944042
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 3,
+      "body": "sample-c5-endpoint0-018.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 7761209
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 4,
+      "body": "sample-c5-endpoint0-019.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4373917
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c5-endpoint0-020.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4993292
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 1,
+      "body": "sample-c5-endpoint0-021.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4299666
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 2,
+      "body": "sample-c5-endpoint0-022.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5230292
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 3,
+      "body": "sample-c5-endpoint0-023.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5474333
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 4,
+      "body": "sample-c5-endpoint0-024.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4328583
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c5-endpoint0-025.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5790291
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 1,
+      "body": "sample-c5-endpoint0-026.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4817500
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 2,
+      "body": "sample-c5-endpoint0-027.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4791291
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 3,
+      "body": "sample-c5-endpoint0-028.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4227875
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 4,
+      "body": "sample-c5-endpoint0-029.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:23 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4573875
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c5-endpoint0-030.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:24 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 7304375
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 1,
+      "body": "sample-c5-endpoint0-031.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:24 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 7682167
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 2,
+      "body": "sample-c5-endpoint0-032.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:24 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4868459
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 3,
+      "body": "sample-c5-endpoint0-033.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:24 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 7470000
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 4,
+      "body": "sample-c5-endpoint0-034.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:24 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 7371667
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c5-endpoint0-035.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:24 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5122458
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 1,
+      "body": "sample-c5-endpoint0-036.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:24 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5297542
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 2,
+      "body": "sample-c5-endpoint0-037.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:24 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4986083
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 3,
+      "body": "sample-c5-endpoint0-038.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:24 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4263708
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 4,
+      "body": "sample-c5-endpoint0-039.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:24 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3684042
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c5-endpoint0-040.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:24 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 6315750
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 1,
+      "body": "sample-c5-endpoint0-041.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:24 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5919667
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 2,
+      "body": "sample-c5-endpoint0-042.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:24 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5507208
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 3,
+      "body": "sample-c5-endpoint0-043.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:24 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5550292
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 4,
+      "body": "sample-c5-endpoint0-044.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:24 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4972416
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 0,
+      "body": "sample-c5-endpoint0-045.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:24 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5739958
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 1,
+      "body": "sample-c5-endpoint0-046.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:24 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5477291
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 2,
+      "body": "sample-c5-endpoint0-047.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:24 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 7383792
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 3,
+      "body": "sample-c5-endpoint0-048.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:24 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 6379000
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 0,
+      "client": 4,
+      "body": "sample-c5-endpoint0-049.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 10:39:24 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4991208
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c5-endpoint1-000.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3204833
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 1,
+      "body": "sample-c5-endpoint1-001.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4555792
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 2,
+      "body": "sample-c5-endpoint1-002.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5654541
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 3,
+      "body": "sample-c5-endpoint1-003.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 8229250
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 4,
+      "body": "sample-c5-endpoint1-004.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 6460500
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c5-endpoint1-005.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2875166
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 1,
+      "body": "sample-c5-endpoint1-006.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3852500
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 2,
+      "body": "sample-c5-endpoint1-007.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 6929750
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 3,
+      "body": "sample-c5-endpoint1-008.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5024292
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 4,
+      "body": "sample-c5-endpoint1-009.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 7943917
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c5-endpoint1-010.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3226459
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 1,
+      "body": "sample-c5-endpoint1-011.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4599708
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 2,
+      "body": "sample-c5-endpoint1-012.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5697333
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 3,
+      "body": "sample-c5-endpoint1-013.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 6809667
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 4,
+      "body": "sample-c5-endpoint1-014.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 7832917
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c5-endpoint1-015.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4540625
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 1,
+      "body": "sample-c5-endpoint1-016.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 6091500
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 2,
+      "body": "sample-c5-endpoint1-017.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2695042
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 3,
+      "body": "sample-c5-endpoint1-018.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 7286417
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 4,
+      "body": "sample-c5-endpoint1-019.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 8153625
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c5-endpoint1-020.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4323875
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 1,
+      "body": "sample-c5-endpoint1-021.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 9315167
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 2,
+      "body": "sample-c5-endpoint1-022.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 7355458
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 3,
+      "body": "sample-c5-endpoint1-023.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4879500
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 4,
+      "body": "sample-c5-endpoint1-024.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 9244791
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c5-endpoint1-025.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2952334
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 1,
+      "body": "sample-c5-endpoint1-026.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4252708
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 2,
+      "body": "sample-c5-endpoint1-027.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5505084
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 3,
+      "body": "sample-c5-endpoint1-028.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 6723375
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 4,
+      "body": "sample-c5-endpoint1-029.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 7734334
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c5-endpoint1-030.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 2719042
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 1,
+      "body": "sample-c5-endpoint1-031.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3917667
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 2,
+      "body": "sample-c5-endpoint1-032.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5015083
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 3,
+      "body": "sample-c5-endpoint1-033.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5977625
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 4,
+      "body": "sample-c5-endpoint1-034.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 7322583
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c5-endpoint1-035.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3170291
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 1,
+      "body": "sample-c5-endpoint1-036.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4906792
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 2,
+      "body": "sample-c5-endpoint1-037.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 6353708
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 3,
+      "body": "sample-c5-endpoint1-038.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 7588958
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 4,
+      "body": "sample-c5-endpoint1-039.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 8741125
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c5-endpoint1-040.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3061834
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 1,
+      "body": "sample-c5-endpoint1-041.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4548458
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 2,
+      "body": "sample-c5-endpoint1-042.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5693125
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 3,
+      "body": "sample-c5-endpoint1-043.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 6639000
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 4,
+      "body": "sample-c5-endpoint1-044.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 7599250
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 0,
+      "body": "sample-c5-endpoint1-045.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 4701334
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 1,
+      "body": "sample-c5-endpoint1-046.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 3277625
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 2,
+      "body": "sample-c5-endpoint1-047.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 5710084
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 3,
+      "body": "sample-c5-endpoint1-048.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 7234166
+    },
+    {
+      "concurrency": 5,
+      "endpoint": 1,
+      "client": 4,
+      "body": "sample-c5-endpoint1-049.body",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Connection": "close"
+      },
+      "set_cookie_present": false,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 8466000
+    }
+  ],
+  "summary": {
+    "oracle_c1": {
+      "count": 50,
+      "errors": 0,
+      "p50_ns": 2885250,
+      "p95_ns": 3491000,
+      "p99_ns": 4079166
+    },
+    "candidate_c1": {
+      "count": 50,
+      "errors": 0,
+      "p50_ns": 2248625,
+      "p95_ns": 2589167,
+      "p99_ns": 3288208
+    },
+    "oracle_c5": {
+      "count": 50,
+      "errors": 0,
+      "p50_ns": 5195625,
+      "p95_ns": 7470000,
+      "p99_ns": 7761209
+    },
+    "candidate_c5": {
+      "count": 50,
+      "errors": 0,
+      "p50_ns": 5693125,
+      "p95_ns": 8741125,
+      "p99_ns": 9315167
+    }
+  },
+  "percentile_method": "nearest rank"
+}
