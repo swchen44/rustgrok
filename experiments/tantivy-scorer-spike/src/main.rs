@@ -44,7 +44,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         .filter(|pair| pair[0] == "--project")
         .map(|pair| pair[1].as_str())
         .collect();
-    let selected: Vec<_> = input
+    let mut selected: Vec<_> = input
         .iter()
         .filter(|d| {
             projects.is_empty() || d["project"].as_str().is_some_and(|p| projects.contains(&p))
@@ -62,6 +62,22 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let lucene_mode = args.iter().any(|arg| arg == "--lucene-single-term");
     if lucene_mode && field_name != "full" {
         return Err("single-term scorer supports only full field".into());
+    }
+    if lucene_mode {
+        if selected
+            .iter()
+            .any(|doc| doc["project"].as_str().is_none_or(str::is_empty))
+        {
+            return Err("missing project name".into());
+        }
+        // Upstream MultiReader orders projects by Java String / UTF-16 order.
+        // Within each project preserve candidate ingestion order; original docIDs
+        // and indexing concurrency are not reproduced by this experiment.
+        selected.sort_by(|a, b| {
+            let left = a["project"].as_str().unwrap_or("");
+            let right = b["project"].as_str().unwrap_or("");
+            full_tokenizer::compare_projects(left, right)
+        });
     }
     let mut field_docs = 0u64;
     let mut field_tokens = 0u64;
@@ -167,10 +183,37 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 .then_with(|| a.1.segment_ord.cmp(&b.1.segment_ord))
                 .then_with(|| a.1.doc_id.cmp(&b.1.doc_id))
         });
-        let results: Vec<_> = hits.iter().map(|(score,address,file,freq,length,norm_byte)| serde_json::json!({"path":file,"score":score,"score_bits":format!("{:08x}",score.to_bits()),"segment_ord":address.segment_ord,"doc_id":address.doc_id,"term_freq":freq,"field_length":length,"norm_byte":norm_byte})).collect();
+        let count = hits.len();
+        let paging = args.iter().any(|a| a == "--start" || a == "--maxresults");
+        let (start, maximum) = if paging {
+            let start: usize = arg(&args, "--start")?.parse()?;
+            let maximum: usize = arg(&args, "--maxresults")?.parse()?;
+            if start
+                .checked_add(maximum)
+                .filter(|n| *n <= i32::MAX as usize)
+                .is_none()
+            {
+                return Err("invalid page range".into());
+            }
+            (start, maximum)
+        } else {
+            (0, count)
+        };
+        let end = start.saturating_add(maximum).min(count);
+        let page = if start < end {
+            &hits[start..end]
+        } else {
+            &hits[0..0]
+        };
+        let end_document = if page.is_empty() {
+            start
+        } else {
+            start + page.len() - 1
+        };
+        let results: Vec<_> = page.iter().map(|(score,address,file,freq,length,norm_byte)| serde_json::json!({"path":file,"score":score,"score_bits":format!("{:08x}",score.to_bits()),"segment_ord":address.segment_ord,"doc_id":address.doc_id,"term_freq":freq,"field_length":length,"norm_byte":norm_byte})).collect();
         println!(
             "{}",
-            serde_json::json!({"role":"restricted single-term scorer experiment; candidate docID ties; not OpenGrok parity","indexed_documents":selected.len(),"field_document_count":field_docs,"field_token_count":field_tokens,"term_document_frequency":df,"k1":1.2,"b":0.75,"boost":1.0,"resultCount":results.len(),"hits":results})
+            serde_json::json!({"role":"restricted single-term scorer experiment; candidate docID ties; not OpenGrok parity","indexed_documents":selected.len(),"field_document_count":field_docs,"field_token_count":field_tokens,"term_document_frequency":df,"k1":1.2,"b":0.75,"boost":1.0,"resultCount":count,"startDocument":start,"endDocument":end_document,"hits":results})
         );
         return Ok(());
     }

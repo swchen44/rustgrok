@@ -20,13 +20,16 @@
  * Copyright (c) 2005, 2021, Oracle and/or its affiliates. All rights reserved.
  * Portions Copyright (c) 2017-2018, Chris Fraire <cfraire@me.com>.
  *
+ * SearchEngine.java: Copyright (c) 2005, 2026, Oracle and/or its affiliates. All rights reserved.
+ * Portions Copyright (c) 2018, Chris Fraire <cfraire@me.com>.
  * JFlexTokenizer.java: Copyright (c) 2009, 2025, Oracle and/or its affiliates. All rights reserved.
  * Portions Copyright (c) 2017, 2020, Chris Fraire <cfraire@me.com>.
  *
  * Adapted to Rust/Tantivy in 2026 for a restricted G1 experiment.
  * Upstream OpenGrok 1.14.20, commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3,
  * opengrok-indexer/src/main/jflex/analysis/plain/PlainFullTokenizer.lex,
- * opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/JFlexTokenizer.java:135-146.
+ * opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/JFlexTokenizer.java:135-146,
+ * opengrok-indexer/src/main/java/org/opengrok/indexer/search/SearchEngine.java:218-226.
  * Unicode version, offset conventions, and long-term limits are not yet proven equivalent.
  */
 // SPDX-License-Identifier: CDDL-1.0
@@ -119,4 +122,10 @@ pub fn validate(value: &str) -> Result<(), &'static str> {
         }
     }
     Ok(())
+}
+
+// Java's TreeSet<String> orders projects by UTF-16 code units.
+#[allow(dead_code)] // The token-only diagnostic includes this module too.
+pub fn compare_projects(left: &str, right: &str) -> std::cmp::Ordering {
+    left.encode_utf16().cmp(right.encode_utf16())
 }

@@ -81,6 +81,36 @@ class ScorerProbe(unittest.TestCase):
             self.assertEqual(data['resultCount'],200)
             self.assertEqual(len(data['hits']),200)
             self.assertEqual(data['hits'][0]['path'],'/alpha/199.c')
+    def test_multi_project_term_pages_match_original_across_project_order(self):
+        repo=ROOT.parents[1];fixture=repo/'tests/fixtures/public-source';evidence=repo/'tests/evidence/project-order-original-2026-11-01'
+        sources=[('alpha','component-c','c/main.c'),('alpha','component-js','javascript/function.js'),('alpha','component-c/nested-js','javascript/function.js'),('beta','component-c','c/main.c'),('beta','component-py','python/main.py.fixture')]
+        docs=[]
+        for project,component,name in reversed(sources):
+            display=name.removesuffix('.fixture').split('/')[-1]
+            docs.append({'path':f'/{project}/{component}/{display}','project':project,'content':(fixture/name).read_text(),'definitions':[]})
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/'documents.json';path.write_text(json.dumps(docs))
+            for first,second in (('alpha','beta'),('beta','alpha')):
+                for start in range(3):
+                    raw=json.loads((evidence/f'full-{first}-start{start}-max1-r0.json').read_text())
+                    cmd=['cargo','run','--release','--locked','--offline','--quiet','--manifest-path',str(ROOT/'Cargo.toml'),'--','--documents',str(path),'--field','full','--query','main','--project',first,'--project',second,'--lucene-single-term','--start',str(start),'--maxresults','1']
+                    actual=json.loads(subprocess.check_output(cmd,text=True))
+                    self.assertEqual(actual['resultCount'],raw['resultCount'])
+                    self.assertEqual([hit['path'] for hit in actual['hits']],list(raw['results']),(first,start))
+    def test_single_term_page_boundaries_match_original(self):
+        repo=ROOT.parents[1];fixture=repo/'tests/fixtures/public-source';evidence=repo/'tests/evidence/project-order-boundaries-2026-11-01'
+        sources=[('alpha','component-c','c/main.c'),('alpha','component-js','javascript/function.js'),('alpha','component-c/nested-js','javascript/function.js'),('beta','component-c','c/main.c'),('beta','component-py','python/main.py.fixture')]
+        docs=[]
+        for project,component,name in sources:
+            display=name.removesuffix('.fixture').split('/')[-1]
+            docs.append({'path':f'/{project}/{component}/{display}','project':project,'content':(fixture/name).read_text(),'definitions':[]})
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/'documents.json';path.write_text(json.dumps(docs))
+            for start,maximum in ((0,0),(100,1)):
+                raw=json.loads((evidence/f'full-alpha-start{start}-max{maximum}-r0.json').read_text())
+                cmd=['cargo','run','--release','--locked','--offline','--quiet','--manifest-path',str(ROOT/'Cargo.toml'),'--','--documents',str(path),'--field','full','--query','main','--project','alpha','--project','beta','--lucene-single-term','--start',str(start),'--maxresults',str(maximum)]
+                actual=json.loads(subprocess.check_output(cmd,text=True))
+                self.assertEqual((actual['resultCount'],actual['startDocument'],actual['endDocument'],[h['path'] for h in actual['hits']]),(raw['resultCount'],raw['startDocument'],raw['endDocument'],list(raw['results'])))
     def test_selected_project_scores_repeated_term_ahead(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / 'documents.json'
