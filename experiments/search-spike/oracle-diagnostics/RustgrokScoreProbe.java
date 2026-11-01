@@ -21,10 +21,16 @@ public class RustgrokScoreProbe {
         default -> throw new IllegalArgumentException();
       };
       System.out.println("query=" + query + " type=" + query.getClass().getName() + " maxDoc="+reader.maxDoc());
+      String diagnosticField = a[1].startsWith("full=") || a[1].equals("full") ? "full" : a[1].startsWith("path=") || a[1].equals("path") ? "path" : null;
+      if (diagnosticField != null) {
+        var stats = searcher.collectionStatistics(diagnosticField);
+        System.out.println("field="+diagnosticField+" fieldDocCount="+stats.docCount()+" sumTotalTermFreq="+stats.sumTotalTermFreq()+" maxDoc="+stats.maxDoc());
+      }
       TopDocs results = searcher.search(query, new TopScoreDocCollectorManager(Math.max(1,reader.maxDoc()), Integer.MAX_VALUE));
       for (ScoreDoc hit : results.scoreDocs) {
         Document doc = searcher.storedFields().document(hit.doc);
-        System.out.println("doc="+hit.doc+" score="+Float.toHexString(hit.score)+" fullpath="+doc.get("fullpath")+" path="+doc.get("path"));
+        var norms = diagnosticField == null ? null : MultiDocValues.getNormValues(reader, diagnosticField);
+        System.out.println("doc="+hit.doc+" score="+Float.toHexString(hit.score)+" fullpath="+doc.get("fullpath")+" path="+doc.get("path")+(norms != null && norms.advanceExact(hit.doc) ? " normByte="+(norms.longValue() & 255) : ""));
         System.out.println(searcher.explain(query, hit.doc));
       }
     }

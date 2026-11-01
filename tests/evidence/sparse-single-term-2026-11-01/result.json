@@ -1,0 +1,72 @@
+{
+  "scope": "three synthetic public files; one empty field; independent original index, no performance or production parity",
+  "source_sha256": {
+    "a.c": "7b4bb8e34d20c4ec426e4770c2c8e808fea9f4c78893f9190b02c55e9f75e88b",
+    "b.c": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "c.c": "67e9c1555047562e89b1bc311bdf382add4f4d6f226e92f68d116ccecd4f8b5f"
+  },
+  "oracle_index_files": [
+    {
+      "file": "_0.cfe",
+      "bytes": 550,
+      "sha256": "11957afa9bea1695236df46dacc54137bd60077601dd17492714caf91827c610"
+    },
+    {
+      "file": "_0.cfs",
+      "bytes": 7462,
+      "sha256": "6100aa55e75f1826c14530087d3bdbf1a8273f65fc22c97ff21510ba03c1c6d1"
+    },
+    {
+      "file": "_0.si",
+      "bytes": 328,
+      "sha256": "d553c58f58d16e51e81def698d5c3d7c7b632de2c5871e3dde9d39f8d5a3528a"
+    },
+    {
+      "file": "_1.cfe",
+      "bytes": 550,
+      "sha256": "96cc4e2f5723cddb67f067fef3ed4ecffb0a2621c60656457198d68d85c8cb61"
+    },
+    {
+      "file": "_1.cfs",
+      "bytes": 6286,
+      "sha256": "c3916d8d741810ae2580a562ddf3dfe2f33f4a91c59880b8d3acf0f3615c1d82"
+    },
+    {
+      "file": "_1.si",
+      "bytes": 328,
+      "sha256": "ed91705a59ca65d451a0107fc43f35ac9d416aaa147eed43d87e2c01d370faff"
+    },
+    {
+      "file": "segments_2",
+      "bytes": 238,
+      "sha256": "96a7f3349695b936e9173df146cc012dca605c5e9f171189a2f95cb45606aeb7"
+    }
+  ],
+  "oracle_indexer_exit": 0,
+  "oracle_command": [
+    "/Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/jdk-21.0.13+9/Contents/Home/bin/java",
+    "-Xms128m",
+    "-Xmx512m",
+    "-jar",
+    "/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/opengrok.jar",
+    "-c",
+    "/opt/homebrew/bin/ctags",
+    "-s",
+    "/tmp/rustgrok-sparse-public/source",
+    "-d",
+    "/tmp/rustgrok-sparse-public/index",
+    "-W",
+    "/tmp/rustgrok-sparse-public/config.xml",
+    "-P",
+    "-T",
+    "2"
+  ],
+  "java_sha256": "0f642542ea1f0be6957557c0db96653ec128113bb5a4aaa7c2534d1d72ddb51f",
+  "jar_sha256": "bc1f4650710cb92c4a43221c826018c6358bcbc30bf2aaa86688261a0f145aa1",
+  "ctags_sha256": "f3f91789a30b39d592b244cd4aa0d7eec6ed3445b499c69ffc27564cef7292a0",
+  "platform": "macOS-15.7.7-arm64-arm-64bit-Mach-O",
+  "original_score_stdout_sha256": "98aff079771dfbbeeb1c7fcf1de8f0a68779639ee4d4b8648b3ea99eda844f38",
+  "candidate_stdout_sha256": "8b3065282faf2516a8ee05a80632f822ee2552b1d99169bad0e853376bb686a4",
+  "norm_decode_table_sha256": "8598e0a109fa897814ab7af4cb281ab71964f54f72f8a873f83f4ef24045aab0",
+  "norm_decode_tables_identical": true
+}

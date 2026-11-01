@@ -5,8 +5,8 @@
   "files": [
     {
       "path": ".gitattributes",
-      "bytes": 1266,
-      "sha256": "0b418a2f051e4528b19ca085bd7091d018879d4a58d32a51ce50c1f9b69ac087"
+      "bytes": 1729,
+      "sha256": "c6915b6f5124b7134221f5240125a4bc09d66aa33781f8e5f0bc6620ef5d4d48"
     },
     {
       "path": ".github/ISSUE_TEMPLATE/compatibility-bug.md",
@@ -289,9 +289,14 @@
       "sha256": "d80d9ccde9e04d531044f668681657c71679514c0d0dece329efaec9dd24b0dd"
     },
     {
+      "path": "experiments/search-spike/oracle-diagnostics/RustgrokNormProbe.java",
+      "bytes": 206,
+      "sha256": "770f0639403a01b1cdbb4cede3818ca00d555348bd6109f7cdf011169549aac0"
+    },
+    {
       "path": "experiments/search-spike/oracle-diagnostics/RustgrokScoreProbe.java",
-      "bytes": 1764,
-      "sha256": "321044071574df591884047b3498010e5f2412f7fe7e330ad43e3296a7a202a9"
+      "bytes": 2394,
+      "sha256": "5cdad9636a769b273a13608b6a18011faaa7bb2c6d204615fdad11626b674e24"
     },
     {
       "path": "experiments/search-spike/oracle-diagnostics/RustgrokTokenProbe.java",
@@ -335,13 +340,23 @@
     },
     {
       "path": "experiments/tantivy-scorer-spike/Cargo.toml",
-      "bytes": 247,
-      "sha256": "a6e6e60da1b9ea2a070fa36bba110b583762fd7d384987ae38ce0d4a2bf81591"
+      "bytes": 262,
+      "sha256": "29f897d8cdf759d9da82320d039f7c7d26dec68e5a39020c546e453cb98d60a7"
+    },
+    {
+      "path": "experiments/tantivy-scorer-spike/LICENSE-APACHE-2.0.txt",
+      "bytes": 26085,
+      "sha256": "a2521407b3209df7dcebfc12cd6d732b24bfa2fe44982ef613e269666482521d"
     },
     {
       "path": "experiments/tantivy-scorer-spike/LICENSE.txt",
       "bytes": 19087,
       "sha256": "fcfd57e9dc09bb7a6f9f66da96f5b16fda522e87bf893ddcdfa45641af097bf9"
+    },
+    {
+      "path": "experiments/tantivy-scorer-spike/LUCENE-NOTICE.txt",
+      "bytes": 9945,
+      "sha256": "44daa997b18d238add3bd15eaaeb0df2ffd1e203d052957eb418e68d0b5b0dc3"
     },
     {
       "path": "experiments/tantivy-scorer-spike/OPENGROK-NOTICE.txt",
@@ -350,13 +365,13 @@
     },
     {
       "path": "experiments/tantivy-scorer-spike/README.md",
-      "bytes": 2426,
-      "sha256": "04078daac27ac437f3614fc5100a36c77c38d9a275667867bc874ba2ec13b2ba"
+      "bytes": 3107,
+      "sha256": "872cea3a19bf0f6133bb6748bbb290ff950d5f1ceb081b8fb950fcfba75807fd"
     },
     {
       "path": "experiments/tantivy-scorer-spike/RUST-LICENSE-MIT.txt",
-      "bytes": 1241,
-      "sha256": "9740bd145fcb57a919197393a37f3cdb20098e25fd3fda780444e3ce19d9b893"
+      "bytes": 1269,
+      "sha256": "a4dc291048c082f0b3f9124af854523fdbbcc08e613d622878360e0c55c1e357"
     },
     {
       "path": "experiments/tantivy-scorer-spike/examples/full_token_probe.rs",
@@ -364,14 +379,24 @@
       "sha256": "e327836b54ae7e1266e9aab0a02ee5aff622e5d2e9c8fa316b4a1403fd8f3cf7"
     },
     {
+      "path": "experiments/tantivy-scorer-spike/examples/norm_probe.rs",
+      "bytes": 262,
+      "sha256": "72159ff9296d1fdf4294f8d105df5f2efaf67f9c94107ef96198d1b377468841"
+    },
+    {
       "path": "experiments/tantivy-scorer-spike/src/full_tokenizer.rs",
       "bytes": 4197,
       "sha256": "b687d47ebb061c55c78373f4a33dfa8f40edd3a53363e29a2e347f4b6e14735b"
     },
     {
+      "path": "experiments/tantivy-scorer-spike/src/lucene_bm25.rs",
+      "bytes": 1594,
+      "sha256": "4d32e0ce4dc077746d58b209ddef1e6b9542f208ad7c0855d0da72d95efeed9a"
+    },
+    {
       "path": "experiments/tantivy-scorer-spike/src/main.rs",
-      "bytes": 4790,
-      "sha256": "6fc651e1b3781b7afbc7bb6b675e002e82beb3c68925cccbdb7e124afbfbeadb"
+      "bytes": 8763,
+      "sha256": "4ff29f08245a0247e98726a4024ba4e391a5d41ca73dbf346838ed6b68421aea"
     },
     {
       "path": "experiments/tantivy-scorer-spike/tests/test_full_tokens.py",
@@ -380,8 +405,8 @@
     },
     {
       "path": "experiments/tantivy-scorer-spike/tests/test_scorer_cli.py",
-      "bytes": 4177,
-      "sha256": "4a7fabbd6de00d10036ce490caecfd4dbd1900b19b846c73109b09af237280ab"
+      "bytes": 7769,
+      "sha256": "d7f09a2ae5e2613528627770b8a7d1b775c6b6bfc1caeaf77dd9dac627655aa0"
     },
     {
       "path": "npm/README.md",
@@ -391,7 +416,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 807,
-      "sha256": "22d16199aabb96fda60eb28b4c6639c222862c5b874362bebbff24831567664a"
+      "sha256": "a37b754a09c52109ca968ed96204a8a97a77a75b0dc516afc1e518aeccd82fd7"
     },
     {
       "path": "tests/README.md",
@@ -3984,6 +4009,31 @@
       "sha256": "aaceee267838355ccbbec3780b615bba113bd79017c64744e363558d3dd519b1"
     },
     {
+      "path": "tests/evidence/lucene-single-term-2026-11-01/README.md",
+      "bytes": 2469,
+      "sha256": "044e973260ddbeb8c25aeddfbddf916c97e8721759261074896ca18c9b89f5e2"
+    },
+    {
+      "path": "tests/evidence/lucene-single-term-2026-11-01/candidate-full-both.json",
+      "bytes": 1093,
+      "sha256": "eb7fdb8ed41d6bd977c7999e7f847e0fee7de0492e004c845a0d66507457d9fd"
+    },
+    {
+      "path": "tests/evidence/lucene-single-term-2026-11-01/comparison.json",
+      "bytes": 3103,
+      "sha256": "d5a8f8dcd133886faacb9ba55b8d47462969f15799bb97267738bc1148ecb053"
+    },
+    {
+      "path": "tests/evidence/lucene-single-term-2026-11-01/oracle-full-both.stderr.txt",
+      "bytes": 765,
+      "sha256": "6d507e954aa705a428821fbcee87f34c139c99d5f1573be3e7459d9962511fcb"
+    },
+    {
+      "path": "tests/evidence/lucene-single-term-2026-11-01/oracle-full-both.txt",
+      "bytes": 3698,
+      "sha256": "7f53cdf2ecbd91ec1512393be0a291ed06fc63cab7a2635f96a69b4c5be61bd9"
+    },
+    {
       "path": "tests/evidence/oracle-acquisition-2026-11-01.json",
       "bytes": 7698,
       "sha256": "1b9beabf2f492a27d5bab280fa037e654b0b949742b9c4b88ab00f775f51b5bf"
@@ -5207,6 +5257,76 @@
       "path": "tests/evidence/search-spike-2026-11-01/score-other-cases/reference_beta.txt",
       "bytes": 1424,
       "sha256": "dcd16867b8dcbe136dc91f31b09376d01cbec33a840d025310613870949b7310"
+    },
+    {
+      "path": "tests/evidence/sparse-single-term-2026-11-01/README.md",
+      "bytes": 1263,
+      "sha256": "62d02edef0b40603327189053e783459dd7950bde507a0627724d49dcc1392a3"
+    },
+    {
+      "path": "tests/evidence/sparse-single-term-2026-11-01/candidate.json",
+      "bytes": 395,
+      "sha256": "8b3065282faf2516a8ee05a80632f822ee2552b1d99169bad0e853376bb686a4"
+    },
+    {
+      "path": "tests/evidence/sparse-single-term-2026-11-01/indexer.stderr.txt",
+      "bytes": 3746,
+      "sha256": "77d3fdbf8aba5bae69ea848f89b74d5425495c150fba5731aebe22dc6c5c2484"
+    },
+    {
+      "path": "tests/evidence/sparse-single-term-2026-11-01/indexer.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/sparse-single-term-2026-11-01/lucene-norm-table.txt",
+      "bytes": 2490,
+      "sha256": "8598e0a109fa897814ab7af4cb281ab71964f54f72f8a873f83f4ef24045aab0"
+    },
+    {
+      "path": "tests/evidence/sparse-single-term-2026-11-01/oracle-current.stderr.txt",
+      "bytes": 765,
+      "sha256": "6aa105c98820e52cf56a56e8ed9657590138f35d71e02f9795ec4fa0e46d8822"
+    },
+    {
+      "path": "tests/evidence/sparse-single-term-2026-11-01/oracle-current.txt",
+      "bytes": 800,
+      "sha256": "98aff079771dfbbeeb1c7fcf1de8f0a68779639ee4d4b8648b3ea99eda844f38"
+    },
+    {
+      "path": "tests/evidence/sparse-single-term-2026-11-01/oracle-score.stderr.txt",
+      "bytes": 765,
+      "sha256": "6e3f152f6cda13d8bf789eefe57f9cb15bb7da293233abcbed946567664c2fe6"
+    },
+    {
+      "path": "tests/evidence/sparse-single-term-2026-11-01/oracle-score.txt",
+      "bytes": 732,
+      "sha256": "ccc0eeb4661227a806307ad289f8b36a3061eef5757b0b6221e44c6ddc2030b9"
+    },
+    {
+      "path": "tests/evidence/sparse-single-term-2026-11-01/result.json",
+      "bytes": 2593,
+      "sha256": "f04601a50a8a377559f7a1a7f539ea89b337890b61c8e507e92c75480e3f27bb"
+    },
+    {
+      "path": "tests/evidence/sparse-single-term-2026-11-01/source/a.c",
+      "bytes": 29,
+      "sha256": "7b4bb8e34d20c4ec426e4770c2c8e808fea9f4c78893f9190b02c55e9f75e88b"
+    },
+    {
+      "path": "tests/evidence/sparse-single-term-2026-11-01/source/b.c",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/sparse-single-term-2026-11-01/source/c.c",
+      "bytes": 31,
+      "sha256": "67e9c1555047562e89b1bc311bdf382add4f4d6f226e92f68d116ccecd4f8b5f"
+    },
+    {
+      "path": "tests/evidence/sparse-single-term-2026-11-01/tantivy-norm-table.txt",
+      "bytes": 2490,
+      "sha256": "8598e0a109fa897814ab7af4cb281ab71964f54f72f8a873f83f4ef24045aab0"
     },
     {
       "path": "tests/evidence/tantivy-full-adapter-2026-11-01/README.md",

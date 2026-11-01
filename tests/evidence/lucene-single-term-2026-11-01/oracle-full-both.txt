@@ -1,0 +1,67 @@
+query=full:main type=org.apache.lucene.search.TermQuery maxDoc=16
+field=full fieldDocCount=5 sumTotalTermFreq=1087 maxDoc=16
+doc=10 score=0x1.b53d58p-5 fullpath=null path=/beta/component-py/main.py normByte=69
+0.053373978 = weight(full:main in 1) [BM25Similarity], result of:
+  0.053373978 = score(freq=2.0), computed as boost * idf * tf from:
+    0.087011375 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+      5 = n, number of documents containing term
+      5 = N, total number of documents with field
+    0.6134138 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+      2.0 = freq, occurrences of term within document
+      1.2 = k1, term saturation parameter
+      0.75 = b, length normalization parameter
+      232.0 = dl, length of field (approximate)
+      217.4 = avgdl, average length of field
+
+doc=8 score=0x1.59ba5p-5 fullpath=null path=/alpha/component-c/main.c normByte=66
+0.0422031 = weight(full:main in 0) [BM25Similarity], result of:
+  0.0422031 = score(freq=1.0), computed as boost * idf * tf from:
+    0.087011375 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+      5 = n, number of documents containing term
+      5 = N, total number of documents with field
+    0.4850297 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+      1.0 = freq, occurrences of term within document
+      1.2 = k1, term saturation parameter
+      0.75 = b, length normalization parameter
+      184.0 = dl, length of field (approximate)
+      217.4 = avgdl, average length of field
+
+doc=9 score=0x1.59ba5p-5 fullpath=null path=/beta/component-c/main.c normByte=66
+0.0422031 = weight(full:main in 0) [BM25Similarity], result of:
+  0.0422031 = score(freq=1.0), computed as boost * idf * tf from:
+    0.087011375 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+      5 = n, number of documents containing term
+      5 = N, total number of documents with field
+    0.4850297 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+      1.0 = freq, occurrences of term within document
+      1.2 = k1, term saturation parameter
+      0.75 = b, length normalization parameter
+      184.0 = dl, length of field (approximate)
+      217.4 = avgdl, average length of field
+
+doc=0 score=0x1.44dacp-5 fullpath=null path=/alpha/component-c/nested-js/function.js normByte=68
+0.03965509 = weight(full:main in 0) [BM25Similarity], result of:
+  0.03965509 = score(freq=1.0), computed as boost * idf * tf from:
+    0.087011375 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+      5 = n, number of documents containing term
+      5 = N, total number of documents with field
+    0.45574605 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+      1.0 = freq, occurrences of term within document
+      1.2 = k1, term saturation parameter
+      0.75 = b, length normalization parameter
+      216.0 = dl, length of field (approximate)
+      217.4 = avgdl, average length of field
+
+doc=1 score=0x1.44dacp-5 fullpath=null path=/alpha/component-js/function.js normByte=68
+0.03965509 = weight(full:main in 1) [BM25Similarity], result of:
+  0.03965509 = score(freq=1.0), computed as boost * idf * tf from:
+    0.087011375 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+      5 = n, number of documents containing term
+      5 = N, total number of documents with field
+    0.45574605 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+      1.0 = freq, occurrences of term within document
+      1.2 = k1, term saturation parameter
+      0.75 = b, length normalization parameter
+      216.0 = dl, length of field (approximate)
+      217.4 = avgdl, average length of field
+

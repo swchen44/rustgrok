@@ -40,6 +40,47 @@ class ScorerProbe(unittest.TestCase):
             result=subprocess.run(cmd,capture_output=True,text=True)
             self.assertNotEqual(result.returncode,0)
             self.assertIn('unsupported token exceeding Lucene byte limit',result.stderr)
+    def test_single_term_score_bits_match_original_public_corpus(self):
+        repo=ROOT.parents[1];fixture=repo/'tests/fixtures/public-source'
+        sources=[('alpha','component-c','c/main.c'),('alpha','component-js','javascript/function.js'),('alpha','component-c/nested-js','javascript/function.js'),('beta','component-c','c/main.c'),('beta','component-py','python/main.py.fixture')]
+        docs=[]
+        for project,component,name in sources:
+            display=name.removesuffix('.fixture').split('/')[-1]
+            docs.append({'path':f'/{project}/{component}/{display}','project':project,'content':(fixture/name).read_text(),'definitions':[]})
+        import re,struct
+        raw=(repo/'tests/evidence/search-spike-2026-11-01/score-other-cases/full_both.txt').read_text()
+        expected={path:struct.pack('>f',float.fromhex(score)).hex() for score,path in re.findall(r'^doc=\d+ score=(\S+) fullpath=\S+ path=(\S+)',raw,re.M)}
+        self.assertEqual(len(expected),5)
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/'documents.json';path.write_text(json.dumps(docs))
+            cmd=['cargo','run','--release','--locked','--offline','--quiet','--manifest-path',str(ROOT/'Cargo.toml'),'--','--documents',str(path),'--field','full','--query','main','--project','alpha','--project','beta','--lucene-single-term']
+            result=json.loads(subprocess.check_output(cmd,text=True))
+            self.assertEqual({hit['path']:hit['score_bits'] for hit in result['hits']},expected)
+    def test_sparse_field_document_count_and_score_match_original(self):
+        repo=ROOT.parents[1];source=repo/'tests/evidence/sparse-single-term-2026-11-01/source'
+        docs=[{'path':f'/alpha/{name}','project':'alpha','content':(source/name).read_text(),'definitions':[]} for name in ('a.c','b.c','c.c')]
+        import re,struct
+        raw=(source.parent/'oracle-score.txt').read_text()
+        score=re.search(r'^doc=\d+ score=(\S+).*path=(\S+)',raw,re.M)
+        expected=struct.pack('>f',float.fromhex(score.group(1))).hex()
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/'documents.json';path.write_text(json.dumps(docs))
+            cmd=['cargo','run','--release','--locked','--offline','--quiet','--manifest-path',str(ROOT/'Cargo.toml'),'--','--documents',str(path),'--field','full','--query','main','--project','alpha','--lucene-single-term']
+            actual=json.loads(subprocess.check_output(cmd,text=True))
+            self.assertEqual(actual['field_document_count'],2)
+            self.assertEqual(actual['term_document_frequency'],1)
+            self.assertEqual([(x['path'],x['score_bits']) for x in actual['hits']],[(score.group(2),expected)])
+    def test_single_term_scores_all_matches_before_ranking(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/'documents.json'
+            docs=[{'path':f'/alpha/{i}.c','project':'alpha','content':'main filler filler','definitions':[]} for i in range(200)]
+            docs[-1]['content']='main main main main filler'
+            path.write_text(json.dumps(docs))
+            cmd=['cargo','run','--release','--locked','--offline','--quiet','--manifest-path',str(ROOT/'Cargo.toml'),'--','--documents',str(path),'--field','full','--query','main','--project','alpha','--lucene-single-term']
+            data=json.loads(subprocess.check_output(cmd,text=True))
+            self.assertEqual(data['resultCount'],200)
+            self.assertEqual(len(data['hits']),200)
+            self.assertEqual(data['hits'][0]['path'],'/alpha/199.c')
     def test_selected_project_scores_repeated_term_ahead(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / 'documents.json'

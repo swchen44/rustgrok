@@ -18,3 +18,9 @@ experiments/tantivy-scorer-spike/OPENGROK-NOTICE.txt -text whitespace=-blank-at-
 
 # Preserve the original and candidate FULL diagnostic streams.
 tests/evidence/full-token-diagnostic-2026-11-01/*.txt -text whitespace=-blank-at-eof,-blank-at-eol
+
+# Preserve unmodified Lucene distribution licensing and scorer evidence.
+experiments/tantivy-scorer-spike/LICENSE-APACHE-2.0.txt -text whitespace=-blank-at-eof,-blank-at-eol
+experiments/tantivy-scorer-spike/LUCENE-NOTICE.txt -text whitespace=-blank-at-eof,-blank-at-eol
+tests/evidence/lucene-single-term-2026-11-01/*.txt -text whitespace=-blank-at-eof,-blank-at-eol
+tests/evidence/sparse-single-term-2026-11-01/*.txt -text whitespace=-blank-at-eof,-blank-at-eol
