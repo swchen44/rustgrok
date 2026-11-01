@@ -1,0 +1,117 @@
+{
+  "scope": "original offset is not interchangeable with source-byte span; do not normalize away",
+  "cases": [
+    {
+      "case": "turkish-single",
+      "input": "İ",
+      "original_tokens": [
+        [
+          0,
+          0,
+          2,
+          "i̇"
+        ]
+      ],
+      "candidate_tokens": [
+        [
+          0,
+          0,
+          2,
+          "i̇"
+        ]
+      ],
+      "original_offset_unit": "UTF-16 code units, produced after lowercasing",
+      "candidate_offset_unit": "UTF-8 source bytes",
+      "input_length_utf16": 1,
+      "input_length_utf8": 2,
+      "terms_and_ordinal_match": true
+    },
+    {
+      "case": "turkish-prefix",
+      "input": "İx",
+      "original_tokens": [
+        [
+          0,
+          0,
+          3,
+          "i̇x"
+        ]
+      ],
+      "candidate_tokens": [
+        [
+          0,
+          0,
+          3,
+          "i̇x"
+        ]
+      ],
+      "original_offset_unit": "UTF-16 code units, produced after lowercasing",
+      "candidate_offset_unit": "UTF-8 source bytes",
+      "input_length_utf16": 2,
+      "input_length_utf8": 3,
+      "terms_and_ordinal_match": true
+    },
+    {
+      "case": "turkish-internal",
+      "input": "aİb",
+      "original_tokens": [
+        [
+          0,
+          0,
+          4,
+          "ai̇b"
+        ]
+      ],
+      "candidate_tokens": [
+        [
+          0,
+          0,
+          4,
+          "ai̇b"
+        ]
+      ],
+      "original_offset_unit": "UTF-16 code units, produced after lowercasing",
+      "candidate_offset_unit": "UTF-8 source bytes",
+      "input_length_utf16": 3,
+      "input_length_utf8": 4,
+      "terms_and_ordinal_match": true
+    },
+    {
+      "case": "turkish-after-astral",
+      "input": "😀İx!",
+      "original_tokens": [
+        [
+          0,
+          2,
+          5,
+          "i̇x"
+        ],
+        [
+          1,
+          4,
+          5,
+          "!"
+        ]
+      ],
+      "candidate_tokens": [
+        [
+          0,
+          4,
+          7,
+          "i̇x"
+        ],
+        [
+          1,
+          7,
+          8,
+          "!"
+        ]
+      ],
+      "original_offset_unit": "UTF-16 code units, produced after lowercasing",
+      "candidate_offset_unit": "UTF-8 source bytes",
+      "input_length_utf16": 5,
+      "input_length_utf8": 8,
+      "terms_and_ordinal_match": true
+    }
+  ]
+}

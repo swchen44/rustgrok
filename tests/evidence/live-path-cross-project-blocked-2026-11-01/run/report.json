@@ -1,0 +1,48 @@
+{
+  "status": "BLOCKED_OUTPUT_DIFFERENCE",
+  "timed_samples": 0,
+  "warmup_per_endpoint_per_load": 50,
+  "samples_per_endpoint_per_load": 100,
+  "query": "/source/api/v1/search?path=main.c&projects=alpha&projects=beta&start=0&maxresults=10",
+  "body_normalization": [
+    "top-level time value"
+  ],
+  "header_comparison_ignores": [
+    "date",
+    "content-length",
+    "connection"
+  ],
+  "full_product_parity": "NOT_ASSERTED",
+  "preflight": [
+    {
+      "body": "preflight-oracle.body",
+      "status": 200,
+      "headers": {
+        "Set-Cookie": "JSESSIONID=<redacted ephemeral session value>; Path=/source; HttpOnly",
+        "Content-Type": "application/json",
+        "Content-Length": "215",
+        "Date": "Sun, 01 Nov 2026 08:46:08 GMT",
+        "Connection": "close"
+      },
+      "set_cookie_present": true,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 7503291
+    },
+    {
+      "body": "preflight-candidate.body",
+      "status": 200,
+      "headers": {
+        "Set-Cookie": "JSESSIONID=<redacted ephemeral session value>; Path=/source; HttpOnly",
+        "Content-Type": "application/json",
+        "Content-Length": "215",
+        "Connection": "close"
+      },
+      "set_cookie_present": true,
+      "cookie_supported": true,
+      "error": null,
+      "elapsed_ns": 826958
+    }
+  ],
+  "preflight_body_and_content_type_match": false
+}

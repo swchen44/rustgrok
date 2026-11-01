@@ -1,0 +1,133 @@
+{
+  "scope": "Diagnostic independent index, not measured performance index. OpenGrok QueryBuilder and Lucene helper without original executor; no full parity or HTTP acceptance.",
+  "cases": [
+    {
+      "query": "main",
+      "oracle_command": [
+        "/Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/jdk-21.0.13+9/Contents/Home/bin/java",
+        "-cp",
+        "/tmp/rustgrok-issue7-score-classes:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/*",
+        "RustgrokScoreProbe",
+        "/tmp/rustgrok-issue7-pristine-capture/index",
+        "path=main",
+        "alpha",
+        "beta"
+      ],
+      "candidate_command": [
+        "/Users/swchen.tw/git/rustgrok-issue-7/experiments/search-spike/target/release/rustgrok-search-spike",
+        "search",
+        "--index",
+        "/tmp/rustgrok-issue7-documents.json",
+        "--field",
+        "path",
+        "--query",
+        "main",
+        "--project",
+        "alpha",
+        "--project",
+        "beta"
+      ],
+      "oracle_stdout_sha256": "4a4f1d6ebe115994ac4e07be5ee743d3c4e9825ed0893c7dcff401063735a204",
+      "candidate_stdout_sha256": "4aa7af8f5ebd956428f685a50cc95097a3b6264fe12a11bf62a6348bd862f95f",
+      "candidate_result_count": 3
+    },
+    {
+      "query": "ain",
+      "oracle_command": [
+        "/Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/jdk-21.0.13+9/Contents/Home/bin/java",
+        "-cp",
+        "/tmp/rustgrok-issue7-score-classes:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/*",
+        "RustgrokScoreProbe",
+        "/tmp/rustgrok-issue7-pristine-capture/index",
+        "path=ain",
+        "alpha",
+        "beta"
+      ],
+      "candidate_command": [
+        "/Users/swchen.tw/git/rustgrok-issue-7/experiments/search-spike/target/release/rustgrok-search-spike",
+        "search",
+        "--index",
+        "/tmp/rustgrok-issue7-documents.json",
+        "--field",
+        "path",
+        "--query",
+        "ain",
+        "--project",
+        "alpha",
+        "--project",
+        "beta"
+      ],
+      "oracle_stdout_sha256": "af29ff0d8515427a8c774177a1b036efd4ac8b170513d9f13e1baab5fb612862",
+      "candidate_stdout_sha256": "4aa7af8f5ebd956428f685a50cc95097a3b6264fe12a11bf62a6348bd862f95f",
+      "candidate_result_count": 3
+    }
+  ],
+  "index_files": [
+    {
+      "path": "index/alpha/_0.cfe",
+      "sha256": "82891dda0753bc49ff21fca7eaa54298511a3ab75c610d0c92a719fdbea203b4",
+      "bytes": 550
+    },
+    {
+      "path": "index/alpha/_0.cfs",
+      "sha256": "bba60752d56d2333cba5788fe7063caea7802dc0a6ac241cc120bced375f0f8f",
+      "bytes": 13029
+    },
+    {
+      "path": "index/alpha/_0.si",
+      "sha256": "554222e6574f6bffba46f72e1aa80780c5de62900ee522035a4d8a13b6a21b38",
+      "bytes": 328
+    },
+    {
+      "path": "index/alpha/_1.cfe",
+      "sha256": "b1c19522f80ba9a5aca8754c8b7648bd5d7249524bbb7ca97f184c09e6c30b91",
+      "bytes": 550
+    },
+    {
+      "path": "index/alpha/_1.cfs",
+      "sha256": "f1f34fbebe12f0fb26dea522878364d3d4ddb34046feca4f0763de979839f9d4",
+      "bytes": 8901
+    },
+    {
+      "path": "index/alpha/_1.si",
+      "sha256": "c01586818402303145bea2f0e221fb698445f54658153b1175449c9f4653e28a",
+      "bytes": 328
+    },
+    {
+      "path": "index/alpha/segments_2",
+      "sha256": "593ddd2a69b3951e54c7be1f008fe349d248f137e391abfbad0930dd5d082251",
+      "bytes": 238
+    },
+    {
+      "path": "index/beta/_0.cfe",
+      "sha256": "249cd886b9498ec1bbdb4f9e850b4bf4c63a2d4fbe0274521b3f5c972e0ca088",
+      "bytes": 550
+    },
+    {
+      "path": "index/beta/_0.cfs",
+      "sha256": "99d29e1758797afb7882ad8d7b811a509992546a7dbc8a5566c49f7536fba2ea",
+      "bytes": 14256
+    },
+    {
+      "path": "index/beta/_0.si",
+      "sha256": "ae700dfdcfe722ac76757e66ccb0767471a1f9d0358958e06fdee109017fbafe",
+      "bytes": 328
+    },
+    {
+      "path": "index/beta/segments_2",
+      "sha256": "800b27d71c0324831ad9bc5b163afd42ed8f499819df624fe9a4fd91e05f5ed6",
+      "bytes": 155
+    }
+  ],
+  "candidate_index_sha256": "51f7f42c70eb4c2184c5e19ac1e9f329023ea3be865fb3accb8644c4597315d5",
+  "helper_source_sha256": "d9c8557cc990eaa342861a1a266938c14ed5f927f9c1f51d40fc50f4b0d79302",
+  "additional_term": {
+    "query": "mai",
+    "oracle_stdout": "mai.oracle.txt",
+    "oracle_sha256": "81a78fb01c3e2e77544b616f2ec7b193d8c6aad3ae3288e22ba641bcd34e5c6d",
+    "candidate_before": "mai.candidate-before.json",
+    "candidate_after": "mai.candidate-after.json",
+    "before_sha256": "4aa7af8f5ebd956428f685a50cc95097a3b6264fe12a11bf62a6348bd862f95f",
+    "after_sha256": "22c7ee24dcedfea611a46766a9a33789e841ae7c0c8d5604f363e663ff8f3a08"
+  }
+}

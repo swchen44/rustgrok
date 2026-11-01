@@ -1,0 +1,9 @@
+{
+  "original_capture_tree_sha256_before": "a3ca441caf80aebfb5bdf57ddb004c98a22efb8562962b1d822a621e91c02aaf",
+  "original_capture_tree_sha256_after_run": "a3ca441caf80aebfb5bdf57ddb004c98a22efb8562962b1d822a621e91c02aaf",
+  "original_capture_unchanged": true,
+  "capture_tree_sha256_before": "c5a239349cfdc792d383c16f8b3cf111db861a2bbde9c1bd84a972b69ee8286a",
+  "capture_tree_sha256_after_prepare": "c5a239349cfdc792d383c16f8b3cf111db861a2bbde9c1bd84a972b69ee8286a",
+  "fresh_capture_tree_sha256_after_run": "c5a239349cfdc792d383c16f8b3cf111db861a2bbde9c1bd84a972b69ee8286a",
+  "fresh_capture_unchanged": true
+}

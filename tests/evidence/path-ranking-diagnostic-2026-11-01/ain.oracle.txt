@@ -1,0 +1,1 @@
+query=path:ain type=org.apache.lucene.search.TermQuery maxDoc=16

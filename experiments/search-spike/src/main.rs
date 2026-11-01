@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 // Independently authored experimental code; not a port of OpenGrok source.
+mod path_response;
 use serde::{Deserialize, Serialize};
 use std::{
     env, fs,
@@ -138,7 +139,7 @@ fn search(index: &Path, args: &[String]) -> Result<String, String> {
         let q = query.to_lowercase();
         let lines: Vec<usize> = match field.as_str() {
             "path" => {
-                if d.path.to_lowercase().contains(&q) {
+                if path_response::path_matches(&d.path, &query) {
                     vec![]
                 } else {
                     continue;
@@ -208,22 +209,101 @@ fn serve(index: &Path, address: &str) -> Result<(), String> {
         return Err("experimental server accepts loopback only".into());
     }
     let listener = std::net::TcpListener::bind(endpoint).map_err(|e| e.to_string())?;
+    let mut sessions = std::collections::HashSet::<String>::new();
     for stream in listener.incoming() {
         let mut stream = stream.map_err(|e| e.to_string())?;
         stream
             .set_read_timeout(Some(std::time::Duration::from_secs(2)))
             .map_err(|e| e.to_string())?;
         let mut line = String::new();
+        let mut set_cookie = None;
         let result: Result<String, String> = (|| {
-            BufReader::new(&stream)
-                .take(8192)
-                .read_line(&mut line)
-                .map_err(|e| e.to_string())?;
+            let mut reader = BufReader::new(&stream).take(8192);
+            reader.read_line(&mut line).map_err(|e| e.to_string())?;
+            let mut request_cookie = None;
+            loop {
+                let mut header = String::new();
+                if reader.read_line(&mut header).map_err(|e| e.to_string())? == 0
+                    || header == "\r\n"
+                {
+                    break;
+                }
+                if let Some((key, value)) = header.split_once(':') {
+                    if key.eq_ignore_ascii_case("cookie") {
+                        for cookie in value.split(';') {
+                            if let Some((name, value)) = cookie.trim().split_once('=') {
+                                if name == "JSESSIONID" {
+                                    request_cookie = Some(value.to_string());
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             let mut parts = line.split_whitespace();
             if parts.next() != Some("GET") {
                 return Err("only GET supported".into());
             }
             let target = parts.next().ok_or("missing request target")?;
+            if let Some(raw) = target.strip_prefix("/source/api/v1/search?") {
+                let started = std::time::Instant::now();
+                let mut args = vec!["--field".to_string(), "path".to_string()];
+                let mut query = None;
+                let mut start: Option<usize> = None;
+                let mut max: Option<usize> = None;
+                for pair in raw.split('&') {
+                    let (key, value) = pair.split_once('=').ok_or("invalid query")?;
+                    let (key, value) = (decode(key)?, decode(value)?);
+                    match key.as_str() {
+                        "path" if query.is_none() => query = Some(value),
+                        "projects" => {
+                            args.push("--project".into());
+                            args.push(value);
+                        }
+                        "start" if start.is_none() => {
+                            start = Some(value.parse().map_err(|_| "invalid start")?)
+                        }
+                        "maxresults" if max.is_none() => {
+                            max = Some(value.parse().map_err(|_| "invalid maxresults")?)
+                        }
+                        _ => return Err("unsupported experimental path parameter".into()),
+                    }
+                }
+                let (start, max) = (
+                    start.ok_or("start is required")?,
+                    max.ok_or("maxresults is required")?,
+                );
+                if start
+                    .checked_add(max)
+                    .filter(|sum| *sum <= i32::MAX as usize)
+                    .is_none()
+                {
+                    return Err("invalid page range".into());
+                }
+                args.push("--query".into());
+                args.push(query.ok_or("path is required")?);
+                let result = search(index, &args)?;
+                let body =
+                    path_response::render(&result, start, max, started.elapsed().as_millis())?;
+                if !request_cookie
+                    .as_ref()
+                    .is_some_and(|id| sessions.contains(id))
+                {
+                    if sessions.len() >= 10_000 {
+                        return Err("experimental session limit reached".into());
+                    }
+                    let mut bytes = [0u8; 16];
+                    getrandom::fill(&mut bytes).map_err(|e| e.to_string())?;
+                    let id: String = bytes.iter().map(|value| format!("{value:02X}")).collect();
+                    if !sessions.insert(id.clone()) {
+                        return Err("session identifier collision".into());
+                    }
+                    set_cookie = Some(format!(
+                        "Set-Cookie: JSESSIONID={id}; Path=/source; HttpOnly\r\n"
+                    ));
+                }
+                return Ok(body);
+            }
             let raw = target
                 .strip_prefix("/probe/search?")
                 .ok_or("unknown experimental endpoint")?;
@@ -246,7 +326,8 @@ fn serve(index: &Path, address: &str) -> Result<(), String> {
                 serde_json::json!({"error":error}).to_string(),
             ),
         };
-        write!(stream,"HTTP/1.1 {status}\r\nContent-Type: application/json\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{body}",body.len()).map_err(|e|e.to_string())?;
+        let cookie_header = set_cookie.unwrap_or_default();
+        write!(stream,"HTTP/1.1 {status}\r\n{cookie_header}Content-Type: application/json\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{body}",body.len()).map_err(|e|e.to_string())?;
     }
     Ok(())
 }

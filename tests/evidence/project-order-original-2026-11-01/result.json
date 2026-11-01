@@ -1,0 +1,995 @@
+{
+  "scope": "original only, default popularity/config unchanged except dataRoot copied to isolated index and loopback port; same index and process for all requests",
+  "original_capture_tree_before": "f0fcb0eb4ee44d1a0217583445934699d9835cb4b1f87173d71970e1918511d5",
+  "original_capture_tree_after": "f0fcb0eb4ee44d1a0217583445934699d9835cb4b1f87173d71970e1918511d5",
+  "unchanged": true,
+  "cases": [
+    {
+      "field": "path",
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 0,
+      "maxresults": 10,
+      "repeat": 0,
+      "path": "/source/api/v1/search?path=main&projects=alpha&projects=beta&start=0&maxresults=10",
+      "status": 200,
+      "body": "path-alpha-start0-max10-r0.json",
+      "sha256": "afc73d0c33fe6966a8388b6e3276c92ebfb85375a0da4a578799b1189c8c8130",
+      "resultCount": 3,
+      "ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/beta/component-c/main.c",
+        "/beta/component-py/main.py"
+      ]
+    },
+    {
+      "field": "path",
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 0,
+      "maxresults": 10,
+      "repeat": 1,
+      "path": "/source/api/v1/search?path=main&projects=alpha&projects=beta&start=0&maxresults=10",
+      "status": 200,
+      "body": "path-alpha-start0-max10-r1.json",
+      "sha256": "f0f97cac5aa4a626458794a87e9637383e24bfd31371eded769fb4f23a2953d8",
+      "resultCount": 3,
+      "ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/beta/component-c/main.c",
+        "/beta/component-py/main.py"
+      ]
+    },
+    {
+      "field": "path",
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 0,
+      "maxresults": 1,
+      "repeat": 0,
+      "path": "/source/api/v1/search?path=main&projects=alpha&projects=beta&start=0&maxresults=1",
+      "status": 200,
+      "body": "path-alpha-start0-max1-r0.json",
+      "sha256": "7639bceb135a45e96834da6147bceada314280b0f4b517e6473d271da333bdf4",
+      "resultCount": 3,
+      "ordered_paths": [
+        "/alpha/component-c/main.c"
+      ]
+    },
+    {
+      "field": "path",
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 0,
+      "maxresults": 1,
+      "repeat": 1,
+      "path": "/source/api/v1/search?path=main&projects=alpha&projects=beta&start=0&maxresults=1",
+      "status": 200,
+      "body": "path-alpha-start0-max1-r1.json",
+      "sha256": "7639bceb135a45e96834da6147bceada314280b0f4b517e6473d271da333bdf4",
+      "resultCount": 3,
+      "ordered_paths": [
+        "/alpha/component-c/main.c"
+      ]
+    },
+    {
+      "field": "path",
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 1,
+      "maxresults": 1,
+      "repeat": 0,
+      "path": "/source/api/v1/search?path=main&projects=alpha&projects=beta&start=1&maxresults=1",
+      "status": 200,
+      "body": "path-alpha-start1-max1-r0.json",
+      "sha256": "fbff642d71ca78ed67ff115e12f0131a73fea812e3265568bad86a7c5185123f",
+      "resultCount": 3,
+      "ordered_paths": [
+        "/beta/component-c/main.c"
+      ]
+    },
+    {
+      "field": "path",
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 1,
+      "maxresults": 1,
+      "repeat": 1,
+      "path": "/source/api/v1/search?path=main&projects=alpha&projects=beta&start=1&maxresults=1",
+      "status": 200,
+      "body": "path-alpha-start1-max1-r1.json",
+      "sha256": "fbff642d71ca78ed67ff115e12f0131a73fea812e3265568bad86a7c5185123f",
+      "resultCount": 3,
+      "ordered_paths": [
+        "/beta/component-c/main.c"
+      ]
+    },
+    {
+      "field": "path",
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 2,
+      "maxresults": 1,
+      "repeat": 0,
+      "path": "/source/api/v1/search?path=main&projects=alpha&projects=beta&start=2&maxresults=1",
+      "status": 200,
+      "body": "path-alpha-start2-max1-r0.json",
+      "sha256": "c922f5b2d080eab128f0bef66a52f7bd297c7ae0553b9fbbd31d41651bf54fda",
+      "resultCount": 3,
+      "ordered_paths": [
+        "/beta/component-py/main.py"
+      ]
+    },
+    {
+      "field": "path",
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 2,
+      "maxresults": 1,
+      "repeat": 1,
+      "path": "/source/api/v1/search?path=main&projects=alpha&projects=beta&start=2&maxresults=1",
+      "status": 200,
+      "body": "path-alpha-start2-max1-r1.json",
+      "sha256": "c922f5b2d080eab128f0bef66a52f7bd297c7ae0553b9fbbd31d41651bf54fda",
+      "resultCount": 3,
+      "ordered_paths": [
+        "/beta/component-py/main.py"
+      ]
+    },
+    {
+      "field": "path",
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 0,
+      "maxresults": 10,
+      "repeat": 0,
+      "path": "/source/api/v1/search?path=main&projects=beta&projects=alpha&start=0&maxresults=10",
+      "status": 200,
+      "body": "path-beta-start0-max10-r0.json",
+      "sha256": "baf54bd99dc25d928f37c89652e0fdfeccc01aa545a26dea59c0af6543268a27",
+      "resultCount": 3,
+      "ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/beta/component-c/main.c",
+        "/beta/component-py/main.py"
+      ]
+    },
+    {
+      "field": "path",
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 0,
+      "maxresults": 10,
+      "repeat": 1,
+      "path": "/source/api/v1/search?path=main&projects=beta&projects=alpha&start=0&maxresults=10",
+      "status": 200,
+      "body": "path-beta-start0-max10-r1.json",
+      "sha256": "9e81a0f59714f46e04f7fdbce70be5d46cadcec0f7383e00d5325354615fae89",
+      "resultCount": 3,
+      "ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/beta/component-c/main.c",
+        "/beta/component-py/main.py"
+      ]
+    },
+    {
+      "field": "path",
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 0,
+      "maxresults": 1,
+      "repeat": 0,
+      "path": "/source/api/v1/search?path=main&projects=beta&projects=alpha&start=0&maxresults=1",
+      "status": 200,
+      "body": "path-beta-start0-max1-r0.json",
+      "sha256": "7639bceb135a45e96834da6147bceada314280b0f4b517e6473d271da333bdf4",
+      "resultCount": 3,
+      "ordered_paths": [
+        "/alpha/component-c/main.c"
+      ]
+    },
+    {
+      "field": "path",
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 0,
+      "maxresults": 1,
+      "repeat": 1,
+      "path": "/source/api/v1/search?path=main&projects=beta&projects=alpha&start=0&maxresults=1",
+      "status": 200,
+      "body": "path-beta-start0-max1-r1.json",
+      "sha256": "7639bceb135a45e96834da6147bceada314280b0f4b517e6473d271da333bdf4",
+      "resultCount": 3,
+      "ordered_paths": [
+        "/alpha/component-c/main.c"
+      ]
+    },
+    {
+      "field": "path",
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 1,
+      "maxresults": 1,
+      "repeat": 0,
+      "path": "/source/api/v1/search?path=main&projects=beta&projects=alpha&start=1&maxresults=1",
+      "status": 200,
+      "body": "path-beta-start1-max1-r0.json",
+      "sha256": "fbff642d71ca78ed67ff115e12f0131a73fea812e3265568bad86a7c5185123f",
+      "resultCount": 3,
+      "ordered_paths": [
+        "/beta/component-c/main.c"
+      ]
+    },
+    {
+      "field": "path",
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 1,
+      "maxresults": 1,
+      "repeat": 1,
+      "path": "/source/api/v1/search?path=main&projects=beta&projects=alpha&start=1&maxresults=1",
+      "status": 200,
+      "body": "path-beta-start1-max1-r1.json",
+      "sha256": "fbff642d71ca78ed67ff115e12f0131a73fea812e3265568bad86a7c5185123f",
+      "resultCount": 3,
+      "ordered_paths": [
+        "/beta/component-c/main.c"
+      ]
+    },
+    {
+      "field": "path",
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 2,
+      "maxresults": 1,
+      "repeat": 0,
+      "path": "/source/api/v1/search?path=main&projects=beta&projects=alpha&start=2&maxresults=1",
+      "status": 200,
+      "body": "path-beta-start2-max1-r0.json",
+      "sha256": "c922f5b2d080eab128f0bef66a52f7bd297c7ae0553b9fbbd31d41651bf54fda",
+      "resultCount": 3,
+      "ordered_paths": [
+        "/beta/component-py/main.py"
+      ]
+    },
+    {
+      "field": "path",
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 2,
+      "maxresults": 1,
+      "repeat": 1,
+      "path": "/source/api/v1/search?path=main&projects=beta&projects=alpha&start=2&maxresults=1",
+      "status": 200,
+      "body": "path-beta-start2-max1-r1.json",
+      "sha256": "c922f5b2d080eab128f0bef66a52f7bd297c7ae0553b9fbbd31d41651bf54fda",
+      "resultCount": 3,
+      "ordered_paths": [
+        "/beta/component-py/main.py"
+      ]
+    },
+    {
+      "field": "full",
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 0,
+      "maxresults": 10,
+      "repeat": 0,
+      "path": "/source/api/v1/search?full=main&projects=alpha&projects=beta&start=0&maxresults=10",
+      "status": 200,
+      "body": "full-alpha-start0-max10-r0.json",
+      "sha256": "01c828f1ee7b0d9f78e914b908140d542d2231419b407cdb25d4fe2298983c0a",
+      "resultCount": 5,
+      "ordered_paths": [
+        "/beta/component-py/main.py",
+        "/alpha/component-c/main.c",
+        "/beta/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ]
+    },
+    {
+      "field": "full",
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 0,
+      "maxresults": 10,
+      "repeat": 1,
+      "path": "/source/api/v1/search?full=main&projects=alpha&projects=beta&start=0&maxresults=10",
+      "status": 200,
+      "body": "full-alpha-start0-max10-r1.json",
+      "sha256": "99b3dd2db79a3bf333b164fc780cbbb6d14af50d3a21d290e0469dbae26338b6",
+      "resultCount": 5,
+      "ordered_paths": [
+        "/beta/component-py/main.py",
+        "/alpha/component-c/main.c",
+        "/beta/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ]
+    },
+    {
+      "field": "full",
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 0,
+      "maxresults": 1,
+      "repeat": 0,
+      "path": "/source/api/v1/search?full=main&projects=alpha&projects=beta&start=0&maxresults=1",
+      "status": 200,
+      "body": "full-alpha-start0-max1-r0.json",
+      "sha256": "358dc94fb494124f8c1a630d27c53065fa4f567a7ee21c0fc30669f425d36fad",
+      "resultCount": 5,
+      "ordered_paths": [
+        "/beta/component-py/main.py"
+      ]
+    },
+    {
+      "field": "full",
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 0,
+      "maxresults": 1,
+      "repeat": 1,
+      "path": "/source/api/v1/search?full=main&projects=alpha&projects=beta&start=0&maxresults=1",
+      "status": 200,
+      "body": "full-alpha-start0-max1-r1.json",
+      "sha256": "358dc94fb494124f8c1a630d27c53065fa4f567a7ee21c0fc30669f425d36fad",
+      "resultCount": 5,
+      "ordered_paths": [
+        "/beta/component-py/main.py"
+      ]
+    },
+    {
+      "field": "full",
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 1,
+      "maxresults": 1,
+      "repeat": 0,
+      "path": "/source/api/v1/search?full=main&projects=alpha&projects=beta&start=1&maxresults=1",
+      "status": 200,
+      "body": "full-alpha-start1-max1-r0.json",
+      "sha256": "8163e463418f5ff1511e07f0b9e8bbf373bd60f7655c92bf26b1b00965823d3d",
+      "resultCount": 5,
+      "ordered_paths": [
+        "/alpha/component-c/main.c"
+      ]
+    },
+    {
+      "field": "full",
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 1,
+      "maxresults": 1,
+      "repeat": 1,
+      "path": "/source/api/v1/search?full=main&projects=alpha&projects=beta&start=1&maxresults=1",
+      "status": 200,
+      "body": "full-alpha-start1-max1-r1.json",
+      "sha256": "8163e463418f5ff1511e07f0b9e8bbf373bd60f7655c92bf26b1b00965823d3d",
+      "resultCount": 5,
+      "ordered_paths": [
+        "/alpha/component-c/main.c"
+      ]
+    },
+    {
+      "field": "full",
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 2,
+      "maxresults": 1,
+      "repeat": 0,
+      "path": "/source/api/v1/search?full=main&projects=alpha&projects=beta&start=2&maxresults=1",
+      "status": 200,
+      "body": "full-alpha-start2-max1-r0.json",
+      "sha256": "14a17716894ba3b4f5765656b3ce42f3e770274c24e6d2decd019c8c5da1c6b0",
+      "resultCount": 5,
+      "ordered_paths": [
+        "/beta/component-c/main.c"
+      ]
+    },
+    {
+      "field": "full",
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 2,
+      "maxresults": 1,
+      "repeat": 1,
+      "path": "/source/api/v1/search?full=main&projects=alpha&projects=beta&start=2&maxresults=1",
+      "status": 200,
+      "body": "full-alpha-start2-max1-r1.json",
+      "sha256": "14a17716894ba3b4f5765656b3ce42f3e770274c24e6d2decd019c8c5da1c6b0",
+      "resultCount": 5,
+      "ordered_paths": [
+        "/beta/component-c/main.c"
+      ]
+    },
+    {
+      "field": "full",
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 0,
+      "maxresults": 10,
+      "repeat": 0,
+      "path": "/source/api/v1/search?full=main&projects=beta&projects=alpha&start=0&maxresults=10",
+      "status": 200,
+      "body": "full-beta-start0-max10-r0.json",
+      "sha256": "99b3dd2db79a3bf333b164fc780cbbb6d14af50d3a21d290e0469dbae26338b6",
+      "resultCount": 5,
+      "ordered_paths": [
+        "/beta/component-py/main.py",
+        "/alpha/component-c/main.c",
+        "/beta/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ]
+    },
+    {
+      "field": "full",
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 0,
+      "maxresults": 10,
+      "repeat": 1,
+      "path": "/source/api/v1/search?full=main&projects=beta&projects=alpha&start=0&maxresults=10",
+      "status": 200,
+      "body": "full-beta-start0-max10-r1.json",
+      "sha256": "99b3dd2db79a3bf333b164fc780cbbb6d14af50d3a21d290e0469dbae26338b6",
+      "resultCount": 5,
+      "ordered_paths": [
+        "/beta/component-py/main.py",
+        "/alpha/component-c/main.c",
+        "/beta/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ]
+    },
+    {
+      "field": "full",
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 0,
+      "maxresults": 1,
+      "repeat": 0,
+      "path": "/source/api/v1/search?full=main&projects=beta&projects=alpha&start=0&maxresults=1",
+      "status": 200,
+      "body": "full-beta-start0-max1-r0.json",
+      "sha256": "358dc94fb494124f8c1a630d27c53065fa4f567a7ee21c0fc30669f425d36fad",
+      "resultCount": 5,
+      "ordered_paths": [
+        "/beta/component-py/main.py"
+      ]
+    },
+    {
+      "field": "full",
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 0,
+      "maxresults": 1,
+      "repeat": 1,
+      "path": "/source/api/v1/search?full=main&projects=beta&projects=alpha&start=0&maxresults=1",
+      "status": 200,
+      "body": "full-beta-start0-max1-r1.json",
+      "sha256": "358dc94fb494124f8c1a630d27c53065fa4f567a7ee21c0fc30669f425d36fad",
+      "resultCount": 5,
+      "ordered_paths": [
+        "/beta/component-py/main.py"
+      ]
+    },
+    {
+      "field": "full",
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 1,
+      "maxresults": 1,
+      "repeat": 0,
+      "path": "/source/api/v1/search?full=main&projects=beta&projects=alpha&start=1&maxresults=1",
+      "status": 200,
+      "body": "full-beta-start1-max1-r0.json",
+      "sha256": "8163e463418f5ff1511e07f0b9e8bbf373bd60f7655c92bf26b1b00965823d3d",
+      "resultCount": 5,
+      "ordered_paths": [
+        "/alpha/component-c/main.c"
+      ]
+    },
+    {
+      "field": "full",
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 1,
+      "maxresults": 1,
+      "repeat": 1,
+      "path": "/source/api/v1/search?full=main&projects=beta&projects=alpha&start=1&maxresults=1",
+      "status": 200,
+      "body": "full-beta-start1-max1-r1.json",
+      "sha256": "8163e463418f5ff1511e07f0b9e8bbf373bd60f7655c92bf26b1b00965823d3d",
+      "resultCount": 5,
+      "ordered_paths": [
+        "/alpha/component-c/main.c"
+      ]
+    },
+    {
+      "field": "full",
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 2,
+      "maxresults": 1,
+      "repeat": 0,
+      "path": "/source/api/v1/search?full=main&projects=beta&projects=alpha&start=2&maxresults=1",
+      "status": 200,
+      "body": "full-beta-start2-max1-r0.json",
+      "sha256": "14a17716894ba3b4f5765656b3ce42f3e770274c24e6d2decd019c8c5da1c6b0",
+      "resultCount": 5,
+      "ordered_paths": [
+        "/beta/component-c/main.c"
+      ]
+    },
+    {
+      "field": "full",
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 2,
+      "maxresults": 1,
+      "repeat": 1,
+      "path": "/source/api/v1/search?full=main&projects=beta&projects=alpha&start=2&maxresults=1",
+      "status": 200,
+      "body": "full-beta-start2-max1-r1.json",
+      "sha256": "14a17716894ba3b4f5765656b3ce42f3e770274c24e6d2decd019c8c5da1c6b0",
+      "resultCount": 5,
+      "ordered_paths": [
+        "/beta/component-c/main.c"
+      ]
+    }
+  ],
+  "capture_receipt_sha256": "0558697556728caa51894e8e7199fec11088c2ffe1afd35f15a86e61a82dbc83",
+  "configuration_sha256": "2396ab6acc2551412c669867207742ee8654e4e1657995edd7e71742900f52ee",
+  "index_files": [
+    {
+      "file": "historycache/alpha/component-c/OpenGroklatestRev",
+      "bytes": 40,
+      "sha256": "00982a595dfa8f49fad6a5027602a0dac38d70d7943c7dbcfb7fb9fe9c988241"
+    },
+    {
+      "file": "historycache/alpha/component-c/main.c",
+      "bytes": 185,
+      "sha256": "b94b57f00494c02652c1b14fa010eb3254c0f44dece216bd7801f4c9ab337c9c"
+    },
+    {
+      "file": "historycache/alpha/component-c/nested-js/OpenGroklatestRev",
+      "bytes": 40,
+      "sha256": "3c29686e5a3daf7f7834e46d6877ecc38ec197e3f0e1819cf391903a8ddcace4"
+    },
+    {
+      "file": "historycache/alpha/component-c/nested-js/function.js",
+      "bytes": 196,
+      "sha256": "cf7ccfb64f1dffcc39aafe8e42c0062f535c17d675e0a158193d4ddb5e2a5425"
+    },
+    {
+      "file": "historycache/alpha/component-js/OpenGroklatestRev",
+      "bytes": 40,
+      "sha256": "3c29686e5a3daf7f7834e46d6877ecc38ec197e3f0e1819cf391903a8ddcace4"
+    },
+    {
+      "file": "historycache/alpha/component-js/function.js",
+      "bytes": 196,
+      "sha256": "cf7ccfb64f1dffcc39aafe8e42c0062f535c17d675e0a158193d4ddb5e2a5425"
+    },
+    {
+      "file": "historycache/beta/component-c/OpenGroklatestRev",
+      "bytes": 40,
+      "sha256": "00982a595dfa8f49fad6a5027602a0dac38d70d7943c7dbcfb7fb9fe9c988241"
+    },
+    {
+      "file": "historycache/beta/component-c/main.c",
+      "bytes": 185,
+      "sha256": "b94b57f00494c02652c1b14fa010eb3254c0f44dece216bd7801f4c9ab337c9c"
+    },
+    {
+      "file": "historycache/beta/component-py/OpenGroklatestRev",
+      "bytes": 40,
+      "sha256": "15a8d0b70a251c6fbfe92d22c9c47835622dd6260fe4c3e82322c94c111ca1b2"
+    },
+    {
+      "file": "historycache/beta/component-py/main.py",
+      "bytes": 196,
+      "sha256": "cbd31a540e39e9e13df745dd807205e126eb235915ca4ff7bb8b71b0b66cef7e"
+    },
+    {
+      "file": "index/alpha/_0.cfe",
+      "bytes": 550,
+      "sha256": "82891dda0753bc49ff21fca7eaa54298511a3ab75c610d0c92a719fdbea203b4"
+    },
+    {
+      "file": "index/alpha/_0.cfs",
+      "bytes": 13029,
+      "sha256": "bba60752d56d2333cba5788fe7063caea7802dc0a6ac241cc120bced375f0f8f"
+    },
+    {
+      "file": "index/alpha/_0.si",
+      "bytes": 328,
+      "sha256": "554222e6574f6bffba46f72e1aa80780c5de62900ee522035a4d8a13b6a21b38"
+    },
+    {
+      "file": "index/alpha/_1.cfe",
+      "bytes": 550,
+      "sha256": "b1c19522f80ba9a5aca8754c8b7648bd5d7249524bbb7ca97f184c09e6c30b91"
+    },
+    {
+      "file": "index/alpha/_1.cfs",
+      "bytes": 8901,
+      "sha256": "f1f34fbebe12f0fb26dea522878364d3d4ddb34046feca4f0763de979839f9d4"
+    },
+    {
+      "file": "index/alpha/_1.si",
+      "bytes": 328,
+      "sha256": "c01586818402303145bea2f0e221fb698445f54658153b1175449c9f4653e28a"
+    },
+    {
+      "file": "index/alpha/segments_2",
+      "bytes": 238,
+      "sha256": "593ddd2a69b3951e54c7be1f008fe349d248f137e391abfbad0930dd5d082251"
+    },
+    {
+      "file": "index/beta/_0.cfe",
+      "bytes": 550,
+      "sha256": "249cd886b9498ec1bbdb4f9e850b4bf4c63a2d4fbe0274521b3f5c972e0ca088"
+    },
+    {
+      "file": "index/beta/_0.cfs",
+      "bytes": 14256,
+      "sha256": "99d29e1758797afb7882ad8d7b811a509992546a7dbc8a5566c49f7536fba2ea"
+    },
+    {
+      "file": "index/beta/_0.si",
+      "bytes": 328,
+      "sha256": "ae700dfdcfe722ac76757e66ccb0767471a1f9d0358958e06fdee109017fbafe"
+    },
+    {
+      "file": "index/beta/segments_2",
+      "bytes": 155,
+      "sha256": "800b27d71c0324831ad9bc5b163afd42ed8f499819df624fe9a4fd91e05f5ed6"
+    },
+    {
+      "file": "suggester/alpha/defs.wfst",
+      "bytes": 187,
+      "sha256": "14718e21a7646bfe0495c0f1df7dd262635dcbaf322977b00623eab5d89dd3b3"
+    },
+    {
+      "file": "suggester/alpha/defs_map.cfg",
+      "bytes": 129,
+      "sha256": "e400b7c2be65866e2d487e0b406a30119e4f1ae96211d8a23dad14fd2acb88c5"
+    },
+    {
+      "file": "suggester/alpha/defs_search_count.db",
+      "bytes": 32768,
+      "sha256": "59c07b811ae38fd70db68719af554addcf61d18b33f03e065b2673464547c46d"
+    },
+    {
+      "file": "suggester/alpha/full.wfst",
+      "bytes": 1268,
+      "sha256": "97172be0e6c216b91dae252bbafdc92b91023b12ebc0bfa967f84c8fba3c16ad"
+    },
+    {
+      "file": "suggester/alpha/full_map.cfg",
+      "bytes": 129,
+      "sha256": "a8025cadbca18ad8cc32fd71e02324d67aa6a50265b895dcc14f91d604c66ba1"
+    },
+    {
+      "file": "suggester/alpha/full_search_count.db",
+      "bytes": 32768,
+      "sha256": "419a9ebb0294efa1f917365564b65737ef7c9a51fea1c5566e44abc4f8389899"
+    },
+    {
+      "file": "suggester/alpha/hist.wfst",
+      "bytes": 452,
+      "sha256": "e7e5a0885455f777265c53f301986c132d8698e448c24e662ad08b9ea2407af2"
+    },
+    {
+      "file": "suggester/alpha/hist_map.cfg",
+      "bytes": 129,
+      "sha256": "64a7139f153c1179abc71edb1687fe8e5f9b9d431552d8052bb1d1f00e5093d4"
+    },
+    {
+      "file": "suggester/alpha/hist_search_count.db",
+      "bytes": 32768,
+      "sha256": "e103427dfe9aa9173b471ed004449dfd0230b6c236e651526b9e881ae1baf6aa"
+    },
+    {
+      "file": "suggester/alpha/path.wfst",
+      "bytes": 153,
+      "sha256": "ff593d78042af43a0cc34ac036dbac814726a824e3f376f20bf3145e5459cdf0"
+    },
+    {
+      "file": "suggester/alpha/path_map.cfg",
+      "bytes": 129,
+      "sha256": "dd62c3d171de3022dfcacc305b3abb6d74965d0613a8dec21130e4e1b0fe5dd6"
+    },
+    {
+      "file": "suggester/alpha/path_search_count.db",
+      "bytes": 32768,
+      "sha256": "f9a5ba968cc7f3ffead0f2ca7922a3b43adebf6478795a99d07ed9ed242c5292"
+    },
+    {
+      "file": "suggester/alpha/refs.wfst",
+      "bytes": 267,
+      "sha256": "ef0cb82e451a99df9892462a08afa6bff5e19fc2a481587c262a920302251452"
+    },
+    {
+      "file": "suggester/alpha/refs_map.cfg",
+      "bytes": 129,
+      "sha256": "6960d21b78a6885e7c92f34d729646e01cbcc7fd996d6ef76fc02a01de395b3c"
+    },
+    {
+      "file": "suggester/alpha/refs_search_count.db",
+      "bytes": 32768,
+      "sha256": "b27b6a8349c89b164026a6c3b75b407bcdc485a01123cfa830ab3c1eb75e5cd1"
+    },
+    {
+      "file": "suggester/alpha/type.wfst",
+      "bytes": 50,
+      "sha256": "449155a901b7fbd549188c94defdd11bd4f34c2325e9b2c73d2ead88781d2552"
+    },
+    {
+      "file": "suggester/alpha/type_map.cfg",
+      "bytes": 129,
+      "sha256": "8dc6e84f9110de88030a35203bb470cb2bf714d8b142d56ae42b4785a046b92d"
+    },
+    {
+      "file": "suggester/alpha/type_search_count.db",
+      "bytes": 32768,
+      "sha256": "6622b481dffb37fc44cbc37d335d8ecb30e7837f46b774707565b0bd6a7f7575"
+    },
+    {
+      "file": "suggester/alpha/version.txt",
+      "bytes": 1,
+      "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+    },
+    {
+      "file": "suggester/beta/defs.wfst",
+      "bytes": 219,
+      "sha256": "6d83447faf9bf7215891ac09fd92f728fd530374ba2a22b37a18a74e08ba3d15"
+    },
+    {
+      "file": "suggester/beta/defs_map.cfg",
+      "bytes": 129,
+      "sha256": "3213499eed30ddf1b1d1f6585f30888b0877e70be23fecc441cca3664e3ccaac"
+    },
+    {
+      "file": "suggester/beta/defs_search_count.db",
+      "bytes": 32768,
+      "sha256": "e2004aff580ab57b1f9f03aedb2817beb8a1ceab26dc72787e997b5dabe79cd4"
+    },
+    {
+      "file": "suggester/beta/full.wfst",
+      "bytes": 1472,
+      "sha256": "14a1d404a5250070a327535186cf4437d7b48380b2f0a6e67174d9fce393e0f7"
+    },
+    {
+      "file": "suggester/beta/full_map.cfg",
+      "bytes": 129,
+      "sha256": "e473c6434992d5c2c54c7caeb985405561f3b2a1840c5268088dd86732112c91"
+    },
+    {
+      "file": "suggester/beta/full_search_count.db",
+      "bytes": 32768,
+      "sha256": "21c0f3b10b878a09af4be19dcacf8fa3518050b20cb61c4ab7fccb95e14af151"
+    },
+    {
+      "file": "suggester/beta/hist.wfst",
+      "bytes": 444,
+      "sha256": "55649b0e59c15516f44b46b0e55247e762d414cabe43d09ebb02333d81d4e54a"
+    },
+    {
+      "file": "suggester/beta/hist_map.cfg",
+      "bytes": 129,
+      "sha256": "64a7139f153c1179abc71edb1687fe8e5f9b9d431552d8052bb1d1f00e5093d4"
+    },
+    {
+      "file": "suggester/beta/hist_search_count.db",
+      "bytes": 32768,
+      "sha256": "e103427dfe9aa9173b471ed004449dfd0230b6c236e651526b9e881ae1baf6aa"
+    },
+    {
+      "file": "suggester/beta/path.wfst",
+      "bytes": 97,
+      "sha256": "e503e2b8d2cfc4dd8401f9cfb7156398e8cc54e0cb61e55d189e4082d4d584cc"
+    },
+    {
+      "file": "suggester/beta/path_map.cfg",
+      "bytes": 129,
+      "sha256": "1a6e43c953e8039f7caa6049c13c4322c554b90eef2d3f0a88f4bae6667d39ff"
+    },
+    {
+      "file": "suggester/beta/path_search_count.db",
+      "bytes": 32768,
+      "sha256": "0112e6e1ff323cca692814557eb12759e90edc14958c3590eb3064bcb8468d9b"
+    },
+    {
+      "file": "suggester/beta/refs.wfst",
+      "bytes": 416,
+      "sha256": "688c6835f7d9c12e439f9bf50bb0a33c3d53991dddcd6efac0c0ae7c3c2ce34f"
+    },
+    {
+      "file": "suggester/beta/refs_map.cfg",
+      "bytes": 129,
+      "sha256": "2245bdefdec5f775d132f284ac88a9e44d98b59de84ca8053459f5124901da95"
+    },
+    {
+      "file": "suggester/beta/refs_search_count.db",
+      "bytes": 32768,
+      "sha256": "7928da743556c9522fd7693066f5deb5d9f4bfd1f0875db5a42694e4528f1ace"
+    },
+    {
+      "file": "suggester/beta/type.wfst",
+      "bytes": 42,
+      "sha256": "e41048b679e7edeefe7b2339934dfca0787bc95f70ac3f88e99d160a98c33dd3"
+    },
+    {
+      "file": "suggester/beta/type_map.cfg",
+      "bytes": 129,
+      "sha256": "5c1e7b0c85e0505a4233dd6654ee723b41e3bbfd0bf793bb882cd2e8379fba15"
+    },
+    {
+      "file": "suggester/beta/type_search_count.db",
+      "bytes": 32768,
+      "sha256": "ac5965ca104738d1a268e89f28b161cc84a9c6254a876211e86a9a4cf53e6d33"
+    },
+    {
+      "file": "suggester/beta/version.txt",
+      "bytes": 1,
+      "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+    },
+    {
+      "file": "timestamp",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "xref/alpha/component-c/main.c.gz",
+      "bytes": 1387,
+      "sha256": "8fde9ae5c7f152cfbb03cfa1c68568b222b2f32eb6c851abddf36c65605b4113"
+    },
+    {
+      "file": "xref/alpha/component-c/nested-js/function.js.gz",
+      "bytes": 1199,
+      "sha256": "1e31c2266a030c10d880cf0d8cf54272c3933f527233c17033898f15b764aa0a"
+    },
+    {
+      "file": "xref/alpha/component-js/function.js.gz",
+      "bytes": 1199,
+      "sha256": "1e31c2266a030c10d880cf0d8cf54272c3933f527233c17033898f15b764aa0a"
+    },
+    {
+      "file": "xref/beta/component-c/main.c.gz",
+      "bytes": 1385,
+      "sha256": "efac49e1e81c7151a1793f4d0720150c057407cf8b5c65347d2f2c02370bbe94"
+    },
+    {
+      "file": "xref/beta/component-py/main.py.gz",
+      "bytes": 1664,
+      "sha256": "b523607d59bfc6f2e44c52216f5b8d15d8c9a7fe124f1b8685aed2d873545ed0"
+    }
+  ],
+  "order_summary": [
+    {
+      "field": "path",
+      "start": 0,
+      "maxresults": 10,
+      "observations": 4,
+      "all_orders_equal": true
+    },
+    {
+      "field": "path",
+      "start": 0,
+      "maxresults": 1,
+      "observations": 4,
+      "all_orders_equal": true
+    },
+    {
+      "field": "path",
+      "start": 1,
+      "maxresults": 1,
+      "observations": 4,
+      "all_orders_equal": true
+    },
+    {
+      "field": "path",
+      "start": 2,
+      "maxresults": 1,
+      "observations": 4,
+      "all_orders_equal": true
+    },
+    {
+      "field": "full",
+      "start": 0,
+      "maxresults": 10,
+      "observations": 4,
+      "all_orders_equal": true
+    },
+    {
+      "field": "full",
+      "start": 0,
+      "maxresults": 1,
+      "observations": 4,
+      "all_orders_equal": true
+    },
+    {
+      "field": "full",
+      "start": 1,
+      "maxresults": 1,
+      "observations": 4,
+      "all_orders_equal": true
+    },
+    {
+      "field": "full",
+      "start": 2,
+      "maxresults": 1,
+      "observations": 4,
+      "all_orders_equal": true
+    }
+  ]
+}

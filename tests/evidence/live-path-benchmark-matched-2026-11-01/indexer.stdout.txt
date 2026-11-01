@@ -1,0 +1,1 @@
+{"output": "/private/tmp/rustgrok-issue7-rebuilt-receipt/fresh-oracle-capture", "cases": 5, "statuses": [200, 200, 200, 200, 200]}

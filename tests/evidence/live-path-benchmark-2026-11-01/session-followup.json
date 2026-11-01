@@ -1,0 +1,37 @@
+{
+  "steps": [
+    {
+      "step": "first",
+      "cookie_sent": false,
+      "cookie_names_in_jar": [
+        "JSESSIONID"
+      ],
+      "status": 200,
+      "headers": {
+        "Set-Cookie": "JSESSIONID=<redacted ephemeral session value>; Path=/source; HttpOnly",
+        "Content-Type": "application/json",
+        "Content-Length": "145",
+        "Date": "Sun, 01 Nov 2026 07:32:07 GMT",
+        "Connection": "close"
+      },
+      "body": "session-first.body"
+    },
+    {
+      "step": "followup",
+      "cookie_sent": true,
+      "cookie_names_in_jar": [
+        "JSESSIONID"
+      ],
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/json",
+        "Content-Length": "144",
+        "Date": "Sun, 01 Nov 2026 07:32:07 GMT",
+        "Connection": "close"
+      },
+      "body": "session-followup.body"
+    }
+  ],
+  "bodies_match_except_top_level_time": true,
+  "scope": "original only; not equivalent candidate behavior"
+}

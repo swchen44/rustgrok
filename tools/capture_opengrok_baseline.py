@@ -19,6 +19,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 
 from build_public_corpus import FILES, INPUT, SOURCE_HASHES, source_path, git as fixture_git
+from oracle_http import configure_server, opener as safe_opener
 
 ROOT = Path(__file__).resolve().parents[1]
 COMMIT = '3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3'
@@ -260,18 +261,10 @@ def main():
     shutil.copytree(tomcat / 'conf', base / 'conf')
     for name in ('logs', 'temp', 'work', 'webapps', 'conf/Catalina/localhost'):
         (base / name).mkdir(parents=True, exist_ok=True)
-    server = ET.parse(base / 'conf/server.xml')
-    server.getroot().set('port', '-1')
-    connectors = server.getroot().findall('./Service/Connector')
-    if len(connectors) != 1:
-        raise ValueError('expected exactly one Tomcat connector for loopback-only oracle')
-    connector = connectors[0]
     with socket.socket() as sock:
         sock.bind(('127.0.0.1', 0))
         port = sock.getsockname()[1]
-    connector.set('address', '127.0.0.1')
-    connector.set('port', str(port))
-    server.write(base / 'conf/server.xml', encoding='utf-8', xml_declaration=True)
+    configure_server(base / 'conf/server.xml', port)
     context = ET.Element('Context', {'docBase': str(war)})
     ET.SubElement(context, 'Parameter', {'name': 'CONFIGURATION', 'value': str(config), 'override': 'false'})
     ET.ElementTree(context).write(base / 'conf/Catalina/localhost/source.xml', encoding='utf-8', xml_declaration=True)
@@ -293,7 +286,7 @@ def main():
                                 stderr=subprocess.STDOUT, env=environment, start_new_session=True)
         try:
             base_url = f'http://127.0.0.1:{port}/source/'
-            opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+            opener = safe_opener()
             for _ in range(45):
                 if proc.poll() is not None:
                     raise RuntimeError(f'Tomcat exited before readiness: {proc.returncode}')

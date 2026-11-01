@@ -1,0 +1,22 @@
+{
+  "oracle_commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+  "oracle_index": "/tmp/rustgrok-issue7-pristine-capture/index/index",
+  "oracle_index_identity": "see ../path-ranking-diagnostic-2026-11-01/diagnostic.json; independent of measured performance index",
+  "candidate_documents_sha256": "51f7f42c70eb4c2184c5e19ac1e9f329023ea3be865fb3accb8644c4597315d5",
+  "candidate_lock_sha256": "8bb3283c45fb5ebd7a8821dbfdcdcb9c5f79d7285df770e7f4a37f813db1fef5",
+  "candidate_binary_sha256": "37d675e836a0e3e8765dc983377d5b0dc66a394a977228be7fe27ffb2988d2aa",
+  "java_wrapper_sha256": "d66c487a6dda05f04430b8691b81fc3800a45fa49f41f2693c94cb5042c23989",
+  "rust_wrapper_sha256": "e327836b54ae7e1266e9aab0a02ee5aff622e5d2e9c8fa316b4a1403fd8f3cf7",
+  "adapter_sha256": "b687d47ebb061c55c78373f4a33dfa8f40edd3a53363e29a2e347f4b6e14735b",
+  "files": {
+    "oracle-query.txt": "381dd2231e88f6c5b2aaffbc8d5a60bf4a2d3522b5a4e3ebd4b21586b937048e",
+    "candidate-before.json": "8423d5b2610c8dbcde02b609974067fd1cb40900a0eb1202273625af5d7302c7",
+    "candidate-after.json": "81478f9514f365eae2a585208b54018a93f88f4492abedb0bd6c086420614ee6",
+    "full-both-adapted.json": "d7e0b2a989cc07e8c9fa5ac39cd333e53b45e79fffae79cf5bdba20c1c747612",
+    "token-comparison.json": "d973560d8c78c252546794f30f384863e9f7f07b654448c9a21d58528f5a270d",
+    "corpus-token-comparison.json": "d9a6775365514504c2da6551aa498c4adb37196f860af63ea973b6d1e25c8b77"
+  },
+  "long_java_wrapper_sha256": "d80d9ccde9e04d531044f668681657c71679514c0d0dece329efaec9dd24b0dd",
+  "casefold_offsets_sha256": "48a3337a6476900a52ff1fb2a7a0509e61f915d35891d962d5729d9d76d3b682",
+  "oracle_score_wrapper_current_sha256": "321044071574df591884047b3498010e5f2412f7fe7e330ad43e3296a7a202a9"
+}

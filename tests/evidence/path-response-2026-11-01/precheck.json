@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "normalization": [
+    "top-level time value"
+  ],
+  "oracle_status": 200,
+  "candidate_status": 200,
+  "timing_performed": false,
+  "full_product_parity": "NOT_ASSERTED",
+  "other_preconditions": "Request, corpus, headers, configuration, environment and warmup must also be verified before timing.",
+  "oracle_sha256": "002ec1790b1837fe7ec8777cb565cbd0b246bf14c54c77baa4d548977ce7acae",
+  "candidate_sha256": "7a4e6506c4ad2ac5c26db8cf7cccc20b14bd1cf2f29d6c99f59148ff8fd7fdd2",
+  "status": "BODY_MATCH_PRECHECK_ONLY"
+}

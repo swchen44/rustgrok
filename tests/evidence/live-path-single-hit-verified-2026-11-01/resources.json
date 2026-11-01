@@ -1,0 +1,27 @@
+{
+  "note": "50ms process snapshots, RSS KiB and instantaneous ps CPU percent; RSS includes shared pages and is not measured peak. Short processes and child processes may be missed.",
+  "oracle_pid": 90025,
+  "candidate_pid": 90026,
+  "samples": [
+    {
+      "wall_ns": 1793528136117793000,
+      "raw_ps": "90025 89892 348320 224.8   0:11.40\n90026 89892   1568   0.0   0:00.00\n"
+    },
+    {
+      "wall_ns": 1793528136310857000,
+      "raw_ps": "90025 89892 346128 180.9   0:11.72\n90026 89892   1568   0.0   0:00.00\n"
+    },
+    {
+      "wall_ns": 1793528136511995000,
+      "raw_ps": "90025 89892 348224 171.9   0:12.02\n90026 89892   1552   0.0   0:00.00\n"
+    },
+    {
+      "wall_ns": 1793528136711622000,
+      "raw_ps": "90025 89892 352400 177.2   0:12.33\n90026 89892   2400   0.9   0:00.01\n"
+    },
+    {
+      "wall_ns": 1793528136913763000,
+      "raw_ps": "90025 89892 354800 146.4   0:12.72\n90026 89892   2400   1.9   0:00.01\n"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# Original page boundaries
+
+This second independent execution used an isolated copy of the same pristine original capture and kept the original configuration defaults. Raw response bodies and result.json include alpha/beta parameter orders, two repeats, `path` and `full` queries, the first three one-hit pages, a zero-sized page (`start=0,maxresults=0`) and an out-of-range page (`start=100,maxresults=1`). The original capture tree hash was unchanged. In each selected scope all repeated path sequences matched. The zero and out-of-range page bodies preserve the original `resultCount`, `startDocument` and `endDocument`; they do not establish behavior for all limits, queries, indexes or concurrent updates.
+
+Repeat the same query matrix with `python3 tools/capture_project_order.py --capture CAPTURE_DIR --output NEW_EXTERNAL_DIR` after creating and independently verifying a public capture. The command uses a copied index, original default configuration, and a temporary loopback Tomcat context; it does not modify the input capture.

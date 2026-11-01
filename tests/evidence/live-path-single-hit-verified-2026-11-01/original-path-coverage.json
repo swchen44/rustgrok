@@ -1,0 +1,18 @@
+{
+  "complete": true,
+  "expected_paths": [
+    "/alpha/component-c/main.c",
+    "/alpha/component-js/function.js",
+    "/alpha/component-c/nested-js/function.js",
+    "/beta/component-c/main.c",
+    "/beta/component-py/main.py"
+  ],
+  "observed_paths": [
+    "/alpha/component-js/function.js",
+    "/alpha/component-c/nested-js/function.js",
+    "/alpha/component-c/main.c",
+    "/beta/component-c/main.c",
+    "/beta/component-py/main.py"
+  ],
+  "limitation": "Path search covers this fixed corpus only; it does not prove full source contents or all query features."
+}

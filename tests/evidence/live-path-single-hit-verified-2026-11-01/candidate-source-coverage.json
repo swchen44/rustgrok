@@ -1,0 +1,18 @@
+{
+  "complete": true,
+  "expected_paths": [
+    "/alpha/component-c/main.c",
+    "/alpha/component-js/function.js",
+    "/alpha/component-c/nested-js/function.js",
+    "/beta/component-c/main.c",
+    "/beta/component-py/main.py"
+  ],
+  "observed_paths": [
+    "/beta/component-c/main.c",
+    "/beta/component-py/main.py",
+    "/alpha/component-c/main.c",
+    "/alpha/component-c/nested-js/function.js",
+    "/alpha/component-js/function.js"
+  ],
+  "limitation": "Candidate source contents checked for this fixture only; it does not prove equal analyzers or all query features."
+}
