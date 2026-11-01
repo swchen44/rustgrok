@@ -1,0 +1,1 @@
+{"status": "COMPLETED_RESTRICTED_ENDPOINT", "role": "candidate", "case": "single-hit", "timed_samples": 100}

@@ -1,0 +1,115 @@
+{
+  "reserve_bytes": 4831838208,
+  "poll_seconds": 0.25,
+  "breached": false,
+  "samples": [
+    {
+      "elapsed_seconds": 0.003,
+      "free_bytes": 5602095104
+    },
+    {
+      "elapsed_seconds": 0.257,
+      "free_bytes": 5602000896
+    },
+    {
+      "elapsed_seconds": 0.51,
+      "free_bytes": 5602000896
+    },
+    {
+      "elapsed_seconds": 0.765,
+      "free_bytes": 5601984512
+    },
+    {
+      "elapsed_seconds": 1.016,
+      "free_bytes": 5575802880
+    },
+    {
+      "elapsed_seconds": 1.267,
+      "free_bytes": 5549658112
+    },
+    {
+      "elapsed_seconds": 1.522,
+      "free_bytes": 5537382400
+    },
+    {
+      "elapsed_seconds": 1.778,
+      "free_bytes": 5537148928
+    },
+    {
+      "elapsed_seconds": 2.033,
+      "free_bytes": 5537382400
+    },
+    {
+      "elapsed_seconds": 2.288,
+      "free_bytes": 5537353728
+    },
+    {
+      "elapsed_seconds": 2.542,
+      "free_bytes": 5537353728
+    },
+    {
+      "elapsed_seconds": 2.795,
+      "free_bytes": 5537353728
+    },
+    {
+      "elapsed_seconds": 3.05,
+      "free_bytes": 5537353728
+    },
+    {
+      "elapsed_seconds": 3.301,
+      "free_bytes": 5537345536
+    },
+    {
+      "elapsed_seconds": 3.557,
+      "free_bytes": 5537337344
+    },
+    {
+      "elapsed_seconds": 3.812,
+      "free_bytes": 5537091584
+    },
+    {
+      "elapsed_seconds": 4.065,
+      "free_bytes": 5537091584
+    },
+    {
+      "elapsed_seconds": 4.318,
+      "free_bytes": 5536555008
+    },
+    {
+      "elapsed_seconds": 4.569,
+      "free_bytes": 5536509952
+    },
+    {
+      "elapsed_seconds": 4.824,
+      "free_bytes": 5536243712
+    },
+    {
+      "elapsed_seconds": 5.078,
+      "free_bytes": 5535944704
+    },
+    {
+      "elapsed_seconds": 5.329,
+      "free_bytes": 5535842304
+    },
+    {
+      "elapsed_seconds": 5.579,
+      "free_bytes": 5535686656
+    },
+    {
+      "elapsed_seconds": 5.833,
+      "free_bytes": 5535563776
+    },
+    {
+      "elapsed_seconds": 6.088,
+      "free_bytes": 5535170560
+    },
+    {
+      "elapsed_seconds": 6.342,
+      "free_bytes": 5534765056
+    },
+    {
+      "elapsed_seconds": 6.593,
+      "free_bytes": 5534351360
+    }
+  ]
+}

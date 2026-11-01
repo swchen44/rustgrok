@@ -1,0 +1,16 @@
+{
+  "method": "STATIC_SOURCE_REVIEW; no profiler or per-function runtime attribution",
+  "source_files": {
+    "experiments/search-spike/src/main.rs": "ebaf8de98c627b4d9654dd308ec2c3d958f5dd24dd790ccef950a12d75b164c7",
+    "experiments/search-spike/src/path_response.rs": "70ddebad8e5e015bfaf8c48839d25c01f96ae8c119fae180189e0580fc3560bc"
+  },
+  "candidate_binary_sha256": "0d06036588295b7ef1cfb88a597ea6f94c244eb6e74d1cf983681073b06d275a",
+  "candidate_index_bytes": 21330431,
+  "source_findings": [
+    "Each path request calls search; search reads the full JSON index and deserializes all documents before project filtering.",
+    "search loops through documents; each selected document calls path_matches, which tokenizes the path and query.",
+    "serve handles incoming connections in a synchronous for loop."
+  ],
+  "interpretation": "These code paths are plausible contributors to the measured latency and five-client queuing. This static review does not quantify their share, prove cache misses or physical disk bytes, or attribute exact causality. The binary/source build is not independently attested by a reproducible-build comparison.",
+  "profile_status": "NOT_PERFORMED"
+}

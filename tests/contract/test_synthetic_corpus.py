@@ -5,12 +5,23 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[2]
 TOOL=ROOT/'tools/build_synthetic_corpus.py'
 
 
 class SyntheticCorpus(unittest.TestCase):
+    def test_new_sampled_reserve_is_4_5_gib_and_cannot_be_lower(self):
+        sys.path.insert(0,str(ROOT/'tools'))
+        import build_synthetic_corpus as synthetic
+        required=9*1024**3//2
+        self.assertEqual(synthetic.RESERVE,required)
+        with patch.object(synthetic.shutil,'disk_usage') as usage:
+            usage.return_value=type('Usage',(),{'free':required+1024})()
+            synthetic.check_space(Path('/tmp'),required,0)
+            with self.assertRaises(ValueError):synthetic.check_space(Path('/tmp'),required-1,0)
+
     def run_tool(self,*args):
         return subprocess.run([sys.executable,str(TOOL),*map(str,args)],capture_output=True,text=True)
 

@@ -1,0 +1,24 @@
+{
+  "command": [
+    "/Library/Frameworks/Python.framework/Versions/3.13/bin/python3",
+    "tools/build_synthetic_corpus.py",
+    "create",
+    "--output",
+    "/tmp/rustgrok-synthetic-20m-v1",
+    "--projects",
+    "10",
+    "--files-per-project",
+    "8",
+    "--bytes-per-file",
+    "262144"
+  ],
+  "before_free_bytes": 5817298944,
+  "after_free_bytes": 5796311040,
+  "reserve_bytes": 4831838208,
+  "started_unix_seconds": 1793543287.7273521,
+  "completed_unix_seconds": 1793543287.8242,
+  "exit_code": 0,
+  "stdout": "{\"status\": \"CREATED\", \"corpus\": \"/private/tmp/rustgrok-synthetic-20m-v1\", \"source_bytes\": 20971520, \"files\": 80}\n",
+  "stderr": "",
+  "scope": "synthetic creation only; single process; reserve checked by generator before every file"
+}

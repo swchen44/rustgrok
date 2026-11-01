@@ -1,0 +1,397 @@
+{
+  "status": "INDEX_COST_OBSERVED_PATH_COVERAGE_NOT_YET_VERIFIED",
+  "scope": "synthetic indexing feasibility only, no HTTP/search timing",
+  "source_bytes": 20971520,
+  "source_files": 80,
+  "projects": 10,
+  "reserve_bytes": 4831838208,
+  "candidate_binary_sha256": "0d06036588295b7ef1cfb88a597ea6f94c244eb6e74d1cf983681073b06d275a",
+  "original_command": [
+    "/Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/jdk-21.0.13+9/Contents/Home/bin/java",
+    "-Xms128m",
+    "-Xmx512m",
+    "-jar",
+    "/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/opengrok.jar",
+    "-c",
+    "/opt/homebrew/bin/ctags",
+    "-s",
+    "/private/tmp/rustgrok-synthetic-20m-v1/source",
+    "-d",
+    "/private/tmp/rustgrok-synthetic-20m-index-v1/oracle-index",
+    "-W",
+    "/private/tmp/rustgrok-synthetic-20m-index-v1/configuration.xml",
+    "-P",
+    "-S",
+    "-H",
+    "-T",
+    "2"
+  ],
+  "original_process": {
+    "status": "COMPLETED",
+    "exit_code": 0,
+    "elapsed_seconds": 3.586,
+    "samples": [
+      {
+        "elapsed_seconds": 0.003,
+        "free_bytes": 5796044800,
+        "process_group_ps": [
+          "  320   320   306   1216   0.0   0:00.00",
+          "  320   322   320     32   0.0   0:00.00"
+        ]
+      },
+      {
+        "elapsed_seconds": 0.28,
+        "free_bytes": 5795979264,
+        "process_group_ps": [
+          "  320   320   306   1216   0.5   0:00.00",
+          "  320   322   320  32288   7.8   0:00.04"
+        ]
+      },
+      {
+        "elapsed_seconds": 0.554,
+        "free_bytes": 5795958784,
+        "process_group_ps": [
+          "  320   320   306   1216   0.1   0:00.00",
+          "  320   322   320  79392 102.9   0:00.45"
+        ]
+      },
+      {
+        "elapsed_seconds": 0.829,
+        "free_bytes": 5795958784,
+        "process_group_ps": [
+          "  320   320   306   1216   0.0   0:00.00",
+          "  320   322   320 103936 124.7   0:00.83"
+        ]
+      },
+      {
+        "elapsed_seconds": 1.105,
+        "free_bytes": 5795934208,
+        "process_group_ps": [
+          "  320   320   306    448   0.0   0:00.00",
+          "  320   322   320 144944 187.1   0:01.51",
+          "  320   341   322   4880   2.6   0:00.01",
+          "  320   344   322   4896   2.8   0:00.01"
+        ]
+      },
+      {
+        "elapsed_seconds": 1.38,
+        "free_bytes": 5795856384,
+        "process_group_ps": [
+          "  320   320   306    432   0.0   0:00.00",
+          "  320   322   320 200608 255.7   0:02.36",
+          "  320   341   322   5440   1.4   0:00.01",
+          "  320   344   322   5168   1.5   0:00.01"
+        ]
+      },
+      {
+        "elapsed_seconds": 1.65,
+        "free_bytes": 5795725312,
+        "process_group_ps": [
+          "  320   320   306    432   0.0   0:00.00",
+          "  320   322   320 203776 288.9   0:03.18",
+          "  320   341   322   6432   1.6   0:00.02",
+          "  320   344   322   5792   0.6   0:00.01"
+        ]
+      },
+      {
+        "elapsed_seconds": 1.929,
+        "free_bytes": 5795561472,
+        "process_group_ps": [
+          "  320   320   306    432   0.0   0:00.00",
+          "  320   322   320 206048 304.8   0:04.05",
+          "  320   341   322   7184   1.9   0:00.02",
+          "  320   344   322   6016   1.2   0:00.02"
+        ]
+      },
+      {
+        "elapsed_seconds": 2.213,
+        "free_bytes": 5794979840,
+        "process_group_ps": [
+          "  320   320   306    432   0.0   0:00.00",
+          "  320   322   320 212160 326.6   0:05.00",
+          "  320   341   322   7680   3.4   0:00.03",
+          "  320   344   322   6832   2.4   0:00.03"
+        ]
+      },
+      {
+        "elapsed_seconds": 2.487,
+        "free_bytes": 5794361344,
+        "process_group_ps": [
+          "  320   320   306    432   0.0   0:00.00",
+          "  320   322   320 212448 316.6   0:05.85",
+          "  320   341   322   7744   4.1   0:00.05",
+          "  320   344   322   8048   4.1   0:00.04"
+        ]
+      },
+      {
+        "elapsed_seconds": 2.761,
+        "free_bytes": 5793587200,
+        "process_group_ps": [
+          "  320   320   306    432   0.0   0:00.00",
+          "  320   322   320 212272 310.2   0:06.70",
+          "  320   341   322   7968   5.5   0:00.06",
+          "  320   344   322   8240   4.9   0:00.05"
+        ]
+      },
+      {
+        "elapsed_seconds": 3.039,
+        "free_bytes": 5792677888,
+        "process_group_ps": [
+          "  320   320   306    432   0.0   0:00.00",
+          "  320   322   320 211856 298.4   0:07.50",
+          "  320   341   322   8112   6.0   0:00.08",
+          "  320   344   322   8784   5.2   0:00.07"
+        ]
+      },
+      {
+        "elapsed_seconds": 3.311,
+        "free_bytes": 5791727616,
+        "process_group_ps": [
+          "  320   320   306    432   0.0   0:00.00",
+          "  320   322   320 212944 251.5   0:08.11",
+          "  320   341   322   8624   6.9   0:00.10",
+          "  320   344   322   8800   6.7   0:00.09"
+        ]
+      }
+    ],
+    "process_group": 320,
+    "group_stopped": true,
+    "limitations": "sampled process group only; time -l IO reports block operation counts, not bytes"
+  },
+  "original_log_check": {
+    "status": "NO_KNOWN_FILE_FAILURE_INDICATORS",
+    "streams": {
+      "stdout": {
+        "file": "original-indexer.stdout.txt",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "stderr": {
+        "file": "original-indexer.stderr.txt",
+        "sha256": "f741666ddb06e409c2eb06dee7090bb1109add3c7af0d9da666ce916cc3b7679",
+        "bytes": 10044
+      }
+    },
+    "indicators": [],
+    "completion_markers": [
+      "Done indexing data of all repositories",
+      "Indexer finished with success"
+    ],
+    "limitation": "Absence of these particular log messages alone does not prove all source files were indexed."
+  },
+  "candidate_command": [
+    "/Users/swchen.tw/git/rustgrok-issue-7/experiments/search-spike/target/release/rustgrok-search-spike",
+    "index",
+    "--source",
+    "/private/tmp/rustgrok-synthetic-20m-v1/source",
+    "--index",
+    "/private/tmp/rustgrok-synthetic-20m-index-v1/candidate-index.json",
+    "--ctags",
+    "/opt/homebrew/bin/ctags"
+  ],
+  "candidate_process": {
+    "status": "COMPLETED",
+    "exit_code": 0,
+    "elapsed_seconds": 0.552,
+    "samples": [
+      {
+        "elapsed_seconds": 0.002,
+        "free_bytes": 5791535104,
+        "process_group_ps": [
+          "  358   358   306   1184   0.0   0:00.00",
+          "  358   360   358     32   0.0   0:00.00"
+        ]
+      },
+      {
+        "elapsed_seconds": 0.281,
+        "free_bytes": 5791535104,
+        "process_group_ps": [
+          "  358   358   306   1184   0.4   0:00.00",
+          "  358   360   358  15392   3.3   0:00.02",
+          "  358   427   360   2336   0.0   0:00.00"
+        ]
+      }
+    ],
+    "process_group": 358,
+    "group_stopped": true,
+    "limitations": "sampled process group only; time -l IO reports block operation counts, not bytes"
+  },
+  "candidate_coverage": {
+    "complete": true,
+    "expected_paths": [
+      "/project00/synthetic000.c",
+      "/project00/synthetic001.py",
+      "/project00/synthetic002.js",
+      "/project00/synthetic003.c",
+      "/project00/synthetic004.py",
+      "/project00/synthetic005.js",
+      "/project00/synthetic006.c",
+      "/project00/synthetic007.py",
+      "/project01/synthetic000.c",
+      "/project01/synthetic001.py",
+      "/project01/synthetic002.js",
+      "/project01/synthetic003.c",
+      "/project01/synthetic004.py",
+      "/project01/synthetic005.js",
+      "/project01/synthetic006.c",
+      "/project01/synthetic007.py",
+      "/project02/synthetic000.c",
+      "/project02/synthetic001.py",
+      "/project02/synthetic002.js",
+      "/project02/synthetic003.c",
+      "/project02/synthetic004.py",
+      "/project02/synthetic005.js",
+      "/project02/synthetic006.c",
+      "/project02/synthetic007.py",
+      "/project03/synthetic000.c",
+      "/project03/synthetic001.py",
+      "/project03/synthetic002.js",
+      "/project03/synthetic003.c",
+      "/project03/synthetic004.py",
+      "/project03/synthetic005.js",
+      "/project03/synthetic006.c",
+      "/project03/synthetic007.py",
+      "/project04/synthetic000.c",
+      "/project04/synthetic001.py",
+      "/project04/synthetic002.js",
+      "/project04/synthetic003.c",
+      "/project04/synthetic004.py",
+      "/project04/synthetic005.js",
+      "/project04/synthetic006.c",
+      "/project04/synthetic007.py",
+      "/project05/synthetic000.c",
+      "/project05/synthetic001.py",
+      "/project05/synthetic002.js",
+      "/project05/synthetic003.c",
+      "/project05/synthetic004.py",
+      "/project05/synthetic005.js",
+      "/project05/synthetic006.c",
+      "/project05/synthetic007.py",
+      "/project06/synthetic000.c",
+      "/project06/synthetic001.py",
+      "/project06/synthetic002.js",
+      "/project06/synthetic003.c",
+      "/project06/synthetic004.py",
+      "/project06/synthetic005.js",
+      "/project06/synthetic006.c",
+      "/project06/synthetic007.py",
+      "/project07/synthetic000.c",
+      "/project07/synthetic001.py",
+      "/project07/synthetic002.js",
+      "/project07/synthetic003.c",
+      "/project07/synthetic004.py",
+      "/project07/synthetic005.js",
+      "/project07/synthetic006.c",
+      "/project07/synthetic007.py",
+      "/project08/synthetic000.c",
+      "/project08/synthetic001.py",
+      "/project08/synthetic002.js",
+      "/project08/synthetic003.c",
+      "/project08/synthetic004.py",
+      "/project08/synthetic005.js",
+      "/project08/synthetic006.c",
+      "/project08/synthetic007.py",
+      "/project09/synthetic000.c",
+      "/project09/synthetic001.py",
+      "/project09/synthetic002.js",
+      "/project09/synthetic003.c",
+      "/project09/synthetic004.py",
+      "/project09/synthetic005.js",
+      "/project09/synthetic006.c",
+      "/project09/synthetic007.py"
+    ],
+    "observed_paths": [
+      "/project01/synthetic005.js",
+      "/project01/synthetic001.py",
+      "/project01/synthetic006.c",
+      "/project01/synthetic004.py",
+      "/project01/synthetic007.py",
+      "/project01/synthetic003.c",
+      "/project01/synthetic000.c",
+      "/project01/synthetic002.js",
+      "/project06/synthetic005.js",
+      "/project06/synthetic001.py",
+      "/project06/synthetic006.c",
+      "/project06/synthetic004.py",
+      "/project06/synthetic007.py",
+      "/project06/synthetic003.c",
+      "/project06/synthetic000.c",
+      "/project06/synthetic002.js",
+      "/project08/synthetic005.js",
+      "/project08/synthetic001.py",
+      "/project08/synthetic006.c",
+      "/project08/synthetic004.py",
+      "/project08/synthetic007.py",
+      "/project08/synthetic003.c",
+      "/project08/synthetic000.c",
+      "/project08/synthetic002.js",
+      "/project09/synthetic005.js",
+      "/project09/synthetic001.py",
+      "/project09/synthetic006.c",
+      "/project09/synthetic004.py",
+      "/project09/synthetic007.py",
+      "/project09/synthetic003.c",
+      "/project09/synthetic000.c",
+      "/project09/synthetic002.js",
+      "/project07/synthetic005.js",
+      "/project07/synthetic001.py",
+      "/project07/synthetic006.c",
+      "/project07/synthetic004.py",
+      "/project07/synthetic007.py",
+      "/project07/synthetic003.c",
+      "/project07/synthetic000.c",
+      "/project07/synthetic002.js",
+      "/project00/synthetic005.js",
+      "/project00/synthetic001.py",
+      "/project00/synthetic006.c",
+      "/project00/synthetic004.py",
+      "/project00/synthetic007.py",
+      "/project00/synthetic003.c",
+      "/project00/synthetic000.c",
+      "/project00/synthetic002.js",
+      "/project05/synthetic005.js",
+      "/project05/synthetic001.py",
+      "/project05/synthetic006.c",
+      "/project05/synthetic004.py",
+      "/project05/synthetic007.py",
+      "/project05/synthetic003.c",
+      "/project05/synthetic000.c",
+      "/project05/synthetic002.js",
+      "/project02/synthetic005.js",
+      "/project02/synthetic001.py",
+      "/project02/synthetic006.c",
+      "/project02/synthetic004.py",
+      "/project02/synthetic007.py",
+      "/project02/synthetic003.c",
+      "/project02/synthetic000.c",
+      "/project02/synthetic002.js",
+      "/project03/synthetic005.js",
+      "/project03/synthetic001.py",
+      "/project03/synthetic006.c",
+      "/project03/synthetic004.py",
+      "/project03/synthetic007.py",
+      "/project03/synthetic003.c",
+      "/project03/synthetic000.c",
+      "/project03/synthetic002.js",
+      "/project04/synthetic005.js",
+      "/project04/synthetic001.py",
+      "/project04/synthetic006.c",
+      "/project04/synthetic004.py",
+      "/project04/synthetic007.py",
+      "/project04/synthetic003.c",
+      "/project04/synthetic000.c",
+      "/project04/synthetic002.js"
+    ],
+    "limitation": "Candidate source contents checked for this fixture only; it does not prove equal analyzers or all query features."
+  },
+  "original_index_bytes": 3838874,
+  "candidate_index_bytes": 21330431,
+  "candidate_index_sha256": "ae3c3eeb13e8a697623fc69433c5ac43b8615417632925985cf98bba90896bd8",
+  "original_path_coverage": "NOT_MEASURED",
+  "limitations": [
+    "synthetic repeated comments, no SCM history, not representative of real repositories",
+    "no original file path inventory yet; no search comparison",
+    "RSS/CPU/IO are sampled or process-level, not a product resource acceptance",
+    "source, indexes and temporary growth may exceed this pilot at larger sizes"
+  ]
+}

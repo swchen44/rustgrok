@@ -10,7 +10,8 @@ import sys
 from search_benchmark_gate import no_duplicate_keys, strict_equal
 
 ROOT=Path(__file__).resolve().parents[1]
-RESERVE=6*1024**3
+# User requested sequential operation; keep a 4.5 GiB sampled free-space floor.
+RESERVE=9*1024**3//2
 MAX_FILE=1024**2
 EXTENSIONS=('c','py','js')
 
@@ -40,7 +41,7 @@ def specification(projects, files_per_project, bytes_per_file):
 
 
 def check_space(path, reserve, upcoming):
-    if reserve < RESERVE: raise ValueError('minimum free space cannot be less than 6 GiB')
+    if reserve < RESERVE: raise ValueError('minimum free space cannot be less than 4.5 GiB')
     free=shutil.disk_usage(path).free
     if free-upcoming < reserve:
         raise ValueError(f'insufficient disk: free={free} upcoming={upcoming} reserve={reserve}')

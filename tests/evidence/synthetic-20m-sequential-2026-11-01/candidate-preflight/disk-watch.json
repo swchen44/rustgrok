@@ -1,0 +1,13 @@
+{
+  "reserve_bytes": 4831838208,
+  "poll_seconds": 0.25,
+  "breached": false,
+  "samples": [
+    {
+      "elapsed_seconds": 0.004,
+      "free_bytes": 5616467968
+    }
+  ],
+  "candidate_group": 955,
+  "candidate_group_stopped": true
+}
