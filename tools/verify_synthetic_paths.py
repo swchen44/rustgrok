@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Observe each synthetic source path through the isolated original HTTP API."""
 import argparse
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -22,6 +23,9 @@ from indexer_evidence import record_indexer_logs, verify_candidate_coverage, ver
 from oracle_http import configure_server, opener
 from prepare_oracle_copy import tree_hash
 from search_benchmark_gate import finite_float, no_duplicate_keys
+from run_synthetic_index_probe import ensure_group_exit, wait_group_exit
+from sequential_preflight import case_queries, equivalent, observe
+from sequential_http_measure import load_eligibility
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -31,21 +35,31 @@ def main():
     parser.add_argument('--corpus',type=Path,required=True);parser.add_argument('--probe',type=Path,required=True)
     parser.add_argument('--output',type=Path,required=True);parser.add_argument('--min-free-bytes',type=int,default=synthetic.RESERVE)
     parser.add_argument('--benchmark',action='store_true');parser.add_argument('--index-proof',type=Path)
+    parser.add_argument('--sequential-preflight',action='store_true')
+    parser.add_argument('--measurement-proof',type=Path)
     parser.add_argument('--warmup',type=int,default=20);parser.add_argument('--samples',type=int,default=50)
     args=parser.parse_args()
     if args.output.exists() or args.output.is_symlink():parser.error('output must not exist')
-    if args.min_free_bytes < synthetic.RESERVE:parser.error('minimum free space cannot be below 6 GiB')
+    if args.min_free_bytes < synthetic.RESERVE:parser.error('minimum free space cannot be below 4.5 GiB')
     if args.warmup < 1 or args.samples < 5 or args.samples % 5:parser.error('warmup must be positive and samples must be a multiple of five, at least five')
+    if args.benchmark:parser.error('concurrent benchmark is disabled; use a sequential workflow')
     if args.benchmark and args.index_proof is None:parser.error('benchmark requires a prior index-proof coverage receipt')
     corpus=args.corpus.resolve(strict=True);probe=args.probe.resolve(strict=True);out=args.output.parent.resolve(strict=True)/args.output.name
     if out==ROOT or ROOT in out.parents or out==corpus or corpus in out.parents or out==probe or probe in out.parents:parser.error('output must be outside repo, corpus and input probe')
     manifest=json.loads((corpus/'manifest.json').read_text())
-    if type(manifest.get('source_bytes')) is not int or manifest['source_bytes']>16*1024**2:parser.error('pilot capped at 16 MiB')
+    if type(manifest.get('source_bytes')) is not int or manifest['source_bytes']>32*1024**2:parser.error('pilot capped at 32 MiB')
     synthetic.verify(argparse.Namespace(corpus=corpus))
+    measurement_proof=None
+    if args.measurement_proof:
+        measurement_proof=args.measurement_proof.resolve(strict=True)
+        stopped=json.loads((measurement_proof/'disk-watch.json').read_text())
+        if not stopped.get('candidate_group_stopped') or not wait_group_exit(stopped['candidate_group'],timeout=0):parser.error('candidate preflight group is not confirmed stopped')
+        for name in ('single-hit','no-hit'):load_eligibility(measurement_proof,name)
     old_report=json.loads((probe/'report.json').read_text())
     if old_report['status']!='INDEX_COST_OBSERVED_PATH_COVERAGE_NOT_YET_VERIFIED':parser.error('probe did not complete indexing')
     if (probe/'synthetic-manifest.json').read_bytes()!=(corpus/'manifest.json').read_bytes():parser.error('probe corpus manifest differs')
     if old_report['original_process']['status']!='COMPLETED' or old_report['candidate_process']['status']!='COMPLETED':parser.error('indexing processes did not complete')
+    if not old_report['original_process'].get('group_stopped') or not old_report['candidate_process'].get('group_stopped'):parser.error('previous indexing process groups were not confirmed stopped')
     candidate=ROOT/'experiments/search-spike/target/release/rustgrok-search-spike'
     candidate_index=probe/'candidate-index.json'
     if args.benchmark:
@@ -143,6 +157,32 @@ def main():
             converted={'repositories':[{'path':str(Path(x['path']).parent),'file':Path(x['path']).name} for x in manifest['files']]}
             coverage=verify_path_coverage(converted,bodies)
             if not coverage['complete']:raise RuntimeError('original path coverage incomplete; benchmark not started')
+            if args.sequential_preflight:
+                observations={}
+                for name,query in case_queries(projects[0]).items():
+                    if breached.is_set():raise RuntimeError('disk reserve breached')
+                    item=observe(f'http://127.0.0.1:{port}'+query,out,'preflight-'+name+'-oracle')
+                    expected_count=1 if name=='single-hit' else 0
+                    if not equivalent(item,item) or item['first']['body']['resultCount']!=expected_count:raise RuntimeError('original sequential preflight invalid')
+                    hashes={part:hashlib.sha256((out/('preflight-'+name+'-oracle-'+part+'.body')).read_bytes()).hexdigest() for part in ('first','followup')}
+                    observations[name]={'query':query,'observation':item,'body_sha256':hashes}
+                (out/'original-preflight.json').write_text(json.dumps(observations,indent=2)+'\n')
+            if measurement_proof is not None:
+                (out/'iostat-before.txt').write_text(subprocess.check_output(['/usr/sbin/iostat','-Id','-c','1'],text=True))
+                for name in ('single-hit','no-hit'):
+                    if breached.is_set():raise RuntimeError('disk reserve breached')
+                    command=[sys.executable,str(ROOT/'tools/sequential_http_measure.py'),'--endpoint',f'http://127.0.0.1:{port}',
+                             '--proof',str(measurement_proof),'--case',name,'--role','oracle','--output',str(out/('measure-oracle-'+name)),
+                             '--warmup',str(args.warmup),'--samples',str(args.samples),'--min-free-bytes',str(args.min_free_bytes)]
+                    with (out/('measure-oracle-'+name+'.stdout.txt')).open('wb') as sout,(out/('measure-oracle-'+name+'.stderr.txt')).open('wb') as serr:
+                        task=subprocess.Popen(command,stdout=sout,stderr=serr,start_new_session=True);processes.append(task)
+                        try:exit_code=task.wait(timeout=300)
+                        except subprocess.TimeoutExpired:
+                            os.killpg(task.pid,signal.SIGTERM);task.wait(timeout=10);raise RuntimeError('sequential measurement timeout')
+                    if not wait_group_exit(task.pid) or breached.is_set() or exit_code:raise RuntimeError('sequential original measurement stopped or failed')
+                    data=json.loads((out/('measure-oracle-'+name)/'report.json').read_text())
+                    cases.append({'case':name,'role':'oracle','status':data['status'],'timed_samples':data['timed_samples'],'process_group':task.pid,'group_stopped':True})
+                (out/'iostat-after.txt').write_text(subprocess.check_output(['/usr/sbin/iostat','-Id','-c','1'],text=True))
             if args.benchmark:
                 if candidate_proc.poll() is not None:raise RuntimeError('candidate server exited')
                 (out/'iostat-before.txt').write_text(subprocess.check_output(['/usr/sbin/iostat','-Id','-c','1'],text=True))
@@ -163,21 +203,26 @@ def main():
                     if exit_code and not result['status'].startswith('BLOCKED_'):raise RuntimeError('unexpected benchmark failure')
                 (out/'iostat-after.txt').write_text(subprocess.check_output(['/usr/sbin/iostat','-Id','-c','1'],text=True))
         finally:
-            stop.set();thread.join();monitor_thread.join()
             for process in processes:
                 if process.poll() is None:
                     try:os.killpg(process.pid,signal.SIGTERM)
                     except ProcessLookupError:pass
                     try:process.wait(timeout=10)
                     except subprocess.TimeoutExpired:os.killpg(process.pid,signal.SIGKILL);process.wait()
+            cleanup={str(process.pid):ensure_group_exit(process.pid) for process in processes}
+            stopped_groups={group:result[0] for group,result in cleanup.items()}
+            stop.set();thread.join();monitor_thread.join()
             if candidate_log:candidate_log.close()
             (out/'disk-watch.json').write_text(json.dumps({'reserve_bytes':args.min_free_bytes,'poll_seconds':.25,'breached':breached.is_set(),'samples':samples},indent=2)+'\n')
             (out/'resources.json').write_text(json.dumps({'poll_seconds':.25,'samples':resources,'note':'process-group ps snapshots; not peak or complete process accounting; iostat is device-wide'},indent=2)+'\n')
     after=tree_hash(probe/'oracle-index');synthetic.verify(argparse.Namespace(corpus=corpus))
-    report={'status':'MATCHED_ALL_SYNTHETIC_PATHS' if coverage['complete'] and before==after else 'BLOCKED',
+    report={'status':'MATCHED_ALL_SYNTHETIC_PATHS' if coverage['complete'] and before==after and all(stopped_groups.values()) and not any(x[1] for x in cleanup.values()) else 'BLOCKED',
             'coverage':coverage,'original_index_tree_before':before,'original_index_tree_after':after,
             'benchmark_cases':cases,'candidate_binary_sha256':old_report['candidate_binary_sha256'] if args.benchmark else None,
             'sampled_disk_reserve_bytes':args.min_free_bytes,'disk_poll_seconds':.25,'disk_samples':samples,
+            'process_groups_stopped':stopped_groups,
+            'forced_group_cleanup':{group:result[1] for group,result in cleanup.items()},
+            'oracle_server_process_group':proc.pid,
             'configuration_change':'isolated copied dataRoot; allowMostPopular=false (upstream default true, user deferred suggestions)',
             'limitations':['path presence does not prove all source tokens indexed','disk samples do not bound writes between polls','synthetic data has no SCM history and is not representative']}
     (out/'coverage.json').write_text(json.dumps(report,indent=2)+'\n')

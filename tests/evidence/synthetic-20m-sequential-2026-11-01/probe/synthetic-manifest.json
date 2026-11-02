@@ -1,0 +1,410 @@
+{
+  "schema_version": 1,
+  "kind": "independently generated synthetic comments; no real source or SCM history",
+  "projects": 10,
+  "files_per_project": 8,
+  "bytes_per_file": 262144,
+  "source_bytes": 20971520,
+  "files": [
+    {
+      "path": "project00/synthetic000.c",
+      "bytes": 262144,
+      "sha256": "0e9478f5a83dd7eb5c588edc59fd66649fe461f33d7419e0ad3b9c2b04d777e0"
+    },
+    {
+      "path": "project00/synthetic001.py",
+      "bytes": 262144,
+      "sha256": "d2e9e72b37cd6abed7cabeeeab005a88520a83cbcb999ee6ff0b59ced5db5685"
+    },
+    {
+      "path": "project00/synthetic002.js",
+      "bytes": 262144,
+      "sha256": "d78c99c2d903df567cfa52abd1bb9bf0bfae5e28af79fe61dbeea2c1e3f34b67"
+    },
+    {
+      "path": "project00/synthetic003.c",
+      "bytes": 262144,
+      "sha256": "31643fb88daf5462a96509744e761b66c6683a88afbf3fc08b0f921f3e23e867"
+    },
+    {
+      "path": "project00/synthetic004.py",
+      "bytes": 262144,
+      "sha256": "be867be7e84802312ecee8b443a5c3d151ee2b50c47fd82f83c709f8e3725a75"
+    },
+    {
+      "path": "project00/synthetic005.js",
+      "bytes": 262144,
+      "sha256": "544d31c6a9b9e19694082032e5fc07821b080b93d83201a482fc05c3d67ebbd7"
+    },
+    {
+      "path": "project00/synthetic006.c",
+      "bytes": 262144,
+      "sha256": "cbc48f6885df57033cea6e553796f52d524c5c893e6581b349c385a51a32fda7"
+    },
+    {
+      "path": "project00/synthetic007.py",
+      "bytes": 262144,
+      "sha256": "b81635b4dae39abab1fe85bff026b71e94730c7319b733029c8a7644beeb785f"
+    },
+    {
+      "path": "project01/synthetic000.c",
+      "bytes": 262144,
+      "sha256": "e76c60e1cc179f8b85a5c8ed61b50fb074d70802964b0c0456b79d5616e6884b"
+    },
+    {
+      "path": "project01/synthetic001.py",
+      "bytes": 262144,
+      "sha256": "bd5a398d3089e3eddfc241e9d6730c2be804aa47c1fefd2bd8b2f7f899b21f4b"
+    },
+    {
+      "path": "project01/synthetic002.js",
+      "bytes": 262144,
+      "sha256": "c9118e7ada12a5a0b86368955fd32058905874d87c59bbc1a2c25ca68208a26b"
+    },
+    {
+      "path": "project01/synthetic003.c",
+      "bytes": 262144,
+      "sha256": "996be3aa1cadd7a083b37d7252389e030e201e8c948fc21c645899f9fc49aa44"
+    },
+    {
+      "path": "project01/synthetic004.py",
+      "bytes": 262144,
+      "sha256": "db16d69c22e6ac9016fbec737a8e8e0b1b87c9173a604b015b507a8d54125225"
+    },
+    {
+      "path": "project01/synthetic005.js",
+      "bytes": 262144,
+      "sha256": "3a1bd77e51b665aeaba791ed0d47df865695a21409b96bb727730b3d63e33b7d"
+    },
+    {
+      "path": "project01/synthetic006.c",
+      "bytes": 262144,
+      "sha256": "8a453840c368fdcc11fa3a2d9d4f81108561247b0fd43559be9691dbfd67641e"
+    },
+    {
+      "path": "project01/synthetic007.py",
+      "bytes": 262144,
+      "sha256": "3cbd94a26b787e57e38e741133f8f222186061566a3bb4802d25a217e7dfdf5b"
+    },
+    {
+      "path": "project02/synthetic000.c",
+      "bytes": 262144,
+      "sha256": "12e3dc2e6d313b0ee0bcffc933c5f9096ea4f27fbea4efb206544360aabc1ebb"
+    },
+    {
+      "path": "project02/synthetic001.py",
+      "bytes": 262144,
+      "sha256": "9a823333cd0b698332d32bddd880ee8be3aec0f5e9f77b07862ca6c85ac0714d"
+    },
+    {
+      "path": "project02/synthetic002.js",
+      "bytes": 262144,
+      "sha256": "b751f5f2b05c2bd9edff935393bb7670de1a0a5e92cb80c4316420ea63996da1"
+    },
+    {
+      "path": "project02/synthetic003.c",
+      "bytes": 262144,
+      "sha256": "27c79aaa4e69217d8d157b1676518514ea8bdbe7a0f77df2cf0d860959e253d1"
+    },
+    {
+      "path": "project02/synthetic004.py",
+      "bytes": 262144,
+      "sha256": "6cc958c9e575f054aeadbc3c7199ca42e6074468fccc71355331b256874c0c32"
+    },
+    {
+      "path": "project02/synthetic005.js",
+      "bytes": 262144,
+      "sha256": "dc10d92329f0f1dc08700822eec8d965b370a1a2e4c1cf2a132d35f0b9a777fa"
+    },
+    {
+      "path": "project02/synthetic006.c",
+      "bytes": 262144,
+      "sha256": "b65a63665aef4fe0559e8ab9f7cd9c593abb9ea630aaeccb2891c618f5641ffc"
+    },
+    {
+      "path": "project02/synthetic007.py",
+      "bytes": 262144,
+      "sha256": "1d6d967d54382e96e9c9329ec705ff4957a192fa439f3e1fe26dcd1672834a51"
+    },
+    {
+      "path": "project03/synthetic000.c",
+      "bytes": 262144,
+      "sha256": "350e4fff04684cd3e8ed9ab903a392a084c8b582c0e36365b313bc1ea75d3e45"
+    },
+    {
+      "path": "project03/synthetic001.py",
+      "bytes": 262144,
+      "sha256": "31b7733cb3a9c1bec1b56e87510282da0ed0f7f4e187ca50d927eb679debe52a"
+    },
+    {
+      "path": "project03/synthetic002.js",
+      "bytes": 262144,
+      "sha256": "4923f37f46ba16f1ce19f3decec9c466248373a71150dc664b41158749a56164"
+    },
+    {
+      "path": "project03/synthetic003.c",
+      "bytes": 262144,
+      "sha256": "7c67c56fba32c894223dd9937c9f5de4a713c7e807f8001c029d32111bd69cc9"
+    },
+    {
+      "path": "project03/synthetic004.py",
+      "bytes": 262144,
+      "sha256": "7b942fa96db80ce74657c9c94a1769e24e4c6d15b9bc6cb2a60ce68fe4f2a242"
+    },
+    {
+      "path": "project03/synthetic005.js",
+      "bytes": 262144,
+      "sha256": "15acda5d1899400af0b8934efb2a50b48f16bafa65709f51d5bef64ff2e0e028"
+    },
+    {
+      "path": "project03/synthetic006.c",
+      "bytes": 262144,
+      "sha256": "33c6dc432384978fc2fdf8154c455d2b3d4a28be824d6f8677b7a2a82081a6cc"
+    },
+    {
+      "path": "project03/synthetic007.py",
+      "bytes": 262144,
+      "sha256": "3046f4c1af5d04c084dc40c2154fd9b5d8310189afa91f879eb7ac5a6985f31e"
+    },
+    {
+      "path": "project04/synthetic000.c",
+      "bytes": 262144,
+      "sha256": "9f72045695bc429cec84e46f20b7eea0cd7fb5ac4c4612dd3a6256fc21ef6890"
+    },
+    {
+      "path": "project04/synthetic001.py",
+      "bytes": 262144,
+      "sha256": "0b010106c506dfbd3df119be9500e7a437b3b81e81ef4656e4013e2103fda971"
+    },
+    {
+      "path": "project04/synthetic002.js",
+      "bytes": 262144,
+      "sha256": "9a5501ccee52cca1943eac1736589762e9bdb75325500207cb489b1cc2e87f60"
+    },
+    {
+      "path": "project04/synthetic003.c",
+      "bytes": 262144,
+      "sha256": "7d301fe67214858521c9e64824f8982bb88e6fe0c2ac5e4b83d3ee28f180628f"
+    },
+    {
+      "path": "project04/synthetic004.py",
+      "bytes": 262144,
+      "sha256": "61cf2839dedc0c4b818512f8fecfb934c660095ea836aa4fbc671badb63853b3"
+    },
+    {
+      "path": "project04/synthetic005.js",
+      "bytes": 262144,
+      "sha256": "afb8e5f0895bacdbd0a9282d247a81c62b3f0b46d75ad8a0af15bc88b9b355ab"
+    },
+    {
+      "path": "project04/synthetic006.c",
+      "bytes": 262144,
+      "sha256": "c84971ebe4e7ed14a32e504704d258cf028d4ed90c97e28fc6ac1424297ec769"
+    },
+    {
+      "path": "project04/synthetic007.py",
+      "bytes": 262144,
+      "sha256": "4fdfcfb50f9112600aac0a6ac78f9f51af7fb81c313e6fcb2d5bbdd1b79a4d93"
+    },
+    {
+      "path": "project05/synthetic000.c",
+      "bytes": 262144,
+      "sha256": "3538717965c4fed8ec8b65245bb1afd668de753ee33ecd8533b9d89a66da698f"
+    },
+    {
+      "path": "project05/synthetic001.py",
+      "bytes": 262144,
+      "sha256": "50bec52a09794236022f3ca3a9ca6a6c5f7834002e08b2afa93036adf9fd804f"
+    },
+    {
+      "path": "project05/synthetic002.js",
+      "bytes": 262144,
+      "sha256": "f0cbf7766605612b5ef23b3b81e1bc94649fd449908863e126b7a1c1ca6a7be5"
+    },
+    {
+      "path": "project05/synthetic003.c",
+      "bytes": 262144,
+      "sha256": "d7401557ca26e325ca7fb5831f9f7ee9f5f0060bb0a80bffa76c8843b26356e7"
+    },
+    {
+      "path": "project05/synthetic004.py",
+      "bytes": 262144,
+      "sha256": "93f1096b0bc38f2004615a131a491c609d88f1a9b14dc800aa95b5e19ac68623"
+    },
+    {
+      "path": "project05/synthetic005.js",
+      "bytes": 262144,
+      "sha256": "181c085b5ac38cf160f901912660f4ffffb81e0feb909d93b5091249db2a3e15"
+    },
+    {
+      "path": "project05/synthetic006.c",
+      "bytes": 262144,
+      "sha256": "99a480150b8f4811b5192e6290329fa09e8400b884aa88fae0f9886c44031a91"
+    },
+    {
+      "path": "project05/synthetic007.py",
+      "bytes": 262144,
+      "sha256": "7c6920a2aac14fe1cfb25644fab06e930974354b602a8af516e2b74f7df0c129"
+    },
+    {
+      "path": "project06/synthetic000.c",
+      "bytes": 262144,
+      "sha256": "07c6ca06236aa9533d4a7ec22bffbe109d35df0d85cdf0a9f564eccc7de48687"
+    },
+    {
+      "path": "project06/synthetic001.py",
+      "bytes": 262144,
+      "sha256": "0568534e907804da3fec68da589ae90c6b5657866874b9cd172d6f962628ec4e"
+    },
+    {
+      "path": "project06/synthetic002.js",
+      "bytes": 262144,
+      "sha256": "93776470eddab518ce99cba43838523162dec095111429801693e364399de573"
+    },
+    {
+      "path": "project06/synthetic003.c",
+      "bytes": 262144,
+      "sha256": "51109166cb2413651127eb745aebe105fda7742b9e2334c83420c5e1186586ec"
+    },
+    {
+      "path": "project06/synthetic004.py",
+      "bytes": 262144,
+      "sha256": "849292e303aa2ff085355efdc84c38db89d3dcf230a7feec917eb82a72e063bd"
+    },
+    {
+      "path": "project06/synthetic005.js",
+      "bytes": 262144,
+      "sha256": "e9fa14e12b38d5b767869c48a4a3caf79cfdfdfead7b1b9d623a6afe55599220"
+    },
+    {
+      "path": "project06/synthetic006.c",
+      "bytes": 262144,
+      "sha256": "bcfca5ac0911e3b78f0f4370b0bc38a98fa77b7cb5d876dc532b66e6c8bc46b6"
+    },
+    {
+      "path": "project06/synthetic007.py",
+      "bytes": 262144,
+      "sha256": "87e52333449530cce908bf4f9d0caf94001a254b5e0f571456f2017b77b5a810"
+    },
+    {
+      "path": "project07/synthetic000.c",
+      "bytes": 262144,
+      "sha256": "be4d3a1843d378b2f75a02cb1adf8a29d88d7f53ec982662e8fbfe1c602f2e4a"
+    },
+    {
+      "path": "project07/synthetic001.py",
+      "bytes": 262144,
+      "sha256": "c48a8b0368f66f0aa7a5f5a4d74c68dae8a076e01223002f85a0a5c03c4fa178"
+    },
+    {
+      "path": "project07/synthetic002.js",
+      "bytes": 262144,
+      "sha256": "88569e25d11984f191490c3c7ed53eeff9a4629ed4a4236de1ddd582d9968513"
+    },
+    {
+      "path": "project07/synthetic003.c",
+      "bytes": 262144,
+      "sha256": "bc8e79099bcb6c8577f9917e4eb22a7e568f596d0ee22dd0efcbe88ac8272fd8"
+    },
+    {
+      "path": "project07/synthetic004.py",
+      "bytes": 262144,
+      "sha256": "2232fae0fff840780928ae9a98208896fe097bb9328ebba3c895b43ef18e0936"
+    },
+    {
+      "path": "project07/synthetic005.js",
+      "bytes": 262144,
+      "sha256": "9487c505b7d1e87d9ddd75d34176c975ba09f5b896ad68002c57dea29a095812"
+    },
+    {
+      "path": "project07/synthetic006.c",
+      "bytes": 262144,
+      "sha256": "96aeb4fa3881a3d6d4239ced1bb696e711a9f613cb6a801feedd74db88f1a135"
+    },
+    {
+      "path": "project07/synthetic007.py",
+      "bytes": 262144,
+      "sha256": "f07159d171574fc0e1dacb48eba35371f6acbd06c958a41839ea897b6238ca30"
+    },
+    {
+      "path": "project08/synthetic000.c",
+      "bytes": 262144,
+      "sha256": "eb799841a7a5f6da794fddf86f35d6df7a45a1a588e780873a1682973d035858"
+    },
+    {
+      "path": "project08/synthetic001.py",
+      "bytes": 262144,
+      "sha256": "86ee02ef257e123eb0dd58593d79b0c877b923c1d460dae871bde8d7098e7b8c"
+    },
+    {
+      "path": "project08/synthetic002.js",
+      "bytes": 262144,
+      "sha256": "334e380f3739aa709b1cc91d1d8e663e5bdf87a8d626879c47bfab30decd6fbe"
+    },
+    {
+      "path": "project08/synthetic003.c",
+      "bytes": 262144,
+      "sha256": "886c06463fec7fa983996534f2b1387e08539b605c23ec737ed9daed44e7f6d7"
+    },
+    {
+      "path": "project08/synthetic004.py",
+      "bytes": 262144,
+      "sha256": "6ed0f359e8f3ee45fe81d8bde78d32cc0a32844608bf4b7b7ca5043a71b8f730"
+    },
+    {
+      "path": "project08/synthetic005.js",
+      "bytes": 262144,
+      "sha256": "9ef09345bb16c4c0e61cd0c4bf22b6c990404fa301018e5243c05885c0d16f28"
+    },
+    {
+      "path": "project08/synthetic006.c",
+      "bytes": 262144,
+      "sha256": "40446ac9db023c2db3346ca2f58b78a25a4acc1e113cf160569ce0d46e9751c2"
+    },
+    {
+      "path": "project08/synthetic007.py",
+      "bytes": 262144,
+      "sha256": "28473ed95a83f794d3eb50469f8e4ee853f4476c8aca1b40b314cd1054c3bac3"
+    },
+    {
+      "path": "project09/synthetic000.c",
+      "bytes": 262144,
+      "sha256": "7f82bdb12c09986560ae609686ef933842367d375cb35a1a6e59c612a87ed8f6"
+    },
+    {
+      "path": "project09/synthetic001.py",
+      "bytes": 262144,
+      "sha256": "d877a6239e576eb5d887c924b043ea80135988fae03b5f69a3b6d09dabed3af9"
+    },
+    {
+      "path": "project09/synthetic002.js",
+      "bytes": 262144,
+      "sha256": "14708d02baefc91ab870eef69fc6834b71dd19177bf00dd8b63b84b2be4ede03"
+    },
+    {
+      "path": "project09/synthetic003.c",
+      "bytes": 262144,
+      "sha256": "5862e165c12b96f9dd35a57c99a9624fc4e224a24773f86b636bc9426636b89a"
+    },
+    {
+      "path": "project09/synthetic004.py",
+      "bytes": 262144,
+      "sha256": "eb6d49dd44cf3759dd55008fd64484dd99348916d711ee5eb94ffbd9da0a1ccd"
+    },
+    {
+      "path": "project09/synthetic005.js",
+      "bytes": 262144,
+      "sha256": "b1ac5b8e7e081a5853da17ca57e107a2ed824cbc3e80db90ca4574dd3d43685c"
+    },
+    {
+      "path": "project09/synthetic006.c",
+      "bytes": 262144,
+      "sha256": "1e69a133b49cecb2281d4c17079e00a2f5ceba4c3c7d8b78c977162fbd9e5dfd"
+    },
+    {
+      "path": "project09/synthetic007.py",
+      "bytes": 262144,
+      "sha256": "72e9bc99cfd0f14449998dfe64efd521483ab4fccfbc55cbb667437e26e109e9"
+    }
+  ]
+}

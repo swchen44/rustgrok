@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "role": "limited_original_oracle_capture_not_full_acceptance",
+  "captured_at": "2026-11-01T15:35:05+08:00",
+  "upstream_commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+  "archive_sha256": "f33d78f950ba7ed974caa9153120e4f26f9c7f4d63c1f48b7a0350e12d8e346d",
+  "jdk_archive_sha256": "bf036b35b071bfb2f54f2c0af8ee8d88afa95ee6eb3dce02c0f94cfc2524d04a",
+  "jdk_archive_bytes": 199754598,
+  "tomcat_archive_sha512": "aa06508300ca137a023b74b8600f2c1b3248412eb85d4fc5e2f337c6c4d3776f4491e272f79856ac541cfab0fc35537111ae4f3cfcd0bbe702c0a3610a61bd04",
+  "jar_sha256": "bc1f4650710cb92c4a43221c826018c6358bcbc30bf2aaa86688261a0f145aa1",
+  "war_sha256": "98358675a4e8547b065c72253c37f573d9ccd38816a64664be0da4dd223a9419",
+  "java_sha256": "0f642542ea1f0be6957557c0db96653ec128113bb5a4aaa7c2534d1d72ddb51f",
+  "ctags_sha256": "f3f91789a30b39d592b244cd4aa0d7eec6ed3445b499c69ffc27564cef7292a0",
+  "java_version": "openjdk 21.0.13 2026-10-20 LTS\nOpenJDK Runtime Environment Temurin-21.0.13+9 (build 21.0.13+9-LTS)\nOpenJDK 64-Bit Server VM Temurin-21.0.13+9 (build 21.0.13+9-LTS, mixed mode, sharing)\n",
+  "ctags_version": "Universal Ctags 6.2.1, Copyright (C) 2015-2025 Universal Ctags Team\nUniversal Ctags is derived from Exuberant Ctags.\nExuberant Ctags 5.8, Copyright (C) 1996-2009 Darren Hiebert\n  Compiled: Oct 25 2025, 13:15:24\n  URL: https://ctags.io/\n  Output version: 1.1\n  Optional compiled features: +wildcards, +regex, +gnulib_fnmatch, +gnulib_regex, +iconv, +option-directory, +xpath, +json, +interactive, +yaml, +case-insensitive-filenames, +packcc, +optscript, +pcre2\n",
+  "javac_sha256": "40425235eaac99cccf8ed57522d946313d8b5200161d1faf846b3e60d554c2ed",
+  "javac_version": "javac 21.0.13\n",
+  "javac_format": "Mach-O 64-bit executable arm64",
+  "git_path": "/usr/bin/git",
+  "git_sha256": "7f30f076d0e9c38f772a76449fca9da8cf97f6a3d43b94c90a00e4f9ce7ad39e",
+  "git_version": "git version 2.39.5 (Apple Git-154)\n",
+  "tomcat_version": "10.1.60",
+  "tomcat_runtime_scope": [
+    "bin",
+    "conf",
+    "lib"
+  ],
+  "tomcat_runtime_file_count": 74,
+  "tomcat_runtime_manifest_sha256": "048b685aaf5040a0074a5f544c4794dc15985141d3fa15f75fb94012967b70aa",
+  "platform": {
+    "system": "Darwin",
+    "release": "24.6.0",
+    "machine": "arm64",
+    "macos_version": "15.7.7",
+    "macos_build": "24G720"
+  },
+  "corpus_manifest_sha256": "88f491850b062ade1fbe157280f78b64b33774820c576dd83337cb11c7ab7c73",
+  "repositories": [
+    {
+      "project": "alpha",
+      "path": "alpha/component-c",
+      "file": "main.c",
+      "language": "C",
+      "source_sha256": "0afb5b45d1538ee86e23b046100c8e458614ba71e50f16c05bda1a52de0edb17",
+      "source_bytes": 730,
+      "revision": "a77cb2e35336a0fa75a58c55027206fb35804304",
+      "tree": "b1a9862d5628177748c3c49c24c5d7bf8aa4ba22",
+      "commits": [
+        "f67245711bfdd2f7b5db9c70a67f384a3f6b65ff",
+        "a77cb2e35336a0fa75a58c55027206fb35804304"
+      ],
+      "origin": "opengrok-indexer/src/test/resources/sources/c/main.c"
+    },
+    {
+      "project": "alpha",
+      "path": "alpha/component-js",
+      "file": "function.js",
+      "language": "JavaScript",
+      "source_sha256": "7e37130f0b5a078fea055a885632cdc00e1989def53e4fafe8b52a75824f8805",
+      "source_bytes": 821,
+      "revision": "148046eaf98107c72cdec15a203c15c2887b763c",
+      "tree": "d9ff251420efe29ab05f052ff762398fedfa33c5",
+      "commits": [
+        "148046eaf98107c72cdec15a203c15c2887b763c"
+      ],
+      "origin": "opengrok-indexer/src/test/resources/sources/javascript/function.js"
+    },
+    {
+      "project": "alpha",
+      "path": "alpha/component-c/nested-js",
+      "file": "function.js",
+      "language": "JavaScript",
+      "source_sha256": "7e37130f0b5a078fea055a885632cdc00e1989def53e4fafe8b52a75824f8805",
+      "source_bytes": 821,
+      "revision": "148046eaf98107c72cdec15a203c15c2887b763c",
+      "tree": "d9ff251420efe29ab05f052ff762398fedfa33c5",
+      "commits": [
+        "148046eaf98107c72cdec15a203c15c2887b763c"
+      ],
+      "origin": "opengrok-indexer/src/test/resources/sources/javascript/function.js"
+    },
+    {
+      "project": "beta",
+      "path": "beta/component-c",
+      "file": "main.c",
+      "language": "C",
+      "source_sha256": "0afb5b45d1538ee86e23b046100c8e458614ba71e50f16c05bda1a52de0edb17",
+      "source_bytes": 730,
+      "revision": "a77cb2e35336a0fa75a58c55027206fb35804304",
+      "tree": "b1a9862d5628177748c3c49c24c5d7bf8aa4ba22",
+      "commits": [
+        "f67245711bfdd2f7b5db9c70a67f384a3f6b65ff",
+        "a77cb2e35336a0fa75a58c55027206fb35804304"
+      ],
+      "origin": "opengrok-indexer/src/test/resources/sources/c/main.c"
+    },
+    {
+      "project": "beta",
+      "path": "beta/component-py",
+      "file": "main.py",
+      "language": "Python",
+      "source_sha256": "c30bc720a38c39709e22f6bba1996b58c0a4e2e25d8cc6ea1bff7a348efde3f0",
+      "source_bytes": 867,
+      "revision": "2dce203660f36bbeef5cabc381d3e17f92ec98ef",
+      "tree": "0c079f6780865f9b54ab8788c83ea1f0d781351b",
+      "commits": [
+        "2dce203660f36bbeef5cabc381d3e17f92ec98ef"
+      ],
+      "origin": "opengrok-indexer/src/test/resources/sources/python/main.py"
+    }
+  ],
+  "corpus_verified_unchanged_after_run": true,
+  "configuration_sha256": "2396ab6acc2551412c669867207742ee8654e4e1657995edd7e71742900f52ee",
+  "index_command": [
+    "/Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/jdk-21.0.13+9/Contents/Home/bin/java",
+    "-Xms128m",
+    "-Xmx512m",
+    "-jar",
+    "/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/opengrok.jar",
+    "-c",
+    "/opt/homebrew/bin/ctags",
+    "-s",
+    "/private/tmp/rustgrok-issue7-public-corpus/source",
+    "-d",
+    "/private/tmp/rustgrok-issue7-pristine-capture/index",
+    "-W",
+    "/private/tmp/rustgrok-issue7-pristine-capture/configuration.xml",
+    "-P",
+    "-S",
+    "-H",
+    "-T",
+    "2"
+  ],
+  "index_exit_code": 0,
+  "loopback": "127.0.0.1",
+  "port": 61504,
+  "tomcat_exit_code": 143,
+  "responses": [
+    {
+      "case": "full_alpha",
+      "path": "/source/api/v1/search?full=main&projects=alpha",
+      "status": 200,
+      "file": "response-full_alpha.json",
+      "bytes": 426,
+      "sha256": "6e5437f9a3f75dd6889f8635a69e835df1c5f47f0602a1a2b893d27f97706902"
+    },
+    {
+      "case": "path_alpha",
+      "path": "/source/api/v1/search?path=main.c&projects=alpha",
+      "status": 200,
+      "file": "response-path_alpha.json",
+      "bytes": 144,
+      "sha256": "fb1d7fee974819def31e55d1e8eee2baa8970e3cc56a86ef7286ecd32d78b83b"
+    },
+    {
+      "case": "definition_alpha",
+      "path": "/source/api/v1/search?def=main&projects=alpha",
+      "status": 200,
+      "file": "response-definition_alpha.json",
+      "bytes": 425,
+      "sha256": "da51be13c031bfe82c04c4b529ffef2cc57b257c20cae138fe9212eecf9ccb82"
+    },
+    {
+      "case": "reference_beta",
+      "path": "/source/api/v1/search?symbol=main&projects=beta",
+      "status": 200,
+      "file": "response-reference_beta.json",
+      "bytes": 341,
+      "sha256": "e8b493008d7aea6b7f0a6d5ffb242adfecf47ea305e67954115da47bc5da905c"
+    },
+    {
+      "case": "full_both",
+      "path": "/source/api/v1/search?full=main&projects=alpha&projects=beta",
+      "status": 200,
+      "file": "response-full_both.json",
+      "bytes": 694,
+      "sha256": "7cacd8653d222a632575a89faedb9b092dd8d57f89297b7548dda5a85d234591"
+    }
+  ],
+  "index_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "index_stderr_sha256": "f6cfd189ff6de9e2305f04cda74e185e3bb8bb806b92774016b79092c75e86b1",
+  "tomcat_log_sha256": "1ed0019ad242142927922a291451533bdafc314432df0f017954e790f44517f1",
+  "limitations": [
+    "small public corpus, not representative workload",
+    "only five query cases; not full query/SCM/UI compatibility",
+    "unmodified raw responses include nondeterministic time field",
+    "no product runtime, performance or full test-case PASS asserted",
+    "JDK archive and java/javac binaries verified; extracted JDK library tree not fully rehashed",
+    "ctags default option files are not inventoried; cross-host reproduction requires checking effective ctags configuration",
+    "HTTP status and raw body captured; full response headers are not captured"
+  ]
+}

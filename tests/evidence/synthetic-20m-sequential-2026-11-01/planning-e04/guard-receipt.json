@@ -1,0 +1,155 @@
+{
+  "status": "COMPLETED",
+  "exit_code": 0,
+  "elapsed_seconds": 5.01,
+  "samples": [
+    {
+      "elapsed_seconds": 0.002,
+      "free_bytes": 5523968000,
+      "process_group_ps": [
+        " 1681  1681  1671   1184   0.0   0:00.00",
+        " 1681  1683  1681    288   0.0   0:00.00"
+      ]
+    },
+    {
+      "elapsed_seconds": 0.279,
+      "free_bytes": 5523968000,
+      "process_group_ps": [
+        " 1681  1681  1671   1184   0.2   0:00.00",
+        " 1681  1683  1681  27248  61.2   0:00.27"
+      ]
+    },
+    {
+      "elapsed_seconds": 0.564,
+      "free_bytes": 5523968000,
+      "process_group_ps": [
+        " 1681  1681  1671   1184   0.0   0:00.00",
+        " 1681  1683  1681  28272  55.6   0:00.43"
+      ]
+    },
+    {
+      "elapsed_seconds": 0.842,
+      "free_bytes": 5523836928,
+      "process_group_ps": [
+        " 1681  1681  1671   1184   0.0   0:00.00",
+        " 1681  1683  1681  28272  51.6   0:00.57"
+      ]
+    },
+    {
+      "elapsed_seconds": 1.116,
+      "free_bytes": 5523832832,
+      "process_group_ps": [
+        " 1681  1681  1671    432   0.0   0:00.00",
+        " 1681  1683  1681  63504  68.7   0:00.80"
+      ]
+    },
+    {
+      "elapsed_seconds": 1.396,
+      "free_bytes": 5523832832,
+      "process_group_ps": [
+        " 1681  1681  1671    432   0.0   0:00.00",
+        " 1681  1683  1681  63504  88.8   0:01.08"
+      ]
+    },
+    {
+      "elapsed_seconds": 1.676,
+      "free_bytes": 5523832832,
+      "process_group_ps": [
+        " 1681  1681  1671    432   0.0   0:00.00",
+        " 1681  1683  1681  63504  96.7   0:01.36"
+      ]
+    },
+    {
+      "elapsed_seconds": 1.953,
+      "free_bytes": 5523832832,
+      "process_group_ps": [
+        " 1681  1681  1671    432   0.0   0:00.00",
+        " 1681  1683  1681  63504 100.0   0:01.64"
+      ]
+    },
+    {
+      "elapsed_seconds": 2.232,
+      "free_bytes": 5523832832,
+      "process_group_ps": [
+        " 1681  1681  1671    432   0.0   0:00.00",
+        " 1681  1683  1681  63504  98.4   0:01.92"
+      ]
+    },
+    {
+      "elapsed_seconds": 2.505,
+      "free_bytes": 5523832832,
+      "process_group_ps": [
+        " 1681  1681  1671    432   0.0   0:00.00",
+        " 1681  1683  1681  91120  97.8   0:02.18"
+      ]
+    },
+    {
+      "elapsed_seconds": 2.781,
+      "free_bytes": 5523832832,
+      "process_group_ps": [
+        " 1681  1681  1671    432   0.0   0:00.00",
+        " 1681  1683  1681  91648  84.9   0:02.40"
+      ]
+    },
+    {
+      "elapsed_seconds": 3.062,
+      "free_bytes": 5522087936,
+      "process_group_ps": [
+        " 1681  1681  1671    432   0.0   0:00.00",
+        " 1681  1683  1681 101520  91.0   0:02.66"
+      ]
+    },
+    {
+      "elapsed_seconds": 3.343,
+      "free_bytes": 5522087936,
+      "process_group_ps": [
+        " 1681  1681  1671    432   0.0   0:00.00",
+        " 1681  1683  1681  98048  96.3   0:02.94"
+      ]
+    },
+    {
+      "elapsed_seconds": 3.623,
+      "free_bytes": 5522104320,
+      "process_group_ps": [
+        " 1681  1681  1671    432   0.0   0:00.00",
+        " 1681  1683  1681  99328  97.9   0:03.22"
+      ]
+    },
+    {
+      "elapsed_seconds": 3.902,
+      "free_bytes": 5522104320,
+      "process_group_ps": [
+        " 1681  1681  1671    432   0.0   0:00.00",
+        " 1681  1683  1681 120176  98.4   0:03.50"
+      ]
+    },
+    {
+      "elapsed_seconds": 4.175,
+      "free_bytes": 5521518592,
+      "process_group_ps": [
+        " 1681  1681  1671    432   0.0   0:00.00",
+        " 1681  1683  1681 123728  99.4   0:03.77"
+      ]
+    },
+    {
+      "elapsed_seconds": 4.453,
+      "free_bytes": 5520343040,
+      "process_group_ps": [
+        " 1681  1681  1671    432   0.0   0:00.00",
+        " 1681  1683  1681 124544  98.1   0:04.04"
+      ]
+    },
+    {
+      "elapsed_seconds": 4.729,
+      "free_bytes": 5518909440,
+      "process_group_ps": [
+        " 1681  1681  1671    432   0.0   0:00.00",
+        " 1681  1683  1681 131072  96.7   0:04.30"
+      ]
+    }
+  ],
+  "process_group": 1681,
+  "group_stopped": true,
+  "forced_cleanup": false,
+  "limitations": "sampled process group only; time -l IO reports block operation counts, not bytes"
+}

@@ -28,3 +28,9 @@ tests/evidence/sparse-single-term-2026-11-01/*.txt -text whitespace=-blank-at-eo
 # Preserve the captured iostat output and copied Tomcat configuration bytes.
 tests/evidence/synthetic-search-gate-2026-11-01/iostat-*.txt -text whitespace=-blank-at-eof,-blank-at-eol
 tests/evidence/synthetic-search-gate-2026-11-01/tomcat-server.xml -text whitespace=-blank-at-eof,-blank-at-eol
+
+# Preserve device-wide iostat snapshots from the sequential synthetic pilot.
+tests/evidence/synthetic-20m-sequential-2026-11-01/*/iostat-*.txt -text whitespace=-blank-at-eof,-blank-at-eol
+
+# Exact earlier planning ZIP encoded as text; avoid a multi-megabyte line diff.
+tests/evidence/synthetic-20m-sequential-2026-11-01/planning-e04/package-e04.zip.base64 -diff

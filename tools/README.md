@@ -2,7 +2,7 @@
 
 此工具使用Python標準函式庫，驗證目前v0.6的38項需求、44個工作包與80項測試規格，產生完整Markdown合訂本、ZIP、SHA-256 manifest及品質報告。它不執行Rust產品測試，也不產生可執行產品。
 
-在repository根目錄執行：
+在 Git worktree 的 repository 根目錄執行。規劃包只納入 Git index 中已追蹤或已 stage 的檔案；未追蹤及 ignored 檔案不會自動進包。執行前先檢查並 stage 本次需要的檔案，且所有已追蹤檔案不可有未 stage 的修改；不要把其他工作中的變更一併 stage。為避免 Git 隱藏檔案修改，任何 `assume-unchanged`、`skip-worktree` 或其他非一般 index 狀態均會使打包拒絕，工具不會自動更改這些旗標。檢查器會更新 `planning-manifest.json` 與 `planning-quality-report.json`，完成後需將這兩個結果一併 stage、commit。缺少 Git worktree 時工具會明確拒絕執行。
 
 ```sh
 python3 tools/build_planning_package.py

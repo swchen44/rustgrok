@@ -1,0 +1,1 @@
+{"status": "COMPLETED_RESTRICTED_ENDPOINT", "role": "oracle", "case": "no-hit", "timed_samples": 100}

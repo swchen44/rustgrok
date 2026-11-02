@@ -21,12 +21,31 @@ from indexer_evidence import record_indexer_logs, verify_candidate_coverage
 ROOT=Path(__file__).resolve().parents[1]
 
 
+def wait_group_exit(group, timeout=5):
+    deadline=time.monotonic()+timeout
+    while True:
+        try:os.killpg(group,0)
+        except ProcessLookupError:return True
+        except PermissionError:return False
+        if time.monotonic()>=deadline:return False
+        time.sleep(.05)
+
+
+def ensure_group_exit(group):
+    if wait_group_exit(group):return True,False
+    for sig in (signal.SIGTERM,signal.SIGKILL):
+        try:os.killpg(group,sig)
+        except ProcessLookupError:return True,True
+        if wait_group_exit(group):return True,True
+    return False,True
+
+
 def run_guarded(command, output, label, env, reserve, free_space=None, interval=.25, timeout=180):
     free_space=free_space or (lambda:shutil.disk_usage(output).free)
     samples=[]; start=time.monotonic(); status='COMPLETED'
     with (output/(label+'.stdout.txt')).open('wb') as stdout, (output/(label+'.stderr.txt')).open('wb') as stderr:
         if free_space() < reserve:
-            return {'status':'STOPPED_DISK_RESERVE','exit_code':None,'samples':samples}
+            return {'status':'STOPPED_DISK_RESERVE','exit_code':None,'samples':samples,'group_stopped':True}
         proc=subprocess.Popen(['/usr/bin/time','-l','-o',str(output/(label+'.time.txt')),*command],
                               stdout=stdout,stderr=stderr,env=env,start_new_session=True)
         try:
@@ -52,8 +71,11 @@ def run_guarded(command, output, label, env, reserve, free_space=None, interval=
                 except ProcessLookupError:pass
                 try:proc.wait(timeout=5)
                 except subprocess.TimeoutExpired:os.killpg(proc.pid,signal.SIGKILL);proc.wait()
+    group_stopped,forced=ensure_group_exit(proc.pid)
+    if forced and status=='COMPLETED':status='BLOCKED_LINGERING_PROCESS_GROUP'
     if status=='COMPLETED' and proc.returncode!=0: status='PROCESS_FAILED'
     return {'status':status,'exit_code':proc.returncode,'elapsed_seconds':round(time.monotonic()-start,3),'samples':samples,
+            'process_group':proc.pid,'group_stopped':group_stopped,'forced_cleanup':forced,
             'limitations':'sampled process group only; time -l IO reports block operation counts, not bytes'}
 
 
@@ -62,12 +84,12 @@ def main():
     parser.add_argument('--corpus',type=Path,required=True);parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--min-free-bytes',type=int,default=synthetic.RESERVE)
     args=parser.parse_args();corpus=args.corpus.resolve(strict=True);output=args.output.absolute()
-    if args.min_free_bytes < synthetic.RESERVE: parser.error('minimum free space cannot be below 6 GiB')
+    if args.min_free_bytes < synthetic.RESERVE: parser.error('minimum free space cannot be below 4.5 GiB')
     if output.exists() or output.is_symlink(): parser.error('output must not exist')
     output=output.parent.resolve(strict=True)/output.name
     if output==ROOT or ROOT in output.parents or output==corpus or corpus in output.parents: parser.error('output must be external to repo and corpus')
     manifest=json.loads((corpus/'manifest.json').read_text())
-    if type(manifest.get('source_bytes')) is not int or manifest['source_bytes'] > 16*1024**2: parser.error('pilot index probe capped at 16 MiB until resource scaling is assessed')
+    if type(manifest.get('source_bytes')) is not int or manifest['source_bytes'] > 32*1024**2: parser.error('pilot index probe capped at 32 MiB until resource scaling is assessed')
     synthetic.verify(argparse.Namespace(corpus=corpus))
     synthetic.check_space(output.parent,args.min_free_bytes,0)
     cache=Path.home()/'Library/Caches/rustgrok/oracle';tools=cache/'toolchains';release=cache/'opengrok-1.14.20/release/opengrok-1.14.20'

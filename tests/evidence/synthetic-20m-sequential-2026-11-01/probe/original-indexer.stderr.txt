@@ -1,0 +1,122 @@
+11月 01, 2026 10:28:19 下午 org.opengrok.indexer.index.Indexer parseOptions
+資訊: Indexer options: [-c, /opt/homebrew/bin/ctags, -s, /private/tmp/rustgrok-synthetic-20m-v1/source, -d, /private/tmp/rustgrok-synthetic-20m-index-v1/oracle-index, -W, /private/tmp/rustgrok-synthetic-20m-index-v1/configuration.xml, -P, -S, -H, -T, 2]
+11月 01, 2026 10:28:19 下午 org.opengrok.indexer.index.Indexer runMain
+資訊: Indexer version 1.14.20 (3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3) running on Java version: 21.0.13+9-LTS, name: OpenJDK 64-Bit Server VM, vendor: Eclipse Adoptium, arch: aarch64 with properties: ncpu: 8, maxMemory: 512.0 MiB
+11月 01, 2026 10:28:19 下午 org.opengrok.indexer.configuration.RuntimeEnvironment validateUniversalCtags
+資訊: Using ctags: Universal Ctags 6.2.1, Copyright (C) 2015-2025 Universal Ctags Team
+Universal Ctags is derived from Exuberant Ctags.
+Exuberant Ctags 5.8, Copyright (C) 1996-2009 Darren Hiebert
+  Compiled: Oct 25 2025, 13:15:24
+  URL: https://ctags.io/
+  Output version: 1.1
+  Optional compiled features: +wildcards, +regex, +gnulib_fnmatch, +gnulib_regex, +iconv, +option-directory, +xpath, +json, +interactive, +yaml, +case-insensitive-filenames, +packcc, +optscript, +pcre2
+11月 01, 2026 10:28:19 下午 org.opengrok.indexer.index.Indexer prepareIndexer
+資訊: Scanning for repositories in [/private/tmp/rustgrok-synthetic-20m-v1/source/project09, /private/tmp/rustgrok-synthetic-20m-v1/source/project08, /private/tmp/rustgrok-synthetic-20m-v1/source/project07, /private/tmp/rustgrok-synthetic-20m-v1/source/project06, /private/tmp/rustgrok-synthetic-20m-v1/source/project05, /private/tmp/rustgrok-synthetic-20m-v1/source/project04, /private/tmp/rustgrok-synthetic-20m-v1/source/project03, /private/tmp/rustgrok-synthetic-20m-v1/source/project02, /private/tmp/rustgrok-synthetic-20m-v1/source/project01, /private/tmp/rustgrok-synthetic-20m-v1/source/project00] (down to 3 levels below source root)
+11月 01, 2026 10:28:19 下午 org.opengrok.indexer.history.PerforceRepository isP4Working
+警告: Command 'p4' does not work. Some operations with Perforce repositories will fail as a result.
+11月 01, 2026 10:28:19 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done scanning for repositories, found 0 repositories (took 34 ms)
+11月 01, 2026 10:28:19 下午 org.opengrok.indexer.index.Indexer prepareIndexer
+資訊: Generating history cache for all repositories ...
+11月 01, 2026 10:28:19 下午 org.opengrok.indexer.index.Indexer prepareIndexer
+資訊: Done generating history cache
+11月 01, 2026 10:28:19 下午 org.opengrok.indexer.index.Indexer doIndexerExecution
+資訊: Starting indexing
+WARNING: A restricted method in java.lang.foreign.Linker has been called
+WARNING: java.lang.foreign.Linker::downcallHandle has been called by the unnamed module
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for this module
+
+11月 01, 2026 10:28:19 下午 org.apache.lucene.store.MemorySegmentIndexInputProvider <init>
+資訊: Using MemorySegmentIndexInput and native madvise support with Java 21 or later; to disable start with -Dorg.apache.lucene.store.MMapDirectory.enableMemorySegments=false
+11月 01, 2026 10:28:19 下午 org.apache.lucene.internal.vectorization.VectorizationProvider lookup
+警告: Java vector incubator module is not readable. For optimal vector performance, pass '--add-modules jdk.incubator.vector' to enable Vector API.
+11月 01, 2026 10:28:20 下午 org.opengrok.indexer.index.IndexDatabase getIndexDownArgs
+資訊: Starting file collection using file-system traversal for directory '/project00'
+11月 01, 2026 10:28:20 下午 org.opengrok.indexer.index.IndexDatabase getIndexDownArgs
+資訊: Starting file collection using file-system traversal for directory '/project02'
+11月 01, 2026 10:28:20 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done file collection for directory '/project00' (took 3 ms)
+11月 01, 2026 10:28:20 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done file collection for directory '/project02' (took 3 ms)
+11月 01, 2026 10:28:20 下午 org.opengrok.indexer.index.IndexDatabase update
+資訊: Starting indexing of directory '/project00'
+11月 01, 2026 10:28:20 下午 org.opengrok.indexer.index.IndexDatabase update
+資訊: Starting indexing of directory '/project02'
+11月 01, 2026 10:28:20 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done indexing of directory '/project00' (took 916 ms)
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.index.IndexDatabase getIndexDownArgs
+資訊: Starting file collection using file-system traversal for directory '/project01'
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done file collection for directory '/project01' (took 0 ms)
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.index.IndexDatabase update
+資訊: Starting indexing of directory '/project01'
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done indexing of directory '/project02' (took 1.166 seconds)
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.index.IndexDatabase getIndexDownArgs
+資訊: Starting file collection using file-system traversal for directory '/project04'
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done file collection for directory '/project04' (took 0 ms)
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.index.IndexDatabase update
+資訊: Starting indexing of directory '/project04'
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done indexing of directory '/project01' (took 311 ms)
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.index.IndexDatabase getIndexDownArgs
+資訊: Starting file collection using file-system traversal for directory '/project03'
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done file collection for directory '/project03' (took 0 ms)
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.index.IndexDatabase update
+資訊: Starting indexing of directory '/project03'
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done indexing of directory '/project04' (took 301 ms)
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.index.IndexDatabase getIndexDownArgs
+資訊: Starting file collection using file-system traversal for directory '/project06'
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done file collection for directory '/project06' (took 0 ms)
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.index.IndexDatabase update
+資訊: Starting indexing of directory '/project06'
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done indexing of directory '/project03' (took 252 ms)
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.index.IndexDatabase getIndexDownArgs
+資訊: Starting file collection using file-system traversal for directory '/project05'
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done file collection for directory '/project05' (took 0 ms)
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.index.IndexDatabase update
+資訊: Starting indexing of directory '/project05'
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done indexing of directory '/project06' (took 223 ms)
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.index.IndexDatabase getIndexDownArgs
+資訊: Starting file collection using file-system traversal for directory '/project08'
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done file collection for directory '/project08' (took 1 ms)
+11月 01, 2026 10:28:21 下午 org.opengrok.indexer.index.IndexDatabase update
+資訊: Starting indexing of directory '/project08'
+11月 01, 2026 10:28:22 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done indexing of directory '/project05' (took 224 ms)
+11月 01, 2026 10:28:22 下午 org.opengrok.indexer.index.IndexDatabase getIndexDownArgs
+資訊: Starting file collection using file-system traversal for directory '/project07'
+11月 01, 2026 10:28:22 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done file collection for directory '/project07' (took 1 ms)
+11月 01, 2026 10:28:22 下午 org.opengrok.indexer.index.IndexDatabase update
+資訊: Starting indexing of directory '/project07'
+11月 01, 2026 10:28:22 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done indexing of directory '/project08' (took 196 ms)
+11月 01, 2026 10:28:22 下午 org.opengrok.indexer.index.IndexDatabase getIndexDownArgs
+資訊: Starting file collection using file-system traversal for directory '/project09'
+11月 01, 2026 10:28:22 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done file collection for directory '/project09' (took 0 ms)
+11月 01, 2026 10:28:22 下午 org.opengrok.indexer.index.IndexDatabase update
+資訊: Starting indexing of directory '/project09'
+11月 01, 2026 10:28:22 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done indexing of directory '/project07' (took 194 ms)
+11月 01, 2026 10:28:22 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done indexing of directory '/project09' (took 175 ms)
+11月 01, 2026 10:28:22 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done indexing data of all repositories (took 2.603 seconds)
+11月 01, 2026 10:28:22 下午 org.opengrok.indexer.index.Indexer writeConfigToFile
+資訊: Writing configuration to '/private/tmp/rustgrok-synthetic-20m-index-v1/configuration.xml'
+11月 01, 2026 10:28:22 下午 org.opengrok.indexer.index.Indexer writeConfigToFile
+資訊: Done writing configuration to '/private/tmp/rustgrok-synthetic-20m-index-v1/configuration.xml'
+11月 01, 2026 10:28:22 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Indexer finished (took 3.46 seconds)
+11月 01, 2026 10:28:22 下午 org.opengrok.indexer.index.Indexer runMain
+資訊: Indexer finished with success

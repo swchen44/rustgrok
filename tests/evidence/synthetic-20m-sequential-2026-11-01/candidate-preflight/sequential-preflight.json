@@ -1,0 +1,234 @@
+{
+  "single-hit": {
+    "query": "/source/api/v1/search?path=synthetic000.c&projects=project00&start=0&maxresults=100",
+    "status": "MATCHED_PREFLIGHT_NOT_TIMED",
+    "oracle": {
+      "first": {
+        "status": 200,
+        "headers": [
+          [
+            "content-type",
+            "application/json"
+          ],
+          [
+            "set-cookie",
+            "JSESSIONID=<redacted>; Path=/source; HttpOnly"
+          ]
+        ],
+        "cookie_present": true,
+        "cookie_supported": true,
+        "body": {
+          "time": 0,
+          "resultCount": 1,
+          "results": {
+            "/project00/synthetic000.c": [
+              {
+                "line": "...",
+                "lineNumber": "",
+                "tag": null
+              }
+            ]
+          },
+          "startDocument": 0,
+          "endDocument": 0
+        },
+        "error": null
+      },
+      "followup": {
+        "status": 200,
+        "headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "cookie_present": false,
+        "cookie_supported": true,
+        "body": {
+          "time": 0,
+          "resultCount": 1,
+          "results": {
+            "/project00/synthetic000.c": [
+              {
+                "line": "...",
+                "lineNumber": "",
+                "tag": null
+              }
+            ]
+          },
+          "startDocument": 0,
+          "endDocument": 0
+        },
+        "error": null
+      }
+    },
+    "candidate": {
+      "first": {
+        "status": 200,
+        "headers": [
+          [
+            "content-type",
+            "application/json"
+          ],
+          [
+            "set-cookie",
+            "JSESSIONID=<redacted>; Path=/source; HttpOnly"
+          ]
+        ],
+        "cookie_present": true,
+        "cookie_supported": true,
+        "body": {
+          "time": 11,
+          "resultCount": 1,
+          "results": {
+            "/project00/synthetic000.c": [
+              {
+                "line": "...",
+                "lineNumber": "",
+                "tag": null
+              }
+            ]
+          },
+          "startDocument": 0,
+          "endDocument": 0
+        },
+        "error": null
+      },
+      "followup": {
+        "status": 200,
+        "headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "cookie_present": false,
+        "cookie_supported": true,
+        "body": {
+          "time": 12,
+          "resultCount": 1,
+          "results": {
+            "/project00/synthetic000.c": [
+              {
+                "line": "...",
+                "lineNumber": "",
+                "tag": null
+              }
+            ]
+          },
+          "startDocument": 0,
+          "endDocument": 0
+        },
+        "error": null
+      }
+    },
+    "candidate_body_sha256": {
+      "first": "f2440b532dccd62aea7c060e5a47983bac6deee4bd19b3ba3482203f956cf5b7",
+      "followup": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    "oracle_body_sha256": {
+      "first": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493",
+      "followup": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    }
+  },
+  "no-hit": {
+    "query": "/source/api/v1/search?path=absent.c&projects=project00&start=0&maxresults=100",
+    "status": "MATCHED_PREFLIGHT_NOT_TIMED",
+    "oracle": {
+      "first": {
+        "status": 200,
+        "headers": [
+          [
+            "content-type",
+            "application/json"
+          ],
+          [
+            "set-cookie",
+            "JSESSIONID=<redacted>; Path=/source; HttpOnly"
+          ]
+        ],
+        "cookie_present": true,
+        "cookie_supported": true,
+        "body": {
+          "time": 0,
+          "resultCount": 0,
+          "results": {},
+          "startDocument": 0,
+          "endDocument": 0
+        },
+        "error": null
+      },
+      "followup": {
+        "status": 200,
+        "headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "cookie_present": false,
+        "cookie_supported": true,
+        "body": {
+          "time": 0,
+          "resultCount": 0,
+          "results": {},
+          "startDocument": 0,
+          "endDocument": 0
+        },
+        "error": null
+      }
+    },
+    "candidate": {
+      "first": {
+        "status": 200,
+        "headers": [
+          [
+            "content-type",
+            "application/json"
+          ],
+          [
+            "set-cookie",
+            "JSESSIONID=<redacted>; Path=/source; HttpOnly"
+          ]
+        ],
+        "cookie_present": true,
+        "cookie_supported": true,
+        "body": {
+          "time": 11,
+          "resultCount": 0,
+          "results": {},
+          "startDocument": 0,
+          "endDocument": 0
+        },
+        "error": null
+      },
+      "followup": {
+        "status": 200,
+        "headers": [
+          [
+            "content-type",
+            "application/json"
+          ]
+        ],
+        "cookie_present": false,
+        "cookie_supported": true,
+        "body": {
+          "time": 11,
+          "resultCount": 0,
+          "results": {},
+          "startDocument": 0,
+          "endDocument": 0
+        },
+        "error": null
+      }
+    },
+    "candidate_body_sha256": {
+      "first": "b85e1f4d8c9d52d0ff8ecfac513bfbcc10f5420e9170cc1c3ff79cf282c89f3a",
+      "followup": "b85e1f4d8c9d52d0ff8ecfac513bfbcc10f5420e9170cc1c3ff79cf282c89f3a"
+    },
+    "oracle_body_sha256": {
+      "first": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6",
+      "followup": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    }
+  }
+}
