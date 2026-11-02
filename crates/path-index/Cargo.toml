@@ -1,0 +1,9 @@
+[package]
+name = "rustgrok-path-index"
+version = "0.1.0"
+edition = "2021"
+license = "MIT AND CDDL-1.0"
+publish = false
+
+[dependencies]
+rustgrok-analysis = { path = "../analysis" }

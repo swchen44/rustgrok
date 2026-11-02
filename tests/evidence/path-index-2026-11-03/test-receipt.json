@@ -1,0 +1,36 @@
+{
+  "scope": "local Rust component correctness; not full product acceptance or performance",
+  "recorded_at": "2026-11-03T05:37:54.611869+08:00",
+  "base_commit": "83884c8afef39eb435a490a1f8b682a16c396787",
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "crates/path-index/Cargo.toml",
+    "--locked",
+    "--offline",
+    "--quiet",
+    "--test",
+    "generation",
+    "--",
+    "--test-threads=1"
+  ],
+  "exit_code": 0,
+  "os": {
+    "sysname": "Darwin",
+    "release": "24.6.0",
+    "version": "Darwin Kernel Version 24.6.0: Tue Apr 21 20:18:14 PDT 2026; root:xnu-11417.140.69.710.16~1/RELEASE_ARM64_T8103",
+    "machine": "arm64"
+  },
+  "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+  "cargo": "cargo 1.94.0 (85eff7c80 2026-01-15)",
+  "inputs_sha256": {
+    "crates/path-index/src/lib.rs": "f133f8c7dd5a580da69d65c1d6cc3cb6cbca73cf5c44cd74cc4b67b700d33f40",
+    "crates/path-index/tests/generation.rs": "54e9e8c513e9cc9579fb22d8be5008aaf3cbc1872c434ccdb8f17e4592692d65",
+    "crates/path-index/Cargo.toml": "1388305ecf320ee0118d769bdfbb0d54d4d904f0bd984155eb7ddc18fbcac3d4",
+    "crates/path-index/Cargo.lock": "314c4e0caa4707c2b74e95344a7f57cb10b0b693dfe5cb91b617d088e585faac",
+    "crates/analysis/src/lib.rs": "2716a594f652d5c8132cb12df6783af2eb9b25ccec498c9282da4eae4ad89e32"
+  },
+  "stdout_sha256": "d50e861f1dfd8fdd2073cabf26227d26186302c2793942941ffd436c5ff90d25",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

@@ -1,0 +1,30 @@
+{
+  "upstream_commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+  "source_files": [
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/index/IndexDatabase.java",
+      "sha256": "ba66318a300a1b84a4272ae16532b1b4684946a46096da18c58add8d295dce0c",
+      "license": "CDDL-1.0"
+    },
+    {
+      "path": "opengrok-indexer/src/test/java/org/opengrok/indexer/index/IndexerTest.java",
+      "sha256": "ae555beb26b94c77c6ed5ef92a4e2465eac60f634aceb353fb2847d038145098",
+      "license": "CDDL-1.0"
+    }
+  ],
+  "raw_reference_files": [
+    {
+      "path": "tests/evidence/path-ranking-diagnostic-2026-11-01/main.oracle.txt",
+      "sha256": "4a4f1d6ebe115994ac4e07be5ee743d3c4e9825ed0893c7dcff401063735a204"
+    },
+    {
+      "path": "tests/evidence/path-ranking-diagnostic-2026-11-01/mai.oracle.txt",
+      "sha256": "81a78fb01c3e2e77544b616f2ec7b193d8c6aad3ae3288e22ba641bcd34e5c6d"
+    },
+    {
+      "path": "tests/evidence/path-ranking-diagnostic-2026-11-01/ain.oracle.txt",
+      "sha256": "af29ff0d8515427a8c774177a1b036efd4ac8b170513d9f13e1baab5fb612862"
+    }
+  ],
+  "scope": "three existing original diagnostic streams, selected alpha+beta; test compares alpha projection as unordered candidates only"
+}
