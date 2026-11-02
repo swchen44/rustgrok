@@ -1,0 +1,20 @@
+
+running 15 tests
+test cancelled_failed_and_stale_jobs_keep_previous_generation ... ok
+test client_times_out_if_same_user_socket_never_replies ... ok
+test fragmented_valid_request_is_accepted_before_deadline ... ok
+test host_build_query_stop_and_restart ... ok
+test indeterminate_publication_fails_closed_until_reopen ... ok
+test killed_host_keeps_old_generation_and_does_not_remove_stale_socket ... ok
+test overlong_unix_socket_path_is_rejected_before_bind ... ok
+test oversized_frame_and_client_limit_fail_closed_then_recover ... ok
+test oversized_query_response_returns_error_not_partial_results ... ok
+test queries_keep_old_generation_during_build_then_switch_and_restart ... ok
+test sigterm_cancels_worker_then_releases_store_and_socket ... ok
+test stop_during_build_requests_cancellation_and_requires_retry ... ok
+test trickle_request_has_a_whole_frame_deadline ... ok
+test unsafe_control_paths_and_existing_socket_are_rejected_without_overwrite ... ok
+test worker_panic_blocks_requests_until_restart ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.91s
+

@@ -5,8 +5,8 @@
   "files": [
     {
       "path": ".gitattributes",
-      "bytes": 3959,
-      "sha256": "a472aae04c48cc7f42e37c54901b02831d9d19981e4dedaa1f0adc6fb879d1a1"
+      "bytes": 4105,
+      "sha256": "378169dba225e822c4c7826837f3ada330a7c4ae84617e60c9040b43f98e329a"
     },
     {
       "path": ".github/ISSUE_TEMPLATE/compatibility-bug.md",
@@ -50,8 +50,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 11057,
-      "sha256": "73d980bcfbfd079320cc52f779de466e2a6ba779fbafb2ccabe8969cc48599ba"
+      "bytes": 11110,
+      "sha256": "e76ffa03b84741f4ca117381871fb17c4e06c83ecde31ad1f748ac6130270b0a"
     },
     {
       "path": "apps/grok-host/Cargo.lock",
@@ -75,23 +75,33 @@
     },
     {
       "path": "apps/grok-host/README.md",
-      "bytes": 5342,
-      "sha256": "9b873045e0d1c6d1e88cdbae65df307e9a065bfaa84cd7964089583dbc14e5ab"
+      "bytes": 10191,
+      "sha256": "56a02c657841324a502a631da310b9bccfedbb054af04988c5634bcc6bd415a6"
     },
     {
       "path": "apps/grok-host/RUST-LICENSE-MIT.txt",
-      "bytes": 1203,
-      "sha256": "5fce71c4109e343147ee2087578a90bff73919ec088bd114ff8b92af2406c5cc"
+      "bytes": 1239,
+      "sha256": "15a4e077eb0f64256aba4797f0fe4c5f2c821d6a2a6a49aee8044967158bc9cd"
+    },
+    {
+      "path": "apps/grok-host/src/host.rs",
+      "bytes": 29496,
+      "sha256": "e33fe8481310d604b1cd3e091399b8c3b9750357170faf3b7410e26cc09afa3c"
     },
     {
       "path": "apps/grok-host/src/main.rs",
-      "bytes": 8332,
-      "sha256": "615ad44bcc252e368b6b44a0c506dd41b45186d660c047d566364fb1c8be82d3"
+      "bytes": 9544,
+      "sha256": "51ca900a0ce6a65628647960732881a37e39e3bce9b2bde9c7652e9a04a839f7"
     },
     {
       "path": "apps/grok-host/tests/cli_e2e.rs",
       "bytes": 14502,
       "sha256": "1db1ec59a3113593d158cbfedab61b33464721af253b32286e8a9e561653957e"
+    },
+    {
+      "path": "apps/grok-host/tests/host_e2e.rs",
+      "bytes": 21850,
+      "sha256": "04910e8e7ea16d61e3e21572d6c9fc09ea3222c51d021984e003709a58666d82"
     },
     {
       "path": "assets/README.md",
@@ -220,8 +230,8 @@
     },
     {
       "path": "crates/path-index/src/durable/scanner.rs",
-      "bytes": 9572,
-      "sha256": "9b7e28c2f02b155627cfbda18e3addebe7c561ae96db745c60c4ec341ed481ed"
+      "bytes": 9876,
+      "sha256": "7520e06cd6f690fd2fb146bfc5a97dd9163523c610c503a533506e6fe5ce1570"
     },
     {
       "path": "crates/path-index/src/durable.rs",
@@ -422,6 +432,11 @@
       "path": "docs/superpowers/plans/2026-11-03-durable-path-index.md",
       "bytes": 5534,
       "sha256": "2ae2c854d05f82496856cc9093edc31e289fbcdbe609b02c90b0afe7df405689"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-03-local-path-host.md",
+      "bytes": 2506,
+      "sha256": "e1bd171b11f84eb0f4840e6147650c5272fc11f7f5f5e61d03ecde7ba3e6e6e9"
     },
     {
       "path": "docs/superpowers/plans/2026-11-03-path-analyzer.md",
@@ -651,7 +666,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 807,
-      "sha256": "e8bb2fbd1f6c8175add27aa01331aa720d61e50a000538013db7ee6a46602793"
+      "sha256": "d213cfeb2b2faae118d58c58b522ae1f06d5a98f6ec956e0f606f18907cc8601"
     },
     {
       "path": "tests/README.md",
@@ -692,6 +707,11 @@
       "path": "tests/contract/test_live_benchmark.py",
       "bytes": 9034,
       "sha256": "4885c05d445e376a29489396c036bf1847fe4f34739b6e9744cc8efc3262b057"
+    },
+    {
+      "path": "tests/contract/test_local_path_host_evidence.py",
+      "bytes": 1765,
+      "sha256": "284982b65c6060ac7840fd444013bbd132cf5fdb1c954b371ffac1de870e7074"
     },
     {
       "path": "tests/contract/test_oracle_copy.py",
@@ -760,8 +780,8 @@
     },
     {
       "path": "tests/contract/test_source_scanner_evidence.py",
-      "bytes": 2087,
-      "sha256": "6fc4d1bc6a4bcf7c86f379e72f45261f67f60459d49d39630e8b4bf113e53b34"
+      "bytes": 2342,
+      "sha256": "4c4b1407cf34d29239b3d8af6d972868739000f70fa3cd6f4fb354ede36d6ece"
     },
     {
       "path": "tests/contract/test_synthetic_corpus.py",
@@ -17399,6 +17419,36 @@
       "sha256": "280f348beb75570b45f3aedbd1b28db16419ba4d87b8954bbe82cf1e3d215022"
     },
     {
+      "path": "tests/evidence/local-path-host-2026-11-03/README.md",
+      "bytes": 3741,
+      "sha256": "f471f638f9edddb7a0f8e390dcdfaedd893d0f8e9008510362711c1c38140046"
+    },
+    {
+      "path": "tests/evidence/local-path-host-2026-11-03/default.stderr.txt",
+      "bytes": 211,
+      "sha256": "1c77629a87c9a3e890eddf4d4de4b08c36234c37f620384d1fedac3fccad243b"
+    },
+    {
+      "path": "tests/evidence/local-path-host-2026-11-03/default.stdout.txt",
+      "bytes": 705,
+      "sha256": "429c8fb932d1cf5b6699efac778b27831ee86f0327d78caf14c287ace7e32c45"
+    },
+    {
+      "path": "tests/evidence/local-path-host-2026-11-03/receipt.json",
+      "bytes": 2725,
+      "sha256": "2efa2006b08d01e2c84a46ee111aed5b1ff373cae2904f5f9f0eede7a1528231"
+    },
+    {
+      "path": "tests/evidence/local-path-host-2026-11-03/test-hooks.stderr.txt",
+      "bytes": 303,
+      "sha256": "a99012fee0f76b420cfc7fc573260167ecd60945cc3f7a60fe18718984a0057c"
+    },
+    {
+      "path": "tests/evidence/local-path-host-2026-11-03/test-hooks.stdout.txt",
+      "bytes": 1111,
+      "sha256": "653813b0adbc7c9c121370f313d0f518e4dd3b91bfc08cbdd720d3f5ced094bd"
+    },
+    {
       "path": "tests/evidence/long-token-indexer-2026-11-01/README.md",
       "bytes": 1876,
       "sha256": "e93a1c5e49f8696ad87937810cfbfdef057871e148a3b8f85610e877339802dd"
@@ -19220,8 +19270,8 @@
     },
     {
       "path": "tests/evidence/source-scanner-2026-11-03/README.md",
-      "bytes": 3194,
-      "sha256": "af5985f550ec6ec555e836527db7ab0aa31e3a35aa5053231b4cfd565ac6a946"
+      "bytes": 3473,
+      "sha256": "43d55fe32478c7a3702a953b4177fc777614efd191978d2863a32afd434c2330"
     },
     {
       "path": "tests/evidence/source-scanner-2026-11-03/receipt.json",
@@ -26390,8 +26440,8 @@
     },
     {
       "path": "tests/integration/upstream-test-plan.md",
-      "bytes": 8896,
-      "sha256": "e9b210c2c7ae29f3fd996cc610df2ebfc695bb60590ab77d3254996baa3fd2e8"
+      "bytes": 8986,
+      "sha256": "813a032b384a40c285860359b60bd63942275a129651b31f9ec24db48277e861"
     },
     {
       "path": "tests/matrix.json",

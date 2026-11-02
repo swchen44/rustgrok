@@ -1,10 +1,10 @@
 # Rustgrok：OpenGrok Rust 重寫研究與實作交接包 v0.6
 
 日期：2026-10-25。  
-狀態：**Rust、必要工具隨包、搜尋優先、本機＋LAN約5人且無權限管理已確認。先在macOS開發及完整驗證，再於主要部署目標Ubuntu 24.04 amd64適配與完整原生重驗。Public repo rustgrok已建立；首輪Mac為M1／arm64，GitHub Releases交付已確認；macOS版本等仍待決。已開始實作有限的 analysis、path-index 與 macOS 開發中 path CLI；完整產品尚未完成或發布。**
+狀態：**Rust、必要工具隨包、搜尋優先、本機＋LAN約5人且無權限管理已確認。先在macOS開發及完整驗證，再於主要部署目標Ubuntu 24.04 amd64適配與完整原生重驗。Public repo rustgrok已建立；首輪Mac為M1／arm64，GitHub Releases交付已確認；macOS版本等仍待決。已開始實作有限的 analysis、path-index 與 macOS 開發中 path CLI 及受限本機 host；完整產品尚未完成或發布。**
 GitHub repo名稱：**rustgrok**。Q13已確認產品顯示名稱 **Rustgrok**、npm主套件 **rustgrok**；Q14已確認獨立原創新增Rust／JS採MIT，沿用、修改、移植及第三方內容保持各自適用條件，見[授權範圍](LICENSE.md)。名稱查詢不等於保留或實際發布，npm仍由使用者自行發布。
 
-受限的 macOS 開發中 path CLI 與執行方式見 [apps/grok-host](apps/grok-host/README.md)；目前尚無完整搜尋服務、Web 或正式產品發行。
+受限的 macOS 開發中 path CLI 與執行方式見 [apps/grok-host](apps/grok-host/README.md)；另有單 project 本機 host；目前尚無完整搜尋服務、Web 或正式產品發行。
 
 ## 已確認的目標
 

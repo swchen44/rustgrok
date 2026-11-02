@@ -1,0 +1,14 @@
+
+running 9 tests
+test client_times_out_if_same_user_socket_never_replies ... ok
+test default_host_ignores_test_modes_and_has_no_test_release_command ... ok
+test fragmented_valid_request_is_accepted_before_deadline ... ok
+test host_build_query_stop_and_restart ... ok
+test overlong_unix_socket_path_is_rejected_before_bind ... ok
+test oversized_frame_and_client_limit_fail_closed_then_recover ... ok
+test oversized_query_response_returns_error_not_partial_results ... ok
+test trickle_request_has_a_whole_frame_deadline ... ok
+test unsafe_control_paths_and_existing_socket_are_rejected_without_overwrite ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.77s
+

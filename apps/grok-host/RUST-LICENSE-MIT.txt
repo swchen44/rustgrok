@@ -1,4 +1,4 @@
-Scope: independently authored Rust code in src/main.rs.
+Scope: independently authored Rust code in src/main.rs, src/host.rs, and tests/host_e2e.rs.
 This notice does not relicense upstream OpenGrok, dependencies, Python, or Java.
 
 MIT License

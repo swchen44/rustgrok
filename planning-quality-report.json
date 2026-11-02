@@ -1,7 +1,7 @@
 {
   "checked_at": "2026-11-03",
   "scope": "planning artifact structure only; not a product test run",
-  "files_checked": 5306,
+  "files_checked": 5316,
   "requirements_with_test_specs": 38,
   "planned_test_specs": 80,
   "work_packages": 44,

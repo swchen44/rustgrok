@@ -62,3 +62,6 @@ tests/evidence/path-cli-2026-11-03/*.txt -text whitespace=-blank-at-eof,-blank-a
 
 # Preserve the original OpenGrok notice bundled with the adapted CLI e2e test.
 apps/grok-host/OPENGROK-NOTICE.txt -text whitespace=-blank-at-eof,-blank-at-eol
+
+# Preserve local path host subprocess-test streams.
+tests/evidence/local-path-host-2026-11-03/*.txt -text whitespace=-blank-at-eof,-blank-at-eol
