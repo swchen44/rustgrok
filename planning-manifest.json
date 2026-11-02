@@ -5,8 +5,8 @@
   "files": [
     {
       "path": ".gitattributes",
-      "bytes": 3206,
-      "sha256": "f6f69d91c835792333ae4ac0c31ec172262ebf7d9fecf7c8309a43093be6f4ee"
+      "bytes": 3514,
+      "sha256": "4389956f8ca1fb274005de11d0b861a5e21167a99799810ae0156ade73dcece0"
     },
     {
       "path": ".github/ISSUE_TEMPLATE/compatibility-bug.md",
@@ -60,8 +60,8 @@
     },
     {
       "path": "crates/README.md",
-      "bytes": 852,
-      "sha256": "04d2504ff4196900a6dddc7996d3ab3113cc2d5845f347028c3de2d074f8e0b7"
+      "bytes": 887,
+      "sha256": "554c7b80b1147c0b5be33207f933a448b2e6bafdac5e7e2386ec733a16004f71"
     },
     {
       "path": "crates/analysis/.gitignore",
@@ -150,13 +150,13 @@
     },
     {
       "path": "crates/path-index/Cargo.lock",
-      "bytes": 262,
-      "sha256": "314c4e0caa4707c2b74e95344a7f57cb10b0b693dfe5cb91b617d088e585faac"
+      "bytes": 2491,
+      "sha256": "d5c3ce966e6edc5626f1ab0a900338bf19a1f419461354e60e6a6b56ee2eb291"
     },
     {
       "path": "crates/path-index/Cargo.toml",
-      "bytes": 180,
-      "sha256": "1388305ecf320ee0118d769bdfbb0d54d4d904f0bd984155eb7ddc18fbcac3d4"
+      "bytes": 298,
+      "sha256": "62ab3ffd357e58cab4f34d1bfe13d068dc0e9f7aadbb582f99f800f32d60d09d"
     },
     {
       "path": "crates/path-index/LICENSE.txt",
@@ -170,18 +170,28 @@
     },
     {
       "path": "crates/path-index/README.md",
-      "bytes": 3811,
-      "sha256": "543fdbe7593bcc0d510345e14e1d3d2f164eb182d09f3a97ff179ea6060a757a"
+      "bytes": 7223,
+      "sha256": "bb8c1d34959ece18b2db57c61fa64d20a873af2e47643bd1d2f8a794998f64e9"
     },
     {
       "path": "crates/path-index/RUST-LICENSE-MIT.txt",
-      "bytes": 1207,
-      "sha256": "7bd26e5a6fcf1433936e4a9ebf5ff1d8c8257bea61eefe5331d88e914ce689ef"
+      "bytes": 1240,
+      "sha256": "c1d865bf9f071cb46740add9adc659b34d9581dd19ce497a69622b204406ae77"
+    },
+    {
+      "path": "crates/path-index/src/durable.rs",
+      "bytes": 28603,
+      "sha256": "5aa7618f50bacded44a7619e97f14ecbf8d79a47b3f8f9ac5075097e42bf7f07"
     },
     {
       "path": "crates/path-index/src/lib.rs",
-      "bytes": 9831,
-      "sha256": "f133f8c7dd5a580da69d65c1d6cc3cb6cbca73cf5c44cd74cc4b67b700d33f40"
+      "bytes": 9877,
+      "sha256": "ea2356fd8846041f556d470e9384d1b11acc95d941c2ca309e1e575ee616afcd"
+    },
+    {
+      "path": "crates/path-index/tests/durable.rs",
+      "bytes": 38404,
+      "sha256": "0a7713e7d3cb3578071bb32ae5d80cb10d49ed773b9854f9e6c179e5fe5137ca"
     },
     {
       "path": "crates/path-index/tests/generation.rs",
@@ -357,6 +367,11 @@
       "path": "docs/sources.md",
       "bytes": 19274,
       "sha256": "04aebaec3053f7eda655aad253284572dce09a4720f3add9345424cdfedda4bf"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-03-durable-path-index.md",
+      "bytes": 5534,
+      "sha256": "2ae2c854d05f82496856cc9093edc31e289fbcdbe609b02c90b0afe7df405689"
     },
     {
       "path": "docs/superpowers/plans/2026-11-03-path-analyzer.md",
@@ -576,7 +591,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 807,
-      "sha256": "6bb80dd3d511f782a95319b2332a235e59020017d754bb54f93cb67fcad33456"
+      "sha256": "12fee1f05339e7ef96ce2755345c5e2b04d983f3006340d78a59ba53829bca04"
     },
     {
       "path": "tests/README.md",
@@ -597,6 +612,11 @@
       "path": "tests/contract/test_capture_baseline.py",
       "bytes": 13300,
       "sha256": "e6bb18c472addca10634617baac52879a570ffcc3be817d9573cd0f4a378d7f0"
+    },
+    {
+      "path": "tests/contract/test_durable_path_evidence.py",
+      "bytes": 2659,
+      "sha256": "874e57b685489a3a0c02e01dc8396dd0dad23081ff392fd4a98b51480d4db673"
     },
     {
       "path": "tests/contract/test_index_resource_guard.py",
@@ -712,6 +732,51 @@
       "path": "tests/evidence/development-host-observation-2026-10-26.json",
       "bytes": 2757,
       "sha256": "2ecad0e0ab98d3a21ce868fd05e64b4cd1a6ef489499f250c44316a2ba2ee9b7"
+    },
+    {
+      "path": "tests/evidence/durable-path-2026-11-03/README.md",
+      "bytes": 2876,
+      "sha256": "8847a29de8d024b1af9a2eb6aee98ed903788b709b4da3085b7449b945ddd202"
+    },
+    {
+      "path": "tests/evidence/durable-path-2026-11-03/dependencies.json",
+      "bytes": 2828,
+      "sha256": "68273a1fc50d4b576e3beaf2a6a3880218f5da72be62515647ec6c3774602818"
+    },
+    {
+      "path": "tests/evidence/durable-path-2026-11-03/durable.stderr.txt",
+      "bytes": 166,
+      "sha256": "70d5b24f3f75e49d5c0d9cd67ff7d760740c2f0be5e007582851bb38a5b87a3a"
+    },
+    {
+      "path": "tests/evidence/durable-path-2026-11-03/durable.stdout.txt",
+      "bytes": 2160,
+      "sha256": "185cd5fe182da725ee644910e2b7021465d74f597966f93d3f9d0eb3206bee6e"
+    },
+    {
+      "path": "tests/evidence/durable-path-2026-11-03/receipt.json",
+      "bytes": 1195,
+      "sha256": "b8b6c20434317f2a2aa6edf61bf5c6b5d0e7eb0385700d888aa90ddd7fae097e"
+    },
+    {
+      "path": "tests/evidence/durable-path-review-fixes-2026-11-03/README.md",
+      "bytes": 1750,
+      "sha256": "8d97628e434f1a7da6b58d800907b01919a41ff37170fc4a855e40c01f3aa387"
+    },
+    {
+      "path": "tests/evidence/durable-path-review-fixes-2026-11-03/durable.stderr.txt",
+      "bytes": 166,
+      "sha256": "eb196cfaf3338d4d91280d9725c21261683a64dcde4dab7acf03aa20dc6e48d7"
+    },
+    {
+      "path": "tests/evidence/durable-path-review-fixes-2026-11-03/durable.stdout.txt",
+      "bytes": 2518,
+      "sha256": "3f2b2dd78e8e9c25d167dc2adff8218f12cbe0497fc22bb93cef61207b88c85a"
+    },
+    {
+      "path": "tests/evidence/durable-path-review-fixes-2026-11-03/receipt.json",
+      "bytes": 1195,
+      "sha256": "7fa40c830486fc9f32c7badb44660c257afb70ac9d9998a7e572ec461eb949d6"
     },
     {
       "path": "tests/evidence/full-token-diagnostic-2026-11-01/README.md",
@@ -26200,8 +26265,8 @@
     },
     {
       "path": "tests/integration/upstream-test-plan.md",
-      "bytes": 8575,
-      "sha256": "2fc3bb3dd303e8e96e3559ec556be838eed73192196de20bf6eccd8271780426"
+      "bytes": 8641,
+      "sha256": "1e3bff86b25e3a606d42961bb6cf10250c8b21e25f7f8b509ed7e1c362ea87e7"
     },
     {
       "path": "tests/matrix.json",

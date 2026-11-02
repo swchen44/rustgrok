@@ -47,3 +47,9 @@ crates/path-index/OPENGROK-NOTICE.txt -text whitespace=-blank-at-eof,-blank-at-e
 # Preserve recorded path-index test process output byte-for-byte.
 tests/evidence/path-index-2026-11-03/*.stdout -text whitespace=-blank-at-eof,-blank-at-eol
 tests/evidence/path-index-2026-11-03/*.stderr -text whitespace=-blank-at-eof,-blank-at-eol
+
+# Preserve raw durable correctness-test process streams.
+tests/evidence/durable-path-2026-11-03/*.txt -text whitespace=-blank-at-eof,-blank-at-eol
+
+# Preserve review-fix correctness test process streams.
+tests/evidence/durable-path-review-fixes-2026-11-03/*.txt -text whitespace=-blank-at-eof,-blank-at-eol

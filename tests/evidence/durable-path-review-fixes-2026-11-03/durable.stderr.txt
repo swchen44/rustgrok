@@ -1,0 +1,2 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.24s
+     Running tests/durable.rs (crates/path-index/target/debug/deps/durable-11440a1468f2119e)
