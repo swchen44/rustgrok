@@ -279,6 +279,11 @@
       "sha256": "7a89779f0667e500add0615a37660dfd527c06776c503b676e54f660cb80be8b"
     },
     {
+      "path": "experiments/search-spike/examples/profile_path.rs",
+      "bytes": 4426,
+      "sha256": "e084336083c6557ef04541ef8141b61cf35d3bd1955efbfb50d17a5c360b5733"
+    },
+    {
       "path": "experiments/search-spike/oracle-diagnostics/RustgrokIndexInventory.java",
       "bytes": 797,
       "sha256": "32fe4b0b202ab18f33476985013809330d97f9b0c7af91f126ccfc665bb49210"
@@ -305,8 +310,8 @@
     },
     {
       "path": "experiments/search-spike/src/main.rs",
-      "bytes": 14545,
-      "sha256": "ebaf8de98c627b4d9654dd308ec2c3d958f5dd24dd790ccef950a12d75b164c7"
+      "bytes": 15624,
+      "sha256": "8e688f5430f6dbd5240f0fb81dbc06b6fe131bc4e5f772da795165c787689aa4"
     },
     {
       "path": "experiments/search-spike/src/path_response.rs",
@@ -319,6 +324,16 @@
       "sha256": "5ccfc6bda95e2459c42f01d98f30105c82cac0b8414913aa746e75bbf5560922"
     },
     {
+      "path": "experiments/search-spike/tests/test_cache_contract.py",
+      "bytes": 3671,
+      "sha256": "2f9c257e88a663b7138862dcefe339c97373f15979a3efc50d44bccd567536e5"
+    },
+    {
+      "path": "experiments/search-spike/tests/test_partial_index_semantics.py",
+      "bytes": 1404,
+      "sha256": "d53bb347063e76729b748a525a881a7145eb2b876cad88a8ceb5c55f34caa856"
+    },
+    {
       "path": "experiments/search-spike/tests/test_path_http.py",
       "bytes": 4604,
       "sha256": "b56b2da32502ef6d401a8fc74d736f83c3ffcdff761e7c3cb2bf05894052e89c"
@@ -327,6 +342,11 @@
       "path": "experiments/search-spike/tests/test_path_terms.py",
       "bytes": 1499,
       "sha256": "cc48412f10a314c63980849758839fcc4a23a982de2343570a1eca1f55d095ce"
+    },
+    {
+      "path": "experiments/search-spike/tests/test_profile_path.py",
+      "bytes": 1820,
+      "sha256": "8786a3cfb7dd2898b565570e4cd49504edecef86381f2f9d093b50b49d7b3b45"
     },
     {
       "path": "experiments/tantivy-scorer-spike/.gitignore",
@@ -427,6 +447,11 @@
       "path": "tests/contract/test_benchmark_gate.py",
       "bytes": 3519,
       "sha256": "b620ed9c5e92c8e943dbc5f5c7d2ae86a502a7f05a4d28d5d364049e92c8a8fd"
+    },
+    {
+      "path": "tests/contract/test_cache_profile_evidence.py",
+      "bytes": 3341,
+      "sha256": "17e51879f19c25c19bd77d9855825748e8ab3666114bc0de1fa0deba7a9fc747"
     },
     {
       "path": "tests/contract/test_capture_baseline.py",
@@ -18892,6 +18917,26 @@
       "path": "tests/evidence/sparse-single-term-2026-11-01/tantivy-norm-table.txt",
       "bytes": 2490,
       "sha256": "8598e0a109fa897814ab7af4cb281ab71964f54f72f8a873f83f4ef24045aab0"
+    },
+    {
+      "path": "tests/evidence/synthetic-20m-cache-profile-2026-11-02/README.md",
+      "bytes": 7511,
+      "sha256": "7c0af584d95d9bacc65c2e92abb8714b3fdbadb879fd4e14c32ec7f6039b0897"
+    },
+    {
+      "path": "tests/evidence/synthetic-20m-cache-profile-2026-11-02/measurement-helper-experiment.patch.b64",
+      "bytes": 21107,
+      "sha256": "b5c11613afbeebcf57e1723a0a2f50b41b63833f7b132986b52fdabc19520867"
+    },
+    {
+      "path": "tests/evidence/synthetic-20m-cache-profile-2026-11-02/raw-observations-manifest.json",
+      "bytes": 155420,
+      "sha256": "f2e33669ee510d5cbcb50d98772157fa008e02251db3c9f0b91baeddef6461b2"
+    },
+    {
+      "path": "tests/evidence/synthetic-20m-cache-profile-2026-11-02/raw-observations.zip",
+      "bytes": 262239,
+      "sha256": "e6e8fdfb132fc1d2b07f334629acdc98b04dcd29af57cc60f5985d218f67be79"
     },
     {
       "path": "tests/evidence/synthetic-20m-sequential-2026-11-01/README.md",

@@ -109,7 +109,12 @@ fn visit(
     }
     Ok(())
 }
-fn search(index: &Path, args: &[String]) -> Result<String, String> {
+#[derive(Default)]
+struct IndexCache {
+    previous: Option<(Vec<u8>, Vec<Document>)>,
+}
+
+fn search(index: &Path, args: &[String], cache: Option<&mut IndexCache>) -> Result<String, String> {
     let field = arg(args, "--field")?;
     let query = arg(args, "--query")?;
     if !["full", "path", "def", "symbol"].contains(&field.as_str()) {
@@ -129,8 +134,22 @@ fn search(index: &Path, args: &[String]) -> Result<String, String> {
         .filter(|w| w[0] == "--project")
         .map(|w| w[1].as_str())
         .collect();
-    let docs: Vec<Document> = serde_json::from_slice(&fs::read(index).map_err(|e| e.to_string())?)
-        .map_err(|e| e.to_string())?;
+    let bytes = fs::read(index).map_err(|e| e.to_string())?;
+    let local_docs;
+    let docs = if let Some(cache) = cache {
+        if !cache
+            .previous
+            .as_ref()
+            .is_some_and(|(old, _)| *old == bytes)
+        {
+            let parsed = serde_json::from_slice(&bytes).map_err(|e| e.to_string())?;
+            cache.previous = Some((bytes, parsed));
+        }
+        &cache.previous.as_ref().expect("cache initialized").1
+    } else {
+        local_docs = serde_json::from_slice::<Vec<Document>>(&bytes).map_err(|e| e.to_string())?;
+        &local_docs
+    };
     let mut hits = Vec::new();
     for d in docs {
         if !projects.is_empty() && !projects.contains(&d.project.as_str()) {
@@ -174,7 +193,7 @@ fn search(index: &Path, args: &[String]) -> Result<String, String> {
         };
         if field == "path" || !lines.is_empty() {
             hits.push(Hit {
-                path: d.path,
+                path: d.path.clone(),
                 line_numbers: lines,
             });
         }
@@ -202,7 +221,7 @@ fn decode(value: &str) -> Result<String, String> {
     }
     String::from_utf8(output).map_err(|e| e.to_string())
 }
-fn serve(index: &Path, address: &str) -> Result<(), String> {
+fn serve(index: &Path, address: &str, cache_enabled: bool) -> Result<(), String> {
     use std::io::{BufRead, BufReader, Read, Write};
     let endpoint: std::net::SocketAddr = address.parse().map_err(|_| "invalid listen address")?;
     if !endpoint.ip().is_loopback() {
@@ -210,6 +229,7 @@ fn serve(index: &Path, address: &str) -> Result<(), String> {
     }
     let listener = std::net::TcpListener::bind(endpoint).map_err(|e| e.to_string())?;
     let mut sessions = std::collections::HashSet::<String>::new();
+    let mut cache = IndexCache::default();
     for stream in listener.incoming() {
         let mut stream = stream.map_err(|e| e.to_string())?;
         stream
@@ -282,7 +302,7 @@ fn serve(index: &Path, address: &str) -> Result<(), String> {
                 }
                 args.push("--query".into());
                 args.push(query.ok_or("path is required")?);
-                let result = search(index, &args)?;
+                let result = search(index, &args, cache_enabled.then_some(&mut cache))?;
                 let body =
                     path_response::render(&result, start, max, started.elapsed().as_millis())?;
                 if !request_cookie
@@ -317,7 +337,7 @@ fn serve(index: &Path, address: &str) -> Result<(), String> {
                 args.push(format!("--{key}"));
                 args.push(decode(value)?);
             }
-            search(index, &args)
+            search(index, &args, cache_enabled.then_some(&mut cache))
         })();
         let (status, body) = match result {
             Ok(body) => ("200 OK", body),
@@ -363,8 +383,18 @@ fn run(args: &[String]) -> Result<(), String> {
                 .and_then(|mut f| f.write_all(&bytes))
                 .map_err(|e| e.to_string())?;
         }
-        "search" => println!("{}", search(&index, args)?),
-        "serve" => serve(&index, &arg(args, "--listen")?)?,
+        "search" => println!("{}", search(&index, args, None)?),
+        "serve" => {
+            let mode = if args.iter().any(|arg| arg == "--cache-mode") {
+                arg(args, "--cache-mode")?
+            } else {
+                "off".into()
+            };
+            if mode != "off" && mode != "exact" {
+                return Err("unsupported cache mode".into());
+            }
+            serve(&index, &arg(args, "--listen")?, mode == "exact")?
+        }
         _ => return Err("expected index or search".into()),
     }
     Ok(())
