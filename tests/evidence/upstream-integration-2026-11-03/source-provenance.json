@@ -1,0 +1,46 @@
+{
+  "scope": "source research; not upstream test execution or product acceptance",
+  "commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+  "files": [
+    {
+      "path": "opengrok-indexer/src/test/java/org/opengrok/indexer/analysis/PathTokenizerTest.java",
+      "sha256": "a8a190b5bccc420b8dace8573af381d1948055dde36e646575259a830cc19f5c",
+      "declared_license": "CDDL-1.0; original copyright/header in upstream file"
+    },
+    {
+      "path": "opengrok-indexer/src/test/java/org/opengrok/indexer/index/IndexerTest.java",
+      "sha256": "ae555beb26b94c77c6ed5ef92a4e2465eac60f634aceb353fb2847d038145098",
+      "declared_license": "CDDL-1.0; original copyright/header in upstream file"
+    },
+    {
+      "path": "opengrok-indexer/src/test/java/org/opengrok/indexer/search/SearchEngineTest.java",
+      "sha256": "c9cb587bcce14a07534a5c9c18ef0298b59067ac2effed5d9a9ff416c4eb249e",
+      "declared_license": "CDDL-1.0; original copyright/header in upstream file"
+    },
+    {
+      "path": "opengrok-web/src/test/java/org/opengrok/web/api/v1/controller/SearchControllerTest.java",
+      "sha256": "826335990f0dd53d29c7243f85329ef10f4f2759592a401dc42f832b6b585a14",
+      "declared_license": "CDDL-1.0; original copyright/header in upstream file"
+    },
+    {
+      "path": "opengrok-web/src/test/java/org/opengrok/web/api/v1/controller/FileControllerTest.java",
+      "sha256": "4ea5ecc4a9168e601f8b0184740bc6f73ca941444f95d41912035b2827f160ca",
+      "declared_license": "CDDL-1.0; original copyright/header in upstream file"
+    },
+    {
+      "path": "opengrok-web/src/test/java/org/opengrok/web/api/v1/controller/DirectoryListingControllerTest.java",
+      "sha256": "10c78285819e955a88f40d99ec605b4c7cb2e9360f9d029c3e337f5b712bbd2e",
+      "declared_license": "CDDL-1.0; original copyright/header in upstream file"
+    },
+    {
+      "path": "opengrok-web/src/test/java/org/opengrok/web/api/v1/controller/HistoryControllerTest.java",
+      "sha256": "0a3a5a56596f956b643fffa1b36390b620cbf8aa262f040bf375c5dfa4436e53",
+      "declared_license": "CDDL-1.0; original copyright/header in upstream file"
+    }
+  ],
+  "synthetic_fixture": {
+    "path": "tests/fixtures/upstream-integration-2026-11-03/source-paths.tsv",
+    "sha256": "4439962c20b9314f1feaa36aaa5e16680759c7fbb348aef6f94995318e12c954",
+    "provenance": "independently authored synthetic source text and logical paths; no copied upstream fixture"
+  }
+}

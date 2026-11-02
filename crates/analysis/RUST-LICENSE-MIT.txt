@@ -1,4 +1,4 @@
-Scope: independently authored Rust code in examples/path_tokens.rs and tests/path.rs only.
+Scope: independently authored Rust code in examples/path_tokens.rs, tests/path.rs and tests/source_corpus_integration.rs only.
 This notice does not relicense upstream OpenGrok, dependencies, Python, or Java.
 
 MIT License

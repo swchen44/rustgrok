@@ -4,7 +4,7 @@
 
 This is a partial product component, not a complete search service or a claim of OpenGrok compatibility. Indexing, query grammar, cross-project order, generation publication and the rest of the language analyzers remain unimplemented. An unsupported path must be surfaced to callers; this module does not license silently omitting a document. Original raw token observations and their limits are in [the evidence](../../tests/evidence/path-analyzer-2026-11-03/README.md).
 
-`src/lib.rs` adapts the CDDL-1.0 `PathTokenizer.java` from OpenGrok 1.14.20, commit `3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3`, retaining upstream copyright, header, [license](LICENSE.txt) and [notice](OPENGROK-NOTICE.txt). Independently authored Rust tests and the diagnostic example are MIT with the [scoped MIT text](RUST-LICENSE-MIT.txt). OpenGrok and Lucene are used only by the independent test oracle, not as Rust runtime dependencies.
+`src/lib.rs` adapts the CDDL-1.0 `PathTokenizer.java` from OpenGrok 1.14.20, commit `3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3`, retaining upstream copyright, header, [license](LICENSE.txt) and [notice](OPENGROK-NOTICE.txt). The adapted upstream integration test `tests/upstream_path_integration.rs` is CDDL-1.0 with its original copyright and header. Independently authored Rust tests and the diagnostic example are MIT with the [scoped MIT text](RUST-LICENSE-MIT.txt). OpenGrok and Lucene are used only by the independent test oracle, not as Rust runtime dependencies.
 
 ```sh
 cargo test --locked --offline --manifest-path crates/analysis/Cargo.toml

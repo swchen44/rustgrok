@@ -1,0 +1,6 @@
+# language\tlogical-path\tindependently-authored-synthetic-source
+c	/alpha/lib/main.c	int main(void) { return 0; }
+python	/beta/tools/main.py	def main(): return 0
+javascript	/alpha/web/domain.js	export const domain = 'local';
+c	/alpha/🦀.c	int crab(void) { return 1; }
+javascript	/beta/İ.js	export const letter = 'i';

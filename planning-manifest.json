@@ -90,13 +90,13 @@
     },
     {
       "path": "crates/analysis/README.md",
-      "bytes": 1555,
-      "sha256": "fb8da49e9979c5fd07616aa500edb4af49ae3ef740c3f8d679f6c5100457bf8c"
+      "bytes": 1682,
+      "sha256": "4769646dacbfd15ca7b8c06ef0d94e7d5122afef95a5664a01636fd0f88a33f8"
     },
     {
       "path": "crates/analysis/RUST-LICENSE-MIT.txt",
-      "bytes": 1238,
-      "sha256": "ce8b05d3dc7c1a2ee2f830b68aeea4f5f9e89e1a825b242d3cd3b79f131c0cb5"
+      "bytes": 1274,
+      "sha256": "a7aafa6b8bb17329c75f13b2f306c84aaf95884c1b76fdf220bcd565bd943fe9"
     },
     {
       "path": "crates/analysis/examples/path_tokens.rs",
@@ -114,9 +114,19 @@
       "sha256": "4642070ad548089a92009366a769d20185303fa82355f493640bfbd3f4df767a"
     },
     {
+      "path": "crates/analysis/tests/source_corpus_integration.rs",
+      "bytes": 1401,
+      "sha256": "bcf1296009affba919252c63f12c7955a6243ad840eb95eab56d5c593aa314ab"
+    },
+    {
       "path": "crates/analysis/tests/test_path_oracle.py",
       "bytes": 3153,
       "sha256": "ab1115c8157d5e835a12bcaa454432a5f40cbe837e1c330e970db3a1860f9316"
+    },
+    {
+      "path": "crates/analysis/tests/upstream_path_integration.rs",
+      "bytes": 2835,
+      "sha256": "895dacbbe561254c0ae4288dca5f43443e0cfc5112963c3751a75ef6e4dfb614"
     },
     {
       "path": "distribution/release-manifest.template.json",
@@ -496,12 +506,12 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 807,
-      "sha256": "dbd06e745fc3f4670785581f02156410c1182f16c903097b8636c9726bb8bfd9"
+      "sha256": "a42cdd2dae60a33610d91819aeb20516bc64967fb9a3785e31acedc939e021d1"
     },
     {
       "path": "tests/README.md",
-      "bytes": 9001,
-      "sha256": "0f821d6acda93a6d59788e5551c307cb2b698e8d5af47c1987161bb0b0b2d39c"
+      "bytes": 9249,
+      "sha256": "2524e6e6a548f1910be0d11065bb2b29100bf060488ed87431a3721df2a33ea2"
     },
     {
       "path": "tests/contract/test_benchmark_gate.py",
@@ -607,6 +617,11 @@
       "path": "tests/contract/test_synthetic_search_evidence.py",
       "bytes": 4999,
       "sha256": "3b77b0f2c87c9b2975532698af16a784dc93ced308d8c94754c457b03c2da5c1"
+    },
+    {
+      "path": "tests/contract/test_upstream_integration_evidence.py",
+      "bytes": 2822,
+      "sha256": "a0fc35016f63db6ba490eb6591f67d31252b70ca291d07316ad25e0a9e1ea603"
     },
     {
       "path": "tests/evidence/README.md",
@@ -25974,6 +25989,31 @@
       "sha256": "f1429a2bc2e8de409cf3d3fcf13f435f51122c39417ebe9b74a30af80cc5cc8f"
     },
     {
+      "path": "tests/evidence/upstream-integration-2026-11-03/README.md",
+      "bytes": 1505,
+      "sha256": "b7129efc8491629c53fd27c03eccdfd51aed1e55629e2678076393ef9f111c78"
+    },
+    {
+      "path": "tests/evidence/upstream-integration-2026-11-03/path-tokenizer-receipt.json",
+      "bytes": 8502,
+      "sha256": "ceec1541a916830250928c60d93a203172023280ae0055ba2ef0ad4d675ac856"
+    },
+    {
+      "path": "tests/evidence/upstream-integration-2026-11-03/path-tokenizer.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/upstream-integration-2026-11-03/path-tokenizer.stdout",
+      "bytes": 101,
+      "sha256": "157ffa7a2f7b929d7b6fe38b4a6c39bfcf3182117c73921b6a895a3b7e95acae"
+    },
+    {
+      "path": "tests/evidence/upstream-integration-2026-11-03/source-provenance.json",
+      "bytes": 2425,
+      "sha256": "ac6188ab8ff02aac5ea9463aadce8f44803a3e0330016ac7bd88398c4772187d"
+    },
+    {
       "path": "tests/fixtures/README.md",
       "bytes": 1485,
       "sha256": "bd2ef93f2bbc72ab647533e309a834cea05a36afb477cbe3697ec6a87edacea3"
@@ -26017,6 +26057,16 @@
       "path": "tests/fixtures/public-source/python/main.py.fixture",
       "bytes": 867,
       "sha256": "c30bc720a38c39709e22f6bba1996b58c0a4e2e25d8cc6ea1bff7a348efde3f0"
+    },
+    {
+      "path": "tests/fixtures/upstream-integration-2026-11-03/source-paths.tsv",
+      "bytes": 321,
+      "sha256": "4439962c20b9314f1feaa36aaa5e16680759c7fbb348aef6f94995318e12c954"
+    },
+    {
+      "path": "tests/integration/upstream-test-plan.md",
+      "bytes": 8396,
+      "sha256": "643f50561d349e3e6b457e8463bc3d96fc80a04ba45fd17f3e04b59d5b77841c"
     },
     {
       "path": "tests/matrix.json",

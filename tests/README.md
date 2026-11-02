@@ -1,6 +1,8 @@
 # tests — Rust重寫驗證規格 v0.6
 
-**狀態：proposed。80項全為planned；尚無產品測試程式、Rust原型量測或實測驗收結果。** 本版沿用原68個ID及既有RST-001～RST-012，沒有新增或刪除測項。
+**狀態：80 項完整產品測試規格仍為 planned；已有有限的 Rust analyzer 測試與 G1 實驗證據，尚無完整產品驗收結果。** 本版沿用原68個ID及既有RST-001～RST-012，沒有新增或刪除測項。
+
+[上游 integration／e2e 對照計畫](integration/upstream-test-plan.md) 區分已可執行的 analyzer 測試，以及等待正式 indexer、HTTP 與 UI 的 blocked 案例。
 
 ## 工作起點
 
@@ -78,4 +80,4 @@ PKG-001/003使用同一版實際TGZ／ZIP驗安裝及完整離線閉包；每平
 
 git/upstream SHA、Cargo lock/toolchain/build profile/target/allocator、REF JVM/Tomcat與參數、bundled helpers清單/版本/hash、artifact/corpus/config hashes、精確OS/CPU/硬體/磁碟與平台階段、local/LAN拓撲、1人／約5人情境與實際client數/request率/in-flight/think-time、query類別/project範圍、共用cache hits/misses/warmup/到達模型、並行index狀態、server queue/階段與browser計時邊界、timeouts/慢查詢、test結果、CPU/alloc/I/O與整體process-tree資源、raw evidence及批准例外。發布另記rustgrok實際Release/tag/commit、asset metadata與下載hash；計時與profile runs分開。
 
-此版不提供尚未存在的npm test/cargo test產品腳本，也不宣稱CI綠燈。
+目前可執行 analysis crate 測試；尚無完整產品的 npm test 或端到端驗收，也不宣稱 CI 綠燈。
