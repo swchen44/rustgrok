@@ -31,4 +31,19 @@ class PlanningFiles(unittest.TestCase):
             (root/'f').write_text('different')
             with self.assertRaises(ValueError):require_staged_worktree(root)
 
+    def test_hidden_index_flags_cannot_hide_modified_worktree_bytes(self):
+        from planning_files import package_files, require_staged_worktree
+        for flag in ('--assume-unchanged','--skip-worktree'):
+            with self.subTest(flag=flag),tempfile.TemporaryDirectory() as tmp:
+                root=Path(tmp);subprocess.run(['git','init','-q',str(root)],check=True)
+                (root/'f').write_text('reviewed staged content');subprocess.run(['git','-C',str(root),'add','f'],check=True)
+                subprocess.run(['git','-C',str(root),'update-index',flag,'f'],check=True)
+                with self.assertRaises(ValueError):require_staged_worktree(root)
+                with self.assertRaises(ValueError):package_files(root)
+                (root/'f').write_text('unreviewed worktree content')
+                # These flags demonstrably make the ordinary index/worktree diff lie.
+                self.assertEqual(subprocess.run(['git','-C',str(root),'diff','--quiet']).returncode,0)
+                with self.assertRaises(ValueError):require_staged_worktree(root)
+                with self.assertRaises(ValueError):package_files(root)
+
 if __name__=='__main__':unittest.main()

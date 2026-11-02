@@ -20,8 +20,17 @@ def require_repository_root(root):
     return root
 
 
+def reject_hidden_index_flags(root):
+    result=git(root,'ls-files','--cached','-v','-z')
+    if result.returncode:raise ValueError('could not inspect repository index flags')
+    for record in result.stdout.split(b'\0'):
+        if record and (len(record)<3 or record[:2]!=b'H '):
+            raise ValueError('planning package rejects assume-unchanged, skip-worktree or nonstandard index states')
+
+
 def require_staged_worktree(root):
     root=require_repository_root(root)
+    reject_hidden_index_flags(root)
     result=git(root,'diff','--quiet','--no-ext-diff','--')
     if result.returncode==1:raise ValueError('stage all tracked changes before building the planning package')
     if result.returncode:raise ValueError('could not inspect worktree changes')
@@ -29,6 +38,7 @@ def require_staged_worktree(root):
 
 def package_files(root):
     root=require_repository_root(root)
+    reject_hidden_index_flags(root)
     result=git(root,'ls-files','--cached','-z')
     if result.returncode:raise ValueError('could not enumerate staged repository paths')
     paths=[]
