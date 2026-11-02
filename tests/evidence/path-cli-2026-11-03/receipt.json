@@ -1,0 +1,64 @@
+{
+  "scope": "native subprocess correctness; not release or full product acceptance",
+  "base_commit": "ca26891a137e037aadea5b6411fd4cc9eb3364df",
+  "utc": "2026-11-02T22:56:47.611013+00:00",
+  "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+  "git": "git version 2.39.5 (Apple Git-154)",
+  "macos": "15.7.7",
+  "architecture": "arm64",
+  "cargo_target_dir": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target",
+  "runs": [
+    {
+      "label": "default",
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "apps/grok-host/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--test",
+        "cli_e2e",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "6b305051602d610590c76c22c99a61eb83b26e7e7a80ae6ead521a66cb9da6d8",
+      "stderr_sha256": "b51f8b0d51bf7ef919ac238645f261df20ee971cd4b60ca39916e4aa15aa5992",
+      "binary_sha256": "95671c7d249a88d1b03ab6bd63f9349d07f0805362c975df3230411f810e6ca3"
+    },
+    {
+      "label": "test-hooks",
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "apps/grok-host/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--features",
+        "test-hooks",
+        "--test",
+        "cli_e2e",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "ca62cc45fee0eac8bdb01d8c1744c5d9bfdbccf236a7baa155b5d05384e74903",
+      "stderr_sha256": "f24f8cb9df08c95b421c022c46d95118bf5d5e4ce5bc93d1dea8163cc3ceaabb",
+      "binary_sha256": "9550c377a56407d3b586ed55b2f4e3bd9bf8dc832e6c92e968f25235b3e88fb9"
+    }
+  ],
+  "inputs": {
+    "apps/grok-host/Cargo.toml": "4c20a0200cfd35c0b28f6cb665f79e74d9a01f2f2dc7ebd6f231576af27a8777",
+    "apps/grok-host/Cargo.lock": "7167f41bf8766e9a023c8c340c29696d0c1d80fc590913ab13431c7dfd09c755",
+    "apps/grok-host/src/main.rs": "615ad44bcc252e368b6b44a0c506dd41b45186d660c047d566364fb1c8be82d3",
+    "apps/grok-host/tests/cli_e2e.rs": "1db1ec59a3113593d158cbfedab61b33464721af253b32286e8a9e561653957e",
+    "crates/path-index/src/durable.rs": "7354da54968de8ec8f626b1e9c0ced157bfb0b40c634fc8657af7506c2f22d41",
+    "crates/path-index/src/durable/scanner.rs": "9b7e28c2f02b155627cfbda18e3addebe7c561ae96db745c60c4ec341ed481ed",
+    "crates/analysis/src/lib.rs": "2716a594f652d5c8132cb12df6783af2eb9b25ccec498c9282da4eae4ad89e32",
+    "tests/fixtures/public-source/c/main.c": "0afb5b45d1538ee86e23b046100c8e458614ba71e50f16c05bda1a52de0edb17",
+    "tests/fixtures/public-source/javascript/function.js": "7e37130f0b5a078fea055a885632cdc00e1989def53e4fafe8b52a75824f8805",
+    "tests/evidence/upstream-integration-2026-11-03/source-provenance.json": "ac6188ab8ff02aac5ea9463aadce8f44803a3e0330016ac7bd88398c4772187d"
+  }
+}

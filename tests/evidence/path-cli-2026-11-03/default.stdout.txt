@@ -1,0 +1,8 @@
+
+running 3 tests
+test default_binary_ignores_test_pause_environment ... ok
+test errors_are_explicit_and_failed_updates_preserve_previous_generation ... ok
+test subprocess_index_query_add_remove_and_restart ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.48s
+
