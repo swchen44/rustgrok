@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2026 swchen44
 //! macOS-only durable single-project path generations.
+mod scanner;
 use super::{CancellationToken, Generation, IndexError, IndexLimits, PathIndex, PathSnapshot};
 use sha2::{Digest, Sha256};
 use std::{
@@ -581,7 +582,15 @@ impl DurablePathIndex {
     where
         I: IntoIterator<Item = io::Result<String>>,
     {
-        self.replace_impl(expected, count, paths, cancellation, FaultPoint::None, None)
+        self.replace_impl(
+            expected,
+            count,
+            paths,
+            cancellation,
+            FaultPoint::None,
+            None,
+            None,
+        )
     }
 
     #[cfg(feature = "fault-injection")]
@@ -596,7 +605,7 @@ impl DurablePathIndex {
     where
         I: IntoIterator<Item = io::Result<String>>,
     {
-        self.replace_impl(expected, count, paths, cancellation, fault, None)
+        self.replace_impl(expected, count, paths, cancellation, fault, None, None)
     }
 
     #[cfg(feature = "fault-injection")]
@@ -618,6 +627,7 @@ impl DurablePathIndex {
             cancellation,
             FaultPoint::None,
             Some(observer),
+            None,
         )
     }
 
@@ -640,6 +650,7 @@ impl DurablePathIndex {
             cancellation,
             FaultPoint::ObserveBeforeCommit,
             Some(observer),
+            None,
         )
     }
 
@@ -662,9 +673,11 @@ impl DurablePathIndex {
             cancellation,
             FaultPoint::ObserveBeforeWriterLock,
             Some(observer),
+            None,
         )
     }
 
+    #[allow(clippy::too_many_arguments)] // fault observers and the source validation are independent seams.
     fn replace_impl<I>(
         &self,
         expected: Option<u64>,
@@ -673,6 +686,7 @@ impl DurablePathIndex {
         cancellation: &CancellationToken,
         fault: FaultPoint,
         mut observer: Option<&mut dyn FnMut()>,
+        validation: Option<&dyn Fn() -> Result<(), DurableError>>,
     ) -> Result<u64, DurableError>
     where
         I: IntoIterator<Item = io::Result<String>>,
@@ -692,6 +706,32 @@ impl DurablePathIndex {
         if self.indeterminate.load(Ordering::Acquire) {
             return Err(DurableError::PublicationIndeterminate);
         }
+        self.replace_locked(
+            expected,
+            count,
+            paths,
+            cancellation,
+            fault,
+            observer,
+            validation,
+        )
+    }
+
+    // Caller holds the same writer lock used by every publication path.
+    #[allow(clippy::too_many_arguments)]
+    fn replace_locked<I>(
+        &self,
+        expected: Option<u64>,
+        count: usize,
+        paths: I,
+        cancellation: &CancellationToken,
+        fault: FaultPoint,
+        mut observer: Option<&mut dyn FnMut()>,
+        validation: Option<&dyn Fn() -> Result<(), DurableError>>,
+    ) -> Result<u64, DurableError>
+    where
+        I: IntoIterator<Item = io::Result<String>>,
+    {
         self.check_source()?;
         let actual = self
             .inner
@@ -806,6 +846,9 @@ impl DurablePathIndex {
                 }
             }
             self.check_source()?;
+            if let Some(validate) = validation {
+                validate()?;
+            }
             cancellation.begin_publication()?;
             inject_exit(fault, FaultPoint::ExitBeforeRename);
             rename_at(&self.root, &format!("P-{id}"), "CURRENT")?;

@@ -5,8 +5,8 @@
   "files": [
     {
       "path": ".gitattributes",
-      "bytes": 3514,
-      "sha256": "4389956f8ca1fb274005de11d0b861a5e21167a99799810ae0156ade73dcece0"
+      "bytes": 3667,
+      "sha256": "049a0407230fb771d7d4c507a82622e670d4063b4311bf8382a3c31e50557799"
     },
     {
       "path": ".github/ISSUE_TEMPLATE/compatibility-bug.md",
@@ -60,8 +60,8 @@
     },
     {
       "path": "crates/README.md",
-      "bytes": 887,
-      "sha256": "554c7b80b1147c0b5be33207f933a448b2e6bafdac5e7e2386ec733a16004f71"
+      "bytes": 930,
+      "sha256": "8471ca1edbed7912f61b6e4627d1e704d0a7e9c3dc575d8c56f8313c62dd4e7d"
     },
     {
       "path": "crates/analysis/.gitignore",
@@ -170,8 +170,8 @@
     },
     {
       "path": "crates/path-index/README.md",
-      "bytes": 7223,
-      "sha256": "bb8c1d34959ece18b2db57c61fa64d20a873af2e47643bd1d2f8a794998f64e9"
+      "bytes": 9261,
+      "sha256": "932f63860a89b042c2e8989156d6cd4f616e87863dd6c1f6ee97a6cff710221c"
     },
     {
       "path": "crates/path-index/RUST-LICENSE-MIT.txt",
@@ -179,9 +179,14 @@
       "sha256": "c1d865bf9f071cb46740add9adc659b34d9581dd19ce497a69622b204406ae77"
     },
     {
+      "path": "crates/path-index/src/durable/scanner.rs",
+      "bytes": 9572,
+      "sha256": "9b7e28c2f02b155627cfbda18e3addebe7c561ae96db745c60c4ec341ed481ed"
+    },
+    {
       "path": "crates/path-index/src/durable.rs",
-      "bytes": 28603,
-      "sha256": "5aa7618f50bacded44a7619e97f14ecbf8d79a47b3f8f9ac5075097e42bf7f07"
+      "bytes": 29755,
+      "sha256": "7354da54968de8ec8f626b1e9c0ced157bfb0b40c634fc8657af7506c2f22d41"
     },
     {
       "path": "crates/path-index/src/lib.rs",
@@ -197,6 +202,11 @@
       "path": "crates/path-index/tests/generation.rs",
       "bytes": 20496,
       "sha256": "54e9e8c513e9cc9579fb22d8be5008aaf3cbc1872c434ccdb8f17e4592692d65"
+    },
+    {
+      "path": "crates/path-index/tests/source_scanner.rs",
+      "bytes": 10229,
+      "sha256": "f1f95450e9292caa678f8c79abfb51d7d2e6415c9452a5ca4c3c32743731edde"
     },
     {
       "path": "distribution/release-manifest.template.json",
@@ -382,6 +392,11 @@
       "path": "docs/superpowers/plans/2026-11-03-path-index.md",
       "bytes": 5043,
       "sha256": "7dab867ffe6922b0b9bd8e5d32d94d47902fbd69e486d77af45e9664a94445dd"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-03-source-scanner.md",
+      "bytes": 2102,
+      "sha256": "51572cf2e0ca6ebe3107bbbc14c7ec4a80ee1e36c503d02eea7604d2cf8af186"
     },
     {
       "path": "docs/superpowers/plans/2026-11-03-unicode-path.md",
@@ -591,7 +606,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 807,
-      "sha256": "12fee1f05339e7ef96ce2755345c5e2b04d983f3006340d78a59ba53829bca04"
+      "sha256": "2283ce4e0db8cedec0da11df01efc3bb610cdc0a58ba9d4d72f180d748a35762"
     },
     {
       "path": "tests/README.md",
@@ -615,8 +630,8 @@
     },
     {
       "path": "tests/contract/test_durable_path_evidence.py",
-      "bytes": 2659,
-      "sha256": "874e57b685489a3a0c02e01dc8396dd0dad23081ff392fd4a98b51480d4db673"
+      "bytes": 2795,
+      "sha256": "fd2392a47c6293d6962c3fb6eab36497096904be022a8f62c39d2657dc81e36a"
     },
     {
       "path": "tests/contract/test_index_resource_guard.py",
@@ -694,6 +709,11 @@
       "sha256": "ee0acb3d838d750f1615279179224a5edc606d9e49bd25a5f9d7fc98de78daab"
     },
     {
+      "path": "tests/contract/test_source_scanner_evidence.py",
+      "bytes": 2087,
+      "sha256": "6fc4d1bc6a4bcf7c86f379e72f45261f67f60459d49d39630e8b4bf113e53b34"
+    },
+    {
       "path": "tests/contract/test_synthetic_corpus.py",
       "bytes": 3864,
       "sha256": "b78cd3a29f52bfceeb8aa225e6720bba73471c0a6aa56a25ed239f11afff20aa"
@@ -760,8 +780,8 @@
     },
     {
       "path": "tests/evidence/durable-path-review-fixes-2026-11-03/README.md",
-      "bytes": 1750,
-      "sha256": "8d97628e434f1a7da6b58d800907b01919a41ff37170fc4a855e40c01f3aa387"
+      "bytes": 1975,
+      "sha256": "831b6c6dc8b47a248e19f470d6f694cabf2ea78201d42eaf5b83e72fc0bd7bcd"
     },
     {
       "path": "tests/evidence/durable-path-review-fixes-2026-11-03/durable.stderr.txt",
@@ -19114,6 +19134,26 @@
       "sha256": "dcd16867b8dcbe136dc91f31b09376d01cbec33a840d025310613870949b7310"
     },
     {
+      "path": "tests/evidence/source-scanner-2026-11-03/README.md",
+      "bytes": 3194,
+      "sha256": "af5985f550ec6ec555e836527db7ab0aa31e3a35aa5053231b4cfd565ac6a946"
+    },
+    {
+      "path": "tests/evidence/source-scanner-2026-11-03/receipt.json",
+      "bytes": 3232,
+      "sha256": "bfa80ca1de1f9f1a37277cdd50b343595b7a80ee28663f300817b53b475b869d"
+    },
+    {
+      "path": "tests/evidence/source-scanner-2026-11-03/scanner.stderr.txt",
+      "bytes": 328,
+      "sha256": "5e6a0a4581675949ccaf007a9e343e8301ca257856bc71bd69ecb8d1d6088bf7"
+    },
+    {
+      "path": "tests/evidence/source-scanner-2026-11-03/scanner.stdout.txt",
+      "bytes": 418,
+      "sha256": "0378f9d0f1c8bc2d072bb696421b6e0c2ecc1fde7f081facece790d50c3e05a0"
+    },
+    {
       "path": "tests/evidence/sparse-single-term-2026-11-01/README.md",
       "bytes": 1263,
       "sha256": "62d02edef0b40603327189053e783459dd7950bde507a0627724d49dcc1392a3"
@@ -26265,8 +26305,8 @@
     },
     {
       "path": "tests/integration/upstream-test-plan.md",
-      "bytes": 8641,
-      "sha256": "1e3bff86b25e3a606d42961bb6cf10250c8b21e25f7f8b509ed7e1c362ea87e7"
+      "bytes": 8719,
+      "sha256": "b3f5e4f316620f6fd0a661a175b1e221a2bfb15981bd90677981a191dd225784"
     },
     {
       "path": "tests/matrix.json",
