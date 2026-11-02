@@ -1,7 +1,7 @@
 # Rustgrok：OpenGrok Rust 重寫研究與實作交接包 v0.6
 
 日期：2026-10-25。  
-狀態：**Rust、必要工具隨包、搜尋優先、本機＋LAN約5人且無權限管理已確認。先在macOS開發及完整驗證，再於主要部署目標Ubuntu 24.04 amd64適配與完整原生重驗。Public repo rustgrok已建立；首輪Mac為M1／arm64，GitHub Releases交付已確認；macOS版本等仍待決。產品尚未實作或發布。**  
+狀態：**Rust、必要工具隨包、搜尋優先、本機＋LAN約5人且無權限管理已確認。先在macOS開發及完整驗證，再於主要部署目標Ubuntu 24.04 amd64適配與完整原生重驗。Public repo rustgrok已建立；首輪Mac為M1／arm64，GitHub Releases交付已確認；macOS版本等仍待決。已開始實作有限的產品 analysis library；完整產品尚未完成或發布。**
 GitHub repo名稱：**rustgrok**。Q13已確認產品顯示名稱 **Rustgrok**、npm主套件 **rustgrok**；Q14已確認獨立原創新增Rust／JS採MIT，沿用、修改、移植及第三方內容保持各自適用條件，見[授權範圍](LICENSE.md)。名稱查詢不等於保留或實際發布，npm仍由使用者自行發布。
 
 ## 已確認的目標
@@ -72,8 +72,8 @@ Q13／Q14已確認命名與新原創碼的授權分工；[查核紀錄](docs/res
 
 2026-11-01 已開始 G0 執行，工作由 [WP-A04 #1](https://github.com/swchen44/rustgrok/issues/1)、[WP-A05 #2](https://github.com/swchen44/rustgrok/issues/2)、[WP-A06 #3](https://github.com/swchen44/rustgrok/issues/3) 追蹤。已保存固定 Git tree 與部分靜態功能清單；Tomcat oracle archive 已獨立驗 SHA-512。完整 source checkout 的 1,816 檔已逐一核對 Git blob 與 SHA-256；OpenGrok release與compact JRE已驗hash並執行有限CLI探測；完整JDK已驗archive、java／javac並用於有限索引／HTTP；完整oracle及產品驗收未通過。現況、證據及未完成邊界見 [G0 執行紀錄](docs/19-g0-execution-log.md)。
 
-完成官方文件與關鍵原始碼靜態研究，以及需求、設計、實作、驗證與分發計畫更新。未宣稱完整逐行審查整個上游，也未在目標 OS 建置／啟動產品。全部 80 測試是規格，沒有產品功能、效能、離線或視覺 PASS。
+已建立有限的 [path analysis library](crates/analysis/README.md)，僅支援 printable ASCII；其餘產品功能尚未完成。完成官方文件與關鍵原始碼靜態研究，以及需求、設計、實作、驗證與分發計畫更新。未宣稱完整逐行審查整個上游，也未在目標 OS 建置／啟動產品。全部 80 測試是規格，沒有產品功能、效能、離線或視覺 PASS。
 
-這份 ZIP 是可提交 GitHub 的**規劃與文件包**，不是已可執行的 Rust 程式或最終產品離線包。沒有用空白 tests／占位 npm test 偽裝可驗收產品。
+這份 ZIP 是可提交 GitHub 的**規劃與文件包**，不是可執行的完整 Rustgrok 產品或最終產品離線包。沒有用空白 tests／占位 npm test 偽裝可驗收產品。
 
 公開repository已建立：[swchen44/rustgrok](https://github.com/swchen44/rustgrok)，預設分支main，repo ID 1433282584。完整規劃已在[初始提交526f619](https://github.com/swchen44/rustgrok/commit/526f619089703f710c915af303e54aea7d25226e)保存至repo根目錄，46個檔案的Git blob SHA已逐一回讀並與提交時本地一致。此後續交接紀錄更新另以Git history追蹤。正式產品發行包將放[GitHub Releases](https://github.com/swchen44/rustgrok/releases)；目前沒有產品Release。企業source、索引與憑證不屬於要上傳的產品原始碼。npm由使用者自行發布。

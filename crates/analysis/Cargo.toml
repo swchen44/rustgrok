@@ -1,0 +1,9 @@
+[package]
+name = "rustgrok-analysis"
+version = "0.1.0"
+edition = "2021"
+license = "CDDL-1.0 AND MIT"
+publish = false
+
+[lib]
+path = "src/lib.rs"
