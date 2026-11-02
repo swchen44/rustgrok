@@ -1,6 +1,7 @@
 from pathlib import Path
 import json, re, hashlib, zipfile, unicodedata
 from datetime import datetime, timedelta, timezone
+from planning_files import package_files as indexed_package_files, require_staged_worktree
 
 import argparse
 
@@ -13,11 +14,11 @@ root = args.root.resolve()
 base = args.output_dir.resolve() if args.output_dir else root / "dist"
 if base == root or (root in base.parents and base != root / "dist"):
     raise ValueError("Output inside the repository must use its dist directory.")
+require_staged_worktree(root)
 base.mkdir(parents=True, exist_ok=True)
 
 def package_files():
-    excluded = {".git", "dist", "target", "node_modules", "__pycache__"}
-    return sorted(p for p in root.rglob("*") if p.is_file() and not excluded.intersection(p.relative_to(root).parts))
+    return indexed_package_files(root)
 errors = []
 files = [p for p in package_files() if p.name not in ("planning-manifest.json", "planning-quality-report.json")]
 for p in files:

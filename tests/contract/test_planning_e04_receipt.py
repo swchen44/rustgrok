@@ -5,6 +5,7 @@ import io
 import json
 from pathlib import Path
 import unittest
+import xml.etree.ElementTree as ET
 import zipfile
 
 ROOT=Path(__file__).resolve().parents[2]
@@ -36,5 +37,32 @@ class PlanningE04Receipt(unittest.TestCase):
                     digest=hashlib.sha256();size=0
                     for chunk in iter(lambda:stream.read(1024*1024),b''):digest.update(chunk);size+=len(chunk)
                 self.assertEqual((size,digest.hexdigest()),(item['bytes'],item['sha256']),item['path'])
+
+    def test_historical_ignored_logs_remain_in_zip_but_not_current_manifest(self):
+        audit=json.loads((EVIDENCE/'archive-untracked-audit.json').read_text())
+        entries=audit['archive_entries_not_tracked_by_e04'];self.assertEqual(len(entries),18)
+        current={x['path'] for x in json.loads((ROOT/'planning-manifest.json').read_text())['files']}
+        self.assertTrue(all(x['path'] not in current for x in entries))
+        raw=base64.b64decode((EVIDENCE/'package-e04.zip.base64').read_bytes(),validate=True)
+        with zipfile.ZipFile(io.BytesIO(raw)) as archive:
+            for item in entries:
+                data=archive.read('opengrok-host-planning/'+item['path'])
+                self.assertEqual((len(data),hashlib.sha256(data).hexdigest()),(item['bytes'],item['sha256']))
+            receipt=(EVIDENCE/'original-public-capture-result.json').read_bytes()
+            receipt_sha='0558697556728caa51894e8e7199fec11088c2ffe1afd35f15a86e61a82dbc83'
+            self.assertEqual(hashlib.sha256(receipt).hexdigest(),receipt_sha)
+            public_sha='88f491850b062ade1fbe157280f78b64b33774820c576dd83337cb11c7ab7c73'
+            self.assertEqual(json.loads(receipt)['corpus_manifest_sha256'],public_sha)
+            for name in ('project-order-original-2026-11-01','project-order-boundaries-2026-11-01'):
+                result=json.loads(archive.read(f'opengrok-host-planning/tests/evidence/{name}/result.json'))
+                self.assertEqual(result['capture_receipt_sha256'],receipt_sha)
+            for name in ('live-path-benchmark-2026-11-01','live-path-benchmark-matched-2026-11-01',
+                         'live-path-benchmark-tokenized-2026-11-01','live-path-cross-project-blocked-2026-11-01',
+                         'live-path-no-hit-strict-2026-11-01','live-path-no-hit-verified-2026-11-01',
+                         'live-path-single-hit-strict-2026-11-01','live-path-single-hit-verified-2026-11-01'):
+                base=f'opengrok-host-planning/tests/evidence/{name}/'
+                self.assertEqual(json.loads(archive.read(base+'metadata.json'))['public_corpus_manifest_sha256'],public_sha)
+                node=ET.fromstring(archive.read(base+'configuration.xml')).find('.//void[@property="sourceRoot"]/string')
+                self.assertTrue(node.text.endswith('/rustgrok-issue7-public-corpus/source'))
 
 if __name__=='__main__':unittest.main()
