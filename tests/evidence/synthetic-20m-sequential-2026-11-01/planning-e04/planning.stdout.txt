@@ -1,0 +1,12 @@
+{
+  "book": "/private/tmp/rustgrok-20m-package-output-commit/OpenGrok-Rust-Host-Planning-v0.6.md",
+  "book_bytes": 1743548,
+  "zip": "/private/tmp/rustgrok-20m-package-output-commit/OpenGrok-Rust-Host-Monorepo-Plan-v0.6.zip",
+  "zip_bytes": 3184359,
+  "zip_files": 5214,
+  "requirements": 38,
+  "test_specs": 80,
+  "work_packages": 44,
+  "quality_and_archive_integrity": "passed",
+  "product_tests_executed": false
+}

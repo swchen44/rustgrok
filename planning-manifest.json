@@ -1,12 +1,12 @@
 {
   "version": "0.6",
   "kind": "planning_package_not_runtime_distribution",
-  "generated_date": "2026-11-01",
+  "generated_date": "2026-11-02",
   "files": [
     {
       "path": ".gitattributes",
-      "bytes": 2213,
-      "sha256": "199aeba8304b0bf9dd56057b824e677c01b97e0245fbc5a71bcb828bbe63c3fb"
+      "bytes": 2387,
+      "sha256": "54ad4b247f027abf888c5370598095ec8bb22d6990ab9a1584158479248d2a21"
     },
     {
       "path": ".github/ISSUE_TEMPLATE/compatibility-bug.md",
@@ -462,6 +462,11 @@
       "path": "tests/contract/test_persisted_benchmark_evidence.py",
       "bytes": 1048,
       "sha256": "42ad5e6e98840bf5ad864f924c8feac9c82f091c37ce0441ee9276ec951724e3"
+    },
+    {
+      "path": "tests/contract/test_planning_e04_receipt.py",
+      "bytes": 2557,
+      "sha256": "e78ad019dedbd297d2e8a7afe43785063fdcd1ee19ec34629e13a13b4b90f55d"
     },
     {
       "path": "tests/contract/test_public_corpus.py",
@@ -18975,8 +18980,8 @@
     },
     {
       "path": "tests/evidence/synthetic-20m-sequential-2026-11-01/README.md",
-      "bytes": 7807,
-      "sha256": "a221f3015f2f8d79341dd6ef7f089c6a57a997215404da217b44c52f303159a4"
+      "bytes": 8836,
+      "sha256": "0ea6735c5d640a7085ed4a669afca710e5d58f3b84b98f3cdcd02f1298d8a237"
     },
     {
       "path": "tests/evidence/synthetic-20m-sequential-2026-11-01/candidate-measure/candidate-synthetic000.c.json",
@@ -22392,6 +22397,36 @@
       "path": "tests/evidence/synthetic-20m-sequential-2026-11-01/original-preflight/tomcat.stdout-stderr.txt",
       "bytes": 20267,
       "sha256": "f5b586f0f4662480034f4c0134b7e52b85c59a8b0fb08bd7da400248f90accd4"
+    },
+    {
+      "path": "tests/evidence/synthetic-20m-sequential-2026-11-01/planning-e04/archive-verification.json",
+      "bytes": 1367,
+      "sha256": "b05cb5681d9d00fe1dc3dcf48db757a2989005c2498096a4e00f89b40c3ac935"
+    },
+    {
+      "path": "tests/evidence/synthetic-20m-sequential-2026-11-01/planning-e04/guard-receipt.json",
+      "bytes": 4158,
+      "sha256": "8a27bf1c191f1131aa0ae8fbda07bc3887f983997e59b3b9c9fc2ba987514c5e"
+    },
+    {
+      "path": "tests/evidence/synthetic-20m-sequential-2026-11-01/planning-e04/package-e04.zip.base64",
+      "bytes": 4245812,
+      "sha256": "3b11eaadbd59e1038bdc8562867d9a9cde39df0cc15e7d2026c0ed8e53516613"
+    },
+    {
+      "path": "tests/evidence/synthetic-20m-sequential-2026-11-01/planning-e04/planning.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/evidence/synthetic-20m-sequential-2026-11-01/planning-e04/planning.stdout.txt",
+      "bytes": 417,
+      "sha256": "0c026bd89f395c17fd7cfc3d8820afaa9a171c969f023eee7f96e2309f13b24f"
+    },
+    {
+      "path": "tests/evidence/synthetic-20m-sequential-2026-11-01/planning-e04/planning.time.txt",
+      "bytes": 777,
+      "sha256": "19f1e38de3b6cc95da3fc394375c360aad407d2e8d30a3bfb2bb43b8c7f444ec"
     },
     {
       "path": "tests/evidence/synthetic-20m-sequential-2026-11-01/probe/candidate-index.json",
