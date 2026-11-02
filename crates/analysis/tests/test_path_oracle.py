@@ -12,9 +12,9 @@ FIXTURE = ROOT / 'tests/evidence/path-analyzer-2026-11-03/oracle.json'
 
 class PathOracle(unittest.TestCase):
     def test_oracle_wrapper_and_release_classpath_match_recorded_sources(self):
-        oracle = json.loads(FIXTURE.read_text())
-        source = json.loads((ROOT / 'upstream/opengrok-source-tree.json').read_text())
-        release = json.loads((ROOT / 'upstream/opengrok-release-inventory.json').read_text())
+        oracle = json.loads(FIXTURE.read_text(encoding='utf-8'))
+        source = json.loads((ROOT / 'upstream/opengrok-source-tree.json').read_text(encoding='utf-8'))
+        release = json.loads((ROOT / 'upstream/opengrok-release-inventory.json').read_text(encoding='utf-8'))
         self.assertEqual(oracle['upstream_commit'], source['commit'])
         upstream_path = 'opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/PathTokenizer.java'
         self.assertEqual(next(x['sha256'] for x in source['files'] if x['path'] == upstream_path),
@@ -26,20 +26,16 @@ class PathOracle(unittest.TestCase):
         self.assertEqual(jars, oracle['classpath_jar_sha256'])
         self.assertTrue(all(case['exit_code'] == 0 and case['raw_stderr'] == '' for case in oracle['cases']))
 
-    def test_original_raw_streams_match_or_are_explicitly_unsupported(self):
+    def test_original_raw_streams_match_supported_cases(self):
         subprocess.run(['cargo', 'build', '--offline', '--locked', '--quiet', '--manifest-path',
                         str(CRATE / 'Cargo.toml'), '--example', 'path_tokens'], check=True)
         binary = CRATE / 'target/debug/examples/path_tokens'
-        oracle = json.loads(FIXTURE.read_text())
+        oracle = json.loads(FIXTURE.read_text(encoding='utf-8'))
         self.assertEqual(len(oracle['cases']), 14)
         for case in oracle['cases']:
             with self.subTest(input=case['input']):
                 value = case['input']
-                result = subprocess.run([str(binary), value], capture_output=True, text=True)
-                if not all(0x20 <= ord(char) <= 0x7e for char in value):
-                    self.assertNotEqual(result.returncode, 0)
-                    self.assertIn('unsupported byte at offset', result.stderr)
-                    continue
+                result = subprocess.run([str(binary), value], capture_output=True, text=True, encoding='utf-8')
                 self.assertEqual(result.returncode, 0, result.stderr)
                 expected = []
                 for line in case['raw_stdout'].splitlines():

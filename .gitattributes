@@ -37,3 +37,7 @@ tests/evidence/synthetic-20m-sequential-2026-11-01/planning-e04/package-e04.zip.
 
 # Preserve the unmodified upstream notice for the analysis library.
 crates/analysis/OPENGROK-NOTICE.txt -text whitespace=-blank-at-eof,-blank-at-eol
+
+# Preserve independent original Unicode and sigma diagnostic streams exactly.
+tests/evidence/unicode-path-2026-11-03/*.stdout -text whitespace=-blank-at-eof,-blank-at-eol
+tests/evidence/unicode-path-2026-11-03/*.stderr -text whitespace=-blank-at-eof,-blank-at-eol

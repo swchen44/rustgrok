@@ -3,7 +3,7 @@
 use rustgrok_analysis::analyze_path;
 
 #[test]
-fn public_api_reports_every_unsupported_source_path_in_the_synthetic_corpus() {
+fn public_api_accepts_verified_unicode_source_paths_in_the_synthetic_corpus() {
     let corpus =
         include_str!("../../../tests/fixtures/upstream-integration-2026-11-03/source-paths.tsv");
     let query = analyze_path("main").unwrap();
@@ -34,8 +34,11 @@ fn public_api_reports_every_unsupported_source_path_in_the_synthetic_corpus() {
             ("python", "/beta/tools/main.py")
         ]
     );
-    assert_eq!(
-        rejected,
-        vec![("c", "/alpha/🦀.c", 7), ("javascript", "/beta/İ.js", 6)]
+    assert!(
+        rejected.is_empty(),
+        "previously unsupported Unicode paths are now accepted"
     );
+    let crab = analyze_path("/alpha/🦀.c").unwrap();
+    assert_eq!(crab[1].term, "🦀");
+    assert_eq!(&"/alpha/🦀.c"[crab[1].start_byte..crab[1].end_byte], "🦀");
 }
