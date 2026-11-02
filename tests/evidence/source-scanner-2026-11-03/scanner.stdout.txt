@@ -1,0 +1,9 @@
+
+running 4 tests
+test nested_git_source_scan_add_remove_and_restart ... ok
+test observed_source_change_before_publication_preserves_prior_generation ... ok
+test old_generation_remains_queryable_during_scanner_build_and_second_writer_is_busy ... ok
+test unsupported_entries_fail_without_replacing_durable_generation ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.51s
+

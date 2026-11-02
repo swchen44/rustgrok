@@ -53,3 +53,6 @@ tests/evidence/durable-path-2026-11-03/*.txt -text whitespace=-blank-at-eof,-bla
 
 # Preserve review-fix correctness test process streams.
 tests/evidence/durable-path-review-fixes-2026-11-03/*.txt -text whitespace=-blank-at-eof,-blank-at-eol
+
+# Preserve source scanner correctness-test process streams.
+tests/evidence/source-scanner-2026-11-03/*.txt -text whitespace=-blank-at-eof,-blank-at-eol

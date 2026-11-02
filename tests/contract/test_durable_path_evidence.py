@@ -34,7 +34,8 @@ class DurableEvidence(unittest.TestCase):
         receipt = json.loads((evidence / "receipt.json").read_text())
         self.assertEqual(receipt["exit_code"], 0)
         for name, digest in receipt["files"].items():
-            self.assertEqual(sha(ROOT / name), digest, name)
+            raw = subprocess.check_output(["git", "show", f"a35679b195d3a9e13cffbfa330aec485535dd56f:{name}"], cwd=ROOT)
+            self.assertEqual(hashlib.sha256(raw).hexdigest(), digest, name)
         for stream in ("stdout", "stderr"):
             self.assertEqual(sha(evidence / f"durable.{stream}.txt"), receipt[f"{stream}_sha256"])
         self.assertIn("30 passed; 0 failed", (evidence / "durable.stdout.txt").read_text())

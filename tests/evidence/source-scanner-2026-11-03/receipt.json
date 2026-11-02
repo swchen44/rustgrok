@@ -1,0 +1,48 @@
+{
+  "source_commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+  "upstream_sha256": {
+    "opengrok-indexer/src/main/java/org/opengrok/indexer/index/IndexDatabase.java": "ba66318a300a1b84a4272ae16532b1b4684946a46096da18c58add8d295dce0c",
+    "opengrok-indexer/src/main/java/org/opengrok/indexer/configuration/PathAccepter.java": "45b1e7311f6df624a4d7eb4f0bc48fc2874a019948553947d96a8b4e7bffc182",
+    "opengrok-indexer/src/main/java/org/opengrok/indexer/configuration/IgnoredNames.java": "416c46ea2eb1eecab72ff2827a75f9f1412d1bf24f6ec7e7377d850e3e9dc7ee",
+    "opengrok-indexer/src/main/java/org/opengrok/indexer/history/RepositoryFactory.java": "d41395ca47220ccc822b306dc552626a8fa4d72bb27eb8ac4063e31bd70ae167",
+    "opengrok-indexer/src/main/java/org/opengrok/indexer/history/GitRepository.java": "be8f03925140c671317189028d5c811467230269bf2135a8ef8e516952dae227",
+    "opengrok-indexer/src/test/java/org/opengrok/indexer/index/IndexerTest.java": "ae555beb26b94c77c6ed5ef92a4e2465eac60f634aceb353fb2847d038145098"
+  },
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "crates/path-index/Cargo.toml",
+    "--locked",
+    "--offline",
+    "--features",
+    "fault-injection",
+    "--test",
+    "source_scanner",
+    "--",
+    "--test-threads=1"
+  ],
+  "cargo_target_dir": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target",
+  "exit_code": 0,
+  "utc": "2026-11-02T22:36:59.963675+00:00",
+  "base_commit": "81a3dc6603527c88e265766dcbd8dffbf89d0efe",
+  "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+  "git": "git version 2.39.5 (Apple Git-154)",
+  "macos": "15.7.7",
+  "architecture": "arm64",
+  "files": {
+    "crates/path-index/src/durable.rs": "7354da54968de8ec8f626b1e9c0ced157bfb0b40c634fc8657af7506c2f22d41",
+    "crates/path-index/src/durable/scanner.rs": "9b7e28c2f02b155627cfbda18e3addebe7c561ae96db745c60c4ec341ed481ed",
+    "crates/path-index/tests/source_scanner.rs": "f1f95450e9292caa678f8c79abfb51d7d2e6415c9452a5ca4c3c32743731edde",
+    "crates/path-index/Cargo.lock": "d5c3ce966e6edc5626f1ab0a900338bf19a1f419461354e60e6a6b56ee2eb291",
+    "tests/fixtures/public-source/c/main.c": "0afb5b45d1538ee86e23b046100c8e458614ba71e50f16c05bda1a52de0edb17",
+    "tests/fixtures/public-source/javascript/function.js": "7e37130f0b5a078fea055a885632cdc00e1989def53e4fafe8b52a75824f8805",
+    "tests/fixtures/public-source/python/main.py.fixture": "c30bc720a38c39709e22f6bba1996b58c0a4e2e25d8cc6ea1bff7a348efde3f0",
+    "tests/evidence/live-path-no-hit-verified-2026-11-01/configuration.xml": "efc35ea6ee55187d9aa0c1be1b0d772e75c600d4133b12ba46888606e764ad75",
+    "tests/evidence/live-path-no-hit-verified-2026-11-01/coverage-function.js.body": "6b4c857b548734650be48d07fdaa357dd98a4d52916bb6efc6e39c19cb119e51",
+    "tests/evidence/live-path-no-hit-verified-2026-11-01/coverage-main.c.body": "a654a6076e62e948c30fb96864168126c6120ae5b3f28988b06ed2d52410de22",
+    "tests/evidence/live-path-no-hit-verified-2026-11-01/coverage-main.py.body": "d7e9423ba2a243df655460ac6c44b7c0376c40b2c170bdbbd3206c32cc97e246"
+  },
+  "stdout_sha256": "0378f9d0f1c8bc2d072bb696421b6e0c2ecc1fde7f081facece790d50c3e05a0",
+  "stderr_sha256": "5e6a0a4581675949ccaf007a9e343e8301ca257856bc71bd69ecb8d1d6088bf7"
+}
