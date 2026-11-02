@@ -5,8 +5,8 @@
   "files": [
     {
       "path": ".gitattributes",
-      "bytes": 3206,
-      "sha256": "f6f69d91c835792333ae4ac0c31ec172262ebf7d9fecf7c8309a43093be6f4ee"
+      "bytes": 3354,
+      "sha256": "de9c94fc40904fd9e110b7400ad2e4cfb0d5bbac158274bbd63d61ac043a331e"
     },
     {
       "path": ".github/ISSUE_TEMPLATE/compatibility-bug.md",
@@ -60,8 +60,8 @@
     },
     {
       "path": "crates/README.md",
-      "bytes": 852,
-      "sha256": "04d2504ff4196900a6dddc7996d3ab3113cc2d5845f347028c3de2d074f8e0b7"
+      "bytes": 887,
+      "sha256": "554c7b80b1147c0b5be33207f933a448b2e6bafdac5e7e2386ec733a16004f71"
     },
     {
       "path": "crates/analysis/.gitignore",
@@ -150,13 +150,13 @@
     },
     {
       "path": "crates/path-index/Cargo.lock",
-      "bytes": 262,
-      "sha256": "314c4e0caa4707c2b74e95344a7f57cb10b0b693dfe5cb91b617d088e585faac"
+      "bytes": 2491,
+      "sha256": "d5c3ce966e6edc5626f1ab0a900338bf19a1f419461354e60e6a6b56ee2eb291"
     },
     {
       "path": "crates/path-index/Cargo.toml",
-      "bytes": 180,
-      "sha256": "1388305ecf320ee0118d769bdfbb0d54d4d904f0bd984155eb7ddc18fbcac3d4"
+      "bytes": 298,
+      "sha256": "62ab3ffd357e58cab4f34d1bfe13d068dc0e9f7aadbb582f99f800f32d60d09d"
     },
     {
       "path": "crates/path-index/LICENSE.txt",
@@ -170,18 +170,28 @@
     },
     {
       "path": "crates/path-index/README.md",
-      "bytes": 3811,
-      "sha256": "543fdbe7593bcc0d510345e14e1d3d2f164eb182d09f3a97ff179ea6060a757a"
+      "bytes": 6220,
+      "sha256": "9990d69f2e6e505e8ed4249afa4af29ea8ede4b4ff9f103c054b2925a926cb9f"
     },
     {
       "path": "crates/path-index/RUST-LICENSE-MIT.txt",
-      "bytes": 1207,
-      "sha256": "7bd26e5a6fcf1433936e4a9ebf5ff1d8c8257bea61eefe5331d88e914ce689ef"
+      "bytes": 1240,
+      "sha256": "c1d865bf9f071cb46740add9adc659b34d9581dd19ce497a69622b204406ae77"
+    },
+    {
+      "path": "crates/path-index/src/durable.rs",
+      "bytes": 26574,
+      "sha256": "5e29606ab7a2b293eb9024b90e4b9a4934a18de3d676e6a530b56eae024f36ad"
     },
     {
       "path": "crates/path-index/src/lib.rs",
-      "bytes": 9831,
-      "sha256": "f133f8c7dd5a580da69d65c1d6cc3cb6cbca73cf5c44cd74cc4b67b700d33f40"
+      "bytes": 9877,
+      "sha256": "ea2356fd8846041f556d470e9384d1b11acc95d941c2ca309e1e575ee616afcd"
+    },
+    {
+      "path": "crates/path-index/tests/durable.rs",
+      "bytes": 32413,
+      "sha256": "5bac027e5853e3d1fd2350dc43fd4249733af45514b989d65e326f3843a7e927"
     },
     {
       "path": "crates/path-index/tests/generation.rs",
@@ -357,6 +367,11 @@
       "path": "docs/sources.md",
       "bytes": 19274,
       "sha256": "04aebaec3053f7eda655aad253284572dce09a4720f3add9345424cdfedda4bf"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-03-durable-path-index.md",
+      "bytes": 4952,
+      "sha256": "6978e2bad57a5270e5941707475981bdaa06ad42ab5bf2e77ad27c4ba5bc9f14"
     },
     {
       "path": "docs/superpowers/plans/2026-11-03-path-analyzer.md",
@@ -576,7 +591,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 807,
-      "sha256": "6bb80dd3d511f782a95319b2332a235e59020017d754bb54f93cb67fcad33456"
+      "sha256": "107d49d1698c72873a0def21a2d67b389680c7d73cb598093bb0a2dbd549e28b"
     },
     {
       "path": "tests/README.md",
@@ -597,6 +612,11 @@
       "path": "tests/contract/test_capture_baseline.py",
       "bytes": 13300,
       "sha256": "e6bb18c472addca10634617baac52879a570ffcc3be817d9573cd0f4a378d7f0"
+    },
+    {
+      "path": "tests/contract/test_durable_path_evidence.py",
+      "bytes": 1674,
+      "sha256": "02ec4c7d360b8cab0632ad63a1f4c5de6789d9fd46ee54ce3bb417448f8e2d67"
     },
     {
       "path": "tests/contract/test_index_resource_guard.py",
@@ -712,6 +732,31 @@
       "path": "tests/evidence/development-host-observation-2026-10-26.json",
       "bytes": 2757,
       "sha256": "2ecad0e0ab98d3a21ce868fd05e64b4cd1a6ef489499f250c44316a2ba2ee9b7"
+    },
+    {
+      "path": "tests/evidence/durable-path-2026-11-03/README.md",
+      "bytes": 2578,
+      "sha256": "fdba894290a6b8db16a70f17d5684ae8afebb85f4cc603435bb62dd03f0aaa86"
+    },
+    {
+      "path": "tests/evidence/durable-path-2026-11-03/dependencies.json",
+      "bytes": 2828,
+      "sha256": "68273a1fc50d4b576e3beaf2a6a3880218f5da72be62515647ec6c3774602818"
+    },
+    {
+      "path": "tests/evidence/durable-path-2026-11-03/durable.stderr.txt",
+      "bytes": 166,
+      "sha256": "70d5b24f3f75e49d5c0d9cd67ff7d760740c2f0be5e007582851bb38a5b87a3a"
+    },
+    {
+      "path": "tests/evidence/durable-path-2026-11-03/durable.stdout.txt",
+      "bytes": 2160,
+      "sha256": "185cd5fe182da725ee644910e2b7021465d74f597966f93d3f9d0eb3206bee6e"
+    },
+    {
+      "path": "tests/evidence/durable-path-2026-11-03/receipt.json",
+      "bytes": 1195,
+      "sha256": "b8b6c20434317f2a2aa6edf61bf5c6b5d0e7eb0385700d888aa90ddd7fae097e"
     },
     {
       "path": "tests/evidence/full-token-diagnostic-2026-11-01/README.md",
@@ -26200,8 +26245,8 @@
     },
     {
       "path": "tests/integration/upstream-test-plan.md",
-      "bytes": 8575,
-      "sha256": "2fc3bb3dd303e8e96e3559ec556be838eed73192196de20bf6eccd8271780426"
+      "bytes": 8641,
+      "sha256": "1e3bff86b25e3a606d42961bb6cf10250c8b21e25f7f8b509ed7e1c362ea87e7"
     },
     {
       "path": "tests/matrix.json",

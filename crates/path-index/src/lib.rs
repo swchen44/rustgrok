@@ -299,3 +299,6 @@ impl PathSnapshot {
             .unwrap_or_default())
     }
 }
+
+#[cfg(target_os = "macos")]
+pub mod durable;

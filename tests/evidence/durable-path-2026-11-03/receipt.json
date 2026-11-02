@@ -1,0 +1,31 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "crates/path-index/Cargo.toml",
+    "--locked",
+    "--offline",
+    "--features",
+    "fault-injection",
+    "--test",
+    "durable",
+    "--",
+    "--test-threads=1"
+  ],
+  "exit_code": 0,
+  "captured_utc": "2026-11-02T22:19:55.465477+00:00",
+  "base_commit": "72dd75c3fb1f7499bba055abaf87ecf72d3ba98d",
+  "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+  "macos": "15.7.7",
+  "architecture": "arm64",
+  "files": {
+    "crates/path-index/src/lib.rs": "ea2356fd8846041f556d470e9384d1b11acc95d941c2ca309e1e575ee616afcd",
+    "crates/path-index/src/durable.rs": "5e29606ab7a2b293eb9024b90e4b9a4934a18de3d676e6a530b56eae024f36ad",
+    "crates/path-index/tests/durable.rs": "5bac027e5853e3d1fd2350dc43fd4249733af45514b989d65e326f3843a7e927",
+    "crates/path-index/Cargo.toml": "62ab3ffd357e58cab4f34d1bfe13d068dc0e9f7aadbb582f99f800f32d60d09d",
+    "crates/path-index/Cargo.lock": "d5c3ce966e6edc5626f1ab0a900338bf19a1f419461354e60e6a6b56ee2eb291"
+  },
+  "stdout_sha256": "185cd5fe182da725ee644910e2b7021465d74f597966f93d3f9d0eb3206bee6e",
+  "stderr_sha256": "70d5b24f3f75e49d5c0d9cd67ff7d760740c2f0be5e007582851bb38a5b87a3a"
+}

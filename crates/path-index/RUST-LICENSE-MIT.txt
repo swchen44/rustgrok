@@ -1,4 +1,4 @@
-Scope: independently authored Rust code in src/lib.rs only.
+Scope: independently authored Rust code in src/lib.rs, src/durable.rs, and tests/durable.rs.
 This notice does not relicense upstream OpenGrok, dependencies, Python, or Java.
 
 MIT License
