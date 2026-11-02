@@ -56,3 +56,9 @@ tests/evidence/durable-path-review-fixes-2026-11-03/*.txt -text whitespace=-blan
 
 # Preserve source scanner correctness-test process streams.
 tests/evidence/source-scanner-2026-11-03/*.txt -text whitespace=-blank-at-eof,-blank-at-eol
+
+# Preserve path CLI subprocess-test streams.
+tests/evidence/path-cli-2026-11-03/*.txt -text whitespace=-blank-at-eof,-blank-at-eol
+
+# Preserve the original OpenGrok notice bundled with the adapted CLI e2e test.
+apps/grok-host/OPENGROK-NOTICE.txt -text whitespace=-blank-at-eof,-blank-at-eol

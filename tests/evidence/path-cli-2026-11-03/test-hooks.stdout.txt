@@ -1,0 +1,10 @@
+
+running 5 tests
+test competing_query_reports_busy_while_real_index_process_holds_store_lock ... ok
+test errors_are_explicit_and_failed_updates_preserve_previous_generation ... ok
+test observed_source_change_aborts_real_index_before_publication ... ok
+test sigint_cancels_real_index_and_keeps_old_generation ... ok
+test subprocess_index_query_add_remove_and_restart ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.62s
+
