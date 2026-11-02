@@ -2,18 +2,22 @@
 // Copyright (c) 2026 swchen44
 use rustgrok_analysis::{analyze_path, PathToken};
 
-fn token(term: &str, position: usize, start: usize, end: usize) -> PathToken {
-    PathToken {
-        term: term.into(),
-        position,
-        start_utf16: start,
-        end_utf16: end,
-    }
+type TokenProjection = (String, usize, usize, usize);
+
+fn token(term: &str, position: usize, start: usize, end: usize) -> TokenProjection {
+    (term.into(), position, start, end)
+}
+
+fn projection(tokens: &[PathToken]) -> Vec<TokenProjection> {
+    tokens
+        .iter()
+        .map(|t| (t.term.clone(), t.position, t.start_utf16, t.end_utf16))
+        .collect()
 }
 
 #[test]
 fn reproduces_original_path_tokens_and_observed_offsets() {
-    let cases: Vec<(&str, Vec<PathToken>)> = vec![
+    let cases: Vec<(&str, Vec<TokenProjection>)> = vec![
         ("", vec![]),
         (
             "/A/B.c",
@@ -50,21 +54,25 @@ fn reproduces_original_path_tokens_and_observed_offsets() {
         ("foo//", vec![token("foo", 0, 0, 3)]),
     ];
     for (input, expected) in cases {
-        assert_eq!(analyze_path(input).unwrap(), expected, "input {input:?}");
+        assert_eq!(
+            projection(&analyze_path(input).unwrap()),
+            expected,
+            "input {input:?}"
+        );
     }
 }
 
 #[test]
 fn long_tokens_are_not_truncated() {
     assert_eq!(
-        analyze_path(&"A".repeat(100)).unwrap(),
+        projection(&analyze_path(&"A".repeat(100)).unwrap()),
         vec![token(&"a".repeat(100), 0, 0, 100)]
     );
 }
 
 #[test]
-fn unicode_and_control_inputs_are_explicitly_unsupported() {
-    for (input, offset) in [("a🦀.c", 1), ("İ.c", 0), ("x\ny", 1), ("x\u{7f}", 1)] {
+fn unverified_unicode_controls_and_sigma_contexts_are_explicitly_unsupported() {
+    for (input, offset) in [("aé.c", 1), ("x\ny", 1), ("x\u{7f}", 1), ("AΣ_B", 1)] {
         assert_eq!(
             analyze_path(input).unwrap_err().byte_offset,
             offset,
