@@ -280,8 +280,8 @@
     },
     {
       "path": "experiments/search-spike/examples/profile_path.rs",
-      "bytes": 4385,
-      "sha256": "5df002434ae1eb910bd6c8de53d7ac1a993587370ace977d2309ed6dffa44949"
+      "bytes": 4426,
+      "sha256": "e084336083c6557ef04541ef8141b61cf35d3bd1955efbfb50d17a5c360b5733"
     },
     {
       "path": "experiments/search-spike/oracle-diagnostics/RustgrokIndexInventory.java",
@@ -327,6 +327,11 @@
       "path": "experiments/search-spike/tests/test_cache_contract.py",
       "bytes": 3671,
       "sha256": "2f9c257e88a663b7138862dcefe339c97373f15979a3efc50d44bccd567536e5"
+    },
+    {
+      "path": "experiments/search-spike/tests/test_partial_index_semantics.py",
+      "bytes": 1404,
+      "sha256": "d53bb347063e76729b748a525a881a7145eb2b876cad88a8ceb5c55f34caa856"
     },
     {
       "path": "experiments/search-spike/tests/test_path_http.py",
@@ -18915,8 +18920,8 @@
     },
     {
       "path": "tests/evidence/synthetic-20m-cache-profile-2026-11-02/README.md",
-      "bytes": 6670,
-      "sha256": "51758f3d57759a4823f9ff6ca52a4eca2c0d3dc318e5507410126a53fbd46ffb"
+      "bytes": 7511,
+      "sha256": "7c0af584d95d9bacc65c2e92abb8714b3fdbadb879fd4e14c32ec7f6039b0897"
     },
     {
       "path": "tests/evidence/synthetic-20m-cache-profile-2026-11-02/measurement-helper-experiment.patch.b64",

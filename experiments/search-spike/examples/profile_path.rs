@@ -105,7 +105,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 || observed_documents != documents
                 || observed_selected != selected
             {
-                return Err("input or result changed during profiling".into());
+                return Err("input length, document counts, selection count or result changed during profiling".into());
             }
         } else {
             expected = Some(result);
