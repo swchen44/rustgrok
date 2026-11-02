@@ -1,7 +1,7 @@
 from pathlib import Path
 import json, re, hashlib, zipfile, unicodedata
 from datetime import datetime, timedelta, timezone
-from planning_files import package_files as indexed_package_files, require_staged_worktree
+from planning_files import package_files as indexed_package_files, read_package_text, require_staged_worktree
 
 import argparse
 
@@ -22,7 +22,9 @@ def package_files():
 errors = []
 files = [p for p in package_files() if p.name not in ("planning-manifest.json", "planning-quality-report.json")]
 for p in files:
-    s = p.read_text()
+    s = read_package_text(p)
+    if s is None:
+        continue
     if any(unicodedata.category(c) == "Cf" for c in s):
         errors.append("Invisible formatting character: " + str(p))
     if p.suffix == ".json":

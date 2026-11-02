@@ -34,3 +34,6 @@ tests/evidence/synthetic-20m-sequential-2026-11-01/*/iostat-*.txt -text whitespa
 
 # Exact earlier planning ZIP encoded as text; avoid a multi-megabyte line diff.
 tests/evidence/synthetic-20m-sequential-2026-11-01/planning-e04/package-e04.zip.base64 -diff
+
+# Preserve the unmodified upstream notice for the analysis library.
+crates/analysis/OPENGROK-NOTICE.txt -text whitespace=-blank-at-eof,-blank-at-eol

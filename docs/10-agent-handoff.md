@@ -24,7 +24,7 @@ D02本機＋LAN、約5人、無RBAC／project ACL已確認。最新D03為Ubuntu2
 | Rust 可行性研究 | query／analyzer／BM25／跨 project／UI／SCM／分發差異已列入文件 12；未執行 prototype |
 | 需求與計畫 | 38 需求、44 工作包、80 測試規格，具雙向追溯 |
 | 工程選型 | Rust 已決；engine、HTTP/framework、templates、SCM、metadata backend與版本待 G1 |
-| 開發與驗收 | 無產品程式碼／發行包，所有產品測試 planned／not_run |
+| 開發與驗收 | 已開始有限的 [path analysis library](../crates/analysis/README.md)；無完整產品／發行包，所有產品測試仍 planned／not_run |
 | GitHub | 公開swchen44/rustgrok已建立，ID1433282584、main；初始規劃commit 526f619089703f710c915af303e54aea7d25226e已提交，46個blob核對一致；產品Release尚未建立 |
 | npm | 主套件rustgrok已確認，由使用者自行發布；尚無package.json／tgz／發布結果 |
 | ZIP | 本交接 ZIP 是文件包；最終產品 native ZIP 屬後續工作 |

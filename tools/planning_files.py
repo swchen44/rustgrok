@@ -2,9 +2,21 @@
 import os
 from pathlib import Path
 import subprocess
+import zipfile
 
 
 EXCLUDED={'.git','dist','target','node_modules','__pycache__'}
+
+
+def read_package_text(path):
+    """Validate retained ZIP bytes; decode all other package files as text."""
+    if path.suffix == '.zip':
+        with zipfile.ZipFile(path) as archive:
+            bad = archive.testzip()
+            if bad is not None:
+                raise ValueError('corrupt ZIP member: ' + bad)
+        return None
+    return path.read_text(encoding='utf-8')
 
 
 def git(root,*args):

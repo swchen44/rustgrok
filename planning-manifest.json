@@ -1,12 +1,12 @@
 {
   "version": "0.6",
   "kind": "planning_package_not_runtime_distribution",
-  "generated_date": "2026-11-02",
+  "generated_date": "2026-11-03",
   "files": [
     {
       "path": ".gitattributes",
-      "bytes": 2387,
-      "sha256": "54ad4b247f027abf888c5370598095ec8bb22d6990ab9a1584158479248d2a21"
+      "bytes": 2537,
+      "sha256": "27a05ac85ab31dae56b50b12fd049e4e8e0f8e59c076a239653e3508e54c0a03"
     },
     {
       "path": ".github/ISSUE_TEMPLATE/compatibility-bug.md",
@@ -50,8 +50,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 10633,
-      "sha256": "5db418fd9635f0449d0e245e4eb680ac20b4f38da4fe847346a4d8567b83e161"
+      "bytes": 10827,
+      "sha256": "56d4983f26507887a34450ea44607f2a942506dad9d33619aa93fa6ca127459b"
     },
     {
       "path": "assets/README.md",
@@ -60,8 +60,63 @@
     },
     {
       "path": "crates/README.md",
-      "bytes": 509,
-      "sha256": "341ac35f1f7b539f20afc2916d2adcea4bc46b368e4f8b3164148cfc073e31d8"
+      "bytes": 649,
+      "sha256": "0677d6e42242a2fce693bbec7b1b90758cdd24f91ebfc4c33524e374b1cff4df"
+    },
+    {
+      "path": "crates/analysis/.gitignore",
+      "bytes": 9,
+      "sha256": "306fd52e74fca6746e12acc750f232de15e71da917756a1270d74c91f5eb7368"
+    },
+    {
+      "path": "crates/analysis/Cargo.lock",
+      "bytes": 161,
+      "sha256": "5e6e756e5248bcc8f6d27e7f81a64d96c183e980e2d673c1895915217f314d91"
+    },
+    {
+      "path": "crates/analysis/Cargo.toml",
+      "bytes": 144,
+      "sha256": "a4360ddb88ea1027570510483ba5f26c3858d4743a320621e60d3d9295d14a72"
+    },
+    {
+      "path": "crates/analysis/LICENSE.txt",
+      "bytes": 19087,
+      "sha256": "fcfd57e9dc09bb7a6f9f66da96f5b16fda522e87bf893ddcdfa45641af097bf9"
+    },
+    {
+      "path": "crates/analysis/OPENGROK-NOTICE.txt",
+      "bytes": 1381,
+      "sha256": "c9a03170d56b52bc3d03e442327c6ed78a5e51a532455d9dacde390e09ce4dcc"
+    },
+    {
+      "path": "crates/analysis/README.md",
+      "bytes": 1555,
+      "sha256": "fb8da49e9979c5fd07616aa500edb4af49ae3ef740c3f8d679f6c5100457bf8c"
+    },
+    {
+      "path": "crates/analysis/RUST-LICENSE-MIT.txt",
+      "bytes": 1238,
+      "sha256": "ce8b05d3dc7c1a2ee2f830b68aeea4f5f9e89e1a825b242d3cd3b79f131c0cb5"
+    },
+    {
+      "path": "crates/analysis/examples/path_tokens.rs",
+      "bytes": 682,
+      "sha256": "bc837898ec8e9450ac2e4199e5c1e478fd91a1951b38b09f243645fc16be11aa"
+    },
+    {
+      "path": "crates/analysis/src/lib.rs",
+      "bytes": 3269,
+      "sha256": "13571a2b484a3ac9c0e7f21f0567dd741b342f957fd22ece6c996bf6bc2f65cb"
+    },
+    {
+      "path": "crates/analysis/tests/path.rs",
+      "bytes": 2896,
+      "sha256": "4642070ad548089a92009366a769d20185303fa82355f493640bfbd3f4df767a"
+    },
+    {
+      "path": "crates/analysis/tests/test_path_oracle.py",
+      "bytes": 3153,
+      "sha256": "ab1115c8157d5e835a12bcaa454432a5f40cbe837e1c330e970db3a1860f9316"
     },
     {
       "path": "distribution/release-manifest.template.json",
@@ -120,8 +175,8 @@
     },
     {
       "path": "docs/10-agent-handoff.md",
-      "bytes": 9471,
-      "sha256": "cf9f3e622b1e5c4333d5b7f7a3fcc20ce91a6a525ec22edb0aca24589f39e952"
+      "bytes": 9546,
+      "sha256": "64e353001c37ee6589254b29e06df963fe3bdb788daccfdc2483521372c0d269"
     },
     {
       "path": "docs/11-traceability.md",
@@ -232,6 +287,11 @@
       "path": "docs/sources.md",
       "bytes": 19274,
       "sha256": "04aebaec3053f7eda655aad253284572dce09a4720f3add9345424cdfedda4bf"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-03-path-analyzer.md",
+      "bytes": 4614,
+      "sha256": "6f3195efe0634306011100abeb02cabc85bed97eae782e413f64866e01081222"
     },
     {
       "path": "experiments/search-spike/.gitignore",
@@ -436,7 +496,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 807,
-      "sha256": "e293e6221c036f4e0f25e77a1f3323ebd53dda686f2a2ad33e8352576469c748"
+      "sha256": "dbd06e745fc3f4670785581f02156410c1182f16c903097b8636c9726bb8bfd9"
     },
     {
       "path": "tests/README.md",
@@ -487,6 +547,11 @@
       "path": "tests/contract/test_persisted_benchmark_evidence.py",
       "bytes": 1048,
       "sha256": "42ad5e6e98840bf5ad864f924c8feac9c82f091c37ce0441ee9276ec951724e3"
+    },
+    {
+      "path": "tests/contract/test_planning_binary_evidence.py",
+      "bytes": 1513,
+      "sha256": "2e0a4604ac4e457a70406dd882730b57e543b8f12dd647a75c8f6df6aceb9a8a"
     },
     {
       "path": "tests/contract/test_planning_e04_receipt.py",
@@ -17289,6 +17354,21 @@
       "sha256": "11e3184c869cad3f8fe5e6ebe7c7283c4e72f6acd8274dd3655692aec715fda0"
     },
     {
+      "path": "tests/evidence/path-analyzer-2026-11-03/PathTokenOracle.java",
+      "bytes": 1634,
+      "sha256": "952e45bd402367e5179f25ebf9b5a5d81e149ee9928bcbcc541ba81c17665483"
+    },
+    {
+      "path": "tests/evidence/path-analyzer-2026-11-03/README.md",
+      "bytes": 1946,
+      "sha256": "8d32a8f271685aa28f552e5c224e47e97ea7da9ed005d2f5b4adf5c4e52658cf"
+    },
+    {
+      "path": "tests/evidence/path-analyzer-2026-11-03/oracle.json",
+      "bytes": 10646,
+      "sha256": "d51e91d6a7cc89da1127b3c2ff4a9317bb48f3f31054832b3a80bf2aeed55f5a"
+    },
+    {
       "path": "tests/evidence/path-ranking-diagnostic-2026-11-01/README.md",
       "bytes": 2712,
       "sha256": "0e7da61c0cdbf25fdf3e8246c063fea34dbe6788368eda044746235b2439e013"
@@ -25965,8 +26045,8 @@
     },
     {
       "path": "tools/build_planning_package.py",
-      "bytes": 12849,
-      "sha256": "45adafa981dd682978ff65fc304e62c5ad9d4b0157e30c227b8bcc43ce9a09d9"
+      "bytes": 12910,
+      "sha256": "d1cb09f535c4f1107e95a01cbdffaf489dc766a11526ee7bf37a9c3a795435d9"
     },
     {
       "path": "tools/build_public_corpus.py",
@@ -26005,8 +26085,8 @@
     },
     {
       "path": "tools/planning_files.py",
-      "bytes": 2357,
-      "sha256": "bf28883c5bc5b2611a8eb3a3b72f2d8d8cecb91e7e9a0367bc6d7c7d9d12d2fe"
+      "bytes": 2754,
+      "sha256": "99d97f2d1ebdfa7409046eff2481acc315bc01f2a414cf434cf3c40596b2f084"
     },
     {
       "path": "tools/prepare_oracle_copy.py",
