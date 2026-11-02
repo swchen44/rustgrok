@@ -1040,3 +1040,189 @@ fn a_corrupted_pointer_cannot_masquerade_as_the_empty_sentinel() {
         Err(DurableError::Corrupt)
     ));
 }
+
+#[cfg(feature = "fault-injection")]
+#[test]
+fn writer_paused_before_lock_fails_closed_after_another_writer_is_indeterminate() {
+    use rustgrok_path_index::durable::FaultPoint;
+    use std::{
+        sync::{mpsc, Arc},
+        thread,
+        time::Duration,
+    };
+    let f = Fixture::new();
+    let db = Arc::new(
+        DurablePathIndex::create(&f.parent, "alpha-store", &f.source, "alpha", limits(), 64)
+            .unwrap(),
+    );
+    db.replace(
+        None,
+        1,
+        items(&["/alpha/main.c"]),
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    let (ready_tx, ready_rx) = mpsc::channel();
+    let (resume_tx, resume_rx) = mpsc::channel();
+    let late_db = Arc::clone(&db);
+    let late = thread::spawn(move || {
+        let mut observe = || {
+            ready_tx.send(()).unwrap();
+            resume_rx.recv().unwrap();
+        };
+        late_db.replace_with_prelock_observer(
+            Some(1),
+            1,
+            items(&["/alpha/late.c"]),
+            &CancellationToken::new(),
+            &mut observe,
+        )
+    });
+    ready_rx.recv_timeout(Duration::from_secs(2)).unwrap();
+    assert!(matches!(
+        db.replace_with_fault(
+            Some(1),
+            1,
+            items(&["/alpha/new.c"]),
+            &CancellationToken::new(),
+            FaultPoint::FailDirectorySync
+        ),
+        Err(DurableError::PublicationIndeterminate)
+    ));
+    let files = || {
+        fs::read_dir(f.store())
+            .unwrap()
+            .map(|e| e.unwrap().file_name())
+            .collect::<HashSet<_>>()
+    };
+    let before = files();
+    resume_tx.send(()).unwrap();
+    let result = late.join().unwrap();
+    assert_eq!(
+        before,
+        files(),
+        "late writer created files after indeterminate publication"
+    );
+    assert!(matches!(
+        result,
+        Err(DurableError::PublicationIndeterminate)
+    ));
+}
+
+#[test]
+fn replacing_source_directory_rejects_snapshots_and_writes_without_touching_either_tree() {
+    let f = Fixture::new();
+    fs::write(f.source.join("old.c"), b"old source").unwrap();
+    let db = DurablePathIndex::create(&f.parent, "alpha-store", &f.source, "alpha", limits(), 64)
+        .unwrap();
+    db.replace(None, 1, items(&["/alpha/old.c"]), &CancellationToken::new())
+        .unwrap();
+    let old = db.snapshot().unwrap();
+    let moved = f.root.join("old-source");
+    fs::rename(&f.source, &moved).unwrap();
+    fs::create_dir(&f.source).unwrap();
+    fs::write(f.source.join("new.c"), b"new source").unwrap();
+    let files = || {
+        fs::read_dir(f.store())
+            .unwrap()
+            .map(|e| e.unwrap().file_name())
+            .collect::<HashSet<_>>()
+    };
+    let before = files();
+    assert!(db.snapshot().is_err());
+    assert!(db
+        .replace(
+            Some(1),
+            1,
+            items(&["/alpha/new.c"]),
+            &CancellationToken::new()
+        )
+        .is_err());
+    assert_eq!(before, files());
+    assert_eq!(old.manifest(), set(&["/alpha/old.c"]));
+    assert_eq!(fs::read(moved.join("old.c")).unwrap(), b"old source");
+    assert_eq!(fs::read(f.source.join("new.c")).unwrap(), b"new source");
+    drop(db);
+    assert!(DurablePathIndex::open(&f.store(), &f.source, "alpha", limits(), 64).is_err());
+    fs::remove_dir_all(&f.source).unwrap();
+    fs::rename(&moved, &f.source).unwrap();
+    assert_eq!(
+        DurablePathIndex::open(&f.store(), &f.source, "alpha", limits(), 64)
+            .unwrap()
+            .snapshot()
+            .unwrap()
+            .manifest(),
+        set(&["/alpha/old.c"])
+    );
+}
+
+#[test]
+fn source_replaced_during_manifest_collection_is_rejected_before_generation_files() {
+    let f = Fixture::new();
+    let db = DurablePathIndex::create(&f.parent, "alpha-store", &f.source, "alpha", limits(), 64)
+        .unwrap();
+    db.replace(None, 1, items(&["/alpha/old.c"]), &CancellationToken::new())
+        .unwrap();
+    let before = fs::read_dir(f.store())
+        .unwrap()
+        .map(|e| e.unwrap().file_name())
+        .collect::<HashSet<_>>();
+    let changed = std::iter::once_with(|| {
+        fs::rename(&f.source, f.root.join("old-source")).unwrap();
+        fs::create_dir(&f.source).unwrap();
+        Ok("/alpha/new.c".to_string())
+    });
+    assert!(matches!(
+        db.replace(Some(1), 1, changed, &CancellationToken::new()),
+        Err(DurableError::SourceChanged)
+    ));
+    assert_eq!(
+        before,
+        fs::read_dir(f.store())
+            .unwrap()
+            .map(|e| e.unwrap().file_name())
+            .collect()
+    );
+}
+
+#[cfg(feature = "fault-injection")]
+#[test]
+fn source_replaced_immediately_before_publication_cannot_switch_pointer() {
+    let f = Fixture::new();
+    fs::write(f.source.join("old.c"), b"old source").unwrap();
+    let db = DurablePathIndex::create(&f.parent, "alpha-store", &f.source, "alpha", limits(), 64)
+        .unwrap();
+    db.replace(None, 1, items(&["/alpha/old.c"]), &CancellationToken::new())
+        .unwrap();
+    let pointer = fs::read(f.store().join("CURRENT")).unwrap();
+    let mut replace_source = || {
+        fs::rename(&f.source, f.root.join("old-source")).unwrap();
+        fs::create_dir(&f.source).unwrap();
+    };
+    assert!(matches!(
+        db.replace_with_precommit_observer(
+            Some(1),
+            1,
+            items(&["/alpha/new.c"]),
+            &CancellationToken::new(),
+            &mut replace_source
+        ),
+        Err(DurableError::SourceChanged)
+    ));
+    assert_eq!(fs::read(f.store().join("CURRENT")).unwrap(), pointer);
+    assert_eq!(
+        fs::read(f.root.join("old-source/old.c")).unwrap(),
+        b"old source"
+    );
+    drop(db);
+    fs::remove_dir(&f.source).unwrap();
+    fs::rename(f.root.join("old-source"), &f.source).unwrap();
+    assert_eq!(
+        DurablePathIndex::open(&f.store(), &f.source, "alpha", limits(), 64)
+            .unwrap()
+            .snapshot()
+            .unwrap()
+            .manifest(),
+        set(&["/alpha/old.c"])
+    );
+}

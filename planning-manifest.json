@@ -5,8 +5,8 @@
   "files": [
     {
       "path": ".gitattributes",
-      "bytes": 3354,
-      "sha256": "de9c94fc40904fd9e110b7400ad2e4cfb0d5bbac158274bbd63d61ac043a331e"
+      "bytes": 3514,
+      "sha256": "4389956f8ca1fb274005de11d0b861a5e21167a99799810ae0156ade73dcece0"
     },
     {
       "path": ".github/ISSUE_TEMPLATE/compatibility-bug.md",
@@ -170,8 +170,8 @@
     },
     {
       "path": "crates/path-index/README.md",
-      "bytes": 6220,
-      "sha256": "9990d69f2e6e505e8ed4249afa4af29ea8ede4b4ff9f103c054b2925a926cb9f"
+      "bytes": 7223,
+      "sha256": "bb8c1d34959ece18b2db57c61fa64d20a873af2e47643bd1d2f8a794998f64e9"
     },
     {
       "path": "crates/path-index/RUST-LICENSE-MIT.txt",
@@ -180,8 +180,8 @@
     },
     {
       "path": "crates/path-index/src/durable.rs",
-      "bytes": 26574,
-      "sha256": "5e29606ab7a2b293eb9024b90e4b9a4934a18de3d676e6a530b56eae024f36ad"
+      "bytes": 28603,
+      "sha256": "5aa7618f50bacded44a7619e97f14ecbf8d79a47b3f8f9ac5075097e42bf7f07"
     },
     {
       "path": "crates/path-index/src/lib.rs",
@@ -190,8 +190,8 @@
     },
     {
       "path": "crates/path-index/tests/durable.rs",
-      "bytes": 32413,
-      "sha256": "5bac027e5853e3d1fd2350dc43fd4249733af45514b989d65e326f3843a7e927"
+      "bytes": 38404,
+      "sha256": "0a7713e7d3cb3578071bb32ae5d80cb10d49ed773b9854f9e6c179e5fe5137ca"
     },
     {
       "path": "crates/path-index/tests/generation.rs",
@@ -370,8 +370,8 @@
     },
     {
       "path": "docs/superpowers/plans/2026-11-03-durable-path-index.md",
-      "bytes": 4952,
-      "sha256": "6978e2bad57a5270e5941707475981bdaa06ad42ab5bf2e77ad27c4ba5bc9f14"
+      "bytes": 5534,
+      "sha256": "2ae2c854d05f82496856cc9093edc31e289fbcdbe609b02c90b0afe7df405689"
     },
     {
       "path": "docs/superpowers/plans/2026-11-03-path-analyzer.md",
@@ -591,7 +591,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 807,
-      "sha256": "107d49d1698c72873a0def21a2d67b389680c7d73cb598093bb0a2dbd549e28b"
+      "sha256": "12fee1f05339e7ef96ce2755345c5e2b04d983f3006340d78a59ba53829bca04"
     },
     {
       "path": "tests/README.md",
@@ -615,8 +615,8 @@
     },
     {
       "path": "tests/contract/test_durable_path_evidence.py",
-      "bytes": 1674,
-      "sha256": "02ec4c7d360b8cab0632ad63a1f4c5de6789d9fd46ee54ce3bb417448f8e2d67"
+      "bytes": 2659,
+      "sha256": "874e57b685489a3a0c02e01dc8396dd0dad23081ff392fd4a98b51480d4db673"
     },
     {
       "path": "tests/contract/test_index_resource_guard.py",
@@ -735,8 +735,8 @@
     },
     {
       "path": "tests/evidence/durable-path-2026-11-03/README.md",
-      "bytes": 2578,
-      "sha256": "fdba894290a6b8db16a70f17d5684ae8afebb85f4cc603435bb62dd03f0aaa86"
+      "bytes": 2876,
+      "sha256": "8847a29de8d024b1af9a2eb6aee98ed903788b709b4da3085b7449b945ddd202"
     },
     {
       "path": "tests/evidence/durable-path-2026-11-03/dependencies.json",
@@ -757,6 +757,26 @@
       "path": "tests/evidence/durable-path-2026-11-03/receipt.json",
       "bytes": 1195,
       "sha256": "b8b6c20434317f2a2aa6edf61bf5c6b5d0e7eb0385700d888aa90ddd7fae097e"
+    },
+    {
+      "path": "tests/evidence/durable-path-review-fixes-2026-11-03/README.md",
+      "bytes": 1750,
+      "sha256": "8d97628e434f1a7da6b58d800907b01919a41ff37170fc4a855e40c01f3aa387"
+    },
+    {
+      "path": "tests/evidence/durable-path-review-fixes-2026-11-03/durable.stderr.txt",
+      "bytes": 166,
+      "sha256": "eb196cfaf3338d4d91280d9725c21261683a64dcde4dab7acf03aa20dc6e48d7"
+    },
+    {
+      "path": "tests/evidence/durable-path-review-fixes-2026-11-03/durable.stdout.txt",
+      "bytes": 2518,
+      "sha256": "3f2b2dd78e8e9c25d167dc2adff8218f12cbe0497fc22bb93cef61207b88c85a"
+    },
+    {
+      "path": "tests/evidence/durable-path-review-fixes-2026-11-03/receipt.json",
+      "bytes": 1195,
+      "sha256": "7fa40c830486fc9f32c7badb44660c257afb70ac9d9998a7e572ec461eb949d6"
     },
     {
       "path": "tests/evidence/full-token-diagnostic-2026-11-01/README.md",

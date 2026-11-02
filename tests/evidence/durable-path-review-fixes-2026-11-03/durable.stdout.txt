@@ -1,0 +1,41 @@
+
+running 30 tests
+test a_corrupted_pointer_cannot_masquerade_as_the_empty_sentinel ... ok
+test a_fifo_current_is_rejected_without_blocking ... 
+running 1 test
+test a_fifo_current_is_rejected_without_blocking ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 29 filtered out; finished in 0.00s
+
+ok
+test an_empty_store_cannot_be_reopened_for_a_different_project_or_source_tree ... ok
+test cancellation_at_last_precommit_checkpoint_cannot_publish ... ok
+test cancellation_during_manifest_iteration_leaves_old_generation ... ok
+test corrupt_prepublication_files_fail_readback_and_preserve_old_generation ... ok
+test corrupted_or_truncated_generation_is_never_loaded ... ok
+test durable_add_remove_reopen_and_retained_reader ... ok
+test exhausted_generation_id_budget_fails_without_replacing_current ... ok
+test failed_input_and_cancel_preserve_previous_durable_generation ... ok
+test failure_after_pointer_rename_is_explicitly_indeterminate_and_blocks_handle ... ok
+test interrupted_subprocess_recovers_only_published_complete_generation ... ok
+test iterator_panic_keeps_published_reader_and_reopen_recovers ... ok
+test live_writer_refuses_a_replaced_current_symlink ... ok
+test missing_current_pointer_is_corruption_even_after_a_published_generation ... ok
+test observer_panic_after_rename_is_indeterminate_not_silently_old ... ok
+test other_process_cannot_open_while_lock_is_held ... ok
+test overlap_and_invalid_store_names_fail_without_touching_source ... ok
+test readers_can_query_old_generation_while_post_rename_sync_is_paused ... ok
+test replacing_source_directory_rejects_snapshots_and_writes_without_touching_either_tree ... ok
+test retained_old_reader_enforces_the_same_live_generation_limit ... ok
+test second_handle_is_rejected_while_first_holds_store_lock ... ok
+test self_checksummed_but_partial_or_duplicate_manifest_is_rejected ... ok
+test simulated_disk_full_before_rename_keeps_prior_generation ... ok
+test source_replaced_during_manifest_collection_is_rejected_before_generation_files ... ok
+test source_replaced_immediately_before_publication_cannot_switch_pointer ... ok
+test symlink_at_next_generation_is_rejected_not_silently_skipped ... ok
+test symlinked_generation_and_hardlinked_pointer_are_rejected ... ok
+test symlinked_paths_and_current_pointer_are_rejected_without_touching_source ... ok
+test writer_paused_before_lock_fails_closed_after_another_writer_is_indeterminate ... ok
+
+test result: ok. 30 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.85s
+

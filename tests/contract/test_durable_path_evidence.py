@@ -1,6 +1,7 @@
 """Validate persisted component test evidence and its registry lock provenance."""
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 import tomllib
 import unittest
@@ -17,11 +18,26 @@ class DurableEvidence(unittest.TestCase):
     def test_receipt_and_raw_output(self):
         receipt = json.loads((EVIDENCE / "receipt.json").read_text())
         self.assertEqual(receipt["exit_code"], 0)
+        # This is a historical capture: later fixes intentionally change source bytes.
+        # Its containing commit records exactly the source used for the run.
         for name, digest in receipt["files"].items():
-            self.assertEqual(sha(ROOT / name), digest, name)
+            raw = subprocess.check_output(["git", "show", f"ab44fe57c1ab3d50bd62a326889570473c51a325:{name}"], cwd=ROOT)
+            self.assertEqual(hashlib.sha256(raw).hexdigest(), digest, name)
         for stream in ("stdout", "stderr"):
             self.assertEqual(sha(EVIDENCE / f"durable.{stream}.txt"), receipt[f"{stream}_sha256"])
         self.assertIn("26 passed; 0 failed", (EVIDENCE / "durable.stdout.txt").read_text())
+        self.assertIn("fault-injection", receipt["command"])
+
+
+    def test_review_fix_receipt_and_raw_output(self):
+        evidence = ROOT / "tests/evidence/durable-path-review-fixes-2026-11-03"
+        receipt = json.loads((evidence / "receipt.json").read_text())
+        self.assertEqual(receipt["exit_code"], 0)
+        for name, digest in receipt["files"].items():
+            self.assertEqual(sha(ROOT / name), digest, name)
+        for stream in ("stdout", "stderr"):
+            self.assertEqual(sha(evidence / f"durable.{stream}.txt"), receipt[f"{stream}_sha256"])
+        self.assertIn("30 passed; 0 failed", (evidence / "durable.stdout.txt").read_text())
         self.assertIn("fault-injection", receipt["command"])
 
     def test_dependency_inventory_matches_lock(self):

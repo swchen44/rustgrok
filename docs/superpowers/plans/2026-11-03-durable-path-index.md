@@ -27,3 +27,7 @@
 - [x] Test a second process cannot acquire the same store lock. Inject process termination at prepared-generation, pre-pointer-rename and post-rename boundaries; restart accepts only an old or fully valid new published generation. Explicitly inject post-rename directory-sync failure, return an indeterminate result and reject subsequent writes on the same handle.
 - [x] Implement secure fixed-name operations, immutable generation records with bounded length/count and SHA-256, file and directory synchronization and pointer atomic rename; retain prior immutable generations. Document orphan handling, limits and publication linearization. Do not claim a stable state after a post-rename sync error.
 - [ ] Run relevant serial correctness tests, existing analyzer and in-memory integration regressions, fmt/clippy and raw evidence/manifest checks. Stage package inputs, build and verify the planning package, merge the latest integration tip and commit. Full product tests remain planned.
+
+## Review follow-up
+
+The pre-lock indeterminate race and source root replacement were reproduced and fixed. Controlled tests pause a writer after its first state check, replace the source during manifest collection, and replace it immediately before publication. Descriptor/path identity checks are not an atomic lease on the source: callers must coordinate source and ancestor renames across each operation. A detected late replacement can leave unpublished prepared files; existing published data stays unchanged. Source content consistency and the full Q8 contract remain open.

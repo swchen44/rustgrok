@@ -11,7 +11,7 @@ use std::{
         fd::{AsRawFd, FromRawFd},
         unix::{ffi::OsStrExt, fs::MetadataExt},
     },
-    path::Path,
+    path::{Path, PathBuf},
     sync::{
         atomic::{AtomicBool, Ordering},
         Arc, Mutex,
@@ -32,6 +32,7 @@ pub enum DurableError {
     Busy,
     LimitExceeded,
     PublicationIndeterminate,
+    SourceChanged,
 }
 
 /// Test-only fault controls are usable only when `fault-injection` is enabled.
@@ -47,6 +48,7 @@ pub enum FaultPoint {
     NoSpaceGenerationWrite,
     NoSpacePointerWrite,
     ObserveBeforeCommit,
+    ObserveBeforeWriterLock,
 }
 
 fn inject_no_space(fault: FaultPoint, point: FaultPoint) -> Result<(), DurableError> {
@@ -411,6 +413,9 @@ where
 pub struct DurablePathIndex {
     inner: PathIndex,
     root: File,
+    source: File,
+    source_path: PathBuf,
+    source_chain: Vec<(u64, u64)>,
     _lock: File,
     pointer: Mutex<Option<Vec<u8>>>,
     max_generation_id: u64,
@@ -454,14 +459,19 @@ impl DurablePathIndex {
         let empty_pointer = pointer(0, &[0; 32]);
         write_sync(create_at(&root, "CURRENT")?, &empty_pointer)?;
         root.sync_all()?;
-        Ok(Self {
+        let store = Self {
             inner: index,
             root,
+            source: source_dir,
+            source_path: source.to_path_buf(),
+            source_chain,
             _lock: lock,
             pointer: Mutex::new(Some(empty_pointer)),
             max_generation_id,
             indeterminate: AtomicBool::new(false),
-        })
+        };
+        store.check_source()?;
+        Ok(store)
     }
     pub fn open(
         path: &Path,
@@ -525,20 +535,37 @@ impl DurablePathIndex {
         // A previous process may have stopped after rename but before its
         // directory sync. Re-establish it before exposing recovery.
         root.sync_all()?;
-        Ok(Self {
+        let store = Self {
             inner: index,
             root,
+            source: source_dir,
+            source_path: source.to_path_buf(),
+            source_chain,
             _lock: lock,
             pointer: Mutex::new(Some(data)),
             max_generation_id,
             indeterminate: AtomicBool::new(false),
-        })
+        };
+        store.check_source()?;
+        Ok(store)
+    }
+    fn check_source(&self) -> Result<(), DurableError> {
+        let (current, chain) = walk(&self.source_path).map_err(|_| DurableError::SourceChanged)?;
+        if chain != self.source_chain
+            || identity(&current).map_err(|_| DurableError::SourceChanged)?
+                != identity(&self.source).map_err(|_| DurableError::SourceChanged)?
+        {
+            return Err(DurableError::SourceChanged);
+        }
+        Ok(())
     }
     pub fn snapshot(&self) -> Result<PathSnapshot, DurableError> {
         if self.indeterminate.load(Ordering::Acquire) {
             return Err(DurableError::PublicationIndeterminate);
         }
+        self.check_source()?;
         let snapshot = self.inner.snapshot()?;
+        self.check_source()?;
         if self.indeterminate.load(Ordering::Acquire) {
             return Err(DurableError::PublicationIndeterminate);
         }
@@ -616,6 +643,28 @@ impl DurablePathIndex {
         )
     }
 
+    #[cfg(feature = "fault-injection")]
+    pub fn replace_with_prelock_observer<I>(
+        &self,
+        expected: Option<u64>,
+        count: usize,
+        paths: I,
+        cancellation: &CancellationToken,
+        observer: &mut dyn FnMut(),
+    ) -> Result<u64, DurableError>
+    where
+        I: IntoIterator<Item = io::Result<String>>,
+    {
+        self.replace_impl(
+            expected,
+            count,
+            paths,
+            cancellation,
+            FaultPoint::ObserveBeforeWriterLock,
+            Some(observer),
+        )
+    }
+
     fn replace_impl<I>(
         &self,
         expected: Option<u64>,
@@ -631,10 +680,19 @@ impl DurablePathIndex {
         if self.indeterminate.load(Ordering::Acquire) {
             return Err(DurableError::PublicationIndeterminate);
         }
+        if fault == FaultPoint::ObserveBeforeWriterLock {
+            if let Some(ref mut observer) = observer {
+                observer();
+            }
+        }
         let _writer = self.inner.writer.try_lock().map_err(|e| match e {
             std::sync::TryLockError::WouldBlock => DurableError::Busy,
             std::sync::TryLockError::Poisoned(_) => DurableError::Index(IndexError::LockPoisoned),
         })?;
+        if self.indeterminate.load(Ordering::Acquire) {
+            return Err(DurableError::PublicationIndeterminate);
+        }
+        self.check_source()?;
         let actual = self
             .inner
             .current
@@ -665,6 +723,7 @@ impl DurablePathIndex {
             0,
             cancellation,
         )?;
+        self.check_source()?;
         let mut id = actual
             .unwrap_or(0)
             .checked_add(1)
@@ -674,6 +733,7 @@ impl DurablePathIndex {
                 return Err(DurableError::LimitExceeded);
             }
             cancellation.check()?;
+            self.check_source()?;
             let file = match create_at(&self.root, &format!("G-{id}")) {
                 Ok(file) => file,
                 Err(DurableError::Io(e)) if e.kind() == io::ErrorKind::AlreadyExists => {
@@ -745,11 +805,14 @@ impl DurablePathIndex {
                     observer();
                 }
             }
+            self.check_source()?;
             cancellation.begin_publication()?;
             inject_exit(fault, FaultPoint::ExitBeforeRename);
             rename_at(&self.root, &format!("P-{id}"), "CURRENT")?;
             inject_exit(fault, FaultPoint::ExitAfterRename);
-            if fault != FaultPoint::ObserveBeforeCommit {
+            if fault != FaultPoint::ObserveBeforeCommit
+                && fault != FaultPoint::ObserveBeforeWriterLock
+            {
                 if let Some(ref mut observer) = observer {
                     if let Err(panic) =
                         std::panic::catch_unwind(std::panic::AssertUnwindSafe(observer))
