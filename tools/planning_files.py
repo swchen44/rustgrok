@@ -12,9 +12,18 @@ def read_package_text(path):
     """Validate retained ZIP bytes; decode all other package files as text."""
     if path.suffix == '.zip':
         with zipfile.ZipFile(path) as archive:
-            bad = archive.testzip()
-            if bad is not None:
-                raise ValueError('corrupt ZIP member: ' + bad)
+            entries = archive.infolist()
+            names = set()
+            for entry in entries:
+                if entry.filename in names:
+                    raise ValueError('duplicate ZIP member: ' + entry.filename)
+                names.add(entry.filename)
+            for entry in entries:
+                # Use the exact ZipInfo, not a name lookup, and consume all bytes
+                # so zipfile checks this member's CRC even for empty files.
+                with archive.open(entry) as member:
+                    while member.read(64 * 1024):
+                        pass
         return None
     return path.read_text(encoding='utf-8')
 

@@ -550,8 +550,8 @@
     },
     {
       "path": "tests/contract/test_planning_binary_evidence.py",
-      "bytes": 1513,
-      "sha256": "2e0a4604ac4e457a70406dd882730b57e543b8f12dd647a75c8f6df6aceb9a8a"
+      "bytes": 3651,
+      "sha256": "0874f60a1deabcde65c11e71f4d8d50673967775bed05baabf46dd2ea8eb4bd9"
     },
     {
       "path": "tests/contract/test_planning_e04_receipt.py",
@@ -26085,8 +26085,8 @@
     },
     {
       "path": "tools/planning_files.py",
-      "bytes": 2754,
-      "sha256": "99d97f2d1ebdfa7409046eff2481acc315bc01f2a414cf434cf3c40596b2f084"
+      "bytes": 3213,
+      "sha256": "c890624538868c48acde38589c63fffe37426c67fde9b7d3306272af23bca6a4"
     },
     {
       "path": "tools/prepare_oracle_copy.py",
