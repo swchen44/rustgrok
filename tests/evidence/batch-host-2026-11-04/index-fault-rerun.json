@@ -1,0 +1,34 @@
+{
+  "scope": "rerun only the guard-interrupted index-fault suite after authorized incremental cache cleanup",
+  "prior_receipt_sha256": "325abb6cb0f71a3c72060922879dae25fcb6c41568511e676e2959be403927b6",
+  "cleanup_receipt_sha256": "ec770571102f87eea01c1eed273b6cc9768ff5fefb30382997b35b686c1d3e63",
+  "command": [
+    "cargo",
+    "test",
+    "--manifest-path",
+    "crates/path-index/Cargo.toml",
+    "--locked",
+    "--offline",
+    "--features",
+    "fault-injection",
+    "--",
+    "--test-threads=1"
+  ],
+  "exit_code": 0,
+  "status": "PASS",
+  "stdout_sha256": "23955ca633af00144338fd7c141da692f4bdd464c774a022a1893d98d102b433",
+  "stderr_sha256": "18d195dac2de5df0325025e408046c67adb79b71123449665790f853417576d1",
+  "lowest_observed_free_bytes": 4176994304,
+  "guard_samples": 19,
+  "environment": {
+    "CARGO_BUILD_JOBS": "1",
+    "CARGO_TARGET_DIR": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target",
+    "TMPDIR": "/private/tmp"
+  },
+  "test_binary": {
+    "sha256": "4d7fb1df5be125d060136fee48be20475d1b624d4549c5c5ec4c7b7276b1781e",
+    "bytes": 2918016,
+    "local_path": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/sha256-4d7fb1df5be125d060136fee48be20475d1b624d4549c5c5ec4c7b7276b1781e-durable_batch-test",
+    "retention": "verified immediately after rerun before any later build"
+  }
+}

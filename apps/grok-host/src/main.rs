@@ -92,7 +92,7 @@ mod mac {
         max_total_path_bytes: 16 * 1024 * 1024,
         max_live_generations: 2,
     };
-    const BATCH_LIMITS: BatchLimits = BatchLimits {
+    pub(crate) const BATCH_LIMITS: BatchLimits = BatchLimits {
         per_project: LIMITS,
         max_projects: 32,
         max_batch_documents: 50_000,
@@ -197,12 +197,53 @@ mod mac {
         }
         db.replace_from_source(expected, projects, token)
     }
-    fn open_batch(store: &str, src: &str) -> Result<DurableBatchIndex, Failure> {
+    pub(crate) fn open_batch(store: &str, src: &str) -> Result<DurableBatchIndex, Failure> {
         DurableBatchIndex::open(source(store)?, source(src)?, BATCH_LIMITS, MAX_GENERATION)
             .map_err(classify)
     }
     fn run(args: &[String]) -> Result<Value, Failure> {
         match args {
+            [command, store, src, control] if command == "batch-host" => {
+                crate::host::serve_batch(store, src, control)
+            }
+            [command, control, expected, projects @ ..]
+                if command == "batch-host-index" && !projects.is_empty() =>
+            {
+                expected_generation(expected)?;
+                if projects.len() > BATCH_LIMITS.max_projects {
+                    return Err(Failure::new(4, "unsupported_or_limit"));
+                }
+                for name in projects {
+                    project(name)?;
+                }
+                let value = json!({"expected": expected, "projects": projects}).to_string();
+                crate::host::client(control, "batch-index", Some(&value))
+            }
+            [command, control, name, query]
+                if command == "batch-host-query" || command == "batch-host-query-expression" =>
+            {
+                project(name)?;
+                let value = json!({"project": name, "query": query}).to_string();
+                let request = if command == "batch-host-query" {
+                    "batch-query"
+                } else {
+                    "batch-query-expression"
+                };
+                crate::host::client(control, request, Some(&value))
+            }
+            [command, control] if command == "batch-host-status" => {
+                crate::host::client(control, "status", None)
+            }
+            [command, control] if command == "batch-host-cancel" => {
+                crate::host::client(control, "cancel", None)
+            }
+            [command, control] if command == "batch-host-stop" => {
+                crate::host::client(control, "stop", None)
+            }
+            #[cfg(feature = "test-hooks")]
+            [command, control] if command == "batch-host-test-release" => {
+                crate::host::client(control, "test-release", None)
+            }
             [command, store, src, proj, control] if command == "host" => {
                 crate::host::serve(store, src, proj, control)
             }

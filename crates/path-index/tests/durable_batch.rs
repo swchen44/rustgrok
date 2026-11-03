@@ -795,3 +795,99 @@ fn source_batch_rejects_project_symlink_and_duplicate_names() {
         assert!(db.snapshot().is_err());
     }
 }
+
+#[cfg(feature = "fault-injection")]
+#[test]
+fn concurrent_batch_readers_wait_instead_of_reporting_busy() {
+    use std::time::Duration;
+    let f = Fixture::new();
+    let db = DurableBatchIndex::create(&f.parent, "batch", &f.source, limits(), 100).unwrap();
+    db.replace(
+        None,
+        vec![
+            project("alpha", &["/alpha/old.c"]),
+            project("beta", &["/beta/old.c"]),
+        ],
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    let first = db.snapshot().unwrap();
+    let second = db.snapshot().unwrap();
+    let (entered_tx, entered_rx) = mpsc::channel();
+    let (release_tx, release_rx) = mpsc::channel();
+    let first_job = thread::spawn(move || {
+        first.lookup_with_observer("alpha", "old", &mut || {
+            entered_tx.send(()).unwrap();
+            release_rx.recv().unwrap()
+        })
+    });
+    entered_rx.recv().unwrap();
+    let (result_tx, result_rx) = mpsc::channel();
+    let second_job = thread::spawn(move || {
+        result_tx.send(second.lookup("beta", "old")).unwrap();
+    });
+    let before = result_rx.recv_timeout(Duration::from_millis(200));
+    release_tx.send(()).unwrap();
+    assert_eq!(first_job.join().unwrap().unwrap(), set(&["/alpha/old.c"]));
+    let result = match before {
+        Ok(value) => value,
+        Err(mpsc::RecvTimeoutError::Timeout) => result_rx.recv().unwrap(),
+        Err(e) => panic!("{e}"),
+    };
+    assert_eq!(result.unwrap(), set(&["/beta/old.c"]));
+    second_job.join().unwrap();
+}
+
+#[cfg(feature = "fault-injection")]
+#[test]
+fn writer_registry_validation_does_not_take_reader_scratch() {
+    use std::time::Duration;
+    let f = Fixture::new();
+    fs::create_dir(f.source.join("alpha")).unwrap();
+    fs::create_dir(f.source.join("beta")).unwrap();
+    fs::write(f.source.join("alpha/new.c"), b"new\n").unwrap();
+    fs::write(f.source.join("beta/new.py"), b"new\n").unwrap();
+    let db =
+        Arc::new(DurableBatchIndex::create(&f.parent, "batch", &f.source, limits(), 100).unwrap());
+    db.replace(
+        None,
+        vec![
+            project("alpha", &["/alpha/old.c"]),
+            project("beta", &["/beta/old.py"]),
+        ],
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    let reader = db.snapshot().unwrap();
+    let (held_tx, held_rx) = mpsc::channel();
+    let (release_tx, release_rx) = mpsc::channel();
+    let read = thread::spawn(move || {
+        reader.lookup_with_observer("alpha", "old", &mut || {
+            held_tx.send(()).unwrap();
+            release_rx.recv().unwrap()
+        })
+    });
+    held_rx.recv().unwrap();
+    let writer = Arc::clone(&db);
+    let (tx, rx) = mpsc::channel();
+    let write = thread::spawn(move || {
+        tx.send(writer.replace_from_source(
+            Some(1),
+            &["alpha".into(), "beta".into()],
+            &CancellationToken::new(),
+        ))
+        .unwrap();
+    });
+    let result = rx.recv_timeout(Duration::from_secs(5));
+    release_tx.send(()).unwrap();
+    assert_eq!(read.join().unwrap().unwrap(), set(&["/alpha/old.c"]));
+    assert_eq!(
+        result.expect("writer blocked on reader scratch").unwrap(),
+        2
+    );
+    write.join().unwrap();
+    assert_eq!(
+        db.snapshot().unwrap().lookup("beta", "new").unwrap(),
+        set(&["/beta/new.py"])
+    );
+}

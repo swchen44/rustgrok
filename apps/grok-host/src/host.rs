@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2026 swchen44
-//! Private, bounded, single-project development control adapter.
+//! Private, bounded development control adapter for single or batch stores.
 use crate::mac::{self, Failure};
-use rustgrok_path_index::durable::{DurableError, DurablePathIndex};
+use rustgrok_path_index::durable::{batch::DurableBatchIndex, DurableError, DurablePathIndex};
 use rustgrok_path_index::{CancellationToken, IndexError};
 use serde_json::{json, Value};
 use std::{
@@ -446,10 +446,27 @@ fn status(state: &State) -> Value {
     });
     json!({"operation":"host-status","job":job,"fault":fault})
 }
+enum Backend {
+    Single(DurablePathIndex),
+    Batch(DurableBatchIndex),
+}
+#[derive(serde::Deserialize)]
+#[serde(deny_unknown_fields)]
+struct BatchQuery {
+    project: String,
+    query: String,
+}
+#[derive(serde::Deserialize)]
+#[serde(deny_unknown_fields)]
+struct BatchIndex {
+    expected: String,
+    projects: Vec<String>,
+}
+
 fn do_request(
     command: &str,
     value: Option<&str>,
-    db: &Arc<DurablePathIndex>,
+    db: &Arc<Backend>,
     shared: &Arc<Mutex<State>>,
 ) -> Result<Value, Failure> {
     match command {
@@ -457,8 +474,8 @@ fn do_request(
             let state = shared.lock().map_err(|_| failure(5, "host_fault"))?;
             Ok(status(&state))
         }
-        "query" | "query-expression" => {
-            let term = value.ok_or_else(|| failure(2, "usage"))?;
+        "query" | "query-expression" | "batch-query" | "batch-query-expression" => {
+            let raw = value.ok_or_else(|| failure(2, "usage"))?;
             {
                 let s = shared.lock().map_err(|_| failure(5, "host_fault"))?;
                 if s.panic_latch.load(Ordering::Acquire) {
@@ -471,13 +488,32 @@ fn do_request(
                     return Err(failure(3, "busy"));
                 }
             }
-            let snapshot = db.snapshot().map_err(mac::classify)?;
-            let paths = if command == "query-expression" {
-                snapshot.lookup_expression(term)
-            } else {
-                snapshot.lookup(term)
-            }
-            .map_err(|e| mac::classify(DurableError::Index(e)))?;
+            let (generation, paths) = match (&**db, command) {
+                (Backend::Single(db), "query" | "query-expression") => {
+                    let snapshot = db.snapshot().map_err(mac::classify)?;
+                    let paths = if command == "query-expression" {
+                        snapshot.lookup_expression(raw)
+                    } else {
+                        snapshot.lookup(raw)
+                    }
+                    .map_err(|e| mac::classify(DurableError::Index(e)))?;
+                    (snapshot.generation(), paths)
+                }
+                (Backend::Batch(db), "batch-query" | "batch-query-expression") => {
+                    let q: BatchQuery =
+                        serde_json::from_str(raw).map_err(|_| failure(4, "protocol_error"))?;
+                    mac::project(&q.project)?;
+                    let snapshot = db.snapshot().map_err(mac::classify)?;
+                    let paths = if command == "batch-query-expression" {
+                        snapshot.lookup_expression(&q.project, &q.query)
+                    } else {
+                        snapshot.lookup(&q.project, &q.query)
+                    }
+                    .map_err(mac::classify)?;
+                    (snapshot.generation(), paths)
+                }
+                _ => return Err(failure(2, "usage")),
+            };
             {
                 let s = shared.lock().map_err(|_| failure(5, "host_fault"))?;
                 if s.panic_latch.load(Ordering::Acquire) {
@@ -487,12 +523,35 @@ fn do_request(
                     return Err(host_fault(f));
                 }
             }
+            let operation = match command {
+                "query" => "host-query",
+                "query-expression" => "host-query-expression",
+                "batch-query" => "batch-host-query",
+                _ => "batch-host-query-expression",
+            };
             Ok(
-                json!({"operation":if command == "query-expression" {"host-query-expression"} else {"host-query"},"generation":snapshot.generation(),"order":"unspecified","paths":paths}),
+                json!({"operation":operation,"generation":generation,"order":"unspecified","paths":paths}),
             )
         }
-        "index" => {
-            let expected = expected(value.ok_or_else(|| failure(2, "usage"))?)?;
+        "index" | "batch-index" => {
+            let raw = value.ok_or_else(|| failure(2, "usage"))?;
+            let (expected, projects) = match (&**db, command) {
+                (Backend::Single(_), "index") => (expected(raw)?, None),
+                (Backend::Batch(_), "batch-index") => {
+                    let request: BatchIndex =
+                        serde_json::from_str(raw).map_err(|_| failure(4, "protocol_error"))?;
+                    if request.projects.is_empty()
+                        || request.projects.len() > mac::BATCH_LIMITS.max_projects
+                    {
+                        return Err(failure(4, "unsupported_or_limit"));
+                    }
+                    for name in &request.projects {
+                        mac::project(name)?;
+                    }
+                    (expected(&request.expected)?, Some(request.projects))
+                }
+                _ => return Err(failure(2, "usage")),
+            };
             let mut s = shared.lock().map_err(|_| failure(5, "host_fault"))?;
             if s.panic_latch.load(Ordering::Acquire) {
                 return Err(host_fault("worker_panic"));
@@ -540,33 +599,43 @@ fn do_request(
                 .spawn(move || {
                     let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
                         let _panic_latch = PanicLatch(worker_panic_latch);
-                        #[cfg(feature = "test-hooks")]
-                        if expected.is_some() {
-                            if mode == TestMode::Pause {
-                                let mut observe = || gate.pause();
-                                return worker_db.replace_from_source_with_precommit_observer(
-                                    expected,
-                                    &token,
-                                    &mut observe,
-                                );
+                        match (&*worker_db, projects.as_deref()) {
+                            (Backend::Single(db), None) => {
+                                #[cfg(feature = "test-hooks")]
+                                if expected.is_some() {
+                                    if mode == TestMode::Pause {
+                                        let mut observe = || gate.pause();
+                                        return db.replace_from_source_with_precommit_observer(expected, &token, &mut observe);
+                                    }
+                                    if mode == TestMode::Panic {
+                                        let mut observe = || panic!("injected worker panic");
+                                        return db.replace_from_source_with_precommit_observer(expected, &token, &mut observe);
+                                    }
+                                    if mode == TestMode::Indeterminate {
+                                        return db.replace_from_source_with_fault(expected, &token, rustgrok_path_index::durable::FaultPoint::FailDirectorySync);
+                                    }
+                                }
+                                db.replace_from_source(expected, &token)
                             }
-                            if mode == TestMode::Panic {
-                                let mut observe = || panic!("injected worker panic");
-                                return worker_db.replace_from_source_with_precommit_observer(
-                                    expected,
-                                    &token,
-                                    &mut observe,
-                                );
+                            (Backend::Batch(db), Some(projects)) => {
+                                #[cfg(feature = "test-hooks")]
+                                if expected.is_some() {
+                                    if mode == TestMode::Pause {
+                                        let mut observe = || gate.pause();
+                                        return db.replace_from_source_with_second_project_observer(expected, projects, &token, &mut observe);
+                                    }
+                                    if mode == TestMode::Panic {
+                                        let mut observe = || panic!("injected batch worker panic");
+                                        return db.replace_from_source_with_precommit_observer(expected, projects, &token, &mut observe);
+                                    }
+                                    if mode == TestMode::Indeterminate {
+                                        return db.replace_from_source_with_fault(expected, projects, &token, rustgrok_path_index::durable::FaultPoint::FailDirectorySync);
+                                    }
+                                }
+                                db.replace_from_source(expected, projects, &token)
                             }
-                            if mode == TestMode::Indeterminate {
-                                return worker_db.replace_from_source_with_fault(
-                                    expected,
-                                    &token,
-                                    rustgrok_path_index::durable::FaultPoint::FailDirectorySync,
-                                );
-                            }
+                            _ => Err(DurableError::Index(IndexError::InvalidProject)),
                         }
-                        worker_db.replace_from_source(expected, &token)
                     }));
                     #[cfg(feature = "test-hooks")]
                     if result.is_err()
@@ -618,7 +687,9 @@ fn do_request(
                     return Err(e);
                 }
             }
-            Ok(json!({"operation":"host-index","job":id,"state":"running"}))
+            Ok(
+                json!({"operation":if command == "batch-index" {"batch-host-index"} else {"host-index"},"job":id,"state":"running"}),
+            )
         }
         "cancel" if value.is_none() => {
             let s = shared.lock().map_err(|_| failure(5, "host_fault"))?;
@@ -664,12 +735,7 @@ impl Drop for Permit {
         self.0.fetch_sub(1, Ordering::AcqRel);
     }
 }
-fn handle(
-    mut stream: UnixStream,
-    db: Arc<DurablePathIndex>,
-    state: Arc<Mutex<State>>,
-    permit: Permit,
-) {
+fn handle(mut stream: UnixStream, db: Arc<Backend>, state: Arc<Mutex<State>>, permit: Permit) {
     let _permit = permit;
     if stream.set_nonblocking(false).is_err() {
         return;
@@ -714,6 +780,17 @@ pub(crate) fn serve(
     proj: &str,
     control_dir: &str,
 ) -> Result<Value, Failure> {
+    serve_impl(store, src, Some(proj), control_dir)
+}
+pub(crate) fn serve_batch(store: &str, src: &str, control_dir: &str) -> Result<Value, Failure> {
+    serve_impl(store, src, None, control_dir)
+}
+fn serve_impl(
+    store: &str,
+    src: &str,
+    proj: Option<&str>,
+    control_dir: &str,
+) -> Result<Value, Failure> {
     let ControlDir {
         path: dir,
         fd: dir_fd,
@@ -726,8 +803,16 @@ pub(crate) fn serve(
     }
     let path = dir.join(SOCKET);
     validate_socket_path(&path)?;
-    let db = Arc::new(mac::open(store, src, proj)?);
-    let published = match db.snapshot() {
+    let batch = proj.is_none();
+    let db = Arc::new(match proj {
+        Some(name) => Backend::Single(mac::open(store, src, name)?),
+        None => Backend::Batch(mac::open_batch(store, src)?),
+    });
+    let published_result = match &*db {
+        Backend::Single(db) => db.snapshot().map(|_| ()),
+        Backend::Batch(db) => db.snapshot().map(|_| ()),
+    };
+    let published = match published_result {
         Ok(_) => true,
         Err(DurableError::Index(IndexError::NoPublishedGeneration)) => false,
         Err(e) => return Err(mac::classify(e)),
@@ -765,7 +850,7 @@ pub(crate) fn serve(
     }
     println!(
         "{}",
-        json!({"operation":"host","state":"listening","published":published})
+        json!({"operation":if batch {"batch-host"} else {"host"},"state":"listening","published":published})
     );
     io::stdout().flush().map_err(io_failure)?;
     let state = Arc::new(Mutex::new(State::new()));
@@ -846,7 +931,7 @@ pub(crate) fn serve(
     if let Some(error) = fatal_error {
         return Err(error);
     }
-    Ok(json!({"operation":"host","state":"stopped"}))
+    Ok(json!({"operation":if batch {"batch-host"} else {"host"},"state":"stopped"}))
 }
 fn connect_bounded(path: &Path) -> Result<UnixStream, Failure> {
     let bytes = path.as_os_str().as_bytes();
