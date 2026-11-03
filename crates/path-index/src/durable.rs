@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2026 swchen44
 //! macOS-only durable single-project path generations.
+pub mod batch;
 mod scanner;
 use super::{CancellationToken, Generation, IndexError, IndexLimits, PathIndex, PathSnapshot};
 use sha2::{Digest, Sha256};
@@ -481,6 +482,16 @@ impl DurablePathIndex {
         limits: IndexLimits,
         max_generation_id: u64,
     ) -> Result<Self, DurableError> {
+        Self::open_impl(path, source, project, limits, max_generation_id, false)
+    }
+    fn open_impl(
+        path: &Path,
+        source: &Path,
+        project: &str,
+        limits: IndexLimits,
+        max_generation_id: u64,
+        batch: bool,
+    ) -> Result<Self, DurableError> {
         if max_generation_id == 0 {
             return Err(DurableError::LimitExceeded);
         }
@@ -500,6 +511,12 @@ impl DurablePathIndex {
             0,
         )?;
         lock_file(&lock)?;
+        let batch_marker = read_at(&root, "BATCH-MARKER", 8)?;
+        if (batch && batch_marker.as_deref() != Some(batch::BATCH_MARKER))
+            || (!batch && batch_marker.is_some())
+        {
+            return Err(DurableError::Corrupt);
+        }
         let expected_marker = marker(project, identity(&source_dir)?)?;
         if read_at(&root, "MARKER", expected_marker.len())?.as_deref() != Some(&expected_marker) {
             return Err(DurableError::Corrupt);

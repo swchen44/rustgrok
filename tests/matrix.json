@@ -570,7 +570,7 @@
       ],
       "title": "A reindex 同時搜尋 B，及 A/B 同時更新",
       "preconditions": [
-        "D12已選更新期間維持上一成功搜尋及完整後整批發布；跨project publish scope、scoring與reader契約須凍結，未決值不猜測。"
+        "D12已確認同次工作涵蓋的所有project全部成功才一起發布，任一失敗或取消整批維持上一成功版本；scoring與reader等未決契約須凍結，不猜測。"
       ],
       "steps": [
         "完成A/B索引，先跑1人參照，再以約5個互動client採不同project/query組合查詢A、B及A+B；保留固定query IDs、獨立瀏覽狀態與共用server cache。",
