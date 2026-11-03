@@ -5,6 +5,9 @@
 //! This module does not select files from source, store source content, rank
 //! results, implement the OpenGrok query parser or persist generations.
 
+mod query;
+pub use query::{parse_path_expression, PathClause, PathOccur, PathQuery};
+
 use rustgrok_analysis::analyze_path;
 use std::{
     collections::{HashMap, HashSet},
@@ -272,6 +275,46 @@ impl PathSnapshot {
     /// The exact paths supplied by the caller for this generation.
     pub fn manifest(&self) -> HashSet<String> {
         self.inner.manifest.clone()
+    }
+
+    /// Return complete, unranked candidates for a bounded path expression.
+    pub fn lookup_expression(&self, query: &str) -> Result<HashSet<String>, IndexError> {
+        fn evaluate(
+            snapshot: &PathSnapshot,
+            expr: PathQuery,
+        ) -> Result<HashSet<String>, IndexError> {
+            match expr {
+                PathQuery::Term(term) => snapshot.lookup(&term),
+                PathQuery::Boolean(clauses) => {
+                    let mut must: Option<HashSet<String>> = None;
+                    let mut should = HashSet::new();
+                    let mut excluded = HashSet::new();
+                    let mut has_should = false;
+                    for clause in clauses {
+                        let paths = evaluate(snapshot, clause.query)?;
+                        match clause.occur {
+                            PathOccur::Must => match &mut must {
+                                Some(current) => current.retain(|p| paths.contains(p)),
+                                None => must = Some(paths),
+                            },
+                            PathOccur::Should => {
+                                has_should = true;
+                                should.extend(paths);
+                            }
+                            PathOccur::MustNot => excluded.extend(paths),
+                        }
+                    }
+                    let mut result =
+                        must.unwrap_or_else(|| if has_should { should } else { HashSet::new() });
+                    result.retain(|p| !excluded.contains(p));
+                    Ok(result)
+                }
+            }
+        }
+        evaluate(
+            self,
+            parse_path_expression(query, self.inner.max_path_bytes)?,
+        )
     }
 
     /// Return unranked candidates for one analyzed path term.

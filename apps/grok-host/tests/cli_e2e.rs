@@ -428,3 +428,45 @@ fn observed_source_change_aborts_real_index_before_publication() {
     );
     assert_eq!(contents(&f.source), expected);
 }
+
+#[test]
+fn subprocess_path_expression_queries_are_explicit_and_unranked() {
+    let f = Fixture::new();
+    fs::create_dir(f.source.join("nested")).unwrap();
+    fs::write(f.source.join("nested/main.c"), b"int main;\n").unwrap();
+    fs::write(f.source.join("nested/other.js"), b"let x;\n").unwrap();
+    ok(f.run(&["create", f.parent(), "store", f.source(), "alpha"]));
+    ok(f.run(&["index", f.store(), f.source(), "alpha", "none"]));
+    assert_eq!(
+        ok(f.run(&[
+            "query-expression",
+            f.store(),
+            f.source(),
+            "alpha",
+            "nested AND main"
+        ])),
+        json!({"operation":"query-expression","generation":1,"order":"unspecified","paths":["/alpha/nested/main.c"]})
+    );
+    for op in ["AND", "OR", "NOT"] {
+        let input = format!("nested {op}\u{c}main");
+        let result = f.run(&["query-expression", f.store(), f.source(), "alpha", &input]);
+        assert_eq!(result.status.code(), Some(4));
+        assert!(result.stdout.is_empty());
+        assert_eq!(
+            serde_json::from_slice::<Value>(&result.stderr).unwrap(),
+            json!({"error":"unsupported_or_limit"})
+        );
+    }
+    let bad = f.run(&[
+        "query-expression",
+        f.store(),
+        f.source(),
+        "alpha",
+        "main* OR other",
+    ]);
+    assert_eq!(bad.status.code(), Some(4));
+    assert_eq!(
+        ok(f.run(&["query", f.store(), f.source(), "alpha", "main"]))["paths"],
+        json!(["/alpha/nested/main.c"])
+    );
+}

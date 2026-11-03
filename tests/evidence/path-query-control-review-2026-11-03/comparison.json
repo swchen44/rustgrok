@@ -1,0 +1,76 @@
+[
+  {
+    "query": "alpha AND\fbeta",
+    "original_http_status": 200,
+    "original_count": 0,
+    "original_paths": [],
+    "rust_exit_code": 0,
+    "rust_generation": 1,
+    "rust_paths": [
+      "/demo/alpha/beta/one.c"
+    ],
+    "equivalent": false
+  },
+  {
+    "query": "alpha OR\fbeta",
+    "original_http_status": 200,
+    "original_count": 0,
+    "original_paths": [],
+    "rust_exit_code": 0,
+    "rust_generation": 1,
+    "rust_paths": [
+      "/demo/alpha/alone/four.c",
+      "/demo/alpha/beta/one.c",
+      "/demo/alpha/gamma/two.c",
+      "/demo/beta/gamma/three.c"
+    ],
+    "equivalent": false
+  },
+  {
+    "query": "alpha NOT\fbeta",
+    "original_http_status": 200,
+    "original_count": 0,
+    "original_paths": [],
+    "rust_exit_code": 0,
+    "rust_generation": 1,
+    "rust_paths": [
+      "/demo/alpha/alone/four.c",
+      "/demo/alpha/gamma/two.c"
+    ],
+    "equivalent": false
+  },
+  {
+    "query": "alpha AND beta",
+    "original_http_status": 200,
+    "original_count": 1,
+    "original_paths": [
+      "/demo/alpha/beta/one.c"
+    ],
+    "rust_exit_code": 0,
+    "rust_generation": 1,
+    "rust_paths": [
+      "/demo/alpha/beta/one.c"
+    ],
+    "equivalent": true
+  },
+  {
+    "query": "alpha OR beta",
+    "original_http_status": 200,
+    "original_count": 4,
+    "original_paths": [
+      "/demo/alpha/alone/four.c",
+      "/demo/alpha/beta/one.c",
+      "/demo/alpha/gamma/two.c",
+      "/demo/beta/gamma/three.c"
+    ],
+    "rust_exit_code": 0,
+    "rust_generation": 1,
+    "rust_paths": [
+      "/demo/alpha/alone/four.c",
+      "/demo/alpha/beta/one.c",
+      "/demo/alpha/gamma/two.c",
+      "/demo/beta/gamma/three.c"
+    ],
+    "equivalent": true
+  }
+]

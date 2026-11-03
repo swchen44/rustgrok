@@ -457,7 +457,7 @@ fn do_request(
             let state = shared.lock().map_err(|_| failure(5, "host_fault"))?;
             Ok(status(&state))
         }
-        "query" => {
+        "query" | "query-expression" => {
             let term = value.ok_or_else(|| failure(2, "usage"))?;
             {
                 let s = shared.lock().map_err(|_| failure(5, "host_fault"))?;
@@ -472,9 +472,12 @@ fn do_request(
                 }
             }
             let snapshot = db.snapshot().map_err(mac::classify)?;
-            let paths = snapshot
-                .lookup(term)
-                .map_err(|e| mac::classify(DurableError::Index(e)))?;
+            let paths = if command == "query-expression" {
+                snapshot.lookup_expression(term)
+            } else {
+                snapshot.lookup(term)
+            }
+            .map_err(|e| mac::classify(DurableError::Index(e)))?;
             {
                 let s = shared.lock().map_err(|_| failure(5, "host_fault"))?;
                 if s.panic_latch.load(Ordering::Acquire) {
@@ -485,7 +488,7 @@ fn do_request(
                 }
             }
             Ok(
-                json!({"operation":"host-query","generation":snapshot.generation(),"order":"unspecified","paths":paths}),
+                json!({"operation":if command == "query-expression" {"host-query-expression"} else {"host-query"},"generation":snapshot.generation(),"order":"unspecified","paths":paths}),
             )
         }
         "index" => {

@@ -158,6 +158,9 @@ mod mac {
             [command, control, term] if command == "host-query" => {
                 crate::host::client(control, "query", Some(term))
             }
+            [command, control, expression] if command == "host-query-expression" => {
+                crate::host::client(control, "query-expression", Some(expression))
+            }
             [command, control, expected] if command == "host-index" => {
                 crate::host::client(control, "index", Some(expected))
             }
@@ -206,6 +209,16 @@ mod mac {
                 let db = open(store, src, proj)?;
                 let id = index(&db, expected, &token).map_err(classify)?;
                 Ok(json!({"operation":"index","generation":id}))
+            }
+            [command, store, src, proj, expression] if command == "query-expression" => {
+                let db = open(store, src, proj)?;
+                let snapshot = db.snapshot().map_err(classify)?;
+                let paths = snapshot
+                    .lookup_expression(expression)
+                    .map_err(|e| classify(DurableError::Index(e)))?;
+                Ok(
+                    json!({"operation":"query-expression","generation":snapshot.generation(),"order":"unspecified","paths":paths}),
+                )
             }
             [command, store, src, proj, term] if command == "query" => {
                 let db = open(store, src, proj)?;

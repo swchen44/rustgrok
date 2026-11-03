@@ -1,0 +1,36 @@
+{
+  "upstream_commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+  "files": [
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/search/QueryBuilder.java",
+      "sha256": "40097df820d25c0c6e86cdc8754dbca8b92b650f5a5470bff652b7b240fcc226",
+      "license": "CDDL-1.0"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/search/CustomQueryParser.java",
+      "sha256": "9b31c62897dc7f39d7c7ad0d096ff43dc26a61503aa8b6dc462fdc4ad99e83d4",
+      "license": "CDDL-1.0"
+    },
+    {
+      "path": "opengrok-indexer/src/main/java/org/opengrok/indexer/analysis/PathTokenizer.java",
+      "sha256": "afdb3bf8257416d9d7c84a15862fb48c7dc7b04e582c25a8548e34bdcfcb7120",
+      "license": "CDDL-1.0"
+    },
+    {
+      "path": "opengrok-indexer/src/test/java/org/opengrok/indexer/search/SearchEngineTest.java",
+      "sha256": "c9cb587bcce14a07534a5c9c18ef0298b59067ac2effed5d9a9ff416c4eb249e",
+      "license": "CDDL-1.0"
+    },
+    {
+      "path": "opengrok-indexer/src/test/java/org/opengrok/indexer/analysis/PathTokenizerTest.java",
+      "sha256": "a8a190b5bccc420b8dace8573af381d1948055dde36e646575259a830cc19f5c",
+      "license": "CDDL-1.0"
+    },
+    {
+      "path": "opengrok-indexer/src/main/jflex/search/PathQueryEscaper.lex",
+      "sha256": "bdcf845f5f9977d71f222efba7fc38976c1fae8451f43e031a5c1efd828e5b06",
+      "license": "CDDL-1.0"
+    }
+  ],
+  "scope": "verified upstream source research, no claim upstream suite ran"
+}

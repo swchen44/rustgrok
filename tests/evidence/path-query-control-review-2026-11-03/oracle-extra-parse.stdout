@@ -1,0 +1,18 @@
+YWxwaGEMYmV0YQ==	OK	+path:alpha +path:beta
+YWxwaGEJYmV0YQ==	OK	+path:alpha +path:beta
+YWxwaGEKYmV0YQ==	OK	+path:alpha +path:beta
+YWxwaGENYmV0YQ==	OK	+path:alpha +path:beta
+YWxwaGEgQU5EDGJldGE=	OK	+path:alpha +path:and +path:beta
+K2FscGhhIEFORCBiZXRh	OK	+path:alpha +path:beta
+YWxwaGEgTk9UIChOT1QgYmV0YSk=	OK	+path:alpha -(-path:beta)
+KE5PVCBhbHBoYSkgT1IgKGJldGEgZ2FtbWEp	OK	(-path:alpha) (+path:beta +path:gamma)
+Tk9UIChOT1QgYWxwaGEp	OK	-(-path:alpha)
+YWxwaGEgb3IgYmV0YQ==	OK	+path:alpha +path:or +path:beta
+YWxwaGEgT3IgYmV0YQ==	OK	+path:alpha +path:or +path:beta
+YWxwaGEgbm90IGJldGE=	OK	+path:alpha +path:not +path:beta
+YWxwaGEgLWJldGEgZ2FtbWE=	OK	+path:alpha -path:beta +path:gamma
+KGFscGhhKWJldGE=	OK	+path:alpha +path:beta
+YWxwaGEgT1IgKGJldGEgTk9UIGdhbW1hKQ==	OK	path:alpha (+path:beta -path:gamma)
+X2FscGhh	OK	path:_alpha
+MTIz	OK	path:123
+YWxwaGFfX19mb28=	OK	path:alpha___foo

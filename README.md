@@ -74,7 +74,7 @@ Q13／Q14已確認命名與新原創碼的授權分工；[查核紀錄](docs/res
 
 2026-11-01 已開始 G0 執行，工作由 [WP-A04 #1](https://github.com/swchen44/rustgrok/issues/1)、[WP-A05 #2](https://github.com/swchen44/rustgrok/issues/2)、[WP-A06 #3](https://github.com/swchen44/rustgrok/issues/3) 追蹤。已保存固定 Git tree 與部分靜態功能清單；Tomcat oracle archive 已獨立驗 SHA-512。完整 source checkout 的 1,816 檔已逐一核對 Git blob 與 SHA-256；OpenGrok release與compact JRE已驗hash並執行有限CLI探測；完整JDK已驗archive、java／javac並用於有限索引／HTTP；完整oracle及產品驗收未通過。現況、證據及未完成邊界見 [G0 執行紀錄](docs/19-g0-execution-log.md)。
 
-已建立有限的 [path analysis library](crates/analysis/README.md)，支援有限的 ASCII／Unicode 子集，其他輸入明確拒絕；其餘產品功能尚未完成。完成官方文件與關鍵原始碼靜態研究，以及需求、設計、實作、驗證與分發計畫更新。未宣稱完整逐行審查整個上游，也未在目標 OS 建置／啟動產品。全部 80 測試是規格，沒有產品功能、效能、離線或視覺 PASS。
+已實作有限的 [path analysis library](crates/analysis/README.md)、單 project path index、macOS 開發中 [CLI 與本機 host](apps/grok-host/README.md)，並執行受限的原版 oracle、crate integration 與 subprocess correctness 測試。支援範圍與錯誤界線見各元件文件；完整搜尋、Web、SCM、跨平台與產品發行尚未完成。這些局部結果不等於[全部 80 項產品測試](docs/05-verification-plan.md)通過，也不等於完整效能、離線或視覺驗收。
 
 這份 ZIP 是可提交 GitHub 的**規劃與文件包**，不是可執行的完整 Rustgrok 產品或最終產品離線包。沒有用空白 tests／占位 npm test 偽裝可驗收產品。
 

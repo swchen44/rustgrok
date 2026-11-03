@@ -323,6 +323,22 @@ fn queries_keep_old_generation_during_build_then_switch_and_restart() {
         success(f.run(&["host-query", f.c(), "extra"])),
         json!({"operation":"host-query","generation":1,"order":"unspecified","paths":[]})
     );
+    assert_eq!(
+        success(f.run(&["host-query-expression", f.c(), "alpha AND extra"])),
+        json!({"operation":"host-query-expression","generation":1,"order":"unspecified","paths":[]})
+    );
+    for op in ["AND", "OR", "NOT"] {
+        let input = format!("alpha {op}\u{c}extra");
+        error(
+            f.run(&["host-query-expression", f.c(), &input]),
+            4,
+            "unsupported_or_limit",
+        );
+    }
+    assert_eq!(
+        success(f.run(&["host-query-expression", f.c(), "alpha AND main"])),
+        json!({"operation":"host-query-expression","generation":1,"order":"unspecified","paths":["/alpha/main.c"]})
+    );
     let busy = f.run(&["query", f.t(), f.s(), "alpha", "main"]);
     assert_eq!(busy.status.code(), Some(3));
     let second = f.run(&["host-index", f.c(), "1"]);
@@ -332,6 +348,10 @@ fn queries_keep_old_generation_during_build_then_switch_and_restart() {
     assert_eq!(
         success(f.run(&["host-query", f.c(), "extra"]))["paths"],
         json!(["/alpha/extra.js"])
+    );
+    assert_eq!(
+        success(f.run(&["host-query-expression", f.c(), "alpha AND extra"])),
+        json!({"operation":"host-query-expression","generation":2,"order":"unspecified","paths":["/alpha/extra.js"]})
     );
     success(f.run(&["host-stop", f.c()]));
     host.wait();
@@ -390,6 +410,10 @@ fn cancelled_failed_and_stale_jobs_keep_previous_generation() {
     assert_eq!(
         success(f.run(&["host-query", f.c(), "extra"]))["generation"],
         1
+    );
+    assert_eq!(
+        success(f.run(&["host-query-expression", f.c(), "alpha AND extra"])),
+        json!({"operation":"host-query-expression","generation":1,"order":"unspecified","paths":[]})
     );
     fs::write(f.source.join("bad.txt"), b"unsupported\n").unwrap();
     success(f.run(&["host-index", f.c(), "1"]));
@@ -647,6 +671,11 @@ fn oversized_query_response_returns_error_not_partial_results() {
     drop(db);
     let mut host = Host::start(&f, false, true);
     error(f.run(&["host-query", f.c(), "common"]), 4, "result_limit");
+    error(
+        f.run(&["host-query-expression", f.c(), "alpha AND common"]),
+        4,
+        "result_limit",
+    );
     assert_eq!(
         success(f.run(&["host-query", f.c(), "absent"]))["paths"],
         json!([])
@@ -984,4 +1013,33 @@ fn readiness_timeout_reaps_stopped_child_and_reports_cleanup() {
         std::io::Error::last_os_error().raw_os_error(),
         Some(libc::ECHILD)
     );
+}
+
+#[test]
+fn subprocess_host_path_expression_uses_published_generation() {
+    let f = Fixture::new();
+    f.initialize();
+    let mut host = f.start(false);
+    success(f.run(&["host-index", f.c(), "none"]));
+    wait_job(&f, 1, "succeeded");
+    assert_eq!(
+        success(f.run(&["host-query-expression", f.c(), "alpha AND main"])),
+        json!({"operation":"host-query-expression","generation":1,"order":"unspecified","paths":["/alpha/main.c"]})
+    );
+    for op in ["AND", "OR", "NOT"] {
+        let input = format!("alpha {op}\u{c}main");
+        error(
+            f.run(&["host-query-expression", f.c(), &input]),
+            4,
+            "unsupported_or_limit",
+        );
+    }
+    let bad = f.run(&["host-query-expression", f.c(), "main OR alpha AND absent"]);
+    assert_eq!(bad.status.code(), Some(4));
+    assert_eq!(
+        success(f.run(&["host-query", f.c(), "main"]))["paths"],
+        json!(["/alpha/main.c"])
+    );
+    success(f.run(&["host-stop", f.c()]));
+    host.wait();
 }

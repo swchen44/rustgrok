@@ -1,0 +1,70 @@
+{
+  "scope": "local native macOS correctness tests, no performance test",
+  "environment": {
+    "CARGO_BUILD_JOBS": "1",
+    "CARGO_TARGET_DIR": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target",
+    "TMPDIR": "/private/tmp"
+  },
+  "runs": [
+    {
+      "label": "path-index",
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "crates/path-index/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "f22e170a3dea3cf90c6b4c4a9f8436cd03e5b7dd0df5a2816ca93c7a5242df82",
+      "stderr_sha256": "d052e2705e03f5f0117165124e1589c057cb7e78969f70d6350cb925d6a4eb20"
+    },
+    {
+      "label": "host-default",
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "apps/grok-host/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "864fceb6cf9972a2cdb96fd4821bffbd339494904d47c6d303fb6660d158f73a",
+      "stderr_sha256": "5a252db52ccf9d74e8f4520701d21a0ec335892d417f49cc0eeb3f34bd22cedd"
+    },
+    {
+      "label": "host-hooks",
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "apps/grok-host/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--features",
+        "test-hooks",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "14f0c409e33bc5818ad0a132ac75161b0c8c7e63d1a8dbc7c14c298f6d416595",
+      "stderr_sha256": "6111cfeb100ba0a852d98d0587f35c7e198920e3d653e4d8631383b15db18fe9"
+    }
+  ],
+  "inputs": {
+    "crates/path-index/src/lib.rs": "cb1fd78c020197dde0abf8baaf98de8f30b7613097f5ee7526b2b6215e29f414",
+    "crates/path-index/src/query.rs": "ed067bd06213ba30486bfff267862e225e542ccbd6470248364403452f9bf99d",
+    "crates/path-index/tests/path_expression.rs": "9417ce4a6a18c6759f6e5ca63c87f60429f1cb16a58c9abfd244d1dfd2070806",
+    "apps/grok-host/src/main.rs": "43483742b3d545cd8c75f3bae7116578a08f1d8ce712c384eb632a6e918219de",
+    "apps/grok-host/src/host.rs": "885a126d4319cb8acae164e1db6be65e34090996705ad718532fccf11528a376",
+    "apps/grok-host/tests/cli_e2e.rs": "502fb6b8bcb03781e718ffa514cadc170f1bc4ebb854e5a77dc5846d31ac6eb8",
+    "apps/grok-host/tests/host_e2e.rs": "fec2de99b80888dc549cfe24bdc34ef272e14e57ee2cdf3449331271129f41c9",
+    "tests/evidence/path-query-2026-11-03/oracle-accepted.tsv": "40f08d944b282299d15e4c0e3375a0b5bb4f0917ee9464d3965ebadef4e5b04b"
+  }
+}
