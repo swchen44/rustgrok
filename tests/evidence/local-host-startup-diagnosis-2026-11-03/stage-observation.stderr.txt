@@ -1,0 +1,16 @@
+   Compiling rustgrok-analysis v0.1.0 (/private/tmp/rustgrok-host-514e-debug-20261103/stage-only-u346x151/crates/analysis)
+   Compiling rustgrok-path-index v0.1.0 (/private/tmp/rustgrok-host-514e-debug-20261103/stage-only-u346x151/crates/path-index)
+   Compiling rustgrok v0.1.0 (/private/tmp/rustgrok-host-514e-debug-20261103/stage-only-u346x151/apps/grok-host)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.25s
+     Running tests/host_e2e.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/host_e2e-a302a4ce53da7bfc)
+[DEBUG-stage] control-start
+[DEBUG-stage] control-done
+[DEBUG-stage] store-open-start
+[DEBUG-stage] decode-start
+[DEBUG-stage] decode-done
+[DEBUG-stage] recovery-sync-start
+[DEBUG-stage] recovery-sync-done
+[DEBUG-stage] store-open-done
+[DEBUG-stage] bind-start
+[DEBUG-stage] bind-done
+[DEBUG-stage] readiness-flushed

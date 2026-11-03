@@ -252,6 +252,15 @@ impl DurablePathIndex {
             Some(_observer),
         )
     }
+    #[cfg(feature = "fault-injection")]
+    pub fn replace_from_source_with_fault(
+        &self,
+        expected: Option<u64>,
+        cancellation: &CancellationToken,
+        fault: FaultPoint,
+    ) -> Result<u64, DurableError> {
+        self.scan_replace(expected, cancellation, fault, None)
+    }
     /// Indexes the documented constrained source layout. Caller coordinates source mutations.
     pub fn replace_from_source(
         &self,

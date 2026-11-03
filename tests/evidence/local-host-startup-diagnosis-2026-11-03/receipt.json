@@ -1,0 +1,102 @@
+{
+  "scope": "startup-harness diagnosis, not proof of historical timeout cause",
+  "base_commit": "514e342b6f875ec5a71dabcad1a6e317fe3fecbc",
+  "utc": "2026-11-03T00:25:11.740614+00:00",
+  "environment": {
+    "TMPDIR": "/private/tmp",
+    "CARGO_BUILD_JOBS": "1",
+    "CARGO_TARGET_DIR": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target"
+  },
+  "inputs": {
+    "apps/grok-host/Cargo.toml": "bbb92dbacf391c3ad373e97142638c04a8da99935b9af21bc734abb45d771bce",
+    "apps/grok-host/Cargo.lock": "660ab27faba2d82702e287f0e908ddb427764fd30605cfbd922508843250b3ba",
+    "apps/grok-host/src/main.rs": "51ca900a0ce6a65628647960732881a37e39e3bce9b2bde9c7652e9a04a839f7",
+    "apps/grok-host/src/host.rs": "21259e1e0aa67609d1a750bfe9bdd024412fa88ce8fd258d62c11048d8e9338b",
+    "apps/grok-host/tests/host_e2e.rs": "57aeb15fbc5aa39e9ed6d4a153971eeb2cb7d90670afc2f47069da0ed00af5dc",
+    "crates/path-index/src/durable.rs": "7354da54968de8ec8f626b1e9c0ced157bfb0b40c634fc8657af7506c2f22d41",
+    "tests/evidence/local-path-host-security-2026-11-03/receipt.json": "044f8740d3243a9f75cba165ab29ac4ecfc73d4281df2c22bcb14b6d492d534a"
+  },
+  "raw_file_sha256": {
+    "tests/evidence/local-host-startup-diagnosis-2026-11-03/exact-2.stderr.txt": "2cb1567592218db9090012f1f36815a8b39355e8573e21ff392ae3e26915e4ee",
+    "tests/evidence/local-host-startup-diagnosis-2026-11-03/exact-2.stdout.txt": "c851b28fe5b7113ff4f00562e33cabe80576726e89684be9354480b1e798966f",
+    "tests/evidence/local-host-startup-diagnosis-2026-11-03/post-default.stderr.txt": "9631c5d41b9339ca872de90891d6ea3964907c08f8e02dcf965f030d2b09404e",
+    "tests/evidence/local-host-startup-diagnosis-2026-11-03/post-default.stdout.txt": "47074e8abcecc963d7a37dc3233e4e80ea3bf4be6cb2a119d2a98b9564232cef",
+    "tests/evidence/local-host-startup-diagnosis-2026-11-03/post-exact.stderr.txt": "64976cb110f35711a04e888f886f08bd20a071da2f97809aee0c182766ea0912",
+    "tests/evidence/local-host-startup-diagnosis-2026-11-03/post-exact.stdout.txt": "c852a6fdc9dd65d4fa6479f28978ce3c02f4a483c7181fb017c953fea3d4d52d",
+    "tests/evidence/local-host-startup-diagnosis-2026-11-03/post-hooks.stderr.txt": "bfb0d1cd90cb8dc061458f4672aead11fa333baccd434b7ea64914b7c8bff4dc",
+    "tests/evidence/local-host-startup-diagnosis-2026-11-03/post-hooks.stdout.txt": "800d5c1acc0c74331ca718adbb7ef5ee9269bc023cf83981398f5f9f99717db0",
+    "tests/evidence/local-host-startup-diagnosis-2026-11-03/reviewer-default-response-limit-rerun.stderr.txt": "cea1a15338f5641079ed8d9c1893d855709dbc83eab21d9831e8dbe108d78499",
+    "tests/evidence/local-host-startup-diagnosis-2026-11-03/reviewer-default-response-limit-rerun.stdout.txt": "8b920615652fdd7291bb73be105058988f444631576b4cc0cd5949494de88b04",
+    "tests/evidence/local-host-startup-diagnosis-2026-11-03/reviewer-default.stderr.txt": "9f8c8543ea3e5a321681631c7ad748aa25ef094e7d61e2e6e50846f3793c66f4",
+    "tests/evidence/local-host-startup-diagnosis-2026-11-03/reviewer-default.stdout.txt": "47e208a16173d202c36434279cb316fe25b50db6271270fd7b43e894a978d90c",
+    "tests/evidence/local-host-startup-diagnosis-2026-11-03/stage-observation.stderr.txt": "375ed8efd6cd90aed768f1d208ce5d2e2d626241e0a86622d65491786159f67c",
+    "tests/evidence/local-host-startup-diagnosis-2026-11-03/stage-observation.stdout.txt": "affd8b8dea999790d13ebd60428ec292dca391ce897dddff421de0e750159272"
+  },
+  "runs": [
+    {
+      "label": "post-default",
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "apps/grok-host/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "47074e8abcecc963d7a37dc3233e4e80ea3bf4be6cb2a119d2a98b9564232cef",
+      "stderr_sha256": "9631c5d41b9339ca872de90891d6ea3964907c08f8e02dcf965f030d2b09404e",
+      "binary_sha256": "56bcbe6e6c5ce2e6a06a2d814b196e54e31724308c3747e4a81ef478f50305e8",
+      "binary_local_path": "~/Library/Caches/rustgrok/evidence-binaries/sha256-56bcbe6e6c5ce2e6a06a2d814b196e54e31724308c3747e4a81ef478f50305e8-rustgrok",
+      "binary_bytes": 2146488,
+      "binary_retention": "target binary observed and verified immediately after test before next build"
+    },
+    {
+      "label": "post-hooks",
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "apps/grok-host/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--features",
+        "test-hooks",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "800d5c1acc0c74331ca718adbb7ef5ee9269bc023cf83981398f5f9f99717db0",
+      "stderr_sha256": "bfb0d1cd90cb8dc061458f4672aead11fa333baccd434b7ea64914b7c8bff4dc",
+      "binary_sha256": "f68da5f735946dfc7af7900a70a8b8436c4234aa1898b684ef69945879573917",
+      "binary_local_path": "~/Library/Caches/rustgrok/evidence-binaries/sha256-f68da5f735946dfc7af7900a70a8b8436c4234aa1898b684ef69945879573917-rustgrok",
+      "binary_bytes": 2203080,
+      "binary_retention": "target binary observed and verified immediately after test before next build"
+    }
+  ],
+  "pre_fix_observation": "four exact cargo runs and ten direct-harness runs passed in this session; raw fourth exact and all direct runs remain in the explicitly marked local debug directory, not all copied to repo",
+  "diagnostic_copy": "/private/tmp/rustgrok-host-514e-debug-20261103/stage-only-u346x151",
+  "finding": "reviewer timeout remains unexplained; separate setup-panic child leak fixed in test harness",
+  "post_exact": {
+    "command": [
+      "cargo",
+      "test",
+      "--manifest-path",
+      "apps/grok-host/Cargo.toml",
+      "--locked",
+      "--offline",
+      "--test",
+      "host_e2e",
+      "oversized_query_response_returns_error_not_partial_results",
+      "--",
+      "--exact",
+      "--test-threads=1"
+    ],
+    "exit_code": 0,
+    "stdout_sha256": "c852a6fdc9dd65d4fa6479f28978ce3c02f4a483c7181fb017c953fea3d4d52d",
+    "stderr_sha256": "64976cb110f35711a04e888f886f08bd20a071da2f97809aee0c182766ea0912"
+  },
+  "reviewer_subset_sha256": "d77e6b1128c8c495112e9cb49db7f820206b780273c398e518518ef7ebd7c9fb"
+}

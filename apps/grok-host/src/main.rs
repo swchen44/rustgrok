@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 // Copyright (c) 2026 swchen44
 #[cfg(target_os = "macos")]
+mod host;
+#[cfg(target_os = "macos")]
 mod mac {
     use rustgrok_path_index::durable::{DurableError, DurablePathIndex};
     use rustgrok_path_index::{CancellationToken, IndexError, IndexLimits};
@@ -83,23 +85,23 @@ mod mac {
         db.replace_from_source(expected, token)
     }
 
-    const LIMITS: IndexLimits = IndexLimits {
+    pub(crate) const LIMITS: IndexLimits = IndexLimits {
         max_documents: 50_000,
         max_path_bytes: 4096,
         max_total_path_bytes: 16 * 1024 * 1024,
         max_live_generations: 2,
     };
-    const MAX_GENERATION: u64 = 1_000_000;
-    struct Failure {
-        code: i32,
-        label: &'static str,
+    pub(crate) const MAX_GENERATION: u64 = 1_000_000;
+    pub(crate) struct Failure {
+        pub(crate) code: i32,
+        pub(crate) label: &'static str,
     }
     impl Failure {
-        fn new(code: i32, label: &'static str) -> Self {
+        pub(crate) fn new(code: i32, label: &'static str) -> Self {
             Self { code, label }
         }
     }
-    fn classify(error: DurableError) -> Failure {
+    pub(crate) fn classify(error: DurableError) -> Failure {
         match error {
             DurableError::Busy | DurableError::Index(IndexError::WriterBusy) => {
                 Failure::new(3, "busy")
@@ -125,20 +127,20 @@ mod mac {
             && s.bytes()
                 .all(|b| b.is_ascii_lowercase() || b.is_ascii_digit() || b == b'_' || b == b'-')
     }
-    fn source(s: &str) -> Result<&Path, Failure> {
+    pub(crate) fn source(s: &str) -> Result<&Path, Failure> {
         let p = Path::new(s);
         if !p.is_absolute() {
             return Err(Failure::new(2, "usage"));
         }
         Ok(p)
     }
-    fn project(s: &str) -> Result<&str, Failure> {
+    pub(crate) fn project(s: &str) -> Result<&str, Failure> {
         if !valid_project(s) {
             return Err(Failure::new(2, "usage"));
         }
         Ok(s)
     }
-    fn open(store: &str, src: &str, name: &str) -> Result<DurablePathIndex, Failure> {
+    pub(crate) fn open(store: &str, src: &str, name: &str) -> Result<DurablePathIndex, Failure> {
         DurablePathIndex::open(
             source(store)?,
             source(src)?,
@@ -150,6 +152,28 @@ mod mac {
     }
     fn run(args: &[String]) -> Result<Value, Failure> {
         match args {
+            [command, store, src, proj, control] if command == "host" => {
+                crate::host::serve(store, src, proj, control)
+            }
+            [command, control, term] if command == "host-query" => {
+                crate::host::client(control, "query", Some(term))
+            }
+            [command, control, expected] if command == "host-index" => {
+                crate::host::client(control, "index", Some(expected))
+            }
+            [command, control] if command == "host-status" => {
+                crate::host::client(control, "status", None)
+            }
+            [command, control] if command == "host-cancel" => {
+                crate::host::client(control, "cancel", None)
+            }
+            [command, control] if command == "host-stop" => {
+                crate::host::client(control, "stop", None)
+            }
+            #[cfg(feature = "test-hooks")]
+            [command, control] if command == "host-test-release" => {
+                crate::host::client(control, "test-release", None)
+            }
             [command, parent, name, src, proj] if command == "create" => {
                 DurablePathIndex::create(
                     source(parent)?,
