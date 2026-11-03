@@ -4,6 +4,7 @@
 mod host;
 #[cfg(target_os = "macos")]
 mod mac {
+    use rustgrok_path_index::durable::batch::{BatchLimits, DurableBatchIndex};
     use rustgrok_path_index::durable::{DurableError, DurablePathIndex};
     use rustgrok_path_index::{CancellationToken, IndexError, IndexLimits};
     use serde_json::{json, Value};
@@ -91,6 +92,12 @@ mod mac {
         max_total_path_bytes: 16 * 1024 * 1024,
         max_live_generations: 2,
     };
+    const BATCH_LIMITS: BatchLimits = BatchLimits {
+        per_project: LIMITS,
+        max_projects: 32,
+        max_batch_documents: 50_000,
+        max_batch_path_bytes: 16 * 1024 * 1024,
+    };
     pub(crate) const MAX_GENERATION: u64 = 1_000_000;
     pub(crate) struct Failure {
         pub(crate) code: i32,
@@ -150,6 +157,50 @@ mod mac {
         )
         .map_err(classify)
     }
+    fn expected_generation(value: &str) -> Result<Option<u64>, Failure> {
+        if value == "none" {
+            return Ok(None);
+        }
+        if value.is_empty() || !value.bytes().all(|b| b.is_ascii_digit()) {
+            return Err(Failure::new(2, "usage"));
+        }
+        let n = value.parse::<u64>().map_err(|_| Failure::new(2, "usage"))?;
+        if n == 0 {
+            return Err(Failure::new(2, "usage"));
+        }
+        Ok(Some(n))
+    }
+    fn batch_index(
+        db: &DurableBatchIndex,
+        expected: Option<u64>,
+        projects: &[String],
+        token: &CancellationToken,
+    ) -> Result<u64, DurableError> {
+        #[cfg(feature = "test-hooks")]
+        if std::env::var_os("RUSTGROK_TEST_PAUSE").as_deref() == Some(std::ffi::OsStr::new("1")) {
+            use std::io::Read;
+            let mut pause = || {
+                eprintln!("RUSTGROK_TEST_PAUSED");
+                let mut byte = [0u8; 1];
+                let _ = std::io::stdin().read_exact(&mut byte);
+            };
+            if std::env::var_os("RUSTGROK_TEST_BATCH_PAUSE_SECOND").as_deref()
+                == Some(std::ffi::OsStr::new("1"))
+            {
+                return db.replace_from_source_with_second_project_observer(
+                    expected, projects, token, &mut pause,
+                );
+            }
+            return db.replace_from_source_with_precommit_observer(
+                expected, projects, token, &mut pause,
+            );
+        }
+        db.replace_from_source(expected, projects, token)
+    }
+    fn open_batch(store: &str, src: &str) -> Result<DurableBatchIndex, Failure> {
+        DurableBatchIndex::open(source(store)?, source(src)?, BATCH_LIMITS, MAX_GENERATION)
+            .map_err(classify)
+    }
     fn run(args: &[String]) -> Result<Value, Failure> {
         match args {
             [command, store, src, proj, control] if command == "host" => {
@@ -177,6 +228,46 @@ mod mac {
             [command, control] if command == "host-test-release" => {
                 crate::host::client(control, "test-release", None)
             }
+            [command, parent, name, src] if command == "batch-create" => {
+                DurableBatchIndex::create(
+                    source(parent)?,
+                    name,
+                    source(src)?,
+                    BATCH_LIMITS,
+                    MAX_GENERATION,
+                )
+                .map_err(classify)?;
+                Ok(json!({"operation":"batch-create","status":"created"}))
+            }
+            [command, store, src, expected, projects @ ..]
+                if command == "batch-index" && !projects.is_empty() =>
+            {
+                let expected = expected_generation(expected)?;
+                for name in projects {
+                    project(name)?;
+                }
+                let token = Arc::new(CancellationToken::new());
+                let _signals = SignalMonitor::start(Arc::clone(&token))?;
+                let db = open_batch(store, src)?;
+                let id = batch_index(&db, expected, projects, &token).map_err(classify)?;
+                Ok(json!({"operation":"batch-index","generation":id}))
+            }
+            [command, store, src, name, query]
+                if command == "batch-query" || command == "batch-query-expression" =>
+            {
+                project(name)?;
+                let db = open_batch(store, src)?;
+                let snapshot = db.snapshot().map_err(classify)?;
+                let paths = if command == "batch-query" {
+                    snapshot.lookup(name, query)
+                } else {
+                    snapshot.lookup_expression(name, query)
+                }
+                .map_err(classify)?;
+                Ok(
+                    json!({"operation":command,"generation":snapshot.generation(),"order":"unspecified","paths":paths}),
+                )
+            }
             [command, parent, name, src, proj] if command == "create" => {
                 DurablePathIndex::create(
                     source(parent)?,
@@ -190,20 +281,7 @@ mod mac {
                 Ok(json!({"operation":"create","status":"created"}))
             }
             [command, store, src, proj, expected] if command == "index" => {
-                let expected = if expected == "none" {
-                    None
-                } else {
-                    if expected.is_empty() || !expected.bytes().all(|b| b.is_ascii_digit()) {
-                        return Err(Failure::new(2, "usage"));
-                    }
-                    let n = expected
-                        .parse::<u64>()
-                        .map_err(|_| Failure::new(2, "usage"))?;
-                    if n == 0 {
-                        return Err(Failure::new(2, "usage"));
-                    }
-                    Some(n)
-                };
+                let expected = expected_generation(expected)?;
                 let token = Arc::new(CancellationToken::new());
                 let _signals = SignalMonitor::start(Arc::clone(&token))?;
                 let db = open(store, src, proj)?;

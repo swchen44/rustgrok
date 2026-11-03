@@ -88,3 +88,7 @@ tests/evidence/path-query-control-review-2026-11-03/original-http/*.body -text w
 
 # Preserve native batch-publication correctness streams.
 tests/evidence/batch-publication-2026-11-03/*.txt -text whitespace=-blank-at-eof,-blank-at-eol
+
+# Preserve batch source/CLI correctness streams.
+tests/evidence/batch-source-cli-2026-11-03/*.txt -text whitespace=-blank-at-eof,-blank-at-eol
+tests/evidence/batch-source-cli-2026-11-03/pre-lint/*.txt -text whitespace=-blank-at-eof,-blank-at-eol

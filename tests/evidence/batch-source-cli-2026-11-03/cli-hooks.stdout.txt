@@ -1,0 +1,54 @@
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 5 tests
+test failed_second_project_and_changed_registry_preserve_old_batch ... ok
+test real_sigint_cancels_batch_and_other_process_reports_busy ... ok
+test second_project_changes_after_scan_abort_whole_batch ... ok
+test single_and_batch_stores_refuse_cross_open_and_unknown_project ... ok
+test subprocess_two_project_source_batch_publishes_one_generation ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.04s
+
+
+running 6 tests
+test competing_query_reports_busy_while_real_index_process_holds_store_lock ... ok
+test errors_are_explicit_and_failed_updates_preserve_previous_generation ... ok
+test observed_source_change_aborts_real_index_before_publication ... ok
+test sigint_cancels_real_index_and_keeps_old_generation ... ok
+test subprocess_index_query_add_remove_and_restart ... ok
+test subprocess_path_expression_queries_are_explicit_and_unranked ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.65s
+
+
+running 23 tests
+test ambiguous_and_invalid_json_frames_have_no_side_effects ... ok
+test cancelled_failed_and_stale_jobs_keep_previous_generation ... ok
+test caught_worker_panic_cannot_serve_queries_before_fault_publication ... ok
+test client_times_out_if_same_user_socket_never_replies ... ok
+test fragmented_valid_request_is_accepted_before_deadline ... ok
+test host_build_query_stop_and_restart ... ok
+test indeterminate_publication_fails_closed_until_reopen ... ok
+test killed_host_keeps_old_generation_and_does_not_remove_stale_socket ... ok
+test overlong_unix_socket_path_is_rejected_before_bind ... ok
+test oversized_frame_and_client_limit_fail_closed_then_recover ... ok
+test oversized_query_response_returns_error_not_partial_results ... ok
+test queries_keep_old_generation_during_build_then_switch_and_restart ... ok
+test readiness_timeout_reaps_stopped_child_and_reports_cleanup ... ok
+test renamed_control_and_symlink_swap_cannot_write_or_unlink_inside_source ... ok
+test sigterm_cancels_worker_then_releases_store_and_socket ... ok
+test startup_helper_reaps_child_if_setup_panics_after_spawn ... ok
+test stop_during_build_requests_cancellation_and_requires_retry ... ok
+test subprocess_host_path_expression_uses_published_generation ... ok
+test trickle_request_has_a_whole_frame_deadline ... ok
+test trusted_sticky_ancestor_can_host_private_control_directory ... ok
+test unsafe_control_paths_and_existing_socket_are_rejected_without_overwrite ... ok
+test untrusted_writable_ancestor_and_extended_acl_fail_before_bind ... ok
+test worker_panic_blocks_requests_until_restart ... ok
+
+test result: ok. 23 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 15.80s
+
