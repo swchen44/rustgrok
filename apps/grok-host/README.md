@@ -97,4 +97,23 @@ rustgrok batch-query-expression STORE SOURCE_ROOT PROJECT EXPRESSION
 
 Each named project is scanned with the existing restricted scanner, using the same file types, hidden-name and `.git` policy. Duplicate, missing, symlink, unsupported, unreadable or over-limit inputs fail the whole job. The complete set is observed again immediately before the one commit; differences fail without publishing. Both old/new data and cancellation follow the existing durable contract. The source and store are disjoint, and source bytes are never modified. The caller must coordinate source changes during the entire operation: metadata comparison cannot prove unchanged contents or prevent a change after the final check. The accepted aggregate limits are 32 projects, 50,000 source paths, 16 MiB logical path bytes, and `8 * max_batch_documents + 128 * project_count` traversed directory entries. Aggregate checks run after each project, so an unsuccessful scan can additionally visit up to one project’s scanner budget before rejection; per-project scanner bounds also apply.
 
-Batch queries return `generation`, `order: "unspecified"` and complete unordered candidates for the selected project. The direct CLI holds the store's exclusive process lock; another batch-query returns `busy` while indexing, so this direct interface does not yet maintain Q8 read availability during updates. Batch stores and single-project stores cannot be opened as each other. The single-project host does not serve batch stores. Complete Q8, cross-project ranked search, project registration/removal, Web and platform acceptance remain incomplete. See [batch scanner evidence](../../tests/evidence/batch-source-cli-2026-11-03/README.md).
+Batch queries return `generation`, `order: "unspecified"` and complete unordered candidates for the selected project. The direct CLI holds the store's exclusive process lock; another batch-query returns `busy` while indexing, so this direct interface does not yet maintain Q8 read availability during updates. Batch stores and single-project stores cannot be opened as each other. The existing single-project host does not serve batch stores; the separate batch host described below does. Complete Q8, cross-project ranked search, project registration/removal, Web and platform acceptance remain incomplete. See [batch scanner evidence](../../tests/evidence/batch-source-cli-2026-11-03/README.md).
+
+
+### Local batch host
+
+The same private Unix socket and owner/peer checks also support the following explicitly separate batch mode. Create a marked batch store first with `batch-create`; existing single-project host commands and store formats remain independent.
+
+```text
+rustgrok batch-host STORE SOURCE_ROOT CONTROL_DIR
+rustgrok batch-host-index CONTROL_DIR EXPECTED PROJECT [PROJECT ...]
+rustgrok batch-host-query CONTROL_DIR PROJECT TERM
+rustgrok batch-host-query-expression CONTROL_DIR PROJECT EXPRESSION
+rustgrok batch-host-status CONTROL_DIR
+rustgrok batch-host-cancel CONTROL_DIR
+rustgrok batch-host-stop CONTROL_DIR
+```
+
+The first successful job fixes the registry, and each later job requires the same complete set. While a job scans or builds, other local clients can query its previously successful batch. Each query response contains one batch `generation` and unordered paths from that snapshot. Separate requests may naturally fall on opposite sides of a successful commit; clients can compare generation IDs. Failure or accepted cancellation leaves the old batch; a worker panic or indeterminate publication blocks new reads and writes until restart. Direct batch commands cannot open the store while the host owns it and return `busy`.
+
+The existing socket permission, ACL/ancestor checks, bounded frames, three-second connect/read/write deadlines, eight client handlers, one active writer and graceful shutdown rules apply. Reader reconstruction is serialized and can wait for another reader; writer validation uses independent scratch. Filesystem work, query execution and waiting for a reader are not subject to a hard deadline. Per-project and aggregate path/entry limits still apply. Source and ancestor mutation must be externally coordinated; metadata comparisons are not content hashes. Controlled pauses, panic and durability faults are feature-only test hooks and must not be deployed. This is macOS-only path search, not a LAN management interface, Web UI, ranked multi-project search, full Q8 or Linux/Windows validation. See [batch host evidence](../../tests/evidence/batch-host-2026-11-04/README.md).

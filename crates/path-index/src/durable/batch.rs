@@ -106,6 +106,11 @@ fn acquire(lock: &Mutex<()>) -> Result<std::sync::MutexGuard<'_, ()>, DurableErr
     })
 }
 
+fn reader_scratch(lock: &Mutex<()>) -> Result<std::sync::MutexGuard<'_, ()>, DurableError> {
+    lock.lock()
+        .map_err(|_| DurableError::Index(IndexError::LockPoisoned))
+}
+
 fn registry(
     snapshot: &PathSnapshot,
     limits: BatchLimits,
@@ -235,7 +240,7 @@ impl DurableBatchIndex {
     ) -> Result<BatchSnapshot, DurableError> {
         let inner = self.inner.snapshot()?;
         let projects = {
-            let _scratch = acquire(&self.scratch)?;
+            let _scratch = reader_scratch(&self.scratch)?;
             registry(&inner, self.limits)?
         };
         if let Some(observer) = observer {
@@ -290,6 +295,16 @@ impl DurableBatchIndex {
         )
     }
     #[cfg(feature = "fault-injection")]
+    pub fn replace_from_source_with_fault(
+        &self,
+        expected: Option<u64>,
+        projects: &[String],
+        cancellation: &CancellationToken,
+        fault: FaultPoint,
+    ) -> Result<u64, DurableError> {
+        self.scan_replace(expected, projects, cancellation, fault, None, None)
+    }
+    #[cfg(feature = "fault-injection")]
     pub fn replace_from_source_with_second_project_observer(
         &self,
         expected: Option<u64>,
@@ -342,7 +357,6 @@ impl DurableBatchIndex {
                     }
                     .into());
                 }
-                let _scratch = acquire(&self.scratch)?;
                 if registry(&snapshot, self.limits)? != unique {
                     return Err(IndexError::InvalidProject.into());
                 }
@@ -514,7 +528,6 @@ impl DurableBatchIndex {
             }
         }
         if let Some(ref prior) = previous {
-            let _scratch = acquire(&self.scratch)?;
             if registry(prior, self.limits)? != names {
                 return Err(IndexError::InvalidProject.into());
             }
@@ -574,11 +587,15 @@ impl BatchSnapshot {
         project: &str,
         query: &str,
         expression: bool,
+        observer: Option<&mut dyn FnMut()>,
     ) -> Result<HashSet<String>, DurableError> {
         if !self.projects.contains(project) {
             return Err(IndexError::InvalidProject.into());
         }
-        let _scratch = acquire(&self.scratch)?;
+        let _scratch = reader_scratch(&self.scratch)?;
+        if let Some(observer) = observer {
+            observer();
+        }
         let prefix = format!("{PREFIX}/{project}/");
         let paths: Vec<_> = self
             .inner
@@ -609,13 +626,22 @@ impl BatchSnapshot {
         .map_err(Into::into)
     }
     pub fn lookup(&self, project: &str, term: &str) -> Result<HashSet<String>, DurableError> {
-        self.query(project, term, false)
+        self.query(project, term, false, None)
+    }
+    #[cfg(feature = "fault-injection")]
+    pub fn lookup_with_observer(
+        &self,
+        project: &str,
+        term: &str,
+        observer: &mut dyn FnMut(),
+    ) -> Result<HashSet<String>, DurableError> {
+        self.query(project, term, false, Some(observer))
     }
     pub fn lookup_expression(
         &self,
         project: &str,
         query: &str,
     ) -> Result<HashSet<String>, DurableError> {
-        self.query(project, query, true)
+        self.query(project, query, true, None)
     }
 }

@@ -1,0 +1,144 @@
+{
+  "scope": "native macOS batch host correctness; no performance test",
+  "base_commit": "daf04dcf2dc1bbc0032ba43ecb82d9ba9df3ca80",
+  "environment": {
+    "CARGO_BUILD_JOBS": "1",
+    "CARGO_TARGET_DIR": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target",
+    "TMPDIR": "/private/tmp"
+  },
+  "guard": {
+    "reserve_bytes": 2684354560,
+    "sample_interval_seconds": 0.5,
+    "not_system_quota": true
+  },
+  "inputs": {
+    "crates/path-index/Cargo.toml": "62ab3ffd357e58cab4f34d1bfe13d068dc0e9f7aadbb582f99f800f32d60d09d",
+    "crates/path-index/Cargo.lock": "d5c3ce966e6edc5626f1ab0a900338bf19a1f419461354e60e6a6b56ee2eb291",
+    "crates/path-index/src/lib.rs": "cb1fd78c020197dde0abf8baaf98de8f30b7613097f5ee7526b2b6215e29f414",
+    "crates/path-index/src/query.rs": "9ed8aed8cc54bddcc740391de412fc058cddd0591cc5dee36c486d9f6d968a3c",
+    "crates/path-index/src/durable.rs": "28c82e3a0ae87fa5c56cfbfae5fd18e434ff59e3989a980074fec601c9186171",
+    "crates/path-index/src/durable/batch.rs": "6f728f0665047ec5f10d744eb2b1697da7dbaf53f2ba099765e9e81f139067b3",
+    "crates/path-index/src/durable/scanner.rs": "8533bd602b2716294c51d129a758ba80629e9afe21dc4a3b7548450da55f442f",
+    "crates/path-index/tests/durable_batch.rs": "da352fe1ad966ad457af98cd404000a15575156a2b85524428685697a7d56c88",
+    "apps/grok-host/Cargo.toml": "bbb92dbacf391c3ad373e97142638c04a8da99935b9af21bc734abb45d771bce",
+    "apps/grok-host/Cargo.lock": "660ab27faba2d82702e287f0e908ddb427764fd30605cfbd922508843250b3ba",
+    "apps/grok-host/src/main.rs": "2ded7458fd640124c2e13f14aae5b430d451fe51ea4785d8feb8839e5793aa28",
+    "apps/grok-host/src/host.rs": "0a7dd231de37e2586fc8ef1f417338f79bf883968bc0000ee48a28368148154b",
+    "apps/grok-host/tests/batch_host_e2e.rs": "e12a104929b682360715ed6da842d10bf18b2cd9aa7e5ecf1c422a308a804848",
+    "apps/grok-host/tests/batch_cli_e2e.rs": "09826b337263d077e2ba188f1e0f60e0deb36d7cb43124bf18b7146fcb9e28f7",
+    "apps/grok-host/tests/host_e2e.rs": "3cef5e0f323777607811521aebc1891d32e7c6836e2735e8ac718f49666c188f",
+    "apps/grok-host/tests/cli_e2e.rs": "1cf6904ae1ec9c27d5a38ce54c484b59e841cf85d73022a9a46a93a4915d9778"
+  },
+  "runs": [
+    {
+      "label": "host-default",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "apps/grok-host/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--",
+        "--test-threads=1"
+      ],
+      "stdout_sha256": "c9a356151eb4805145943b0ae61d6b43600cf50fd43a16e45e530849cf8398a4",
+      "stderr_sha256": "089413032840309255feb9efb0abdf55515ff0bca85b70745d33b4dfd7581e64",
+      "lowest_observed_free_bytes": 2820624384,
+      "guard_samples": 45,
+      "test_binary": {
+        "sha256": "55b33073f8bd0a3d69b2cdb4df2c9831d6ca29b60249f4b4623577dc4bb1585d",
+        "bytes": 1687280,
+        "local_path": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/sha256-55b33073f8bd0a3d69b2cdb4df2c9831d6ca29b60249f4b4623577dc4bb1585d-batch_host_e2e-test",
+        "retention": "verified after run, before next build"
+      },
+      "product_binary": {
+        "sha256": "17d1b3720deee9fa4c0bbcda0ec8bd28898290702069d63939ed40838303bee6",
+        "bytes": 2648104,
+        "local_path": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/sha256-17d1b3720deee9fa4c0bbcda0ec8bd28898290702069d63939ed40838303bee6-rustgrok",
+        "retention": "verified after run, before next build"
+      }
+    },
+    {
+      "label": "host-hooks",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "apps/grok-host/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--features",
+        "test-hooks",
+        "--",
+        "--test-threads=1"
+      ],
+      "stdout_sha256": "08045fa618a9beda099bae022ea2be3b9369acc9749899f6b16a029981542f2b",
+      "stderr_sha256": "ad1f48b4f1b58f1af004b984811926e452771e131e2f7fb2c8be6efc85e1b0db",
+      "lowest_observed_free_bytes": 2773217280,
+      "guard_samples": 51,
+      "test_binary": {
+        "sha256": "ca7563322830e9c702ca72988c7896b05ea75103b29561b03c4b1a99f1eb7531",
+        "bytes": 1818064,
+        "local_path": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/sha256-ca7563322830e9c702ca72988c7896b05ea75103b29561b03c4b1a99f1eb7531-batch_host_e2e-test",
+        "retention": "verified after run, before next build"
+      },
+      "product_binary": {
+        "sha256": "c94dc5409bce0442c04348f68aae0e88ae9c3dcefad8a693c3714e63ebe4a95f",
+        "bytes": 2707224,
+        "local_path": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/sha256-c94dc5409bce0442c04348f68aae0e88ae9c3dcefad8a693c3714e63ebe4a95f-rustgrok",
+        "retention": "verified after run, before next build"
+      }
+    },
+    {
+      "label": "index-default",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "crates/path-index/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--",
+        "--test-threads=1"
+      ],
+      "stdout_sha256": "330a6be078df9dcc7235dc48bc46809c818266230f9e231560f497a85c6bb355",
+      "stderr_sha256": "cdd38a68f68b617e9c36b2cd19576b6c79b964a35f37abbba9c2b63945423094",
+      "lowest_observed_free_bytes": 2697134080,
+      "guard_samples": 19,
+      "test_binary": {
+        "sha256": "f43d7bb9fb68db20c02b9ea3bfda2f67a93b9e3af2b7aef99bab5722f24ce5d7",
+        "bytes": 2650976,
+        "local_path": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/sha256-f43d7bb9fb68db20c02b9ea3bfda2f67a93b9e3af2b7aef99bab5722f24ce5d7-durable_batch-test",
+        "retention": "verified after run, before next build"
+      }
+    },
+    {
+      "label": "index-fault",
+      "status": "BLOCKED_RESERVE",
+      "exit_code": -15,
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "crates/path-index/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--features",
+        "fault-injection",
+        "--",
+        "--test-threads=1"
+      ],
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "1fec42ec111cdadcbcc9adf3b74dbfe5f29351925e167442dc100a692549e054",
+      "lowest_observed_free_bytes": 2682126336,
+      "guard_samples": 3
+    }
+  ]
+}

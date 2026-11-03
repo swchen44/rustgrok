@@ -1,0 +1,17 @@
+{
+  "scope": "authorized Rustgrok Cargo incremental intermediate cache only",
+  "target": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/incremental",
+  "device": 16777230,
+  "inode": 477237225,
+  "not_symlink": true,
+  "resolved_path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/incremental",
+  "du_kib_before": 1959144,
+  "no_named_build_process": true,
+  "lsof_exit": 0,
+  "lsof_matching_open_files": 0,
+  "free_before_bytes": 2682519552,
+  "retains": "debug/deps, debug/rustgrok, source, lockfiles, raw evidence and hash-retained binaries",
+  "status": "REMOVED",
+  "target_exists_after": false,
+  "free_after_bytes": 4216471552
+}
