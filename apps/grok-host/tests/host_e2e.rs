@@ -90,6 +90,37 @@ fn success(output: Output) -> Value {
     assert!(output.stderr.is_empty());
     serde_json::from_slice(&output.stdout).unwrap()
 }
+// Own the child from spawn until Host takes over; Child::drop alone does not kill it.
+struct StartupChild(Option<Child>);
+impl StartupChild {
+    fn child(&mut self) -> &mut Child {
+        self.0.as_mut().expect("startup child")
+    }
+    fn terminate(&mut self) -> (bool, String) {
+        let child = self.child();
+        match child.try_wait() {
+            Ok(Some(status)) => (true, format!("already exited: {status}")),
+            Ok(None) => match child.kill() {
+                Ok(()) => match child.wait() {
+                    Ok(status) => (true, format!("killed and reaped: {status}")),
+                    Err(error) => (false, format!("wait failed after kill: {error}")),
+                },
+                Err(error) => (false, format!("kill failed: {error}")),
+            },
+            Err(error) => (false, format!("try_wait failed: {error}")),
+        }
+    }
+    fn into_child(mut self) -> Child {
+        self.0.take().expect("startup child")
+    }
+}
+impl Drop for StartupChild {
+    fn drop(&mut self) {
+        if self.0.is_some() {
+            let _ = self.terminate();
+        }
+    }
+}
 struct Host {
     child: Child,
 }
@@ -98,6 +129,14 @@ impl Host {
         Self::start_mode(f, if paused { "pause" } else { "none" }, published)
     }
     fn start_mode(f: &Fixture, mode: &str, published: bool) -> Self {
+        Self::start_mode_with_spawn_hook(f, mode, published, |_| {})
+    }
+    fn start_mode_with_spawn_hook(
+        f: &Fixture,
+        mode: &str,
+        published: bool,
+        on_spawn: impl FnOnce(&mut Child),
+    ) -> Self {
         let mut cmd = Command::new(env!("CARGO_BIN_EXE_rustgrok"));
         cmd.args(["host", f.t(), f.s(), "alpha", f.c()])
             .stdout(Stdio::piped())
@@ -113,8 +152,9 @@ impl Host {
             cmd.env("RUSTGROK_TEST_BEFORE_BIND", "1")
                 .env("RUSTGROK_TEST_PANIC_GAP", "1");
         }
-        let mut child = cmd.spawn().unwrap();
-        let stdout = child.stdout.take().unwrap();
+        let mut startup = StartupChild(Some(cmd.spawn().unwrap()));
+        on_spawn(startup.child());
+        let stdout = startup.child().stdout.take().unwrap();
         let (tx, rx) = mpsc::channel();
         thread::spawn(move || {
             let mut reader = BufReader::new(stdout);
@@ -134,19 +174,24 @@ impl Host {
             .and_then(|s| serde_json::from_str::<Value>(s).ok())
             != Some(json!({"operation":"host","state":"listening","published":published}))
         {
-            let _ = child.kill();
-            let _ = child.wait();
+            let (reaped, cleanup) = startup.terminate();
             let mut stderr = String::new();
-            if let Some(mut pipe) = child.stderr.take() {
-                use std::io::Read;
-                let _ = pipe.read_to_string(&mut stderr);
+            if reaped {
+                if let Some(mut pipe) = startup.child().stderr.take() {
+                    use std::io::Read;
+                    let _ = pipe.read_to_string(&mut stderr);
+                }
+            } else {
+                stderr.push_str("not read because child was not reaped");
             }
             panic!(
-                "host startup: {first:?}, stderr: {stderr}, control: {:?}",
+                "host startup: {first:?}, stderr: {stderr}, cleanup: {cleanup}, control: {:?}",
                 f.control
             );
         }
-        Self { child }
+        Self {
+            child: startup.into_child(),
+        }
     }
     fn wait(&mut self) {
         assert!(self.child.wait().unwrap().success());
@@ -154,8 +199,11 @@ impl Host {
 }
 impl Drop for Host {
     fn drop(&mut self) {
-        let _ = self.child.kill();
-        let _ = self.child.wait();
+        if let Ok(None) = self.child.try_wait() {
+            if self.child.kill().is_ok() {
+                let _ = self.child.wait();
+            }
+        }
     }
 }
 fn wait_job(f: &Fixture, id: u64, state: &str) -> Value {
@@ -876,4 +924,64 @@ fn trusted_sticky_ancestor_can_host_private_control_directory() {
     );
     success(f.run(&["host-stop", f.c()]));
     host.wait();
+}
+
+#[test]
+fn startup_helper_reaps_child_if_setup_panics_after_spawn() {
+    let f = Fixture::new();
+    f.initialize();
+    let mut pid = 0;
+    let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+        let _host = Host::start_mode_with_spawn_hook(&f, "none", false, |child| {
+            pid = child.id() as i32;
+            assert_eq!(unsafe { libc::kill(pid, libc::SIGSTOP) }, 0);
+            panic!("injected setup panic after spawn");
+        });
+    }));
+    assert!(result.is_err());
+    assert!(pid > 0);
+    let mut status = 0;
+    let observed = unsafe { libc::waitpid(pid, &mut status, libc::WNOHANG) };
+    if observed == 0 {
+        // This PID is our unreaped child, so it cannot have been reused.
+        assert_eq!(unsafe { libc::kill(pid, libc::SIGKILL) }, 0);
+        assert_eq!(unsafe { libc::waitpid(pid, &mut status, 0) }, pid);
+        panic!("startup helper leaked its child after setup panic");
+    }
+    assert_eq!(observed, -1, "startup helper did not reap its child");
+    assert_eq!(
+        std::io::Error::last_os_error().raw_os_error(),
+        Some(libc::ECHILD)
+    );
+}
+
+#[test]
+fn readiness_timeout_reaps_stopped_child_and_reports_cleanup() {
+    let f = Fixture::new();
+    f.initialize();
+    let mut pid = 0;
+    let outcome = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+        let _host = Host::start_mode_with_spawn_hook(&f, "none", false, |child| {
+            pid = child.id() as i32;
+            assert_eq!(unsafe { libc::kill(pid, libc::SIGSTOP) }, 0);
+        });
+    }));
+    let panic = outcome.expect_err("stopped child should hit readiness timeout");
+    let text = panic
+        .downcast_ref::<String>()
+        .expect("startup panic message");
+    assert!(text.contains("Err(Timeout)"), "{text}");
+    assert!(text.contains("killed and reaped"), "{text}");
+    let mut status = 0;
+    let result = unsafe { libc::waitpid(pid, &mut status, libc::WNOHANG) };
+    if result == 0 {
+        assert_eq!(unsafe { libc::kill(pid, libc::SIGKILL) }, 0);
+        let _ = unsafe { libc::waitpid(pid, &mut status, 0) };
+        panic!("timeout left an unreaped child");
+    }
+    assert_eq!(result, -1, "timeout child was not reaped");
+    assert_eq!(
+        std::io::Error::last_os_error().raw_os_error(),
+        Some(libc::ECHILD)
+    );
 }

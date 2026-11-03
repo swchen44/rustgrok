@@ -1,0 +1,82 @@
+{
+  "scope": "derived subset of original reviewer receipt, not a replacement for full receipt",
+  "original_receipt_sha256": "6d910589697332aaa4362efbb7015ef46ce9cdc1a5e041b3b106793d92f6e329",
+  "original_receipt_local_path": "~/Library/Caches/rustgrok/evidence-receipts/sha256-6d910589697332aaa4362efbb7015ef46ce9cdc1a5e041b3b106793d92f6e329-host-review.json",
+  "source_head": "514e342b6f875ec5a71dabcad1a6e317fe3fecbc",
+  "platform": "macOS-15.7.7-arm64-arm-64bit-Mach-O",
+  "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+  "cargo_target_dir": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target",
+  "runs": [
+    {
+      "name": "default",
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "apps/grok-host/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--",
+        "--test-threads=1"
+      ],
+      "cwd": "/Users/swchen.tw/git/rustgrok-local-path-host",
+      "environment": {
+        "CARGO_TARGET_DIR": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target",
+        "CARGO_BUILD_JOBS": "1",
+        "TMPDIR": "/private/tmp"
+      },
+      "exit_code": 101,
+      "stdout_sha256": "47e208a16173d202c36434279cb316fe25b50db6271270fd7b43e894a978d90c",
+      "stderr_sha256": "9f8c8543ea3e5a321681631c7ad748aa25ef094e7d61e2e6e50846f3793c66f4"
+    },
+    {
+      "name": "default-response-limit-rerun",
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "apps/grok-host/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--test",
+        "host_e2e",
+        "oversized_query_response_returns_error_not_partial_results",
+        "--",
+        "--exact",
+        "--test-threads=1"
+      ],
+      "exit_code": 101,
+      "stdout_sha256": "8b920615652fdd7291bb73be105058988f444631576b4cc0cd5949494de88b04",
+      "stderr_sha256": "cea1a15338f5641079ed8d9c1893d855709dbc83eab21d9831e8dbe108d78499"
+    }
+  ],
+  "result": "not_merged_regression_gate_failed",
+  "finding": {
+    "severity": "review-blocking test failure",
+    "test": "oversized_query_response_returns_error_not_partial_results",
+    "observed_in": [
+      "default full suite",
+      "exact isolated rerun"
+    ],
+    "source": "apps/grok-host/tests/host_e2e.rs:130-144",
+    "behavior": "Host startup readiness message was not received within the fixed 5-second test wait. Test kills the host and reports stderr empty. Result-limit behavior was not reached.",
+    "root_cause": "undetermined; no assertion that host implementation itself is defective or violates an approved startup SLO",
+    "edits_made": false
+  },
+  "actual_tests": {
+    "default_host": {
+      "passed": 11,
+      "failed": 1
+    },
+    "default_cli": {
+      "passed": 3,
+      "failed": 0
+    },
+    "isolated_response_limit": {
+      "passed": 0,
+      "failed": 1
+    },
+    "hooks_host": "not_run_after_repeated_failure",
+    "hooks_cli": "not_run_after_repeated_failure"
+  }
+}

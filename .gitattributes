@@ -68,3 +68,6 @@ tests/evidence/local-path-host-2026-11-03/*.txt -text whitespace=-blank-at-eof,-
 
 # Preserve local host security-regression process streams.
 tests/evidence/local-path-host-security-2026-11-03/*.txt -text whitespace=-blank-at-eof,-blank-at-eol
+
+# Preserve startup diagnosis subprocess streams exactly.
+tests/evidence/local-host-startup-diagnosis-2026-11-03/*.txt -text whitespace=-blank-at-eof,-blank-at-eol

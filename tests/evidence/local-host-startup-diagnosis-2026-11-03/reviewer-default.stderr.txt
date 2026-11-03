@@ -1,0 +1,6 @@
+   Compiling rustgrok v0.1.0 (/Users/swchen.tw/git/rustgrok-local-path-host/apps/grok-host)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.06s
+     Running unittests src/main.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok-8f1cf13988d04235)
+     Running tests/cli_e2e.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/cli_e2e-8c1f50aa16c38d5e)
+     Running tests/host_e2e.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/host_e2e-43da1d626ddcabd7)
+error: test failed, to rerun pass `--test host_e2e`

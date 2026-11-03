@@ -1,0 +1,5 @@
+   Compiling rustgrok v0.1.0 (/Users/swchen.tw/git/rustgrok-local-path-host/apps/grok-host)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.34s
+     Running unittests src/main.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok-b567608359c27508)
+     Running tests/cli_e2e.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/cli_e2e-5d6e0f66fabd1c19)
+     Running tests/host_e2e.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/host_e2e-596adf569831681c)
