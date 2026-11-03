@@ -17,7 +17,7 @@
 | D08 | USER_CONFIRMED | source 由外部工具更新；產品支援手動及排程索引 | Q4；watch 未指定，排程頻率、dirty source 與一致性細節仍待定；不由產品自動 pull/reset 或修改 source |
 | D10 | USER_CONFIRMED | 目前沒有必須沿用的既有 XML 設定、客製 JAR plugins、API scripts 或舊書籤 | 2026-10-26 Q6 回覆「沒有」；Q2 index/cache 可從 source 重建並保留原資料。這是目前遷移輸入的盤點結果，原版內建設定、API、插件功能與 URL 的相容目標仍依 D04／D20 保留 |
 | D11 | USER_CONFIRMED | 建立public新repo swchen44/rustgrok，release packages放GitHub Releases | repo已建立，creation_status為created；首次規劃已提交main並核對，產品Release／artifact未建立，分階段以metadata與hash驗證 |
-| D12 | USER_CONFIRMED | 更新期間維持上一成功搜尋，新索引與必要關聯資料完整後整批切換；閱讀沿固定原版live／SCM分支 | Q8接受發布政策及新舊資料保留成本；Q9回覆「1」選沿原版snippet／xref／raw讀取。搜尋版本不自動固定全部閱讀內容；新鮮度／磁碟數值、索引期間source變動、故障回復及publish scope仍待契約與證據 |
+| D12 | USER_CONFIRMED | 更新期間維持上一成功搜尋，新索引與必要關聯資料完整後整批切換；閱讀沿固定原版live／SCM分支 | Q8接受發布政策及新舊資料保留成本；Q9回覆「1」選沿原版snippet／xref／raw讀取。2026-11-03 補充：一次索引工作涵蓋的所有 project 必須全部成功才一起切換；任一失敗或取消，整批保留上一成功版本。搜尋版本不自動固定全部閱讀內容；新鮮度／磁碟數值、索引期間source變動與故障回復細節仍待契約與證據 |
 | D15 | USER_CONFIRMED | 首版提供 CLI 前景與背景執行 | Q5；系統服務／登入自啟留待後續決定；不由此推定 root、systemd、launchd 或 Windows Service 必要 |
 | D16 | USER_CONFIRMED | 管理網頁只限主機本機瀏覽器；保留主機 CLI／本機控制面管理，LAN 維持搜尋／瀏覽 | 2026-10-26 已確認網頁範圍；具體頁面操作、REST／automation 相容與控制細節仍須設計及盤點；頁面和有副作用 API 均須符合本機限定邊界 |
 | D17 | USER_CONFIRMED | 顯示名稱Rustgrok；可辨識為獨立原創的新增Rust／JS採MIT | Q13／Q14已接受提案；Q16確認獨立原創Rust／JS的MIT權利人名稱為`swchen44`；沿用、修改、移植OpenGrok及第三方內容保持各自適用條件、notices與來源交付。不是全產品MIT或完整逐檔盤點已完成，細節見LICENSE.md |
@@ -50,7 +50,9 @@ v0.6使用者回覆「1. public 2. M1」：D11的public已USER_CONFIRMED；D03�
 
 2026-10-26 Q10–Q12使用者原文：「Q10 both」「Q11 C,python,js」「Q12 windows 11 x64, 主要用在 linux ,」。D07安裝模式已確認registry／mirror與搬入tgz／ZIP兩者；D06優先加強驗證語言為C、Python、JavaScript，其餘原版語言／SCM仍保留。D03新增Windows 11 x64正式目標，未指定實際Windows build或ABI/toolchain；主要部署仍Ubuntu24.04 amd64，Mac先完整開發驗證、Ubuntu後適配原生重驗的順序不變。Mac本機另以唯讀probe觀測為15.7.7／24G720、arm64、8 GiB RAM，觀測不等於最低OS、正式toolchain或runtime PASS，證據見tests/evidence/development-host-observation-2026-10-26.json。對應NFR-001／002／003／015、FR-008／018及既有OS-001、WIN-001、PKG-001／002／003、RST-003，不增加測項數。npm名稱、新獨立碼授權、精確依賴、macOS最低版本、Ubuntu硬體及數值SLO仍OPEN。
 
-2026-10-26 Q8 使用者原文：「Q8 Yes」，接受「更新時持續提供上一個成功版本搜尋，新索引與相關資料完整就緒後整批切換」，以及已說明的更新期間上一版內容與新舊資料磁碟成本。D12 因此由 OPEN 轉為 USER_CONFIRMED。這決定搜尋可用性與發布政策；並未選定來源snapshot／copy方式、raw/download內容版本、跨project發布範圍、RTO/RPO、最大新鮮度延遲或磁碟上限。對應 FR-009、NFR-005、NFR-007、NFR-012、NFR-016 及既有 SRC-002、PRJ-002、REC-001、REC-002、RST-009；其餘 WP／test IDs 依追溯表。記錄於 ADR-0003，產品測項仍 planned／not_run。
+2026-10-26 Q8 使用者原文：「Q8 Yes」，接受「更新時持續提供上一個成功版本搜尋，新索引與相關資料完整就緒後整批切換」，以及已說明的更新期間上一版內容與新舊資料磁碟成本。D12 因此由 OPEN 轉為 USER_CONFIRMED。這決定搜尋可用性與發布政策；當時尚未選定來源snapshot／copy方式、raw/download內容版本、跨project發布範圍、RTO/RPO、最大新鮮度延遲或磁碟上限；跨project範圍已由下列後續答覆確認。對應 FR-009、NFR-005、NFR-007、NFR-012、NFR-016 及既有 SRC-002、PRJ-002、REC-001、REC-002、RST-009；其餘 WP／test IDs 依追溯表。記錄於 ADR-0003，產品測項仍 planned／not_run。
+
+2026-11-03 使用者兩次選「1」確認跨 project 範圍：**同一次索引工作涵蓋的所有 project 全部成功才一起切換；任一 project 失敗或取消時，整批維持上一個成功版本**。這不預設所有已登記 project 都必須同一批重建，也不決定 project 加入／移除、source 在建置期間變動的處理、Q9 live／SCM 讀取、Q15 或同分排序。
 
 2026-10-26 Q9 使用者原文：「1」，選定「沿用原版規則：搜尋維持上一成功索引，閱讀依原版live source／SCM分支處理」。這補齊Q8尚未決定的使用者可見閱讀版本範圍；snippet／xref／raw／download依OpenGrok 1.14.20同配置與revision條件驗證，不額外要求把所有閱讀綁定搜尋版本快照。索引建置期間是否使用內部snapshot／重試等仍是待驗機制，不能將Q9擴成不必處理source競態。對應FR-003、FR-005、FR-006、FR-009、FR-012、NFR-008、NFR-012及既有SRC-002、SRC-005、UI-002、UI-004、QRY-006、RST-005、REC-001；其他WP／test IDs依追溯表。實作及runtime仍NOT_RUN。
 

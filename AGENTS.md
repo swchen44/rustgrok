@@ -8,7 +8,7 @@
 - D04 已確認 OpenGrok 1.14.20／commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3 為功能、style 與排序的正式驗收基線；不重問版本。oracle 執行與產品測試仍未完成，D20 精確相容契約另行釐清。
 - Q2–Q5 已接受：index/cache 可從 source 重建並保留原資料供回復；source 外部更新、產品手動＋排程索引；首版 CLI 前景＋背景。D16 基本邊界為 LAN 搜尋／瀏覽，主機 CLI／本機控制面管理；2026-10-26 已確認新增管理網頁只限主機本機瀏覽器，LAN 維持搜尋／瀏覽；頁面及有副作用的管理 API 均須遵守此邊界。watch、系統服務／登入自啟與其他未答項不由此代決。
 - Q6 已確認沒有需搬移的既有 XML、客製 JAR、API scripts 或舊書籤；不因此刪減原版內建能力。Q7 已知10個project、每project source約50 MB，合計推算約500 MB；每project可多Git repo或git-in-git。Project不等同repository；repo發現、檔案歸屬及history／annotate(blame)／diff照OpenGrok 1.14.20同配置查證，不自訂巢狀政策，也不縮成Git-only。硬體、history大小、精確bytes與SLO仍未定。
-- Q8／D12 已確認更新期間維持上一成功版本搜尋，新索引與必要關聯資料完整後整批切換。Q9選1：snippet／xref／raw／download沿OpenGrok 1.14.20同配置的live／SCM讀取分支，不新增閱讀用source snapshot或改URL。新鮮度／磁碟數值、建置期間來源變動及publish scope仍待G1契約與證據；engine局部commit不代表全體發布，搜尋版本也不等於所有閱讀內容同版。
+- Q8／D12 已確認更新期間維持上一成功版本搜尋；同一次工作涵蓋的所有 project 與必要關聯資料全部成功才一起切換，任一失敗或取消整批維持上一成功版本，不重問此範圍。Q9選1：snippet／xref／raw／download沿OpenGrok 1.14.20同配置的live／SCM讀取分支，不新增閱讀用source snapshot或改URL。新鮮度／磁碟數值、建置期間來源變動及發布機制仍待G1契約與證據；engine局部commit不代表全體發布，搜尋版本也不等於所有閱讀內容同版。
 - Q10兩種安裝皆要：npm registry／公司mirror及搬入tgz／ZIP；具體registry／Node/npm／scripts政策未定。Q11優先深測C、Python、JavaScript，不裁減原版其他語言。Q12已確認Windows11 x64，主要部署仍Ubuntu24.04 amd64；Mac先驗／Ubuntu後原生重驗不變，不重問Windows OS／CPU。Mac開發host已觀測15.7.7／24G720、arm64，最低macOS與正式toolchain未定。
 - 依新答覆移除使用者權限管理／RBAC／project ACL需求；其餘原功能與原style保留，不縮成Git-only、少數語言、近似排名或新UI。不要加必需帳號／SSO；免登入閱讀是提案。D16 已選本機管理網頁／主機 CLI／本機控制面，LAN 搜尋／瀏覽，不重問此可達範圍。Windows 原生支持不能用 WSL 代替。
 - Tantivy／Axum／Tokio／Tree-sitter 等是候選；版本與功能符合性經 G1 驗證後再凍結。Rust 已選不代表這些庫已選。

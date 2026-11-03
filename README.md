@@ -30,7 +30,7 @@ OpenGrok 1.14.20，commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3，已由使�
 
 Q6 已確認沒有需搬移的既有 XML 設定、客製 JAR、API scripts 或舊書籤。Q7 的代表規模為10個專案，每專案 source 約50 MB，合計推算約500 MB；一個專案可有多個 Git repo，也可能巢狀 Git。Git history、annotate/blame、diff 與 repo 發現／歸屬依 OpenGrok 1.14.20 同配置對照；project 不等同 repository，既有原版其他能力仍保留。硬體、history體積、query mix 與數值 SLO 尚未指定。
 
-Q8／D12 已確認更新期間繼續提供上一成功版本的搜尋，新索引與相關資料完整就緒後整批切換；更新期間上一版內容及新舊資料磁碟成本已接受，數值門檻與實作方式另驗證，見[ADR-0003](docs/adr/0003-published-generation-switch.md)。
+Q8／D12 已確認更新期間繼續提供上一成功版本的搜尋，同一次工作涵蓋的所有 project 與相關資料全部成功後才一起切換，任一失敗或取消整批保留上一成功版本；更新期間上一版內容及新舊資料磁碟成本已接受，數值門檻與實作方式另驗證，見[ADR-0003](docs/adr/0003-published-generation-switch.md)。
 
 Q9 已選沿用原版閱讀規則：snippet、xref、raw／download依固定OpenGrok的live source／SCM分支與相同配置處理，不額外把全部閱讀綁定搜尋版本快照；搜尋命中與打開的內容可能各有來源版本。這不免除索引建置期間的來源一致性處理，runtime仍待驗證。
 
