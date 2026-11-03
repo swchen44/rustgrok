@@ -5,8 +5,8 @@
   "files": [
     {
       "path": ".gitattributes",
-      "bytes": 4105,
-      "sha256": "378169dba225e822c4c7826837f3ada330a7c4ae84617e60c9040b43f98e329a"
+      "bytes": 4267,
+      "sha256": "1481eb0846f82dc9657d3ffdbe74e8b14d143ddb7b4a9e44a389c1848769669d"
     },
     {
       "path": ".github/ISSUE_TEMPLATE/compatibility-bug.md",
@@ -55,13 +55,13 @@
     },
     {
       "path": "apps/grok-host/Cargo.lock",
-      "bytes": 5042,
-      "sha256": "7167f41bf8766e9a023c8c340c29696d0c1d80fc590913ab13431c7dfd09c755"
+      "bytes": 5069,
+      "sha256": "660ab27faba2d82702e287f0e908ddb427764fd30605cfbd922508843250b3ba"
     },
     {
       "path": "apps/grok-host/Cargo.toml",
-      "bytes": 340,
-      "sha256": "4c20a0200cfd35c0b28f6cb665f79e74d9a01f2f2dc7ebd6f231576af27a8777"
+      "bytes": 396,
+      "sha256": "bbb92dbacf391c3ad373e97142638c04a8da99935b9af21bc734abb45d771bce"
     },
     {
       "path": "apps/grok-host/LICENSE.txt",
@@ -75,8 +75,8 @@
     },
     {
       "path": "apps/grok-host/README.md",
-      "bytes": 10191,
-      "sha256": "56a02c657841324a502a631da310b9bccfedbb054af04988c5634bcc6bd415a6"
+      "bytes": 11720,
+      "sha256": "06dff9285df9b00dad7a9c3722fd9decdeabd5989276533272b2d285dccbc155"
     },
     {
       "path": "apps/grok-host/RUST-LICENSE-MIT.txt",
@@ -85,8 +85,8 @@
     },
     {
       "path": "apps/grok-host/src/host.rs",
-      "bytes": 29496,
-      "sha256": "e33fe8481310d604b1cd3e091399b8c3b9750357170faf3b7410e26cc09afa3c"
+      "bytes": 35358,
+      "sha256": "21259e1e0aa67609d1a750bfe9bdd024412fa88ce8fd258d62c11048d8e9338b"
     },
     {
       "path": "apps/grok-host/src/main.rs",
@@ -100,8 +100,8 @@
     },
     {
       "path": "apps/grok-host/tests/host_e2e.rs",
-      "bytes": 21850,
-      "sha256": "04910e8e7ea16d61e3e21572d6c9fc09ea3222c51d021984e003709a58666d82"
+      "bytes": 29347,
+      "sha256": "bbf9a8170ca93d7cc073eeb540b3f3ff20cdb5e1699234b1c4fdfaeeb5d22318"
     },
     {
       "path": "assets/README.md",
@@ -434,6 +434,11 @@
       "sha256": "2ae2c854d05f82496856cc9093edc31e289fbcdbe609b02c90b0afe7df405689"
     },
     {
+      "path": "docs/superpowers/plans/2026-11-03-host-security-review.md",
+      "bytes": 2063,
+      "sha256": "ead21c7abaf0596ee91283f12dbf1d201f6135e094d23e86f9910ae5e390c981"
+    },
+    {
       "path": "docs/superpowers/plans/2026-11-03-local-path-host.md",
       "bytes": 2506,
       "sha256": "e1bd171b11f84eb0f4840e6147650c5272fc11f7f5f5e61d03ecde7ba3e6e6e9"
@@ -666,7 +671,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 807,
-      "sha256": "d213cfeb2b2faae118d58c58b522ae1f06d5a98f6ec956e0f606f18907cc8601"
+      "sha256": "793a1944ac6cf4c592e68d79752ce9b7d0d4875d78992d2ed3c1113efa010496"
     },
     {
       "path": "tests/README.md",
@@ -707,6 +712,11 @@
       "path": "tests/contract/test_live_benchmark.py",
       "bytes": 9034,
       "sha256": "4885c05d445e376a29489396c036bf1847fe4f34739b6e9744cc8efc3262b057"
+    },
+    {
+      "path": "tests/contract/test_local_host_security_evidence.py",
+      "bytes": 3212,
+      "sha256": "f391cecbfcb58664dbd412ec99123d838c88e06b1a7e855421ffccc86e3a4500"
     },
     {
       "path": "tests/contract/test_local_path_host_evidence.py",
@@ -17420,8 +17430,8 @@
     },
     {
       "path": "tests/evidence/local-path-host-2026-11-03/README.md",
-      "bytes": 3741,
-      "sha256": "f471f638f9edddb7a0f8e390dcdfaedd893d0f8e9008510362711c1c38140046"
+      "bytes": 4054,
+      "sha256": "9488b1bf7130f2f00e47d2c9d11e5b2d0859d4b1ca5ddd50a489bdb46fe2be43"
     },
     {
       "path": "tests/evidence/local-path-host-2026-11-03/default.stderr.txt",
@@ -17447,6 +17457,41 @@
       "path": "tests/evidence/local-path-host-2026-11-03/test-hooks.stdout.txt",
       "bytes": 1111,
       "sha256": "653813b0adbc7c9c121370f313d0f518e4dd3b91bfc08cbdd720d3f5ced094bd"
+    },
+    {
+      "path": "tests/evidence/local-path-host-security-2026-11-03/README.md",
+      "bytes": 4741,
+      "sha256": "76b129db382fd32afc64690c5b1ae0b8ec51ebd53b635c4add9aaf3967954b81"
+    },
+    {
+      "path": "tests/evidence/local-path-host-security-2026-11-03/default.stderr.txt",
+      "bytes": 211,
+      "sha256": "f9683eb256db9118911f4512cf580f5e943ff999344f328b76e09d3f2309be5a"
+    },
+    {
+      "path": "tests/evidence/local-path-host-security-2026-11-03/default.stdout.txt",
+      "bytes": 919,
+      "sha256": "a325bb01d5f72d764924615ad12489e2f5e0c62b81f4b77191df0bd992abd6e7"
+    },
+    {
+      "path": "tests/evidence/local-path-host-security-2026-11-03/dependencies.json",
+      "bytes": 5835,
+      "sha256": "46a583be5879bab588bb6f4d3dca7dc6b133055611b15c6a693a77b660a23a8f"
+    },
+    {
+      "path": "tests/evidence/local-path-host-security-2026-11-03/receipt.json",
+      "bytes": 3812,
+      "sha256": "044f8740d3243a9f75cba165ab29ac4ecfc73d4281df2c22bcb14b6d492d534a"
+    },
+    {
+      "path": "tests/evidence/local-path-host-security-2026-11-03/test-hooks.stderr.txt",
+      "bytes": 211,
+      "sha256": "7a7f6d29db81876a2d150b889c3e73313bc871154385905e5b414768659dca63"
+    },
+    {
+      "path": "tests/evidence/local-path-host-security-2026-11-03/test-hooks.stdout.txt",
+      "bytes": 1484,
+      "sha256": "020701253e760b52b848bc15aef5bd1739511eae97e0826a962df432b8865522"
     },
     {
       "path": "tests/evidence/long-token-indexer-2026-11-01/README.md",

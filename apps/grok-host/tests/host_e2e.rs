@@ -102,8 +102,16 @@ impl Host {
         cmd.args(["host", f.t(), f.s(), "alpha", f.c()])
             .stdout(Stdio::piped())
             .stderr(Stdio::piped());
-        if mode != "none" {
+        if mode == "panic-gap" {
+            cmd.env("RUSTGROK_TEST_HOST_MODE", "panic")
+                .env("RUSTGROK_TEST_PANIC_GAP", "1");
+        } else if mode != "none" {
             cmd.env("RUSTGROK_TEST_HOST_MODE", mode);
+        }
+        #[cfg(not(feature = "test-hooks"))]
+        if mode == "panic" {
+            cmd.env("RUSTGROK_TEST_BEFORE_BIND", "1")
+                .env("RUSTGROK_TEST_PANIC_GAP", "1");
         }
         let mut child = cmd.spawn().unwrap();
         let stdout = child.stdout.take().unwrap();
@@ -669,4 +677,203 @@ fn client_times_out_if_same_user_socket_never_replies() {
     let _listener = UnixListener::bind(&socket).unwrap();
     fs::set_permissions(&socket, fs::Permissions::from_mode(0o600)).unwrap();
     error(f.run(&["host-status", f.c()]), 6, "io_error");
+}
+
+#[test]
+fn ambiguous_and_invalid_json_frames_have_no_side_effects() {
+    use std::{
+        io::{Read, Write},
+        os::unix::net::UnixStream,
+    };
+    let f = Fixture::new();
+    f.initialize();
+    let mut host = f.start(false);
+    let socket = f.control.join("control.sock");
+    for frame in [
+        b"{\"command\":\"status\",\"command\":\"stop\"}\n".as_slice(),
+        b"{\"command\":\"index\",\"value\":\"none\",\"value\":\"1\"}\n".as_slice(),
+        b"{\"command\":\"index\",\"value\":null,\"value\":\"none\"}\n".as_slice(),
+        b"{\"command\":\"status\",\"comm\\u0061nd\":\"stop\"}\n".as_slice(),
+        b"{\"command\":\"stop\",\"unexpected\":true}\n".as_slice(),
+        b"{\"command\":\"\xff\"}\n".as_slice(),
+    ] {
+        let mut stream = UnixStream::connect(&socket).unwrap();
+        stream.write_all(frame).unwrap();
+        let mut raw = Vec::new();
+        stream.read_to_end(&mut raw).unwrap();
+        assert_eq!(
+            serde_json::from_slice::<Value>(&raw).unwrap(),
+            json!({"code":4,"body":{"error":"protocol_error"}})
+        );
+        assert_eq!(success(f.run(&["host-status", f.c()]))["job"], Value::Null);
+    }
+    success(f.run(&["host-stop", f.c()]));
+    host.wait();
+}
+
+fn rejected_host_without_side_effect(f: &Fixture, control: &std::path::Path) {
+    use std::process::Stdio;
+    let mut child = Command::new(env!("CARGO_BIN_EXE_rustgrok"))
+        .args(["host", f.t(), f.s(), "alpha", control.to_str().unwrap()])
+        .stdout(Stdio::piped())
+        .stderr(Stdio::piped())
+        .spawn()
+        .unwrap();
+    for _ in 0..100 {
+        if child.try_wait().unwrap().is_some() {
+            let output = child.wait_with_output().unwrap();
+            error(output, 4, "unsafe_control");
+            return;
+        }
+        thread::sleep(Duration::from_millis(20));
+    }
+    child.kill().unwrap();
+    let _ = child.wait();
+    panic!("host accepted an unsafe control ancestor or ACL");
+}
+
+#[test]
+fn untrusted_writable_ancestor_and_extended_acl_fail_before_bind() {
+    use std::os::unix::fs::PermissionsExt;
+    let f = Fixture::new();
+    f.initialize();
+    let outside = f.root.join("untrusted");
+    let control = outside.join("ctl");
+    fs::create_dir(&outside).unwrap();
+    fs::create_dir(&control).unwrap();
+    fs::set_permissions(&outside, fs::Permissions::from_mode(0o777)).unwrap();
+    fs::set_permissions(&control, fs::Permissions::from_mode(0o700)).unwrap();
+    rejected_host_without_side_effect(&f, &control);
+    assert!(!f.source.join("control.sock").exists());
+    assert!(!control.join("control.sock").exists());
+    fs::set_permissions(&outside, fs::Permissions::from_mode(0o700)).unwrap();
+    let status = Command::new("chmod")
+        .args(["+a", "everyone allow add_file,delete_child"])
+        .arg(&outside)
+        .status()
+        .unwrap();
+    assert!(status.success(), "could not establish real macOS ACL");
+    assert_eq!(
+        fs::symlink_metadata(&outside).unwrap().permissions().mode() & 0o077,
+        0
+    );
+    let acl = Command::new("ls")
+        .arg("-lde")
+        .arg(&outside)
+        .output()
+        .unwrap();
+    assert!(String::from_utf8_lossy(&acl.stdout).contains("everyone allow"));
+    rejected_host_without_side_effect(&f, &control);
+    assert!(!f.source.join("control.sock").exists());
+    assert!(!control.join("control.sock").exists());
+}
+
+#[cfg(feature = "test-hooks")]
+#[test]
+fn renamed_control_and_symlink_swap_cannot_write_or_unlink_inside_source() {
+    use std::{
+        io::{BufRead, BufReader, Write},
+        os::unix::fs::symlink,
+    };
+    let f = Fixture::new();
+    f.initialize();
+    let mut child = Command::new(env!("CARGO_BIN_EXE_rustgrok"))
+        .args(["host", f.t(), f.s(), "alpha", f.c()])
+        .env("RUSTGROK_TEST_BEFORE_BIND", "1")
+        .stdin(Stdio::piped())
+        .stdout(Stdio::piped())
+        .stderr(Stdio::piped())
+        .spawn()
+        .unwrap();
+    let stderr = child.stderr.take().unwrap();
+    let (tx, rx) = mpsc::channel();
+    thread::spawn(move || {
+        let mut line = String::new();
+        let _ = BufReader::new(stderr).read_line(&mut line);
+        let _ = tx.send(line);
+    });
+    let marker = rx.recv_timeout(Duration::from_secs(5));
+    if marker.as_deref() != Ok("RUSTGROK_TEST_BEFORE_BIND\n") {
+        let _ = child.kill();
+        let _ = child.wait();
+        panic!("missing pre-bind marker {marker:?}");
+    }
+    let stdout = child.stdout.take().unwrap();
+    let (tx, rx) = mpsc::channel();
+    thread::spawn(move || {
+        let mut r = BufReader::new(stdout);
+        let mut line = String::new();
+        let _ = r.read_line(&mut line);
+        let _ = tx.send(line);
+        for _ in r.lines() {}
+    });
+    let mut host = Host { child };
+    let held = f.root.join("held-control");
+    fs::rename(&f.control, &held).unwrap();
+    symlink(&f.source, &f.control).unwrap();
+    host.child.stdin.as_mut().unwrap().write_all(b"x").unwrap();
+    let ready = rx
+        .recv_timeout(Duration::from_secs(5))
+        .expect("host did not complete bind");
+    assert_eq!(
+        serde_json::from_str::<Value>(&ready).unwrap()["state"],
+        "listening"
+    );
+    assert!(
+        !f.source.join("control.sock").exists(),
+        "socket was bound inside source"
+    );
+    assert!(held.join("control.sock").exists());
+    fs::write(f.source.join("control.sock"), b"source sentinel").unwrap();
+    assert_eq!(
+        unsafe { libc::kill(host.child.id() as i32, libc::SIGTERM) },
+        0
+    );
+    host.wait();
+    assert_eq!(
+        fs::read(f.source.join("control.sock")).unwrap(),
+        b"source sentinel"
+    );
+    assert!(!held.join("control.sock").exists());
+}
+
+#[cfg(feature = "test-hooks")]
+#[test]
+fn caught_worker_panic_cannot_serve_queries_before_fault_publication() {
+    let f = Fixture::new();
+    f.initialize();
+    let mut host = Host::start_mode(&f, "panic-gap", false);
+    success(f.run(&["host-index", f.c(), "none"]));
+    wait_job(&f, 1, "succeeded");
+    fs::write(f.source.join("extra.js"), b"extra\n").unwrap();
+    success(f.run(&["host-index", f.c(), "1"]));
+    wait_paused(&f, 2);
+    error(f.run(&["host-query", f.c(), "main"]), 5, "worker_panic");
+    success(f.run(&["host-test-release", f.c()]));
+    wait_job(&f, 2, "failed");
+    success(f.run(&["host-stop", f.c()]));
+    host.wait();
+}
+
+#[test]
+fn trusted_sticky_ancestor_can_host_private_control_directory() {
+    use std::os::unix::fs::PermissionsExt;
+    let mut f = Fixture::new();
+    f.initialize();
+    let shared = f.root.join("sticky");
+    let control = shared.join("ctl");
+    fs::create_dir(&shared).unwrap();
+    fs::set_permissions(&shared, fs::Permissions::from_mode(0o1777)).unwrap();
+    fs::create_dir(&control).unwrap();
+    fs::set_permissions(&control, fs::Permissions::from_mode(0o700)).unwrap();
+    f.control = control;
+    let mut host = f.start(false);
+    success(f.run(&["host-index", f.c(), "none"]));
+    wait_job(&f, 1, "succeeded");
+    assert_eq!(
+        success(f.run(&["host-query", f.c(), "main"]))["generation"],
+        1
+    );
+    success(f.run(&["host-stop", f.c()]));
+    host.wait();
 }

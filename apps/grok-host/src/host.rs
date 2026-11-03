@@ -13,7 +13,7 @@ use std::{
         fd::{AsRawFd, FromRawFd, IntoRawFd},
         unix::{
             ffi::OsStrExt,
-            fs::{FileTypeExt, MetadataExt, PermissionsExt},
+            fs::{MetadataExt, PermissionsExt},
             net::{UnixListener, UnixStream},
         },
     },
@@ -54,7 +54,59 @@ fn ids(file: &File) -> io::Result<(u64, u64)> {
     let m = file.metadata()?;
     Ok((m.dev(), m.ino()))
 }
+// These macOS SDK functions return a retained ACL object or NULL with errno.
+// We reject all extended ACLs, including deny-only entries, and all errors except
+// the locally observed ENOENT meaning no extended ACL on the still-open fd.
+unsafe extern "C" {
+    fn acl_get_fd_np(fd: libc::c_int, kind: libc::c_int) -> *mut libc::c_void;
+    fn acl_free(value: *mut libc::c_void) -> libc::c_int;
+}
+const ACL_TYPE_EXTENDED: libc::c_int = 0x00000100;
+fn trusted_directory(dir: &File) -> Result<(), Failure> {
+    let meta = dir.metadata().map_err(io_failure)?;
+    let mut volume: libc::statfs = unsafe { std::mem::zeroed() };
+    // SAFETY: the open directory descriptor and writable statfs buffer are valid.
+    if unsafe { libc::fstatfs(dir.as_raw_fd(), &mut volume) } != 0 {
+        return Err(failure(4, "unsafe_control"));
+    }
+    let fs_name: Vec<u8> = volume
+        .f_fstypename
+        .iter()
+        .take_while(|&&c| c != 0)
+        .map(|&c| c as u8)
+        .collect();
+    // Restrict this development profile to the native, locally observed APFS
+    // security model; unknown or opaque authorization capabilities fail closed.
+    if fs_name != b"apfs"
+        || volume.f_flags & libc::MNT_LOCAL as u32 == 0
+        || unsafe { libc::fpathconf(dir.as_raw_fd(), libc::_PC_EXTENDED_SECURITY_NP) } != 1
+        || unsafe { libc::fpathconf(dir.as_raw_fd(), libc::_PC_AUTH_OPAQUE_NP) } != 0
+    {
+        return Err(failure(4, "unsafe_control"));
+    }
+    let uid = unsafe { libc::geteuid() };
+    if meta.uid() != 0 && meta.uid() != uid {
+        return Err(failure(4, "unsafe_control"));
+    }
+    let mode = meta.mode();
+    if mode & 0o022 != 0 && mode & 0o1000 == 0 {
+        return Err(failure(4, "unsafe_control"));
+    }
+    // SAFETY: the descriptor is valid; any returned ACL is freed exactly once.
+    let acl = unsafe { acl_get_fd_np(dir.as_raw_fd(), ACL_TYPE_EXTENDED) };
+    if !acl.is_null() {
+        let _ = unsafe { acl_free(acl) };
+        return Err(failure(4, "unsafe_control"));
+    }
+    if io::Error::last_os_error().raw_os_error() != Some(libc::ENOENT) {
+        return Err(failure(4, "unsafe_control"));
+    }
+    Ok(())
+}
 fn walk(path: &Path) -> Result<(File, Vec<(u64, u64)>), Failure> {
+    walk_with_policy(path, false)
+}
+fn walk_with_policy(path: &Path, trusted: bool) -> Result<(File, Vec<(u64, u64)>), Failure> {
     let raw = path.as_os_str().as_bytes();
     if !raw.starts_with(b"/") {
         return Err(failure(2, "usage"));
@@ -66,6 +118,9 @@ fn walk(path: &Path) -> Result<(File, Vec<(u64, u64)>), Failure> {
         return Err(io_failure(io::Error::last_os_error()));
     }
     let mut dir = unsafe { File::from_raw_fd(fd) };
+    if trusted {
+        trusted_directory(&dir)?;
+    }
     let mut chain = vec![ids(&dir).map_err(io_failure)?];
     if raw == b"/" {
         return Ok((dir, chain));
@@ -80,18 +135,30 @@ fn walk(path: &Path) -> Result<(File, Vec<(u64, u64)>), Failure> {
             return Err(io_failure(io::Error::last_os_error()));
         }
         dir = unsafe { File::from_raw_fd(fd) };
+        if trusted {
+            trusted_directory(&dir)?;
+        }
         chain.push(ids(&dir).map_err(io_failure)?);
     }
     Ok((dir, chain))
 }
-fn control(path: &str) -> Result<(PathBuf, (u64, u64)), Failure> {
+struct ControlDir {
+    path: PathBuf,
+    fd: File,
+    chain: Vec<(u64, u64)>,
+}
+fn control(path: &str) -> Result<ControlDir, Failure> {
     let p = mac::source(path)?;
-    let (dir, chain) = walk(p)?;
+    let (dir, chain) = walk_with_policy(p, true)?;
     let m = dir.metadata().map_err(io_failure)?;
     if m.uid() != unsafe { libc::geteuid() } || m.mode() & 0o077 != 0 {
         return Err(failure(4, "unsafe_control"));
     }
-    Ok((p.to_path_buf(), *chain.last().unwrap()))
+    Ok(ControlDir {
+        path: p.to_path_buf(),
+        fd: dir,
+        chain,
+    })
 }
 fn disjoint(a: &[(u64, u64)], b: &[(u64, u64)]) -> bool {
     !a.contains(b.last().unwrap()) && !b.contains(a.last().unwrap())
@@ -104,34 +171,75 @@ fn validate_socket_path(path: &Path) -> Result<(), Failure> {
     }
     Ok(())
 }
-fn validate_socket(dir: &Path) -> Result<PathBuf, Failure> {
-    let socket = dir.join(SOCKET);
-    validate_socket_path(&socket)?;
-    let m = fs::symlink_metadata(&socket).map_err(io_failure)?;
-    if !m.file_type().is_socket() || m.uid() != unsafe { libc::geteuid() } || m.mode() & 0o077 != 0
+fn socket_stat(dir: &File) -> Result<libc::stat, Failure> {
+    let name = CString::new(SOCKET).unwrap();
+    let mut stat: libc::stat = unsafe { std::mem::zeroed() };
+    // SAFETY: dir is open, name is NUL-terminated, and stat points to writable storage.
+    if unsafe {
+        libc::fstatat(
+            dir.as_raw_fd(),
+            name.as_ptr(),
+            &mut stat,
+            libc::AT_SYMLINK_NOFOLLOW,
+        )
+    } != 0
+    {
+        return Err(io_failure(io::Error::last_os_error()));
+    }
+    Ok(stat)
+}
+fn validate_socket(dir: &File) -> Result<(), Failure> {
+    let m = socket_stat(dir)?;
+    if m.st_mode & libc::S_IFMT != libc::S_IFSOCK
+        || m.st_uid != unsafe { libc::geteuid() }
+        || m.st_mode & 0o077 != 0
     {
         return Err(failure(4, "unsafe_control"));
     }
-    Ok(socket)
+    Ok(())
 }
 struct SocketGuard {
-    dir: PathBuf,
-    dir_id: (u64, u64),
+    dir: File,
     socket_id: (u64, u64),
 }
 impl Drop for SocketGuard {
     fn drop(&mut self) {
-        if let Ok((d, _)) = walk(&self.dir) {
-            if ids(&d).ok() == Some(self.dir_id) {
-                let p = self.dir.join(SOCKET);
-                if let Ok(m) = fs::symlink_metadata(&p) {
-                    if m.file_type().is_socket() && (m.dev(), m.ino()) == self.socket_id {
-                        let _ = fs::remove_file(p);
-                    }
-                }
+        if let Ok(m) = socket_stat(&self.dir) {
+            if m.st_mode & libc::S_IFMT == libc::S_IFSOCK
+                && (m.st_dev as u64, m.st_ino) == self.socket_id
+            {
+                let name = CString::new(SOCKET).unwrap();
+                // SAFETY: dir is a retained descriptor and name is a fixed NUL-terminated component.
+                let _ = unsafe { libc::unlinkat(self.dir.as_raw_fd(), name.as_ptr(), 0) };
             }
         }
     }
+}
+// Called only on the main thread during host startup or a one-shot CLI client,
+// before the host spawns worker/client threads. The process cwd is restored.
+struct RestoreCwd(File);
+impl Drop for RestoreCwd {
+    fn drop(&mut self) {
+        let _ = unsafe { libc::fchdir(self.0.as_raw_fd()) };
+    }
+}
+fn in_control_dir<T>(
+    dir: &File,
+    action: impl FnOnce() -> Result<T, Failure>,
+) -> Result<T, Failure> {
+    let old = File::open(".").map_err(io_failure)?;
+    // SAFETY: dir is an open directory descriptor; no concurrent process threads use cwd here.
+    if unsafe { libc::fchdir(dir.as_raw_fd()) } != 0 {
+        return Err(io_failure(io::Error::last_os_error()));
+    }
+    let guard = RestoreCwd(old);
+    let result = action();
+    // Fail closed if restoration fails, even when the operation succeeded.
+    if unsafe { libc::fchdir(guard.0.as_raw_fd()) } != 0 {
+        return Err(io_failure(io::Error::last_os_error()));
+    }
+    drop(guard);
+    result
 }
 fn remaining(deadline: Instant) -> Result<Duration, Failure> {
     let left = deadline.saturating_duration_since(Instant::now());
@@ -248,6 +356,14 @@ impl TestGate {
         }
     }
 }
+struct PanicLatch(Arc<AtomicBool>);
+impl Drop for PanicLatch {
+    fn drop(&mut self) {
+        if std::thread::panicking() {
+            self.0.store(true, Ordering::Release);
+        }
+    }
+}
 struct Job {
     id: u64,
     state: &'static str,
@@ -261,6 +377,7 @@ struct State {
     stopping: bool,
     fault: Option<&'static str>,
     workers: Vec<JoinHandle<()>>,
+    panic_latch: Arc<AtomicBool>,
     #[cfg(feature = "test-hooks")]
     gate: Arc<TestGate>,
     #[cfg(feature = "test-hooks")]
@@ -274,6 +391,7 @@ impl State {
             stopping: false,
             fault: None,
             workers: Vec::new(),
+            panic_latch: Arc::new(AtomicBool::new(false)),
             #[cfg(feature = "test-hooks")]
             gate: Arc::new(TestGate::default()),
             #[cfg(feature = "test-hooks")]
@@ -320,7 +438,13 @@ fn status(state: &State) -> Value {
             v
         }
     };
-    json!({"operation":"host-status","job":job,"fault":state.fault})
+    let fault = state.fault.or_else(|| {
+        state
+            .panic_latch
+            .load(Ordering::Acquire)
+            .then_some("worker_panic")
+    });
+    json!({"operation":"host-status","job":job,"fault":fault})
 }
 fn do_request(
     command: &str,
@@ -337,6 +461,9 @@ fn do_request(
             let term = value.ok_or_else(|| failure(2, "usage"))?;
             {
                 let s = shared.lock().map_err(|_| failure(5, "host_fault"))?;
+                if s.panic_latch.load(Ordering::Acquire) {
+                    return Err(host_fault("worker_panic"));
+                }
                 if let Some(f) = s.fault {
                     return Err(host_fault(f));
                 }
@@ -350,6 +477,9 @@ fn do_request(
                 .map_err(|e| mac::classify(DurableError::Index(e)))?;
             {
                 let s = shared.lock().map_err(|_| failure(5, "host_fault"))?;
+                if s.panic_latch.load(Ordering::Acquire) {
+                    return Err(host_fault("worker_panic"));
+                }
                 if let Some(f) = s.fault {
                     return Err(host_fault(f));
                 }
@@ -361,6 +491,9 @@ fn do_request(
         "index" => {
             let expected = expected(value.ok_or_else(|| failure(2, "usage"))?)?;
             let mut s = shared.lock().map_err(|_| failure(5, "host_fault"))?;
+            if s.panic_latch.load(Ordering::Acquire) {
+                return Err(host_fault("worker_panic"));
+            }
             if let Some(f) = s.fault {
                 return Err(host_fault(f));
             }
@@ -394,6 +527,7 @@ fn do_request(
             });
             let worker_db = Arc::clone(db);
             let worker_state = Arc::clone(shared);
+            let worker_panic_latch = Arc::clone(&s.panic_latch);
             #[cfg(feature = "test-hooks")]
             let (gate, mode) = {
                 s.gate.reset();
@@ -402,6 +536,7 @@ fn do_request(
             let handle = thread::Builder::new()
                 .spawn(move || {
                     let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+                        let _panic_latch = PanicLatch(worker_panic_latch);
                         #[cfg(feature = "test-hooks")]
                         if expected.is_some() {
                             if mode == TestMode::Pause {
@@ -430,6 +565,13 @@ fn do_request(
                         }
                         worker_db.replace_from_source(expected, &token)
                     }));
+                    #[cfg(feature = "test-hooks")]
+                    if result.is_err()
+                        && std::env::var_os("RUSTGROK_TEST_PANIC_GAP").as_deref()
+                            == Some(std::ffi::OsStr::new("1"))
+                    {
+                        gate.pause();
+                    }
                     if let Ok(mut s) = worker_state.lock() {
                         match result {
                             Ok(Ok(g)) => {
@@ -542,26 +684,22 @@ fn handle(
             return;
         }
     };
-    let request: Value = match serde_json::from_slice(&data) {
+    #[derive(serde::Deserialize)]
+    #[serde(deny_unknown_fields)]
+    struct Request {
+        command: String,
+        #[serde(default)]
+        value: Option<String>,
+    }
+    let request: Request = match serde_json::from_slice(&data) {
         Ok(v) => v,
         Err(_) => {
             response(&mut stream, 4, json!({"error":"protocol_error"}));
             return;
         }
     };
-    let Some(obj) = request.as_object() else {
-        response(&mut stream, 4, json!({"error":"protocol_error"}));
-        return;
-    };
-    if obj.keys().any(|k| k != "command" && k != "value")
-        || !obj.get("command").is_some_and(Value::is_string)
-        || obj.get("value").is_some_and(|v| !v.is_string())
-    {
-        response(&mut stream, 4, json!({"error":"protocol_error"}));
-        return;
-    }
-    let command = obj["command"].as_str().unwrap();
-    let value = obj.get("value").and_then(Value::as_str);
+    let command = request.command.as_str();
+    let value = request.value.as_deref();
     match do_request(command, value, &db, &state) {
         Ok(v) => response(&mut stream, 0, v),
         Err(e) => response(&mut stream, e.code, json!({"error":e.label})),
@@ -573,8 +711,11 @@ pub(crate) fn serve(
     proj: &str,
     control_dir: &str,
 ) -> Result<Value, Failure> {
-    let (dir, dir_id) = control(control_dir)?;
-    let (_, control_chain) = walk(&dir)?;
+    let ControlDir {
+        path: dir,
+        fd: dir_fd,
+        chain: control_chain,
+    } = control(control_dir)?;
     let (_, src_chain) = walk(mac::source(src)?)?;
     let (_, store_chain) = walk(mac::source(store)?)?;
     if !disjoint(&control_chain, &src_chain) || !disjoint(&control_chain, &store_chain) {
@@ -588,14 +729,28 @@ pub(crate) fn serve(
         Err(DurableError::Index(IndexError::NoPublishedGeneration)) => false,
         Err(e) => return Err(mac::classify(e)),
     };
-    let listener = UnixListener::bind(&path).map_err(io_failure)?;
-    let m = fs::symlink_metadata(&path).map_err(io_failure)?;
-    let _guard = SocketGuard {
-        dir,
-        dir_id,
-        socket_id: (m.dev(), m.ino()),
-    };
-    fs::set_permissions(&path, fs::Permissions::from_mode(0o600)).map_err(io_failure)?;
+    #[cfg(feature = "test-hooks")]
+    if std::env::var_os("RUSTGROK_TEST_BEFORE_BIND").as_deref() == Some(std::ffi::OsStr::new("1")) {
+        eprintln!("RUSTGROK_TEST_BEFORE_BIND");
+        let mut byte = [0u8; 1];
+        io::stdin().read_exact(&mut byte).map_err(io_failure)?;
+    }
+    let (listener, _guard) = in_control_dir(&dir_fd, || {
+        let listener = UnixListener::bind(SOCKET).map_err(io_failure)?;
+        let stat = socket_stat(&dir_fd)?;
+        let guard = SocketGuard {
+            dir: dir_fd.try_clone().map_err(io_failure)?,
+            socket_id: (stat.st_dev as u64, stat.st_ino),
+        };
+        fs::set_permissions(SOCKET, fs::Permissions::from_mode(0o600)).map_err(io_failure)?;
+        let after = socket_stat(&dir_fd)?;
+        if after.st_mode & libc::S_IFMT != libc::S_IFSOCK
+            || (after.st_dev as u64, after.st_ino) != guard.socket_id
+        {
+            return Err(failure(4, "unsafe_control"));
+        }
+        Ok((listener, guard))
+    })?;
     listener.set_nonblocking(true).map_err(io_failure)?;
     STOP_SIGNAL.store(false, Ordering::Release);
     for signal in [libc::SIGINT, libc::SIGTERM] {
@@ -778,9 +933,14 @@ pub(crate) fn client(
     command: &str,
     value: Option<&str>,
 ) -> Result<Value, Failure> {
-    let (dir, _) = control(control_dir)?;
-    let socket = validate_socket(&dir)?;
-    let mut stream = connect_bounded(&socket)?;
+    let ControlDir {
+        path: dir,
+        fd: dir_fd,
+        ..
+    } = control(control_dir)?;
+    validate_socket_path(&dir.join(SOCKET))?;
+    validate_socket(&dir_fd)?;
+    let mut stream = in_control_dir(&dir_fd, || connect_bounded(Path::new(SOCKET)))?;
     stream.set_read_timeout(Some(TIMEOUT)).map_err(io_failure)?;
     stream
         .set_write_timeout(Some(TIMEOUT))
