@@ -255,6 +255,195 @@ impl DurableBatchIndex {
             scratch: Arc::clone(&self.scratch),
         })
     }
+    /// Scan explicitly named direct child project directories and publish them together.
+    /// The caller must coordinate changes to the source tree for the entire operation.
+    pub fn replace_from_source(
+        &self,
+        expected: Option<u64>,
+        projects: &[String],
+        cancellation: &CancellationToken,
+    ) -> Result<u64, DurableError> {
+        self.scan_replace(
+            expected,
+            projects,
+            cancellation,
+            FaultPoint::None,
+            None,
+            None,
+        )
+    }
+    #[cfg(feature = "fault-injection")]
+    pub fn replace_from_source_with_precommit_observer(
+        &self,
+        expected: Option<u64>,
+        projects: &[String],
+        cancellation: &CancellationToken,
+        observer: &mut dyn FnMut(),
+    ) -> Result<u64, DurableError> {
+        self.scan_replace(
+            expected,
+            projects,
+            cancellation,
+            FaultPoint::ObserveBeforeCommit,
+            Some(observer),
+            None,
+        )
+    }
+    #[cfg(feature = "fault-injection")]
+    pub fn replace_from_source_with_second_project_observer(
+        &self,
+        expected: Option<u64>,
+        projects: &[String],
+        cancellation: &CancellationToken,
+        observer: &mut dyn FnMut(),
+    ) -> Result<u64, DurableError> {
+        self.scan_replace(
+            expected,
+            projects,
+            cancellation,
+            FaultPoint::None,
+            None,
+            Some(observer),
+        )
+    }
+    fn scan_replace(
+        &self,
+        expected: Option<u64>,
+        projects: &[String],
+        cancellation: &CancellationToken,
+        fault: FaultPoint,
+        observer: Option<&mut dyn FnMut()>,
+        second_project_observer: Option<&mut dyn FnMut()>,
+    ) -> Result<u64, DurableError> {
+        let _writer = acquire(&self.writer)?;
+        cancellation.check()?;
+        if projects.is_empty() || projects.len() > self.limits.max_projects {
+            return Err(DurableError::LimitExceeded);
+        }
+        let mut unique = BTreeSet::new();
+        for project in projects {
+            if project.is_empty()
+                || !project
+                    .bytes()
+                    .all(|b| b.is_ascii_lowercase() || b.is_ascii_digit() || b == b'_' || b == b'-')
+                || !unique.insert(project.clone())
+            {
+                return Err(IndexError::InvalidProject.into());
+            }
+            PathIndex::new(project, self.limits.per_project)?;
+        }
+        // Check the fixed registry and expected generation before reading source.
+        match self.inner.snapshot() {
+            Ok(snapshot) => {
+                if Some(snapshot.generation()) != expected {
+                    return Err(IndexError::StaleGeneration {
+                        expected,
+                        actual: Some(snapshot.generation()),
+                    }
+                    .into());
+                }
+                let _scratch = acquire(&self.scratch)?;
+                if registry(&snapshot, self.limits)? != unique {
+                    return Err(IndexError::InvalidProject.into());
+                }
+            }
+            Err(DurableError::Index(IndexError::NoPublishedGeneration)) if expected.is_none() => {}
+            Err(DurableError::Index(IndexError::NoPublishedGeneration)) => {
+                return Err(IndexError::StaleGeneration {
+                    expected,
+                    actual: None,
+                }
+                .into())
+            }
+            Err(error) => return Err(error),
+        }
+        let second_project_observer = std::cell::RefCell::new(second_project_observer);
+        let observe =
+            |with_observer: bool| -> Result<Vec<(String, scanner::Observed)>, DurableError> {
+                self.inner.check_source()?;
+                let mut result = Vec::with_capacity(projects.len());
+                let mut identities = BTreeSet::new();
+                let mut total_documents = 0usize;
+                let mut total_bytes = 0usize;
+                let mut total_entries = 0usize;
+                let entry_limit = self
+                    .limits
+                    .max_batch_documents
+                    .checked_mul(8)
+                    .and_then(|value| {
+                        projects
+                            .len()
+                            .checked_mul(128)
+                            .and_then(|extra| value.checked_add(extra))
+                    })
+                    .ok_or(DurableError::LimitExceeded)?;
+                for (index, project) in projects.iter().enumerate() {
+                    cancellation.check()?;
+                    let child = open_at(&self.inner.source, &component(project)?, FLAGS_DIR, 0)?;
+                    if !identities.insert(identity(&child)?) {
+                        return Err(DurableError::UnsafePath);
+                    }
+                    if with_observer && index == 1 {
+                        if let Some(observer) = second_project_observer.borrow_mut().as_mut() {
+                            observer();
+                        }
+                        cancellation.check()?;
+                    }
+                    let observed = scanner::observe_project(
+                        &child,
+                        project,
+                        self.limits.per_project,
+                        cancellation,
+                    )?;
+                    total_documents = total_documents
+                        .checked_add(observed.paths.len())
+                        .ok_or(DurableError::LimitExceeded)?;
+                    total_bytes = total_bytes
+                        .checked_add(observed.path_bytes)
+                        .ok_or(DurableError::LimitExceeded)?;
+                    total_entries = total_entries
+                        .checked_add(observed.entries)
+                        .ok_or(DurableError::LimitExceeded)?;
+                    if total_documents > self.limits.max_batch_documents
+                        || total_bytes > self.limits.max_batch_path_bytes
+                        || total_entries > entry_limit
+                    {
+                        return Err(DurableError::LimitExceeded);
+                    }
+                    result.push((project.clone(), observed));
+                }
+                self.inner.check_source()?;
+                Ok(result)
+            };
+        let original = observe(true)?;
+        let manifests: Vec<_> = original
+            .iter()
+            .map(|(name, observed)| BatchProject {
+                project: name.clone(),
+                expected_count: observed.paths.len(),
+                paths: observed
+                    .paths
+                    .iter()
+                    .cloned()
+                    .map(Ok)
+                    .collect::<Vec<io::Result<String>>>(),
+            })
+            .collect();
+        let check = || {
+            if observe(false)? != original {
+                return Err(DurableError::SourceChanged);
+            }
+            Ok(())
+        };
+        self.replace_locked(
+            expected,
+            manifests,
+            cancellation,
+            fault,
+            observer,
+            Some(&check),
+        )
+    }
     pub fn replace<I>(
         &self,
         expected: Option<u64>,
@@ -290,6 +479,20 @@ impl DurableBatchIndex {
         I: IntoIterator<Item = io::Result<String>>,
     {
         let _writer = acquire(&self.writer)?;
+        self.replace_locked(expected, projects, cancellation, fault, None, None)
+    }
+    fn replace_locked<I>(
+        &self,
+        expected: Option<u64>,
+        projects: Vec<BatchProject<I>>,
+        cancellation: &CancellationToken,
+        fault: FaultPoint,
+        observer: Option<&mut dyn FnMut()>,
+        validation: Option<&dyn Fn() -> Result<(), DurableError>>,
+    ) -> Result<u64, DurableError>
+    where
+        I: IntoIterator<Item = io::Result<String>>,
+    {
         cancellation.check()?;
         if projects.is_empty() || projects.len() > self.limits.max_projects {
             return Err(DurableError::LimitExceeded);
@@ -347,8 +550,15 @@ impl DurableBatchIndex {
             }
         }
         cancellation.check()?;
-        self.inner
-            .replace_impl(expected, all.len(), all, cancellation, fault, None, None)
+        self.inner.replace_impl(
+            expected,
+            all.len(),
+            all,
+            cancellation,
+            fault,
+            observer,
+            validation,
+        )
     }
 }
 

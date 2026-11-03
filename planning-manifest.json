@@ -1,12 +1,12 @@
 {
   "version": "0.6",
   "kind": "planning_package_not_runtime_distribution",
-  "generated_date": "2026-11-03",
+  "generated_date": "2026-11-04",
   "files": [
     {
       "path": ".gitattributes",
-      "bytes": 5729,
-      "sha256": "096d049d77de1f3447e1c24a26c12f1b0a5f4e699790b9874d0220a9140b5457"
+      "bytes": 5976,
+      "sha256": "5223de9672be2f2db87f91f339658bd9c61e5188bae9d60e9de18d6616277d4b"
     },
     {
       "path": ".github/ISSUE_TEMPLATE/compatibility-bug.md",
@@ -75,8 +75,8 @@
     },
     {
       "path": "apps/grok-host/README.md",
-      "bytes": 13625,
-      "sha256": "f5c19c0f39d2b54d66c3b622287249e8ba046493c02289c0600763aedbfe5016"
+      "bytes": 16254,
+      "sha256": "d573cfa223744abe10e263d4856bedb0d692fbd569c364f1490b191336892c19"
     },
     {
       "path": "apps/grok-host/RUST-LICENSE-MIT.txt",
@@ -90,8 +90,13 @@
     },
     {
       "path": "apps/grok-host/src/main.rs",
-      "bytes": 10273,
-      "sha256": "43483742b3d545cd8c75f3bae7116578a08f1d8ce712c384eb632a6e918219de"
+      "bytes": 13584,
+      "sha256": "727a88b80b3dd87ca04c68dee337625144a22511cbe7034b9d7a194f9eb1573d"
+    },
+    {
+      "path": "apps/grok-host/tests/batch_cli_e2e.rs",
+      "bytes": 14499,
+      "sha256": "09826b337263d077e2ba188f1e0f60e0deb36d7cb43124bf18b7146fcb9e28f7"
     },
     {
       "path": "apps/grok-host/tests/cli_e2e.rs",
@@ -220,8 +225,8 @@
     },
     {
       "path": "crates/path-index/README.md",
-      "bytes": 12189,
-      "sha256": "4d463d01270ab8e3de4ac1c8a372aeb14c6d4595f592685e4ef795807c6df187"
+      "bytes": 13516,
+      "sha256": "0ea7c14ef4f7f6fbf9b440f9952b7b592a557fb8798a10ec6c6e18334c7d4115"
     },
     {
       "path": "crates/path-index/RUST-LICENSE-MIT.txt",
@@ -230,13 +235,13 @@
     },
     {
       "path": "crates/path-index/src/durable/batch.rs",
-      "bytes": 13535,
-      "sha256": "3deaea216e2f02a5fbcb26fb9ca9e7d16d0193ed9278e929368b5cb5bdb7be43"
+      "bytes": 21368,
+      "sha256": "7f69d21253a897b4eff9d248c46834ed05e2a6204d53fd2a2dda2de836619397"
     },
     {
       "path": "crates/path-index/src/durable/scanner.rs",
-      "bytes": 9876,
-      "sha256": "7520e06cd6f690fd2fb146bfc5a97dd9163523c610c503a533506e6fe5ce1570"
+      "bytes": 10766,
+      "sha256": "8533bd602b2716294c51d129a758ba80629e9afe21dc4a3b7548450da55f442f"
     },
     {
       "path": "crates/path-index/src/durable.rs",
@@ -260,8 +265,8 @@
     },
     {
       "path": "crates/path-index/tests/durable_batch.rs",
-      "bytes": 24138,
-      "sha256": "eb509bab5b4b6c00f58e7673a4a980b7fe552a0379db9870b4d4feb51641dfe6"
+      "bytes": 25806,
+      "sha256": "ce21bff91cc8b974f305d71f81c8cd5b260b5a508ec80301b534eed1e2d28b0d"
     },
     {
       "path": "crates/path-index/tests/generation.rs",
@@ -452,6 +457,11 @@
       "path": "docs/superpowers/plans/2026-11-03-batch-publication.md",
       "bytes": 5254,
       "sha256": "2b47123aaa1c860036d9703fb9b13ea2136b7c0378610c099224d90ab4edefc0"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-03-batch-scanner-cli.md",
+      "bytes": 3061,
+      "sha256": "1ff8af991d6f9faa4841a58aa75fdf8ae0685a2815bfb9a6c1341483fdefe155"
     },
     {
       "path": "docs/superpowers/plans/2026-11-03-durable-path-index.md",
@@ -701,7 +711,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 807,
-      "sha256": "69e6bb30aa32144b9f5705883b1dd61c0c58d9280dd83799196cdbd35736edaa"
+      "sha256": "7ec18f406101202ab4b51efe6411da0e1e709ef92899115dfad9b7847fb2ebb2"
     },
     {
       "path": "tests/README.md",
@@ -712,6 +722,11 @@
       "path": "tests/contract/test_batch_publication_evidence.py",
       "bytes": 2238,
       "sha256": "c74eecd3844d6cc278e40d700e2ff55fc1dfc9e8f3190c0e9c8f098b40a58c76"
+    },
+    {
+      "path": "tests/contract/test_batch_source_cli_evidence.py",
+      "bytes": 4374,
+      "sha256": "a81e646835c190480ee3db57ee0be72381add6f410a137b728982da1ff2c5133"
     },
     {
       "path": "tests/contract/test_benchmark_gate.py",
@@ -907,6 +922,101 @@
       "path": "tests/evidence/batch-publication-2026-11-03/receipt.json",
       "bytes": 3252,
       "sha256": "a882074f23ab00d9a8d0274476cc593ca4227f18c9d87b8fc191cb883e2afadc"
+    },
+    {
+      "path": "tests/evidence/batch-source-cli-2026-11-03/README.md",
+      "bytes": 3986,
+      "sha256": "d031d59d25c32349eab36636d84e20697e09c1601b6b36fd586fcb0fb50edc2e"
+    },
+    {
+      "path": "tests/evidence/batch-source-cli-2026-11-03/cli-default.stderr.txt",
+      "bytes": 839,
+      "sha256": "a9cdbaf927e6dd7a0666c4eaa64a066ad11a7c408a91143964e9e65fdbc53b90"
+    },
+    {
+      "path": "tests/evidence/batch-source-cli-2026-11-03/cli-default.stdout.txt",
+      "bytes": 2020,
+      "sha256": "167c557a42c23aa5ca4eb37e8da0a9263288047c5ddaaf45831b1c0c6a6b0835"
+    },
+    {
+      "path": "tests/evidence/batch-source-cli-2026-11-03/cli-hooks.stderr.txt",
+      "bytes": 839,
+      "sha256": "4524a1c0b13d848ec1b2d48f6f16b11d72b014ef9a7b5a18857bd3cecc4a0e76"
+    },
+    {
+      "path": "tests/evidence/batch-source-cli-2026-11-03/cli-hooks.stdout.txt",
+      "bytes": 2813,
+      "sha256": "75cfe99708a0bc552ae01651001568a8cf9ed6abfdada4aaba793369dbc67669"
+    },
+    {
+      "path": "tests/evidence/batch-source-cli-2026-11-03/index-default.stderr.txt",
+      "bytes": 1094,
+      "sha256": "1f5610399e6d68583104d5a1a4be41a920a0d6abc48575d6c59343a32eef1864"
+    },
+    {
+      "path": "tests/evidence/batch-source-cli-2026-11-03/index-default.stdout.txt",
+      "bytes": 4842,
+      "sha256": "0071d36acd3a88c06c5e8c2f32ae47d1d4278acf3f6a7dac287c9f971888f4ca"
+    },
+    {
+      "path": "tests/evidence/batch-source-cli-2026-11-03/index-fault.stderr.txt",
+      "bytes": 1094,
+      "sha256": "3924d3c0116ea91891c41159ebaa63df5f486614d9e3bfc7cd4cb363e9b6ca03"
+    },
+    {
+      "path": "tests/evidence/batch-source-cli-2026-11-03/index-fault.stdout.txt",
+      "bytes": 6030,
+      "sha256": "d37f569e1251d2f0f632daec9ac7245b68d1581cd63d8f35395515f34f8800d3"
+    },
+    {
+      "path": "tests/evidence/batch-source-cli-2026-11-03/pre-lint/cli-default.stderr.txt",
+      "bytes": 839,
+      "sha256": "d447f8997152a74cd4a0f2257d8706ed3e3ed73c077116e4d7adda4670a7ca85"
+    },
+    {
+      "path": "tests/evidence/batch-source-cli-2026-11-03/pre-lint/cli-default.stdout.txt",
+      "bytes": 2020,
+      "sha256": "082e68fb9c9ede2cf878d943c24414a78e4eedf6d3f74213a05d67054d1bfe65"
+    },
+    {
+      "path": "tests/evidence/batch-source-cli-2026-11-03/pre-lint/cli-hooks.stderr.txt",
+      "bytes": 839,
+      "sha256": "4dba73b859c7c1d3cfe3ab7750f27b5bd03a381cb5176beeda0368b42f5bba33"
+    },
+    {
+      "path": "tests/evidence/batch-source-cli-2026-11-03/pre-lint/cli-hooks.stdout.txt",
+      "bytes": 2813,
+      "sha256": "6ec15fba81cfd8aa5c059d05a6efa7f85a0c8f94841bd041144204e0ef86724f"
+    },
+    {
+      "path": "tests/evidence/batch-source-cli-2026-11-03/pre-lint/index-default.stderr.txt",
+      "bytes": 1094,
+      "sha256": "b34e74708f74b7446eb3721f92319adac94e1c4018df17c53642b47eea0fde4b"
+    },
+    {
+      "path": "tests/evidence/batch-source-cli-2026-11-03/pre-lint/index-default.stdout.txt",
+      "bytes": 4842,
+      "sha256": "d44c66a55cec338e639714e30a8fd23cfc0fca0a57c34198909fd74c8cb42f1c"
+    },
+    {
+      "path": "tests/evidence/batch-source-cli-2026-11-03/pre-lint/index-fault.stderr.txt",
+      "bytes": 1094,
+      "sha256": "3e482e74430756c0224840bfbcc666838e6686e0e00c00b9b47a92f0c4c87c13"
+    },
+    {
+      "path": "tests/evidence/batch-source-cli-2026-11-03/pre-lint/index-fault.stdout.txt",
+      "bytes": 6030,
+      "sha256": "1911ef485c93201d434fb6be57e7099c0db1f14e88dec2dd5525515eb2f5ff14"
+    },
+    {
+      "path": "tests/evidence/batch-source-cli-2026-11-03/pre-lint/receipt.json",
+      "bytes": 6771,
+      "sha256": "fa5d60debc5a3efc7bd196f36acabe76774937c67ea3400e009085cc977587d4"
+    },
+    {
+      "path": "tests/evidence/batch-source-cli-2026-11-03/receipt.json",
+      "bytes": 6771,
+      "sha256": "b7627eb97258a94df81a1b0e05502204343e014a5eae618a9e43613a9e32afbd"
     },
     {
       "path": "tests/evidence/development-host-observation-2026-10-26.json",

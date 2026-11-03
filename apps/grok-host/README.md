@@ -1,6 +1,6 @@
 # Rustgrok restricted path CLI
 
-This unpublished development executable connects the macOS-only source scanner, durable path generation and analyzer. It accepts one project and one path term; it does **not** implement the OpenGrok CLI, ranking, full-text search, source browsing, SCM/history, Ctags, a web server, LAN/UI or the full Q8 publication contract. It does not need Java or Git at runtime. Git is used by the isolated e2e fixtures only. Production packaging and D19 helper inventory remain open.
+This unpublished development executable connects the macOS-only source scanner, durable path generation and analyzer. It supports single-project and explicitly registered fixed-batch path operations; it does **not** implement the OpenGrok CLI, ranking, full-text search, source browsing, SCM/history, Ctags, a web server, LAN/UI or the full Q8 publication contract. It does not need Java or Git at runtime. Git is used by the isolated e2e fixtures only. Production packaging and D19 helper inventory remain open.
 
 Build and test with a native Mac toolchain:
 
@@ -82,3 +82,19 @@ The development commands `query-expression STORE SOURCE PROJECT EXPRESSION` and 
 The current expression subset accepts ASCII letter/digit/underscore single-token path terms, case-normalized by the path analyzer, implicit conjunction, uppercase `AND`, uppercase `OR`, `NOT` and `-` exclusion, unary `+` on an initial term, and nested parentheses. A pure negative clause returns no candidates. Same-level combinations of `OR` with conjunction or negative clauses and other unsupported forms are rejected: use supported grouping rather than assuming precedence. Only ASCII space is accepted as a whitespace separator; all C0 control characters, including tab, CR, LF, form feed and vertical tab, and DEL are rejected. Query length is bounded by the configured maximum path bytes, with at most 128 lexical tokens and 16 nested groups. Wildcards, regex, fuzzy, ranges, fields, quoted/escaped syntax, Unicode, path punctuation and analyzer expansions are explicitly unsupported. Errors use `unsupported_or_limit`; neither snippets, scores nor original sorting are produced. Accepted results are exhaustive within the currently published single-project manifest, subject to the scanner and generation restrictions above.
 
 Observed original examples and their narrow scope are retained in `tests/evidence/path-query-2026-11-03/`. The single-field subset is not a complete OpenGrok query parser, UI/API compatibility claim, or product acceptance. Source-span fidelity, full Unicode, mixing clauses at one level, multi-field parsing, scoring and ranking remain open under #6.
+
+
+### Fixed-registry source batch CLI
+
+The macOS development commands below index one explicit set of projects through a single batch publication. `SOURCE_ROOT/<project>` is the only mapping; each name is a direct lowercase ASCII project component, and each directory must be distinct and non-symlink. Other entries in the source root are outside the explicit job and are not auto-discovered. The first successful `batch-index` establishes the fixed registry; every later batch must supply the same complete set. Subset updates, registry changes and automatic project discovery are currently unsupported. This restriction is not a product decision to require every registered project in every job.
+
+```text
+rustgrok batch-create PARENT NAME SOURCE_ROOT
+rustgrok batch-index STORE SOURCE_ROOT EXPECTED PROJECT [PROJECT ...]
+rustgrok batch-query STORE SOURCE_ROOT PROJECT TERM
+rustgrok batch-query-expression STORE SOURCE_ROOT PROJECT EXPRESSION
+```
+
+Each named project is scanned with the existing restricted scanner, using the same file types, hidden-name and `.git` policy. Duplicate, missing, symlink, unsupported, unreadable or over-limit inputs fail the whole job. The complete set is observed again immediately before the one commit; differences fail without publishing. Both old/new data and cancellation follow the existing durable contract. The source and store are disjoint, and source bytes are never modified. The caller must coordinate source changes during the entire operation: metadata comparison cannot prove unchanged contents or prevent a change after the final check. The accepted aggregate limits are 32 projects, 50,000 source paths, 16 MiB logical path bytes, and `8 * max_batch_documents + 128 * project_count` traversed directory entries. Aggregate checks run after each project, so an unsuccessful scan can additionally visit up to one project’s scanner budget before rejection; per-project scanner bounds also apply.
+
+Batch queries return `generation`, `order: "unspecified"` and complete unordered candidates for the selected project. The direct CLI holds the store's exclusive process lock; another batch-query returns `busy` while indexing, so this direct interface does not yet maintain Q8 read availability during updates. Batch stores and single-project stores cannot be opened as each other. The single-project host does not serve batch stores. Complete Q8, cross-project ranked search, project registration/removal, Web and platform acceptance remain incomplete. See [batch scanner evidence](../../tests/evidence/batch-source-cli-2026-11-03/README.md).

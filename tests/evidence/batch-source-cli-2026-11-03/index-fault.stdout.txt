@@ -1,0 +1,109 @@
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 30 tests
+test a_corrupted_pointer_cannot_masquerade_as_the_empty_sentinel ... ok
+test a_fifo_current_is_rejected_without_blocking ... 
+running 1 test
+test a_fifo_current_is_rejected_without_blocking ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 29 filtered out; finished in 0.00s
+
+ok
+test an_empty_store_cannot_be_reopened_for_a_different_project_or_source_tree ... ok
+test cancellation_at_last_precommit_checkpoint_cannot_publish ... ok
+test cancellation_during_manifest_iteration_leaves_old_generation ... ok
+test corrupt_prepublication_files_fail_readback_and_preserve_old_generation ... ok
+test corrupted_or_truncated_generation_is_never_loaded ... ok
+test durable_add_remove_reopen_and_retained_reader ... ok
+test exhausted_generation_id_budget_fails_without_replacing_current ... ok
+test failed_input_and_cancel_preserve_previous_durable_generation ... ok
+test failure_after_pointer_rename_is_explicitly_indeterminate_and_blocks_handle ... ok
+test interrupted_subprocess_recovers_only_published_complete_generation ... ok
+test iterator_panic_keeps_published_reader_and_reopen_recovers ... ok
+test live_writer_refuses_a_replaced_current_symlink ... ok
+test missing_current_pointer_is_corruption_even_after_a_published_generation ... ok
+test observer_panic_after_rename_is_indeterminate_not_silently_old ... ok
+test other_process_cannot_open_while_lock_is_held ... ok
+test overlap_and_invalid_store_names_fail_without_touching_source ... ok
+test readers_can_query_old_generation_while_post_rename_sync_is_paused ... ok
+test replacing_source_directory_rejects_snapshots_and_writes_without_touching_either_tree ... ok
+test retained_old_reader_enforces_the_same_live_generation_limit ... ok
+test second_handle_is_rejected_while_first_holds_store_lock ... ok
+test self_checksummed_but_partial_or_duplicate_manifest_is_rejected ... ok
+test simulated_disk_full_before_rename_keeps_prior_generation ... ok
+test source_replaced_during_manifest_collection_is_rejected_before_generation_files ... ok
+test source_replaced_immediately_before_publication_cannot_switch_pointer ... ok
+test symlink_at_next_generation_is_rejected_not_silently_skipped ... ok
+test symlinked_generation_and_hardlinked_pointer_are_rejected ... ok
+test symlinked_paths_and_current_pointer_are_rejected_without_touching_source ... ok
+test writer_paused_before_lock_fails_closed_after_another_writer_is_indeterminate ... ok
+
+test result: ok. 30 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.33s
+
+
+running 15 tests
+test batch_lock_is_exclusive_across_processes ... ok
+test batch_restart_and_store_types_remain_separate ... ok
+test concurrent_writer_is_busy_and_stale_writer_cannot_publish ... ok
+test empty_project_at_maximum_name_length_fits_batch_metadata_budget ... ok
+test failed_directory_sync_blocks_batch_handle_until_consistent_reopen ... ok
+test failures_cancellation_and_changed_registry_keep_entire_old_batch ... ok
+test interrupted_subprocess_recovers_whole_batch_at_single_commit_point ... ok
+test limits_source_identity_and_exclusive_store_lock_fail_closed ... ok
+test one_commit_publishes_two_projects_and_old_readers_remain_consistent ... ok
+test precommit_storage_faults_do_not_publish_any_project ... ok
+test project_scope_and_path_tokens_exclude_internal_store_prefix ... ok
+test reopening_with_stricter_project_limits_rejects_incomplete_generation ... ok
+test snapshot_started_before_sync_failure_does_not_escape_indeterminate_state ... ok
+test source_batch_rejects_aggregate_limit_without_publication ... ok
+test source_batch_rejects_project_symlink_and_duplicate_names ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.85s
+
+
+running 14 tests
+test an_explicitly_complete_empty_manifest_can_replace_a_nonempty_generation ... ok
+test caller_supplied_limits_reject_oversized_manifests_and_preserve_generation ... ok
+test cancellation_and_publish_have_a_single_atomic_winner ... ok
+test cancellation_racing_publication_never_reports_success_for_a_published_generation ... ok
+test candidate_sets_match_the_recorded_original_for_three_single_terms ... ok
+test concurrent_and_stale_writers_fail_closed_without_overwriting ... ok
+test invalid_partial_cancelled_or_io_failed_inputs_never_publish ... ok
+test lookup_rejects_unimplemented_query_syntax_instead_of_returning_false_no_hits ... ok
+test old_readers_remain_available_during_build_and_after_publication ... ok
+test panicking_source_keeps_previous_snapshot_and_poisoned_writer_fails_closed ... ok
+test public_index_add_remove_and_project_query ... ok
+test public_synthetic_source_add_then_remove_updates_candidates_without_changing_source ... ok
+test published_generation_retains_the_exact_supplied_manifest ... ok
+test retained_old_readers_bound_live_generations_without_losing_current ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 5 tests
+test accepted_short_expressions_match_retained_original_http_candidates ... ok
+test ast_preserves_lucene_clause_occurrences_for_future_scoring ... ok
+test control_bytes_are_rejected_instead_of_treated_as_separators ... ok
+test oracle_boolean_subset_and_rejected_syntax ... ok
+test oracle_implicit_and_intersects_published_path_postings ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 4 tests
+test nested_git_source_scan_add_remove_and_restart ... ok
+test observed_source_change_before_publication_preserves_prior_generation ... ok
+test old_generation_remains_queryable_during_scanner_build_and_second_writer_is_busy ... ok
+test unsupported_entries_fail_without_replacing_durable_generation ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.41s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

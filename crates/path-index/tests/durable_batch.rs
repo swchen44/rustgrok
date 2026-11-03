@@ -751,3 +751,47 @@ fn empty_project_at_maximum_name_length_fits_batch_metadata_budget() {
     );
     assert_eq!(db.snapshot().unwrap().projects(), vec![name]);
 }
+
+#[test]
+fn source_batch_rejects_aggregate_limit_without_publication() {
+    use rustgrok_path_index::durable::DurableError;
+    let f = Fixture::new();
+    fs::create_dir(f.source.join("alpha")).unwrap();
+    fs::create_dir(f.source.join("beta")).unwrap();
+    fs::write(f.source.join("alpha/a.c"), b"alpha\n").unwrap();
+    fs::write(f.source.join("beta/b.py"), b"beta\n").unwrap();
+    let mut bounded = limits();
+    bounded.max_batch_documents = 1;
+    let db = DurableBatchIndex::create(&f.parent, "batch", &f.source, bounded, 100).unwrap();
+    assert!(matches!(
+        db.replace_from_source(
+            None,
+            &["alpha".into(), "beta".into()],
+            &CancellationToken::new()
+        ),
+        Err(DurableError::LimitExceeded)
+    ));
+    assert!(db.snapshot().is_err());
+    assert_eq!(fs::read(f.source.join("alpha/a.c")).unwrap(), b"alpha\n");
+    assert_eq!(fs::read(f.source.join("beta/b.py")).unwrap(), b"beta\n");
+}
+
+#[test]
+fn source_batch_rejects_project_symlink_and_duplicate_names() {
+    use std::os::unix::fs::symlink;
+    let f = Fixture::new();
+    fs::create_dir(f.source.join("alpha")).unwrap();
+    fs::write(f.source.join("alpha/a.c"), b"a\n").unwrap();
+    symlink("alpha", f.source.join("beta")).unwrap();
+    let db = DurableBatchIndex::create(&f.parent, "batch", &f.source, limits(), 100).unwrap();
+    for names in [
+        vec!["alpha".into(), "beta".into()],
+        vec!["alpha".into(), "alpha".into()],
+        vec!["../alpha".into()],
+    ] {
+        assert!(db
+            .replace_from_source(None, &names, &CancellationToken::new())
+            .is_err());
+        assert!(db.snapshot().is_err());
+    }
+}

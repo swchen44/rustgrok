@@ -109,11 +109,13 @@ fn safe_name(name: &str) -> bool {
         })
 }
 #[derive(PartialEq, Eq)]
-struct Observed {
+pub(super) struct Observed {
     stamps: Vec<Stamp>,
-    paths: Vec<String>,
-    path_bytes: usize,
+    pub(super) paths: Vec<String>,
+    pub(super) path_bytes: usize,
+    pub(super) entries: usize,
 }
+#[allow(clippy::too_many_arguments)] // traversal state and cancellation are separate inputs.
 fn visit(
     dir: &File,
     relative: &str,
@@ -122,7 +124,9 @@ fn visit(
     remaining: &mut usize,
     out: &mut Observed,
     depth: usize,
+    cancellation: &CancellationToken,
 ) -> Result<(), DurableError> {
+    cancellation.check()?;
     if depth > 128 {
         return Err(DurableError::LimitExceeded);
     }
@@ -132,6 +136,7 @@ fn visit(
     }
     out.stamps.push(stamp(relative.to_owned(), &before));
     for name in names(dir, *remaining)? {
+        cancellation.check()?;
         *remaining = remaining
             .checked_sub(1)
             .ok_or(DurableError::LimitExceeded)?;
@@ -185,7 +190,16 @@ fn visit(
             return Err(DurableError::SourceChanged);
         }
         if kind == libc::S_IFDIR {
-            visit(&file, &rel, project, limits, remaining, out, depth + 1)?;
+            visit(
+                &file,
+                &rel,
+                project,
+                limits,
+                remaining,
+                out,
+                depth + 1,
+                cancellation,
+            )?;
         } else {
             if meta.mode() & 0o444 == 0
                 || ![".c", ".py", ".js"].iter().any(|ext| name.ends_with(ext))
@@ -211,29 +225,48 @@ fn visit(
     }
     Ok(())
 }
+pub(super) fn observe_project(
+    source: &File,
+    project: &str,
+    limits: IndexLimits,
+    cancellation: &CancellationToken,
+) -> Result<Observed, DurableError> {
+    let mut out = Observed {
+        stamps: Vec::new(),
+        paths: Vec::new(),
+        path_bytes: 0,
+        entries: 0,
+    };
+    let mut remaining = limits
+        .max_documents
+        .checked_mul(8)
+        .and_then(|n| n.checked_add(128))
+        .ok_or(DurableError::LimitExceeded)?;
+    let initial_budget = remaining;
+    visit(
+        source,
+        "",
+        project,
+        limits,
+        &mut remaining,
+        &mut out,
+        0,
+        cancellation,
+    )?;
+    cancellation.check()?;
+    out.entries = initial_budget
+        .checked_sub(remaining)
+        .ok_or(DurableError::LimitExceeded)?;
+    Ok(out)
+}
 impl DurablePathIndex {
-    fn observe_source(&self) -> Result<Observed, DurableError> {
+    fn observe_source(&self, cancellation: &CancellationToken) -> Result<Observed, DurableError> {
         self.check_source()?;
-        let mut out = Observed {
-            stamps: Vec::new(),
-            paths: Vec::new(),
-            path_bytes: 0,
-        };
-        let mut remaining = self
-            .inner
-            .limits
-            .max_documents
-            .checked_mul(8)
-            .and_then(|n| n.checked_add(128))
-            .ok_or(DurableError::LimitExceeded)?;
-        visit(
+        let out = observe_project(
             &self.source,
-            "",
             &self.inner.project,
             self.inner.limits,
-            &mut remaining,
-            &mut out,
-            0,
+            cancellation,
         )?;
         self.check_source()?;
         Ok(out)
@@ -287,9 +320,9 @@ impl DurablePathIndex {
             return Err(DurableError::PublicationIndeterminate);
         }
         cancellation.check()?;
-        let original = self.observe_source()?;
+        let original = self.observe_source(cancellation)?;
         let check = || {
-            if self.observe_source()? != original {
+            if self.observe_source(cancellation)? != original {
                 return Err(DurableError::SourceChanged);
             }
             Ok(())
