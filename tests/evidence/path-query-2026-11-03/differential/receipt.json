@@ -1,0 +1,417 @@
+{
+  "scope": "finite original parser and HTTP correctness; no benchmark or full compatibility",
+  "upstream_commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+  "synthetic_files": [
+    "alpha/beta/one.c",
+    "alpha/gamma/two.c",
+    "beta/gamma/three.c",
+    "alpha/alone/four.c",
+    "other/delta/five.c"
+  ],
+  "synthetic_file_contents": "/* synthetic public fixture */\n",
+  "cases": [
+    {
+      "query": "alpha beta gamma",
+      "path": "/source/api/v1/search?path=alpha+beta+gamma&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-00.body",
+      "sha256": "340bd01629cc9e1c1ee02be8978fbd5a42b720b410ef715aa89b612774999197"
+    },
+    {
+      "query": "alpha AND beta AND gamma",
+      "path": "/source/api/v1/search?path=alpha+AND+beta+AND+gamma&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-01.body",
+      "sha256": "e5d63d0a0731f33332eb1c760b411306ec92f59ae13a257bfc4c10b5559f7c19"
+    },
+    {
+      "query": "alpha OR beta OR gamma",
+      "path": "/source/api/v1/search?path=alpha+OR+beta+OR+gamma&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-02.body",
+      "sha256": "b9b21a150e7fcb4378b50a379669905d490f557a8b281b0da127027448bf4645"
+    },
+    {
+      "query": "alpha NOT beta gamma",
+      "path": "/source/api/v1/search?path=alpha+NOT+beta+gamma&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-03.body",
+      "sha256": "ba81e80a970421c2beaa0489d802d386e24c819f7b4faebf1898146f918284bb"
+    },
+    {
+      "query": "alpha beta NOT gamma",
+      "path": "/source/api/v1/search?path=alpha+beta+NOT+gamma&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-04.body",
+      "sha256": "7f9101fbea1da5c836c5fd6027043c4af352b7c517f2972b7a573d2e022da9ac"
+    },
+    {
+      "query": "alpha NOT beta NOT gamma",
+      "path": "/source/api/v1/search?path=alpha+NOT+beta+NOT+gamma&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-05.body",
+      "sha256": "618cbd140e4ad404c1bd957c398cb513300e541404a506424290b746c50382f6"
+    },
+    {
+      "query": "(alpha beta) OR gamma",
+      "path": "/source/api/v1/search?path=%28alpha+beta%29+OR+gamma&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-06.body",
+      "sha256": "b624e4cbd3fcfce62ec893b1fe5b4fd3507015627af65e7e73e83018d2199463"
+    },
+    {
+      "query": "alpha OR (beta gamma)",
+      "path": "/source/api/v1/search?path=alpha+OR+%28beta+gamma%29&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-07.body",
+      "sha256": "d4f8e26b1d8bfd45a0117084389fb6cb98b070f8f4e49f31d0877c63763ea33c"
+    },
+    {
+      "query": "(alpha NOT beta) OR gamma",
+      "path": "/source/api/v1/search?path=%28alpha+NOT+beta%29+OR+gamma&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-08.body",
+      "sha256": "305a95c7a80b9c1f1597e1bbe1e28bdee50a6f4b4310b1e4f33650ab994edb39"
+    },
+    {
+      "query": "alpha AND (beta NOT gamma)",
+      "path": "/source/api/v1/search?path=alpha+AND+%28beta+NOT+gamma%29&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-09.body",
+      "sha256": "b632ea58e36922f0f70bdb2ac56fd76edacef9607ae0016c9e68341fc37872c7"
+    },
+    {
+      "query": "NOT (alpha OR beta)",
+      "path": "/source/api/v1/search?path=NOT+%28alpha+OR+beta%29&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-10.body",
+      "sha256": "b2d453c5e832d9a65dd74138f598b88e6a9b7baf685d5afd68ec4e0cb4ee66f7"
+    },
+    {
+      "query": "(NOT alpha) OR beta",
+      "path": "/source/api/v1/search?path=%28NOT+alpha%29+OR+beta&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-11.body",
+      "sha256": "eee40fd10f3a095297dd767616122cfb37e8703aea127c18814c102920dfa153"
+    },
+    {
+      "query": "alpha OR (NOT beta)",
+      "path": "/source/api/v1/search?path=alpha+OR+%28NOT+beta%29&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-12.body",
+      "sha256": "d6bc0f0c017c9ef4e49d7828bf0d42bbb5876b26cb90b7d8204a0bb112021934"
+    },
+    {
+      "query": "+alpha beta",
+      "path": "/source/api/v1/search?path=%2Balpha+beta&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-13.body",
+      "sha256": "7f9101fbea1da5c836c5fd6027043c4af352b7c517f2972b7a573d2e022da9ac"
+    },
+    {
+      "query": "+alpha NOT beta",
+      "path": "/source/api/v1/search?path=%2Balpha+NOT+beta&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-14.body",
+      "sha256": "8bed88bf5526c8460b11bc91706a445980a277cb42d0e80c118583857ee01f4d"
+    },
+    {
+      "query": "alpha(beta OR gamma)",
+      "path": "/source/api/v1/search?path=alpha%28beta+OR+gamma%29&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-15.body",
+      "sha256": "40ae6ce54e4cec5ceca9b55fe91b70add7bca1b9fa68ae6e7da5e3c390823c0d"
+    },
+    {
+      "query": "(alpha OR beta)gamma",
+      "path": "/source/api/v1/search?path=%28alpha+OR+beta%29gamma&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-16.body",
+      "sha256": "b0be707678c9d9d944a967526fffc06382811d40b54a9b4b1a53eb9bb7231220"
+    },
+    {
+      "query": "alpha-beta",
+      "path": "/source/api/v1/search?path=alpha-beta&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-17.body",
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "query": "alpha+beta",
+      "path": "/source/api/v1/search?path=alpha%2Bbeta&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-18.body",
+      "sha256": "5dd8ff969f03e11bf49401634750eff8b48724ff57e2cb4dcf1595383ab92df7"
+    },
+    {
+      "query": "alpha_foo",
+      "path": "/source/api/v1/search?path=alpha_foo&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-19.body",
+      "sha256": "5dd8ff969f03e11bf49401634750eff8b48724ff57e2cb4dcf1595383ab92df7"
+    },
+    {
+      "query": "one1",
+      "path": "/source/api/v1/search?path=one1&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-20.body",
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "query": "ALPHA OR BETA",
+      "path": "/source/api/v1/search?path=ALPHA+OR+BETA&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-21.body",
+      "sha256": "c68587ecffe7c9d05364d5b4b8cfe7bdd97e30fb3dae2d17459280ede1215f76"
+    },
+    {
+      "query": "(alpha)",
+      "path": "/source/api/v1/search?path=%28alpha%29&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-22.body",
+      "sha256": "d9058d5f8d7c13d4a4e9dcb0c56d4fb9e907c01e7ea04917ea6d162e86070230"
+    },
+    {
+      "query": "((alpha))",
+      "path": "/source/api/v1/search?path=%28%28alpha%29%29&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-23.body",
+      "sha256": "01bd3aa682ec04f6ac7b13d5b31fd350255f4f1304c2edeaf644a9b5eb009f68"
+    },
+    {
+      "query": "alpha OR (beta OR gamma)",
+      "path": "/source/api/v1/search?path=alpha+OR+%28beta+OR+gamma%29&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-24.body",
+      "sha256": "44f68aac6f16637ae5368873e6e501d02914d46d49659cd6537aa63863ff5541"
+    },
+    {
+      "query": "(alpha OR beta) OR gamma",
+      "path": "/source/api/v1/search?path=%28alpha+OR+beta%29+OR+gamma&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-25.body",
+      "sha256": "6927282181361a05432f2280d0b9307f62d9b9ac4711536d353ca4bcd6acd765"
+    },
+    {
+      "query": "(alpha beta) gamma",
+      "path": "/source/api/v1/search?path=%28alpha+beta%29+gamma&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-26.body",
+      "sha256": "c6ce29732456c3793033689615d7bc339da7449eb0eb2d82f9ad25aaf31d8d48"
+    },
+    {
+      "query": "alpha (beta gamma)",
+      "path": "/source/api/v1/search?path=alpha+%28beta+gamma%29&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-27.body",
+      "sha256": "c6ce29732456c3793033689615d7bc339da7449eb0eb2d82f9ad25aaf31d8d48"
+    },
+    {
+      "query": "alpha AND alpha",
+      "path": "/source/api/v1/search?path=alpha+AND+alpha&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-28.body",
+      "sha256": "bbe8cb027ee112a7d54c3ddb5318f12fdc1255967c47aedb7bc20df3ca4bf136"
+    },
+    {
+      "query": "alpha OR alpha",
+      "path": "/source/api/v1/search?path=alpha+OR+alpha&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-29.body",
+      "sha256": "01bd3aa682ec04f6ac7b13d5b31fd350255f4f1304c2edeaf644a9b5eb009f68"
+    },
+    {
+      "query": "NOT NOT alpha",
+      "path": "/source/api/v1/search?path=NOT+NOT+alpha&projects=demo&start=0&maxresults=100",
+      "status": 400,
+      "body": "http-30.body",
+      "sha256": "b62507c82877ef87eb283e0dfa4991bba8078e054a5a363481342cd62a770637"
+    },
+    {
+      "query": "one",
+      "path": "/source/api/v1/search?path=one&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-31.body",
+      "sha256": "1bddc17d7bda658dd519256d0f05080ab245f675ba04656e0c1528b5b2a5e8df"
+    },
+    {
+      "query": "two",
+      "path": "/source/api/v1/search?path=two&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-32.body",
+      "sha256": "4d0f0115f455cb4ae0bf8543e040af2e6f253cf24ab9b1e785c45925b892f522"
+    },
+    {
+      "query": "three",
+      "path": "/source/api/v1/search?path=three&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-33.body",
+      "sha256": "349000d10a5c4075235dc9843d6ec360c6c6aa1d0a69e3b870ca231ecd561068"
+    },
+    {
+      "query": "four",
+      "path": "/source/api/v1/search?path=four&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-34.body",
+      "sha256": "ca9f7ac14879841656892217166843fd580d6904d0f1a9a7a27bb98e525ff6d8"
+    },
+    {
+      "query": "five",
+      "path": "/source/api/v1/search?path=five&projects=demo&start=0&maxresults=100",
+      "status": 200,
+      "body": "http-35.body",
+      "sha256": "ac284c090d6e8bbdde64ce094a7a6fcfc2cc3b905d7cddd25c61c653a2ab74e5"
+    }
+  ],
+  "query_builder_source_sha256": "40097df820d25c0c6e86cdc8754dbca8b92b650f5a5470bff652b7b240fcc226",
+  "java_sha256": "0f642542ea1f0be6957557c0db96653ec128113bb5a4aaa7c2534d1d72ddb51f",
+  "javac_sha256": "40425235eaac99cccf8ed57522d946313d8b5200161d1faf846b3e60d554c2ed",
+  "jar_sha256": "bc1f4650710cb92c4a43221c826018c6358bcbc30bf2aaa86688261a0f145aa1",
+  "war_sha256": "98358675a4e8547b065c72253c37f573d9ccd38816a64664be0da4dd223a9419",
+  "classpath_jar_sha256": {
+    "HdrHistogram-2.2.2.jar": "22d1d4316c4ec13a68b559e98c8256d69071593731da96136640f864fa14fad8",
+    "JavaEWAH-1.2.3.jar": "d65226949713c4c61a784f41c51167e7b0316f93764398ebba9e4336b3d954c2",
+    "LatencyUtils-2.0.3.jar": "a32a9ffa06b2f4e01c5360f8f9df7bc5d9454a5d373cd8f361347fa5a57165ec",
+    "ant-1.10.14.jar": "4cbbd9243de4c1042d61d9a15db4c43c90ff93b16d78b39481da1c956c8e9671",
+    "ant-launcher-1.10.14.jar": "f0909725a7a24e393888f3fbb558347abf506ce2f7ebc581ff26331b94d951a5",
+    "aopalliance-repackaged-3.0.6.jar": "a82b6d1a348324ef88dc807c7cd7aaf633985cbff7b30036fb61a1b86981d840",
+    "bcel-6.7.0.jar": "e4a3c54b422efa954c8549caaea993655e59911759206702885e78e6b7fe9c84",
+    "classgraph-4.8.173.jar": "699841fd9028af0124e9b66067e0e543211611971a8a066ae212690888a5aaee",
+    "classmate-1.5.1.jar": "aab4de3006808c09d25dd4ff4a3611cfb63c95463cfd99e73d2e1680d229a33b",
+    "commons-codec-1.18.0.jar": "ba005f304cef92a3dede24a38ad5ac9b8afccf0d8f75839d6c1338634cf7f6e4",
+    "commons-compress-1.26.0.jar": "051aceb8bbcc62d0f5b2b8ac72c53767f9c59bfbd050151e65bef6f51c8ed9c9",
+    "commons-lang3-3.18.0.jar": "4eeeae8d20c078abb64b015ec158add383ac581571cddc45c68f0c9ae0230720",
+    "cron-utils-9.1.6.jar": "236c606093fd81e69274a5fc8b56f6b5be8fdf22d16ddf6841098486ef6cf12c",
+    "expressly-5.0.0.jar": "b0c872737bb8381921b304d0952854666d1ba320b9b3c5bf4d70a09a86b61524",
+    "hibernate-validator-8.0.1.Final.jar": "8c1244a498231091fe723d9666a93444ee9f93607245c6b29829dc5fe57a335c",
+    "hk2-api-3.0.6.jar": "c049a21a9fd9316c7e291a2bc28835f70d25affb623dc1599a83b6b84ec83a4f",
+    "hk2-locator-3.0.6.jar": "e2664d21b017c3aa1518b913264602bea604edc54d356103c10afba99abd04fc",
+    "hk2-utils-3.0.6.jar": "fc84d85a0744b576d9ec7db5845eeb998ed532a9450dd19c8c922c3ee6926206",
+    "istack-commons-runtime-4.0.1.jar": "9f91115f449384886f572bd62c8812ee1004273d4b5c85cac65179ad4c16990f",
+    "jackson-annotations-2.17.1.jar": "fccad82e13172c0e4384db71577219c9b8631c0820f4b18daaa57016fb661c76",
+    "jackson-core-2.17.1.jar": "ddb26c8a1f1a84535e8213c48b35b253370434e3287b3cf15777856fc4e58ce6",
+    "jackson-databind-2.17.1.jar": "b6ca2f7d5b1ab245cec5495ec339773d2d90554c48592590673fb18f4400a948",
+    "jackson-dataformat-smile-2.17.1.jar": "f6f9ad7e11b4788c911932762bba5e6abd81948b1e5729ae3bec90d8732fbc6b",
+    "jackson-module-jakarta-xmlbind-annotations-2.17.0.jar": "6792cecc5fecacec0cf7e5151d43794a05002c578344cfc19dac3ee7fbb98c6f",
+    "jakarta.activation-2.0.1.jar": "b9e24b7dd6e07495562ea96531be3130c96dba4d78e1dfd88adbbdebf4332871",
+    "jakarta.activation-api-2.0.1.jar": "118e66670e3b0baaad3c98cfec8147f6961e0665dde940d605020f2290e461c3",
+    "jakarta.annotation-api-2.1.1.jar": "5f65fdaf424eee2b55e1d882ba9bb376be93fb09b37b808be6e22e8851c909fe",
+    "jakarta.inject-api-2.0.1.jar": "f7dc98062fccf14126abb751b64fab12c312566e8cbdc8483598bffcea93af7c",
+    "jakarta.validation-api-3.0.2.jar": "291c25e6910cc6a7ebd96d4c6baebf6d7c37676c5482c2d96146e901b62c1fc9",
+    "jakarta.ws.rs-api-3.1.0.jar": "6b3b3628b8b4aedda0d24c3354335e985497d8ef3c510b8f3028e920d5b8663d",
+    "jakarta.xml.bind-api-4.0.2.jar": "0d6bcfe47763e85047acf7c398336dc84ff85ebcad0a7cb6f3b9d3e981245406",
+    "javassist-3.30.2-GA.jar": "eba37290994b5e4868f3af98ff113f6244a6b099385d9ad46881307d3cb01aaf",
+    "jaxb-core-3.0.2.jar": "f9a360b939597643b2676e35fc497afb561d20e8a513128a5c0070366db11bbd",
+    "jaxb-runtime-3.0.2.jar": "7b3a3784b9c6e343a8d38fc108602ba810177f03f2d8d1e7258b1cef7fd9d4c7",
+    "jboss-logging-3.5.3.Final.jar": "7b119460de174195aca412dfed52ca0bbef0ece26c2d74301b6172cfadf4ff59",
+    "jersey-bean-validation-3.1.7.jar": "25c1ccf595c2d7e92e48b4e3421c31f98d79a67d2c2efadbf44c33bd7e5cafa0",
+    "jersey-client-3.1.7.jar": "6d4cf4bd192cf92a54955f7500c7240084aeed9c28db85a3307e79aa183aec94",
+    "jersey-common-3.1.7.jar": "23f4a38bc704d1839ec56f073145f2d4f4609d61dd3bb39ead2223b5a3b05a68",
+    "jersey-entity-filtering-3.1.7.jar": "784511b2d67447af00ae88149f3cf57c88cbfe4974701b799d46d30872cd4021",
+    "jersey-hk2-3.1.7.jar": "6069d059cca2eec07aa89b730912424c98b57822930665f7545d77ce00806c3d",
+    "jersey-media-json-jackson-3.1.7.jar": "31adfab566f0b0e7ed166dddb16bf6a87c06438df8fa96b7b42920d30a36904b",
+    "jersey-server-3.1.7.jar": "ac0132f783585ab261f91184c76af8839802f8d5c430c5f6dc69820b68f70fe1",
+    "lucene-analysis-common-9.12.3.jar": "fa571bd7caf0f0b4faf46a72ca004a7836f348c31d92bd522dddcc3d128d287e",
+    "lucene-backward-codecs-9.12.3.jar": "ce01b8ea5ae485f4c42f2a2e4bde8526adaf3de782238f6b7464c1f3944a36f8",
+    "lucene-core-9.12.3.jar": "b64a3f8098a7572034fb30085cdee01b34ec81fb0e5a31b471536af58dc6c01b",
+    "lucene-facet-9.12.3.jar": "688e9b71fecba026e44f0a228cc0e09af3c9aec5e1f5b10e9f102a6730ef7dec",
+    "lucene-highlighter-9.12.3.jar": "4cfa3c462ddd253bc8663d89afef821daff30dcb5b376a764e4e55b926bca7b9",
+    "lucene-join-9.12.3.jar": "62d90a550a1117d521cded9504d7c73288bcdbdf691b68d17caf04ad01efbf46",
+    "lucene-memory-9.12.3.jar": "54ebbfd18e33933a063510d3d0d71ee84adb7d1a8e9eda8c744e7221e5c3ee40",
+    "lucene-queries-9.12.3.jar": "81c8993da5dcca9da5e4041b623f00169868e37988691434b14fc910c700a30c",
+    "lucene-queryparser-9.12.3.jar": "5db83a184512fd7a46cf7b34efa997b5f1b28ad1cee26dd665180b19eab0a1b1",
+    "lucene-sandbox-9.12.3.jar": "21cf9ad1bb97265983c698b9c5eb071b1a4a1d4f0f74b98c6e61ad8f04c5c9d7",
+    "lucene-suggest-9.12.3.jar": "c9a8907109668d6313b6b5c4e13913b99d7295e01334a90e90baba9571797097",
+    "micrometer-commons-1.14.1.jar": "cce1da029abbde9fdac7cd0c853d611fd67c62c5da9e8b673179aa7ae4d1c9a1",
+    "micrometer-core-1.14.1.jar": "e8a8af4456b074a96eb0bb623ac6ad021692d340847f6faef8f30b381c6a2817",
+    "micrometer-observation-1.14.1.jar": "72bf1ae38cd80ededaf2351bd2bc185ade3134a454dff6742517df14e73ddbb4",
+    "micrometer-registry-prometheus-1.14.1.jar": "82c73d756ff174fa1d36695c2ec49c7a506e62868f9f6ff55f3f7631d32ea536",
+    "micrometer-registry-statsd-1.14.1.jar": "044f824375821f67439ea857f4345b22cb2e7401c22e9169be7b0766e1cda11a",
+    "org.eclipse.jgit-7.2.1.202505142326-r.jar": "9f3b69423f695abd21ad2cca0e8caf108444750c32486bfafc1c101671ecd944",
+    "org.suigeneris.jrcs.diff-0.4.2.jar": "5fd35ce177154ef55dd474e8bef7c89f109132107ac14b5b876c3b5c4d20536d",
+    "org.suigeneris.jrcs.rcs-0.4.2.jar": "4be0d9cc6b08430e2faa38876164ebd1b9ab9c5858176d40d2f82b70d80d207c",
+    "osgi-resource-locator-1.0.3.jar": "aab5d7849f7cfcda2cc7c541ba1bd365151d42276f151c825387245dfde3dd74",
+    "prometheus-metrics-config-1.3.3.jar": "1b619be29b1a02a53615665226c2d2e0a84e53a7368311fc5921837d824aeeeb",
+    "prometheus-metrics-core-1.3.3.jar": "7fd5f0412c3582ffc2acc8bf391c2730c97e76337c11f207948f1496057d6d6d",
+    "prometheus-metrics-exposition-formats-1.3.3.jar": "38db66d2d97fa824ee708ddaeb3a358b1b920ec0af5afd8e66d1d9e10017473f",
+    "prometheus-metrics-model-1.3.3.jar": "ca7eedab2b0098ab1b1ef1973271df70ddc5d0b7b32adf6a4a04481e7618b571",
+    "prometheus-metrics-tracer-common-1.3.3.jar": "72c850edd9d048cb31c1f4906f832706f18ac6db6d8bc791d49da6aaee2249b3",
+    "slf4j-api-2.0.13.jar": "e7c2a48e8515ba1f49fa637d57b4e2f590b3f5bd97407ac699c3aa5efb1204a9",
+    "txw2-3.0.2.jar": "b4bcf94fb0a759456e2521724513baec94b78e93127544af162e3cff08d93343",
+    "versioncompare-1.5.0.jar": "b228bda1972cc55b24d697d046c56055ef68c23ed984ac6268ae843d355dc8f4",
+    "webjars-locator-core-0.59.jar": "86e89c3504205ecfbc169cffcbc220bb2f4a68077acc5a95692d1129bf0e53fb"
+  },
+  "ctags_sha256": "f3f91789a30b39d592b244cd4aa0d7eec6ed3445b499c69ffc27564cef7292a0",
+  "javac_command": [
+    "/Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/jdk-21.0.13+9/Contents/Home/bin/javac",
+    "-cp",
+    "/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/opengrok.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/HdrHistogram-2.2.2.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/JavaEWAH-1.2.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/LatencyUtils-2.0.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/ant-1.10.14.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/ant-launcher-1.10.14.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/aopalliance-repackaged-3.0.6.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/bcel-6.7.0.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/classgraph-4.8.173.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/classmate-1.5.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/commons-codec-1.18.0.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/commons-compress-1.26.0.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/commons-lang3-3.18.0.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/cron-utils-9.1.6.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/expressly-5.0.0.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/hibernate-validator-8.0.1.Final.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/hk2-api-3.0.6.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/hk2-locator-3.0.6.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/hk2-utils-3.0.6.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/istack-commons-runtime-4.0.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jackson-annotations-2.17.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jackson-core-2.17.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jackson-databind-2.17.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jackson-dataformat-smile-2.17.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jackson-module-jakarta-xmlbind-annotations-2.17.0.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jakarta.activation-2.0.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jakarta.activation-api-2.0.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jakarta.annotation-api-2.1.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jakarta.inject-api-2.0.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jakarta.validation-api-3.0.2.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jakarta.ws.rs-api-3.1.0.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jakarta.xml.bind-api-4.0.2.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/javassist-3.30.2-GA.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jaxb-core-3.0.2.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jaxb-runtime-3.0.2.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jboss-logging-3.5.3.Final.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jersey-bean-validation-3.1.7.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jersey-client-3.1.7.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jersey-common-3.1.7.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jersey-entity-filtering-3.1.7.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jersey-hk2-3.1.7.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jersey-media-json-jackson-3.1.7.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jersey-server-3.1.7.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-analysis-common-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-backward-codecs-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-core-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-facet-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-highlighter-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-join-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-memory-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-queries-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-queryparser-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-sandbox-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-suggest-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/micrometer-commons-1.14.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/micrometer-core-1.14.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/micrometer-observation-1.14.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/micrometer-registry-prometheus-1.14.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/micrometer-registry-statsd-1.14.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/org.eclipse.jgit-7.2.1.202505142326-r.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/org.suigeneris.jrcs.diff-0.4.2.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/org.suigeneris.jrcs.rcs-0.4.2.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/osgi-resource-locator-1.0.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/prometheus-metrics-config-1.3.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/prometheus-metrics-core-1.3.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/prometheus-metrics-exposition-formats-1.3.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/prometheus-metrics-model-1.3.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/prometheus-metrics-tracer-common-1.3.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/slf4j-api-2.0.13.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/txw2-3.0.2.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/versioncompare-1.5.0.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/webjars-locator-core-0.59.jar",
+    "-d",
+    "/var/folders/wj/3v8944vj0t714p6b5l9lmr_80000gq/T/rustgrok-path-query-oracle-mxspwsmv/classes",
+    "/Users/swchen.tw/git/rustgrok-path-query/tests/evidence/path-query-2026-11-03/PathQueryOracle.java"
+  ],
+  "parser_command": [
+    "/Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/jdk-21.0.13+9/Contents/Home/bin/java",
+    "-cp",
+    "/var/folders/wj/3v8944vj0t714p6b5l9lmr_80000gq/T/rustgrok-path-query-oracle-mxspwsmv/classes:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/opengrok.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/HdrHistogram-2.2.2.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/JavaEWAH-1.2.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/LatencyUtils-2.0.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/ant-1.10.14.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/ant-launcher-1.10.14.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/aopalliance-repackaged-3.0.6.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/bcel-6.7.0.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/classgraph-4.8.173.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/classmate-1.5.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/commons-codec-1.18.0.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/commons-compress-1.26.0.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/commons-lang3-3.18.0.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/cron-utils-9.1.6.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/expressly-5.0.0.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/hibernate-validator-8.0.1.Final.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/hk2-api-3.0.6.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/hk2-locator-3.0.6.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/hk2-utils-3.0.6.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/istack-commons-runtime-4.0.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jackson-annotations-2.17.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jackson-core-2.17.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jackson-databind-2.17.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jackson-dataformat-smile-2.17.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jackson-module-jakarta-xmlbind-annotations-2.17.0.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jakarta.activation-2.0.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jakarta.activation-api-2.0.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jakarta.annotation-api-2.1.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jakarta.inject-api-2.0.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jakarta.validation-api-3.0.2.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jakarta.ws.rs-api-3.1.0.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jakarta.xml.bind-api-4.0.2.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/javassist-3.30.2-GA.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jaxb-core-3.0.2.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jaxb-runtime-3.0.2.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jboss-logging-3.5.3.Final.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jersey-bean-validation-3.1.7.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jersey-client-3.1.7.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jersey-common-3.1.7.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jersey-entity-filtering-3.1.7.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jersey-hk2-3.1.7.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jersey-media-json-jackson-3.1.7.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/jersey-server-3.1.7.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-analysis-common-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-backward-codecs-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-core-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-facet-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-highlighter-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-join-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-memory-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-queries-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-queryparser-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-sandbox-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-suggest-9.12.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/micrometer-commons-1.14.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/micrometer-core-1.14.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/micrometer-observation-1.14.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/micrometer-registry-prometheus-1.14.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/micrometer-registry-statsd-1.14.1.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/org.eclipse.jgit-7.2.1.202505142326-r.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/org.suigeneris.jrcs.diff-0.4.2.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/org.suigeneris.jrcs.rcs-0.4.2.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/osgi-resource-locator-1.0.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/prometheus-metrics-config-1.3.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/prometheus-metrics-core-1.3.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/prometheus-metrics-exposition-formats-1.3.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/prometheus-metrics-model-1.3.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/prometheus-metrics-tracer-common-1.3.3.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/slf4j-api-2.0.13.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/txw2-3.0.2.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/versioncompare-1.5.0.jar:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/webjars-locator-core-0.59.jar",
+    "PathQueryOracle",
+    "YWxwaGEgYmV0YSBnYW1tYQ==",
+    "YWxwaGEgQU5EIGJldGEgQU5EIGdhbW1h",
+    "YWxwaGEgT1IgYmV0YSBPUiBnYW1tYQ==",
+    "YWxwaGEgTk9UIGJldGEgZ2FtbWE=",
+    "YWxwaGEgYmV0YSBOT1QgZ2FtbWE=",
+    "YWxwaGEgTk9UIGJldGEgTk9UIGdhbW1h",
+    "KGFscGhhIGJldGEpIE9SIGdhbW1h",
+    "YWxwaGEgT1IgKGJldGEgZ2FtbWEp",
+    "KGFscGhhIE5PVCBiZXRhKSBPUiBnYW1tYQ==",
+    "YWxwaGEgQU5EIChiZXRhIE5PVCBnYW1tYSk=",
+    "Tk9UIChhbHBoYSBPUiBiZXRhKQ==",
+    "KE5PVCBhbHBoYSkgT1IgYmV0YQ==",
+    "YWxwaGEgT1IgKE5PVCBiZXRhKQ==",
+    "K2FscGhhIGJldGE=",
+    "K2FscGhhIE5PVCBiZXRh",
+    "YWxwaGEoYmV0YSBPUiBnYW1tYSk=",
+    "KGFscGhhIE9SIGJldGEpZ2FtbWE=",
+    "YWxwaGEtYmV0YQ==",
+    "YWxwaGErYmV0YQ==",
+    "YWxwaGFfZm9v",
+    "b25lMQ==",
+    "QUxQSEEgT1IgQkVUQQ==",
+    "KGFscGhhKQ==",
+    "KChhbHBoYSkp",
+    "YWxwaGEgT1IgKGJldGEgT1IgZ2FtbWEp",
+    "KGFscGhhIE9SIGJldGEpIE9SIGdhbW1h",
+    "KGFscGhhIGJldGEpIGdhbW1h",
+    "YWxwaGEgKGJldGEgZ2FtbWEp",
+    "YWxwaGEgQU5EIGFscGhh",
+    "YWxwaGEgT1IgYWxwaGE=",
+    "Tk9UIE5PVCBhbHBoYQ=="
+  ],
+  "index_command": [
+    "/Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/jdk-21.0.13+9/Contents/Home/bin/java",
+    "-Xms128m",
+    "-Xmx512m",
+    "-jar",
+    "/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/opengrok.jar",
+    "-c",
+    "/opt/homebrew/bin/ctags",
+    "-s",
+    "/var/folders/wj/3v8944vj0t714p6b5l9lmr_80000gq/T/rustgrok-path-query-oracle-mxspwsmv/source",
+    "-d",
+    "/var/folders/wj/3v8944vj0t714p6b5l9lmr_80000gq/T/rustgrok-path-query-oracle-mxspwsmv/index",
+    "-W",
+    "/var/folders/wj/3v8944vj0t714p6b5l9lmr_80000gq/T/rustgrok-path-query-oracle-mxspwsmv/configuration.xml",
+    "-P",
+    "-S",
+    "-H",
+    "-T",
+    "2"
+  ],
+  "work_directory": "/var/folders/wj/3v8944vj0t714p6b5l9lmr_80000gq/T/rustgrok-path-query-oracle-mxspwsmv",
+  "config_sha256": "d0488a6d7f4ea5d77d1e5fb52defdc4edf674bd8cf73d3748555a2a4a389f0ee",
+  "parser_stdout_sha256": "75c6c4b63666a3e9f95c7650ef721bde6e05df5c5b7e6fd4f63a940e39011c5d",
+  "parser_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "index_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "index_stderr_sha256": "b4dfe61ff88a5bcbec17e7d86367ca43ce145fff0a613fc88d01700387eba933",
+  "fixture_contents_note": "Corrected receipt transcription: fixture files were written with an actual newline; see capture script."
+}

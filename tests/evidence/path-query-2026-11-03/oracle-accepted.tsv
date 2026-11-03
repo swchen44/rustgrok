@@ -1,0 +1,41 @@
+alpha	/demo/alpha/alone/four.c|/demo/alpha/beta/one.c|/demo/alpha/gamma/two.c
+ALPHA	/demo/alpha/alone/four.c|/demo/alpha/beta/one.c|/demo/alpha/gamma/two.c
+alpha beta	/demo/alpha/beta/one.c
+alpha AND beta	/demo/alpha/beta/one.c
+alpha OR beta	/demo/alpha/alone/four.c|/demo/alpha/beta/one.c|/demo/alpha/gamma/two.c|/demo/beta/gamma/three.c
+alpha NOT beta	/demo/alpha/alone/four.c|/demo/alpha/gamma/two.c
+NOT alpha	
+-alpha	
++alpha	/demo/alpha/alone/four.c|/demo/alpha/beta/one.c|/demo/alpha/gamma/two.c
+alpha AND (beta OR gamma)	/demo/alpha/beta/one.c|/demo/alpha/gamma/two.c
+(alpha OR beta) AND gamma	/demo/alpha/gamma/two.c|/demo/beta/gamma/three.c
+alpha and beta	
+alpha -beta	/demo/alpha/alone/four.c|/demo/alpha/gamma/two.c
+alpha beta gamma	
+alpha AND beta AND gamma	
+alpha OR beta OR gamma	/demo/alpha/alone/four.c|/demo/alpha/beta/one.c|/demo/alpha/gamma/two.c|/demo/beta/gamma/three.c
+alpha NOT beta gamma	/demo/alpha/gamma/two.c
+alpha beta NOT gamma	/demo/alpha/beta/one.c
+alpha NOT beta NOT gamma	/demo/alpha/alone/four.c
+(alpha beta) OR gamma	/demo/alpha/beta/one.c|/demo/alpha/gamma/two.c|/demo/beta/gamma/three.c
+alpha OR (beta gamma)	/demo/alpha/alone/four.c|/demo/alpha/beta/one.c|/demo/alpha/gamma/two.c|/demo/beta/gamma/three.c
+(alpha NOT beta) OR gamma	/demo/alpha/alone/four.c|/demo/alpha/gamma/two.c|/demo/beta/gamma/three.c
+alpha AND (beta NOT gamma)	/demo/alpha/beta/one.c
+NOT (alpha OR beta)	
+(NOT alpha) OR beta	/demo/alpha/beta/one.c|/demo/beta/gamma/three.c
+alpha OR (NOT beta)	/demo/alpha/alone/four.c|/demo/alpha/beta/one.c|/demo/alpha/gamma/two.c
++alpha beta	/demo/alpha/beta/one.c
++alpha NOT beta	/demo/alpha/alone/four.c|/demo/alpha/gamma/two.c
+alpha(beta OR gamma)	/demo/alpha/beta/one.c|/demo/alpha/gamma/two.c
+(alpha OR beta)gamma	/demo/alpha/gamma/two.c|/demo/beta/gamma/three.c
+alpha_foo	
+one1	
+ALPHA OR BETA	/demo/alpha/alone/four.c|/demo/alpha/beta/one.c|/demo/alpha/gamma/two.c|/demo/beta/gamma/three.c
+(alpha)	/demo/alpha/alone/four.c|/demo/alpha/beta/one.c|/demo/alpha/gamma/two.c
+((alpha))	/demo/alpha/alone/four.c|/demo/alpha/beta/one.c|/demo/alpha/gamma/two.c
+alpha OR (beta OR gamma)	/demo/alpha/alone/four.c|/demo/alpha/beta/one.c|/demo/alpha/gamma/two.c|/demo/beta/gamma/three.c
+(alpha OR beta) OR gamma	/demo/alpha/alone/four.c|/demo/alpha/beta/one.c|/demo/alpha/gamma/two.c|/demo/beta/gamma/three.c
+(alpha beta) gamma	
+alpha (beta gamma)	
+alpha AND alpha	/demo/alpha/alone/four.c|/demo/alpha/beta/one.c|/demo/alpha/gamma/two.c
+alpha OR alpha	/demo/alpha/alone/four.c|/demo/alpha/beta/one.c|/demo/alpha/gamma/two.c

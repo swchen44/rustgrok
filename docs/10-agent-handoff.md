@@ -21,10 +21,10 @@ D02本機＋LAN、約5人、無RBAC／project ACL已確認。最新D03為Ubuntu2
 | 項目 | 現況 |
 |---|---|
 | 原版研究 | 1.14.20／3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3 的關鍵檔案靜態讀碼；未完整審查整個 repo |
-| Rust 可行性研究 | query／analyzer／BM25／跨 project／UI／SCM／分發差異已列入文件 12；未執行 prototype |
+| Rust 可行性研究 | query／analyzer／BM25／跨 project／UI／SCM／分發差異已列入文件 12；已執行受限原型與原版對照，詳細範圍見各 evidence，不等於完整可行性驗收 |
 | 需求與計畫 | 38 需求、44 工作包、80 測試規格，具雙向追溯 |
 | 工程選型 | Rust 已決；engine、HTTP/framework、templates、SCM、metadata backend與版本待 G1 |
-| 開發與驗收 | 已開始有限的 [path analysis library](../crates/analysis/README.md)；無完整產品／發行包，所有產品測試仍 planned／not_run |
+| 開發與驗收 | 已有受限的 [path analyzer](../crates/analysis/README.md)、path index 及 macOS 開發中 [CLI／本機 host](../apps/grok-host/README.md)，並有局部可執行 correctness 測試；無完整產品／發行包，[80 項產品驗收規格](05-verification-plan.md)仍 planned／not_run |
 | GitHub | 公開swchen44/rustgrok已建立，ID1433282584、main；初始規劃commit 526f619089703f710c915af303e54aea7d25226e已提交，46個blob核對一致；產品Release尚未建立 |
 | npm | 主套件rustgrok已確認，由使用者自行發布；尚無package.json／tgz／發布結果 |
 | ZIP | 本交接 ZIP 是文件包；最終產品 native ZIP 屬後續工作 |
@@ -68,11 +68,11 @@ D21已選搜尋速度第一優先。依[14搜尋效能設計](14-search-performa
 
 使用相同 corpus／功能／查詢 mix／硬體／資源預算，原版合理調校及暖機，Rust使用實際 release build。分 cold/warm、首次／增量、並行、RSS／mmap／page cache／IO。微基準不能取代端到端結果；未測量不得宣稱 Rust 版本更快。
 
-所有現有 tests 是規格。PASS 必須有 artifact hash、commit、平台、輸入、步驟、實際結果與證據。上游 CI 或本規劃包結構檢查不能代替產品驗收。
+80 項產品驗收測試仍是規格；局部可執行 correctness tests 的結果與範圍各見其 evidence。驗收 PASS 必須有 artifact hash、commit、平台、輸入、步驟、實際結果與證據。上游 CI 或本規劃包結構檢查不能代替產品驗收。
 
 ### 發行
 
-版本、來源、license、SBOM、checksums與平台證據一致後才交付至rustgrok的GitHub Releases。Release草稿、發行與下載回驗依文件16；當前沒有產品binary，不把規劃ZIP當runtime發行。新寫 Rust 不代表原版移植內容全部可改成 MIT。使用者目前自行上傳 npm；不要建立自動公開發布工作流。
+版本、來源、license、SBOM、checksums與平台證據一致後才交付至rustgrok的GitHub Releases。Release草稿、發行與下載回驗依文件16；當前沒有正式發行的產品 binary，不把規劃ZIP當runtime發行。新寫 Rust 不代表原版移植內容全部可改成 MIT。使用者目前自行上傳 npm；不要建立自動公開發布工作流。
 
 ## 6. 下一輪需要的輸入與可繼續工作
 

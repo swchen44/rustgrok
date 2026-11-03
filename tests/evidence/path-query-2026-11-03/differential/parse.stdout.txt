@@ -1,0 +1,31 @@
+YWxwaGEgYmV0YSBnYW1tYQ==	OK	+path:alpha +path:beta +path:gamma
+YWxwaGEgQU5EIGJldGEgQU5EIGdhbW1h	OK	+path:alpha +path:beta +path:gamma
+YWxwaGEgT1IgYmV0YSBPUiBnYW1tYQ==	OK	path:alpha path:beta path:gamma
+YWxwaGEgTk9UIGJldGEgZ2FtbWE=	OK	+path:alpha -path:beta +path:gamma
+YWxwaGEgYmV0YSBOT1QgZ2FtbWE=	OK	+path:alpha +path:beta -path:gamma
+YWxwaGEgTk9UIGJldGEgTk9UIGdhbW1h	OK	+path:alpha -path:beta -path:gamma
+KGFscGhhIGJldGEpIE9SIGdhbW1h	OK	(+path:alpha +path:beta) path:gamma
+YWxwaGEgT1IgKGJldGEgZ2FtbWEp	OK	path:alpha (+path:beta +path:gamma)
+KGFscGhhIE5PVCBiZXRhKSBPUiBnYW1tYQ==	OK	(+path:alpha -path:beta) path:gamma
+YWxwaGEgQU5EIChiZXRhIE5PVCBnYW1tYSk=	OK	+path:alpha +(+path:beta -path:gamma)
+Tk9UIChhbHBoYSBPUiBiZXRhKQ==	OK	-(path:alpha path:beta)
+KE5PVCBhbHBoYSkgT1IgYmV0YQ==	OK	(-path:alpha) path:beta
+YWxwaGEgT1IgKE5PVCBiZXRhKQ==	OK	path:alpha (-path:beta)
+K2FscGhhIGJldGE=	OK	+path:alpha +path:beta
+K2FscGhhIE5PVCBiZXRh	OK	+path:alpha -path:beta
+YWxwaGEoYmV0YSBPUiBnYW1tYSk=	OK	+path:alpha +(path:beta path:gamma)
+KGFscGhhIE9SIGJldGEpZ2FtbWE=	OK	+(path:alpha path:beta) +path:gamma
+YWxwaGEtYmV0YQ==	OK	path:alpha-beta
+YWxwaGErYmV0YQ==	OK	path:alpha+beta
+YWxwaGFfZm9v	OK	path:alpha_foo
+b25lMQ==	OK	path:one1
+QUxQSEEgT1IgQkVUQQ==	OK	path:alpha path:beta
+KGFscGhhKQ==	OK	path:alpha
+KChhbHBoYSkp	OK	path:alpha
+YWxwaGEgT1IgKGJldGEgT1IgZ2FtbWEp	OK	path:alpha (path:beta path:gamma)
+KGFscGhhIE9SIGJldGEpIE9SIGdhbW1h	OK	(path:alpha path:beta) path:gamma
+KGFscGhhIGJldGEpIGdhbW1h	OK	+(+path:alpha +path:beta) +path:gamma
+YWxwaGEgKGJldGEgZ2FtbWEp	OK	+path:alpha +(+path:beta +path:gamma)
+YWxwaGEgQU5EIGFscGhh	OK	+path:alpha +path:alpha
+YWxwaGEgT1IgYWxwaGE=	OK	path:alpha path:alpha
+Tk9UIE5PVCBhbHBoYQ==	ERROR	org.apache.lucene.queryparser.classic.ParseException	Cannot parse 'NOT NOT alpha': Encountered " <NOT> "NOT "" at line 1, column 4. Was expecting one of:     <BAREOPER> ...     "(" ...     "*" ...     <QUOTED> ...     <TERM> ...     <PREFIXTERM> ...     <WILDTERM> ...     <REGEXPTERM> ...     "[" ...     "{" ...     <NUMBER> ...     <TERM> ...     "*" ...     
