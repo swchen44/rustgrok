@@ -49,7 +49,7 @@ fn lex(query: &str) -> Result<Vec<Token<'_>>, IndexError> {
     let mut at = 0;
     let mut out = Vec::new();
     while at < bytes.len() {
-        if bytes[at].is_ascii_whitespace() {
+        if bytes[at] == b' ' {
             at += 1;
             continue;
         }
@@ -64,7 +64,7 @@ fn lex(query: &str) -> Result<Vec<Token<'_>>, IndexError> {
             }
             b'+' | b'-' => {
                 let plus = bytes[at] == b'+';
-                if at > 0 && !bytes[at - 1].is_ascii_whitespace() && bytes[at - 1] != b'(' {
+                if at > 0 && bytes[at - 1] != b' ' && bytes[at - 1] != b'(' {
                     return Err(IndexError::UnsupportedQuery);
                 }
                 at += 1;

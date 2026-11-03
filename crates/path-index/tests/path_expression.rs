@@ -197,3 +197,59 @@ fn accepted_short_expressions_match_retained_original_http_candidates() {
         );
     }
 }
+
+#[test]
+fn control_bytes_are_rejected_instead_of_treated_as_separators() {
+    use rustgrok_path_index::IndexError;
+    let db = PathIndex::new(
+        "demo",
+        IndexLimits {
+            max_documents: 10,
+            max_path_bytes: 256,
+            max_total_path_bytes: 2048,
+            max_live_generations: 3,
+        },
+    )
+    .unwrap();
+    let paths = [
+        "/demo/alpha/beta/one.c",
+        "/demo/alpha/gamma/two.c",
+        "/demo/beta/gamma/three.c",
+    ];
+    db.replace(
+        None,
+        paths.len(),
+        paths.iter().map(|p| Ok((*p).to_owned())),
+        &CancellationToken::new(),
+    )
+    .unwrap();
+    let view = db.snapshot().unwrap();
+    for operator in ["AND", "OR", "NOT"] {
+        for control in std::iter::once(12u8)
+            .chain(0u8..=31)
+            .chain(std::iter::once(127))
+        {
+            let input = format!("alpha {operator}{}beta", control as char);
+            assert!(
+                matches!(
+                    view.lookup_expression(&input),
+                    Err(IndexError::UnsupportedQuery)
+                ),
+                "{input:?}"
+            );
+        }
+    }
+    assert_eq!(
+        view.lookup_expression("alpha AND beta").unwrap(),
+        set(&[paths[0]])
+    );
+    assert_eq!(
+        view.lookup_expression("alpha OR beta").unwrap(),
+        set(&paths)
+    );
+    assert_eq!(
+        view.lookup_expression("alpha NOT beta").unwrap(),
+        set(&[paths[1]])
+    );
+    assert_eq!(view.generation(), 1);
+}

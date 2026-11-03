@@ -447,6 +447,16 @@ fn subprocess_path_expression_queries_are_explicit_and_unranked() {
         ])),
         json!({"operation":"query-expression","generation":1,"order":"unspecified","paths":["/alpha/nested/main.c"]})
     );
+    for op in ["AND", "OR", "NOT"] {
+        let input = format!("nested {op}\u{c}main");
+        let result = f.run(&["query-expression", f.store(), f.source(), "alpha", &input]);
+        assert_eq!(result.status.code(), Some(4));
+        assert!(result.stdout.is_empty());
+        assert_eq!(
+            serde_json::from_slice::<Value>(&result.stderr).unwrap(),
+            json!({"error":"unsupported_or_limit"})
+        );
+    }
     let bad = f.run(&[
         "query-expression",
         f.store(),

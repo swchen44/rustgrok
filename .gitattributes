@@ -78,3 +78,10 @@ tests/evidence/path-query-2026-11-03/*.txt -text whitespace=-blank-at-eof,-blank
 tests/evidence/path-query-2026-11-03/**/*.body -text whitespace=-blank-at-eof,-blank-at-eol
 tests/evidence/path-query-2026-11-03/*.body -text whitespace=-blank-at-eof,-blank-at-eol
 tests/evidence/path-query-2026-11-03/oracle-accepted.tsv -text whitespace=-blank-at-eol
+
+# Preserve independently reviewed control-character oracle and test streams.
+tests/evidence/path-query-control-review-2026-11-03/*.stdout -text whitespace=-blank-at-eof,-blank-at-eol
+tests/evidence/path-query-control-review-2026-11-03/*.stderr -text whitespace=-blank-at-eof,-blank-at-eol
+tests/evidence/path-query-control-review-2026-11-03/*.txt -text whitespace=-blank-at-eof,-blank-at-eol
+tests/evidence/path-query-control-review-2026-11-03/original-http/*.txt -text whitespace=-blank-at-eof,-blank-at-eol
+tests/evidence/path-query-control-review-2026-11-03/original-http/*.body -text whitespace=-blank-at-eof,-blank-at-eol

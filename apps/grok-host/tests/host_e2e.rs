@@ -327,6 +327,18 @@ fn queries_keep_old_generation_during_build_then_switch_and_restart() {
         success(f.run(&["host-query-expression", f.c(), "alpha AND extra"])),
         json!({"operation":"host-query-expression","generation":1,"order":"unspecified","paths":[]})
     );
+    for op in ["AND", "OR", "NOT"] {
+        let input = format!("alpha {op}\u{c}extra");
+        error(
+            f.run(&["host-query-expression", f.c(), &input]),
+            4,
+            "unsupported_or_limit",
+        );
+    }
+    assert_eq!(
+        success(f.run(&["host-query-expression", f.c(), "alpha AND main"])),
+        json!({"operation":"host-query-expression","generation":1,"order":"unspecified","paths":["/alpha/main.c"]})
+    );
     let busy = f.run(&["query", f.t(), f.s(), "alpha", "main"]);
     assert_eq!(busy.status.code(), Some(3));
     let second = f.run(&["host-index", f.c(), "1"]);
@@ -1014,6 +1026,14 @@ fn subprocess_host_path_expression_uses_published_generation() {
         success(f.run(&["host-query-expression", f.c(), "alpha AND main"])),
         json!({"operation":"host-query-expression","generation":1,"order":"unspecified","paths":["/alpha/main.c"]})
     );
+    for op in ["AND", "OR", "NOT"] {
+        let input = format!("alpha {op}\u{c}main");
+        error(
+            f.run(&["host-query-expression", f.c(), &input]),
+            4,
+            "unsupported_or_limit",
+        );
+    }
     let bad = f.run(&["host-query-expression", f.c(), "main OR alpha AND absent"]);
     assert_eq!(bad.status.code(), Some(4));
     assert_eq!(
