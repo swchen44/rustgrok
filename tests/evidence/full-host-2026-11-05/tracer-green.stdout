@@ -1,0 +1,20 @@
+
+running 1 test
+test full_host_indexes_postings_queries_and_restarts ... FAILED
+
+failures:
+
+---- full_host_indexes_postings_queries_and_restarts stdout ----
+
+thread 'full_host_indexes_postings_queries_and_restarts' (13471346) panicked at tests/full_host_e2e.rs:171:5:
+assertion `left == right` failed
+  left: Object {"generation": Number(1), "matches": Array [Object {"path": String("/alpha/repo/old.c"), "positions": Array [Object {"end_byte": Number(3), "end_utf16": Number(3), "position": Number(0), "start_byte": Number(0), "start_utf16": Number(0)}], "source_sha256": String("01d09d19c2139a46aebfb577780d123d7396e97201bc7ead210a2ebff8239dee")}], "operation": String("full-host-query"), "order": String("unspecified")}
+ right: Object {"generation": Number(1), "matches": Array [Object {"path": String("/alpha/repo/old.c"), "positions": Array [Object {"end_byte": Number(3), "end_utf16": Number(3), "position": Number(0), "start_byte": Number(0), "start_utf16": Number(0)}], "source_sha256": String("01d09d19c2139a46aebfb577780d123d7396e97201b83f4b4f66358afadfc984")}], "operation": String("full-host-query"), "order": String("unspecified")}
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    full_host_indexes_postings_queries_and_restarts
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.68s
+

@@ -1,0 +1,13 @@
+
+running 8 tests
+test batch_socket_rejects_duplicate_and_unknown_request_fields ... ok
+test cancelled_failed_and_stale_batch_jobs_keep_both_old_projects ... ok
+test full_host_indexes_postings_queries_and_restarts ... ok
+test full_host_rejects_other_query_modes_and_direct_writer_is_busy ... ok
+test old_batch_stays_queryable_during_second_scan_then_switches_together ... ok
+test oversized_complete_full_positions_return_limit_without_partial_matches ... ok
+test reader_analysis_and_observed_source_changes_hold_the_old_full_batch ... ok
+test worker_panic_and_indeterminate_block_reads_until_restart ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.47s
+

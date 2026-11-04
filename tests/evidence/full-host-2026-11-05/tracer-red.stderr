@@ -1,0 +1,6 @@
+   Compiling rustgrok-analysis v0.1.0 (/Users/swchen.tw/git/rustgrok-full-host/crates/analysis)
+   Compiling rustgrok-path-index v0.1.0 (/Users/swchen.tw/git/rustgrok-full-host/crates/path-index)
+   Compiling rustgrok v0.1.0 (/Users/swchen.tw/git/rustgrok-full-host/apps/grok-host)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.94s
+     Running tests/full_host_e2e.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/full_host_e2e-d128bbdb05a3accb)
+error: test failed, to rerun pass `--test full_host_e2e`

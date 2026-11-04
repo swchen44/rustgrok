@@ -1,0 +1,22 @@
+{
+  "command": [
+    "cargo",
+    "fmt",
+    "--manifest-path",
+    "apps/grok-host/Cargo.toml",
+    "--check"
+  ],
+  "exit": 0,
+  "status": "passed",
+  "free_before_bytes": 3613093888,
+  "free_after_bytes": 3613093888,
+  "minimum_sampled_free_bytes": 3613093888,
+  "reserve_bytes": 2684354560,
+  "cargo_incremental": "0",
+  "cargo_build_jobs": "1",
+  "config_note": "incremental=0 was also used in original runs; build jobs=1 is newly explicit for resumed verification, producing separately retained binaries",
+  "target_dir": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target",
+  "base_checkpoint": "603945346fd8523ca31ad9839b6ea477b866fff0",
+  "runner_sha256": "04535161592bbd175d91224e600bf36153989380a9e5266830dca707c61fbd83",
+  "executed_binaries": []
+}

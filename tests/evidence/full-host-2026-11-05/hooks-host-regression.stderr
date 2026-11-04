@@ -1,0 +1,6 @@
+   Compiling rustgrok-path-index v0.1.0 (/Users/swchen.tw/git/rustgrok-full-host/crates/path-index)
+   Compiling rustgrok v0.1.0 (/Users/swchen.tw/git/rustgrok-full-host/apps/grok-host)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.61s
+     Running tests/batch_host_e2e.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/batch_host_e2e-4460e86a6a0b44ef)
+     Running tests/full_cli_e2e.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/full_cli_e2e-529f687f1c8726ce)
+     Running tests/host_e2e.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/host_e2e-e458671cefe435e5)
