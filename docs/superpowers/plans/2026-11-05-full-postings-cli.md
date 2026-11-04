@@ -1,0 +1,15 @@
+# Bounded FULL postings and direct CLI implementation plan
+
+Issue #6; WP-B01/B02, WP-C08/C09; FR-001/002/007/008/009, NFR-005/007/012/014; D01/D04/D12/D21; REF-002, RST-002/003, PRJ-001/002, SRC-001/002, REC-001/002 remain partial.
+
+Implement serially with implement-spec + TDD. No benchmark/profiling, product JVM, host/Web/SCM expansion or engine selection. Based on integration 0ebc2a93c3c8937ad2e62720c568db118a7e7344.
+
+1. Verify pinned original TextAnalyzer→IOUtils→ZeroReader→PlainAnalyzer→ExpandTabsReader reader, default tabs and UTF-8 BOM using actual C/Python/JS analyzers, CustomQueryParser and Lucene postings. Retain raw output and source/archive/helper hashes; separate unsupported configurations and malformed encodings.
+2. Public seams already authorized for this slice: a bounded FULL store API and executable direct CLI subprocess. First write CLI tracer using public C/Python/JS fixtures, watch unknown command failure, implement source→reader→analysis→inverted postings→one durable whole-batch record→single-term query after process restart. Separate versioned FULL marker/store, no path migration or sidecar commit. Store only derived dictionary/postings/metadata, never reader text or raw source.
+3. Add one failing behavior at a time for second-project invalid encoding/Unicode/term-byte limit/I/O/cancellation, aggregate limits, fixed registry, old path store isolation and source mutation. One pointer publishes all projects. Generation holds logical path, source hash/size, term position, reader UTF-16 offsets and source byte spans. Results are unordered candidates, no ranking claim. Accept only queries whose FULL stream is one complete token; reject grammar/controls/Boolean operators and uncertain contexts.
+4. Test corruption, persistence and publication failures/recovery through public API and subprocess. Preserve old generation on every precommit failure; after rename failure is indeterminate until reopen. Caller coordinates source changes; repeat metadata + content-hash check detects observed changes, not an atomic source snapshot. Existing path API/store/commands stay compatible.
+5. Run meaningful affected suites, fmt/clippy and evidence/package checks serially with sampled 2.5 GiB reserve. Save executed binaries by SHA before switching builds. 80 full product tests remain planned, Linux/Windows unverified. Merge integration tip into feature, commit locally and hand off for independent review; no merge/push/issue closure here.
+
+## Execution checkpoint
+
+Source-to-postings/restart tracer, independent reader/query/postings comparison and targeted failure/cancel/crash/indeterminate tests executed; see `tests/evidence/full-postings-2026-11-05/verification.json`. Final broad regression hit the 2.5 GiB reserve during compilation and was stopped. Exact authorized task-only intermediate cleanup still left free space below reserve, so further tests/builds/package checks stopped. This is a review checkpoint with incomplete final verification, not completed #6 or product acceptance. Independent review remains required after space is available.

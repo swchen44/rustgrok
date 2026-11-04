@@ -1,0 +1,20 @@
+
+running 1 test
+test real_sigint_cancels_batch_and_other_process_reports_busy ... FAILED
+
+failures:
+
+---- real_sigint_cancels_batch_and_other_process_reports_busy stdout ----
+
+thread 'real_sigint_cancels_batch_and_other_process_reports_busy' (13430579) panicked at tests/full_cli_e2e.rs:226:9:
+assertion `left == right` failed
+  left: Err(Disconnected)
+ right: Ok("RUSTGROK_TEST_PAUSED")
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    real_sigint_cancels_batch_and_other_process_reports_busy
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 4 filtered out; finished in 0.55s
+

@@ -1,0 +1,8 @@
+
+running 3 tests
+test aggregate_limits_fixed_registry_and_retained_reader_hold_previous_batch ... ok
+test checksum_valid_generation_missing_a_term_is_rejected ... ok
+test reopened_postings_match_raw_original_queries_and_positions ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.31s
+

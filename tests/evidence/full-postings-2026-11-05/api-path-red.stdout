@@ -1,0 +1,18 @@
+
+running 1 test
+test checksum_valid_document_with_hidden_unsupported_path_is_rejected ... FAILED
+
+failures:
+
+---- checksum_valid_document_with_hidden_unsupported_path_is_rejected stdout ----
+
+thread 'checksum_valid_document_with_hidden_unsupported_path_is_rejected' (13432503) panicked at tests/full_postings.rs:152:5:
+assertion failed: matches!(DurableFullIndex::open(&f.store(),&f.source,FullLimits::default()),Err(FullStoreError::Storage(DurableError::Corrupt)))
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    checksum_valid_document_with_hidden_unsupported_path_is_rejected
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.06s
+

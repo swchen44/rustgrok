@@ -1,0 +1,3 @@
+   Compiling rustgrok-path-index v0.1.0 (/Users/swchen.tw/git/rustgrok-full-postings/crates/path-index)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.21s
+     Running tests/full_postings.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/full_postings-ed19246de9951583)

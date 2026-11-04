@@ -1,0 +1,22 @@
+[
+  {
+    "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/rustgrok",
+    "sha256": "f1baffd54302e98c6376a0b86aaae0fcdd9ca7de8e832f9ff0b5b00eaf560677",
+    "retained": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/f1baffd54302e98c6376a0b86aaae0fcdd9ca7de8e832f9ff0b5b00eaf560677"
+  },
+  {
+    "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/full_cli_e2e-8af81d9e7ddc5e9d",
+    "sha256": "dc2e9bc19c94b981d0b16155badc3b903c6977a830e9a3812fd8f9b1739bc15e",
+    "retained": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/dc2e9bc19c94b981d0b16155badc3b903c6977a830e9a3812fd8f9b1739bc15e"
+  },
+  {
+    "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/full_cli_e2e-c8eb77737f479701",
+    "sha256": "9e355012aba52271b81f84fa3d53b7c4870259cfc0cda2fef40b56ee77a9509f",
+    "retained": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/9e355012aba52271b81f84fa3d53b7c4870259cfc0cda2fef40b56ee77a9509f"
+  },
+  {
+    "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/full_postings-d6cdbc5000dc9b14",
+    "sha256": "ea9b0f0b73317add5863d3ae4f43df49624f7f0bda5dc01f3fdf7e93e1a4c65b",
+    "retained": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/ea9b0f0b73317add5863d3ae4f43df49624f7f0bda5dc01f3fdf7e93e1a4c65b"
+  }
+]
