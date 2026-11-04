@@ -1,0 +1,22 @@
+free_before 3757133824 reserve 2684354560
+
+running 1 test
+test sigma_admission_bounds_each_side_without_restricting_query_normalization ... FAILED
+
+failures:
+
+---- sigma_admission_bounds_each_side_without_restricting_query_normalization stdout ----
+
+thread 'sigma_admission_bounds_each_side_without_restricting_query_normalization' (13132559) panicked at tests/full_integration.rs:303:9:
+assertion `left == right` failed: AAΣ
+  left: Ok([FullToken { term: "aaς", position: 0, start_utf16: 0, end_utf16: 3, start_byte: 0, end_byte: 4 }])
+ right: Err(UnsupportedCaseContext { byte_offset: 2 })
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    sigma_admission_bounds_each_side_without_restricting_query_normalization
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 11 filtered out; finished in 0.00s
+
+free_after 3755806720

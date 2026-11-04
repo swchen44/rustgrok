@@ -146,3 +146,8 @@ pub fn analyze_path(input: &str) -> Result<Vec<PathToken>, UnsupportedInput> {
     }
     Ok(tokens)
 }
+
+mod full;
+pub use full::{
+    analyze_full, normalize_full_query_term, validate_full_index_terms, FullError, FullToken,
+};

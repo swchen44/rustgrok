@@ -1,0 +1,14 @@
+{
+  "scope": "TDD red for review counterexample: contract violation, not demonstrated OpenGrok mismatch",
+  "base_commit": "9541fcd9a96478365f16ec220182b2999799fe6f",
+  "code_sha256": "47a1298f76242c92b8d01c94ea6a1f83d2ababd891a95b5a55e197c0aaeb1079",
+  "test_sha256": "428a0d8ea7fc1ee860804c3973a7b8fda5adcccf6da0a0e179254906f96bbea4",
+  "red_exit": 101,
+  "guarded_runner_exit": 101,
+  "red_stdout_sha256": "e0ab97f4a125d37e67f8f5f6fce548ab9dbb672d677fdcd524de623a0f0cd6a1",
+  "red_stderr_sha256": "3bc9c4bf2d6dfca5c6a55a226ad1325e68ab9b77874ee0541f2247f63d599414",
+  "test_binary": {
+    "sha256": "1c670aaa2177f249a6b8eb32fcc4bfe487859d426c904bdfc7dffce8655f6f95",
+    "local_path": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/sha256-1c670aaa2177f249a6b8eb32fcc4bfe487859d426c904bdfc7dffce8655f6f95-full-sigma-red-test"
+  }
+}

@@ -1,0 +1,9 @@
+   Compiling rustgrok-analysis v0.1.0 (/Users/swchen.tw/git/rustgrok-full-analysis/crates/analysis)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.52s
+     Running unittests src/lib.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok_analysis-7a7c438586b5a843)
+     Running tests/full_integration.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/full_integration-7ce84d410298e156)
+     Running tests/path.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/path-75b48924ecf0a301)
+     Running tests/source_corpus_integration.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/source_corpus_integration-fb04543bc0ec1d24)
+     Running tests/unicode_path.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/unicode_path-ebe493d3dba5725d)
+     Running tests/upstream_path_integration.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/upstream_path_integration-628d5251b3209c87)
+   Doc-tests rustgrok_analysis
