@@ -79,8 +79,9 @@ fn sigma_context_letter(c: char) -> bool {
 }
 fn lower_token(raw: &str, start: usize) -> Result<(String, usize), FullError> {
     let count = raw.chars().count();
-    if let Some((offset, _)) = raw.char_indices().find(|(_, c)| *c == 'Σ') {
-        if count > 3
+    if let Some((offset, sigma)) = raw.char_indices().find(|(_, c)| *c == 'Σ') {
+        if raw[..offset].chars().count() > 1
+            || raw[offset + sigma.len_utf8()..].chars().count() > 1
             || raw.chars().filter(|c| *c == 'Σ').count() != 1
             || raw.chars().any(|c| !sigma_context_letter(c))
         {

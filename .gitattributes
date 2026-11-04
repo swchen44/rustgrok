@@ -104,3 +104,8 @@ tests/evidence/full-analysis-2026-11-04/extra/*.stderr -text whitespace=-blank-a
 tests/fixtures/full-analysis-2026-11-04/ascii-all.txt -text -diff
 tests/fixtures/full-analysis-2026-11-04/long.txt -diff
 tests/evidence/full-analysis-2026-11-04/*.txt -text whitespace=-blank-at-eof,-blank-at-eol
+
+# Preserve admission-review red and green test output bytes.
+tests/evidence/full-sigma-admission-review-2026-11-04/*.stdout -text whitespace=-blank-at-eof,-blank-at-eol
+tests/evidence/full-sigma-admission-review-2026-11-04/*.stderr -text whitespace=-blank-at-eof,-blank-at-eol
+tests/evidence/full-sigma-admission-review-2026-11-04/*.txt -text whitespace=-blank-at-eof,-blank-at-eol

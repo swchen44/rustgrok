@@ -5,8 +5,8 @@
   "files": [
     {
       "path": ".gitattributes",
-      "bytes": 6805,
-      "sha256": "ce246e3ff327f57cacf498c3769416c89c74ff98370f6682317c37bc0b585800"
+      "bytes": 7188,
+      "sha256": "c56ce53a28a37c71a604de2192a6912e808949741546132dfc0e7debffe53c0a"
     },
     {
       "path": ".github/ISSUE_TEMPLATE/compatibility-bug.md",
@@ -170,8 +170,8 @@
     },
     {
       "path": "crates/analysis/src/full.rs",
-      "bytes": 8827,
-      "sha256": "47a1298f76242c92b8d01c94ea6a1f83d2ababd891a95b5a55e197c0aaeb1079"
+      "bytes": 8923,
+      "sha256": "dc429151affe6910eb13c70788de8e7f2972d8910c6d4418a8c917829b138e1a"
     },
     {
       "path": "crates/analysis/src/lib.rs",
@@ -180,8 +180,8 @@
     },
     {
       "path": "crates/analysis/tests/full_integration.rs",
-      "bytes": 10463,
-      "sha256": "fe322c63e36246d10a2864eb7df4f8d24e8e5f6d60ed7d09e13314c970ced6d6"
+      "bytes": 11004,
+      "sha256": "428a0d8ea7fc1ee860804c3973a7b8fda5adcccf6da0a0e179254906f96bbea4"
     },
     {
       "path": "crates/analysis/tests/path.rs",
@@ -736,7 +736,7 @@
     {
       "path": "planning-quality-report.json",
       "bytes": 807,
-      "sha256": "a385389707ba25e940b1d64074b65355e7a71fab1fe99d771995be11e74da476"
+      "sha256": "d35591288529736ea6bb30a8b05dcf55a765dc2e5cbc3d75fe3910dc4cbada02"
     },
     {
       "path": "tests/README.md",
@@ -1647,6 +1647,41 @@
       "path": "tests/evidence/full-analysis-2026-11-04/unicode-query.stdout",
       "bytes": 263,
       "sha256": "4909a1cdb09233ee8d567f83669b0c1ab923f94b63b417657df9838ea53ae459"
+    },
+    {
+      "path": "tests/evidence/full-sigma-admission-review-2026-11-04/README.md",
+      "bytes": 1377,
+      "sha256": "e2213cf3b9ae8eafc6bea7c8263dda604fa339531249ec8a69d10b2e710ec324"
+    },
+    {
+      "path": "tests/evidence/full-sigma-admission-review-2026-11-04/analysis.stderr.txt",
+      "bytes": 1128,
+      "sha256": "f0f437f7fa88a9f691f460f313a7bcc606b17c6c76cfcc376ac2f4739c6dea4c"
+    },
+    {
+      "path": "tests/evidence/full-sigma-admission-review-2026-11-04/analysis.stdout.txt",
+      "bytes": 2229,
+      "sha256": "3c33276cdd79d5c27e38c97e0ce7ca4238a44179ca1c60a83fd20786734b5f92"
+    },
+    {
+      "path": "tests/evidence/full-sigma-admission-review-2026-11-04/red-receipt.json",
+      "bytes": 846,
+      "sha256": "5d5fad507fab5a3ac7adf57c746b3d3d3deeaeb71674d3a1d86d6b7b99bfe332"
+    },
+    {
+      "path": "tests/evidence/full-sigma-admission-review-2026-11-04/red.stderr",
+      "bytes": 387,
+      "sha256": "3bc9c4bf2d6dfca5c6a55a226ad1325e68ab9b77874ee0541f2247f63d599414"
+    },
+    {
+      "path": "tests/evidence/full-sigma-admission-review-2026-11-04/red.stdout",
+      "bytes": 884,
+      "sha256": "e0ab97f4a125d37e67f8f5f6fce548ab9dbb672d677fdcd524de623a0f0cd6a1"
+    },
+    {
+      "path": "tests/evidence/full-sigma-admission-review-2026-11-04/rust-test-receipt.json",
+      "bytes": 3651,
+      "sha256": "57499d969068e02f708995d8feaede08312384185521d86edf2ed42426729818"
     },
     {
       "path": "tests/evidence/full-token-diagnostic-2026-11-01/README.md",

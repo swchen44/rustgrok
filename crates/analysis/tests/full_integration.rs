@@ -295,3 +295,17 @@ fn unverified_sigma_context_is_rejected_instead_of_guessed() {
         Err(FullError::UnsupportedCaseContext { byte_offset: 0 })
     );
 }
+
+#[test]
+fn sigma_admission_bounds_each_side_without_restricting_query_normalization() {
+    use rustgrok_analysis::{normalize_full_query_term, FullError};
+    for (input, byte_offset) in [("AAΣ", 2), ("ΣAA", 0), ("AΣΣ", 1), ("aΣ", 1)] {
+        assert_eq!(
+            analyze_full(input),
+            Err(FullError::UnsupportedCaseContext { byte_offset }),
+            "{input}"
+        );
+    }
+    assert_eq!(normalize_full_query_term("AAΣ").unwrap(), "aaσ");
+    assert_eq!(normalize_full_query_term("ΣAA").unwrap(), "σaa");
+}

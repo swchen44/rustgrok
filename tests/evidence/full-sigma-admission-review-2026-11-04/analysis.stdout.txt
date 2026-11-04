@@ -1,0 +1,55 @@
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 12 tests
+test ascii_lexical_rules_match_original_full_stream ... ok
+test cjk_term_stream_and_surrogate_boundary_are_separately_observed ... ok
+test every_ascii_character_matches_original_full_stream ... ok
+test finite_query_lowercase_mapping_matches_original ... ok
+test finite_sigma_context_matrix_matches_original ... ok
+test long_ascii_tokenization_and_index_byte_limit_are_distinct ... ok
+test public_c_python_and_javascript_sources_match_original_full_streams ... ok
+test query_term_normalization_is_distinct_from_full_tokenization ... ok
+test sigma_admission_bounds_each_side_without_restricting_query_normalization ... ok
+test unicode_full_offsets_preserve_upstream_arithmetic_and_source_byte_spans ... ok
+test unsupported_unicode_context_and_query_syntax_fail_without_partial_results ... ok
+test unverified_sigma_context_is_rejected_instead_of_guessed ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+
+running 4 tests
+test index_and_query_terms_match_the_recorded_public_corpus_counts ... ok
+test long_tokens_are_not_truncated ... ok
+test reproduces_original_path_tokens_and_observed_offsets ... ok
+test unverified_unicode_controls_and_sigma_contexts_are_explicitly_unsupported ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 1 test
+test public_api_accepts_verified_unicode_source_paths_in_the_synthetic_corpus ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 2 tests
+test original_utf16_offsets_are_distinct_from_real_utf8_source_spans ... ok
+test unsupported_characters_and_unverified_sigma_contexts_fail_without_tokens ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 1 test
+test public_api_matches_the_original_full_path_token_stream ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
