@@ -2,6 +2,7 @@
 // Copyright (c) 2026 swchen44
 //! macOS-only durable single-project path generations.
 pub mod batch;
+pub mod full;
 mod scanner;
 use super::{CancellationToken, Generation, IndexError, IndexLimits, PathIndex, PathSnapshot};
 use sha2::{Digest, Sha256};

@@ -1,0 +1,44 @@
+{
+  "status": "partial_checkpoint_verification_blocked_by_disk_reserve",
+  "base_commit": "0ebc2a93c3c8937ad2e62720c568db118a7e7344",
+  "branch": "feature/full-postings-cli",
+  "platform": {
+    "sw_vers": "ProductName:\t\tmacOS\nProductVersion:\t\t15.7.7\nBuildVersion:\t\t24G720",
+    "uname -m": "arm64",
+    "rustc --version": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+    "cargo --version": "cargo 1.94.0 (85eff7c80 2026-01-15)"
+  },
+  "executed_passes": {
+    "independent_original_reader_query_postings_cases": 18,
+    "targeted_FULL_API_fault_suite": 5,
+    "FULL_CLI_hooks_before_final_decoder_path_check": 6,
+    "FULL_CLI_default_before_final_additions": 3,
+    "index_clippy_all_targets_fault_Dwarnings": "passed",
+    "index_and_cli_cargo_fmt_check": "passed",
+    "git_diff_check": "passed"
+  },
+  "blocked_or_not_run": [
+    "index-default-suite: aborted by reserve during compilation; no tests ran",
+    "index fault-injection complete existing regression suite: not run (targeted FULL API fault suite passed)",
+    "CLI default full suite after final additions (unsupported query/reader/store-isolation and default hook exclusion): not run",
+    "CLI hooks full suite after final store-isolation addition: not run; preceding six-test hooks suite passed",
+    "existing cli_e2e and batch_cli_e2e default/hooks regression: not run",
+    "analysis existing suites: not rerun (analysis source unchanged)",
+    "CLI all-targets clippy: not run",
+    "new FULL evidence contract test: authored but not run",
+    "existing relevant evidence contract tests: not rerun",
+    "planning manifest/package integrity: not run; generated manifest/report intentionally unchanged",
+    "reusable oracle capture tool: not run; exact executed capture script and original outputs retained separately",
+    "independent review, Linux/Windows native runtime, complete query/ranking/host/Web/SCM/product acceptance: not performed"
+  ],
+  "product_tests_80": "planned_not_run",
+  "benchmark_profiling": "not_performed",
+  "reserve_bytes": 2684354560,
+  "free_at_checkpoint_bytes": 2515578880,
+  "current_formatted_production_sha256": {
+    "crates/path-index/src/durable/full.rs": "3c05578aa9d5727c73f70023b8dc6b68fe841b8922f63a677835444bf20f9676",
+    "crates/path-index/src/durable.rs": "16dc4e17e9762745aae27781929479b859ee08460bc2190afa5ab74a95793159",
+    "apps/grok-host/src/main.rs": "b359d423c8f76bee18a63bb623b01cf66feabc7dad1ba7ac60b1b750d72b330a"
+  },
+  "scope_limit": "Current formatted checkpoint has not received the final regression suite; do not treat prior targeted passes as complete current-HEAD acceptance."
+}

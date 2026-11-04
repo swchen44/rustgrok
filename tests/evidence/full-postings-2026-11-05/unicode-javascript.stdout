@@ -1,0 +1,15 @@
+READER	d83dde0000090130000d000a004103a300204e2d000a
+T	0	3	5	00690307
+T	1	6	8	006103c2
+T	2	9	10	4e2d
+QUERY	0041006c007000680061	org.apache.lucene.search.TermQuery	full:alpha	0
+QUERY	0042006500740061	org.apache.lucene.search.TermQuery	full:beta	0
+QUERY	0061006c007000680061005f0031	org.apache.lucene.search.TermQuery	full:alpha_1	0
+QUERY	0065006e0064	org.apache.lucene.search.TermQuery	full:end	0
+QUERY	0130	org.apache.lucene.search.TermQuery	full:i̇	1
+P	0130	0	0	3	5
+QUERY	03a3	org.apache.lucene.search.TermQuery	full:σ	0
+QUERY	004103a3	org.apache.lucene.search.TermQuery	full:aς	1
+P	004103a3	0	1	6	8
+QUERY	4e2d	org.apache.lucene.search.TermQuery	full:中	1
+P	4e2d	0	2	9	10

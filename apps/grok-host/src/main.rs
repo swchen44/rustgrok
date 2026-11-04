@@ -5,6 +5,7 @@ mod host;
 #[cfg(target_os = "macos")]
 mod mac {
     use rustgrok_path_index::durable::batch::{BatchLimits, DurableBatchIndex};
+    use rustgrok_path_index::durable::full::{DurableFullIndex, FullLimits, FullStoreError};
     use rustgrok_path_index::durable::{DurableError, DurablePathIndex};
     use rustgrok_path_index::{CancellationToken, IndexError, IndexLimits};
     use serde_json::{json, Value};
@@ -269,6 +270,46 @@ mod mac {
             [command, control] if command == "host-test-release" => {
                 crate::host::client(control, "test-release", None)
             }
+            [command, parent, name, src, reader] if command == "full-create" => {
+                DurableFullIndex::create(
+                    source(parent)?,
+                    name,
+                    source(src)?,
+                    reader,
+                    FullLimits::default(),
+                )
+                .map_err(full_error)?;
+                Ok(json!({"operation":"full-create","status":"created"}))
+            }
+            [command, store, src, expected, projects @ ..]
+                if command == "full-index" && !projects.is_empty() =>
+            {
+                let expected = expected_generation(expected)?;
+                for name in projects {
+                    project(name)?;
+                }
+                let token = Arc::new(CancellationToken::new());
+                let _signals = SignalMonitor::start(Arc::clone(&token))?;
+                let db =
+                    DurableFullIndex::open(source(store)?, source(src)?, FullLimits::default())
+                        .map_err(full_error)?;
+                let id = full_index(&db, expected, projects, &token).map_err(full_error)?;
+                Ok(json!({"operation":"full-index","generation":id}))
+            }
+            [command, store, src, name, query] if command == "full-query" => {
+                project(name)?;
+                let db =
+                    DurableFullIndex::open(source(store)?, source(src)?, FullLimits::default())
+                        .map_err(full_error)?;
+                let snapshot = db.snapshot().map_err(full_error)?;
+                let matches=snapshot.lookup(name,query).map_err(full_error)?.into_iter().map(|m| {
+                    let positions=m.positions.into_iter().map(|p|json!({"position":p.position,"start_utf16":p.start_utf16,"end_utf16":p.end_utf16,"start_byte":p.start_byte,"end_byte":p.end_byte})).collect::<Vec<_>>();
+                    json!({"path":m.path,"source_sha256":m.source_sha256,"positions":positions})
+                }).collect::<Vec<_>>();
+                Ok(
+                    json!({"operation":"full-query","generation":snapshot.generation(),"order":"unspecified","matches":matches}),
+                )
+            }
             [command, parent, name, src] if command == "batch-create" => {
                 DurableBatchIndex::create(
                     source(parent)?,
@@ -350,6 +391,49 @@ mod mac {
                 )
             }
             _ => Err(Failure::new(2, "usage")),
+        }
+    }
+    fn full_index(
+        db: &DurableFullIndex,
+        expected: Option<u64>,
+        projects: &[String],
+        token: &CancellationToken,
+    ) -> Result<u64, FullStoreError> {
+        #[cfg(feature = "test-hooks")]
+        if std::env::var_os("RUSTGROK_TEST_PAUSE").as_deref() == Some(std::ffi::OsStr::new("1")) {
+            use std::io::Read;
+            let mut pause = || {
+                eprintln!("RUSTGROK_TEST_PAUSED");
+                let _ = std::io::stdin().read_exact(&mut [0u8; 1]);
+            };
+            if std::env::var_os("RUSTGROK_TEST_BATCH_PAUSE_SECOND").as_deref()
+                == Some(std::ffi::OsStr::new("1"))
+            {
+                return db.replace_with_observer(expected, projects, token, &mut pause, &mut || {});
+            }
+            return db.replace_with_observer(expected, projects, token, &mut || {}, &mut pause);
+        }
+        #[cfg(feature = "test-hooks")]
+        if let Ok(name) = std::env::var("RUSTGROK_TEST_FULL_FAULT") {
+            use rustgrok_path_index::durable::FaultPoint;
+            let fault = match name.as_str() {
+                "after-generation-sync" => FaultPoint::ExitAfterGenerationSync,
+                "before-rename" => FaultPoint::ExitBeforeRename,
+                "after-rename" => FaultPoint::ExitAfterRename,
+                _ => FaultPoint::None,
+            };
+            return db.replace_with_fault(expected, projects, token, fault);
+        }
+        db.replace_from_source(expected, projects, token)
+    }
+    fn full_error(error: FullStoreError) -> Failure {
+        match error {
+            FullStoreError::Storage(e) => classify(e),
+            FullStoreError::Analysis { .. } => Failure::new(4, "unsupported_full_input"),
+            FullStoreError::UnsupportedReader => Failure::new(4, "unsupported_reader"),
+            FullStoreError::InvalidEncoding { .. } => Failure::new(4, "unsupported_encoding"),
+            FullStoreError::InvalidQuery => Failure::new(4, "unsupported_query"),
+            FullStoreError::LimitExceeded => Failure::new(4, "unsupported_or_limit"),
         }
     }
     pub fn main() -> i32 {

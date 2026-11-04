@@ -109,3 +109,7 @@ tests/evidence/full-analysis-2026-11-04/*.txt -text whitespace=-blank-at-eof,-bl
 tests/evidence/full-sigma-admission-review-2026-11-04/*.stdout -text whitespace=-blank-at-eof,-blank-at-eol
 tests/evidence/full-sigma-admission-review-2026-11-04/*.stderr -text whitespace=-blank-at-eof,-blank-at-eol
 tests/evidence/full-sigma-admission-review-2026-11-04/*.txt -text whitespace=-blank-at-eof,-blank-at-eol
+
+# Preserve raw FULL reader/postings oracle and red/green native test output.
+tests/evidence/full-postings-2026-11-05/*.stdout -text whitespace=-blank-at-eof,-blank-at-eol
+tests/evidence/full-postings-2026-11-05/*.stderr -text whitespace=-blank-at-eof,-blank-at-eol

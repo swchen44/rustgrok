@@ -1,0 +1,33 @@
+
+running 5 tests
+test failed_second_project_and_changed_registry_preserve_old_batch ... ok
+test real_sigint_cancels_batch_and_other_process_reports_busy ... ok
+test second_project_changes_after_scan_abort_whole_batch ... ok
+test single_and_batch_stores_refuse_cross_open_and_unknown_project ... ok
+test subprocess_two_project_source_batch_publishes_one_generation ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.37s
+
+
+running 6 tests
+test competing_query_reports_busy_while_real_index_process_holds_store_lock ... ok
+test errors_are_explicit_and_failed_updates_preserve_previous_generation ... ok
+test observed_source_change_aborts_real_index_before_publication ... ok
+test sigint_cancels_real_index_and_keeps_old_generation ... ok
+test subprocess_index_query_add_remove_and_restart ... ok
+test subprocess_path_expression_queries_are_explicit_and_unranked ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.00s
+
+
+running 7 tests
+test process_death_on_both_sides_of_pointer_commit_recovers_one_complete_batch ... ok
+test real_sigint_cancels_batch_and_other_process_reports_busy ... ok
+test restricted_query_reader_configuration_and_path_stores_are_separate ... ok
+test second_project_bad_source_and_limits_hold_entire_old_batch ... ok
+test second_project_changes_after_scan_abort_whole_batch ... ok
+test source_full_postings_survive_restart_for_public_c_python_javascript ... ok
+test source_reader_bom_tabs_and_unicode_positions_match_original ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.84s
+

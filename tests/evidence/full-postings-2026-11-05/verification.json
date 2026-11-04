@@ -1,0 +1,102 @@
+{
+  "status": "targeted_slice_correctness_and_lint_checks_passed_pending_independent_review",
+  "base_checkpoint": "9da00220ca350189cd566f0ccca1cd78c0dedba0",
+  "platform": {
+    "sw_vers": "ProductName:\t\tmacOS\nProductVersion:\t\t15.7.7\nBuildVersion:\t\t24G720",
+    "uname -m": "arm64",
+    "rustc --version": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+    "cargo --version": "cargo 1.94.0 (85eff7c80 2026-01-15)"
+  },
+  "historical_blocked_checkpoint": "checkpoint-verification.json",
+  "resumed_runs": {
+    "resume-index-default-suite": {
+      "receipt": "tests/evidence/full-postings-2026-11-05/resume-index-default-suite.json",
+      "sha256": "e3d4f96a932e328f4efbda1ee3c964b83c9448b119f3ae1077b29e2fe0d98dc3",
+      "minimum_sampled_free_bytes": 3119718400,
+      "exit": 0
+    },
+    "resume-cli-default": {
+      "receipt": "tests/evidence/full-postings-2026-11-05/resume-cli-default.json",
+      "sha256": "5e2da2e4fd46a94468f1608a1c86ebeeb5596add12a2f588f61371192bfd6fc3",
+      "minimum_sampled_free_bytes": 3026120704,
+      "exit": 0
+    },
+    "resume-cli-hooks": {
+      "receipt": "tests/evidence/full-postings-2026-11-05/resume-cli-hooks.json",
+      "sha256": "e96f237edb1a6dabcf5412fcfa3133c1be7a883b19e77ea5f73814b3026b5819",
+      "minimum_sampled_free_bytes": 2989408256,
+      "exit": 0
+    },
+    "resume-cli-clippy": {
+      "receipt": "tests/evidence/full-postings-2026-11-05/resume-cli-clippy.json",
+      "sha256": "ffcc4495e701c351724f478832d0bb8183bf4973fb999e4ddaa2ce5033de8548",
+      "minimum_sampled_free_bytes": 2935762944,
+      "exit": 0
+    },
+    "resume-full-evidence": {
+      "receipt": "tests/evidence/full-postings-2026-11-05/resume-full-evidence.json",
+      "sha256": "59f4a6fd3afca38928c508a8aeb1080200b828071bc17ad400a5646dc02ec426",
+      "minimum_sampled_free_bytes": 2921291776,
+      "exit": 0
+    },
+    "resume-planning-contract": {
+      "receipt": "tests/evidence/full-postings-2026-11-05/resume-planning-contract.json",
+      "sha256": "7d5e57f23d4d2e0adecb7ef8bc9ea812c2abe40e5e79b0358372479cd80933bb",
+      "minimum_sampled_free_bytes": 2891448320,
+      "exit": 0
+    }
+  },
+  "executed_passes": {
+    "index_default_top_level_tests": 57,
+    "cli_default": {
+      "single": 4,
+      "batch": 4,
+      "full": 5
+    },
+    "cli_test_hooks": {
+      "single": 6,
+      "batch": 5,
+      "full": 7
+    },
+    "full_evidence_contracts": 4,
+    "planning_files_contracts": 3,
+    "cli_clippy_all_targets_test_hooks_Dwarnings": "passed",
+    "previous_index_clippy_all_targets_fault_Dwarnings": "passed",
+    "previous_targeted_FULL_API_fault_tests": 5,
+    "independent_original_reader_query_postings_cases": 18,
+    "formatting": "passed_before_checkpoint_no_production_source_changes_on_resume"
+  },
+  "package_validation": {
+    "generated_report": "planning-quality-report.json",
+    "manifest": "planning-manifest.json",
+    "external_run_receipt": "/Users/swchen.tw/Library/Caches/rustgrok/full-postings-resume-package-9da0022/resume-package.json",
+    "note": "Read the actual generated report and external command receipt for package status; this JSON does not predeclare the package result."
+  },
+  "not_repeated_or_out_of_scope": [
+    "Previously passed targeted FULL API fault suite and index Clippy were not rerun.",
+    "Complete unchanged legacy index fault-injection suite was not repeated.",
+    "Host/IPC suites were not run; no host code changed.",
+    "The reusable oracle capture wrapper was not rerun; executed original helper/script and 18 raw captures are retained.",
+    "Independent review, Linux/Windows native runtime, full query/ranking/host/Web/SCM and complete product acceptance remain unperformed."
+  ],
+  "product_tests_80": "planned_not_run",
+  "benchmark_profiling": "not_performed",
+  "reserve_bytes": 2684354560,
+  "resumed_minimum_sampled_free_bytes": 2891448320,
+  "free_before_package_bytes": 2864152576,
+  "build_configuration": {
+    "CARGO_INCREMENTAL": "0",
+    "CARGO_BUILD_JOBS": "1",
+    "note": "incremental=0 was already present in original runs; resumed jobs=1 is explicit and binaries are retained separately by actual SHA."
+  },
+  "external_completed_worktree_cleanup_receipt": {
+    "path": "/Users/swchen.tw/Library/Caches/rustgrok/cleanup-receipts/completed-worktrees-20261104T221622Z.json",
+    "sha256": "3605a3f93fa805439dafb4acbcdceeafd1a786746bad3d04ba1eb10063c314b7",
+    "note": "Main controller removed completed clean worktrees before resuming; historical absolute paths remain provenance of Git-retained commits, not lost source."
+  },
+  "current_formatted_production_sha256": {
+    "crates/path-index/src/durable/full.rs": "3c05578aa9d5727c73f70023b8dc6b68fe841b8922f63a677835444bf20f9676",
+    "crates/path-index/src/durable.rs": "16dc4e17e9762745aae27781929479b859ee08460bc2190afa5ab74a95793159",
+    "apps/grok-host/src/main.rs": "b359d423c8f76bee18a63bb623b01cf66feabc7dad1ba7ac60b1b750d72b330a"
+  }
+}
