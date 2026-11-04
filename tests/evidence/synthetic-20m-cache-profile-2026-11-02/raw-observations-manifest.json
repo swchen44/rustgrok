@@ -1,0 +1,3775 @@
+{
+  "archive_sha256": "e6e8fdfb132fc1d2b07f334629acdc98b04dcd29af57cc60f5985d218f67be79",
+  "entries": [
+    {
+      "path": "rustgrok-opt-original-preflight/coverage.json",
+      "bytes": 9086,
+      "sha256": "fda3b9a0f8bf3a1e24991137fc17a4f47c2c48d1b491ec845b0498396d3fb599"
+    },
+    {
+      "path": "rustgrok-opt-original-preflight/disk-watch.json",
+      "bytes": 2374,
+      "sha256": "dbe67907f73dd77526dc7a01be3f88479cd2a63a3c40a44f38273ba8ef75edbb"
+    },
+    {
+      "path": "rustgrok-opt-original-preflight/original-indexer-log-check.json",
+      "bytes": 657,
+      "sha256": "b87d065507007cbe6de1e57545df502eb5a2eca01d9969e3a5f1372688cb287e"
+    },
+    {
+      "path": "rustgrok-opt-original-preflight/original-indexer.stderr.txt",
+      "bytes": 10044,
+      "sha256": "f741666ddb06e409c2eb06dee7090bb1109add3c7af0d9da666ce916cc3b7679"
+    },
+    {
+      "path": "rustgrok-opt-original-preflight/original-indexer.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rustgrok-opt-original-preflight/original-preflight.json",
+      "bytes": 3071,
+      "sha256": "b81050cbd082551ca1abaeccbe4d512818c2dc6ba86366ba791fa21b1f6465e2"
+    },
+    {
+      "path": "rustgrok-opt-original-preflight/preflight-no-hit-oracle-first.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-original-preflight/preflight-no-hit-oracle-followup.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-original-preflight/preflight-single-hit-oracle-first.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-original-preflight/preflight-single-hit-oracle-followup.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-original-preflight/resources.json",
+      "bytes": 3710,
+      "sha256": "24c68a82295e241e6d016a2a33acdca5f88dcd0802725892740aa00da01097a3"
+    },
+    {
+      "path": "rustgrok-opt-original-preflight/response-synthetic000.c.json",
+      "bytes": 794,
+      "sha256": "df19fe3935dcdbc4544efd812d2a8477b4c3102942662a6c4c893e2fc333c1aa"
+    },
+    {
+      "path": "rustgrok-opt-original-preflight/response-synthetic001.py.json",
+      "bytes": 803,
+      "sha256": "4e60513a5a6ffa7c29693ca272ad9b381530df39a9453549ecf432eb00f2aa52"
+    },
+    {
+      "path": "rustgrok-opt-original-preflight/response-synthetic002.js.json",
+      "bytes": 803,
+      "sha256": "99f5e59028019a8fd3a054a3f0720fb98c0904c66cd6c7bfe3d08bfd52cc30a5"
+    },
+    {
+      "path": "rustgrok-opt-original-preflight/response-synthetic003.c.json",
+      "bytes": 793,
+      "sha256": "a6fc76ea0e26e81ac29f5b34704b62607f7ef711398761ec3a6709f5c66ce884"
+    },
+    {
+      "path": "rustgrok-opt-original-preflight/response-synthetic004.py.json",
+      "bytes": 803,
+      "sha256": "39e6ac5921e10ffb1b6a033098f8c281fce87cb04f8b2b6a2209ed5bc187de41"
+    },
+    {
+      "path": "rustgrok-opt-original-preflight/response-synthetic005.js.json",
+      "bytes": 803,
+      "sha256": "1ed34182237c1c809f01c7d337abb1a061b791c192a12ba8ee567c6f39fe7cac"
+    },
+    {
+      "path": "rustgrok-opt-original-preflight/response-synthetic006.c.json",
+      "bytes": 793,
+      "sha256": "1ef7afca839f0cd9fad8ebb7628c8506d8559f60c28aa9d71f5a2d687152e404"
+    },
+    {
+      "path": "rustgrok-opt-original-preflight/response-synthetic007.py.json",
+      "bytes": 803,
+      "sha256": "382a25b9fd0e40847bff7e876015dab500501462f8e9335065759a5e9b5120ac"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/candidate-identity.json",
+      "bytes": 219,
+      "sha256": "61c36038fbc9fe264613b18bac9b7d889edbe7c106300c02b9e3597a16326309"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/candidate-synthetic000.c.json",
+      "bytes": 794,
+      "sha256": "7660e30e63855f5946d62ada9e510afc1cb8d891e878899d9e01aca3c05f54c8"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/candidate-synthetic001.py.json",
+      "bytes": 804,
+      "sha256": "8a3425df12cdaca940564edbd46f014d9830bfa354176976d1cb95727eae49b4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/candidate-synthetic002.js.json",
+      "bytes": 804,
+      "sha256": "af0ec94f1bcc3dfd11cbc47ffe3b94e8a77dd4b862e908768908096617213b20"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/candidate-synthetic003.c.json",
+      "bytes": 794,
+      "sha256": "6082131c23bc21da40a98ac46470981bee467c1e19f80f505208222b0658eff4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/candidate-synthetic004.py.json",
+      "bytes": 804,
+      "sha256": "501b63d87e35dad163fe39965343599fcdfcd807318179dd45c33a202fa4a9ae"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/candidate-synthetic005.js.json",
+      "bytes": 804,
+      "sha256": "ff9e261890deca5e935ce0ddd49795240b7c2d86d4c32c88c5f09a5849b7195a"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/candidate-synthetic006.c.json",
+      "bytes": 794,
+      "sha256": "7048ecabe0773dd683bc5bb26e477460801d875fda7a86b9b37880a0250e0748"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/candidate-synthetic007.py.json",
+      "bytes": 804,
+      "sha256": "578588779c5d3ba0278192668e81425fe9ef903e16637fd4c2d921b061499d6b"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/disk-watch.json",
+      "bytes": 313,
+      "sha256": "bbe2bd333ce766f7fe8d978faa1d889bf494a9437b83862f51f49e3c364acbce"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/oracle-synthetic000.c.json",
+      "bytes": 794,
+      "sha256": "df19fe3935dcdbc4544efd812d2a8477b4c3102942662a6c4c893e2fc333c1aa"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/oracle-synthetic001.py.json",
+      "bytes": 803,
+      "sha256": "4e60513a5a6ffa7c29693ca272ad9b381530df39a9453549ecf432eb00f2aa52"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/oracle-synthetic002.js.json",
+      "bytes": 803,
+      "sha256": "99f5e59028019a8fd3a054a3f0720fb98c0904c66cd6c7bfe3d08bfd52cc30a5"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/oracle-synthetic003.c.json",
+      "bytes": 793,
+      "sha256": "a6fc76ea0e26e81ac29f5b34704b62607f7ef711398761ec3a6709f5c66ce884"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/oracle-synthetic004.py.json",
+      "bytes": 803,
+      "sha256": "39e6ac5921e10ffb1b6a033098f8c281fce87cb04f8b2b6a2209ed5bc187de41"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/oracle-synthetic005.js.json",
+      "bytes": 803,
+      "sha256": "1ed34182237c1c809f01c7d337abb1a061b791c192a12ba8ee567c6f39fe7cac"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/oracle-synthetic006.c.json",
+      "bytes": 793,
+      "sha256": "1ef7afca839f0cd9fad8ebb7628c8506d8559f60c28aa9d71f5a2d687152e404"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/oracle-synthetic007.py.json",
+      "bytes": 803,
+      "sha256": "382a25b9fd0e40847bff7e876015dab500501462f8e9335065759a5e9b5120ac"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/preflight-no-hit-candidate-first.body",
+      "bytes": 74,
+      "sha256": "b85e1f4d8c9d52d0ff8ecfac513bfbcc10f5420e9170cc1c3ff79cf282c89f3a"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/preflight-no-hit-candidate-followup.body",
+      "bytes": 74,
+      "sha256": "b85e1f4d8c9d52d0ff8ecfac513bfbcc10f5420e9170cc1c3ff79cf282c89f3a"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/preflight-no-hit-oracle-first.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/preflight-no-hit-oracle-followup.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/preflight-single-hit-candidate-first.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/preflight-single-hit-candidate-followup.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/preflight-single-hit-oracle-first.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/preflight-single-hit-oracle-followup.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/report.json",
+      "bytes": 11689,
+      "sha256": "242daa99228cc1f307a0f52c57a0b0b709800adeacc8d87c96651e124cad787f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/resources.json",
+      "bytes": 404,
+      "sha256": "2edf5cec003b1d5e511e66d2bf662fdbd693b7b3190a93d45bf3f2f3b8338334"
+    },
+    {
+      "path": "rustgrok-opt-baseline-preflight/sequential-preflight.json",
+      "bytes": 6023,
+      "sha256": "5e1f369d56537ca2cbb84835bf8b76362755ca6c442ed802be1ba51ffd9548cc"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/coverage.json",
+      "bytes": 9411,
+      "sha256": "c7327bb1db2d907704e04effbc172006098dd74b4487071d9cb3ec4a6cc27926"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/disk-watch.json",
+      "bytes": 2223,
+      "sha256": "0025ffdaf0e26827fa0a3b8ed618ba9eb3f3647b626ae9e9b3d89c6046dc231a"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/iostat-after.txt",
+      "bytes": 73,
+      "sha256": "91449221d06f85c460c1699ceb90274246fba654be52f9028b35f8c897e25ce0"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/iostat-before.txt",
+      "bytes": 73,
+      "sha256": "4f76451ed5334d4c34a0ebced8ab839700e5cd00569cf1e70bed8a0a797b4640"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/report.json",
+      "bytes": 33521,
+      "sha256": "0255f23f4ec89e1446397b408f50f05c2f6b6e169fc83518a08b7e3edeef3ec3"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-000.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-001.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-002.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-003.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-004.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-005.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-006.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-007.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-008.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-009.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-010.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-011.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-012.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-013.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-014.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-015.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-016.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-017.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-018.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-019.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-020.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-021.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-022.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-023.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-024.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-025.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-026.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-027.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-028.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-029.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-030.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-031.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-032.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-033.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-034.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-035.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-036.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-037.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-038.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-039.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-040.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-041.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-042.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-043.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-044.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-045.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-046.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-047.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-048.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c1-049.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-000.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-001.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-002.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-003.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-004.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-005.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-006.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-007.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-008.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-009.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-010.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-011.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-012.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-013.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-014.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-015.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-016.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-017.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-018.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-019.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-020.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-021.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-022.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-023.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-024.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-025.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-026.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-027.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-028.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-029.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-030.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-031.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-032.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-033.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-034.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-035.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-036.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-037.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-038.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-039.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-040.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-041.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-042.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-043.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-044.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-045.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-046.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-047.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-048.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/sample-c5-049.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/setup-c1-0.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/setup-c5-0.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/setup-c5-1.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/setup-c5-2.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/setup-c5-3.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/setup-c5-4.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c1-000.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c1-001.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c1-002.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c1-003.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c1-004.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c1-005.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c1-006.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c1-007.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c1-008.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c1-009.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c1-010.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c1-011.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c1-012.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c1-013.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c1-014.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c1-015.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c1-016.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c1-017.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c1-018.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c1-019.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c5-000.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c5-001.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c5-002.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c5-003.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c5-004.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c5-005.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c5-006.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c5-007.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c5-008.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c5-009.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c5-010.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c5-011.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c5-012.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c5-013.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c5-014.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c5-015.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c5-016.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c5-017.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c5-018.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit/warmup-c5-019.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-no-hit.stdout.txt",
+      "bytes": 102,
+      "sha256": "3b19e626ea02dada5cb0876184a966ea1f2a3bdb7e45a8da3544ff60a15351de"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/report.json",
+      "bytes": 33531,
+      "sha256": "9596add5946c7eca3dc13758690a3ea3af4f5aecb74e723ba0515bfef748b207"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-000.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-001.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-002.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-003.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-004.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-005.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-006.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-007.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-008.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-009.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-010.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-011.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-012.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-013.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-014.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-015.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-016.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-017.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-018.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-019.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-020.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-021.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-022.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-023.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-024.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-025.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-026.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-027.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-028.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-029.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-030.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-031.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-032.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-033.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-034.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-035.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-036.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-037.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-038.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-039.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-040.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-041.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-042.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-043.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-044.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-045.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-046.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-047.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-048.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c1-049.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-000.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-001.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-002.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-003.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-004.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-005.body",
+      "bytes": 144,
+      "sha256": "eb808b51303dc3badf54027dd9b279e4a676b96fbaa2e26fadaeded9650f2417"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-006.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-007.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-008.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-009.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-010.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-011.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-012.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-013.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-014.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-015.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-016.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-017.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-018.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-019.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-020.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-021.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-022.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-023.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-024.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-025.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-026.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-027.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-028.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-029.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-030.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-031.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-032.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-033.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-034.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-035.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-036.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-037.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-038.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-039.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-040.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-041.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-042.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-043.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-044.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-045.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-046.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-047.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-048.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/sample-c5-049.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/setup-c1-0.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/setup-c5-0.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/setup-c5-1.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/setup-c5-2.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/setup-c5-3.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/setup-c5-4.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c1-000.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c1-001.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c1-002.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c1-003.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c1-004.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c1-005.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c1-006.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c1-007.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c1-008.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c1-009.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c1-010.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c1-011.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c1-012.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c1-013.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c1-014.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c1-015.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c1-016.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c1-017.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c1-018.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c1-019.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c5-000.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c5-001.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c5-002.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c5-003.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c5-004.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c5-005.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c5-006.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c5-007.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c5-008.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c5-009.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c5-010.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c5-011.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c5-012.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c5-013.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c5-014.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c5-015.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c5-016.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c5-017.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c5-018.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit/warmup-c5-019.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/measure-oracle-single-hit.stdout.txt",
+      "bytes": 106,
+      "sha256": "9a2b015e09e0edc1bb28d10d8ec47641048c1a36af1793bb4099a6d906b69abe"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/original-indexer-log-check.json",
+      "bytes": 657,
+      "sha256": "b87d065507007cbe6de1e57545df502eb5a2eca01d9969e3a5f1372688cb287e"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/original-indexer.stderr.txt",
+      "bytes": 10044,
+      "sha256": "f741666ddb06e409c2eb06dee7090bb1109add3c7af0d9da666ce916cc3b7679"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/original-indexer.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/resources.json",
+      "bytes": 3789,
+      "sha256": "cfc47ea1f4c79af80c83e54959f342b51ac7aaf47393272c9272208b1774bc6d"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/response-synthetic000.c.json",
+      "bytes": 794,
+      "sha256": "4cbcb54b8ca668ce5a935533ea1de95390cc58e7737d601f56fee639a3146cc3"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/response-synthetic001.py.json",
+      "bytes": 803,
+      "sha256": "d2600960222cf337c4c3aa99e805f99b8795a956aa850226d4221e32650bbdd4"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/response-synthetic002.js.json",
+      "bytes": 803,
+      "sha256": "f22663ea184faa6c03c4ae9c10e5c626eda297334ee59ca7e03e91e4505e8f25"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/response-synthetic003.c.json",
+      "bytes": 793,
+      "sha256": "a6fc76ea0e26e81ac29f5b34704b62607f7ef711398761ec3a6709f5c66ce884"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/response-synthetic004.py.json",
+      "bytes": 803,
+      "sha256": "39e6ac5921e10ffb1b6a033098f8c281fce87cb04f8b2b6a2209ed5bc187de41"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/response-synthetic005.js.json",
+      "bytes": 803,
+      "sha256": "1ed34182237c1c809f01c7d337abb1a061b791c192a12ba8ee567c6f39fe7cac"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/response-synthetic006.c.json",
+      "bytes": 793,
+      "sha256": "1ef7afca839f0cd9fad8ebb7628c8506d8559f60c28aa9d71f5a2d687152e404"
+    },
+    {
+      "path": "rustgrok-opt-oracle-baseline-measure/response-synthetic007.py.json",
+      "bytes": 803,
+      "sha256": "382a25b9fd0e40847bff7e876015dab500501462f8e9335065759a5e9b5120ac"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/candidate-synthetic000.c.json",
+      "bytes": 794,
+      "sha256": "6b1131367e0b25844a4628dd943d8d65ff27e4fa2d7f6735a7028e65b4ec1efd"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/candidate-synthetic001.py.json",
+      "bytes": 804,
+      "sha256": "8a3425df12cdaca940564edbd46f014d9830bfa354176976d1cb95727eae49b4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/candidate-synthetic002.js.json",
+      "bytes": 804,
+      "sha256": "af0ec94f1bcc3dfd11cbc47ffe3b94e8a77dd4b862e908768908096617213b20"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/candidate-synthetic003.c.json",
+      "bytes": 794,
+      "sha256": "4d96ae0ff4c8fad6ef4b0df8051c60eaf8da2a3456a2d4da3ae0f3e83b3d555e"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/candidate-synthetic004.py.json",
+      "bytes": 804,
+      "sha256": "13e48a7bd5e65a36467b4eae51761d52cc3a5b0348b0ddc2d9fa32fffd7750d5"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/candidate-synthetic005.js.json",
+      "bytes": 804,
+      "sha256": "9310c96a61c19eef6675437fed4d0387a5c15fa182222b79514a4d3024426d7f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/candidate-synthetic006.c.json",
+      "bytes": 794,
+      "sha256": "815427e608af99abb0175e82aa49cf56d9bcf9524615bc2f8456373abf87a724"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/candidate-synthetic007.py.json",
+      "bytes": 804,
+      "sha256": "8765e8ae5d92e64c2415aa3ffe4d7ae3d37e1a86a73cfaa6bd0464a21a8d55bb"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/disk-watch.json",
+      "bytes": 1603,
+      "sha256": "483b1f11be403998cdd2f05766afca5650d9f9c876e965277e4c306d43dcca85"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/iostat-after.txt",
+      "bytes": 73,
+      "sha256": "7a62743abbcf619fa2f1db2ae6c0ef05607c6a7198b06a4d23d1dcd88dd93991"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/iostat-before.txt",
+      "bytes": 73,
+      "sha256": "e6fd66463b204685c30fdee36f94220e11a8c6d8f5dba4918b040e15aeca7960"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/report.json",
+      "bytes": 33630,
+      "sha256": "f21063ddc3af45f7f8be698a210e9b3984dd9ed908733ffff65cc43f2c0ade1f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-000.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-001.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-002.body",
+      "bytes": 74,
+      "sha256": "e5d63d0a0731f33332eb1c760b411306ec92f59ae13a257bfc4c10b5559f7c19"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-003.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-004.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-005.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-006.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-007.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-008.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-009.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-010.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-011.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-012.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-013.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-014.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-015.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-016.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-017.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-018.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-019.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-020.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-021.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-022.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-023.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-024.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-025.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-026.body",
+      "bytes": 74,
+      "sha256": "e5d63d0a0731f33332eb1c760b411306ec92f59ae13a257bfc4c10b5559f7c19"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-027.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-028.body",
+      "bytes": 74,
+      "sha256": "e5d63d0a0731f33332eb1c760b411306ec92f59ae13a257bfc4c10b5559f7c19"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-029.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-030.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-031.body",
+      "bytes": 74,
+      "sha256": "e5d63d0a0731f33332eb1c760b411306ec92f59ae13a257bfc4c10b5559f7c19"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-032.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-033.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-034.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-035.body",
+      "bytes": 74,
+      "sha256": "e5d63d0a0731f33332eb1c760b411306ec92f59ae13a257bfc4c10b5559f7c19"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-036.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-037.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-038.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-039.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-040.body",
+      "bytes": 74,
+      "sha256": "b85e1f4d8c9d52d0ff8ecfac513bfbcc10f5420e9170cc1c3ff79cf282c89f3a"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-041.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-042.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-043.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-044.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-045.body",
+      "bytes": 74,
+      "sha256": "b85e1f4d8c9d52d0ff8ecfac513bfbcc10f5420e9170cc1c3ff79cf282c89f3a"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-046.body",
+      "bytes": 74,
+      "sha256": "b85e1f4d8c9d52d0ff8ecfac513bfbcc10f5420e9170cc1c3ff79cf282c89f3a"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-047.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-048.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c1-049.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-000.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-001.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-002.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-003.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-004.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-005.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-006.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-007.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-008.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-009.body",
+      "bytes": 74,
+      "sha256": "b85e1f4d8c9d52d0ff8ecfac513bfbcc10f5420e9170cc1c3ff79cf282c89f3a"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-010.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-011.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-012.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-013.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-014.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-015.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-016.body",
+      "bytes": 74,
+      "sha256": "b85e1f4d8c9d52d0ff8ecfac513bfbcc10f5420e9170cc1c3ff79cf282c89f3a"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-017.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-018.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-019.body",
+      "bytes": 74,
+      "sha256": "b85e1f4d8c9d52d0ff8ecfac513bfbcc10f5420e9170cc1c3ff79cf282c89f3a"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-020.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-021.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-022.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-023.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-024.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-025.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-026.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-027.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-028.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-029.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-030.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-031.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-032.body",
+      "bytes": 74,
+      "sha256": "b85e1f4d8c9d52d0ff8ecfac513bfbcc10f5420e9170cc1c3ff79cf282c89f3a"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-033.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-034.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-035.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-036.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-037.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-038.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-039.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-040.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-041.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-042.body",
+      "bytes": 74,
+      "sha256": "e5d63d0a0731f33332eb1c760b411306ec92f59ae13a257bfc4c10b5559f7c19"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-043.body",
+      "bytes": 74,
+      "sha256": "e5d63d0a0731f33332eb1c760b411306ec92f59ae13a257bfc4c10b5559f7c19"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-044.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-045.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-046.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-047.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-048.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/sample-c5-049.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/setup-c1-0.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/setup-c5-0.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/setup-c5-1.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/setup-c5-2.body",
+      "bytes": 74,
+      "sha256": "b85e1f4d8c9d52d0ff8ecfac513bfbcc10f5420e9170cc1c3ff79cf282c89f3a"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/setup-c5-3.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/setup-c5-4.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c1-000.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c1-001.body",
+      "bytes": 74,
+      "sha256": "e5d63d0a0731f33332eb1c760b411306ec92f59ae13a257bfc4c10b5559f7c19"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c1-002.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c1-003.body",
+      "bytes": 74,
+      "sha256": "e5d63d0a0731f33332eb1c760b411306ec92f59ae13a257bfc4c10b5559f7c19"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c1-004.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c1-005.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c1-006.body",
+      "bytes": 74,
+      "sha256": "e5d63d0a0731f33332eb1c760b411306ec92f59ae13a257bfc4c10b5559f7c19"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c1-007.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c1-008.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c1-009.body",
+      "bytes": 74,
+      "sha256": "e8c074766465eddf91b761d98d9f24d260272e7dc8a9a694410ad8b02432b019"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c1-010.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c1-011.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c1-012.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c1-013.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c1-014.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c1-015.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c1-016.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c1-017.body",
+      "bytes": 74,
+      "sha256": "e5d63d0a0731f33332eb1c760b411306ec92f59ae13a257bfc4c10b5559f7c19"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c1-018.body",
+      "bytes": 74,
+      "sha256": "e0b4e570c579f04d38dd3bbc3b1b67dac85e4e4f95887f2321fbe1f8a0b26c1e"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c1-019.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c5-000.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c5-001.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c5-002.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c5-003.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c5-004.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c5-005.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c5-006.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c5-007.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c5-008.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c5-009.body",
+      "bytes": 74,
+      "sha256": "ed537b2514ad5d30205b7ca834d079e3584492ab9f432c66e15456227375c150"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c5-010.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c5-011.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c5-012.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c5-013.body",
+      "bytes": 74,
+      "sha256": "b85e1f4d8c9d52d0ff8ecfac513bfbcc10f5420e9170cc1c3ff79cf282c89f3a"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c5-014.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c5-015.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c5-016.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c5-017.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c5-018.body",
+      "bytes": 74,
+      "sha256": "b85e1f4d8c9d52d0ff8ecfac513bfbcc10f5420e9170cc1c3ff79cf282c89f3a"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit/warmup-c5-019.body",
+      "bytes": 74,
+      "sha256": "e14cb7dd34165a8ef6205d1903d542f1687cedd00b4d4eaf55d32f2f98777dfe"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-no-hit.stdout.txt",
+      "bytes": 105,
+      "sha256": "40b9466f4676f48237bdeedffac631b706156604cde1e5fefa9ceee2dc2eae09"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/report.json",
+      "bytes": 33640,
+      "sha256": "82060b59439638f855e539c774ea973273f624f62a1827c09b05102ca934e3a3"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-000.body",
+      "bytes": 145,
+      "sha256": "6a17cf3b3d917cd0b6eb8e29409d447b7a9d0b42fd9e83bca44c5da8ddf3d831"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-001.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-002.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-003.body",
+      "bytes": 145,
+      "sha256": "bb8bdf9787e80ebebd17dd7cc3bb67d55943d7cd5e309407b11105a05f86f93b"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-004.body",
+      "bytes": 145,
+      "sha256": "7bb65edcf27b18af18773e41d5e38c650bae5be06c7daed93532d90860268a7d"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-005.body",
+      "bytes": 145,
+      "sha256": "a999dd5fba19fa4fa20cbb6011ae9f813d48cae13429adeda63acda2ee67f3d5"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-006.body",
+      "bytes": 145,
+      "sha256": "6a17cf3b3d917cd0b6eb8e29409d447b7a9d0b42fd9e83bca44c5da8ddf3d831"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-007.body",
+      "bytes": 145,
+      "sha256": "6a17cf3b3d917cd0b6eb8e29409d447b7a9d0b42fd9e83bca44c5da8ddf3d831"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-008.body",
+      "bytes": 145,
+      "sha256": "bb8bdf9787e80ebebd17dd7cc3bb67d55943d7cd5e309407b11105a05f86f93b"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-009.body",
+      "bytes": 145,
+      "sha256": "b6f3c22e6d495aa68d6a3a10d0684f717c5f9403bcf8234ba971e592859d1319"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-010.body",
+      "bytes": 145,
+      "sha256": "bb8bdf9787e80ebebd17dd7cc3bb67d55943d7cd5e309407b11105a05f86f93b"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-011.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-012.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-013.body",
+      "bytes": 145,
+      "sha256": "b6f3c22e6d495aa68d6a3a10d0684f717c5f9403bcf8234ba971e592859d1319"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-014.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-015.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-016.body",
+      "bytes": 145,
+      "sha256": "6a17cf3b3d917cd0b6eb8e29409d447b7a9d0b42fd9e83bca44c5da8ddf3d831"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-017.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-018.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-019.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-020.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-021.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-022.body",
+      "bytes": 145,
+      "sha256": "6a17cf3b3d917cd0b6eb8e29409d447b7a9d0b42fd9e83bca44c5da8ddf3d831"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-023.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-024.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-025.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-026.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-027.body",
+      "bytes": 145,
+      "sha256": "6a17cf3b3d917cd0b6eb8e29409d447b7a9d0b42fd9e83bca44c5da8ddf3d831"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-028.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-029.body",
+      "bytes": 145,
+      "sha256": "bb8bdf9787e80ebebd17dd7cc3bb67d55943d7cd5e309407b11105a05f86f93b"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-030.body",
+      "bytes": 145,
+      "sha256": "6a17cf3b3d917cd0b6eb8e29409d447b7a9d0b42fd9e83bca44c5da8ddf3d831"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-031.body",
+      "bytes": 145,
+      "sha256": "6a17cf3b3d917cd0b6eb8e29409d447b7a9d0b42fd9e83bca44c5da8ddf3d831"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-032.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-033.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-034.body",
+      "bytes": 145,
+      "sha256": "b6f3c22e6d495aa68d6a3a10d0684f717c5f9403bcf8234ba971e592859d1319"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-035.body",
+      "bytes": 145,
+      "sha256": "6a17cf3b3d917cd0b6eb8e29409d447b7a9d0b42fd9e83bca44c5da8ddf3d831"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-036.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-037.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-038.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-039.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-040.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-041.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-042.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-043.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-044.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-045.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-046.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-047.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-048.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c1-049.body",
+      "bytes": 145,
+      "sha256": "b6f3c22e6d495aa68d6a3a10d0684f717c5f9403bcf8234ba971e592859d1319"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-000.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-001.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-002.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-003.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-004.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-005.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-006.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-007.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-008.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-009.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-010.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-011.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-012.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-013.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-014.body",
+      "bytes": 145,
+      "sha256": "6a17cf3b3d917cd0b6eb8e29409d447b7a9d0b42fd9e83bca44c5da8ddf3d831"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-015.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-016.body",
+      "bytes": 145,
+      "sha256": "6a17cf3b3d917cd0b6eb8e29409d447b7a9d0b42fd9e83bca44c5da8ddf3d831"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-017.body",
+      "bytes": 145,
+      "sha256": "b6f3c22e6d495aa68d6a3a10d0684f717c5f9403bcf8234ba971e592859d1319"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-018.body",
+      "bytes": 145,
+      "sha256": "6a17cf3b3d917cd0b6eb8e29409d447b7a9d0b42fd9e83bca44c5da8ddf3d831"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-019.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-020.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-021.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-022.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-023.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-024.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-025.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-026.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-027.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-028.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-029.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-030.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-031.body",
+      "bytes": 145,
+      "sha256": "6a17cf3b3d917cd0b6eb8e29409d447b7a9d0b42fd9e83bca44c5da8ddf3d831"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-032.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-033.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-034.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-035.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-036.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-037.body",
+      "bytes": 145,
+      "sha256": "b6f3c22e6d495aa68d6a3a10d0684f717c5f9403bcf8234ba971e592859d1319"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-038.body",
+      "bytes": 145,
+      "sha256": "b6f3c22e6d495aa68d6a3a10d0684f717c5f9403bcf8234ba971e592859d1319"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-039.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-040.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-041.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-042.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-043.body",
+      "bytes": 145,
+      "sha256": "6a17cf3b3d917cd0b6eb8e29409d447b7a9d0b42fd9e83bca44c5da8ddf3d831"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-044.body",
+      "bytes": 145,
+      "sha256": "6a17cf3b3d917cd0b6eb8e29409d447b7a9d0b42fd9e83bca44c5da8ddf3d831"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-045.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-046.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-047.body",
+      "bytes": 145,
+      "sha256": "b6f3c22e6d495aa68d6a3a10d0684f717c5f9403bcf8234ba971e592859d1319"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-048.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/sample-c5-049.body",
+      "bytes": 145,
+      "sha256": "6a17cf3b3d917cd0b6eb8e29409d447b7a9d0b42fd9e83bca44c5da8ddf3d831"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/setup-c1-0.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/setup-c5-0.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/setup-c5-1.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/setup-c5-2.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/setup-c5-3.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/setup-c5-4.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c1-000.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c1-001.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c1-002.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c1-003.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c1-004.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c1-005.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c1-006.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c1-007.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c1-008.body",
+      "bytes": 145,
+      "sha256": "6a17cf3b3d917cd0b6eb8e29409d447b7a9d0b42fd9e83bca44c5da8ddf3d831"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c1-009.body",
+      "bytes": 145,
+      "sha256": "b5f94bf6b3d999c5d561d7e723a11325ac5e471da6abcecad6f5f923486cbeed"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c1-010.body",
+      "bytes": 145,
+      "sha256": "b6f3c22e6d495aa68d6a3a10d0684f717c5f9403bcf8234ba971e592859d1319"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c1-011.body",
+      "bytes": 145,
+      "sha256": "e93696c7fe0b15ac8183333eed5717ce3c95c99e9ec3399df5c6dc7ed0a190dd"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c1-012.body",
+      "bytes": 145,
+      "sha256": "a999dd5fba19fa4fa20cbb6011ae9f813d48cae13429adeda63acda2ee67f3d5"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c1-013.body",
+      "bytes": 145,
+      "sha256": "4b7acc328460e41b80b3845199ddd781b4d0766f4ae7c449b6944e38a769cf42"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c1-014.body",
+      "bytes": 145,
+      "sha256": "126d17993fd55b267bfb4cd1bc50e9a675e83066e3958c08f170f05def8b468c"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c1-015.body",
+      "bytes": 145,
+      "sha256": "b5f94bf6b3d999c5d561d7e723a11325ac5e471da6abcecad6f5f923486cbeed"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c1-016.body",
+      "bytes": 145,
+      "sha256": "e93696c7fe0b15ac8183333eed5717ce3c95c99e9ec3399df5c6dc7ed0a190dd"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c1-017.body",
+      "bytes": 145,
+      "sha256": "bb8bdf9787e80ebebd17dd7cc3bb67d55943d7cd5e309407b11105a05f86f93b"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c1-018.body",
+      "bytes": 145,
+      "sha256": "6a17cf3b3d917cd0b6eb8e29409d447b7a9d0b42fd9e83bca44c5da8ddf3d831"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c1-019.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c5-000.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c5-001.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c5-002.body",
+      "bytes": 145,
+      "sha256": "6a17cf3b3d917cd0b6eb8e29409d447b7a9d0b42fd9e83bca44c5da8ddf3d831"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c5-003.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c5-004.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c5-005.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c5-006.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c5-007.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c5-008.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c5-009.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c5-010.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c5-011.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c5-012.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c5-013.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c5-014.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c5-015.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c5-016.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c5-017.body",
+      "bytes": 145,
+      "sha256": "42e59b6a52986d5303b98f58f0f098990a86a7b14edaf8d627f6e300a936820f"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c5-018.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit/warmup-c5-019.body",
+      "bytes": 145,
+      "sha256": "2423a2f13ec2fd85da2bad7ce89e6529576c03be7516059709cb66e88a93c6c4"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/measure-candidate-single-hit.stdout.txt",
+      "bytes": 109,
+      "sha256": "3c12398a4503cea6f5c7f513bdfba5e57a724315df68a3c4252fe5843a16f1fb"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/oracle-synthetic000.c.json",
+      "bytes": 794,
+      "sha256": "df19fe3935dcdbc4544efd812d2a8477b4c3102942662a6c4c893e2fc333c1aa"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/oracle-synthetic001.py.json",
+      "bytes": 803,
+      "sha256": "4e60513a5a6ffa7c29693ca272ad9b381530df39a9453549ecf432eb00f2aa52"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/oracle-synthetic002.js.json",
+      "bytes": 803,
+      "sha256": "99f5e59028019a8fd3a054a3f0720fb98c0904c66cd6c7bfe3d08bfd52cc30a5"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/oracle-synthetic003.c.json",
+      "bytes": 793,
+      "sha256": "a6fc76ea0e26e81ac29f5b34704b62607f7ef711398761ec3a6709f5c66ce884"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/oracle-synthetic004.py.json",
+      "bytes": 803,
+      "sha256": "39e6ac5921e10ffb1b6a033098f8c281fce87cb04f8b2b6a2209ed5bc187de41"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/oracle-synthetic005.js.json",
+      "bytes": 803,
+      "sha256": "1ed34182237c1c809f01c7d337abb1a061b791c192a12ba8ee567c6f39fe7cac"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/oracle-synthetic006.c.json",
+      "bytes": 793,
+      "sha256": "1ef7afca839f0cd9fad8ebb7628c8506d8559f60c28aa9d71f5a2d687152e404"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/oracle-synthetic007.py.json",
+      "bytes": 803,
+      "sha256": "382a25b9fd0e40847bff7e876015dab500501462f8e9335065759a5e9b5120ac"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/report.json",
+      "bytes": 12081,
+      "sha256": "0f9d557e0c8986c5a8d34a83c7eb4b1b9422452141673ed2b30bb2dcdd6b1eaf"
+    },
+    {
+      "path": "rustgrok-opt-baseline-measure/resources.json",
+      "bytes": 3216,
+      "sha256": "251a18d6f0dc96ba4c868f6b0450a67e1602f59e802ffde36d94cb259f9a6584"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/candidate-identity.json",
+      "bytes": 221,
+      "sha256": "0c90bbc9c2f09401a50da1834cedc9ca344ec260bbf468244f6d4542cc656da2"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/candidate-synthetic000.c.json",
+      "bytes": 794,
+      "sha256": "0669ebf462e66169ca4a3e25a9554a0019f62b2747a544066b470f35b312a83c"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/candidate-synthetic001.py.json",
+      "bytes": 803,
+      "sha256": "4e80c6abef33b215025908488666a4bf29213254abe9db6660251be484d19858"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/candidate-synthetic002.js.json",
+      "bytes": 803,
+      "sha256": "7482d0934be045acea804e6e9118a7254840711486f219d4b1ad9ec2315aaed4"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/candidate-synthetic003.c.json",
+      "bytes": 793,
+      "sha256": "9aabf5dd39fdf5c3e3291df354b38de06ba6e4ee6043b3a87120c16f24b12f5d"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/candidate-synthetic004.py.json",
+      "bytes": 803,
+      "sha256": "86b984b3621b997929148a40a26fdcc3295c0afa9186a24808d2953c56d6ffec"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/candidate-synthetic005.js.json",
+      "bytes": 803,
+      "sha256": "d37c1fecb2e8190cad8de9685fa342522f9f469d73094cff87f967fd26ff931a"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/candidate-synthetic006.c.json",
+      "bytes": 793,
+      "sha256": "2065d8df3e4edef929da1aba8666d877535f70114c310917113dd3f882d8d4d0"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/candidate-synthetic007.py.json",
+      "bytes": 803,
+      "sha256": "2cb65852bddef910da8948517b3d051e99ad7609b4ade2285eee5b211bc98b20"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/disk-watch.json",
+      "bytes": 237,
+      "sha256": "5a2efa8f8481bf6015e4c2f067162d2ad916eb7f4a625b9f214bf6cfac0194a9"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/oracle-synthetic000.c.json",
+      "bytes": 794,
+      "sha256": "df19fe3935dcdbc4544efd812d2a8477b4c3102942662a6c4c893e2fc333c1aa"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/oracle-synthetic001.py.json",
+      "bytes": 803,
+      "sha256": "4e60513a5a6ffa7c29693ca272ad9b381530df39a9453549ecf432eb00f2aa52"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/oracle-synthetic002.js.json",
+      "bytes": 803,
+      "sha256": "99f5e59028019a8fd3a054a3f0720fb98c0904c66cd6c7bfe3d08bfd52cc30a5"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/oracle-synthetic003.c.json",
+      "bytes": 793,
+      "sha256": "a6fc76ea0e26e81ac29f5b34704b62607f7ef711398761ec3a6709f5c66ce884"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/oracle-synthetic004.py.json",
+      "bytes": 803,
+      "sha256": "39e6ac5921e10ffb1b6a033098f8c281fce87cb04f8b2b6a2209ed5bc187de41"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/oracle-synthetic005.js.json",
+      "bytes": 803,
+      "sha256": "1ed34182237c1c809f01c7d337abb1a061b791c192a12ba8ee567c6f39fe7cac"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/oracle-synthetic006.c.json",
+      "bytes": 793,
+      "sha256": "1ef7afca839f0cd9fad8ebb7628c8506d8559f60c28aa9d71f5a2d687152e404"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/oracle-synthetic007.py.json",
+      "bytes": 803,
+      "sha256": "382a25b9fd0e40847bff7e876015dab500501462f8e9335065759a5e9b5120ac"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/preflight-no-hit-candidate-first.body",
+      "bytes": 73,
+      "sha256": "8f93cebefa9533101a8022c3ae3350388c269385f524aa9ed6b894199cb73d9a"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/preflight-no-hit-candidate-followup.body",
+      "bytes": 73,
+      "sha256": "8f93cebefa9533101a8022c3ae3350388c269385f524aa9ed6b894199cb73d9a"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/preflight-no-hit-oracle-first.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/preflight-no-hit-oracle-followup.body",
+      "bytes": 73,
+      "sha256": "a3c4c415616146c9bbf6ed90d5b469a09cba02a7675e65340e448217f71df7f6"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/preflight-single-hit-candidate-first.body",
+      "bytes": 144,
+      "sha256": "74702093c1d660f99510e05749ed2d41b6a0dbf4d773e3c5d10fc9138f7f1100"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/preflight-single-hit-candidate-followup.body",
+      "bytes": 144,
+      "sha256": "e505e8893169b9b718ff36c23a087cde4b61eca3edf4b81cf351f13d0569bf4c"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/preflight-single-hit-oracle-first.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/preflight-single-hit-oracle-followup.body",
+      "bytes": 144,
+      "sha256": "c8f6f8d73e1990fe029efa4ad8582682af54bce0c55e39c41c44a1c2d71db493"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/report.json",
+      "bytes": 11691,
+      "sha256": "2673032db90da193ae06bde594ef24fc437a3fafb914d8fc24fdc86183ab4084"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/resources.json",
+      "bytes": 272,
+      "sha256": "38a8b1079e75247580c7ca1206f2ca12d224036533f3473aeed300f454493dae"
+    },
+    {
+      "path": "rustgrok-opt-cache-preflight/sequential-preflight.json",
+      "bytes": 6015,
+      "sha256": "d788c7a516f3d4a5a4c2778c9bc07771010a388aa0c57c0e9f8ec4ab84c9b679"
+    },
+    {
+      "path": "rustgrok-profile-20m-v1/none-receipt.json",
+      "bytes": 1469,
+      "sha256": "e474b4ec969b011a8b101d6180cc17d375c43f119da1fac77ed8bcfcec7507b9"
+    },
+    {
+      "path": "rustgrok-profile-20m-v1/none.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rustgrok-profile-20m-v1/none.stdout.txt",
+      "bytes": 6231,
+      "sha256": "ebb2b6ee6ac0ba2cdf5519e633399b90db4fb2fc900d045ba64f654473880908"
+    },
+    {
+      "path": "rustgrok-profile-20m-v1/none.time.txt",
+      "bytes": 777,
+      "sha256": "e2f32b4458ce01ce17db3913e3ce44c740d20e8cd7ad4ecef6e45ddad5038f63"
+    },
+    {
+      "path": "rustgrok-profile-20m-v1/single-receipt.json",
+      "bytes": 1706,
+      "sha256": "43b208260e5fde5e74edd46f0cc0b2199ff1a5a86416b06e23c13cf497e58e2c"
+    },
+    {
+      "path": "rustgrok-profile-20m-v1/single.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rustgrok-profile-20m-v1/single.stdout.txt",
+      "bytes": 6329,
+      "sha256": "3d51001c8ba34709cfd6011eb1e7d91428b4a7cfeea7f548b6588e81cc197c35"
+    },
+    {
+      "path": "rustgrok-profile-20m-v1/single.time.txt",
+      "bytes": 777,
+      "sha256": "5b2d8be8546e37fdffc2123145b0f9ed5dbd9bf0832e503cce2e62c622689c0e"
+    },
+    {
+      "path": "rustgrok-profile-test/baseline-measure-receipt.json",
+      "bytes": 4727,
+      "sha256": "0083ee9e71daf2c8f1bdddde79027e3c18b46c79eead21ddc1f014923d7b6b90"
+    },
+    {
+      "path": "rustgrok-profile-test/baseline-measure.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rustgrok-profile-test/baseline-measure.stdout.txt",
+      "bytes": 281,
+      "sha256": "7de22094769aa96ba88d7c289dd99afab7eff96178833d23d0466d12abc254b3"
+    },
+    {
+      "path": "rustgrok-profile-test/baseline-measure.time.txt",
+      "bytes": 777,
+      "sha256": "562b41a1147bb6290c7345dcc64723fc52ddae3cba994e921337c8ea81ed1d73"
+    },
+    {
+      "path": "rustgrok-profile-test/baseline-preflight-receipt.json",
+      "bytes": 920,
+      "sha256": "a27941268fab8c19e4aa3a75707a5c737ca4af543004d06d79e9cc98516bb292"
+    },
+    {
+      "path": "rustgrok-profile-test/baseline-preflight.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rustgrok-profile-test/baseline-preflight.stdout.txt",
+      "bytes": 275,
+      "sha256": "38c1aa6326a38fa1b1c90ac732a8840e1b3e2483c2a5f430ff44e5970c168f7b"
+    },
+    {
+      "path": "rustgrok-profile-test/baseline-preflight.time.txt",
+      "bytes": 777,
+      "sha256": "eed61d68384076a0869590cf8421179395e108f26b7a6a2d7cb8290c36201f75"
+    },
+    {
+      "path": "rustgrok-profile-test/cache-build-receipt.json",
+      "bytes": 1828,
+      "sha256": "ac8b73d66a8e60ab7434f199766d34167c625e74cdcb768890af174aa05fdeb9"
+    },
+    {
+      "path": "rustgrok-profile-test/cache-build.stderr.txt",
+      "bytes": 169,
+      "sha256": "cb2c12ebede647b51d9838848c082324ead308beb36e39beb06c70c966a40ff0"
+    },
+    {
+      "path": "rustgrok-profile-test/cache-build.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rustgrok-profile-test/cache-build.time.txt",
+      "bytes": 777,
+      "sha256": "3530c78bade134e07f306ae439b3b6d0e9e6ddc6f3c1aaad655901c280919b53"
+    },
+    {
+      "path": "rustgrok-profile-test/cache-preflight-receipt.json",
+      "bytes": 704,
+      "sha256": "d5e16d03c1c4093e9e87a13da194df587d0a8858f6dcf7e4d44a320efdd15f22"
+    },
+    {
+      "path": "rustgrok-profile-test/cache-preflight.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rustgrok-profile-test/cache-preflight.stdout.txt",
+      "bytes": 275,
+      "sha256": "38c1aa6326a38fa1b1c90ac732a8840e1b3e2483c2a5f430ff44e5970c168f7b"
+    },
+    {
+      "path": "rustgrok-profile-test/cache-preflight.time.txt",
+      "bytes": 777,
+      "sha256": "9191331166072282e18f842205f8617938702fc143283a4270f249a3a651a6df"
+    },
+    {
+      "path": "rustgrok-profile-test/cache-test-receipt.json",
+      "bytes": 1024,
+      "sha256": "02a6db7d371ce90832d6ea890468287c0a2ed94096d76bccfb5754542efcc4e7"
+    },
+    {
+      "path": "rustgrok-profile-test/cache-test.stderr.txt",
+      "bytes": 372,
+      "sha256": "ce208cd018882fbd4e585f833257cda3b0342c20df1aabe99cfefddc5249652d"
+    },
+    {
+      "path": "rustgrok-profile-test/cache-test.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rustgrok-profile-test/cache-test.time.txt",
+      "bytes": 777,
+      "sha256": "0dcdacc8503f37d68c4c677edbc56547a8b3d09ae7adc6c2284e95f95c5fc876"
+    },
+    {
+      "path": "rustgrok-profile-test/oracle-baseline-measure-receipt.json",
+      "bytes": 6964,
+      "sha256": "d1d16bab369d57ac66d4b0ccdff3f5d14d2ab16223ef69c0406728732a3016ad"
+    },
+    {
+      "path": "rustgrok-profile-test/oracle-baseline-measure.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rustgrok-profile-test/oracle-baseline-measure.stdout.txt",
+      "bytes": 226,
+      "sha256": "02678b009bd9467accdf3be8c513b622355d8211d4f35838222623f387a58dd6"
+    },
+    {
+      "path": "rustgrok-profile-test/oracle-baseline-measure.time.txt",
+      "bytes": 777,
+      "sha256": "867f13dd9e716ab2fc5f756e135d5ed900bc0e122b4a8af8fc549098fe3a5cad"
+    },
+    {
+      "path": "rustgrok-profile-test/oracle-cache-measure-receipt.json",
+      "bytes": 102,
+      "sha256": "1e82c381a1939fbcd84aff097783f2da148e49b8c1acf9705196166d6bcadfa0"
+    },
+    {
+      "path": "rustgrok-profile-test/oracle-cache-measure.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rustgrok-profile-test/oracle-cache-measure.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rustgrok-profile-test/original-preflight-receipt.json",
+      "bytes": 7180,
+      "sha256": "66be71dbe8becf56c82c76bfd4816c95f1ad9fc41e6cc10cc3232438c53e4c05"
+    },
+    {
+      "path": "rustgrok-profile-test/original-preflight.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rustgrok-profile-test/original-preflight.stdout.txt",
+      "bytes": 226,
+      "sha256": "02678b009bd9467accdf3be8c513b622355d8211d4f35838222623f387a58dd6"
+    },
+    {
+      "path": "rustgrok-profile-test/original-preflight.time.txt",
+      "bytes": 777,
+      "sha256": "2549286ddff33b279ab126b5d803be5a4ad13de0e17a72aec7deea1d4048def6"
+    },
+    {
+      "path": "rustgrok-profile-test/profile-test-lower-reserve.stderr.txt",
+      "bytes": 266,
+      "sha256": "1f676febd590a386df3ced745299f44157b853a21fb7444acd8fefeda81ba32a"
+    },
+    {
+      "path": "rustgrok-profile-test/profile-test-lower-reserve.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rustgrok-profile-test/profile-test-lower-reserve.time.txt",
+      "bytes": 777,
+      "sha256": "5ad7758fa7e3003be5b7ab2639c6b6ea9ba787591824bdd2d4430eb8e6e5e193"
+    },
+    {
+      "path": "rustgrok-profile-test/profile-test.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rustgrok-profile-test/profile-test.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

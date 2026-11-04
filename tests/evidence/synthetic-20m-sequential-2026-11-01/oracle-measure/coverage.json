@@ -1,0 +1,316 @@
+{
+  "status": "MATCHED_ALL_SYNTHETIC_PATHS",
+  "coverage": {
+    "complete": true,
+    "expected_paths": [
+      "/project00/synthetic000.c",
+      "/project00/synthetic001.py",
+      "/project00/synthetic002.js",
+      "/project00/synthetic003.c",
+      "/project00/synthetic004.py",
+      "/project00/synthetic005.js",
+      "/project00/synthetic006.c",
+      "/project00/synthetic007.py",
+      "/project01/synthetic000.c",
+      "/project01/synthetic001.py",
+      "/project01/synthetic002.js",
+      "/project01/synthetic003.c",
+      "/project01/synthetic004.py",
+      "/project01/synthetic005.js",
+      "/project01/synthetic006.c",
+      "/project01/synthetic007.py",
+      "/project02/synthetic000.c",
+      "/project02/synthetic001.py",
+      "/project02/synthetic002.js",
+      "/project02/synthetic003.c",
+      "/project02/synthetic004.py",
+      "/project02/synthetic005.js",
+      "/project02/synthetic006.c",
+      "/project02/synthetic007.py",
+      "/project03/synthetic000.c",
+      "/project03/synthetic001.py",
+      "/project03/synthetic002.js",
+      "/project03/synthetic003.c",
+      "/project03/synthetic004.py",
+      "/project03/synthetic005.js",
+      "/project03/synthetic006.c",
+      "/project03/synthetic007.py",
+      "/project04/synthetic000.c",
+      "/project04/synthetic001.py",
+      "/project04/synthetic002.js",
+      "/project04/synthetic003.c",
+      "/project04/synthetic004.py",
+      "/project04/synthetic005.js",
+      "/project04/synthetic006.c",
+      "/project04/synthetic007.py",
+      "/project05/synthetic000.c",
+      "/project05/synthetic001.py",
+      "/project05/synthetic002.js",
+      "/project05/synthetic003.c",
+      "/project05/synthetic004.py",
+      "/project05/synthetic005.js",
+      "/project05/synthetic006.c",
+      "/project05/synthetic007.py",
+      "/project06/synthetic000.c",
+      "/project06/synthetic001.py",
+      "/project06/synthetic002.js",
+      "/project06/synthetic003.c",
+      "/project06/synthetic004.py",
+      "/project06/synthetic005.js",
+      "/project06/synthetic006.c",
+      "/project06/synthetic007.py",
+      "/project07/synthetic000.c",
+      "/project07/synthetic001.py",
+      "/project07/synthetic002.js",
+      "/project07/synthetic003.c",
+      "/project07/synthetic004.py",
+      "/project07/synthetic005.js",
+      "/project07/synthetic006.c",
+      "/project07/synthetic007.py",
+      "/project08/synthetic000.c",
+      "/project08/synthetic001.py",
+      "/project08/synthetic002.js",
+      "/project08/synthetic003.c",
+      "/project08/synthetic004.py",
+      "/project08/synthetic005.js",
+      "/project08/synthetic006.c",
+      "/project08/synthetic007.py",
+      "/project09/synthetic000.c",
+      "/project09/synthetic001.py",
+      "/project09/synthetic002.js",
+      "/project09/synthetic003.c",
+      "/project09/synthetic004.py",
+      "/project09/synthetic005.js",
+      "/project09/synthetic006.c",
+      "/project09/synthetic007.py"
+    ],
+    "observed_paths": [
+      "/project00/synthetic000.c",
+      "/project01/synthetic000.c",
+      "/project02/synthetic000.c",
+      "/project03/synthetic000.c",
+      "/project04/synthetic000.c",
+      "/project05/synthetic000.c",
+      "/project06/synthetic000.c",
+      "/project07/synthetic000.c",
+      "/project08/synthetic000.c",
+      "/project09/synthetic000.c",
+      "/project00/synthetic001.py",
+      "/project01/synthetic001.py",
+      "/project02/synthetic001.py",
+      "/project03/synthetic001.py",
+      "/project04/synthetic001.py",
+      "/project05/synthetic001.py",
+      "/project06/synthetic001.py",
+      "/project07/synthetic001.py",
+      "/project08/synthetic001.py",
+      "/project09/synthetic001.py",
+      "/project00/synthetic002.js",
+      "/project01/synthetic002.js",
+      "/project02/synthetic002.js",
+      "/project03/synthetic002.js",
+      "/project04/synthetic002.js",
+      "/project05/synthetic002.js",
+      "/project06/synthetic002.js",
+      "/project07/synthetic002.js",
+      "/project08/synthetic002.js",
+      "/project09/synthetic002.js",
+      "/project00/synthetic003.c",
+      "/project01/synthetic003.c",
+      "/project02/synthetic003.c",
+      "/project03/synthetic003.c",
+      "/project04/synthetic003.c",
+      "/project05/synthetic003.c",
+      "/project06/synthetic003.c",
+      "/project07/synthetic003.c",
+      "/project08/synthetic003.c",
+      "/project09/synthetic003.c",
+      "/project00/synthetic004.py",
+      "/project01/synthetic004.py",
+      "/project02/synthetic004.py",
+      "/project03/synthetic004.py",
+      "/project04/synthetic004.py",
+      "/project05/synthetic004.py",
+      "/project06/synthetic004.py",
+      "/project07/synthetic004.py",
+      "/project08/synthetic004.py",
+      "/project09/synthetic004.py",
+      "/project00/synthetic005.js",
+      "/project01/synthetic005.js",
+      "/project02/synthetic005.js",
+      "/project03/synthetic005.js",
+      "/project04/synthetic005.js",
+      "/project05/synthetic005.js",
+      "/project06/synthetic005.js",
+      "/project07/synthetic005.js",
+      "/project08/synthetic005.js",
+      "/project09/synthetic005.js",
+      "/project00/synthetic006.c",
+      "/project01/synthetic006.c",
+      "/project02/synthetic006.c",
+      "/project03/synthetic006.c",
+      "/project04/synthetic006.c",
+      "/project05/synthetic006.c",
+      "/project06/synthetic006.c",
+      "/project07/synthetic006.c",
+      "/project08/synthetic006.c",
+      "/project09/synthetic006.c",
+      "/project00/synthetic007.py",
+      "/project01/synthetic007.py",
+      "/project02/synthetic007.py",
+      "/project03/synthetic007.py",
+      "/project04/synthetic007.py",
+      "/project05/synthetic007.py",
+      "/project06/synthetic007.py",
+      "/project07/synthetic007.py",
+      "/project08/synthetic007.py",
+      "/project09/synthetic007.py"
+    ],
+    "limitation": "Path search covers this fixed corpus only; it does not prove full source contents or all query features."
+  },
+  "original_index_tree_before": "a2238b9d5eaa501d4e9b23597298b07efc52c3ee688ec2b3c5c58d5ae53fb412",
+  "original_index_tree_after": "a2238b9d5eaa501d4e9b23597298b07efc52c3ee688ec2b3c5c58d5ae53fb412",
+  "benchmark_cases": [
+    {
+      "case": "single-hit",
+      "role": "oracle",
+      "status": "COMPLETED_RESTRICTED_ENDPOINT",
+      "timed_samples": 100,
+      "process_group": 1205,
+      "group_stopped": true
+    },
+    {
+      "case": "no-hit",
+      "role": "oracle",
+      "status": "COMPLETED_RESTRICTED_ENDPOINT",
+      "timed_samples": 100,
+      "process_group": 1208,
+      "group_stopped": true
+    }
+  ],
+  "candidate_binary_sha256": null,
+  "sampled_disk_reserve_bytes": 4831838208,
+  "disk_poll_seconds": 0.25,
+  "disk_samples": [
+    {
+      "elapsed_seconds": 0.003,
+      "free_bytes": 5602095104
+    },
+    {
+      "elapsed_seconds": 0.257,
+      "free_bytes": 5602000896
+    },
+    {
+      "elapsed_seconds": 0.51,
+      "free_bytes": 5602000896
+    },
+    {
+      "elapsed_seconds": 0.765,
+      "free_bytes": 5601984512
+    },
+    {
+      "elapsed_seconds": 1.016,
+      "free_bytes": 5575802880
+    },
+    {
+      "elapsed_seconds": 1.267,
+      "free_bytes": 5549658112
+    },
+    {
+      "elapsed_seconds": 1.522,
+      "free_bytes": 5537382400
+    },
+    {
+      "elapsed_seconds": 1.778,
+      "free_bytes": 5537148928
+    },
+    {
+      "elapsed_seconds": 2.033,
+      "free_bytes": 5537382400
+    },
+    {
+      "elapsed_seconds": 2.288,
+      "free_bytes": 5537353728
+    },
+    {
+      "elapsed_seconds": 2.542,
+      "free_bytes": 5537353728
+    },
+    {
+      "elapsed_seconds": 2.795,
+      "free_bytes": 5537353728
+    },
+    {
+      "elapsed_seconds": 3.05,
+      "free_bytes": 5537353728
+    },
+    {
+      "elapsed_seconds": 3.301,
+      "free_bytes": 5537345536
+    },
+    {
+      "elapsed_seconds": 3.557,
+      "free_bytes": 5537337344
+    },
+    {
+      "elapsed_seconds": 3.812,
+      "free_bytes": 5537091584
+    },
+    {
+      "elapsed_seconds": 4.065,
+      "free_bytes": 5537091584
+    },
+    {
+      "elapsed_seconds": 4.318,
+      "free_bytes": 5536555008
+    },
+    {
+      "elapsed_seconds": 4.569,
+      "free_bytes": 5536509952
+    },
+    {
+      "elapsed_seconds": 4.824,
+      "free_bytes": 5536243712
+    },
+    {
+      "elapsed_seconds": 5.078,
+      "free_bytes": 5535944704
+    },
+    {
+      "elapsed_seconds": 5.329,
+      "free_bytes": 5535842304
+    },
+    {
+      "elapsed_seconds": 5.579,
+      "free_bytes": 5535686656
+    },
+    {
+      "elapsed_seconds": 5.833,
+      "free_bytes": 5535563776
+    },
+    {
+      "elapsed_seconds": 6.088,
+      "free_bytes": 5535170560
+    },
+    {
+      "elapsed_seconds": 6.342,
+      "free_bytes": 5534765056
+    },
+    {
+      "elapsed_seconds": 6.593,
+      "free_bytes": 5534351360
+    }
+  ],
+  "process_groups_stopped": {
+    "1179": true,
+    "1205": true,
+    "1208": true
+  },
+  "oracle_server_process_group": 1179,
+  "configuration_change": "isolated copied dataRoot; allowMostPopular=false (upstream default true, user deferred suggestions)",
+  "limitations": [
+    "path presence does not prove all source tokens indexed",
+    "disk samples do not bound writes between polls",
+    "synthetic data has no SCM history and is not representative"
+  ]
+}

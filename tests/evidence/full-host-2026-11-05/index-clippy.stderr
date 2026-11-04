@@ -1,0 +1,3 @@
+    Checking rustgrok-analysis v0.1.0 (/Users/swchen.tw/git/rustgrok-full-host/crates/analysis)
+    Checking rustgrok-path-index v0.1.0 (/Users/swchen.tw/git/rustgrok-full-host/crates/path-index)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.13s

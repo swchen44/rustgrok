@@ -1,0 +1,11 @@
+{
+  "note": "200ms process snapshots, RSS KiB and instantaneous ps CPU percent; RSS includes shared pages and is not measured peak. Short processes and child processes may be missed.",
+  "oracle_pid": 76805,
+  "candidate_pid": 76806,
+  "samples": [
+    {
+      "wall_ns": 1793519014187331000,
+      "raw_ps": "76805 76673 350352 173.9   0:11.18\n76806 76673   1760   0.1   0:00.00\n"
+    }
+  ]
+}

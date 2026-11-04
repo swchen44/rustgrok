@@ -1,0 +1,20 @@
+
+running 1 test
+test process_death_on_both_sides_of_pointer_commit_recovers_one_complete_batch ... FAILED
+
+failures:
+
+---- process_death_on_both_sides_of_pointer_commit_recovers_one_complete_batch stdout ----
+
+thread 'process_death_on_both_sides_of_pointer_commit_recovers_one_complete_batch' (13431561) panicked at tests/full_cli_e2e.rs:353:9:
+assertion `left == right` failed: after-generation-sync
+  left: Some(0)
+ right: Some(91)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    process_death_on_both_sides_of_pointer_commit_recovers_one_complete_batch
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.31s
+

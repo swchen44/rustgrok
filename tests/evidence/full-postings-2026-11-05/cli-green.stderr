@@ -1,0 +1,33 @@
+   Compiling rustgrok-path-index v0.1.0 (/Users/swchen.tw/git/rustgrok-full-postings/crates/path-index)
+error[E0603]: module `full` is private
+   --> /Users/swchen.tw/git/rustgrok-full-postings/crates/path-index/src/durable/full.rs:6:24
+    |
+  6 | use rustgrok_analysis::full::{analyze_full, validate_full_index_terms, FullError};
+    |                        ^^^^ private module
+    |
+note: the module `full` is defined here
+   --> /Users/swchen.tw/git/rustgrok-full-postings/crates/analysis/src/lib.rs:150:1
+    |
+150 | mod full;
+    | ^^^^^^^^
+
+error[E0603]: module `full` is private
+   --> /Users/swchen.tw/git/rustgrok-full-postings/crates/path-index/src/durable/full.rs:6:24
+    |
+  6 | use rustgrok_analysis::full::{analyze_full, validate_full_index_terms, FullError};
+    |                        ^^^^ private module
+    |
+help: consider importing this enum instead:
+      rustgrok_analysis::FullError
+   --> /Users/swchen.tw/git/rustgrok-full-postings/crates/path-index/src/durable/full.rs:6:72
+    |
+  6 | use rustgrok_analysis::full::{analyze_full, validate_full_index_terms, FullError};
+    |                                                                        ^^^^^^^^^
+note: the module `full` is defined here
+   --> /Users/swchen.tw/git/rustgrok-full-postings/crates/analysis/src/lib.rs:150:1
+    |
+150 | mod full;
+    | ^^^^^^^^
+
+For more information about this error, try `rustc --explain E0603`.
+error: could not compile `rustgrok-path-index` (lib) due to 2 previous errors

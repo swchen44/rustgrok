@@ -2,7 +2,7 @@
 
 此工具使用Python標準函式庫，驗證目前v0.6的38項需求、44個工作包與80項測試規格，產生完整Markdown合訂本、ZIP、SHA-256 manifest及品質報告。它不執行Rust產品測試，也不產生可執行產品。
 
-在repository根目錄執行：
+在 Git worktree 的 repository 根目錄執行。規劃包只納入 Git index 中已追蹤或已 stage 的檔案；未追蹤及 ignored 檔案不會自動進包。執行前先檢查並 stage 本次需要的檔案，且所有已追蹤檔案不可有未 stage 的修改；不要把其他工作中的變更一併 stage。為避免 Git 隱藏檔案修改，任何 `assume-unchanged`、`skip-worktree` 或其他非一般 index 狀態均會使打包拒絕，工具不會自動更改這些旗標。檢查器會更新 `planning-manifest.json` 與 `planning-quality-report.json`，完成後需將這兩個結果一併 stage、commit。缺少 Git worktree 時工具會明確拒絕執行。
 
 ```sh
 python3 tools/build_planning_package.py
@@ -19,3 +19,7 @@ G0的固定上游檔案hash、部分功能母表、oracle產物lock／取得紀�
 檢查涵蓋JSON解析、UTF-8／隱形控制字元、Markdown相對連結、需求與測試雙向對照、44個工作包覆蓋與依賴無循環、決策ID及已確認狀態、ZIP與檔案hash一致。產品測試仍必須按tests/matrix.json實作與執行，不能把此工具成功當作產品驗收。
 
 未來若需求、測試數量或版本變更，需連同此規劃版的固定契約更新；不自動把planned改成passed。
+
+## 公開搜尋基準
+
+`build_public_corpus.py` 在指定的新目錄重建固定公開 corpus 與 Git history；`capture_opengrok_baseline.py` 在獨立 loopback oracle 上擷取代表查詢的原始回應。命令、來源授權、兩輪原始記錄及限制見[搜尋基準證據](../tests/evidence/search-baseline-2026-11-01/README.md)。測試工具的 contract tests 使用 `python3 -m unittest discover -s tests/contract -v`；它們不會把80項產品測試標為通過。

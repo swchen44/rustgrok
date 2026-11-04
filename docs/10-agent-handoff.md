@@ -21,10 +21,10 @@ D02本機＋LAN、約5人、無RBAC／project ACL已確認。最新D03為Ubuntu2
 | 項目 | 現況 |
 |---|---|
 | 原版研究 | 1.14.20／3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3 的關鍵檔案靜態讀碼；未完整審查整個 repo |
-| Rust 可行性研究 | query／analyzer／BM25／跨 project／UI／SCM／分發差異已列入文件 12；未執行 prototype |
+| Rust 可行性研究 | query／analyzer／BM25／跨 project／UI／SCM／分發差異已列入文件 12；已執行受限原型與原版對照，詳細範圍見各 evidence，不等於完整可行性驗收 |
 | 需求與計畫 | 38 需求、44 工作包、80 測試規格，具雙向追溯 |
 | 工程選型 | Rust 已決；engine、HTTP/framework、templates、SCM、metadata backend與版本待 G1 |
-| 開發與驗收 | 無產品程式碼／發行包，所有產品測試 planned／not_run |
+| 開發與驗收 | 已有受限的 [path analyzer](../crates/analysis/README.md)、path index 及 macOS 開發中 [CLI／本機 host](../apps/grok-host/README.md)，並有局部可執行 correctness 測試；無完整產品／發行包，[80 項產品驗收規格](05-verification-plan.md)仍 planned／not_run |
 | GitHub | 公開swchen44/rustgrok已建立，ID1433282584、main；初始規劃commit 526f619089703f710c915af303e54aea7d25226e已提交，46個blob核對一致；產品Release尚未建立 |
 | npm | 主套件rustgrok已確認，由使用者自行發布；尚無package.json／tgz／發布結果 |
 | ZIP | 本交接 ZIP 是文件包；最終產品 native ZIP 屬後續工作 |
@@ -68,11 +68,11 @@ D21已選搜尋速度第一優先。依[14搜尋效能設計](14-search-performa
 
 使用相同 corpus／功能／查詢 mix／硬體／資源預算，原版合理調校及暖機，Rust使用實際 release build。分 cold/warm、首次／增量、並行、RSS／mmap／page cache／IO。微基準不能取代端到端結果；未測量不得宣稱 Rust 版本更快。
 
-所有現有 tests 是規格。PASS 必須有 artifact hash、commit、平台、輸入、步驟、實際結果與證據。上游 CI 或本規劃包結構檢查不能代替產品驗收。
+80 項產品驗收測試仍是規格；局部可執行 correctness tests 的結果與範圍各見其 evidence。驗收 PASS 必須有 artifact hash、commit、平台、輸入、步驟、實際結果與證據。上游 CI 或本規劃包結構檢查不能代替產品驗收。
 
 ### 發行
 
-版本、來源、license、SBOM、checksums與平台證據一致後才交付至rustgrok的GitHub Releases。Release草稿、發行與下載回驗依文件16；當前沒有產品binary，不把規劃ZIP當runtime發行。新寫 Rust 不代表原版移植內容全部可改成 MIT。使用者目前自行上傳 npm；不要建立自動公開發布工作流。
+版本、來源、license、SBOM、checksums與平台證據一致後才交付至rustgrok的GitHub Releases。Release草稿、發行與下載回驗依文件16；當前沒有正式發行的產品 binary，不把規劃ZIP當runtime發行。新寫 Rust 不代表原版移植內容全部可改成 MIT。使用者目前自行上傳 npm；不要建立自動公開發布工作流。
 
 ## 6. 下一輪需要的輸入與可繼續工作
 
@@ -81,7 +81,7 @@ D21已選搜尋速度第一優先。依[14搜尋效能設計](14-search-performa
 | D19剩餘細節 | A已確認；固定必要工具清單、build／能力、各平台與授權 | bundled adapter與依賴閉包實驗 |
 | D20／D10 | Q6 已確認無既有 XML／客製JAR／API scripts／舊書籤需搬移；不重問客製清單 | Q2 可從 source 重建 index/cache 並保留原資料；繼續原版內建能力與 observable inventory |
 | D21／D09 | 已知約5人、10個project、每project source約50 MB；query mix／到達率、硬體與SLO仍OPEN | 每project可多repo／巢狀Git；benchmark實測bytes／history／repo數另記，不以project代repo |
-| D12 | Q8維持搜尋及整批發布、Q9沿原版live／SCM閱讀均已確認；剩餘建置期間source變動、新鮮度／磁碟／RTO/RPO門檻與跨project publish scope | 依ADR-0003分驗generation完整性與原版各閱讀入口；不把索引版本當全部source閱讀快照，不自行承諾程式升級零停機 |
+| D12 | Q8維持搜尋及整批發布、Q9沿原版live／SCM閱讀均已確認；同一次工作涵蓋的全部project須一起成功發布、任一失敗或取消整批維持舊版；剩餘建置期間source變動及新鮮度／磁碟／RTO/RPO門檻 | 依ADR-0003分驗generation完整性與原版各閱讀入口；不把索引版本當全部source閱讀快照，不自行承諾程式升級零停機 |
 | D16 | 管理網頁操作集合、具體控制及既有 automation | 管理網頁只限主機本機瀏覽器，保留主機 CLI／本機控制面，LAN 搜尋／瀏覽；不新增角色系統 |
 | D03／D07 | 已定Ubuntu24.04 amd64、M1 arm64、Windows11 x64及兩種安裝路徑；最低macOS、browser／Node/npm／scripts及實際平台條件另補 | Mac開發host觀測15.7.7不等於產品PASS；準備Linux完整原生重驗與Windows11 x64契約 |
 | D11 | Public swchen44/rustgrok及GitHub Releases已確認，repo已建立 | 用Git history核實本規劃提交；後續實作按相同repo保存，不再重問D11 |

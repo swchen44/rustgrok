@@ -1,0 +1,5 @@
+# Path-only response precheck
+
+The original is `tests/evidence/search-spike-2026-11-01/oracle-inputs/response-path_alpha.json`, captured by the independently verified original baseline. Candidate was the Rust release server on loopback, with the same public corpus-derived scan index (`sha256:51f7f42c70eb4c2184c5e19ac1e9f329023ea3be865fb3accb8644c4597315d5`), query `path=main.c&projects=alpha&start=0&maxresults=10`. Candidate returned HTTP 200, `application/json`. The original capture was HTTP 200 as recorded by its baseline; these requests were not made in the same server run. Both raw bodies are preserved. The gate checks the ordered body and status, excluding only the top-level time value; this case passed its body precheck.
+
+No timing was performed: same-run headers, server configuration and reasonable JVM warmup, output and behavior through all samples, runtime resources and workload comparability have not been established. The source fixture is 3,969 bytes, not the user's approximately 500 MB workload. One single-result path query cannot validate result order for multiple hits or any other query mode. Issue #7 remains incomplete.

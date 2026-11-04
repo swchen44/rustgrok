@@ -1,8 +1,10 @@
 # Rustgrok：OpenGrok Rust 重寫研究與實作交接包 v0.6
 
 日期：2026-10-25。  
-狀態：**Rust、必要工具隨包、搜尋優先、本機＋LAN約5人且無權限管理已確認。先在macOS開發及完整驗證，再於主要部署目標Ubuntu 24.04 amd64適配與完整原生重驗。Public repo rustgrok已建立；首輪Mac為M1／arm64，GitHub Releases交付已確認；macOS版本等仍待決。產品尚未實作或發布。**  
+狀態：**Rust、必要工具隨包、搜尋優先、本機＋LAN約5人且無權限管理已確認。先在macOS開發及完整驗證，再於主要部署目標Ubuntu 24.04 amd64適配與完整原生重驗。Public repo rustgrok已建立；首輪Mac為M1／arm64，GitHub Releases交付已確認；macOS版本等仍待決。已開始實作有限的 analysis、path-index 與 macOS 開發中 path CLI 及受限本機 host；完整產品尚未完成或發布。**
 GitHub repo名稱：**rustgrok**。Q13已確認產品顯示名稱 **Rustgrok**、npm主套件 **rustgrok**；Q14已確認獨立原創新增Rust／JS採MIT，沿用、修改、移植及第三方內容保持各自適用條件，見[授權範圍](LICENSE.md)。名稱查詢不等於保留或實際發布，npm仍由使用者自行發布。
+
+受限的 macOS 開發中 path CLI 與執行方式見 [apps/grok-host](apps/grok-host/README.md)；另有單 project 本機 host；目前尚無完整搜尋服務、Web 或正式產品發行。
 
 ## 已確認的目標
 
@@ -28,7 +30,7 @@ OpenGrok 1.14.20，commit 3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3，已由使�
 
 Q6 已確認沒有需搬移的既有 XML 設定、客製 JAR、API scripts 或舊書籤。Q7 的代表規模為10個專案，每專案 source 約50 MB，合計推算約500 MB；一個專案可有多個 Git repo，也可能巢狀 Git。Git history、annotate/blame、diff 與 repo 發現／歸屬依 OpenGrok 1.14.20 同配置對照；project 不等同 repository，既有原版其他能力仍保留。硬體、history體積、query mix 與數值 SLO 尚未指定。
 
-Q8／D12 已確認更新期間繼續提供上一成功版本的搜尋，新索引與相關資料完整就緒後整批切換；更新期間上一版內容及新舊資料磁碟成本已接受，數值門檻與實作方式另驗證，見[ADR-0003](docs/adr/0003-published-generation-switch.md)。
+Q8／D12 已確認更新期間繼續提供上一成功版本的搜尋，同一次工作涵蓋的所有 project 與相關資料全部成功後才一起切換，任一失敗或取消整批保留上一成功版本；更新期間上一版內容及新舊資料磁碟成本已接受，數值門檻與實作方式另驗證，見[ADR-0003](docs/adr/0003-published-generation-switch.md)。
 
 Q9 已選沿用原版閱讀規則：snippet、xref、raw／download依固定OpenGrok的live source／SCM分支與相同配置處理，不額外把全部閱讀綁定搜尋版本快照；搜尋命中與打開的內容可能各有來源版本。這不免除索引建置期間的來源一致性處理，runtime仍待驗證。
 
@@ -70,10 +72,12 @@ Q13／Q14已確認命名與新原創碼的授權分工；[查核紀錄](docs/res
 
 ## 完成狀態與交接
 
-2026-11-01 已開始 G0 執行，工作由 [WP-A04 #1](https://github.com/swchen44/rustgrok/issues/1)、[WP-A05 #2](https://github.com/swchen44/rustgrok/issues/2)、[WP-A06 #3](https://github.com/swchen44/rustgrok/issues/3) 追蹤。已保存固定 Git tree 與部分靜態功能清單；Tomcat oracle archive 已獨立驗 SHA-512。完整 source checkout 的 1,816 檔已逐一核對 Git blob 與 SHA-256；OpenGrok release與compact JRE已驗hash並執行有限CLI探測；完整JDK仍在取得，尚無oracle索引／HTTP或產品測試PASS。現況、證據及未完成邊界見 [G0 執行紀錄](docs/19-g0-execution-log.md)。
+2026-11-01 已開始 G0 執行，工作由 [WP-A04 #1](https://github.com/swchen44/rustgrok/issues/1)、[WP-A05 #2](https://github.com/swchen44/rustgrok/issues/2)、[WP-A06 #3](https://github.com/swchen44/rustgrok/issues/3) 追蹤。已保存固定 Git tree 與部分靜態功能清單；Tomcat oracle archive 已獨立驗 SHA-512。完整 source checkout 的 1,816 檔已逐一核對 Git blob 與 SHA-256；OpenGrok release與compact JRE已驗hash並執行有限CLI探測；完整JDK已驗archive、java／javac並用於有限索引／HTTP；完整oracle及產品驗收未通過。現況、證據及未完成邊界見 [G0 執行紀錄](docs/19-g0-execution-log.md)。
 
-完成官方文件與關鍵原始碼靜態研究，以及需求、設計、實作、驗證與分發計畫更新。未宣稱完整逐行審查整個上游，也未在目標 OS 建置／啟動產品。全部 80 測試是規格，沒有產品功能、效能、離線或視覺 PASS。
+已實作有限的 [path analysis library](crates/analysis/README.md)、單 project path index、macOS 開發中 [CLI 與本機 host](apps/grok-host/README.md)，並執行受限的原版 oracle、crate integration 與 subprocess correctness 測試。支援範圍與錯誤界線見各元件文件；完整搜尋、Web、SCM、跨平台與產品發行尚未完成。這些局部結果不等於[全部 80 項產品測試](docs/05-verification-plan.md)通過，也不等於完整效能、離線或視覺驗收。
 
-這份 ZIP 是可提交 GitHub 的**規劃與文件包**，不是已可執行的 Rust 程式或最終產品離線包。沒有用空白 tests／占位 npm test 偽裝可驗收產品。
+這份 ZIP 是可提交 GitHub 的**規劃與文件包**，不是可執行的完整 Rustgrok 產品或最終產品離線包。沒有用空白 tests／占位 npm test 偽裝可驗收產品。
 
 公開repository已建立：[swchen44/rustgrok](https://github.com/swchen44/rustgrok)，預設分支main，repo ID 1433282584。完整規劃已在[初始提交526f619](https://github.com/swchen44/rustgrok/commit/526f619089703f710c915af303e54aea7d25226e)保存至repo根目錄，46個檔案的Git blob SHA已逐一回讀並與提交時本地一致。此後續交接紀錄更新另以Git history追蹤。正式產品發行包將放[GitHub Releases](https://github.com/swchen44/rustgrok/releases)；目前沒有產品Release。企業source、索引與憑證不屬於要上傳的產品原始碼。npm由使用者自行發布。
+
+The development analysis crate also exposes a restricted FULL tokenstream API for verified decoded-text cases. A separate bounded macOS direct CLI now connects it to durable inverted FULL postings and limited single-term unordered candidate queries; see [the exact slice and evidence](tests/evidence/full-postings-2026-11-05/README.md). A bounded private local FULL host also serves retained old postings during whole-batch rebuilds; see [host evidence](tests/evidence/full-host-2026-11-05/README.md). Full query grammar/ranking, Web/SCM and product acceptance remain incomplete. See also [analysis scope](crates/analysis/README.md#restricted-full-analysis).

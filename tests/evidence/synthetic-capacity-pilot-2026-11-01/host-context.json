@@ -1,0 +1,8 @@
+{
+  "platform": "macOS-15.7.7-arm64-arm-64bit-Mach-O",
+  "cpu": "Apple M1",
+  "memory_bytes": 8589934592,
+  "logical_cpus": 8,
+  "disk_after_command": "Filesystem   1024-blocks      Used Available Capacity iused    ifree %iused  Mounted on\n/dev/disk3s5   482797652 444895208   7304560    99% 4113461 73045600    5%   /System/Volumes/Data\n",
+  "source": "same machine after run; not an independent resource limit"
+}

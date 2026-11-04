@@ -1,0 +1,12 @@
+[
+  {
+    "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/rustgrok",
+    "sha256": "d63193e4f7850990ecf849e980212c7eb897cccdae7f342924d24f9c6c1c3f66",
+    "retained": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/d63193e4f7850990ecf849e980212c7eb897cccdae7f342924d24f9c6c1c3f66"
+  },
+  {
+    "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/full_cli_e2e-8af81d9e7ddc5e9d",
+    "sha256": "9e006a6316b0c7a78e1ec3349942b13c2b7162a60c3fc1dd985054e757d8cfa2",
+    "retained": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/9e006a6316b0c7a78e1ec3349942b13c2b7162a60c3fc1dd985054e757d8cfa2"
+  }
+]

@@ -1,0 +1,150 @@
+{
+  "scope": "native macOS batch-source correctness; no performance test",
+  "base_commit": "a58c4a5333df8791bb88d01e8cbe31fc60e3d953",
+  "environment": {
+    "CARGO_BUILD_JOBS": "1",
+    "CARGO_TARGET_DIR": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target",
+    "TMPDIR": "/private/tmp"
+  },
+  "guard": {
+    "reserve_bytes": 2684354560,
+    "sample_interval_seconds": 0.5,
+    "not_system_quota": true,
+    "reason": "revised from earlier self-imposed 3.5 GiB for small sequential incremental correctness builds; no large corpus"
+  },
+  "inputs": {
+    "crates/path-index/Cargo.toml": "62ab3ffd357e58cab4f34d1bfe13d068dc0e9f7aadbb582f99f800f32d60d09d",
+    "crates/path-index/Cargo.lock": "d5c3ce966e6edc5626f1ab0a900338bf19a1f419461354e60e6a6b56ee2eb291",
+    "crates/path-index/src/lib.rs": "cb1fd78c020197dde0abf8baaf98de8f30b7613097f5ee7526b2b6215e29f414",
+    "crates/path-index/src/query.rs": "9ed8aed8cc54bddcc740391de412fc058cddd0591cc5dee36c486d9f6d968a3c",
+    "crates/path-index/src/durable.rs": "28c82e3a0ae87fa5c56cfbfae5fd18e434ff59e3989a980074fec601c9186171",
+    "crates/path-index/src/durable/batch.rs": "7f69d21253a897b4eff9d248c46834ed05e2a6204d53fd2a2dda2de836619397",
+    "crates/path-index/src/durable/scanner.rs": "8533bd602b2716294c51d129a758ba80629e9afe21dc4a3b7548450da55f442f",
+    "crates/path-index/tests/durable_batch.rs": "ce21bff91cc8b974f305d71f81c8cd5b260b5a508ec80301b534eed1e2d28b0d",
+    "apps/grok-host/Cargo.toml": "bbb92dbacf391c3ad373e97142638c04a8da99935b9af21bc734abb45d771bce",
+    "apps/grok-host/Cargo.lock": "660ab27faba2d82702e287f0e908ddb427764fd30605cfbd922508843250b3ba",
+    "apps/grok-host/src/main.rs": "727a88b80b3dd87ca04c68dee337625144a22511cbe7034b9d7a194f9eb1573d",
+    "apps/grok-host/src/host.rs": "885a126d4319cb8acae164e1db6be65e34090996705ad718532fccf11528a376",
+    "apps/grok-host/tests/batch_cli_e2e.rs": "09826b337263d077e2ba188f1e0f60e0deb36d7cb43124bf18b7146fcb9e28f7",
+    "apps/grok-host/tests/cli_e2e.rs": "1cf6904ae1ec9c27d5a38ce54c484b59e841cf85d73022a9a46a93a4915d9778",
+    "apps/grok-host/tests/host_e2e.rs": "3cef5e0f323777607811521aebc1891d32e7c6836e2735e8ac718f49666c188f"
+  },
+  "runs": [
+    {
+      "label": "index-default",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "crates/path-index/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--",
+        "--test-threads=1"
+      ],
+      "stdout_sha256": "0071d36acd3a88c06c5e8c2f32ae47d1d4278acf3f6a7dac287c9f971888f4ca",
+      "stderr_sha256": "1f5610399e6d68583104d5a1a4be41a920a0d6abc48575d6c59343a32eef1864",
+      "lowest_observed_free_bytes": 3198779392,
+      "guard_samples": 14,
+      "test_binary": {
+        "sha256": "4469ff374996821ee54e8088a23cba52b84409bda3fce4d199a50079755cdff1",
+        "bytes": 2652320,
+        "local_path": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/sha256-4469ff374996821ee54e8088a23cba52b84409bda3fce4d199a50079755cdff1-durable_batch-test",
+        "retention": "verified after run, before next build"
+      }
+    },
+    {
+      "label": "index-fault",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "crates/path-index/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--features",
+        "fault-injection",
+        "--",
+        "--test-threads=1"
+      ],
+      "stdout_sha256": "d37f569e1251d2f0f632daec9ac7245b68d1581cd63d8f35395515f34f8800d3",
+      "stderr_sha256": "3924d3c0116ea91891c41159ebaa63df5f486614d9e3bfc7cd4cb363e9b6ca03",
+      "lowest_observed_free_bytes": 3159257088,
+      "guard_samples": 14,
+      "test_binary": {
+        "sha256": "28e8d11bb72158e3dc19911f44deb9f4246507e82a49a805381263824472bc18",
+        "bytes": 2704880,
+        "local_path": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/sha256-28e8d11bb72158e3dc19911f44deb9f4246507e82a49a805381263824472bc18-durable_batch-test",
+        "retention": "verified after run, before next build"
+      }
+    },
+    {
+      "label": "cli-default",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "apps/grok-host/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--",
+        "--test-threads=1"
+      ],
+      "stdout_sha256": "167c557a42c23aa5ca4eb37e8da0a9263288047c5ddaaf45831b1c0c6a6b0835",
+      "stderr_sha256": "a9cdbaf927e6dd7a0666c4eaa64a066ad11a7c408a91143964e9e65fdbc53b90",
+      "lowest_observed_free_bytes": 3142373376,
+      "guard_samples": 38,
+      "test_binary": {
+        "sha256": "1df405b545fbd4c57a57882357adbfb182da4f516b0b26d1a53cda2412f53f70",
+        "bytes": 1535456,
+        "local_path": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/sha256-1df405b545fbd4c57a57882357adbfb182da4f516b0b26d1a53cda2412f53f70-batch_cli_e2e-test",
+        "retention": "verified after run, before next build"
+      },
+      "product_binary": {
+        "sha256": "bcef8ee607999109d2d09e13af0c9353e1232b7fb2ef8f67854aff9e89ab3ecd",
+        "bytes": 2553128,
+        "local_path": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/sha256-bcef8ee607999109d2d09e13af0c9353e1232b7fb2ef8f67854aff9e89ab3ecd-rustgrok",
+        "retention": "verified after run, before next build"
+      }
+    },
+    {
+      "label": "cli-hooks",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "apps/grok-host/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--features",
+        "test-hooks",
+        "--",
+        "--test-threads=1"
+      ],
+      "stdout_sha256": "75cfe99708a0bc552ae01651001568a8cf9ed6abfdada4aaba793369dbc67669",
+      "stderr_sha256": "4524a1c0b13d848ec1b2d48f6f16b11d72b014ef9a7b5a18857bd3cecc4a0e76",
+      "lowest_observed_free_bytes": 3123023872,
+      "guard_samples": 43,
+      "test_binary": {
+        "sha256": "0622a656e56f418d290ff88c8b67cba3ecb87ce54be8e9008dc643b968df39cd",
+        "bytes": 1788816,
+        "local_path": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/sha256-0622a656e56f418d290ff88c8b67cba3ecb87ce54be8e9008dc643b968df39cd-batch_cli_e2e-test",
+        "retention": "verified after run, before next build"
+      },
+      "product_binary": {
+        "sha256": "0c24f55e2218aec797ccd8f186d1e624ed7425da1bee9c27a6a7af4b8753ea66",
+        "bytes": 2610792,
+        "local_path": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/sha256-0c24f55e2218aec797ccd8f186d1e624ed7425da1bee9c27a6a7af4b8753ea66-rustgrok",
+        "retention": "verified after run, before next build"
+      }
+    }
+  ]
+}

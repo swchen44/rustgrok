@@ -1,0 +1,6 @@
+{
+  "note": "200ms process snapshots, RSS KiB and instantaneous ps CPU percent; RSS includes shared pages and is not measured peak. Short processes and child processes may be missed.",
+  "oracle_pid": 71715,
+  "candidate_pid": 71716,
+  "samples": []
+}

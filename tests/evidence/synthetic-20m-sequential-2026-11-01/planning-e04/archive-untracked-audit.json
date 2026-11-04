@@ -1,0 +1,155 @@
+{
+  "scope": "Read-only audit of e04 planning ZIP subsequently preserved in issue7 commit 86d1f92; no new benchmark or package build",
+  "archive_sha256": "51870a6cb16de16e022b050fce098ce2b60e3013669438a7e9626f334f9b8f87",
+  "e04_tracked_file_count": 5196,
+  "archive_entry_count": 5214,
+  "extra_untracked_files_count": 18,
+  "archive_entries_not_tracked_by_e04": [
+    {
+      "path": "tests/evidence/live-path-benchmark-2026-11-01/candidate.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exists_in_issue7_worktree": true,
+      "worktree_bytes_match_archive": true,
+      "ignore_rule": ".gitignore:3 *.log"
+    },
+    {
+      "path": "tests/evidence/live-path-benchmark-2026-11-01/tomcat.log",
+      "bytes": 13972,
+      "sha256": "39065ef8ca3b73392adc4dd88451d4acafe028aee6d87c9f186b924b04869702",
+      "exists_in_issue7_worktree": true,
+      "worktree_bytes_match_archive": true,
+      "ignore_rule": ".gitignore:3 *.log"
+    },
+    {
+      "path": "tests/evidence/live-path-benchmark-matched-2026-11-01/candidate.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exists_in_issue7_worktree": true,
+      "worktree_bytes_match_archive": true,
+      "ignore_rule": ".gitignore:3 *.log"
+    },
+    {
+      "path": "tests/evidence/live-path-benchmark-matched-2026-11-01/tomcat.log",
+      "bytes": 13789,
+      "sha256": "0b80778a3bfd3198409927fb529c976a509af10dc3df11978b390d0d57988407",
+      "exists_in_issue7_worktree": true,
+      "worktree_bytes_match_archive": true,
+      "ignore_rule": ".gitignore:3 *.log"
+    },
+    {
+      "path": "tests/evidence/live-path-benchmark-tokenized-2026-11-01/candidate.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exists_in_issue7_worktree": true,
+      "worktree_bytes_match_archive": true,
+      "ignore_rule": ".gitignore:3 *.log"
+    },
+    {
+      "path": "tests/evidence/live-path-benchmark-tokenized-2026-11-01/tomcat.log",
+      "bytes": 13348,
+      "sha256": "3901056c6388b01da7c0182e0d198499abdb9c66b6462cd95975cfea8e1de600",
+      "exists_in_issue7_worktree": true,
+      "worktree_bytes_match_archive": true,
+      "ignore_rule": ".gitignore:3 *.log"
+    },
+    {
+      "path": "tests/evidence/live-path-cross-project-blocked-2026-11-01/candidate.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exists_in_issue7_worktree": true,
+      "worktree_bytes_match_archive": true,
+      "ignore_rule": ".gitignore:3 *.log"
+    },
+    {
+      "path": "tests/evidence/live-path-cross-project-blocked-2026-11-01/tomcat.log",
+      "bytes": 13398,
+      "sha256": "0cf25bd6366458ebbb87a35f0e18ce81a9b10c748ee8bec496d2241438f5437e",
+      "exists_in_issue7_worktree": true,
+      "worktree_bytes_match_archive": true,
+      "ignore_rule": ".gitignore:3 *.log"
+    },
+    {
+      "path": "tests/evidence/live-path-no-hit-strict-2026-11-01/candidate.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exists_in_issue7_worktree": true,
+      "worktree_bytes_match_archive": true,
+      "ignore_rule": ".gitignore:3 *.log"
+    },
+    {
+      "path": "tests/evidence/live-path-no-hit-strict-2026-11-01/tomcat.log",
+      "bytes": 13809,
+      "sha256": "17cd176b20a254f8568b4e91327132059d443623cdeb854ebc6672464ac8a6cf",
+      "exists_in_issue7_worktree": true,
+      "worktree_bytes_match_archive": true,
+      "ignore_rule": ".gitignore:3 *.log"
+    },
+    {
+      "path": "tests/evidence/live-path-no-hit-verified-2026-11-01/candidate.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exists_in_issue7_worktree": true,
+      "worktree_bytes_match_archive": true,
+      "ignore_rule": ".gitignore:3 *.log"
+    },
+    {
+      "path": "tests/evidence/live-path-no-hit-verified-2026-11-01/tomcat.log",
+      "bytes": 13327,
+      "sha256": "b8d507d85aca5a335b6eeb6670ca8aadcb49a3413b5122cfc8dc62a551600454",
+      "exists_in_issue7_worktree": true,
+      "worktree_bytes_match_archive": true,
+      "ignore_rule": ".gitignore:3 *.log"
+    },
+    {
+      "path": "tests/evidence/live-path-single-hit-strict-2026-11-01/candidate.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exists_in_issue7_worktree": true,
+      "worktree_bytes_match_archive": true,
+      "ignore_rule": ".gitignore:3 *.log"
+    },
+    {
+      "path": "tests/evidence/live-path-single-hit-strict-2026-11-01/tomcat.log",
+      "bytes": 13867,
+      "sha256": "4dc1a495943d58a0e92377e25f88e85f07605da0851fc80ef9009f4f6db3b2cd",
+      "exists_in_issue7_worktree": true,
+      "worktree_bytes_match_archive": true,
+      "ignore_rule": ".gitignore:3 *.log"
+    },
+    {
+      "path": "tests/evidence/live-path-single-hit-verified-2026-11-01/candidate.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exists_in_issue7_worktree": true,
+      "worktree_bytes_match_archive": true,
+      "ignore_rule": ".gitignore:3 *.log"
+    },
+    {
+      "path": "tests/evidence/live-path-single-hit-verified-2026-11-01/tomcat.log",
+      "bytes": 13384,
+      "sha256": "9d574c8d698ffb62f7444a79a100fade49d420fe68738630d9fe60a189829b4f",
+      "exists_in_issue7_worktree": true,
+      "worktree_bytes_match_archive": true,
+      "ignore_rule": ".gitignore:3 *.log"
+    },
+    {
+      "path": "tests/evidence/project-order-boundaries-2026-11-01/tomcat.log",
+      "bytes": 35592,
+      "sha256": "33314958dfa71bd8f763fc509828777b79cc9e37146529fa65aa1cf7a8578a47",
+      "exists_in_issue7_worktree": true,
+      "worktree_bytes_match_archive": true,
+      "ignore_rule": ".gitignore:3 *.log"
+    },
+    {
+      "path": "tests/evidence/project-order-original-2026-11-01/tomcat.log",
+      "bytes": 35439,
+      "sha256": "f910d6e1e918d6495172c950bbc06a61161cfffe671e9e5912717f92996fcc62",
+      "exists_in_issue7_worktree": true,
+      "worktree_bytes_match_archive": true,
+      "ignore_rule": ".gitignore:3 *.log"
+    }
+  ],
+  "latest_manifest_entries": 5220,
+  "note": "All e04 tracked file blob hashes and the archived planning-manifest match e04. Both e04 and latest manifest include these ignored files. Clean clone will lack them. Historical ZIP must remain intact; provenance and delivery of each raw log need explicit review. Narrow token-pattern scan of these 18 files found no matches, not a comprehensive privacy audit."
+}

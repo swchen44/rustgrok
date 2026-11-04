@@ -1,0 +1,5 @@
+# Seven captured query cases with experimental FULL analyzer
+
+The candidate runs are raw outputs of the Tantivy 0.27.0 G1 scorer with the FULL analyzer adapter, on the same public-source-derived documents as the previous candidate comparison. Other fields still use their earlier candidate analyzers. The original raw bodies are the same historical OpenGrok HTTP captures used in `tests/evidence/tantivy-scorer-2026-11-01`. `comparison.json` preserves hashes and original/candidate path order, with no sorting. Seven result counts and four path orders match; three orders differ. Original indexes are historical and repeated original indexing has shown tie-order drift. No original line numbers, snippets, tags, paging or REST semantics are present in the candidate; these figures do not establish ranked search parity or performance.
+
+The recorded candidate binary predates the subsequent fail-closed surrogate-boundary check. `tests/evidence/full-token-diagnostic-2026-11-01` captures that specific later limitation and fix. No product engine is selected.

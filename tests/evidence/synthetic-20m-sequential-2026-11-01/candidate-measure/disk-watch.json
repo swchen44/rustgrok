@@ -1,0 +1,77 @@
+{
+  "reserve_bytes": 4831838208,
+  "poll_seconds": 0.25,
+  "breached": false,
+  "samples": [
+    {
+      "elapsed_seconds": 0.003,
+      "free_bytes": 5533970432
+    },
+    {
+      "elapsed_seconds": 0.255,
+      "free_bytes": 5533892608
+    },
+    {
+      "elapsed_seconds": 0.506,
+      "free_bytes": 5533814784
+    },
+    {
+      "elapsed_seconds": 0.76,
+      "free_bytes": 5533736960
+    },
+    {
+      "elapsed_seconds": 1.015,
+      "free_bytes": 5533659136
+    },
+    {
+      "elapsed_seconds": 1.269,
+      "free_bytes": 5533581312
+    },
+    {
+      "elapsed_seconds": 1.522,
+      "free_bytes": 5533503488
+    },
+    {
+      "elapsed_seconds": 1.777,
+      "free_bytes": 5533421568
+    },
+    {
+      "elapsed_seconds": 2.029,
+      "free_bytes": 5533360128
+    },
+    {
+      "elapsed_seconds": 2.281,
+      "free_bytes": 5533249536
+    },
+    {
+      "elapsed_seconds": 2.532,
+      "free_bytes": 5533171712
+    },
+    {
+      "elapsed_seconds": 2.787,
+      "free_bytes": 5533093888
+    },
+    {
+      "elapsed_seconds": 3.039,
+      "free_bytes": 5533016064
+    },
+    {
+      "elapsed_seconds": 3.293,
+      "free_bytes": 5532938240
+    },
+    {
+      "elapsed_seconds": 3.548,
+      "free_bytes": 5532864512
+    },
+    {
+      "elapsed_seconds": 3.802,
+      "free_bytes": 5532782592
+    },
+    {
+      "elapsed_seconds": 4.057,
+      "free_bytes": 5532700672
+    }
+  ],
+  "candidate_group": 1233,
+  "candidate_group_stopped": true
+}

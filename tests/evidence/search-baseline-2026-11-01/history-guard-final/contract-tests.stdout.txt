@@ -1,0 +1,18 @@
+test_ambient_git_directory_cannot_replace_the_public_repo (test_capture_baseline.OracleCaptureContract.test_ambient_git_directory_cannot_replace_the_public_repo) ... ok
+test_oracle_ignores_ambient_java_option_injection (test_capture_baseline.OracleCaptureContract.test_oracle_ignores_ambient_java_option_injection) ... ok
+test_refuses_to_write_output_inside_the_input_corpus (test_capture_baseline.OracleCaptureContract.test_refuses_to_write_output_inside_the_input_corpus) ... ok
+test_rejects_changed_tomcat_config_before_writing_output (test_capture_baseline.OracleCaptureContract.test_rejects_changed_tomcat_config_before_writing_output) ... ok
+test_rejects_git_grafts_even_when_manifest_and_head_match (test_capture_baseline.OracleCaptureContract.test_rejects_git_grafts_even_when_manifest_and_head_match) ... ok
+test_rejects_git_replace_ref_that_changes_history_without_changing_head (test_capture_baseline.OracleCaptureContract.test_rejects_git_replace_ref_that_changes_history_without_changing_head) ... ok
+test_rejects_ignored_extra_source_even_if_git_status_is_clean (test_capture_baseline.OracleCaptureContract.test_rejects_ignored_extra_source_even_if_git_status_is_clean) ... ok
+test_rejects_local_git_include_even_when_history_is_unchanged (test_capture_baseline.OracleCaptureContract.test_rejects_local_git_include_even_when_history_is_unchanged) ... ok
+test_rejects_missing_corpus_before_creating_outputs (test_capture_baseline.OracleCaptureContract.test_rejects_missing_corpus_before_creating_outputs) ... ok
+test_rejects_unapproved_git_tag_even_when_head_is_unchanged (test_capture_baseline.OracleCaptureContract.test_rejects_unapproved_git_tag_even_when_head_is_unchanged) ... ok
+test_rejects_unapproved_history_even_if_manifest_is_forged (test_capture_baseline.OracleCaptureContract.test_rejects_unapproved_history_even_if_manifest_is_forged) ... ok
+test_rebuilds_identical_projects_repositories_and_history (test_public_corpus.PublicCorpusContract.test_rebuilds_identical_projects_repositories_and_history) ... ok
+test_refuses_to_overwrite_existing_directory (test_public_corpus.PublicCorpusContract.test_refuses_to_overwrite_existing_directory) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 21.306s
+
+OK

@@ -1,0 +1,8 @@
+
+running 3 tests
+test second_project_bad_source_and_limits_hold_entire_old_batch ... ok
+test source_full_postings_survive_restart_for_public_c_python_javascript ... ok
+test source_reader_bom_tabs_and_unicode_positions_match_original ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.77s
+

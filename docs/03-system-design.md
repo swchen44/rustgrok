@@ -86,7 +86,7 @@ D05仍決定來源布局、跨磁碟、symlink/junction、NAS/UNC；改Rust不�
 
 Rust自己提供實體writer鎖與持久queue，不繼承上游Lucene lock。每個index只能一writer，global registry/config發佈亦有受控序列；不同projects並行受CPU/RAM/IO預算控制。
 
-D12 已確認發布政策：更新期間維持上一成功版本搜尋；新索引及必要關聯資料完整就緒後整批切換。Q9 已選閱讀沿固定原版live／SCM分支。下列 generation 序列為實現發布政策的候選機制，engine／storage、跨project publish scope與建置期間來源變動處理仍待G1：
+D12 已確認發布政策：更新期間維持上一成功版本搜尋；新索引及必要關聯資料完整就緒後整批切換。Q9 已選閱讀沿固定原版live／SCM分支。下列 generation 序列為實現發布政策的候選機制，engine／storage 與建置期間來源變動處理仍待G1；同一次工作涵蓋的所有 project 必須全部成功才一起發布，任一失敗或取消整批維持上一成功版本：
 
 1. 取source manifest與config revision、建立job。
 2. 分析變更，寫pending index/xref/history。

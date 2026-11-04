@@ -1,0 +1,99 @@
+{
+  "scope": "derived subset; original reviewer receipt retained separately, raw copied streams preserved",
+  "original_receipt_sha256": "0a3bc1b39e7612582048425280d4792f01854fe588e928f6f919e97b927451c0",
+  "original_receipt_local_path": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-receipts/sha256-0a3bc1b39e7612582048425280d4792f01854fe588e928f6f919e97b927451c0-path-query-review.json",
+  "source_head": "89f9ae6a21d51d848977852ab5c6705dd3724900",
+  "original_runtime": {
+    "commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+    "java_sha256": "0f642542ea1f0be6957557c0db96653ec128113bb5a4aaa7c2534d1d72ddb51f",
+    "jar_sha256": "bc1f4650710cb92c4a43221c826018c6358bcbc30bf2aaa86688261a0f145aa1",
+    "war_sha256": "98358675a4e8547b065c72253c37f573d9ccd38816a64664be0da4dd223a9419",
+    "config_sha256": "cd56720a2b3fbcd803b7162ba52490cc376c21c0d3db08294996bf25446e941d",
+    "all_classpath_jars_checked_against_retained_receipt_before_extra_parse": true,
+    "HTTP_raw_receipt": "/private/tmp/rustgrok-query-review-89f9ae6-20261103T084916/original-http/receipt.json",
+    "serial_order": "capture helper terminates and waits for original Tomcat in finally, exits 0; only then reviewer executes Rust CLI using saved raw original responses",
+    "ranking_compared": false
+  },
+  "review_binary": {
+    "sha256": "13b0ec6373b63d8cddb42052a01ccf1e63fedb9c151bbe8a2a9c36f2cfcf6dfb",
+    "path": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/sha256-13b0ec6373b63d8cddb42052a01ccf1e63fedb9c151bbe8a2a9c36f2cfcf6dfb-rustgrok",
+    "source": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/rustgrok",
+    "source_commit": "89f9ae6a21d51d848977852ab5c6705dd3724900",
+    "cargo_build_environment": {
+      "CARGO_TARGET_DIR": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target",
+      "CARGO_BUILD_JOBS": "1",
+      "TMPDIR": "/private/tmp"
+    }
+  },
+  "synthetic_source_match": {
+    "alpha/beta/one.c": "da6e9706bec2d4753a4095f13ea81a230cfc16a6fb5d37454a0d642012cd1bb0",
+    "alpha/gamma/two.c": "da6e9706bec2d4753a4095f13ea81a230cfc16a6fb5d37454a0d642012cd1bb0",
+    "beta/gamma/three.c": "da6e9706bec2d4753a4095f13ea81a230cfc16a6fb5d37454a0d642012cd1bb0",
+    "alpha/alone/four.c": "da6e9706bec2d4753a4095f13ea81a230cfc16a6fb5d37454a0d642012cd1bb0",
+    "other/delta/five.c": "da6e9706bec2d4753a4095f13ea81a230cfc16a6fb5d37454a0d642012cd1bb0"
+  },
+  "minimal_original_parse": [
+    {
+      "query": "alpha AND\fbeta",
+      "status": "OK",
+      "parsed": "+path:alpha +path:and +path:beta"
+    },
+    {
+      "query": "alpha OR\fbeta",
+      "status": "OK",
+      "parsed": "+path:alpha +path:or +path:beta"
+    },
+    {
+      "query": "alpha NOT\fbeta",
+      "status": "OK",
+      "parsed": "+path:alpha +path:not +path:beta"
+    },
+    {
+      "query": "alpha AND beta",
+      "status": "OK",
+      "parsed": "+path:alpha +path:beta"
+    },
+    {
+      "query": "alpha OR beta",
+      "status": "OK",
+      "parsed": "path:alpha path:beta"
+    }
+  ],
+  "file_sha256": {
+    "comparison.json": "434de0bcfe09258e69f0dbc6c80da791a99f51765deff7d10d28a8f66633e5af",
+    "finding.md": "fa55912b42f95683efc58abb8343fdb2ec759d2b9d2df3e5ca6db4a0117c7e39",
+    "oracle-extra-parse.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "oracle-extra-parse.stdout": "7538e94308f650ba61469a62e0f284b51af5da189aaeb89164be001576eec7c6",
+    "oracle-http-capture.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "oracle-http-capture.stdout": "843318824c2288ee6b9bd45f98ce2eaa408ca2b085134d9de9eddf2cd40e9e6b",
+    "original-http/configuration.xml": "cd56720a2b3fbcd803b7162ba52490cc376c21c0d3db08294996bf25446e941d",
+    "original-http/http-00.body": "1ba114125cec546adc09f51a066f655e91cf017f8e7c0110d04c48fe73da5808",
+    "original-http/http-01.body": "8f93cebefa9533101a8022c3ae3350388c269385f524aa9ed6b894199cb73d9a",
+    "original-http/http-02.body": "b2d453c5e832d9a65dd74138f598b88e6a9b7baf685d5afd68ec4e0cb4ee66f7",
+    "original-http/http-03.body": "34eb83d6995c03185b16b4c73e5d5f33b6ba5d59a4b7231315cb815dce043853",
+    "original-http/http-04.body": "232e40d4bfb10690951265bd6e91478743ca097c9ab8a96d59755bff149c2913",
+    "original-http/http-05.body": "1ccaa447b5ce56a846b7c0ab033cf7b4455337497d9e64ae00095a43065a44c7",
+    "original-http/http-06.body": "24d594855e846039b2bc5b5b2704b752f2c0a0f56e35a870ba3738c8469acd6b",
+    "original-http/http-07.body": "f97d05baf3dd89c8dbd23633a3182df10ebd7bcacb987eeb6f198fa31b5eaf21",
+    "original-http/http-08.body": "30098362d4d72b5811cdb6eb38d30002131d23b97116780b49c1127c47b957ae",
+    "original-http/http-09.body": "c696cbdf520fbeb02294de789646a9836c8d618515562a3eac63f2e60fb7698d",
+    "original-http/index.stderr.txt": "df7b484e1db3321939340a06b25ac54f9624622708240f63455807acca23a79f",
+    "original-http/index.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "original-http/javac.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "original-http/javac.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "original-http/parse.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "original-http/parse.stdout.txt": "afe9ac549a0c321ae82c333e8f504a5a9848e7d939457ed4c21398bce6c5e03f",
+    "original-http/receipt.json": "f6f63466d503e33468d0320ba25b20b5bf9ffca56ee7844915bf39639eef7d1d",
+    "original-http/tomcat.stdout.txt": "bb601efcc0ddbcb229cc5d98facdf0a0ae884877498758d968a4abba8633d11a",
+    "rust-query-0.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rust-query-0.stdout": "a41f953c5f5395d6ff210c4bcc38da72075feecc763ec031e22590d408057418",
+    "rust-query-1.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rust-query-1.stdout": "1f46d1ad3e26a968a6eab76d22d1ceded930461211bd1f29d035d5eccb0a0331",
+    "rust-query-2.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rust-query-2.stdout": "1c2ab6a33b0a76a2040671428416252a0669701d81c03b49014f66c37ec18383",
+    "rust-query-3.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rust-query-3.stdout": "a41f953c5f5395d6ff210c4bcc38da72075feecc763ec031e22590d408057418",
+    "rust-query-4.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rust-query-4.stdout": "ee9d66bcaa0917598850bef6243345ada4ffacc052b0759ff8f51f81cf6f1b38"
+  }
+}

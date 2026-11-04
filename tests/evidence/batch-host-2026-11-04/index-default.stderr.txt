@@ -1,0 +1,9 @@
+   Compiling rustgrok-path-index v0.1.0 (/Users/swchen.tw/git/rustgrok-batch-host/crates/path-index)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.01s
+     Running unittests src/lib.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok_path_index-ca40c960973b085e)
+     Running tests/durable.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/durable-54ebaf5ea90e4818)
+     Running tests/durable_batch.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/durable_batch-36fec2ccc7f8418e)
+     Running tests/generation.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/generation-b9b11a0c9339e5ee)
+     Running tests/path_expression.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/path_expression-ef6b8423cb382fdb)
+     Running tests/source_scanner.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/source_scanner-b452858159d1f29f)
+   Doc-tests rustgrok_path_index

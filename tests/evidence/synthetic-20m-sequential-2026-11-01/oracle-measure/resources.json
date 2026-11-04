@@ -1,0 +1,153 @@
+{
+  "poll_seconds": 0.25,
+  "samples": [
+    {
+      "elapsed_seconds": 0.028,
+      "process_group_ps": [
+        " 1179  1179  1169    880   0.0   0:00.00"
+      ]
+    },
+    {
+      "elapsed_seconds": 0.305,
+      "process_group_ps": [
+        " 1179  1179  1169  37392  11.2   0:00.07"
+      ]
+    },
+    {
+      "elapsed_seconds": 0.583,
+      "process_group_ps": [
+        " 1179  1179  1169  82048 118.6   0:00.59"
+      ]
+    },
+    {
+      "elapsed_seconds": 0.855,
+      "process_group_ps": [
+        " 1179  1179  1169 112128 188.7   0:01.16"
+      ]
+    },
+    {
+      "elapsed_seconds": 1.136,
+      "process_group_ps": [
+        " 1179  1179  1169 111040 128.1   0:01.40"
+      ]
+    },
+    {
+      "elapsed_seconds": 1.413,
+      "process_group_ps": [
+        " 1179  1179  1169 104320 103.7   0:01.71"
+      ]
+    },
+    {
+      "elapsed_seconds": 1.693,
+      "process_group_ps": [
+        " 1179  1179  1169 167600 176.7   0:02.31"
+      ]
+    },
+    {
+      "elapsed_seconds": 1.972,
+      "process_group_ps": [
+        " 1179  1179  1169 189296 192.6   0:02.88"
+      ]
+    },
+    {
+      "elapsed_seconds": 2.248,
+      "process_group_ps": [
+        " 1179  1179  1169 197008 197.0   0:03.45"
+      ]
+    },
+    {
+      "elapsed_seconds": 2.521,
+      "process_group_ps": [
+        " 1179  1179  1169 200928 184.4   0:03.84"
+      ]
+    },
+    {
+      "elapsed_seconds": 2.798,
+      "process_group_ps": [
+        " 1179  1179  1169 203888 165.4   0:04.30"
+      ]
+    },
+    {
+      "elapsed_seconds": 3.075,
+      "process_group_ps": [
+        " 1179  1179  1169 218704 160.0   0:04.74"
+      ]
+    },
+    {
+      "elapsed_seconds": 3.355,
+      "process_group_ps": [
+        " 1179  1179  1169 229536 196.2   0:05.35"
+      ]
+    },
+    {
+      "elapsed_seconds": 3.631,
+      "process_group_ps": [
+        " 1179  1179  1169 245168 184.5   0:05.98"
+      ]
+    },
+    {
+      "elapsed_seconds": 3.905,
+      "process_group_ps": [
+        " 1179  1179  1169 260448 259.2   0:06.85"
+      ]
+    },
+    {
+      "elapsed_seconds": 4.18,
+      "process_group_ps": [
+        " 1179  1179  1169 279056 214.4   0:07.42"
+      ]
+    },
+    {
+      "elapsed_seconds": 4.453,
+      "process_group_ps": [
+        " 1179  1179  1169 292272 209.0   0:08.00"
+      ]
+    },
+    {
+      "elapsed_seconds": 4.729,
+      "process_group_ps": [
+        " 1179  1179  1169 301360 244.4   0:08.73"
+      ]
+    },
+    {
+      "elapsed_seconds": 5.003,
+      "process_group_ps": [
+        " 1179  1179  1169 313248 261.0   0:09.47"
+      ]
+    },
+    {
+      "elapsed_seconds": 5.281,
+      "process_group_ps": [
+        " 1179  1179  1169 334544 227.5   0:10.49"
+      ]
+    },
+    {
+      "elapsed_seconds": 5.556,
+      "process_group_ps": [
+        " 1179  1179  1169 348928 228.4   0:11.14"
+      ]
+    },
+    {
+      "elapsed_seconds": 5.829,
+      "process_group_ps": [
+        " 1179  1179  1169 343728 179.1   0:11.62",
+        " 1205  1205  1169  26064  19.6   0:00.07"
+      ]
+    },
+    {
+      "elapsed_seconds": 6.107,
+      "process_group_ps": [
+        " 1179  1179  1169 346720 174.7   0:12.12",
+        " 1205  1205  1169  27376  19.3   0:00.18"
+      ]
+    },
+    {
+      "elapsed_seconds": 6.381,
+      "process_group_ps": [
+        " 1179  1179  1169 345088 154.5   0:12.51",
+        " 1208  1208  1169  26720  20.7   0:00.13"
+      ]
+    }
+  ],
+  "note": "process-group ps snapshots; not peak or complete process accounting; iostat is device-wide"
+}

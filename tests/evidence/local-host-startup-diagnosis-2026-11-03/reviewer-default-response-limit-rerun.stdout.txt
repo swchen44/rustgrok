@@ -1,0 +1,18 @@
+
+running 1 test
+test oversized_query_response_returns_error_not_partial_results ... FAILED
+
+failures:
+
+---- oversized_query_response_returns_error_not_partial_results stdout ----
+
+thread 'oversized_query_response_returns_error_not_partial_results' (11715702) panicked at tests/host_e2e.rs:144:13:
+host startup: Err(Timeout), stderr: , control: "/private/tmp/rg-host-75510-0/control"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    oversized_query_response_returns_error_not_partial_results
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 11 filtered out; finished in 10.63s
+

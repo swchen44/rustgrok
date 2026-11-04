@@ -1,0 +1,4 @@
+
+thread 'main' (10813015) panicked at examples/full_token_probe.rs:8:38:
+unsupported tokenizer input: "unsupported UTF-16 surrogate split at token limit"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

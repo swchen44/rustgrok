@@ -1,0 +1,63 @@
+{
+  "scope": "native macOS local host subprocess correctness, not full Q8 or product acceptance",
+  "base_commit": "e9034f93720e34e860f7e10cf2c95e7249e31cb8",
+  "utc": "2026-11-02T23:20:57.573515+00:00",
+  "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+  "macos": "15.7.7",
+  "architecture": "arm64",
+  "cargo_target_dir": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target",
+  "inputs": {
+    "apps/grok-host/Cargo.toml": "4c20a0200cfd35c0b28f6cb665f79e74d9a01f2f2dc7ebd6f231576af27a8777",
+    "apps/grok-host/Cargo.lock": "7167f41bf8766e9a023c8c340c29696d0c1d80fc590913ab13431c7dfd09c755",
+    "apps/grok-host/src/main.rs": "51ca900a0ce6a65628647960732881a37e39e3bce9b2bde9c7652e9a04a839f7",
+    "apps/grok-host/src/host.rs": "e33fe8481310d604b1cd3e091399b8c3b9750357170faf3b7410e26cc09afa3c",
+    "apps/grok-host/tests/host_e2e.rs": "04910e8e7ea16d61e3e21572d6c9fc09ea3222c51d021984e003709a58666d82",
+    "crates/path-index/src/durable.rs": "7354da54968de8ec8f626b1e9c0ced157bfb0b40c634fc8657af7506c2f22d41",
+    "crates/path-index/src/durable/scanner.rs": "7520e06cd6f690fd2fb146bfc5a97dd9163523c610c503a533506e6fe5ce1570",
+    "crates/analysis/src/lib.rs": "2716a594f652d5c8132cb12df6783af2eb9b25ccec498c9282da4eae4ad89e32",
+    "tests/evidence/path-cli-2026-11-03/receipt.json": "75cd79e7b1ea65cec287e78e1a22da884997cce4c4bfcf9baadde425bff0fb80",
+    "tests/evidence/source-scanner-2026-11-03/receipt.json": "bfa80ca1de1f9f1a37277cdd50b343595b7a80ee28663f300817b53b475b869d"
+  },
+  "runs": [
+    {
+      "label": "default",
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "apps/grok-host/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--test",
+        "host_e2e",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "429c8fb932d1cf5b6699efac778b27831ee86f0327d78caf14c287ace7e32c45",
+      "stderr_sha256": "1c77629a87c9a3e890eddf4d4de4b08c36234c37f620384d1fedac3fccad243b",
+      "binary_sha256": "674e7579cbf58ffddd1f6f21f00583a745c5aa5cd14b8074bb50df30c5ddd9e6"
+    },
+    {
+      "label": "test-hooks",
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "apps/grok-host/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--features",
+        "test-hooks",
+        "--test",
+        "host_e2e",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "653813b0adbc7c9c121370f313d0f518e4dd3b91bfc08cbdd720d3f5ced094bd",
+      "stderr_sha256": "a99012fee0f76b420cfc7fc573260167ecd60945cc3f7a60fe18718984a0057c",
+      "binary_sha256": "f83a094b0bcffc1424b42adbc49fb22644abfc47a27f56e7078f8d0f9ff526d0"
+    }
+  ]
+}

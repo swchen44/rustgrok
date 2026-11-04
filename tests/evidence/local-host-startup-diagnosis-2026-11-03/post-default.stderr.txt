@@ -1,0 +1,4 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.16s
+     Running unittests src/main.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok-8f1cf13988d04235)
+     Running tests/cli_e2e.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/cli_e2e-8c1f50aa16c38d5e)
+     Running tests/host_e2e.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/host_e2e-43da1d626ddcabd7)

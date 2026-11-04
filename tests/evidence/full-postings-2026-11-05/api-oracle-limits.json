@@ -1,0 +1,22 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--offline",
+    "--manifest-path",
+    "crates/path-index/Cargo.toml",
+    "--test",
+    "full_postings",
+    "--",
+    "--test-threads=1"
+  ],
+  "exit": 0,
+  "status": "passed",
+  "minimum_sampled_free_bytes": 3025154048,
+  "reserve_bytes": 2684354560,
+  "cargo_incremental": "0",
+  "target_dir": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target",
+  "free_after_bytes": 3025174528,
+  "receipt_correction": "Runner free_before label was a post-command measurement; renamed free_after_bytes. minimum_sampled_free_bytes and reserve_bytes are unchanged."
+}

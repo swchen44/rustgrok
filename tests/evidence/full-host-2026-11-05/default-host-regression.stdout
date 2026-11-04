@@ -1,0 +1,48 @@
+
+running 3 tests
+test batch_host_starts_indexes_queries_and_stops ... ok
+test batch_socket_rejects_duplicate_and_unknown_request_fields ... ok
+test default_batch_host_ignores_pause_mode ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.96s
+
+
+running 5 tests
+test default_full_binary_ignores_test_environment ... ok
+test restricted_query_reader_configuration_and_path_stores_are_separate ... ok
+test second_project_bad_source_and_limits_hold_entire_old_batch ... ok
+test source_full_postings_survive_restart_for_public_c_python_javascript ... ok
+test source_reader_bom_tabs_and_unicode_positions_match_original ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.80s
+
+
+running 5 tests
+test batch_socket_rejects_duplicate_and_unknown_request_fields ... ok
+test default_batch_host_ignores_pause_mode ... ok
+test full_host_indexes_postings_queries_and_restarts ... ok
+test full_host_rejects_other_query_modes_and_direct_writer_is_busy ... ok
+test oversized_complete_full_positions_return_limit_without_partial_matches ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.38s
+
+
+running 15 tests
+test ambiguous_and_invalid_json_frames_have_no_side_effects ... ok
+test client_times_out_if_same_user_socket_never_replies ... ok
+test default_host_ignores_test_modes_and_has_no_test_release_command ... ok
+test fragmented_valid_request_is_accepted_before_deadline ... ok
+test host_build_query_stop_and_restart ... ok
+test overlong_unix_socket_path_is_rejected_before_bind ... ok
+test oversized_frame_and_client_limit_fail_closed_then_recover ... ok
+test oversized_query_response_returns_error_not_partial_results ... ok
+test readiness_timeout_reaps_stopped_child_and_reports_cleanup ... ok
+test startup_helper_reaps_child_if_setup_panics_after_spawn ... ok
+test subprocess_host_path_expression_uses_published_generation ... ok
+test trickle_request_has_a_whole_frame_deadline ... ok
+test trusted_sticky_ancestor_can_host_private_control_directory ... ok
+test unsafe_control_paths_and_existing_socket_are_rejected_without_overwrite ... ok
+test untrusted_writable_ancestor_and_extended_acl_fail_before_bind ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 14.37s
+

@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "scope": "Four cases from retained run-verified-1 indexes, OpenGrok QueryBuilder and Lucene white-box helper, no Rust parser in reference side",
+  "observed_at": "2026-11-01T12:38:34+08:00",
+  "capture_result": "tests/evidence/search-baseline-2026-11-01/run-verified-1/result.json",
+  "capture_result_sha256": "4c63354be4de59becdd6765499507e3b25da1a10b12b368ffe824a93a151c3bd",
+  "helper_reference": "../score-full-alpha/diagnostic.json",
+  "index_root_from_original_capture_command": "/private/tmp/rustgrok-i5-nested.w4YfVk/capture-verified-one/index/index",
+  "index_hashes_at_diagnostic_time": {
+    "alpha": [
+      {
+        "relative_path": "_0.cfe",
+        "bytes": 550,
+        "sha256": "4372afbadab534439f0d4e36e04fd4ca21a5745a604bcc44fa3d3de939f2c531"
+      },
+      {
+        "relative_path": "_0.cfs",
+        "bytes": 15732,
+        "sha256": "01344152e07121e9c6e9b2845de3ff28a9beab97adb2d58b4f15154d11776f5c"
+      },
+      {
+        "relative_path": "_0.si",
+        "bytes": 328,
+        "sha256": "9ef9a724abcfb4b1b182e50633ccc4473bb8ffe058f7f4ff5831c640ea89d563"
+      },
+      {
+        "relative_path": "segments_2",
+        "bytes": 155,
+        "sha256": "f35d8af079665ce12ca97fa73cd5ae9564fe9965251d7e7e8c4c26e3583aeaec"
+      }
+    ],
+    "beta": [
+      {
+        "relative_path": "_0.cfe",
+        "bytes": 550,
+        "sha256": "9cc5139d7e3e2617917a46aa724ab75b37ba0fdfe6e40c9a9a62c4d0d4824052"
+      },
+      {
+        "relative_path": "_0.cfs",
+        "bytes": 14320,
+        "sha256": "2c1f07fa48ffff88dbe17c6ebedd43436d4ff33d29c59265454a94553734fa0e"
+      },
+      {
+        "relative_path": "_0.si",
+        "bytes": 328,
+        "sha256": "02fe373221b8baf52c2fc746d45dd325a142a2aec2d016bdd06b6a796de94b7c"
+      },
+      {
+        "relative_path": "segments_2",
+        "bytes": 155,
+        "sha256": "b872be2021874f1ae2b126c7d9b582226630da7e1f590c60453d6005408c62cd"
+      }
+    ]
+  },
+  "index_identity_limit": "No capture-time index hash was recorded. Hashes here identify bytes observed at diagnostic time at the original recorded path; indexes are not committed, and reindex can change doc IDs.",
+  "limitations": [
+    "Uses IndexSearcher(reader) without original search executor; HTTP path and exact full SearchEngine path not executed by helper, even though these helper orders match saved HTTP responses.",
+    "Only these term queries and these observed indexes; do not generalize other queries, scores, ties or index generations.",
+    "Candidate has no scorer: it emits filesystem ingestion order. This cannot implement the observed non-equal relevance scores; no tie order is discarded.",
+    "The independently authored Java diagnostic wrapper has no license assigned by the Rust/JS MIT policy."
+  ],
+  "cases": [
+    {
+      "case": "full_alpha",
+      "field": "full",
+      "query": "main",
+      "selected_projects_in_reader_order": [
+        "alpha"
+      ],
+      "command": [
+        "/Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/jdk-21.0.13+9/Contents/Home/bin/java",
+        "-cp",
+        "/tmp/rustgrok-score-probe-classes:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/*",
+        "RustgrokScoreProbe",
+        "/private/tmp/rustgrok-i5-nested.w4YfVk/capture-verified-one/index",
+        "full",
+        "alpha"
+      ],
+      "stdout": "full_alpha.txt",
+      "stdout_sha256": "c62f18397f2e16df238e46dbd26a7d2b9deafffdcb16448720ef0e589c1e0e91",
+      "stderr": "full_alpha.err",
+      "stderr_sha256": "c37ba8f0195c162cfa799f272761c1d930e0fd35ec6964eaface374536530a27",
+      "upstream_http_response": "tests/evidence/search-baseline-2026-11-01/run-verified-1/response-full_alpha.json",
+      "upstream_http_response_sha256": "1c4112a8f724c319e2b969848970bbed76323aeeeb4fd7ccfa599ae0d6ab45a6",
+      "oracle_http_order_matches_helper": true,
+      "original_ordered_scored_hits": [
+        {
+          "doc_id": 2,
+          "score_hex": "0x1.080acep-4",
+          "path": "/alpha/component-c/main.c"
+        },
+        {
+          "doc_id": 0,
+          "score_hex": "0x1.eff65p-5",
+          "path": "/alpha/component-js/function.js"
+        },
+        {
+          "doc_id": 1,
+          "score_hex": "0x1.eff65p-5",
+          "path": "/alpha/component-c/nested-js/function.js"
+        }
+      ],
+      "candidate_ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ],
+      "candidate_order_matches_original": false
+    },
+    {
+      "case": "definition_alpha",
+      "field": "def",
+      "query": "main",
+      "selected_projects_in_reader_order": [
+        "alpha"
+      ],
+      "command": [
+        "/Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/jdk-21.0.13+9/Contents/Home/bin/java",
+        "-cp",
+        "/tmp/rustgrok-score-probe-classes:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/*",
+        "RustgrokScoreProbe",
+        "/private/tmp/rustgrok-i5-nested.w4YfVk/capture-verified-one/index",
+        "def",
+        "alpha"
+      ],
+      "stdout": "definition_alpha.txt",
+      "stdout_sha256": "e0ecc7c87ece20f9e722bd97376f148f3ede6b2b82c9e295a4075554b327ca4f",
+      "stderr": "definition_alpha.err",
+      "stderr_sha256": "e627b06369d8b0093d3add40c52cd7994533accc0cb4b7fc74e95a79ee637c1f",
+      "upstream_http_response": "tests/evidence/search-baseline-2026-11-01/run-verified-1/response-definition_alpha.json",
+      "upstream_http_response_sha256": "1cead9b2a2a91226f161b0949459310cefd3416e570ade2543e4550e140deb0f",
+      "oracle_http_order_matches_helper": true,
+      "original_ordered_scored_hits": [
+        {
+          "doc_id": 2,
+          "score_hex": "0x1.0c96bep-4",
+          "path": "/alpha/component-c/main.c"
+        },
+        {
+          "doc_id": 0,
+          "score_hex": "0x1.df64c8p-5",
+          "path": "/alpha/component-js/function.js"
+        },
+        {
+          "doc_id": 1,
+          "score_hex": "0x1.df64c8p-5",
+          "path": "/alpha/component-c/nested-js/function.js"
+        }
+      ],
+      "candidate_ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ],
+      "candidate_order_matches_original": false
+    },
+    {
+      "case": "reference_beta",
+      "field": "symbol",
+      "query": "main",
+      "selected_projects_in_reader_order": [
+        "beta"
+      ],
+      "command": [
+        "/Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/jdk-21.0.13+9/Contents/Home/bin/java",
+        "-cp",
+        "/tmp/rustgrok-score-probe-classes:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/*",
+        "RustgrokScoreProbe",
+        "/private/tmp/rustgrok-i5-nested.w4YfVk/capture-verified-one/index",
+        "symbol",
+        "beta"
+      ],
+      "stdout": "reference_beta.txt",
+      "stdout_sha256": "dcd16867b8dcbe136dc91f31b09376d01cbec33a840d025310613870949b7310",
+      "stderr": "reference_beta.err",
+      "stderr_sha256": "e627b06369d8b0093d3add40c52cd7994533accc0cb4b7fc74e95a79ee637c1f",
+      "upstream_http_response": "tests/evidence/search-baseline-2026-11-01/run-verified-1/response-reference_beta.json",
+      "upstream_http_response_sha256": "f1429a2bc2e8de409cf3d3fcf13f435f51122c39417ebe9b74a30af80cc5cc8f",
+      "oracle_http_order_matches_helper": true,
+      "original_ordered_scored_hits": [
+        {
+          "doc_id": 0,
+          "score_hex": "0x1.ad91a8p-4",
+          "path": "/beta/component-py/main.py"
+        },
+        {
+          "doc_id": 1,
+          "score_hex": "0x1.84549p-4",
+          "path": "/beta/component-c/main.c"
+        }
+      ],
+      "candidate_ordered_paths": [
+        "/beta/component-c/main.c",
+        "/beta/component-py/main.py"
+      ],
+      "candidate_order_matches_original": false
+    },
+    {
+      "case": "full_both",
+      "field": "full",
+      "query": "main",
+      "selected_projects_in_reader_order": [
+        "alpha",
+        "beta"
+      ],
+      "command": [
+        "/Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/jdk-21.0.13+9/Contents/Home/bin/java",
+        "-cp",
+        "/tmp/rustgrok-score-probe-classes:/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/*",
+        "RustgrokScoreProbe",
+        "/private/tmp/rustgrok-i5-nested.w4YfVk/capture-verified-one/index",
+        "full",
+        "alpha",
+        "beta"
+      ],
+      "stdout": "full_both.txt",
+      "stdout_sha256": "f8beb5674489af8eb16dab7669dcf6ba1ecb096d8a8c1c32de00b4f19c60b6a5",
+      "stderr": "full_both.err",
+      "stderr_sha256": "e627b06369d8b0093d3add40c52cd7994533accc0cb4b7fc74e95a79ee637c1f",
+      "upstream_http_response": "tests/evidence/search-baseline-2026-11-01/run-verified-1/response-full_both.json",
+      "upstream_http_response_sha256": "81b3ffb58be9f72ca17a230a5f6a30e9df61f19143eab4a4c89361b7ebfb6054",
+      "oracle_http_order_matches_helper": true,
+      "original_ordered_scored_hits": [
+        {
+          "doc_id": 9,
+          "score_hex": "0x1.b53d58p-5",
+          "path": "/beta/component-py/main.py"
+        },
+        {
+          "doc_id": 2,
+          "score_hex": "0x1.59ba5p-5",
+          "path": "/alpha/component-c/main.c"
+        },
+        {
+          "doc_id": 10,
+          "score_hex": "0x1.59ba5p-5",
+          "path": "/beta/component-c/main.c"
+        },
+        {
+          "doc_id": 0,
+          "score_hex": "0x1.44dacp-5",
+          "path": "/alpha/component-js/function.js"
+        },
+        {
+          "doc_id": 1,
+          "score_hex": "0x1.44dacp-5",
+          "path": "/alpha/component-c/nested-js/function.js"
+        }
+      ],
+      "candidate_ordered_paths": [
+        "/beta/component-c/main.c",
+        "/beta/component-py/main.py",
+        "/alpha/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ],
+      "candidate_order_matches_original": false
+    }
+  ],
+  "product_acceptance": "NOT_RUN"
+}

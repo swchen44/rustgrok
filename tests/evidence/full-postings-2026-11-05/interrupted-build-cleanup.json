@@ -1,0 +1,250 @@
+{
+  "files": [
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/librustgrok_path_index-fd66121c1c163ba3.rmeta",
+      "size": 383474,
+      "sha256": "f541f4efca3fba812d49a82e788104f32afb63c8ab9108253575b1de35e204c2",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok_path_index-6202d5a50ed3a0c0.rustgrok_path_index.e038c0dd8291acf8-cgu.12.rcgu.o",
+      "size": 358816,
+      "sha256": "efc066587e31c74b037903d6d3cc88fd9698c326fa9de647316ddf8f35b36d7f",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/generation-f419bf5e4ae60920.generation.fc5b03bbcbb134f3-cgu.01.rcgu.o",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok_path_index-6202d5a50ed3a0c0.rustgrok_path_index.e038c0dd8291acf8-cgu.00.rcgu.o",
+      "size": 1689744,
+      "sha256": "ebd75a0039440c511f2c43ed57be9db5e15f95a39aa69c478cabcccf4c5d914c",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/path_expression-642c90121e6ef6e3.path_expression.8aac5d83f1b7fecf-cgu.1.rcgu.o",
+      "size": 253800,
+      "sha256": "5044ce69584ac1966d2c1a943d7f38f95e929df441a5f25c69340e92189cdc59",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/librustgrok_path_index-0445529c72d47e9f.rmeta",
+      "size": 196701,
+      "sha256": "60e6eaaa0a29af4f56e2331c4b5070d136c0249775b88cb0bc67587c38a8a314",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/durable_batch-37928fb594b515f2.durable_batch.da19c81e7fb1d9a4-cgu.0.rcgu.o",
+      "size": 372376,
+      "sha256": "f7af4174af93a1625846c11615a50a46015c399a433e10bd6068eea8794d068b",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/librustgrok_path_index-40eb9b637b986c74.rmeta",
+      "size": 366365,
+      "sha256": "9e4d91de0158a63e2de2eb8b23fb2240bedb3ae91999bf100b549d5b8404f5c9",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/source_scanner-f69f81fdb4dc0761.source_scanner.2809bdfcfb437714-cgu.0.rcgu.o",
+      "size": 394200,
+      "sha256": "5ddc1bf61eb2709cb11f922510b1a07716e234c589e20fae2119758a3d8868bd",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok_path_index-6202d5a50ed3a0c0.rustgrok_path_index.e038c0dd8291acf8-cgu.02.rcgu.o",
+      "size": 239096,
+      "sha256": "da9753906f58ded9963d43c462063f806edf1c1603ce54fc51df567d4310d522",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok_path_index-6202d5a50ed3a0c0.rustgrok_path_index.e038c0dd8291acf8-cgu.10.rcgu.o",
+      "size": 435456,
+      "sha256": "31034373e9dc3e65d531347a04aeaa920242b7fa855a20f93c72b4fcb074648b",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/generation-f419bf5e4ae60920.2nhn0xf9tzn952491v3k17rj4.rcgu.o",
+      "size": 1752,
+      "sha256": "9101d483820b0a23b3be9c4ba238ab96ed27339c46e85b46b70fb711beb005c3",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/full_postings-d6cdbc5000dc9b14.full_postings.8086ef89a0854f8c-cgu.0.rcgu.o",
+      "size": 351016,
+      "sha256": "debc573d6f6ab55446a5bf486235cd905d376fbf9cec40f14ba26e5e256bd2da",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok_path_index-6202d5a50ed3a0c0.rustgrok_path_index.e038c0dd8291acf8-cgu.14.rcgu.o",
+      "size": 391744,
+      "sha256": "ef98675885094225e5d667691990300781d3c12ebc11a215731d2086670233c1",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok_path_index-6202d5a50ed3a0c0.rustgrok_path_index.e038c0dd8291acf8-cgu.06.rcgu.o",
+      "size": 555544,
+      "sha256": "1a9cd8a09dc2f23a7ed39618179982e62067508c695bdbaf79090f17212aeca8",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/generation-f419bf5e4ae60920.generation.fc5b03bbcbb134f3-cgu.09.rcgu.o",
+      "size": 141520,
+      "sha256": "c6bb14d504710d41911490b592765fedd9cd2ca9f4bd32330bf528373574e862",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok_path_index-6202d5a50ed3a0c0.rustgrok_path_index.e038c0dd8291acf8-cgu.04.rcgu.o",
+      "size": 781968,
+      "sha256": "3bb52a66f66c22f5a0702c04e4579d611efb5f80451b4bffcc1c623781bcf0ab",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok_path_index-6202d5a50ed3a0c0.rustgrok_path_index.e038c0dd8291acf8-cgu.08.rcgu.o",
+      "size": 448688,
+      "sha256": "6ff3b50c7c4057c1a0fa1ccc8e46332d3852d83fdfdb18b81b67253ffa66c276",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/source_scanner-f69f81fdb4dc0761.0fy5nll6dc7idpwf56bha7fo4.rcgu.o",
+      "size": 1752,
+      "sha256": "9101d483820b0a23b3be9c4ba238ab96ed27339c46e85b46b70fb711beb005c3",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok_path_index-6202d5a50ed3a0c0.rustgrok_path_index.e038c0dd8291acf8-cgu.13.rcgu.o",
+      "size": 482816,
+      "sha256": "a5faa0ebf22629a0cec7e90123b75e09f39a6c3dd52c4055074e464c9ab1af61",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/generation-f419bf5e4ae60920.generation.fc5b03bbcbb134f3-cgu.00.rcgu.o",
+      "size": 222520,
+      "sha256": "03aa91784df662b79eb8ab9296370a7e38c3653d9d079fe3444ffe3962d857a2",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok_path_index-6202d5a50ed3a0c0.rustgrok_path_index.e038c0dd8291acf8-cgu.01.rcgu.o",
+      "size": 454192,
+      "sha256": "2aa8e415441851d717a332c7203d87e2dd4abda82ade708d01bd5d5152172d33",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/path_expression-642c90121e6ef6e3.path_expression.8aac5d83f1b7fecf-cgu.0.rcgu.o",
+      "size": 249632,
+      "sha256": "f3c1f65e87b32c89202a5527a20188a4ad9f9e3790017296968c59143d001614",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/path_expression-642c90121e6ef6e3.path_expression.8aac5d83f1b7fecf-cgu.2.rcgu.o",
+      "size": 181160,
+      "sha256": "bc78e6e063be31706cf2ee4eaa1c27f118db9a8de9386b5eeb2b930b4b771566",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok_path_index-6202d5a50ed3a0c0.rustgrok_path_index.e038c0dd8291acf8-cgu.03.rcgu.o",
+      "size": 374128,
+      "sha256": "444c2820ee21815f0cb0fbe70aeb486e9063893602b473798d87040e74442c57",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok_path_index-6202d5a50ed3a0c0.rustgrok_path_index.e038c0dd8291acf8-cgu.11.rcgu.o",
+      "size": 276456,
+      "sha256": "16e18dfe99d6cd5319b7379f4c0a048b04d71eb407fddbe8e554674dd3edef4c",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/full_postings-d6cdbc5000dc9b14.0zxgqmt1ccz56eb8b6ca3n0lr.rcgu.o",
+      "size": 1752,
+      "sha256": "9101d483820b0a23b3be9c4ba238ab96ed27339c46e85b46b70fb711beb005c3",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/librustgrok_path_index-6202d5a50ed3a0c0.rmeta",
+      "size": 374697,
+      "sha256": "ae137ebcac85e978c9786c6f44635be9c38e0fafef3926adef1a57d6e7b6453b",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/librustgrok_path_index-40eb9b637b986c74.rlib",
+      "size": 7858104,
+      "sha256": "5af86ac8ebb31a77eb9c7a388e2817c607486c64b897d9330d03566e1fac4abb",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/librustgrok_path_index-9bbb58b2f3ee7bed.rlib",
+      "size": 8453616,
+      "sha256": "facd8483f5b2ae8ab9ca96e0372527a5bbfcebee3b8e263644962c6a3329be96",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/librustgrok_path_index-9bbb58b2f3ee7bed.rmeta",
+      "size": 383821,
+      "sha256": "d5c49b0f99bb3117366b0a40be18b854214ddd204eb56ee178c369121b3a16ed",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok_path_index-6202d5a50ed3a0c0.rustgrok_path_index.e038c0dd8291acf8-cgu.15.rcgu.o",
+      "size": 274448,
+      "sha256": "5393753395e8f68a4d29bc800ed03e0e6324f0c5d9b1fec51cbb5a322b525b36",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/librustgrok_path_index-6202d5a50ed3a0c0.rlib",
+      "size": 8371800,
+      "sha256": "fd2c81e741383a0ec84bce96aade1a05557b5d21929c1f1e56e0f3b2072e2c94",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok_path_index-6202d5a50ed3a0c0.rustgrok_path_index.e038c0dd8291acf8-cgu.07.rcgu.o",
+      "size": 284656,
+      "sha256": "7f554368d4bca82cce497cfda7911b85141f8655038a0b7f0cfd8d449a2ec51b",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/durable_batch-37928fb594b515f2.durable_batch.da19c81e7fb1d9a4-cgu.7.rcgu.o",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/full_postings-d6cdbc5000dc9b14.full_postings.8086ef89a0854f8c-cgu.1.rcgu.o",
+      "size": 297184,
+      "sha256": "2a63a0f4a33f17550814cce7d711bbbe5602dae6cb9af4a5a93ed4b32d525d60",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/durable_batch-37928fb594b515f2.9jcdgve63ahvm5ilq98tq1lod.rcgu.o",
+      "size": 1752,
+      "sha256": "9101d483820b0a23b3be9c4ba238ab96ed27339c46e85b46b70fb711beb005c3",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok_path_index-6202d5a50ed3a0c0.rustgrok_path_index.e038c0dd8291acf8-cgu.05.rcgu.o",
+      "size": 364920,
+      "sha256": "8bfd3457862b616d2c1d4bd0d12d35473ec5d2d4a4033721320ba77512ac737b",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/librustgrok_path_index-fd66121c1c163ba3.rlib",
+      "size": 8496744,
+      "sha256": "aa0da415c1aecce77fd43c5b997cfd458ca68e0e2a60eb90d6b373d4948bdd1b",
+      "kind": "rebuildable_task_compilation_intermediate"
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok_path_index-6202d5a50ed3a0c0.rustgrok_path_index.e038c0dd8291acf8-cgu.09.rcgu.o",
+      "size": 250264,
+      "sha256": "479315499f799f000d560c70e709a0e4f5aa528cf6cef0cdd7883c3a595dae2a",
+      "kind": "rebuildable_task_compilation_intermediate"
+    }
+  ],
+  "no_cargo_rustc_product_process": true,
+  "lsof_exit": 1,
+  "free_before_bytes": 2586144768,
+  "free_after_bytes": 2630967296,
+  "no_executables_removed": true,
+  "only_task_compilation_intermediates": true
+}

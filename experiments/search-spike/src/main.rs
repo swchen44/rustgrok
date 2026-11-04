@@ -1,0 +1,407 @@
+// SPDX-License-Identifier: MIT
+// Independently authored experimental code; not a port of OpenGrok source.
+mod path_response;
+use serde::{Deserialize, Serialize};
+use std::{
+    env, fs,
+    path::{Path, PathBuf},
+    process,
+};
+
+#[derive(Serialize, Deserialize)]
+struct Document {
+    path: String,
+    project: String,
+    content: String,
+    definitions: Vec<Definition>,
+}
+#[derive(Serialize, Deserialize)]
+struct Definition {
+    name: String,
+    line: usize,
+}
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
+struct Hit {
+    path: String,
+    line_numbers: Vec<usize>,
+}
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
+struct Results {
+    result_count: usize,
+    results: Vec<Hit>,
+}
+
+fn arg(args: &[String], name: &str) -> Result<String, String> {
+    args.windows(2)
+        .find(|w| w[0] == name)
+        .map(|w| w[1].clone())
+        .ok_or_else(|| format!("missing {name}"))
+}
+fn visit(
+    root: &Path,
+    path: &Path,
+    ctags: &Path,
+    documents: &mut Vec<Document>,
+) -> Result<(), String> {
+    for item in fs::read_dir(path).map_err(|e| e.to_string())? {
+        let item = item.map_err(|e| e.to_string())?;
+        let p = item.path();
+        let kind = item.file_type().map_err(|e| e.to_string())?;
+        if item.file_name() == ".git" {
+            continue;
+        }
+        if kind.is_symlink() {
+            return Err(format!("symlink unsupported: {}", p.display()));
+        }
+        if kind.is_dir() {
+            visit(root, &p, ctags, documents)?;
+        } else if kind.is_file() {
+            let relative = p.strip_prefix(root).map_err(|e| e.to_string())?;
+            let components: Vec<_> = relative
+                .components()
+                .map(|x| x.as_os_str().to_string_lossy().into_owned())
+                .collect();
+            if components.len() < 2 {
+                continue;
+            }
+            let content = fs::read_to_string(&p).map_err(|e| format!("{}: {e}", p.display()))?;
+            let out = process::Command::new(ctags)
+                .args([
+                    "--options=NONE",
+                    "--output-format=json",
+                    "--sort=no",
+                    "--fields=+n",
+                    "--extras=-F",
+                    "-f",
+                    "-",
+                ])
+                .arg(&p)
+                .output()
+                .map_err(|e| e.to_string())?;
+            if !out.status.success() {
+                return Err(format!(
+                    "ctags failed: {}",
+                    String::from_utf8_lossy(&out.stderr)
+                ));
+            }
+            let mut definitions = Vec::new();
+            for line in out.stdout.split(|b| *b == b'\n').filter(|s| !s.is_empty()) {
+                let v: serde_json::Value =
+                    serde_json::from_slice(line).map_err(|e| e.to_string())?;
+                if v["_type"] == "tag" {
+                    if let (Some(name), Some(number)) = (v["name"].as_str(), v["line"].as_u64()) {
+                        definitions.push(Definition {
+                            name: name.into(),
+                            line: number as usize,
+                        });
+                    }
+                }
+            }
+            documents.push(Document {
+                path: format!("/{}", components.join("/")),
+                project: components[0].clone(),
+                content,
+                definitions,
+            });
+        }
+    }
+    Ok(())
+}
+#[derive(Default)]
+struct IndexCache {
+    previous: Option<(Vec<u8>, Vec<Document>)>,
+}
+
+fn search(index: &Path, args: &[String], cache: Option<&mut IndexCache>) -> Result<String, String> {
+    let field = arg(args, "--field")?;
+    let query = arg(args, "--query")?;
+    if !["full", "path", "def", "symbol"].contains(&field.as_str()) {
+        return Err(format!("unsupported experimental field: {field}"));
+    }
+    if query.is_empty()
+        || !query.chars().all(|c| {
+            c.is_alphanumeric()
+                || c == '_'
+                || (field == "path" && (c == '.' || c == '/' || c == '-'))
+        })
+    {
+        return Err("only one identifier query is supported".into());
+    }
+    let projects: Vec<&str> = args
+        .windows(2)
+        .filter(|w| w[0] == "--project")
+        .map(|w| w[1].as_str())
+        .collect();
+    let bytes = fs::read(index).map_err(|e| e.to_string())?;
+    let local_docs;
+    let docs = if let Some(cache) = cache {
+        if !cache
+            .previous
+            .as_ref()
+            .is_some_and(|(old, _)| *old == bytes)
+        {
+            let parsed = serde_json::from_slice(&bytes).map_err(|e| e.to_string())?;
+            cache.previous = Some((bytes, parsed));
+        }
+        &cache.previous.as_ref().expect("cache initialized").1
+    } else {
+        local_docs = serde_json::from_slice::<Vec<Document>>(&bytes).map_err(|e| e.to_string())?;
+        &local_docs
+    };
+    let mut hits = Vec::new();
+    for d in docs {
+        if !projects.is_empty() && !projects.contains(&d.project.as_str()) {
+            continue;
+        }
+        let q = query.to_lowercase();
+        let lines: Vec<usize> = match field.as_str() {
+            "path" => {
+                if path_response::path_matches(&d.path, &query) {
+                    vec![]
+                } else {
+                    continue;
+                }
+            }
+            "def" => d
+                .definitions
+                .iter()
+                .filter(|v| v.name == query)
+                .map(|v| v.line)
+                .collect(),
+            "symbol" => d
+                .content
+                .lines()
+                .enumerate()
+                .filter(|(_, line)| {
+                    line.split(|c: char| !c.is_alphanumeric() && c != '_')
+                        .any(|word| word == query)
+                })
+                .map(|(i, _)| i + 1)
+                .collect(),
+            _ => d
+                .content
+                .lines()
+                .enumerate()
+                .filter(|(_, line)| {
+                    line.split(|c: char| !c.is_alphanumeric() && c != '_')
+                        .any(|word| word.to_lowercase() == q)
+                })
+                .map(|(i, _)| i + 1)
+                .collect(),
+        };
+        if field == "path" || !lines.is_empty() {
+            hits.push(Hit {
+                path: d.path.clone(),
+                line_numbers: lines,
+            });
+        }
+    }
+    serde_json::to_string(&Results {
+        result_count: hits.len(),
+        results: hits,
+    })
+    .map_err(|e| e.to_string())
+}
+fn decode(value: &str) -> Result<String, String> {
+    let mut output = Vec::new();
+    let mut it = value.bytes();
+    while let Some(b) = it.next() {
+        match b {
+            b'+' => output.push(b' '),
+            b'%' => {
+                let hi = it.next().ok_or("invalid percent escape")?;
+                let lo = it.next().ok_or("invalid percent escape")?;
+                let hex = |b: u8| (b as char).to_digit(16).ok_or("invalid percent escape");
+                output.push((hex(hi)? * 16 + hex(lo)?) as u8);
+            }
+            _ => output.push(b),
+        }
+    }
+    String::from_utf8(output).map_err(|e| e.to_string())
+}
+fn serve(index: &Path, address: &str, cache_enabled: bool) -> Result<(), String> {
+    use std::io::{BufRead, BufReader, Read, Write};
+    let endpoint: std::net::SocketAddr = address.parse().map_err(|_| "invalid listen address")?;
+    if !endpoint.ip().is_loopback() {
+        return Err("experimental server accepts loopback only".into());
+    }
+    let listener = std::net::TcpListener::bind(endpoint).map_err(|e| e.to_string())?;
+    let mut sessions = std::collections::HashSet::<String>::new();
+    let mut cache = IndexCache::default();
+    for stream in listener.incoming() {
+        let mut stream = stream.map_err(|e| e.to_string())?;
+        stream
+            .set_read_timeout(Some(std::time::Duration::from_secs(2)))
+            .map_err(|e| e.to_string())?;
+        let mut line = String::new();
+        let mut set_cookie = None;
+        let result: Result<String, String> = (|| {
+            let mut reader = BufReader::new(&stream).take(8192);
+            reader.read_line(&mut line).map_err(|e| e.to_string())?;
+            let mut request_cookie = None;
+            loop {
+                let mut header = String::new();
+                if reader.read_line(&mut header).map_err(|e| e.to_string())? == 0
+                    || header == "\r\n"
+                {
+                    break;
+                }
+                if let Some((key, value)) = header.split_once(':') {
+                    if key.eq_ignore_ascii_case("cookie") {
+                        for cookie in value.split(';') {
+                            if let Some((name, value)) = cookie.trim().split_once('=') {
+                                if name == "JSESSIONID" {
+                                    request_cookie = Some(value.to_string());
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            let mut parts = line.split_whitespace();
+            if parts.next() != Some("GET") {
+                return Err("only GET supported".into());
+            }
+            let target = parts.next().ok_or("missing request target")?;
+            if let Some(raw) = target.strip_prefix("/source/api/v1/search?") {
+                let started = std::time::Instant::now();
+                let mut args = vec!["--field".to_string(), "path".to_string()];
+                let mut query = None;
+                let mut start: Option<usize> = None;
+                let mut max: Option<usize> = None;
+                for pair in raw.split('&') {
+                    let (key, value) = pair.split_once('=').ok_or("invalid query")?;
+                    let (key, value) = (decode(key)?, decode(value)?);
+                    match key.as_str() {
+                        "path" if query.is_none() => query = Some(value),
+                        "projects" => {
+                            args.push("--project".into());
+                            args.push(value);
+                        }
+                        "start" if start.is_none() => {
+                            start = Some(value.parse().map_err(|_| "invalid start")?)
+                        }
+                        "maxresults" if max.is_none() => {
+                            max = Some(value.parse().map_err(|_| "invalid maxresults")?)
+                        }
+                        _ => return Err("unsupported experimental path parameter".into()),
+                    }
+                }
+                let (start, max) = (
+                    start.ok_or("start is required")?,
+                    max.ok_or("maxresults is required")?,
+                );
+                if start
+                    .checked_add(max)
+                    .filter(|sum| *sum <= i32::MAX as usize)
+                    .is_none()
+                {
+                    return Err("invalid page range".into());
+                }
+                args.push("--query".into());
+                args.push(query.ok_or("path is required")?);
+                let result = search(index, &args, cache_enabled.then_some(&mut cache))?;
+                let body =
+                    path_response::render(&result, start, max, started.elapsed().as_millis())?;
+                if !request_cookie
+                    .as_ref()
+                    .is_some_and(|id| sessions.contains(id))
+                {
+                    if sessions.len() >= 10_000 {
+                        return Err("experimental session limit reached".into());
+                    }
+                    let mut bytes = [0u8; 16];
+                    getrandom::fill(&mut bytes).map_err(|e| e.to_string())?;
+                    let id: String = bytes.iter().map(|value| format!("{value:02X}")).collect();
+                    if !sessions.insert(id.clone()) {
+                        return Err("session identifier collision".into());
+                    }
+                    set_cookie = Some(format!(
+                        "Set-Cookie: JSESSIONID={id}; Path=/source; HttpOnly\r\n"
+                    ));
+                }
+                return Ok(body);
+            }
+            let raw = target
+                .strip_prefix("/probe/search?")
+                .ok_or("unknown experimental endpoint")?;
+            let mut args = Vec::new();
+            for pair in raw.split('&') {
+                let (key, value) = pair.split_once('=').ok_or("invalid query")?;
+                let key = decode(key)?;
+                if !["field", "query", "project"].contains(&key.as_str()) {
+                    return Err("unknown parameter".into());
+                }
+                args.push(format!("--{key}"));
+                args.push(decode(value)?);
+            }
+            search(index, &args, cache_enabled.then_some(&mut cache))
+        })();
+        let (status, body) = match result {
+            Ok(body) => ("200 OK", body),
+            Err(error) => (
+                "400 Bad Request",
+                serde_json::json!({"error":error}).to_string(),
+            ),
+        };
+        let cookie_header = set_cookie.unwrap_or_default();
+        write!(stream,"HTTP/1.1 {status}\r\n{cookie_header}Content-Type: application/json\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{body}",body.len()).map_err(|e|e.to_string())?;
+    }
+    Ok(())
+}
+fn run(args: &[String]) -> Result<(), String> {
+    let action = args.first().ok_or("expected index or search")?;
+    let index = PathBuf::from(arg(args, "--index")?);
+    match action.as_str() {
+        "index" => {
+            let root = fs::canonicalize(arg(args, "--source")?).map_err(|e| e.to_string())?;
+            if index.exists() {
+                return Err("index already exists".into());
+            }
+            let ctags = PathBuf::from(arg(args, "--ctags")?);
+            let name = index.file_name().ok_or("invalid index filename")?;
+            let parent = index
+                .parent()
+                .filter(|p| !p.as_os_str().is_empty())
+                .unwrap_or(Path::new("."));
+            let resolved_index = fs::canonicalize(parent)
+                .map_err(|e| e.to_string())?
+                .join(name);
+            if resolved_index.starts_with(&root) {
+                return Err("index must be outside source root".into());
+            }
+            let mut docs = Vec::new();
+            visit(&root, &root, &ctags, &mut docs)?;
+            let bytes = serde_json::to_vec(&docs).map_err(|e| e.to_string())?;
+            use std::io::Write;
+            fs::OpenOptions::new()
+                .write(true)
+                .create_new(true)
+                .open(resolved_index)
+                .and_then(|mut f| f.write_all(&bytes))
+                .map_err(|e| e.to_string())?;
+        }
+        "search" => println!("{}", search(&index, args, None)?),
+        "serve" => {
+            let mode = if args.iter().any(|arg| arg == "--cache-mode") {
+                arg(args, "--cache-mode")?
+            } else {
+                "off".into()
+            };
+            if mode != "off" && mode != "exact" {
+                return Err("unsupported cache mode".into());
+            }
+            serve(&index, &arg(args, "--listen")?, mode == "exact")?
+        }
+        _ => return Err("expected index or search".into()),
+    }
+    Ok(())
+}
+fn main() {
+    if let Err(error) = run(&env::args().skip(1).collect::<Vec<_>>()) {
+        eprintln!("{error}");
+        process::exit(2);
+    }
+}

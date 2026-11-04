@@ -25,7 +25,7 @@
     "G6": "rustgrok實際repo確認後的GitHub Releases/npm交接；最終asset metadata/checksum與各平台evidence對應"
   },
   "notes": [
-    "所有測項為planned，未執行Rust原型、性能比較或產品驗收；舊68個test IDs完整保留。",
+    "80項產品測項均為planned，尚未執行產品驗收；已另執行受限Rust搜尋spike、原版oracle與小型效能觀察，證據及限制見tests/evidence，不能視為產品測試passed。舊68個test IDs完整保留。",
     "本版所有產品測項適用標準Rust profile：不包含或依賴JVM/Tomcat、不執行WAR/JSP、不呼叫Java完成未移植功能；原版Java/OpenGrok只在獨立oracle運行。",
     "本輪沒有批准Java plugin bridge。未來只有D20明確批准特定插件bridge並另立profile、測項與gates，才可驗證該額外交付；不得取代Rust核心或放寬本版標準profile的無JVM要求。",
     "Q12已確認Windows11 x64；實際build／ABI及原生環境另記。所有目標平台依核准tuple原生驗證。",
@@ -35,7 +35,7 @@
     "原版CSS/JS/images/fonts可依授權沿用；Rust SSR以DOM、URL、互動、視覺比對，不以WAR/JSP hash比對。",
     "性能比較使用同硬體、等價資料與功能；REF合理調校JVM並分開warmup/steady-state，Rust使用可發布release build。",
     "具體SLO、corpus/hardware、request率／think-time／每人並行、D03平台細節及D16/D20仍OPEN；約5人代表情境、D19 bundled與D21搜尋優先已確認。帳號／角色／RBAC／project ACL不再mandatory，其餘功能不默刪。",
-    "evidence皆為未來路徑範本；無實測證據時不得標passed或宣稱Rust較快。",
+    "本矩陣產品測項的evidence為未來驗收路徑範本；tests/evidence另保留已執行的有限原型與oracle證據。無對應產品實測證據不得標passed或宣稱產品較快。",
     "D19已確認A：必要helpers隨包附帶。所有主要runtime測試走bundled產物，精確工具清單／版本／native依賴與授權依完整功能inventory鎖定；不借使用者預裝ctags/SCM或系統PATH。",
     "B外裝工具與C無helpers不是本版mandatory profile；缺helper、錯版本、損毀或不相容binary仍以故障注入負測，不代表可交付缺件產品，亦不允許外網補件。",
     "D21已確認搜尋速度優先。依query類別、單／跨project、cold/warm/cache命中率及並行index分報server queue／處理與browser體驗；慢查詢、timeouts與未完成請求不可從平均或分位統計中隱去。",
@@ -570,7 +570,7 @@
       ],
       "title": "A reindex 同時搜尋 B，及 A/B 同時更新",
       "preconditions": [
-        "D12已選更新期間維持上一成功搜尋及完整後整批發布；跨project publish scope、scoring與reader契約須凍結，未決值不猜測。"
+        "D12已確認同次工作涵蓋的所有project全部成功才一起發布，任一失敗或取消整批維持上一成功版本；scoring與reader等未決契約須凍結，不猜測。"
       ],
       "steps": [
         "完成A/B索引，先跑1人參照，再以約5個互動client採不同project/query組合查詢A、B及A+B；保留固定query IDs、獨立瀏覽狀態與共用server cache。",

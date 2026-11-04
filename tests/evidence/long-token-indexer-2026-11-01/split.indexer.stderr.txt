@@ -1,0 +1,70 @@
+11月 01, 2026 3:51:50 下午 org.opengrok.indexer.index.Indexer parseOptions
+資訊: Indexer options: [-c, /opt/homebrew/bin/ctags, -s, /tmp/rustgrok-long-public/split/source, -d, /tmp/rustgrok-long-public/split/index, -W, /tmp/rustgrok-long-public/split/configuration.xml, -P, -T, 2]
+11月 01, 2026 3:51:50 下午 org.opengrok.indexer.configuration.Configuration checkConfiguration
+資訊: History based reindex is on, however history is off. History has to be enabled for history based reindex.
+11月 01, 2026 3:51:51 下午 org.opengrok.indexer.index.Indexer runMain
+資訊: Indexer version 1.14.20 (3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3) running on Java version: 21.0.13+9-LTS, name: OpenJDK 64-Bit Server VM, vendor: Eclipse Adoptium, arch: aarch64 with properties: ncpu: 8, maxMemory: 512.0 MiB
+11月 01, 2026 3:51:51 下午 org.opengrok.indexer.configuration.RuntimeEnvironment validateUniversalCtags
+資訊: Using ctags: Universal Ctags 6.2.1, Copyright (C) 2015-2025 Universal Ctags Team
+Universal Ctags is derived from Exuberant Ctags.
+Exuberant Ctags 5.8, Copyright (C) 1996-2009 Darren Hiebert
+  Compiled: Oct 25 2025, 13:15:24
+  URL: https://ctags.io/
+  Output version: 1.1
+  Optional compiled features: +wildcards, +regex, +gnulib_fnmatch, +gnulib_regex, +iconv, +option-directory, +xpath, +json, +interactive, +yaml, +case-insensitive-filenames, +packcc, +optscript, +pcre2
+11月 01, 2026 3:51:51 下午 org.opengrok.indexer.index.Indexer prepareIndexer
+資訊: Generating history cache for all repositories ...
+11月 01, 2026 3:51:51 下午 org.opengrok.indexer.index.Indexer prepareIndexer
+資訊: Done generating history cache
+11月 01, 2026 3:51:51 下午 org.opengrok.indexer.index.Indexer doIndexerExecution
+資訊: Starting indexing
+WARNING: A restricted method in java.lang.foreign.Linker has been called
+WARNING: java.lang.foreign.Linker::downcallHandle has been called by the unnamed module
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for this module
+
+11月 01, 2026 3:51:51 下午 org.apache.lucene.store.MemorySegmentIndexInputProvider <init>
+資訊: Using MemorySegmentIndexInput and native madvise support with Java 21 or later; to disable start with -Dorg.apache.lucene.store.MMapDirectory.enableMemorySegments=false
+11月 01, 2026 3:51:51 下午 org.apache.lucene.internal.vectorization.VectorizationProvider lookup
+警告: Java vector incubator module is not readable. For optimal vector performance, pass '--add-modules jdk.incubator.vector' to enable Vector API.
+11月 01, 2026 3:51:51 下午 org.opengrok.indexer.index.IndexDatabase getIndexDownArgs
+資訊: Starting file collection using file-system traversal for directory '/alpha'
+11月 01, 2026 3:51:51 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done file collection for directory '/alpha' (took 3 ms)
+11月 01, 2026 3:51:51 下午 org.opengrok.indexer.index.IndexDatabase update
+資訊: Starting indexing of directory '/alpha'
+11月 01, 2026 3:51:51 下午 org.opengrok.indexer.index.IndexDatabase lambda$indexParallel$8
+警告: ERROR addFile(): '/private/tmp/rustgrok-long-public/split/source/alpha/split.c'
+java.lang.IndexOutOfBoundsException
+	at java.base/java.lang.Character.codePointAt(Character.java:9383)
+	at org.opengrok.indexer.analysis.plain.PlainFullTokenizer.yylex(PlainFullTokenizer.java:847)
+	at org.opengrok.indexer.analysis.JFlexTokenizer.incrementToken(JFlexTokenizer.java:104)
+	at org.apache.lucene.index.IndexingChain$PerField.invertTokenStream(IndexingChain.java:1205)
+	at org.apache.lucene.index.IndexingChain$PerField.invert(IndexingChain.java:1183)
+	at org.apache.lucene.index.IndexingChain.processField(IndexingChain.java:731)
+	at org.apache.lucene.index.IndexingChain.processDocument(IndexingChain.java:609)
+	at org.apache.lucene.index.DocumentsWriterPerThread.updateDocuments(DocumentsWriterPerThread.java:263)
+	at org.apache.lucene.index.DocumentsWriter.updateDocuments(DocumentsWriter.java:425)
+	at org.apache.lucene.index.IndexWriter.updateDocuments(IndexWriter.java:1562)
+	at org.apache.lucene.index.IndexWriter.updateDocument(IndexWriter.java:1847)
+	at org.apache.lucene.index.IndexWriter.addDocument(IndexWriter.java:1487)
+	at org.opengrok.indexer.index.IndexDatabase.addFile(IndexDatabase.java:1222)
+	at org.opengrok.indexer.index.IndexDatabase.lambda$indexParallel$8(IndexDatabase.java:1863)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+11月 01, 2026 3:51:51 下午 org.opengrok.indexer.index.IndexDatabase indexParallel
+警告: 1 failures (100.0%) while parallel-indexing
+11月 01, 2026 3:51:51 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done indexing of directory '/alpha' (took 66 ms)
+11月 01, 2026 3:51:51 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done indexing data of all repositories (took 372 ms)
+11月 01, 2026 3:51:51 下午 org.opengrok.indexer.index.Indexer writeConfigToFile
+資訊: Writing configuration to '/tmp/rustgrok-long-public/split/configuration.xml'
+11月 01, 2026 3:51:51 下午 org.opengrok.indexer.index.Indexer writeConfigToFile
+資訊: Done writing configuration to '/tmp/rustgrok-long-public/split/configuration.xml'
+11月 01, 2026 3:51:51 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Indexer finished (took 730 ms)
+11月 01, 2026 3:51:51 下午 org.opengrok.indexer.index.Indexer runMain
+資訊: Indexer finished with success

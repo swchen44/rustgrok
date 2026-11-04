@@ -1,0 +1,83 @@
+{
+  "scope": "native macOS security regression; not full product acceptance",
+  "base_commit": "053aaa2c183528a15fb42e889df391441a5a6ff6",
+  "utc": "2026-11-03T00:04:01.417532+00:00",
+  "rustc": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+  "macos": "15.7.7",
+  "architecture": "arm64",
+  "sdk_version": "15.5",
+  "sdk_acl_header_sha256": "9511f84f0abe1e108e10979900d4fea8567534aef78f0984f7050c49f6c29ff7",
+  "sdk_acl_type_extended": 256,
+  "cargo_target_dir": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target",
+  "inputs": {
+    "apps/grok-host/Cargo.toml": "bbb92dbacf391c3ad373e97142638c04a8da99935b9af21bc734abb45d771bce",
+    "apps/grok-host/Cargo.lock": "660ab27faba2d82702e287f0e908ddb427764fd30605cfbd922508843250b3ba",
+    "apps/grok-host/src/main.rs": "51ca900a0ce6a65628647960732881a37e39e3bce9b2bde9c7652e9a04a839f7",
+    "apps/grok-host/src/host.rs": "21259e1e0aa67609d1a750bfe9bdd024412fa88ce8fd258d62c11048d8e9338b",
+    "apps/grok-host/tests/host_e2e.rs": "bbf9a8170ca93d7cc073eeb540b3f3ff20cdb5e1699234b1c4fdfaeeb5d22318",
+    "crates/path-index/src/durable.rs": "7354da54968de8ec8f626b1e9c0ced157bfb0b40c634fc8657af7506c2f22d41",
+    "crates/path-index/src/durable/scanner.rs": "7520e06cd6f690fd2fb146bfc5a97dd9163523c610c503a533506e6fe5ce1570",
+    "tests/evidence/local-path-host-2026-11-03/receipt.json": "2efa2006b08d01e2c84a46ee111aed5b1ff373cae2904f5f9f0eede7a1528231"
+  },
+  "runs": [
+    {
+      "label": "default",
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "apps/grok-host/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--test",
+        "host_e2e",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "a325bb01d5f72d764924615ad12489e2f5e0c62b81f4b77191df0bd992abd6e7",
+      "stderr_sha256": "f9683eb256db9118911f4512cf580f5e943ff999344f328b76e09d3f2309be5a",
+      "binary_sha256": "56bcbe6e6c5ce2e6a06a2d814b196e54e31724308c3747e4a81ef478f50305e8",
+      "binary_retention": {
+        "local_path": "~/Library/Caches/rustgrok/evidence-binaries/sha256-56bcbe6e6c5ce2e6a06a2d814b196e54e31724308c3747e4a81ef478f50305e8-rustgrok",
+        "bytes": 2146488,
+        "sha256": "56bcbe6e6c5ce2e6a06a2d814b196e54e31724308c3747e4a81ef478f50305e8",
+        "source": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/rustgrok-2166afb496e72be8",
+        "method": "recovered after run from hash-matching Cargo deps executable"
+      }
+    },
+    {
+      "label": "test-hooks",
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "apps/grok-host/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--features",
+        "test-hooks",
+        "--test",
+        "host_e2e",
+        "--",
+        "--test-threads=1"
+      ],
+      "exit_code": 0,
+      "stdout_sha256": "020701253e760b52b848bc15aef5bd1739511eae97e0826a962df432b8865522",
+      "stderr_sha256": "7a7f6d29db81876a2d150b889c3e73313bc871154385905e5b414768659dca63",
+      "binary_sha256": "f68da5f735946dfc7af7900a70a8b8436c4234aa1898b684ef69945879573917",
+      "binary_retention": {
+        "local_path": "~/Library/Caches/rustgrok/evidence-binaries/sha256-f68da5f735946dfc7af7900a70a8b8436c4234aa1898b684ef69945879573917-rustgrok",
+        "bytes": 2203080,
+        "sha256": "f68da5f735946dfc7af7900a70a8b8436c4234aa1898b684ef69945879573917",
+        "source": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/rustgrok",
+        "method": "copied from target binary after run before subsequent build"
+      }
+    }
+  ],
+  "sdk_unistd_header_sha256": "a3c7d6da838b8858cf04711dcbbab6e28fa5a58cc72175fcf4366158f548369a",
+  "private_tmp_observed_fpathconf": {
+    "extended_security": 1,
+    "auth_opaque": 0
+  }
+}

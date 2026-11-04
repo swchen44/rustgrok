@@ -1,0 +1,335 @@
+Compiled from "CharacterUtils.java"
+public final class org.apache.lucene.analysis.CharacterUtils {
+  static final boolean $assertionsDisabled;
+
+  public static org.apache.lucene.analysis.CharacterUtils$CharacterBuffer newCharacterBuffer(int);
+    Code:
+       0: iload_0
+       1: iconst_2
+       2: if_icmpge     15
+       5: new           #2                  // class java/lang/IllegalArgumentException
+       8: dup
+       9: ldc           #3                  // String buffersize must be >= 2
+      11: invokespecial #4                  // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      14: athrow
+      15: new           #5                  // class org/apache/lucene/analysis/CharacterUtils$CharacterBuffer
+      18: dup
+      19: iload_0
+      20: newarray       char
+      22: iconst_0
+      23: iconst_0
+      24: invokespecial #6                  // Method org/apache/lucene/analysis/CharacterUtils$CharacterBuffer."<init>":([CII)V
+      27: areturn
+
+  public static void toLowerCase(char[], int, int);
+    Code:
+       0: getstatic     #7                  // Field $assertionsDisabled:Z
+       3: ifne          20
+       6: aload_0
+       7: arraylength
+       8: iload_2
+       9: if_icmpge     20
+      12: new           #8                  // class java/lang/AssertionError
+      15: dup
+      16: invokespecial #9                  // Method java/lang/AssertionError."<init>":()V
+      19: athrow
+      20: getstatic     #7                  // Field $assertionsDisabled:Z
+      23: ifne          45
+      26: iconst_0
+      27: iload_1
+      28: if_icmpgt     37
+      31: iload_1
+      32: aload_0
+      33: arraylength
+      34: if_icmple     45
+      37: new           #8                  // class java/lang/AssertionError
+      40: dup
+      41: invokespecial #9                  // Method java/lang/AssertionError."<init>":()V
+      44: athrow
+      45: iload_1
+      46: istore_3
+      47: iload_3
+      48: iload_2
+      49: if_icmpge     72
+      52: iload_3
+      53: aload_0
+      54: iload_3
+      55: iload_2
+      56: invokestatic  #10                 // Method java/lang/Character.codePointAt:([CII)I
+      59: invokestatic  #11                 // Method java/lang/Character.toLowerCase:(I)I
+      62: aload_0
+      63: iload_3
+      64: invokestatic  #12                 // Method java/lang/Character.toChars:(I[CI)I
+      67: iadd
+      68: istore_3
+      69: goto          47
+      72: return
+
+  public static void toUpperCase(char[], int, int);
+    Code:
+       0: getstatic     #7                  // Field $assertionsDisabled:Z
+       3: ifne          20
+       6: aload_0
+       7: arraylength
+       8: iload_2
+       9: if_icmpge     20
+      12: new           #8                  // class java/lang/AssertionError
+      15: dup
+      16: invokespecial #9                  // Method java/lang/AssertionError."<init>":()V
+      19: athrow
+      20: getstatic     #7                  // Field $assertionsDisabled:Z
+      23: ifne          45
+      26: iconst_0
+      27: iload_1
+      28: if_icmpgt     37
+      31: iload_1
+      32: aload_0
+      33: arraylength
+      34: if_icmple     45
+      37: new           #8                  // class java/lang/AssertionError
+      40: dup
+      41: invokespecial #9                  // Method java/lang/AssertionError."<init>":()V
+      44: athrow
+      45: iload_1
+      46: istore_3
+      47: iload_3
+      48: iload_2
+      49: if_icmpge     72
+      52: iload_3
+      53: aload_0
+      54: iload_3
+      55: iload_2
+      56: invokestatic  #10                 // Method java/lang/Character.codePointAt:([CII)I
+      59: invokestatic  #13                 // Method java/lang/Character.toUpperCase:(I)I
+      62: aload_0
+      63: iload_3
+      64: invokestatic  #12                 // Method java/lang/Character.toChars:(I[CI)I
+      67: iadd
+      68: istore_3
+      69: goto          47
+      72: return
+
+  public static int toCodePoints(char[], int, int, int[], int);
+    Code:
+       0: iload_2
+       1: ifge          14
+       4: new           #2                  // class java/lang/IllegalArgumentException
+       7: dup
+       8: ldc           #14                 // String srcLen must be >= 0
+      10: invokespecial #4                  // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      13: athrow
+      14: iconst_0
+      15: istore        5
+      17: iconst_0
+      18: istore        6
+      20: iload         6
+      22: iload_2
+      23: if_icmpge     68
+      26: aload_0
+      27: iload_1
+      28: iload         6
+      30: iadd
+      31: iload_1
+      32: iload_2
+      33: iadd
+      34: invokestatic  #10                 // Method java/lang/Character.codePointAt:([CII)I
+      37: istore        7
+      39: iload         7
+      41: invokestatic  #15                 // Method java/lang/Character.charCount:(I)I
+      44: istore        8
+      46: aload_3
+      47: iload         4
+      49: iload         5
+      51: iinc          5, 1
+      54: iadd
+      55: iload         7
+      57: iastore
+      58: iload         6
+      60: iload         8
+      62: iadd
+      63: istore        6
+      65: goto          20
+      68: iload         5
+      70: ireturn
+
+  public static int toChars(int[], int, int, char[], int);
+    Code:
+       0: iload_2
+       1: ifge          14
+       4: new           #2                  // class java/lang/IllegalArgumentException
+       7: dup
+       8: ldc           #14                 // String srcLen must be >= 0
+      10: invokespecial #4                  // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      13: athrow
+      14: iconst_0
+      15: istore        5
+      17: iconst_0
+      18: istore        6
+      20: iload         6
+      22: iload_2
+      23: if_icmpge     52
+      26: iload         5
+      28: aload_0
+      29: iload_1
+      30: iload         6
+      32: iadd
+      33: iaload
+      34: aload_3
+      35: iload         4
+      37: iload         5
+      39: iadd
+      40: invokestatic  #12                 // Method java/lang/Character.toChars:(I[CI)I
+      43: iadd
+      44: istore        5
+      46: iinc          6, 1
+      49: goto          20
+      52: iload         5
+      54: ireturn
+
+  public static boolean fill(org.apache.lucene.analysis.CharacterUtils$CharacterBuffer, java.io.Reader, int) throws java.io.IOException;
+    Code:
+       0: getstatic     #7                  // Field $assertionsDisabled:Z
+       3: ifne          23
+       6: aload_0
+       7: getfield      #16                 // Field org/apache/lucene/analysis/CharacterUtils$CharacterBuffer.buffer:[C
+      10: arraylength
+      11: iconst_2
+      12: if_icmpge     23
+      15: new           #8                  // class java/lang/AssertionError
+      18: dup
+      19: invokespecial #9                  // Method java/lang/AssertionError."<init>":()V
+      22: athrow
+      23: iload_2
+      24: iconst_2
+      25: if_icmplt     37
+      28: iload_2
+      29: aload_0
+      30: getfield      #16                 // Field org/apache/lucene/analysis/CharacterUtils$CharacterBuffer.buffer:[C
+      33: arraylength
+      34: if_icmple     47
+      37: new           #2                  // class java/lang/IllegalArgumentException
+      40: dup
+      41: ldc           #17                 // String numChars must be >= 2 and <= the buffer size
+      43: invokespecial #4                  // Method java/lang/IllegalArgumentException."<init>":(Ljava/lang/String;)V
+      46: athrow
+      47: aload_0
+      48: getfield      #16                 // Field org/apache/lucene/analysis/CharacterUtils$CharacterBuffer.buffer:[C
+      51: astore_3
+      52: aload_0
+      53: iconst_0
+      54: putfield      #18                 // Field org/apache/lucene/analysis/CharacterUtils$CharacterBuffer.offset:I
+      57: aload_0
+      58: getfield      #19                 // Field org/apache/lucene/analysis/CharacterUtils$CharacterBuffer.lastTrailingHighSurrogate:C
+      61: ifeq          82
+      64: aload_3
+      65: iconst_0
+      66: aload_0
+      67: getfield      #19                 // Field org/apache/lucene/analysis/CharacterUtils$CharacterBuffer.lastTrailingHighSurrogate:C
+      70: castore
+      71: aload_0
+      72: iconst_0
+      73: putfield      #19                 // Field org/apache/lucene/analysis/CharacterUtils$CharacterBuffer.lastTrailingHighSurrogate:C
+      76: iconst_1
+      77: istore        4
+      79: goto          85
+      82: iconst_0
+      83: istore        4
+      85: aload_1
+      86: aload_3
+      87: iload         4
+      89: iload_2
+      90: iload         4
+      92: isub
+      93: invokestatic  #20                 // Method readFully:(Ljava/io/Reader;[CII)I
+      96: istore        5
+      98: aload_0
+      99: iload         4
+     101: iload         5
+     103: iadd
+     104: putfield      #21                 // Field org/apache/lucene/analysis/CharacterUtils$CharacterBuffer.length:I
+     107: aload_0
+     108: getfield      #21                 // Field org/apache/lucene/analysis/CharacterUtils$CharacterBuffer.length:I
+     111: iload_2
+     112: if_icmpne     119
+     115: iconst_1
+     116: goto          120
+     119: iconst_0
+     120: istore        6
+     122: aload_0
+     123: getfield      #21                 // Field org/apache/lucene/analysis/CharacterUtils$CharacterBuffer.length:I
+     126: iload_2
+     127: if_icmpge     133
+     130: iload         6
+     132: ireturn
+     133: aload_3
+     134: aload_0
+     135: getfield      #21                 // Field org/apache/lucene/analysis/CharacterUtils$CharacterBuffer.length:I
+     138: iconst_1
+     139: isub
+     140: caload
+     141: invokestatic  #22                 // Method java/lang/Character.isHighSurrogate:(C)Z
+     144: ifeq          164
+     147: aload_0
+     148: aload_3
+     149: aload_0
+     150: dup
+     151: getfield      #21                 // Field org/apache/lucene/analysis/CharacterUtils$CharacterBuffer.length:I
+     154: iconst_1
+     155: isub
+     156: dup_x1
+     157: putfield      #21                 // Field org/apache/lucene/analysis/CharacterUtils$CharacterBuffer.length:I
+     160: caload
+     161: putfield      #19                 // Field org/apache/lucene/analysis/CharacterUtils$CharacterBuffer.lastTrailingHighSurrogate:C
+     164: iload         6
+     166: ireturn
+
+  public static boolean fill(org.apache.lucene.analysis.CharacterUtils$CharacterBuffer, java.io.Reader) throws java.io.IOException;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_0
+       3: getfield      #16                 // Field org/apache/lucene/analysis/CharacterUtils$CharacterBuffer.buffer:[C
+       6: arraylength
+       7: invokestatic  #23                 // Method fill:(Lorg/apache/lucene/analysis/CharacterUtils$CharacterBuffer;Ljava/io/Reader;I)Z
+      10: ireturn
+
+  static int readFully(java.io.Reader, char[], int, int) throws java.io.IOException;
+    Code:
+       0: iconst_0
+       1: istore        4
+       3: iload         4
+       5: iload_3
+       6: if_icmpge     43
+       9: aload_0
+      10: aload_1
+      11: iload_2
+      12: iload         4
+      14: iadd
+      15: iload_3
+      16: iload         4
+      18: isub
+      19: invokevirtual #24                 // Method java/io/Reader.read:([CII)I
+      22: istore        5
+      24: iload         5
+      26: iconst_m1
+      27: if_icmpne     33
+      30: goto          43
+      33: iload         4
+      35: iload         5
+      37: iadd
+      38: istore        4
+      40: goto          3
+      43: iload         4
+      45: ireturn
+
+  static {};
+    Code:
+       0: ldc           #25                 // class org/apache/lucene/analysis/CharacterUtils
+       2: invokevirtual #26                 // Method java/lang/Class.desiredAssertionStatus:()Z
+       5: ifne          12
+       8: iconst_1
+       9: goto          13
+      12: iconst_0
+      13: putstatic     #7                  // Field $assertionsDisabled:Z
+      16: return
+}

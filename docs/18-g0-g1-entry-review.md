@@ -28,7 +28,7 @@
 |---|---|---|
 | 最低macOS、browser矩陣、正式toolchain／ABI、精確helpers | agent以G1 source／build／native證據提出，必要產品取捨再問使用者 | 支援範圍／G4與正式artifact凍結；不冒稱目前host測過所有OS |
 | Ubuntu CPU／RAM／SSD或NAS、history大小、query mix、SLO／資源預算 | 使用者資料未提供時維持OPEN；agent先記研究設定與實測成本，再提出量化方案 | 正式效能／容量與G5驗收；G1可做明示配置的開發研究，不報SLO PASS |
-| 建置期間來源變動、跨project publish scope、generation／journal等機制 | agent先凍結可測契約並以G1驗證，不能違反D12／Q9 | 正式索引發布與恢復可靠性；不因engine commit成功而假稱全體原子化 |
+| 建置期間來源變動、generation／journal等機制；同次工作涵蓋的所有project須一起發布已確認 | agent先凍結可測契約並以G1驗證，不能違反D12／Q9 | 正式索引發布與恢復可靠性；不因engine commit成功而假稱全體原子化 |
 | npm包型／平台包名、Node/npm與scripts政策、ZIP啟動／簽章細節、是否離線build | agent以G1封裝閉包與平台證據提出；有企業限制時由使用者補充 | 最終分發／G4；不隱性下載、不猜scope權限、不公開npm發布 |
 | watch、service／登入自啟、維護週期等後續選擇 | 未被選為首版必要能力的擴充保持OPEN；D18維護方案依G1實際元件及導入環境提出 | 對應擴充與正式運維承諾；不得藉此刪除已要求的原版功能 |
 

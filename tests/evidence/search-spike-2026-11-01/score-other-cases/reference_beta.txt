@@ -1,0 +1,27 @@
+query=refs:main type=org.apache.lucene.search.TermQuery maxDoc=7
+doc=0 score=0x1.ad91a8p-4 fullpath=null path=/beta/component-py/main.py
+0.10487524 = weight(refs:main in 0) [BM25Similarity], result of:
+  0.10487524 = score(freq=2.0), computed as boost * idf * tf from:
+    0.18232156 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+      2 = n, number of documents containing term
+      2 = N, total number of documents with field
+    0.57522124 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+      2.0 = freq, occurrences of term within document
+      1.2 = k1, term saturation parameter
+      0.75 = b, length normalization parameter
+      34.0 = dl, length of field
+      26.0 = avgdl, average length of field
+
+doc=1 score=0x1.84549p-4 fullpath=null path=/beta/component-c/main.c
+0.09480721 = weight(refs:main in 1) [BM25Similarity], result of:
+  0.09480721 = score(freq=1.0), computed as boost * idf * tf from:
+    0.18232156 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+      2 = n, number of documents containing term
+      2 = N, total number of documents with field
+    0.52 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+      1.0 = freq, occurrences of term within document
+      1.2 = k1, term saturation parameter
+      0.75 = b, length normalization parameter
+      18.0 = dl, length of field
+      26.0 = avgdl, average length of field
+

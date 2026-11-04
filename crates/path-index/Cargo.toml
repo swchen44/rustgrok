@@ -1,0 +1,16 @@
+[package]
+name = "rustgrok-path-index"
+version = "0.1.0"
+edition = "2021"
+license = "MIT AND CDDL-1.0"
+publish = false
+
+[dependencies]
+rustgrok-analysis = { path = "../analysis" }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+libc = "=0.2.176"
+sha2 = "=0.10.9"
+
+[features]
+fault-injection = []

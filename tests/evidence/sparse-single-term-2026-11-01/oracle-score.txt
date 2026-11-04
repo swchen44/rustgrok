@@ -1,0 +1,14 @@
+query=full:main type=org.apache.lucene.search.TermQuery maxDoc=6
+doc=0 score=0x1.42a0e4p-2 fullpath=null path=/alpha/a.c
+0.31506687 = weight(full:main in 0) [BM25Similarity], result of:
+  0.31506687 = score(freq=1.0), computed as boost * idf * tf from:
+    0.6931472 = idf, computed as log(1 + (N - n + 0.5) / (n + 0.5)) from:
+      1 = n, number of documents containing term
+      2 = N, total number of documents with field
+    0.45454544 = tf, computed as freq / (freq + k1 * (1 - b + b * dl / avgdl)) from:
+      1.0 = freq, occurrences of term within document
+      1.2 = k1, term saturation parameter
+      0.75 = b, length normalization parameter
+      10.0 = dl, length of field
+      10.0 = avgdl, average length of field
+

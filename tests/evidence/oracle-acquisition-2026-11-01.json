@@ -106,13 +106,13 @@
   ],
   "opengrok_release_hash_verified": true,
   "java_runtime_hash_verified": true,
-  "oracle_runtime_execution": "LIMITED_CLI_INDEX_AND_JRE_HTTP_PROBES; FULL_JDK_ORACLE_NOT_RUN",
+  "oracle_runtime_execution": "FULL_JDK_LIMITED_INDEX_HTTP_CAPTURE; FULL_ORACLE_ACCEPTANCE_NOT_RUN",
   "product_runtime_execution": "NOT_RUN",
   "notes": [
     "Tomcat 10.1.60 matches the pinned upstream Dockerfile; this pins one development oracle only, not Rust product dependencies.",
-    "Full JDK download remains incomplete; verified OpenGrok release was used only for limited CLI probes. Verified compact JRE was executed for version/module probing only.",
-    "All 1816 source file bytes and Tomcat archive checksum verified; OpenGrok release is now verified; full JDK download remains incomplete; verified JRE version/module probe does not establish complete oracle readiness. This is not complete WP-A04, REF-001, REF-002 or license acceptance.",
-    "Original --version/--help guru exit0; --help repos/ctags exit1 with Indexer.env null. Raw failures preserved; no index/HTTP execution or full test-case PASS."
+    "At the earlier JRE probe the full JDK was incomplete; later its archive was verified and it was used in limited index/HTTP captures. Compact JRE has separately recorded version, index and HTTP probes.",
+    "All 1816 source file bytes and Tomcat archive checksum verified; OpenGrok release is now verified; full JDK archive later verified; verified JRE version/module probe does not establish complete oracle readiness. This is not complete WP-A04, REF-001, REF-002 or license acceptance.",
+    "Original --version/--help guru exit0; --help repos/ctags exit1 with Indexer.env null. Raw CLI failures preserved; later index/HTTP probes do not imply a full test-case PASS."
   ],
   "helper_observations": [
     {
@@ -170,7 +170,8 @@
       "architecture": "arm64"
     }
   },
-  "full_jdk_hash_verified": false,
+  "full_jdk_hash_verified": true,
   "release_inventory": "upstream/opengrok-release-inventory.json",
-  "cli_probe": "tests/evidence/oracle-cli-probe-2026-11-01.json"
+  "cli_probe": "tests/evidence/oracle-cli-probe-2026-11-01.json",
+  "full_jdk_evidence": "tests/evidence/search-baseline-2026-11-01/run-verified-1/result.json"
 }

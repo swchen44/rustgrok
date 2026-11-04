@@ -1,0 +1,33 @@
+{
+  "cases": [
+    {
+      "path": "/source/api/v1/search?path=main&projects=alpha&projects=beta&start=0&maxresults=1",
+      "oracle_status": 200,
+      "candidate_status": 200,
+      "body_matches_except_time": false,
+      "oracle_ordered_paths": [
+        "/alpha/component-c/main.c"
+      ],
+      "candidate_ordered_paths": [
+        "/beta/component-c/main.c"
+      ],
+      "oracle_body": "page-0-oracle.body",
+      "candidate_body": "page-0-candidate.body"
+    },
+    {
+      "path": "/source/api/v1/search?path=main&projects=alpha&projects=beta&start=1&maxresults=1",
+      "oracle_status": 200,
+      "candidate_status": 200,
+      "body_matches_except_time": false,
+      "oracle_ordered_paths": [
+        "/beta/component-c/main.c"
+      ],
+      "candidate_ordered_paths": [
+        "/beta/component-py/main.py"
+      ],
+      "oracle_body": "page-1-oracle.body",
+      "candidate_body": "page-1-candidate.body"
+    }
+  ],
+  "scope": "two pages of one cross-project query; no general parity assertion"
+}

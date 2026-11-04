@@ -1,0 +1,4 @@
+   Compiling rustgrok-analysis v0.1.0 (/Users/swchen.tw/git/rustgrok-full-analysis/crates/analysis)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.44s
+     Running tests/full_integration.rs (/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/full_integration-7ce84d410298e156)
+error: test failed, to rerun pass `--test full_integration`

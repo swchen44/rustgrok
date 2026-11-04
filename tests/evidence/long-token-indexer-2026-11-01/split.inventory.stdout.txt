@@ -1,0 +1,4 @@
+maxDoc=3 numDocs=3 hits=3
+doc=0 path=null
+doc=1 path=null
+doc=2 path=null

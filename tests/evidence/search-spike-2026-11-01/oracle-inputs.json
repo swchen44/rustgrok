@@ -1,0 +1,40 @@
+{
+  "scope": "fixed public corpus; original OpenGrok responses; seven cases from two original captures; byte-for-byte copies",
+  "records": [
+    {
+      "case": "full_alpha",
+      "source": "tests/evidence/search-baseline-2026-11-01/run-verified-1/response-full_alpha.json",
+      "sha256": "1c4112a8f724c319e2b969848970bbed76323aeeeb4fd7ccfa599ae0d6ab45a6"
+    },
+    {
+      "case": "path_alpha",
+      "source": "tests/evidence/search-baseline-2026-11-01/run-verified-1/response-path_alpha.json",
+      "sha256": "002ec1790b1837fe7ec8777cb565cbd0b246bf14c54c77baa4d548977ce7acae"
+    },
+    {
+      "case": "definition_alpha",
+      "source": "tests/evidence/search-baseline-2026-11-01/run-verified-1/response-definition_alpha.json",
+      "sha256": "1cead9b2a2a91226f161b0949459310cefd3416e570ade2543e4550e140deb0f"
+    },
+    {
+      "case": "reference_beta",
+      "source": "tests/evidence/search-baseline-2026-11-01/run-verified-1/response-reference_beta.json",
+      "sha256": "f1429a2bc2e8de409cf3d3fcf13f435f51122c39417ebe9b74a30af80cc5cc8f"
+    },
+    {
+      "case": "full_both",
+      "source": "tests/evidence/search-baseline-2026-11-01/run-verified-1/response-full_both.json",
+      "sha256": "81b3ffb58be9f72ca17a230a5f6a30e9df61f19143eab4a4c89361b7ebfb6054"
+    },
+    {
+      "case": "definition_beta",
+      "source": "tests/evidence/search-spike-2026-11-01/extra-oracle/response-definition_beta.json",
+      "sha256": "c68a992c4b0c78a912de388df1b8af32a62ce8f75fe780067adda03c8298526c"
+    },
+    {
+      "case": "reference_alpha",
+      "source": "tests/evidence/search-spike-2026-11-01/extra-oracle/response-reference_alpha.json",
+      "sha256": "f4fa9f3c852d916e31b296cb9b612eee493e57913ae6fd5b0beea44cc2557cee"
+    }
+  ]
+}

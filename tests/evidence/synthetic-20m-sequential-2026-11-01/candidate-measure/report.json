@@ -1,0 +1,307 @@
+{
+  "status": "BODY_ONLY_DIAGNOSTIC_NOT_TIMED",
+  "cases": [
+    {
+      "query": "/source/api/v1/search?path=synthetic000.c&projects=project00&projects=project01&projects=project02&projects=project03&projects=project04&projects=project05&projects=project06&projects=project07&projects=project08&projects=project09&start=0&maxresults=100",
+      "oracle_body": "oracle-synthetic000.c.json",
+      "candidate_body": "candidate-synthetic000.c.json",
+      "candidate_status": 200,
+      "oracle_count": 10,
+      "candidate_count": 10,
+      "body_matches_except_time": false,
+      "oracle_order": [
+        "/project00/synthetic000.c",
+        "/project01/synthetic000.c",
+        "/project02/synthetic000.c",
+        "/project03/synthetic000.c",
+        "/project04/synthetic000.c",
+        "/project05/synthetic000.c",
+        "/project06/synthetic000.c",
+        "/project07/synthetic000.c",
+        "/project08/synthetic000.c",
+        "/project09/synthetic000.c"
+      ],
+      "candidate_order": [
+        "/project01/synthetic000.c",
+        "/project06/synthetic000.c",
+        "/project08/synthetic000.c",
+        "/project09/synthetic000.c",
+        "/project07/synthetic000.c",
+        "/project00/synthetic000.c",
+        "/project05/synthetic000.c",
+        "/project02/synthetic000.c",
+        "/project03/synthetic000.c",
+        "/project04/synthetic000.c"
+      ]
+    },
+    {
+      "query": "/source/api/v1/search?path=synthetic001.py&projects=project00&projects=project01&projects=project02&projects=project03&projects=project04&projects=project05&projects=project06&projects=project07&projects=project08&projects=project09&start=0&maxresults=100",
+      "oracle_body": "oracle-synthetic001.py.json",
+      "candidate_body": "candidate-synthetic001.py.json",
+      "candidate_status": 200,
+      "oracle_count": 10,
+      "candidate_count": 10,
+      "body_matches_except_time": false,
+      "oracle_order": [
+        "/project00/synthetic001.py",
+        "/project01/synthetic001.py",
+        "/project02/synthetic001.py",
+        "/project03/synthetic001.py",
+        "/project04/synthetic001.py",
+        "/project05/synthetic001.py",
+        "/project06/synthetic001.py",
+        "/project07/synthetic001.py",
+        "/project08/synthetic001.py",
+        "/project09/synthetic001.py"
+      ],
+      "candidate_order": [
+        "/project01/synthetic001.py",
+        "/project06/synthetic001.py",
+        "/project08/synthetic001.py",
+        "/project09/synthetic001.py",
+        "/project07/synthetic001.py",
+        "/project00/synthetic001.py",
+        "/project05/synthetic001.py",
+        "/project02/synthetic001.py",
+        "/project03/synthetic001.py",
+        "/project04/synthetic001.py"
+      ]
+    },
+    {
+      "query": "/source/api/v1/search?path=synthetic002.js&projects=project00&projects=project01&projects=project02&projects=project03&projects=project04&projects=project05&projects=project06&projects=project07&projects=project08&projects=project09&start=0&maxresults=100",
+      "oracle_body": "oracle-synthetic002.js.json",
+      "candidate_body": "candidate-synthetic002.js.json",
+      "candidate_status": 200,
+      "oracle_count": 10,
+      "candidate_count": 10,
+      "body_matches_except_time": false,
+      "oracle_order": [
+        "/project00/synthetic002.js",
+        "/project01/synthetic002.js",
+        "/project02/synthetic002.js",
+        "/project03/synthetic002.js",
+        "/project04/synthetic002.js",
+        "/project05/synthetic002.js",
+        "/project06/synthetic002.js",
+        "/project07/synthetic002.js",
+        "/project08/synthetic002.js",
+        "/project09/synthetic002.js"
+      ],
+      "candidate_order": [
+        "/project01/synthetic002.js",
+        "/project06/synthetic002.js",
+        "/project08/synthetic002.js",
+        "/project09/synthetic002.js",
+        "/project07/synthetic002.js",
+        "/project00/synthetic002.js",
+        "/project05/synthetic002.js",
+        "/project02/synthetic002.js",
+        "/project03/synthetic002.js",
+        "/project04/synthetic002.js"
+      ]
+    },
+    {
+      "query": "/source/api/v1/search?path=synthetic003.c&projects=project00&projects=project01&projects=project02&projects=project03&projects=project04&projects=project05&projects=project06&projects=project07&projects=project08&projects=project09&start=0&maxresults=100",
+      "oracle_body": "oracle-synthetic003.c.json",
+      "candidate_body": "candidate-synthetic003.c.json",
+      "candidate_status": 200,
+      "oracle_count": 10,
+      "candidate_count": 10,
+      "body_matches_except_time": false,
+      "oracle_order": [
+        "/project00/synthetic003.c",
+        "/project01/synthetic003.c",
+        "/project02/synthetic003.c",
+        "/project03/synthetic003.c",
+        "/project04/synthetic003.c",
+        "/project05/synthetic003.c",
+        "/project06/synthetic003.c",
+        "/project07/synthetic003.c",
+        "/project08/synthetic003.c",
+        "/project09/synthetic003.c"
+      ],
+      "candidate_order": [
+        "/project01/synthetic003.c",
+        "/project06/synthetic003.c",
+        "/project08/synthetic003.c",
+        "/project09/synthetic003.c",
+        "/project07/synthetic003.c",
+        "/project00/synthetic003.c",
+        "/project05/synthetic003.c",
+        "/project02/synthetic003.c",
+        "/project03/synthetic003.c",
+        "/project04/synthetic003.c"
+      ]
+    },
+    {
+      "query": "/source/api/v1/search?path=synthetic004.py&projects=project00&projects=project01&projects=project02&projects=project03&projects=project04&projects=project05&projects=project06&projects=project07&projects=project08&projects=project09&start=0&maxresults=100",
+      "oracle_body": "oracle-synthetic004.py.json",
+      "candidate_body": "candidate-synthetic004.py.json",
+      "candidate_status": 200,
+      "oracle_count": 10,
+      "candidate_count": 10,
+      "body_matches_except_time": false,
+      "oracle_order": [
+        "/project00/synthetic004.py",
+        "/project01/synthetic004.py",
+        "/project02/synthetic004.py",
+        "/project03/synthetic004.py",
+        "/project04/synthetic004.py",
+        "/project05/synthetic004.py",
+        "/project06/synthetic004.py",
+        "/project07/synthetic004.py",
+        "/project08/synthetic004.py",
+        "/project09/synthetic004.py"
+      ],
+      "candidate_order": [
+        "/project01/synthetic004.py",
+        "/project06/synthetic004.py",
+        "/project08/synthetic004.py",
+        "/project09/synthetic004.py",
+        "/project07/synthetic004.py",
+        "/project00/synthetic004.py",
+        "/project05/synthetic004.py",
+        "/project02/synthetic004.py",
+        "/project03/synthetic004.py",
+        "/project04/synthetic004.py"
+      ]
+    },
+    {
+      "query": "/source/api/v1/search?path=synthetic005.js&projects=project00&projects=project01&projects=project02&projects=project03&projects=project04&projects=project05&projects=project06&projects=project07&projects=project08&projects=project09&start=0&maxresults=100",
+      "oracle_body": "oracle-synthetic005.js.json",
+      "candidate_body": "candidate-synthetic005.js.json",
+      "candidate_status": 200,
+      "oracle_count": 10,
+      "candidate_count": 10,
+      "body_matches_except_time": false,
+      "oracle_order": [
+        "/project00/synthetic005.js",
+        "/project01/synthetic005.js",
+        "/project02/synthetic005.js",
+        "/project03/synthetic005.js",
+        "/project04/synthetic005.js",
+        "/project05/synthetic005.js",
+        "/project06/synthetic005.js",
+        "/project07/synthetic005.js",
+        "/project08/synthetic005.js",
+        "/project09/synthetic005.js"
+      ],
+      "candidate_order": [
+        "/project01/synthetic005.js",
+        "/project06/synthetic005.js",
+        "/project08/synthetic005.js",
+        "/project09/synthetic005.js",
+        "/project07/synthetic005.js",
+        "/project00/synthetic005.js",
+        "/project05/synthetic005.js",
+        "/project02/synthetic005.js",
+        "/project03/synthetic005.js",
+        "/project04/synthetic005.js"
+      ]
+    },
+    {
+      "query": "/source/api/v1/search?path=synthetic006.c&projects=project00&projects=project01&projects=project02&projects=project03&projects=project04&projects=project05&projects=project06&projects=project07&projects=project08&projects=project09&start=0&maxresults=100",
+      "oracle_body": "oracle-synthetic006.c.json",
+      "candidate_body": "candidate-synthetic006.c.json",
+      "candidate_status": 200,
+      "oracle_count": 10,
+      "candidate_count": 10,
+      "body_matches_except_time": false,
+      "oracle_order": [
+        "/project00/synthetic006.c",
+        "/project01/synthetic006.c",
+        "/project02/synthetic006.c",
+        "/project03/synthetic006.c",
+        "/project04/synthetic006.c",
+        "/project05/synthetic006.c",
+        "/project06/synthetic006.c",
+        "/project07/synthetic006.c",
+        "/project08/synthetic006.c",
+        "/project09/synthetic006.c"
+      ],
+      "candidate_order": [
+        "/project01/synthetic006.c",
+        "/project06/synthetic006.c",
+        "/project08/synthetic006.c",
+        "/project09/synthetic006.c",
+        "/project07/synthetic006.c",
+        "/project00/synthetic006.c",
+        "/project05/synthetic006.c",
+        "/project02/synthetic006.c",
+        "/project03/synthetic006.c",
+        "/project04/synthetic006.c"
+      ]
+    },
+    {
+      "query": "/source/api/v1/search?path=synthetic007.py&projects=project00&projects=project01&projects=project02&projects=project03&projects=project04&projects=project05&projects=project06&projects=project07&projects=project08&projects=project09&start=0&maxresults=100",
+      "oracle_body": "oracle-synthetic007.py.json",
+      "candidate_body": "candidate-synthetic007.py.json",
+      "candidate_status": 200,
+      "oracle_count": 10,
+      "candidate_count": 10,
+      "body_matches_except_time": false,
+      "oracle_order": [
+        "/project00/synthetic007.py",
+        "/project01/synthetic007.py",
+        "/project02/synthetic007.py",
+        "/project03/synthetic007.py",
+        "/project04/synthetic007.py",
+        "/project05/synthetic007.py",
+        "/project06/synthetic007.py",
+        "/project07/synthetic007.py",
+        "/project08/synthetic007.py",
+        "/project09/synthetic007.py"
+      ],
+      "candidate_order": [
+        "/project01/synthetic007.py",
+        "/project06/synthetic007.py",
+        "/project08/synthetic007.py",
+        "/project09/synthetic007.py",
+        "/project07/synthetic007.py",
+        "/project00/synthetic007.py",
+        "/project05/synthetic007.py",
+        "/project02/synthetic007.py",
+        "/project03/synthetic007.py",
+        "/project04/synthetic007.py"
+      ]
+    }
+  ],
+  "candidate_group_stopped": true,
+  "sequential_preflight_status": {},
+  "measurements": [
+    {
+      "case": "single-hit",
+      "role": "candidate",
+      "status": "COMPLETED_RESTRICTED_ENDPOINT",
+      "timed_samples": 100,
+      "process_group": 1236,
+      "group_stopped": true
+    },
+    {
+      "case": "no-hit",
+      "role": "candidate",
+      "status": "COMPLETED_RESTRICTED_ENDPOINT",
+      "timed_samples": 100,
+      "process_group": 1245,
+      "group_stopped": true
+    }
+  ],
+  "candidate_server_process_group": 1233,
+  "process_groups_stopped": {
+    "1233": true,
+    "1236": true,
+    "1245": true
+  },
+  "original_groups_previously_stopped": {
+    "906": true
+  },
+  "original_index_tree_sha256": "a2238b9d5eaa501d4e9b23597298b07efc52c3ee688ec2b3c5c58d5ae53fb412",
+  "candidate_index_sha256": "ae3c3eeb13e8a697623fc69433c5ac43b8615417632925985cf98bba90896bd8",
+  "candidate_binary_sha256": "0d06036588295b7ef1cfb88a597ea6f94c244eb6e74d1cf983681073b06d275a",
+  "limitations": [
+    "no HTTP header or session comparison",
+    "no timing",
+    "separate processes and server windows",
+    "synthetic data is not representative"
+  ]
+}

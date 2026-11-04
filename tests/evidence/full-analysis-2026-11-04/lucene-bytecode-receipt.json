@@ -1,0 +1,33 @@
+{
+  "scope": "read-only javap of fixed Lucene 9.12.3 classes; no upstream source equivalence beyond inspected bytecode",
+  "javap_sha256": "1bc4474ca5b28394346fe2ad79b10eac15ef8d7017d1c22f46139e7438a86e32",
+  "lucene_core_sha256": "b64a3f8098a7572034fb30085cdee01b34ec81fb0e5a31b471536af58dc6c01b",
+  "runs": [
+    {
+      "label": "lowercase-filter",
+      "command": [
+        "/Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/jdk-21.0.13+9/Contents/Home/bin/javap",
+        "-classpath",
+        "/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-core-9.12.3.jar",
+        "-c",
+        "org.apache.lucene.analysis.LowerCaseFilter"
+      ],
+      "exit": 0,
+      "stdout_sha256": "302fea2cbcf8a4ee0d0f77a42bd44558e8c04878c05879507d48490d2c034e47",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "character-utils",
+      "command": [
+        "/Users/swchen.tw/Library/Caches/rustgrok/oracle/toolchains/jdk-21.0.13+9/Contents/Home/bin/javap",
+        "-classpath",
+        "/Users/swchen.tw/Library/Caches/rustgrok/oracle/opengrok-1.14.20/release/opengrok-1.14.20/lib/lucene-core-9.12.3.jar",
+        "-c",
+        "org.apache.lucene.analysis.CharacterUtils"
+      ],
+      "exit": 0,
+      "stdout_sha256": "65846454d40ad10f676aa5c893ede9c6d9c711773e5c60d9a842c7c766e801a2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

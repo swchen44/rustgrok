@@ -1,0 +1,102 @@
+{
+  "scope": "single FULL term only; original QueryBuilder/Lucene white-box independent index; all candidate postings scored, candidate docIDs differ; no HTTP or paging parity",
+  "original_ordered_hits": [
+    {
+      "doc_id": 10,
+      "score_hex": "0x1.b53d58p-5",
+      "score_bits": "3d5a9eac",
+      "path": "/beta/component-py/main.py",
+      "norm_byte": 69
+    },
+    {
+      "doc_id": 8,
+      "score_hex": "0x1.59ba5p-5",
+      "score_bits": "3d2cdd28",
+      "path": "/alpha/component-c/main.c",
+      "norm_byte": 66
+    },
+    {
+      "doc_id": 9,
+      "score_hex": "0x1.59ba5p-5",
+      "score_bits": "3d2cdd28",
+      "path": "/beta/component-c/main.c",
+      "norm_byte": 66
+    },
+    {
+      "doc_id": 0,
+      "score_hex": "0x1.44dacp-5",
+      "score_bits": "3d226d60",
+      "path": "/alpha/component-c/nested-js/function.js",
+      "norm_byte": 68
+    },
+    {
+      "doc_id": 1,
+      "score_hex": "0x1.44dacp-5",
+      "score_bits": "3d226d60",
+      "path": "/alpha/component-js/function.js",
+      "norm_byte": 68
+    }
+  ],
+  "candidate_ordered_hits": [
+    {
+      "doc_id": 1,
+      "field_length": 232,
+      "norm_byte": 69,
+      "path": "/beta/component-py/main.py",
+      "score": 0.05337397754192352,
+      "score_bits": "3d5a9eac",
+      "segment_ord": 0,
+      "term_freq": 2
+    },
+    {
+      "doc_id": 0,
+      "field_length": 184,
+      "norm_byte": 66,
+      "path": "/beta/component-c/main.c",
+      "score": 0.04220309853553772,
+      "score_bits": "3d2cdd28",
+      "segment_ord": 0,
+      "term_freq": 1
+    },
+    {
+      "doc_id": 2,
+      "field_length": 184,
+      "norm_byte": 66,
+      "path": "/alpha/component-c/main.c",
+      "score": 0.04220309853553772,
+      "score_bits": "3d2cdd28",
+      "segment_ord": 0,
+      "term_freq": 1
+    },
+    {
+      "doc_id": 3,
+      "field_length": 216,
+      "norm_byte": 68,
+      "path": "/alpha/component-c/nested-js/function.js",
+      "score": 0.039655089378356934,
+      "score_bits": "3d226d60",
+      "segment_ord": 0,
+      "term_freq": 1
+    },
+    {
+      "doc_id": 4,
+      "field_length": 216,
+      "norm_byte": 68,
+      "path": "/alpha/component-js/function.js",
+      "score": 0.039655089378356934,
+      "score_bits": "3d226d60",
+      "segment_ord": 0,
+      "term_freq": 1
+    }
+  ],
+  "ordered_paths_match": false,
+  "score_bits_match_by_path": true,
+  "norm_byte_match_by_path": true,
+  "original_raw_sha256": "7f53cdf2ecbd91ec1512393be0a291ed06fc63cab7a2635f96a69b4c5be61bd9",
+  "candidate_raw_sha256": "eb7fdb8ed41d6bd977c7999e7f847e0fee7de0492e004c845a0d66507457d9fd",
+  "candidate_documents_sha256": "51f7f42c70eb4c2184c5e19ac1e9f329023ea3be865fb3accb8644c4597315d5",
+  "candidate_binary_sha256": "e9f168a56c73183032d78212e189a12168d7e840441e404d5b217356b422ccb1",
+  "bm25_module_sha256": "4d32e0ce4dc077746d58b209ddef1e6b9542f208ad7c0855d0da72d95efeed9a",
+  "helper_sha256": "5cdad9636a769b273a13608b6a18011faaa7bb2c6d204615fdad11626b674e24",
+  "oracle_index_identity": "../path-ranking-diagnostic-2026-11-01/diagnostic.json (pristine corpus; separate from performance index)"
+}

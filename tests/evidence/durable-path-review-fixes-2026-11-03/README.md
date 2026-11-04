@@ -1,0 +1,9 @@
+# Durable path review fixes: correctness evidence
+
+The previous capture remains in [durable-path evidence](../durable-path-2026-11-03/README.md). Review of commit `ab44fe57c1ab3d50bd62a326889570473c51a325` reproduced a paused writer creating `G-3` and `P-3` after another writer's indeterminate outcome, and an open handle accepting a manifest after its source root had been replaced. The controlled race test failed with the unexpected files before the fix and passed after the writer-lock state recheck. The source replacement test initially failed because a new snapshot succeeded after the rename; the fixed implementation rejects it. Additional tests replace the source during manifest collection and at the prepublication checkpoint.
+
+[receipt.json](receipt.json) records the command, environment, base commit and exact input/output hashes. [stdout](durable.stdout.txt) shows 30/30 fault-injection durable tests passed; [stderr](durable.stderr.txt) is the cargo stream. Separately, the default-feature build passed 21 durable and 14 existing generation tests; formatting, clippy and evidence checks passed. No performance measurements were made. The fault-injection feature must not be used in production.
+
+Source identity checks are not atomic against concurrent renames. The caller must coordinate source path and ancestor replacement throughout each operation; replacement after the final check remains outside the guarantee. Source contents and caller-supplied manifest completeness are not verified by this component. A late detected replacement can leave prepared, unpublished files. Physical power loss, Linux/Windows, full Q8 and product acceptance remain unverified. See the [component contract](../../../crates/path-index/README.md).
+
+The captured source bytes are preserved in commit `a35679b195d3a9e13cffbfa330aec485535dd56f`; later source changes do not change this run. Evidence checking requires this Git object and fails if a shallow checkout lacks it.

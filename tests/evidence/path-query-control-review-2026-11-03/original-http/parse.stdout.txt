@@ -1,0 +1,5 @@
+YWxwaGEgQU5EDGJldGE=	OK	+path:alpha +path:and +path:beta
+YWxwaGEgT1IMYmV0YQ==	OK	+path:alpha +path:or +path:beta
+YWxwaGEgTk9UDGJldGE=	OK	+path:alpha +path:not +path:beta
+YWxwaGEgQU5EIGJldGE=	OK	+path:alpha +path:beta
+YWxwaGEgT1IgYmV0YQ==	OK	path:alpha path:beta

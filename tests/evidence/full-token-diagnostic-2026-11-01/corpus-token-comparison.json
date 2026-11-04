@@ -1,0 +1,41 @@
+{
+  "cases": [
+    {
+      "case": "corpus-c",
+      "file": "tests/fixtures/public-source/c/main.c",
+      "source_sha256": "0afb5b45d1538ee86e23b046100c8e458614ba71e50f16c05bda1a52de0edb17",
+      "oracle_count": 198,
+      "candidate_count": 198,
+      "terms_and_positions_match": true,
+      "oracle_main_frequency": 1,
+      "candidate_main_frequency": 1,
+      "oracle_sha256": "c1a51c85cc6ec03f7aa8fe850090b7eb7ecedb99034dfc3d13991cc65b7a45c2",
+      "candidate_sha256": "c1a51c85cc6ec03f7aa8fe850090b7eb7ecedb99034dfc3d13991cc65b7a45c2"
+    },
+    {
+      "case": "corpus-python",
+      "file": "tests/fixtures/public-source/python/main.py.fixture",
+      "source_sha256": "c30bc720a38c39709e22f6bba1996b58c0a4e2e25d8cc6ea1bff7a348efde3f0",
+      "oracle_count": 245,
+      "candidate_count": 245,
+      "terms_and_positions_match": true,
+      "oracle_main_frequency": 2,
+      "candidate_main_frequency": 2,
+      "oracle_sha256": "fb0916081426f9b8692b01fe6833c56a732f9eb12c32b7ffd5ff7743eca63fca",
+      "candidate_sha256": "fb0916081426f9b8692b01fe6833c56a732f9eb12c32b7ffd5ff7743eca63fca"
+    },
+    {
+      "case": "corpus-js",
+      "file": "tests/fixtures/public-source/javascript/function.js",
+      "source_sha256": "7e37130f0b5a078fea055a885632cdc00e1989def53e4fafe8b52a75824f8805",
+      "oracle_count": 223,
+      "candidate_count": 223,
+      "terms_and_positions_match": true,
+      "oracle_main_frequency": 1,
+      "candidate_main_frequency": 1,
+      "oracle_sha256": "8ab85fbdfe8c33cd921a30335f5cf42d76d3740f9b26858a9fb405eaea252137",
+      "candidate_sha256": "8ab85fbdfe8c33cd921a30335f5cf42d76d3740f9b26858a9fb405eaea252137"
+    }
+  ],
+  "scope": "three public files independently analyzed; no index or full-language equivalence asserted"
+}

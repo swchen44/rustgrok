@@ -1,0 +1,284 @@
+{
+  "scope": "one FULL term, public corpus, historical original copied index vs candidate own index; path/count/page projection only, no full HTTP or general parity",
+  "candidate_index_input_sha256": "51f7f42c70eb4c2184c5e19ac1e9f329023ea3be865fb3accb8644c4597315d5",
+  "candidate_binary_sha256": "de7375d3745f72dbb1ea73bd4d12cd56b7afa72534b7cd4570472d7372bcbdf2",
+  "oracle_index_reference": "../project-order-boundaries-2026-11-01/result.json",
+  "cases": [
+    {
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 0,
+      "maxresults": 10,
+      "oracle_count": 5,
+      "candidate_count": 5,
+      "oracle_start": 0,
+      "candidate_start": 0,
+      "oracle_end": 4,
+      "candidate_end": 4,
+      "oracle_ordered_paths": [
+        "/beta/component-py/main.py",
+        "/alpha/component-c/main.c",
+        "/beta/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ],
+      "candidate_ordered_paths": [
+        "/beta/component-py/main.py",
+        "/alpha/component-c/main.c",
+        "/beta/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ],
+      "projection_match": true,
+      "oracle_sha256": "77de61b6286a2aea0657afa1a9f2d53fc7a1d85a7c130d984ead447fdaac9c3d",
+      "candidate_sha256": "0eace3ab6b8481c768eb2aa108beb9be308fac74e88e0f184728d5b3c48cd547"
+    },
+    {
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 0,
+      "maxresults": 1,
+      "oracle_count": 5,
+      "candidate_count": 5,
+      "oracle_start": 0,
+      "candidate_start": 0,
+      "oracle_end": 0,
+      "candidate_end": 0,
+      "oracle_ordered_paths": [
+        "/beta/component-py/main.py"
+      ],
+      "candidate_ordered_paths": [
+        "/beta/component-py/main.py"
+      ],
+      "projection_match": true,
+      "oracle_sha256": "358dc94fb494124f8c1a630d27c53065fa4f567a7ee21c0fc30669f425d36fad",
+      "candidate_sha256": "47993181fda9600e69286d7c63ba84ac28588f7a24522aacf069a77caae9305f"
+    },
+    {
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 1,
+      "maxresults": 1,
+      "oracle_count": 5,
+      "candidate_count": 5,
+      "oracle_start": 1,
+      "candidate_start": 1,
+      "oracle_end": 1,
+      "candidate_end": 1,
+      "oracle_ordered_paths": [
+        "/alpha/component-c/main.c"
+      ],
+      "candidate_ordered_paths": [
+        "/alpha/component-c/main.c"
+      ],
+      "projection_match": true,
+      "oracle_sha256": "8163e463418f5ff1511e07f0b9e8bbf373bd60f7655c92bf26b1b00965823d3d",
+      "candidate_sha256": "11f672375336dc933b5a1c4402713f26d02678e1f15fc4f775bf33699c4991d3"
+    },
+    {
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 2,
+      "maxresults": 1,
+      "oracle_count": 5,
+      "candidate_count": 5,
+      "oracle_start": 2,
+      "candidate_start": 2,
+      "oracle_end": 2,
+      "candidate_end": 2,
+      "oracle_ordered_paths": [
+        "/beta/component-c/main.c"
+      ],
+      "candidate_ordered_paths": [
+        "/beta/component-c/main.c"
+      ],
+      "projection_match": true,
+      "oracle_sha256": "14a17716894ba3b4f5765656b3ce42f3e770274c24e6d2decd019c8c5da1c6b0",
+      "candidate_sha256": "97c7f38fe42604ebfeb5e2b99e88492183474cc0dedcd89d9b634b7985943061"
+    },
+    {
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 0,
+      "maxresults": 0,
+      "oracle_count": 5,
+      "candidate_count": 5,
+      "oracle_start": 0,
+      "candidate_start": 0,
+      "oracle_end": 0,
+      "candidate_end": 0,
+      "oracle_ordered_paths": [],
+      "candidate_ordered_paths": [],
+      "projection_match": true,
+      "oracle_sha256": "9cccd5d8905be5e7fdf742becac38a3b35abbd0833f277f363e9bf36d767d7d2",
+      "candidate_sha256": "32290c1181d818a25a9a566d228a012ece1adce463da7a9754f4cca7f56d5da1"
+    },
+    {
+      "projects": [
+        "alpha",
+        "beta"
+      ],
+      "start": 100,
+      "maxresults": 1,
+      "oracle_count": 5,
+      "candidate_count": 5,
+      "oracle_start": 100,
+      "candidate_start": 100,
+      "oracle_end": 100,
+      "candidate_end": 100,
+      "oracle_ordered_paths": [],
+      "candidate_ordered_paths": [],
+      "projection_match": true,
+      "oracle_sha256": "3092113ba924ab20123edfbded442ae78143bcb35e80c1f5524689cbef69d225",
+      "candidate_sha256": "eae5a2e6b1101ee0fd23c0625ccf99f75622f24e43f4eec1658d359b38543033"
+    },
+    {
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 0,
+      "maxresults": 10,
+      "oracle_count": 5,
+      "candidate_count": 5,
+      "oracle_start": 0,
+      "candidate_start": 0,
+      "oracle_end": 4,
+      "candidate_end": 4,
+      "oracle_ordered_paths": [
+        "/beta/component-py/main.py",
+        "/alpha/component-c/main.c",
+        "/beta/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ],
+      "candidate_ordered_paths": [
+        "/beta/component-py/main.py",
+        "/alpha/component-c/main.c",
+        "/beta/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ],
+      "projection_match": true,
+      "oracle_sha256": "99b3dd2db79a3bf333b164fc780cbbb6d14af50d3a21d290e0469dbae26338b6",
+      "candidate_sha256": "0eace3ab6b8481c768eb2aa108beb9be308fac74e88e0f184728d5b3c48cd547"
+    },
+    {
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 0,
+      "maxresults": 1,
+      "oracle_count": 5,
+      "candidate_count": 5,
+      "oracle_start": 0,
+      "candidate_start": 0,
+      "oracle_end": 0,
+      "candidate_end": 0,
+      "oracle_ordered_paths": [
+        "/beta/component-py/main.py"
+      ],
+      "candidate_ordered_paths": [
+        "/beta/component-py/main.py"
+      ],
+      "projection_match": true,
+      "oracle_sha256": "358dc94fb494124f8c1a630d27c53065fa4f567a7ee21c0fc30669f425d36fad",
+      "candidate_sha256": "47993181fda9600e69286d7c63ba84ac28588f7a24522aacf069a77caae9305f"
+    },
+    {
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 1,
+      "maxresults": 1,
+      "oracle_count": 5,
+      "candidate_count": 5,
+      "oracle_start": 1,
+      "candidate_start": 1,
+      "oracle_end": 1,
+      "candidate_end": 1,
+      "oracle_ordered_paths": [
+        "/alpha/component-c/main.c"
+      ],
+      "candidate_ordered_paths": [
+        "/alpha/component-c/main.c"
+      ],
+      "projection_match": true,
+      "oracle_sha256": "8163e463418f5ff1511e07f0b9e8bbf373bd60f7655c92bf26b1b00965823d3d",
+      "candidate_sha256": "11f672375336dc933b5a1c4402713f26d02678e1f15fc4f775bf33699c4991d3"
+    },
+    {
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 2,
+      "maxresults": 1,
+      "oracle_count": 5,
+      "candidate_count": 5,
+      "oracle_start": 2,
+      "candidate_start": 2,
+      "oracle_end": 2,
+      "candidate_end": 2,
+      "oracle_ordered_paths": [
+        "/beta/component-c/main.c"
+      ],
+      "candidate_ordered_paths": [
+        "/beta/component-c/main.c"
+      ],
+      "projection_match": true,
+      "oracle_sha256": "14a17716894ba3b4f5765656b3ce42f3e770274c24e6d2decd019c8c5da1c6b0",
+      "candidate_sha256": "97c7f38fe42604ebfeb5e2b99e88492183474cc0dedcd89d9b634b7985943061"
+    },
+    {
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 0,
+      "maxresults": 0,
+      "oracle_count": 5,
+      "candidate_count": 5,
+      "oracle_start": 0,
+      "candidate_start": 0,
+      "oracle_end": 0,
+      "candidate_end": 0,
+      "oracle_ordered_paths": [],
+      "candidate_ordered_paths": [],
+      "projection_match": true,
+      "oracle_sha256": "9cccd5d8905be5e7fdf742becac38a3b35abbd0833f277f363e9bf36d767d7d2",
+      "candidate_sha256": "32290c1181d818a25a9a566d228a012ece1adce463da7a9754f4cca7f56d5da1"
+    },
+    {
+      "projects": [
+        "beta",
+        "alpha"
+      ],
+      "start": 100,
+      "maxresults": 1,
+      "oracle_count": 5,
+      "candidate_count": 5,
+      "oracle_start": 100,
+      "candidate_start": 100,
+      "oracle_end": 100,
+      "candidate_end": 100,
+      "oracle_ordered_paths": [],
+      "candidate_ordered_paths": [],
+      "projection_match": true,
+      "oracle_sha256": "57785f01b3b71dc965e3f16211369d9b699384b2a9d99e0b8afbcf3b29cda11e",
+      "candidate_sha256": "eae5a2e6b1101ee0fd23c0625ccf99f75622f24e43f4eec1658d359b38543033"
+    }
+  ]
+}

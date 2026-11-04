@@ -1,0 +1,9 @@
+{
+  "exact_path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/incremental",
+  "before_free_bytes": 2915024896,
+  "after_free_bytes": 3069792256,
+  "logical_cache_bytes": 214077645,
+  "only_task_cargo_incremental_removed": true,
+  "no_cargo_rustc_process": true,
+  "binaries_retained_in": "binaries-before-structure.json"
+}

@@ -1,0 +1,101 @@
+{
+  "scope": "native macOS FULL analysis and existing index/host correctness; no performance test; host default stdout completed but exit not reaped, host hooks not run",
+  "base_commit": "9f29f0827d867cf6c947085852afa3b0d102c607",
+  "environment": {
+    "CARGO_BUILD_JOBS": "1",
+    "CARGO_TARGET_DIR": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target",
+    "TMPDIR": "/private/tmp"
+  },
+  "guard": {
+    "reserve_bytes": 2684354560,
+    "sample_interval_seconds": 0.5,
+    "not_system_quota": true
+  },
+  "inputs": {
+    "crates/analysis/Cargo.toml": "a4360ddb88ea1027570510483ba5f26c3858d4743a320621e60d3d9295d14a72",
+    "crates/analysis/Cargo.lock": "5e6e756e5248bcc8f6d27e7f81a64d96c183e980e2d673c1895915217f314d91",
+    "crates/analysis/src/lib.rs": "54c3e90dc20defba7cf7113f6855cbad4a5e56a3a9a40dafcf672d7cc9ce49f1",
+    "crates/analysis/src/full.rs": "47a1298f76242c92b8d01c94ea6a1f83d2ababd891a95b5a55e197c0aaeb1079",
+    "crates/analysis/tests/full_integration.rs": "fe322c63e36246d10a2864eb7df4f8d24e8e5f6d60ed7d09e13314c970ced6d6",
+    "crates/path-index/Cargo.toml": "62ab3ffd357e58cab4f34d1bfe13d068dc0e9f7aadbb582f99f800f32d60d09d",
+    "crates/path-index/Cargo.lock": "d5c3ce966e6edc5626f1ab0a900338bf19a1f419461354e60e6a6b56ee2eb291",
+    "crates/path-index/src/lib.rs": "cb1fd78c020197dde0abf8baaf98de8f30b7613097f5ee7526b2b6215e29f414",
+    "crates/path-index/src/query.rs": "9ed8aed8cc54bddcc740391de412fc058cddd0591cc5dee36c486d9f6d968a3c",
+    "crates/path-index/src/durable.rs": "28c82e3a0ae87fa5c56cfbfae5fd18e434ff59e3989a980074fec601c9186171",
+    "crates/path-index/src/durable/batch.rs": "6f728f0665047ec5f10d744eb2b1697da7dbaf53f2ba099765e9e81f139067b3",
+    "crates/path-index/src/durable/scanner.rs": "8533bd602b2716294c51d129a758ba80629e9afe21dc4a3b7548450da55f442f",
+    "crates/path-index/tests/durable_batch.rs": "da352fe1ad966ad457af98cd404000a15575156a2b85524428685697a7d56c88",
+    "apps/grok-host/Cargo.toml": "bbb92dbacf391c3ad373e97142638c04a8da99935b9af21bc734abb45d771bce",
+    "apps/grok-host/Cargo.lock": "660ab27faba2d82702e287f0e908ddb427764fd30605cfbd922508843250b3ba",
+    "apps/grok-host/src/main.rs": "2ded7458fd640124c2e13f14aae5b430d451fe51ea4785d8feb8839e5793aa28",
+    "apps/grok-host/src/host.rs": "0a7dd231de37e2586fc8ef1f417338f79bf883968bc0000ee48a28368148154b",
+    "apps/grok-host/tests/batch_host_e2e.rs": "e12a104929b682360715ed6da842d10bf18b2cd9aa7e5ecf1c422a308a804848",
+    "apps/grok-host/tests/batch_cli_e2e.rs": "09826b337263d077e2ba188f1e0f60e0deb36d7cb43124bf18b7146fcb9e28f7",
+    "apps/grok-host/tests/host_e2e.rs": "3cef5e0f323777607811521aebc1891d32e7c6836e2735e8ac718f49666c188f",
+    "apps/grok-host/tests/cli_e2e.rs": "1cf6904ae1ec9c27d5a38ce54c484b59e841cf85d73022a9a46a93a4915d9778"
+  },
+  "runs": [
+    {
+      "label": "analysis",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "crates/analysis/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--",
+        "--test-threads=1"
+      ],
+      "stdout_sha256": "ceb2a1f200609f201a87bc72deb3477e67d068802d8c7e3e575594889a218134",
+      "stderr_sha256": "4b5296336bc47e1e6fa56c14cfe65631c585b62e50a7e8178b1d8ceb3706c623",
+      "lowest_observed_free_bytes": 3943284736,
+      "guard_samples": 12,
+      "test_binary": {
+        "sha256": "3f1bf6f2eed01b1cd3dca878f4faaffb8645883ddd3d54045409453b83795277",
+        "bytes": 2085120,
+        "local_path": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/sha256-3f1bf6f2eed01b1cd3dca878f4faaffb8645883ddd3d54045409453b83795277-full_integration-test",
+        "retention": "verified after run, before next build"
+      }
+    },
+    {
+      "label": "index-fault",
+      "status": "PASS",
+      "exit_code": 0,
+      "command": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "crates/path-index/Cargo.toml",
+        "--locked",
+        "--offline",
+        "--features",
+        "fault-injection",
+        "--",
+        "--test-threads=1"
+      ],
+      "stdout_sha256": "72d98af37e152fd82cf93034ea9c69c5ffbd9bb8f64c332326ad413f510a58bb",
+      "stderr_sha256": "d721ac6caa8b92eda8f91193c3aa1779c720010f10bdde8415aeb8774ec55511",
+      "lowest_observed_free_bytes": 3856351232,
+      "guard_samples": 23,
+      "test_binary": {
+        "sha256": "877ca8b98941c5d40904a28c8264dd11b15baed7ba992da36b4aeb76254c17ca",
+        "bytes": 2920112,
+        "local_path": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/sha256-877ca8b98941c5d40904a28c8264dd11b15baed7ba992da36b4aeb76254c17ca-durable_batch-test",
+        "retention": "verified after run, before next build"
+      }
+    },
+    {
+      "label": "host-default",
+      "status": "UNVERIFIED_EXIT",
+      "reason": "Runner stopped after stdout completed to avoid starting the unnecessary hooks suite; child exit was not reaped by the receipt runner.",
+      "stdout_sha256": "0274f61bc8923b38498e677958913900f9d839c19fd8caeedcee65d5f665f948",
+      "stderr_sha256": "f043a082bb4dd7d674a5a1376732720e159a791ed58861d0c6d44b6c97512f18"
+    }
+  ],
+  "omitted": [
+    "host-hooks: outside this analysis-only change"
+  ]
+}

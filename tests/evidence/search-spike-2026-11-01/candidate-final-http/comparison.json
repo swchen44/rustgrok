@@ -1,0 +1,299 @@
+{
+  "scope": "limited G1 comparison; not product or full parity acceptance",
+  "comparison_projection": "resultCount, ordered paths and line numbers; empty original lineNumber means no source line; original time and snippet/tag are outside this projection and raw responses remain unchanged",
+  "sort_or_reorder_applied": false,
+  "cases": [
+    {
+      "name": "full_alpha",
+      "candidate_exit_code": 0,
+      "candidate_http_status": 200,
+      "oracle_sha256": "1c4112a8f724c319e2b969848970bbed76323aeeeb4fd7ccfa599ae0d6ab45a6",
+      "candidate_sha256": "77bb95f998309a95ebd20822b5b8040e1353e1f309e1f7fb9140d649632ee724",
+      "oracle_count": 3,
+      "candidate_count": 3,
+      "count_match": true,
+      "oracle_ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/alpha/component-js/function.js",
+        "/alpha/component-c/nested-js/function.js"
+      ],
+      "candidate_ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ],
+      "ordered_paths_match": false,
+      "oracle_line_numbers_by_path": {
+        "/alpha/component-c/main.c": [
+          3
+        ],
+        "/alpha/component-js/function.js": [
+          18
+        ],
+        "/alpha/component-c/nested-js/function.js": [
+          18
+        ]
+      },
+      "candidate_line_numbers_by_path": {
+        "/alpha/component-c/main.c": [
+          3
+        ],
+        "/alpha/component-c/nested-js/function.js": [
+          18
+        ],
+        "/alpha/component-js/function.js": [
+          18
+        ]
+      },
+      "line_numbers_by_path_match": true
+    },
+    {
+      "name": "path_alpha",
+      "candidate_exit_code": 0,
+      "candidate_http_status": 200,
+      "oracle_sha256": "002ec1790b1837fe7ec8777cb565cbd0b246bf14c54c77baa4d548977ce7acae",
+      "candidate_sha256": "dcc9bf843ce7b89bd812736e17e6e8f0f14436cecc2d97eac4008cd3d0663b08",
+      "oracle_count": 1,
+      "candidate_count": 1,
+      "count_match": true,
+      "oracle_ordered_paths": [
+        "/alpha/component-c/main.c"
+      ],
+      "candidate_ordered_paths": [
+        "/alpha/component-c/main.c"
+      ],
+      "ordered_paths_match": true,
+      "oracle_line_numbers_by_path": {
+        "/alpha/component-c/main.c": []
+      },
+      "candidate_line_numbers_by_path": {
+        "/alpha/component-c/main.c": []
+      },
+      "line_numbers_by_path_match": true
+    },
+    {
+      "name": "definition_alpha",
+      "candidate_exit_code": 0,
+      "candidate_http_status": 200,
+      "oracle_sha256": "1cead9b2a2a91226f161b0949459310cefd3416e570ade2543e4550e140deb0f",
+      "candidate_sha256": "77bb95f998309a95ebd20822b5b8040e1353e1f309e1f7fb9140d649632ee724",
+      "oracle_count": 3,
+      "candidate_count": 3,
+      "count_match": true,
+      "oracle_ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/alpha/component-js/function.js",
+        "/alpha/component-c/nested-js/function.js"
+      ],
+      "candidate_ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ],
+      "ordered_paths_match": false,
+      "oracle_line_numbers_by_path": {
+        "/alpha/component-c/main.c": [
+          3
+        ],
+        "/alpha/component-js/function.js": [
+          18
+        ],
+        "/alpha/component-c/nested-js/function.js": [
+          18
+        ]
+      },
+      "candidate_line_numbers_by_path": {
+        "/alpha/component-c/main.c": [
+          3
+        ],
+        "/alpha/component-c/nested-js/function.js": [
+          18
+        ],
+        "/alpha/component-js/function.js": [
+          18
+        ]
+      },
+      "line_numbers_by_path_match": true
+    },
+    {
+      "name": "reference_beta",
+      "candidate_exit_code": 0,
+      "candidate_http_status": 200,
+      "oracle_sha256": "f1429a2bc2e8de409cf3d3fcf13f435f51122c39417ebe9b74a30af80cc5cc8f",
+      "candidate_sha256": "b50b62448b9e72135c55314a97658e8f77e1eeec1026f5450039abdce9a8589f",
+      "oracle_count": 2,
+      "candidate_count": 2,
+      "count_match": true,
+      "oracle_ordered_paths": [
+        "/beta/component-py/main.py",
+        "/beta/component-c/main.c"
+      ],
+      "candidate_ordered_paths": [
+        "/beta/component-c/main.c",
+        "/beta/component-py/main.py"
+      ],
+      "ordered_paths_match": false,
+      "oracle_line_numbers_by_path": {
+        "/beta/component-py/main.py": [
+          43,
+          56
+        ],
+        "/beta/component-c/main.c": [
+          3
+        ]
+      },
+      "candidate_line_numbers_by_path": {
+        "/beta/component-c/main.c": [
+          3
+        ],
+        "/beta/component-py/main.py": [
+          43,
+          56
+        ]
+      },
+      "line_numbers_by_path_match": true
+    },
+    {
+      "name": "full_both",
+      "candidate_exit_code": 0,
+      "candidate_http_status": 200,
+      "oracle_sha256": "81b3ffb58be9f72ca17a230a5f6a30e9df61f19143eab4a4c89361b7ebfb6054",
+      "candidate_sha256": "33ab829e782e90ea1141d3722fc6e086f5cd7c9186d8d495f38a8d916958463e",
+      "oracle_count": 5,
+      "candidate_count": 5,
+      "count_match": true,
+      "oracle_ordered_paths": [
+        "/beta/component-py/main.py",
+        "/alpha/component-c/main.c",
+        "/beta/component-c/main.c",
+        "/alpha/component-js/function.js",
+        "/alpha/component-c/nested-js/function.js"
+      ],
+      "candidate_ordered_paths": [
+        "/beta/component-c/main.c",
+        "/beta/component-py/main.py",
+        "/alpha/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ],
+      "ordered_paths_match": false,
+      "oracle_line_numbers_by_path": {
+        "/beta/component-py/main.py": [
+          43,
+          56
+        ],
+        "/alpha/component-c/main.c": [
+          3
+        ],
+        "/beta/component-c/main.c": [
+          3
+        ],
+        "/alpha/component-js/function.js": [
+          18
+        ],
+        "/alpha/component-c/nested-js/function.js": [
+          18
+        ]
+      },
+      "candidate_line_numbers_by_path": {
+        "/beta/component-c/main.c": [
+          3
+        ],
+        "/beta/component-py/main.py": [
+          43,
+          56
+        ],
+        "/alpha/component-c/main.c": [
+          3
+        ],
+        "/alpha/component-c/nested-js/function.js": [
+          18
+        ],
+        "/alpha/component-js/function.js": [
+          18
+        ]
+      },
+      "line_numbers_by_path_match": true
+    },
+    {
+      "name": "definition_beta",
+      "candidate_exit_code": 0,
+      "candidate_http_status": 200,
+      "oracle_sha256": "c68a992c4b0c78a912de388df1b8af32a62ce8f75fe780067adda03c8298526c",
+      "candidate_sha256": "7ea108ad124bff70ea427284ef2500306fd95bf211a32aa9088eacb0c4b3371e",
+      "oracle_count": 2,
+      "candidate_count": 2,
+      "count_match": true,
+      "oracle_ordered_paths": [
+        "/beta/component-c/main.c",
+        "/beta/component-py/main.py"
+      ],
+      "candidate_ordered_paths": [
+        "/beta/component-c/main.c",
+        "/beta/component-py/main.py"
+      ],
+      "ordered_paths_match": true,
+      "oracle_line_numbers_by_path": {
+        "/beta/component-c/main.c": [
+          3
+        ],
+        "/beta/component-py/main.py": [
+          43
+        ]
+      },
+      "candidate_line_numbers_by_path": {
+        "/beta/component-c/main.c": [
+          3
+        ],
+        "/beta/component-py/main.py": [
+          43
+        ]
+      },
+      "line_numbers_by_path_match": true
+    },
+    {
+      "name": "reference_alpha",
+      "candidate_exit_code": 0,
+      "candidate_http_status": 200,
+      "oracle_sha256": "f4fa9f3c852d916e31b296cb9b612eee493e57913ae6fd5b0beea44cc2557cee",
+      "candidate_sha256": "77bb95f998309a95ebd20822b5b8040e1353e1f309e1f7fb9140d649632ee724",
+      "oracle_count": 3,
+      "candidate_count": 3,
+      "count_match": true,
+      "oracle_ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ],
+      "candidate_ordered_paths": [
+        "/alpha/component-c/main.c",
+        "/alpha/component-c/nested-js/function.js",
+        "/alpha/component-js/function.js"
+      ],
+      "ordered_paths_match": true,
+      "oracle_line_numbers_by_path": {
+        "/alpha/component-c/main.c": [
+          3
+        ],
+        "/alpha/component-c/nested-js/function.js": [
+          18
+        ],
+        "/alpha/component-js/function.js": [
+          18
+        ]
+      },
+      "candidate_line_numbers_by_path": {
+        "/alpha/component-c/main.c": [
+          3
+        ],
+        "/alpha/component-c/nested-js/function.js": [
+          18
+        ],
+        "/alpha/component-js/function.js": [
+          18
+        ]
+      },
+      "line_numbers_by_path_match": true
+    }
+  ]
+}
