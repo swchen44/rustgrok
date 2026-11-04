@@ -336,6 +336,24 @@ impl DurableFullIndex {
     ) -> Result<u64, FullStoreError> {
         self.replace_impl(expected, projects, cancel, fault, None, None)
     }
+    /// Test-only observer after rename, before the publication directory sync.
+    #[cfg(feature = "fault-injection")]
+    pub fn replace_with_publication_observer(
+        &self,
+        expected: Option<u64>,
+        projects: &[String],
+        cancel: &CancellationToken,
+        observer: &mut dyn FnMut(),
+    ) -> Result<u64, FullStoreError> {
+        self.replace_impl(
+            expected,
+            projects,
+            cancel,
+            FaultPoint::ObserveAfterRename,
+            None,
+            Some(observer),
+        )
+    }
     fn replace_impl(
         &self,
         expected: Option<u64>,
@@ -515,8 +533,10 @@ impl DurableFullIndex {
         if read_at(&self.root, &format!("P-{id}"), 80)?.as_deref() != Some(next_ptr.as_slice()) {
             return Err(DurableError::Corrupt.into());
         }
-        if let Some(observe) = precommit.as_mut() {
-            observe();
+        if fault != FaultPoint::ObserveAfterRename {
+            if let Some(observe) = precommit.as_mut() {
+                observe();
+            }
         }
         self.check_source()?;
         for (project, original) in &observed {
@@ -538,17 +558,34 @@ impl DurableFullIndex {
         }
         let next = Arc::new(data);
         let mut live = self.live.lock().map_err(|_| IndexError::LockPoisoned)?;
-        let mut current = self.current.write().map_err(|_| IndexError::LockPoisoned)?;
         cancel.begin_publication()?;
         inject_exit(fault, FaultPoint::ExitBeforeRename);
         rename_at(&self.root, &format!("P-{id}"), "CURRENT")?;
         inject_exit(fault, FaultPoint::ExitAfterRename);
+        if fault == FaultPoint::ObserveAfterRename {
+            if let Some(observe) = precommit.as_mut() {
+                if let Err(panic) = std::panic::catch_unwind(std::panic::AssertUnwindSafe(observe))
+                {
+                    self.indeterminate.store(true, Ordering::Release);
+                    std::panic::resume_unwind(panic);
+                }
+            }
+        }
         if (cfg!(feature = "fault-injection") && fault == FaultPoint::FailDirectorySync)
             || self.root.sync_all().is_err()
         {
             self.indeterminate.store(true, Ordering::Release);
             return Err(DurableError::PublicationIndeterminate.into());
         }
+        // Queries retain the previous immutable Arc throughout all durable I/O.
+        // The new in-memory batch becomes visible only after directory sync.
+        let mut current = match self.current.write() {
+            Ok(current) => current,
+            Err(_) => {
+                self.indeterminate.store(true, Ordering::Release);
+                return Err(DurableError::PublicationIndeterminate.into());
+            }
+        };
         *ptr = next_ptr;
         live.push(Arc::downgrade(&next));
         *current = Some(next);

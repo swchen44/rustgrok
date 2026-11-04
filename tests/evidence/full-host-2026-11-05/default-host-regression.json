@@ -1,0 +1,64 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--offline",
+    "--manifest-path",
+    "apps/grok-host/Cargo.toml",
+    "--test",
+    "host_e2e",
+    "--test",
+    "batch_host_e2e",
+    "--test",
+    "full_host_e2e",
+    "--test",
+    "full_cli_e2e",
+    "--",
+    "--test-threads=1"
+  ],
+  "exit": 0,
+  "status": "passed",
+  "free_before_bytes": 3125555200,
+  "free_after_bytes": 3104260096,
+  "minimum_sampled_free_bytes": 3104260096,
+  "reserve_bytes": 2684354560,
+  "cargo_incremental": "0",
+  "cargo_build_jobs": "1",
+  "config_note": "incremental=0 was also used in original runs; build jobs=1 is newly explicit for resumed verification, producing separately retained binaries",
+  "target_dir": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target",
+  "base_checkpoint": "603945346fd8523ca31ad9839b6ea477b866fff0",
+  "runner_sha256": "04535161592bbd175d91224e600bf36153989380a9e5266830dca707c61fbd83",
+  "executed_binaries": [
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/batch_host_e2e-518eb7e7b686e9ba",
+      "sha256": "764ea8807709b4e7ed2e37c205fe455a3744d66043e8681892b53d706325bc63",
+      "retained": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/764ea8807709b4e7ed2e37c205fe455a3744d66043e8681892b53d706325bc63",
+      "size": 1652000
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/full_cli_e2e-87c99add6bf413c5",
+      "sha256": "adc7cfa9009ff2a69d1832737765e09c60dc9df613ef24e724a926a49c99ae40",
+      "retained": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/adc7cfa9009ff2a69d1832737765e09c60dc9df613ef24e724a926a49c99ae40",
+      "size": 1556176
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/full_host_e2e-d128bbdb05a3accb",
+      "sha256": "9f3491e8b45f7e0ac911ff0358b2b4db9f5480af385d4c8a30af1732ca5178ca",
+      "retained": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/9f3491e8b45f7e0ac911ff0358b2b4db9f5480af385d4c8a30af1732ca5178ca",
+      "size": 1673104
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/host_e2e-0f7bd76a633d423d",
+      "sha256": "8de3d43f9cbb6007f09f52b6a8008e6edbc4aa2b979b04e091b90cff352f9af4",
+      "retained": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/8de3d43f9cbb6007f09f52b6a8008e6edbc4aa2b979b04e091b90cff352f9af4",
+      "size": 2446296
+    },
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/rustgrok",
+      "sha256": "e467af54dde45b484f64a5c7c118e0999e781a080ab809bafa73506285607bbf",
+      "retained": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/e467af54dde45b484f64a5c7c118e0999e781a080ab809bafa73506285607bbf",
+      "size": 3142472
+    }
+  ]
+}

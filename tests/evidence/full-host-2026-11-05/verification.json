@@ -1,0 +1,90 @@
+{
+  "status": "scoped_correctness_passed_independent_review_pending",
+  "base_commit": "603945346fd8523ca31ad9839b6ea477b866fff0",
+  "runtime_and_static_passes": {
+    "full_host_default": 5,
+    "full_host_test_hooks": 9,
+    "publication_API": 2,
+    "full_store_fault_regression": 5,
+    "full_direct_CLI_default": 5,
+    "full_direct_CLI_hooks": 7,
+    "legacy_single_host_default": 15,
+    "legacy_single_host_hooks": 23,
+    "legacy_batch_host_default": 3,
+    "legacy_batch_host_hooks": 5,
+    "index_clippy_all_targets_fault_Dwarnings": "passed",
+    "CLI_clippy_all_targets_hooks_Dwarnings": "passed",
+    "evidence_contract": 2,
+    "index_and_CLI_fmt_check": "passed"
+  },
+  "runs": {
+    "default-host-regression": {
+      "receipt": "default-host-regression.json",
+      "sha256": "c007e9510c16a008dc5d409a06afdea1f4ed7f9492e4d60d4302d6963a103168",
+      "minimum_sampled_free_bytes": 3104260096
+    },
+    "hooks-host-regression": {
+      "receipt": "hooks-host-regression.json",
+      "sha256": "fdd5ebc48e07d26a905ff5c2ad87155a3fd2d8477be4a028eb5e902c1c1e5f05",
+      "minimum_sampled_free_bytes": 3064827904
+    },
+    "full-store-fault-regression": {
+      "receipt": "full-store-fault-regression.json",
+      "sha256": "ed9b4f3d7398534183ccd7ab6a13a5709a765460d0ee6207d7d345c099448ff5",
+      "minimum_sampled_free_bytes": 3054698496
+    },
+    "host-publication-green": {
+      "receipt": "host-publication-green.json",
+      "sha256": "86cabaf290eaf6fdcb5e4af52f392db0c56c32b53109fe4ee05c4910de0703f2",
+      "minimum_sampled_free_bytes": 3125092352
+    },
+    "publication-green": {
+      "receipt": "publication-green.json",
+      "sha256": "6fb35c14ebb981b07355602810dd8a056a2aa0c787958f6e58f5e638701fe46a",
+      "minimum_sampled_free_bytes": 2885959680
+    },
+    "index-clippy": {
+      "receipt": "index-clippy.json",
+      "sha256": "3881a547747e83462a6536b7d7ebff75c7b7de19b0cd12ee3ca911f6938d8cfb",
+      "minimum_sampled_free_bytes": 3127250944
+    },
+    "cli-clippy": {
+      "receipt": "cli-clippy.json",
+      "sha256": "6494d80013f2041ce4b0906e77e57de1c917c2349fae3c410557318eceb49f45",
+      "minimum_sampled_free_bytes": 3126198272
+    },
+    "evidence-contract": {
+      "receipt": "evidence-contract.json",
+      "sha256": "819d553d8be7131cc2c95263697026f551cbb5a4601a597b64baf5157d9f70a3",
+      "minimum_sampled_free_bytes": 3611144192
+    },
+    "fmt-index-check": {
+      "receipt": "fmt-index-check.json",
+      "sha256": "73943d9f0cfc91fb76d54e34b597bf0db0c4d510d51b306bfce7f95ef508fe2c",
+      "minimum_sampled_free_bytes": 3610697728
+    },
+    "fmt-cli-check": {
+      "receipt": "fmt-cli-check.json",
+      "sha256": "8300f407c9667ebf76e5b20750065ad7d721189065265eed5940e7135ebfbbe8",
+      "minimum_sampled_free_bytes": 3613093888
+    }
+  },
+  "minimum_sampled_free_bytes_in_listed_runs": 2885959680,
+  "reserve_bytes": 2684354560,
+  "product_tests_80": "planned_not_run",
+  "benchmark_profiling": "not_performed",
+  "new_java_oracle_executions": 0,
+  "independent_review": "pending",
+  "package_validation": {
+    "report": "planning-quality-report.json",
+    "manifest": "planning-manifest.json",
+    "external_run_receipt": "/Users/swchen.tw/Library/Caches/rustgrok/full-host-package-6039453/package.json",
+    "note": "Consult the actual generated report and external command receipt; no package result is predeclared by this JSON."
+  },
+  "limitations": [
+    "macOS arm64/APFS bounded private local host only; no Linux/Windows native acceptance.",
+    "Same already verified restricted FULL reader/token/query/store profile; no Web/ranking/grammar/source reading snapshot or engine selection.",
+    "Unchanged complete analyzer/index historical suites were not mechanically repeated.",
+    "Controlled publication observer is after rename before final directory sync, not an in-kernel I/O stall or performance measurement."
+  ]
+}

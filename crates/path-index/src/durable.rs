@@ -52,6 +52,7 @@ pub enum FaultPoint {
     NoSpacePointerWrite,
     ObserveBeforeCommit,
     ObserveBeforeWriterLock,
+    ObserveAfterRename,
 }
 
 fn inject_no_space(fault: FaultPoint, point: FaultPoint) -> Result<(), DurableError> {

@@ -1,0 +1,7 @@
+
+running 2 tests
+test old_snapshot_is_available_after_rename_before_directory_sync_completes ... ok
+test panic_after_rename_blocks_new_snapshots_until_reopen ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s
+

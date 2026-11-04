@@ -1,0 +1,32 @@
+
+running 5 tests
+test batch_socket_rejects_duplicate_and_unknown_request_fields ... ok
+test cancelled_failed_and_stale_batch_jobs_keep_both_old_projects ... ok
+test full_host_indexes_postings_queries_and_restarts ... ok
+test old_batch_stays_queryable_during_second_scan_then_switches_together ... FAILED
+test worker_panic_and_indeterminate_block_reads_until_restart ... FAILED
+
+failures:
+
+---- old_batch_stays_queryable_during_second_scan_then_switches_together stdout ----
+
+thread 'old_batch_stays_queryable_during_second_scan_then_switches_together' (13474657) panicked at tests/full_host_e2e.rs:277:5:
+assertion `left == right` failed
+  left: Array [Object {"path": String("/alpha/repo/nested/public.js"), "positions": Array [Object {"end_byte": Number(43), "end_utf16": Number(43), "position": Number(11), "start_byte": Number(40), "start_utf16": Number(40)}, Object {"end_byte": Number(710), "end_utf16": Number(710), "position": Number(190), "start_byte": Number(707), "start_utf16": Number(707)}, Object {"end_byte": Number(758), "end_utf16": Number(758), "position": Number(203), "start_byte": Number(755), "start_utf16": Number(755)}], "source_sha256": String("7e37130f0b5a078fea055a885632cdc00e1989def53e4fafe8b52a75824f8805")}]
+ right: Array []
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- worker_panic_and_indeterminate_block_reads_until_restart stdout ----
+
+thread 'worker_panic_and_indeterminate_block_reads_until_restart' (13474707) panicked at tests/full_host_e2e.rs:388:13:
+assertion `left == right` failed
+  left: 2
+ right: 1
+
+
+failures:
+    old_batch_stays_queryable_during_second_scan_then_switches_together
+    worker_panic_and_indeterminate_block_reads_until_restart
+
+test result: FAILED. 3 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.10s
+

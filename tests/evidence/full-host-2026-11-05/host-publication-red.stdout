@@ -1,0 +1,20 @@
+
+running 1 test
+test host_keeps_old_full_postings_while_final_publication_sync_is_pending ... FAILED
+
+failures:
+
+---- host_keeps_old_full_postings_while_final_publication_sync_is_pending stdout ----
+
+thread 'host_keeps_old_full_postings_while_final_publication_sync_is_pending' (13476308) panicked at tests/full_host_e2e.rs:493:9:
+assertion `left != right` failed: publication-boundary gate missing
+  left: String("succeeded")
+ right: "succeeded"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    host_keeps_old_full_postings_while_final_publication_sync_is_pending
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.43s
+

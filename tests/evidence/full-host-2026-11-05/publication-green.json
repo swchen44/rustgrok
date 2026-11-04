@@ -1,0 +1,36 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--offline",
+    "--manifest-path",
+    "crates/path-index/Cargo.toml",
+    "--features",
+    "fault-injection",
+    "--test",
+    "full_host_publication",
+    "--",
+    "--test-threads=1"
+  ],
+  "exit": 0,
+  "status": "passed",
+  "free_before_bytes": 2888691712,
+  "free_after_bytes": 2885959680,
+  "minimum_sampled_free_bytes": 2885959680,
+  "reserve_bytes": 2684354560,
+  "cargo_incremental": "0",
+  "cargo_build_jobs": "1",
+  "config_note": "incremental=0 was also used in original runs; build jobs=1 is newly explicit for resumed verification, producing separately retained binaries",
+  "target_dir": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target",
+  "base_checkpoint": "603945346fd8523ca31ad9839b6ea477b866fff0",
+  "runner_sha256": "04535161592bbd175d91224e600bf36153989380a9e5266830dca707c61fbd83",
+  "executed_binaries": [
+    {
+      "path": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target/debug/deps/full_host_publication-6a95c5147913622d",
+      "sha256": "855a6620f16cd1ec7637bb6ed793c895f29dac46ed34496f5a717db2beddfa40",
+      "retained": "/Users/swchen.tw/Library/Caches/rustgrok/evidence-binaries/855a6620f16cd1ec7637bb6ed793c895f29dac46ed34496f5a717db2beddfa40",
+      "size": 2329432
+    }
+  ]
+}

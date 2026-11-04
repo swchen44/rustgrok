@@ -113,3 +113,7 @@ tests/evidence/full-sigma-admission-review-2026-11-04/*.txt -text whitespace=-bl
 # Preserve raw FULL reader/postings oracle and red/green native test output.
 tests/evidence/full-postings-2026-11-05/*.stdout -text whitespace=-blank-at-eof,-blank-at-eol
 tests/evidence/full-postings-2026-11-05/*.stderr -text whitespace=-blank-at-eof,-blank-at-eol
+
+# Preserve native FULL host red/green correctness streams without editing raw bytes.
+tests/evidence/full-host-2026-11-05/*.stdout -text whitespace=-blank-at-eof,-blank-at-eol
+tests/evidence/full-host-2026-11-05/*.stderr -text whitespace=-blank-at-eof,-blank-at-eol

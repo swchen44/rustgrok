@@ -1,0 +1,189 @@
+{
+  "scope": "bounded macOS FULL local host correctness; no benchmark/profile/new grammar/Web/ranking/native Linux or Windows acceptance",
+  "base_commit": "603945346fd8523ca31ad9839b6ea477b866fff0",
+  "upstream_commit": "3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3",
+  "previous_reader_analysis_oracle": "tests/evidence/full-postings-2026-11-05/oracle-receipt.json",
+  "new_java_oracle_executions": 0,
+  "platform": {
+    "sw_vers": "ProductName:\t\tmacOS\nProductVersion:\t\t15.7.7\nBuildVersion:\t\t24G720",
+    "uname -m": "arm64",
+    "rustc --version": "rustc 1.94.0 (4a4ef493e 2026-03-02)",
+    "cargo --version": "cargo 1.94.0 (85eff7c80 2026-01-15)"
+  },
+  "source_sha256": {
+    "apps/grok-host/src/host.rs": "bd0da161f9297e9225e1910994b2132f81aef5367e0541217a0d45223625ea32",
+    "apps/grok-host/src/main.rs": "09ad5c384254e3aa4070a119395c3747f26161787ec97b8f3f63ba9c97f3f3fb",
+    "crates/path-index/src/durable.rs": "67c829edf49b405322e94707873683e76e54067be6710d10efef61b692c7db33",
+    "crates/path-index/src/durable/full.rs": "cb57773fc2a8fb3398503070e1b294415a0fcce1ec7fded71361b732ad4f04de",
+    "apps/grok-host/tests/full_host_e2e.rs": "6b10b17cbdf2f98d5fcbe00b2bf4d0b2eb1159c692d2dbe611ff237754acb3de",
+    "crates/path-index/tests/full_host_publication.rs": "8202590e9c42fada4fe3612f000b6a0c06f39b48276c2aee7c8b964989934644"
+  },
+  "public_fixture_sha256": {
+    "tests/fixtures/public-source/c/main.c": "0afb5b45d1538ee86e23b046100c8e458614ba71e50f16c05bda1a52de0edb17",
+    "tests/fixtures/public-source/python/main.py.fixture": "c30bc720a38c39709e22f6bba1996b58c0a4e2e25d8cc6ea1bff7a348efde3f0",
+    "tests/fixtures/public-source/javascript/function.js": "7e37130f0b5a078fea055a885632cdc00e1989def53e4fafe8b52a75824f8805"
+  },
+  "runner_sha256": "04535161592bbd175d91224e600bf36153989380a9e5266830dca707c61fbd83",
+  "runs": {
+    "cli-clippy": {
+      "receipt": "cli-clippy.json",
+      "receipt_sha256": "6494d80013f2041ce4b0906e77e57de1c917c2349fae3c410557318eceb49f45",
+      "stdout": "cli-clippy.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "cli-clippy.stderr",
+      "stderr_sha256": "176a307148ee951df389ed5309eba2219bcfecb1eeb1691d6930680ebec807bd",
+      "status": "passed",
+      "exit": 0
+    },
+    "default-host-regression": {
+      "receipt": "default-host-regression.json",
+      "receipt_sha256": "c007e9510c16a008dc5d409a06afdea1f4ed7f9492e4d60d4302d6963a103168",
+      "stdout": "default-host-regression.stdout",
+      "stdout_sha256": "e98df48548f155c4986501066c94b84cdbedba70d627763e65f80d5bf856eca8",
+      "stderr": "default-host-regression.stderr",
+      "stderr_sha256": "0eafd5701f7babe85a8ef2a82cc9cf78702ca752f0eeac36e1b078b30b72851b",
+      "status": "passed",
+      "exit": 0
+    },
+    "full-host-hooks-cases": {
+      "receipt": "full-host-hooks-cases.json",
+      "receipt_sha256": "01974fa7de067a24e9aa40d0c5789e8e7c91d1eb28b67fc8ce897275a7fe065c",
+      "stdout": "full-host-hooks-cases.stdout",
+      "stdout_sha256": "50a87c810d4e4a51c014d01e55ca1255e1223cd7ee5b8ef08aab41bba74e101e",
+      "stderr": "full-host-hooks-cases.stderr",
+      "stderr_sha256": "2517539db7ffdea75d775feffe94fd49c6ef9b0195edf654ec2a24b49d191a83",
+      "status": "passed",
+      "exit": 0
+    },
+    "full-host-hooks-initial": {
+      "receipt": "full-host-hooks-initial.json",
+      "receipt_sha256": "6d8c84d5f3ab05c7c0fc200cf3f0d6d5fd5847408c2b3fa43b9f034343e685d9",
+      "stdout": "full-host-hooks-initial.stdout",
+      "stdout_sha256": "5a3056cc1deeb4707a287f57bb5e40f02fd09fb77097fc08baac4ba3e4b4c9df",
+      "stderr": "full-host-hooks-initial.stderr",
+      "stderr_sha256": "156ef4c01ea418933fd9ab790f1641a41c2caf1e7d3840de752dab17daab9d82",
+      "status": "failed",
+      "exit": 101
+    },
+    "full-store-fault-regression": {
+      "receipt": "full-store-fault-regression.json",
+      "receipt_sha256": "ed9b4f3d7398534183ccd7ab6a13a5709a765460d0ee6207d7d345c099448ff5",
+      "stdout": "full-store-fault-regression.stdout",
+      "stdout_sha256": "ef0ec5e931f0de26f5aa64f09f8e78c562b7afe98397ff7ea104dbb90ee08a02",
+      "stderr": "full-store-fault-regression.stderr",
+      "stderr_sha256": "d07855ef9d284e9962c77ebdcb1223e7c4cdc5e8e0c0c6df8f6d386056cd010a",
+      "status": "passed",
+      "exit": 0
+    },
+    "hooks-host-regression": {
+      "receipt": "hooks-host-regression.json",
+      "receipt_sha256": "fdd5ebc48e07d26a905ff5c2ad87155a3fd2d8477be4a028eb5e902c1c1e5f05",
+      "stdout": "hooks-host-regression.stdout",
+      "stdout_sha256": "131427ed696dbc2e7696ee82083e43c5e123e823f2372b0f7e3df6088183f72a",
+      "stderr": "hooks-host-regression.stderr",
+      "stderr_sha256": "410220749561f3c8806429dd6eed13f8e261d346033f97ce0679595458eea353",
+      "status": "passed",
+      "exit": 0
+    },
+    "host-publication-green": {
+      "receipt": "host-publication-green.json",
+      "receipt_sha256": "86cabaf290eaf6fdcb5e4af52f392db0c56c32b53109fe4ee05c4910de0703f2",
+      "stdout": "host-publication-green.stdout",
+      "stdout_sha256": "883e6ee5da2183704ec7b436ab697b2a9a606457589eff09b7025c92b0989695",
+      "stderr": "host-publication-green.stderr",
+      "stderr_sha256": "cb4c0dc21665b133d042076101948c04457699b6dc0cbcc2b3db5d6585c3b924",
+      "status": "passed",
+      "exit": 0
+    },
+    "host-publication-red": {
+      "receipt": "host-publication-red.json",
+      "receipt_sha256": "28293eb2f422b1817c05bdd8574170f3f1cdba21bec7a2b0944b646540db2b1f",
+      "stdout": "host-publication-red.stdout",
+      "stdout_sha256": "e33eac6b2b0366acdb5f2969a51a2797cf0d0aa9d56c47fed41eef71f077b022",
+      "stderr": "host-publication-red.stderr",
+      "stderr_sha256": "008fdecf4889fffa00d9e3f2c0b99bb31551c63bf58e5c635166bce03f717d11",
+      "status": "failed",
+      "exit": 101
+    },
+    "index-clippy": {
+      "receipt": "index-clippy.json",
+      "receipt_sha256": "3881a547747e83462a6536b7d7ebff75c7b7de19b0cd12ee3ca911f6938d8cfb",
+      "stdout": "index-clippy.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "index-clippy.stderr",
+      "stderr_sha256": "64bb411ed530cec6b307c13e9723743d2e71fe6ec3c5209383fdc5b706967d98",
+      "status": "passed",
+      "exit": 0
+    },
+    "publication-green": {
+      "receipt": "publication-green.json",
+      "receipt_sha256": "6fb35c14ebb981b07355602810dd8a056a2aa0c787958f6e58f5e638701fe46a",
+      "stdout": "publication-green.stdout",
+      "stdout_sha256": "8c0182edeef242cc97da70286981d47ff305d6e1fe7baf9a2047e88db5764208",
+      "stderr": "publication-green.stderr",
+      "stderr_sha256": "3b0b6bfa4ccafbed6ebbef5ed3189fa0bdeb31d3a21862c3b94a6f90fe1982e2",
+      "status": "passed",
+      "exit": 0
+    },
+    "publication-red": {
+      "receipt": "publication-red.json",
+      "receipt_sha256": "c2e5755b7d022f07ba4bf10e78de3fdd100d8b50f3923c19bc2670f460106594",
+      "stdout": "publication-red.stdout",
+      "stdout_sha256": "500f35eb5a6abb641c24c2949f6d861c15511c874b6ceaadfd688579e785328a",
+      "stderr": "publication-red.stderr",
+      "stderr_sha256": "b955e147469dea3cc48bf81ee5be4de16e11e488a7b954da8198a90050937f8b",
+      "status": "failed",
+      "exit": 101
+    },
+    "tracer-green-corrected-fixture": {
+      "receipt": "tracer-green-corrected-fixture.json",
+      "receipt_sha256": "8eca62d567cb262edabf83e29181e9fae4a631c125caa96f95628fd6232b9b34",
+      "stdout": "tracer-green-corrected-fixture.stdout",
+      "stdout_sha256": "313e89035ee8ed8ace48c5ebeca44afbe0be1c9b2f13232433f8ed6fdff5b119",
+      "stderr": "tracer-green-corrected-fixture.stderr",
+      "stderr_sha256": "9b7403527f5854e18c03437c6427f1873a07acf7b75811d296ce28154f66bb41",
+      "status": "passed",
+      "exit": 0
+    },
+    "tracer-green": {
+      "receipt": "tracer-green.json",
+      "receipt_sha256": "cf4cd1e98c4f09743e394a1b0382f854c32da38f332d415791470e9662a3a378",
+      "stdout": "tracer-green.stdout",
+      "stdout_sha256": "5e56a46c08ed9ab39e588aa2a5fea1c8e39afe3def4d834cf281b50d72b7cba8",
+      "stderr": "tracer-green.stderr",
+      "stderr_sha256": "a9b4ca118a7f9855531da4b0aca1c0017f3efaf6f7fa88bba860b503f44c9e7d",
+      "status": "failed",
+      "exit": 101
+    },
+    "tracer-red": {
+      "receipt": "tracer-red.json",
+      "receipt_sha256": "9af8c263862cbe3af1d4ffa4585af798443d008cfb0559930f33ef1451b9e66f",
+      "stdout": "tracer-red.stdout",
+      "stdout_sha256": "c8b931cf23114b6b19c828259f80c20bc7cbb306ce4179c9f2a8c3fb40060026",
+      "stderr": "tracer-red.stderr",
+      "stderr_sha256": "048a817154f28d827f9311f729e8dc2cbbe1cd7d86f1348adeaf687f457dc8a8",
+      "status": "failed",
+      "exit": 101
+    }
+  },
+  "failure_explanations": {
+    "tracer-red": "Expected absent full-host command; no listening response.",
+    "tracer-green": "Test SHA literal for synthetic old newline fixture had an incorrect suffix; independently recomputed and corrected, no production hash change.",
+    "publication-red": "Expected failure: old snapshot timed out while publication held current.write across directory sync boundary.",
+    "full-host-hooks-initial": "Test reused path-only new marker assumptions; the public JavaScript contains legitimate new terms. Switched only synthetic markers/queries to freshbatchtoken.",
+    "host-publication-red": "Expected missing controlled publication-pause gate before adding the feature-only host observer."
+  },
+  "product_tests_80": "planned_not_run",
+  "independent_review": "pending",
+  "reserve_bytes": 2684354560,
+  "minimum_sampled_free_bytes": 2846105600,
+  "build_configuration": {
+    "CARGO_INCREMENTAL": "0",
+    "CARGO_BUILD_JOBS": "1"
+  },
+  "not_run": [
+    "Complete unchanged analysis/index library suites: outside this focused host change; affected FULL fault API tests were run.",
+    "Independent review and complete cross-platform/product acceptance.",
+    "Any benchmark or profiler."
+  ]
+}

@@ -204,6 +204,40 @@ mod mac {
     }
     fn run(args: &[String]) -> Result<Value, Failure> {
         match args {
+            [command, store, src, control] if command == "full-host" => {
+                crate::host::serve_full(store, src, control)
+            }
+            [command, control, expected, projects @ ..]
+                if command == "full-host-index" && !projects.is_empty() =>
+            {
+                expected_generation(expected)?;
+                if projects.len() > FullLimits::default().max_projects {
+                    return Err(Failure::new(4, "unsupported_or_limit"));
+                }
+                for name in projects {
+                    project(name)?;
+                }
+                let value = json!({"expected":expected,"projects":projects}).to_string();
+                crate::host::client(control, "full-index", Some(&value))
+            }
+            [command, control, name, query] if command == "full-host-query" => {
+                project(name)?;
+                let value = json!({"project":name,"query":query}).to_string();
+                crate::host::client(control, "full-query", Some(&value))
+            }
+            [command, control] if command == "full-host-status" => {
+                crate::host::client(control, "status", None)
+            }
+            [command, control] if command == "full-host-cancel" => {
+                crate::host::client(control, "cancel", None)
+            }
+            [command, control] if command == "full-host-stop" => {
+                crate::host::client(control, "stop", None)
+            }
+            #[cfg(feature = "test-hooks")]
+            [command, control] if command == "full-host-test-release" => {
+                crate::host::client(control, "test-release", None)
+            }
             [command, store, src, control] if command == "batch-host" => {
                 crate::host::serve_batch(store, src, control)
             }
@@ -426,7 +460,7 @@ mod mac {
         }
         db.replace_from_source(expected, projects, token)
     }
-    fn full_error(error: FullStoreError) -> Failure {
+    pub(crate) fn full_error(error: FullStoreError) -> Failure {
         match error {
             FullStoreError::Storage(e) => classify(e),
             FullStoreError::Analysis { .. } => Failure::new(4, "unsupported_full_input"),
