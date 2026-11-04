@@ -1,0 +1,9 @@
+test_original_runs_and_inputs (test_full_analysis_evidence.FullEvidence.test_original_runs_and_inputs) ... ok
+test_sigma_and_bytecode_streams (test_full_analysis_evidence.FullEvidence.test_sigma_and_bytecode_streams) ... ok
+test_original_inputs_outputs_and_sources (test_full_postings_evidence.FullPostingsEvidence.test_original_inputs_outputs_and_sources) ... ok
+test_partial_status_and_reserve_failure_are_preserved (test_full_postings_evidence.FullPostingsEvidence.test_partial_status_and_reserve_failure_are_preserved) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.042s
+
+OK

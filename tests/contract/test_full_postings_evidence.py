@@ -40,7 +40,7 @@ class FullPostingsEvidence(unittest.TestCase):
                 self.assertTrue(any(line.startswith('QUERY\t') for line in lines))
 
     def test_partial_status_and_reserve_failure_are_preserved(self):
-        status = json.loads((EVIDENCE / 'verification.json').read_text())
+        status = json.loads((EVIDENCE / 'checkpoint-verification.json').read_text())
         self.assertEqual(status['status'], 'partial_checkpoint_verification_blocked_by_disk_reserve')
         self.assertEqual(status['product_tests_80'], 'planned_not_run')
         blocked = json.loads((EVIDENCE / 'index-default-suite.json').read_text())

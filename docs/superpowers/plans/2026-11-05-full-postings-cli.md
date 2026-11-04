@@ -13,3 +13,7 @@ Implement serially with implement-spec + TDD. No benchmark/profiling, product JV
 ## Execution checkpoint
 
 Source-to-postings/restart tracer, independent reader/query/postings comparison and targeted failure/cancel/crash/indeterminate tests executed; see `tests/evidence/full-postings-2026-11-05/verification.json`. Final broad regression hit the 2.5 GiB reserve during compilation and was stopped. Exact authorized task-only intermediate cleanup still left free space below reserve, so further tests/builds/package checks stopped. This is a review checkpoint with incomplete final verification, not completed #6 or product acceptance. Independent review remains required after space is available.
+
+## Resumed verification
+
+After separate controller cleanup of completed clean checkouts, required index/default and affected direct CLI regressions, final FULL CLI, CLI Clippy and evidence contracts passed in new reserve-guarded `resume-*` runs. No production source changed on resume. Current results are in `verification.json`; the original stopped checkpoint remains in `checkpoint-verification.json`. Package integrity is recorded by the generated planning report/manifest and an external command receipt. No benchmark, host expansion or product acceptance claim was added. Independent review remains the next step.

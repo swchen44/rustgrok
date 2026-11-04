@@ -1,0 +1,26 @@
+{
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests/contract",
+    "-p",
+    "*full*evidence.py",
+    "-v"
+  ],
+  "exit": 0,
+  "status": "passed",
+  "free_before_bytes": 2922024960,
+  "free_after_bytes": 2921291776,
+  "minimum_sampled_free_bytes": 2921291776,
+  "reserve_bytes": 2684354560,
+  "cargo_incremental": "0",
+  "cargo_build_jobs": "1",
+  "config_note": "incremental=0 was also used in original runs; build jobs=1 is newly explicit for resumed verification, producing separately retained binaries",
+  "target_dir": "/Users/swchen.tw/git/rustgrok-durable-path/crates/path-index/target",
+  "base_checkpoint": "9da00220ca350189cd566f0ccca1cd78c0dedba0",
+  "runner_sha256": "d718152f5c3f0011a71a3e1d4222de00835261ff33c055caeac3a5761bb1bbee",
+  "executed_binaries": []
+}
