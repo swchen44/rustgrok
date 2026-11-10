@@ -225,6 +225,11 @@ mod mac {
                 let value = json!({"project":name,"query":query}).to_string();
                 crate::host::client(control, "full-query", Some(&value))
             }
+            [command, control, name, query] if command == "full-host-query-expression" => {
+                project(name)?;
+                let value = json!({"project":name,"query":query}).to_string();
+                crate::host::client(control, "full-query-expression", Some(&value))
+            }
             [command, control] if command == "full-host-status" => {
                 crate::host::client(control, "status", None)
             }
@@ -342,6 +347,19 @@ mod mac {
                 }).collect::<Vec<_>>();
                 Ok(
                     json!({"operation":"full-query","generation":snapshot.generation(),"order":"unspecified","matches":matches}),
+                )
+            }
+            [command, store, src, name, query] if command == "full-query-expression" => {
+                project(name)?;
+                let db =
+                    DurableFullIndex::open(source(store)?, source(src)?, FullLimits::default())
+                        .map_err(full_error)?;
+                let snapshot = db.snapshot().map_err(full_error)?;
+                let paths = snapshot
+                    .lookup_expression(name, query)
+                    .map_err(full_error)?;
+                Ok(
+                    json!({"operation":"full-query-expression","generation":snapshot.generation(),"order":"unspecified","paths":paths}),
                 )
             }
             [command, parent, name, src] if command == "batch-create" => {

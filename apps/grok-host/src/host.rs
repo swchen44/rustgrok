@@ -481,7 +481,12 @@ fn do_request(
             let state = shared.lock().map_err(|_| failure(5, "host_fault"))?;
             Ok(status(&state))
         }
-        "query" | "query-expression" | "batch-query" | "batch-query-expression" | "full-query" => {
+        "query"
+        | "query-expression"
+        | "batch-query"
+        | "batch-query-expression"
+        | "full-query"
+        | "full-query-expression" => {
             let raw = value.ok_or_else(|| failure(2, "usage"))?;
             {
                 let s = shared.lock().map_err(|_| failure(5, "host_fault"))?;
@@ -500,6 +505,7 @@ fn do_request(
                 "query-expression" => "host-query-expression",
                 "batch-query" => "batch-host-query",
                 "batch-query-expression" => "batch-host-query-expression",
+                "full-query-expression" => "full-host-query-expression",
                 _ => "full-host-query",
             };
             let result = match (&**db, command) {
@@ -538,6 +544,17 @@ fn do_request(
                     // Recheck durable availability after lookup, including the failure-publication gap.
                     db.snapshot().map_err(mac::full_error)?;
                     json!({"operation":operation,"generation":snapshot.generation(),"order":"unspecified","matches":matches})
+                }
+                (Backend::Full(db), "full-query-expression") => {
+                    let q: BatchQuery =
+                        serde_json::from_str(raw).map_err(|_| failure(4, "protocol_error"))?;
+                    mac::project(&q.project)?;
+                    let snapshot = db.snapshot().map_err(mac::full_error)?;
+                    let paths = snapshot
+                        .lookup_expression(&q.project, &q.query)
+                        .map_err(mac::full_error)?;
+                    db.snapshot().map_err(mac::full_error)?;
+                    json!({"operation":operation,"generation":snapshot.generation(),"order":"unspecified","paths":paths})
                 }
                 _ => return Err(failure(2, "usage")),
             };

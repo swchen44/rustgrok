@@ -195,6 +195,41 @@ fn full_host_indexes_postings_queries_and_restarts() {
     host.wait();
 }
 
+#[test]
+fn full_host_expression_scopes_candidates_and_rejects_unsupported_syntax() {
+    let f = Fixture::new();
+    f.initialize();
+    fs::write(f.source.join("alpha/repo/old.c"), b"old alpha\n").unwrap();
+    let mut host = Host::start(&f, "none", false);
+    ok(f.run(&["full-host-index", f.c(), "none", "alpha", "beta"]));
+    wait_job(&f, 1, "succeeded");
+    assert_eq!(
+        ok(f.run(&[
+            "full-host-query-expression",
+            f.c(),
+            "alpha",
+            "old AND alpha"
+        ])),
+        json!({"operation":"full-host-query-expression","generation":1,"order":"unspecified","paths":["/alpha/repo/old.c"]})
+    );
+    assert_eq!(
+        ok(f.run(&["full-host-query-expression", f.c(), "beta", "old AND alpha"]))["paths"],
+        json!([])
+    );
+    failed(
+        f.run(&[
+            "full-host-query-expression",
+            f.c(),
+            "alpha",
+            "old* OR alpha",
+        ]),
+        4,
+        "unsupported_query",
+    );
+    ok(f.run(&["full-host-stop", f.c()]));
+    host.wait();
+}
+
 fn failed(out: Output, code: i32, label: &str) {
     assert_eq!(
         out.status.code(),
@@ -315,6 +350,14 @@ fn old_batch_stays_queryable_during_second_scan_then_switches_together() {
         ok(f.run(&["full-host-query", f.c(), "alpha", "freshbatchtoken"]))["matches"],
         json!([])
     );
+    let prior = ok(f.run(&[
+        "full-host-query-expression",
+        f.c(),
+        "alpha",
+        "old OR freshbatchtoken",
+    ]));
+    assert_eq!(prior["generation"], 1);
+    assert_eq!(prior["paths"], json!(["/alpha/repo/old.c"]));
     ok(f.run(&["full-host-test-release", f.c()]));
     assert_eq!(wait_job(&f, 2, "succeeded")["job"]["generation"], 2);
     for name in ["alpha", "beta"] {
@@ -322,6 +365,17 @@ fn old_batch_stays_queryable_during_second_scan_then_switches_together() {
         assert_eq!(v["generation"], 2);
         assert_eq!(v["matches"].as_array().unwrap().len(), 1);
     }
+    let current = ok(f.run(&[
+        "full-host-query-expression",
+        f.c(),
+        "alpha",
+        "old OR freshbatchtoken",
+    ]));
+    assert_eq!(current["generation"], 2);
+    assert_eq!(
+        current["paths"],
+        json!(["/alpha/repo/new.c", "/alpha/repo/old.c"])
+    );
     assert_eq!(source_files(&f.source), before);
     ok(f.run(&["full-host-stop", f.c()]));
     host.wait();

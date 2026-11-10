@@ -1,0 +1,16 @@
+YWxwaGE=	OK	full:alpha
+QUxQSEE=	OK	full:alpha
+YWxwaGEgYmV0YQ==	OK	+full:alpha +full:beta
+YWxwaGEgQU5EIGJldGE=	OK	+full:alpha +full:beta
+YWxwaGEgT1IgYmV0YQ==	OK	full:alpha full:beta
+YWxwaGEgTk9UIGJldGE=	OK	+full:alpha -full:beta
+Tk9UIGFscGhh	OK	-full:alpha
+LWFscGhh	OK	-full:alpha
+K2FscGhh	OK	+full:alpha
+YWxwaGEgT1IgYmV0YSBBTkQgZ2FtbWE=	OK	full:alpha +full:beta +full:gamma
+YWxwaGEgQU5EIChiZXRhIE9SIGdhbW1hKQ==	OK	+full:alpha +(full:beta full:gamma)
+KGFscGhhIE9SIGJldGEpIEFORCBnYW1tYQ==	OK	+(full:alpha full:beta) +full:gamma
+YWxwaGEgYW5kIGJldGE=	OK	+full:alpha +full:and +full:beta
+YWxwaGEgLWJldGE=	OK	+full:alpha -full:beta
+YWxwaGEgK2JldGE=	OK	+full:alpha +full:beta
+YWxwaGEgT1IgTk9UIGJldGE=	OK	full:alpha -full:beta

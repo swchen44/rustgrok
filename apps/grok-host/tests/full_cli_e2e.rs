@@ -160,6 +160,99 @@ fn source_full_postings_survive_restart_for_public_c_python_javascript() {
 }
 
 #[test]
+fn full_expression_returns_original_candidate_sets_after_restart() {
+    let f = Fixture::new();
+    for (name, text) in [
+        ("alpha/beta/one.c", "/* alpha beta one */\n"),
+        ("alpha/gamma/two.c", "/* alpha gamma two */\n"),
+        ("beta/gamma/three.c", "/* beta gamma three */\n"),
+        ("alpha/alone/four.c", "/* alpha alone four */\n"),
+        ("other/delta/five.c", "/* other delta five */\n"),
+    ] {
+        let file = f.source.join("demo").join(name);
+        fs::create_dir_all(file.parent().unwrap()).unwrap();
+        fs::write(file, text).unwrap();
+    }
+    fs::create_dir(f.source.join("otherproject")).unwrap();
+    fs::write(f.source.join("otherproject/six.c"), "/* alpha beta */\n").unwrap();
+    ok(f.run(&[
+        "full-create",
+        f.parent(),
+        "batch",
+        f.src(),
+        "utf8-default-tabs",
+    ]));
+    ok(f.run(&[
+        "full-index",
+        f.store(),
+        f.src(),
+        "none",
+        "demo",
+        "otherproject",
+    ]));
+    // Expected sets captured from OpenGrok 1.14.20 HTTP, not ranked order.
+    for (query, expected) in [
+        (
+            "ALPHA",
+            vec![
+                "/demo/alpha/alone/four.c",
+                "/demo/alpha/beta/one.c",
+                "/demo/alpha/gamma/two.c",
+            ],
+        ),
+        ("alpha beta", vec!["/demo/alpha/beta/one.c"]),
+        ("alpha AND beta", vec!["/demo/alpha/beta/one.c"]),
+        (
+            "alpha OR beta",
+            vec![
+                "/demo/alpha/alone/four.c",
+                "/demo/alpha/beta/one.c",
+                "/demo/alpha/gamma/two.c",
+                "/demo/beta/gamma/three.c",
+            ],
+        ),
+        (
+            "alpha NOT beta",
+            vec!["/demo/alpha/alone/four.c", "/demo/alpha/gamma/two.c"],
+        ),
+        (
+            "alpha AND (beta OR gamma)",
+            vec!["/demo/alpha/beta/one.c", "/demo/alpha/gamma/two.c"],
+        ),
+        (
+            "(alpha OR beta) AND gamma",
+            vec!["/demo/alpha/gamma/two.c", "/demo/beta/gamma/three.c"],
+        ),
+        (
+            "alpha -beta",
+            vec!["/demo/alpha/alone/four.c", "/demo/alpha/gamma/two.c"],
+        ),
+        ("alpha and beta", vec![]),
+        ("NOT alpha", vec![]),
+        ("-alpha", vec![]),
+    ] {
+        let got = ok(f.run(&["full-query-expression", f.store(), f.src(), "demo", query]));
+        assert_eq!(got["generation"], 1);
+        assert_eq!(got["order"], "unspecified");
+        let mut paths: Vec<_> = got["paths"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(|v| v.as_str().unwrap())
+            .collect();
+        paths.sort_unstable();
+        assert_eq!(paths, expected, "{query}");
+    }
+    for query in ["alpha*", "alpha OR beta AND gamma", "alpha1", "alpha\tbeta"] {
+        failed(
+            f.run(&["full-query-expression", f.store(), f.src(), "demo", query]),
+            4,
+            "unsupported_query",
+        );
+    }
+}
+
+#[test]
 fn source_reader_bom_tabs_and_unicode_positions_match_original() {
     let f = Fixture::new();
     f.git("alpha");

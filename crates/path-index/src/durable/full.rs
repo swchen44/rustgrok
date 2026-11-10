@@ -125,6 +125,60 @@ impl FullSnapshot {
     pub fn generation(&self) -> u64 {
         self.data.id
     }
+    /// Evaluate the admitted ASCII Boolean subset as unranked document paths.
+    pub fn lookup_expression(
+        &self,
+        project: &str,
+        expression: &str,
+    ) -> Result<BTreeSet<String>, FullStoreError> {
+        use crate::{parse_path_expression, PathOccur, PathQuery};
+        if !self.data.projects.contains(project) {
+            return Err(IndexError::InvalidProject.into());
+        }
+        if !expression
+            .bytes()
+            .all(|b| b.is_ascii_alphabetic() || matches!(b, b' ' | b'(' | b')' | b'+' | b'-'))
+        {
+            return Err(FullStoreError::InvalidQuery);
+        }
+        fn evaluate(
+            snapshot: &FullSnapshot,
+            project: &str,
+            query: PathQuery,
+        ) -> Result<BTreeSet<String>, FullStoreError> {
+            match query {
+                PathQuery::Term(term) => Ok(snapshot
+                    .lookup(project, &term)?
+                    .into_iter()
+                    .map(|m| m.path)
+                    .collect()),
+                PathQuery::Boolean(clauses) => {
+                    let mut required: Option<BTreeSet<String>> = None;
+                    let mut optional = BTreeSet::new();
+                    let mut excluded = BTreeSet::new();
+                    for clause in clauses {
+                        let paths = evaluate(snapshot, project, clause.query)?;
+                        match clause.occur {
+                            PathOccur::Must => match &mut required {
+                                Some(current) => current.retain(|path| paths.contains(path)),
+                                None => required = Some(paths),
+                            },
+                            PathOccur::Should => optional.extend(paths),
+                            PathOccur::MustNot => excluded.extend(paths),
+                        }
+                    }
+                    let mut result = required.unwrap_or(optional);
+                    result.retain(|path| !excluded.contains(path));
+                    Ok(result)
+                }
+            }
+        }
+        let query = parse_path_expression(expression, 4096).map_err(|error| match error {
+            IndexError::LimitExceeded => FullStoreError::LimitExceeded,
+            _ => FullStoreError::InvalidQuery,
+        })?;
+        evaluate(self, project, query)
+    }
     pub fn lookup(&self, project: &str, query: &str) -> Result<Vec<FullMatch>, FullStoreError> {
         if !self.data.projects.contains(project) {
             return Err(IndexError::InvalidProject.into());

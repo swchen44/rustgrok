@@ -1,0 +1,50 @@
+11月 10, 2026 10:12:25 下午 org.opengrok.indexer.index.Indexer parseOptions
+資訊: Indexer options: [-c, /opt/homebrew/bin/ctags, -s, /var/folders/wj/3v8944vj0t714p6b5l9lmr_80000gq/T/rustgrok-path-query-oracle-k7sb827m/source, -d, /var/folders/wj/3v8944vj0t714p6b5l9lmr_80000gq/T/rustgrok-path-query-oracle-k7sb827m/index, -W, /var/folders/wj/3v8944vj0t714p6b5l9lmr_80000gq/T/rustgrok-path-query-oracle-k7sb827m/configuration.xml, -P, -S, -H, -T, 2]
+11月 10, 2026 10:12:25 下午 org.opengrok.indexer.index.Indexer runMain
+資訊: Indexer version 1.14.20 (3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3) running on Java version: 21.0.13+9-LTS, name: OpenJDK 64-Bit Server VM, vendor: Eclipse Adoptium, arch: aarch64 with properties: ncpu: 8, maxMemory: 512.0 MiB
+11月 10, 2026 10:12:26 下午 org.opengrok.indexer.configuration.RuntimeEnvironment validateUniversalCtags
+資訊: Using ctags: Universal Ctags 6.2.1, Copyright (C) 2015-2025 Universal Ctags Team
+Universal Ctags is derived from Exuberant Ctags.
+Exuberant Ctags 5.8, Copyright (C) 1996-2009 Darren Hiebert
+  Compiled: Oct 25 2025, 13:15:24
+  URL: https://ctags.io/
+  Output version: 1.1
+  Optional compiled features: +wildcards, +regex, +gnulib_fnmatch, +gnulib_regex, +iconv, +option-directory, +xpath, +json, +interactive, +yaml, +case-insensitive-filenames, +packcc, +optscript, +pcre2
+11月 10, 2026 10:12:26 下午 org.opengrok.indexer.index.Indexer prepareIndexer
+資訊: Scanning for repositories in [/private/var/folders/wj/3v8944vj0t714p6b5l9lmr_80000gq/T/rustgrok-path-query-oracle-k7sb827m/source/demo] (down to 3 levels below source root)
+11月 10, 2026 10:12:26 下午 org.opengrok.indexer.history.PerforceRepository isP4Working
+警告: Command 'p4' does not work. Some operations with Perforce repositories will fail as a result.
+11月 10, 2026 10:12:26 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done scanning for repositories, found 0 repositories (took 28 ms)
+11月 10, 2026 10:12:26 下午 org.opengrok.indexer.index.Indexer prepareIndexer
+資訊: Generating history cache for all repositories ...
+11月 10, 2026 10:12:26 下午 org.opengrok.indexer.index.Indexer prepareIndexer
+資訊: Done generating history cache
+11月 10, 2026 10:12:26 下午 org.opengrok.indexer.index.Indexer doIndexerExecution
+資訊: Starting indexing
+WARNING: A restricted method in java.lang.foreign.Linker has been called
+WARNING: java.lang.foreign.Linker::downcallHandle has been called by the unnamed module
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for this module
+
+11月 10, 2026 10:12:26 下午 org.apache.lucene.store.MemorySegmentIndexInputProvider <init>
+資訊: Using MemorySegmentIndexInput and native madvise support with Java 21 or later; to disable start with -Dorg.apache.lucene.store.MMapDirectory.enableMemorySegments=false
+11月 10, 2026 10:12:26 下午 org.apache.lucene.internal.vectorization.VectorizationProvider lookup
+警告: Java vector incubator module is not readable. For optimal vector performance, pass '--add-modules jdk.incubator.vector' to enable Vector API.
+11月 10, 2026 10:12:26 下午 org.opengrok.indexer.index.IndexDatabase getIndexDownArgs
+資訊: Starting file collection using file-system traversal for directory '/demo'
+11月 10, 2026 10:12:26 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done file collection for directory '/demo' (took 4 ms)
+11月 10, 2026 10:12:26 下午 org.opengrok.indexer.index.IndexDatabase update
+資訊: Starting indexing of directory '/demo'
+11月 10, 2026 10:12:26 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done indexing of directory '/demo' (took 54 ms)
+11月 10, 2026 10:12:26 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Done indexing data of all repositories (took 310 ms)
+11月 10, 2026 10:12:26 下午 org.opengrok.indexer.index.Indexer writeConfigToFile
+資訊: Writing configuration to '/var/folders/wj/3v8944vj0t714p6b5l9lmr_80000gq/T/rustgrok-path-query-oracle-k7sb827m/configuration.xml'
+11月 10, 2026 10:12:26 下午 org.opengrok.indexer.index.Indexer writeConfigToFile
+資訊: Done writing configuration to '/var/folders/wj/3v8944vj0t714p6b5l9lmr_80000gq/T/rustgrok-path-query-oracle-k7sb827m/configuration.xml'
+11月 10, 2026 10:12:26 下午 org.opengrok.indexer.util.Statistics logIt
+資訊: Indexer finished (took 763 ms)
+11月 10, 2026 10:12:26 下午 org.opengrok.indexer.index.Indexer runMain
+資訊: Indexer finished with success

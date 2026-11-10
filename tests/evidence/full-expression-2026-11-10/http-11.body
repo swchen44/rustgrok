@@ -1,0 +1,1 @@
+{"time":1,"resultCount":2,"results":{"/demo/beta/gamma/three.c":[{"line":"/* <b>beta</b> <b>gamma</b> three */","lineNumber":"1","tag":null}],"/demo/alpha/gamma/two.c":[{"line":"/* <b>alpha</b> <b>gamma</b> two */","lineNumber":"1","tag":null}]},"startDocument":0,"endDocument":1}
