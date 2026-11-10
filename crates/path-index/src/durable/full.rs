@@ -131,14 +131,13 @@ impl FullSnapshot {
         project: &str,
         expression: &str,
     ) -> Result<BTreeSet<String>, FullStoreError> {
-        use crate::{parse_path_expression, PathOccur, PathQuery};
+        use crate::{query::parse_full_expression, PathOccur, PathQuery};
         if !self.data.projects.contains(project) {
             return Err(IndexError::InvalidProject.into());
         }
-        if !expression
-            .bytes()
-            .all(|b| b.is_ascii_alphabetic() || matches!(b, b' ' | b'(' | b')' | b'+' | b'-'))
-        {
+        if !expression.bytes().all(|b| {
+            b.is_ascii_alphanumeric() || matches!(b, b'_' | b' ' | b'(' | b')' | b'+' | b'-')
+        }) {
             return Err(FullStoreError::InvalidQuery);
         }
         fn evaluate(
@@ -173,7 +172,7 @@ impl FullSnapshot {
                 }
             }
         }
-        let query = parse_path_expression(expression, 4096).map_err(|error| match error {
+        let query = parse_full_expression(expression, 4096).map_err(|error| match error {
             IndexError::LimitExceeded => FullStoreError::LimitExceeded,
             _ => FullStoreError::InvalidQuery,
         })?;

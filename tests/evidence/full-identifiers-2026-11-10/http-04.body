@@ -1,0 +1,1 @@
+{"time":4,"resultCount":2,"results":{"/demo/alpha/alone/four.c":[{"line":"/* <b>_hidden</b> foo42 four */","lineNumber":"1","tag":null}],"/demo/other/delta/five.c":[{"line":"/* a1b <b>_hidden</b> five */","lineNumber":"1","tag":null}]},"startDocument":0,"endDocument":1}

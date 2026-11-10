@@ -103,17 +103,15 @@ fn lex(query: &str) -> Result<Vec<Token<'_>>, IndexError> {
 struct Parser<'a> {
     tokens: Vec<Token<'a>>,
     at: usize,
+    analyze: fn(&str) -> Result<String, IndexError>,
 }
 impl Parser<'_> {
     fn atom(&mut self, depth: usize) -> Result<Expr, IndexError> {
         match self.tokens.get(self.at) {
             Some(Token::Word(word)) => {
-                let parsed = analyze_path(word).map_err(|_| IndexError::UnsupportedQuery)?;
-                if parsed.len() != 1 {
-                    return Err(IndexError::UnsupportedQuery);
-                }
+                let term = (self.analyze)(word)?;
                 self.at += 1;
-                Ok(Expr::Term(parsed[0].term.clone()))
+                Ok(Expr::Term(term))
             }
             Some(Token::Open) => {
                 if depth >= MAX_DEPTH {
@@ -198,12 +196,41 @@ impl Parser<'_> {
 }
 
 pub fn parse_path_expression(query: &str, max_bytes: usize) -> Result<Expr, IndexError> {
+    parse_expression(query, max_bytes, |word| {
+        let parsed = analyze_path(word).map_err(|_| IndexError::UnsupportedQuery)?;
+        if parsed.len() != 1 {
+            return Err(IndexError::UnsupportedQuery);
+        }
+        Ok(parsed[0].term.clone())
+    })
+}
+
+#[cfg(target_os = "macos")]
+pub(crate) fn parse_full_expression(query: &str, max_bytes: usize) -> Result<Expr, IndexError> {
+    parse_expression(query, max_bytes, |word| {
+        let parsed =
+            rustgrok_analysis::analyze_full(word).map_err(|_| IndexError::UnsupportedQuery)?;
+        if parsed.len() != 1 || parsed[0].start_byte != 0 || parsed[0].end_byte != word.len() {
+            return Err(IndexError::UnsupportedQuery);
+        }
+        rustgrok_analysis::validate_full_index_terms(&parsed)
+            .map_err(|_| IndexError::UnsupportedQuery)?;
+        Ok(parsed[0].term.clone())
+    })
+}
+
+fn parse_expression(
+    query: &str,
+    max_bytes: usize,
+    analyze: fn(&str) -> Result<String, IndexError>,
+) -> Result<Expr, IndexError> {
     if query.len() > max_bytes {
         return Err(IndexError::LimitExceeded);
     }
     let mut parser = Parser {
         tokens: lex(query)?,
         at: 0,
+        analyze,
     };
     let result = parser.group(0)?;
     if parser.at != parser.tokens.len() {

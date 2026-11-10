@@ -1,0 +1,11 @@
+# FULL identifier expression comparison, 2026-11-10
+
+Issue #6: OpenGrok 1.14.20 commit `3ca9d73ebb0ddb5560fbc7631322d29d9fdc2ec3` ran independently on macOS arm64 before Rust execution. Five synthetic C comments are defined literally in `probe.py`; no enterprise data was used. The original `QueryBuilder.setFreetext` parser output and 16 HTTP responses are retained without modifying their result order. The last five single-token queries establish coverage of each source. `receipt.json` records verified JDK, JAR, WAR, ctags and HTTP response identities; `artifact-sha256.json` binds the retained raw files and executed scripts.
+
+The original returns the literal identifiers `alpha1`, `foo_bar`, `foo42` and `_hidden` as single FULL terms. It parses `1alpha` as two terms; the present bounded Rust implementation rejects such multi-token query atoms rather than claiming compatibility. The retained `probe.py` and `PathQueryOracle.java` are the exact executed adaptations of the previous expression probe and use absolute local checkout and temporary paths, so they are evidence rather than a portable capture tool.
+
+The Rust subprocess integration test exercises case normalization, numeric and underscore identifiers, Boolean combinations, project scope, and explicit rejection of a split atom against the retained original candidate sets. A host integration test exercises the same identifiers through IPC. These are unranked path candidates; positions, complete query grammar, non-ASCII expressions, Web, cross-platform behavior and full-product acceptance are not established. No benchmark was run.
+
+## Rust verification
+
+The new identifier CLI test first failed with `unsupported_query`, then passed after separating FULL term analysis from path term analysis. The complete host default and test-hooks suites and path-index fault-injection suite all exited 0 with one build job, incremental compilation disabled and `--test-threads=1`. Their raw output is retained in `host-default.log.b64`, `host-hooks.log.b64` and `index-fault.log.b64` (base64 encoding preserves the exact raw bytes). Host all-targets Clippy with test-hooks and `-D warnings` passed. Existing path expression tests ran in the path-index suite. These results are scoped to this Mac and this restricted development slice; historical host readiness timeouts are not declared fixed.

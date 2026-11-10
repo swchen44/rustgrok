@@ -243,13 +243,89 @@ fn full_expression_returns_original_candidate_sets_after_restart() {
         paths.sort_unstable();
         assert_eq!(paths, expected, "{query}");
     }
-    for query in ["alpha*", "alpha OR beta AND gamma", "alpha1", "alpha\tbeta"] {
+    for query in ["alpha*", "alpha OR beta AND gamma", "alpha\tbeta"] {
         failed(
             f.run(&["full-query-expression", f.store(), f.src(), "demo", query]),
             4,
             "unsupported_query",
         );
     }
+}
+
+#[test]
+fn full_expression_identifiers_with_digits_and_underscores_match_original() {
+    let f = Fixture::new();
+    for (name, text) in [
+        ("alpha/beta/one.c", "/* alpha1 foo_bar one */\n"),
+        ("alpha/gamma/two.c", "/* alpha1 foo_baz two */\n"),
+        ("beta/gamma/three.c", "/* foo_bar other2 three */\n"),
+        ("alpha/alone/four.c", "/* _hidden foo42 four */\n"),
+        ("other/delta/five.c", "/* a1b _hidden five */\n"),
+    ] {
+        let file = f.source.join("demo").join(name);
+        fs::create_dir_all(file.parent().unwrap()).unwrap();
+        fs::write(file, text).unwrap();
+    }
+    ok(f.run(&[
+        "full-create",
+        f.parent(),
+        "batch",
+        f.src(),
+        "utf8-default-tabs",
+    ]));
+    ok(f.run(&["full-index", f.store(), f.src(), "none", "demo"]));
+    for (query, expected) in [
+        (
+            "ALPHA1",
+            vec!["/demo/alpha/beta/one.c", "/demo/alpha/gamma/two.c"],
+        ),
+        (
+            "foo_bar",
+            vec!["/demo/alpha/beta/one.c", "/demo/beta/gamma/three.c"],
+        ),
+        (
+            "_hidden",
+            vec!["/demo/alpha/alone/four.c", "/demo/other/delta/five.c"],
+        ),
+        ("foo42", vec!["/demo/alpha/alone/four.c"]),
+        ("123", vec![]),
+        ("alpha1 AND foo_bar", vec!["/demo/alpha/beta/one.c"]),
+        (
+            "alpha1 OR foo_bar",
+            vec![
+                "/demo/alpha/beta/one.c",
+                "/demo/alpha/gamma/two.c",
+                "/demo/beta/gamma/three.c",
+            ],
+        ),
+        ("foo_bar NOT alpha1", vec!["/demo/beta/gamma/three.c"]),
+        (
+            "foo_bar AND (other2 OR alpha1)",
+            vec!["/demo/alpha/beta/one.c", "/demo/beta/gamma/three.c"],
+        ),
+    ] {
+        let got = ok(f.run(&["full-query-expression", f.store(), f.src(), "demo", query]));
+        let mut paths: Vec<_> = got["paths"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(|p| p.as_str().unwrap())
+            .collect();
+        paths.sort_unstable();
+        assert_eq!(paths, expected, "{query}");
+    }
+    // The original splits this word into two terms; this bounded slice must not approximate it.
+    failed(
+        f.run(&[
+            "full-query-expression",
+            f.store(),
+            f.src(),
+            "demo",
+            "1alpha",
+        ]),
+        4,
+        "unsupported_query",
+    );
 }
 
 #[test]

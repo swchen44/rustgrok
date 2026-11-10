@@ -199,7 +199,11 @@ fn full_host_indexes_postings_queries_and_restarts() {
 fn full_host_expression_scopes_candidates_and_rejects_unsupported_syntax() {
     let f = Fixture::new();
     f.initialize();
-    fs::write(f.source.join("alpha/repo/old.c"), b"old alpha\n").unwrap();
+    fs::write(
+        f.source.join("alpha/repo/old.c"),
+        b"old alpha alpha1 foo_bar\n",
+    )
+    .unwrap();
     let mut host = Host::start(&f, "none", false);
     ok(f.run(&["full-host-index", f.c(), "none", "alpha", "beta"]));
     wait_job(&f, 1, "succeeded");
@@ -215,6 +219,15 @@ fn full_host_expression_scopes_candidates_and_rejects_unsupported_syntax() {
     assert_eq!(
         ok(f.run(&["full-host-query-expression", f.c(), "beta", "old AND alpha"]))["paths"],
         json!([])
+    );
+    assert_eq!(
+        ok(f.run(&[
+            "full-host-query-expression",
+            f.c(),
+            "alpha",
+            "alpha1 AND foo_bar"
+        ]))["paths"],
+        json!(["/alpha/repo/old.c"])
     );
     failed(
         f.run(&[

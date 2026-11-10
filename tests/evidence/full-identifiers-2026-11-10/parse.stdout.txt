@@ -1,0 +1,11 @@
+YWxwaGEx	OK	full:alpha1
+QUxQSEEx	OK	full:alpha1
+Zm9vX2Jhcg==	OK	full:foo_bar
+Zm9vNDI=	OK	full:foo42
+X2hpZGRlbg==	OK	full:_hidden
+YWxwaGExIEFORCBmb29fYmFy	OK	+full:alpha1 +full:foo_bar
+YWxwaGExIE9SIGZvb19iYXI=	OK	full:alpha1 full:foo_bar
+Zm9vX2JhciBOT1QgYWxwaGEx	OK	+full:foo_bar -full:alpha1
+Zm9vX2JhciBBTkQgKG90aGVyMiBPUiBhbHBoYTEp	OK	+full:foo_bar +(full:other2 full:alpha1)
+MWFscGhh	OK	+full:1 +full:alpha
+MTIz	OK	full:123
